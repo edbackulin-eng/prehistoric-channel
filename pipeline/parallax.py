@@ -113,9 +113,8 @@ def frames(img, bg, alpha, move, seconds, fps=30, out_w=3840, out_h=2160, fx=Non
             mf = _affine(zf, xf, yf, out_w, out_h)
             b = cv2.warpAffine(bg, mb, (out_w, out_h), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
             f = cv2.warpAffine(img, mf, (out_w, out_h), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
-            a = cv2.warpAffine(alpha, mf, (out_w, out_h), flags=cv2.INTER_LINEAR)
-            a3 = a[..., None].astype(np.uint16)
-            out = ((f.astype(np.uint16) * a3 + b.astype(np.uint16) * (255 - a3)) // 255).astype(np.uint8)
+            a = cv2.warpAffine(alpha, mf, (out_w, out_h), flags=cv2.INTER_LINEAR).astype(np.float32) / 255
+            out = cv2.blendLinear(f, b, a, 1.0 - a)
         else:
             m = _affine(zf, xf, yf, out_w, out_h)
             out = cv2.warpAffine(img, m, (out_w, out_h), flags=cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)

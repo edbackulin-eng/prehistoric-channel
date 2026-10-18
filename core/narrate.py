@@ -112,7 +112,7 @@ def synthesize(kokoro, script, voice=VOICE, target_wpm=TARGET_WPM):
         if abs(got - target_wpm) < 2.5:
             break
         # pauses do not scale with speed, so correct a little past the ratio
-        scale *= (target_wpm / got) ** 1.15
+        scale = min(1.25, max(0.8, scale * (target_wpm / got) ** 1.15))
     seconds = len(audio) / SAMPLE_RATE
     report = {"voice": voice, "seconds": round(seconds, 2),
               "wpm": round(wpm(script, seconds), 1), "speed_scale": round(scale, 3)}

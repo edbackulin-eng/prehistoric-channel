@@ -1,0 +1,74 @@
+{
+ "_note": "Atmosphere beds, one per scene type, from Wikimedia Commons under PD / CC0 / CC BY. Files are fetched, not committed. 'wind' and 'underwater' are synthesised (pipeline/docsound.py): no open-licence recording found was clean enough.",
+ "beds": {
+  "ocean": {
+   "file": "ocean.ogg",
+   "title": "File:Oceanwavescrushing.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Oceanwavescrushing.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Oceanwavescrushing.ogg",
+   "license": "CC BY 3.0",
+   "license_url": "https://creativecommons.org/licenses/by/3.0",
+   "author": "Luftrum",
+   "duration": 120
+  },
+  "beach": {
+   "file": "beach.ogg",
+   "title": "File:Ocean Waves on a Tropical Beach.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Ocean_Waves_on_a_Tropical_Beach.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Ocean_Waves_on_a_Tropical_Beach.ogg",
+   "license": "CC0",
+   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Jarrod stanley",
+   "duration": 384.26807256235827
+  },
+  "forest": {
+   "file": "forest.ogg",
+   "title": "File:Short nature soundscape, Lamington National Park, Australia.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Short_nature_soundscape%2C_Lamington_National_Park%2C_Australia.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Short_nature_soundscape,_Lamington_National_Park,_Australia.ogg",
+   "license": "CC BY 3.0",
+   "license_url": "https://creativecommons.org/licenses/by/3.0",
+   "author": "ssimple",
+   "duration": 209.46721088435373
+  },
+  "swamp": {
+   "file": "swamp.ogg",
+   "title": "File:20090610 0 ambience.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/20090610_0_ambience.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:20090610_0_ambience.ogg",
+   "license": "Public domain",
+   "license_url": "",
+   "author": "nille",
+   "duration": 123.42857142857143
+  },
+  "fire": {
+   "file": "fire.ogg",
+   "title": "File:Salakapakka Sound System - 05 - 105-Forest fire.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Salakapakka_Sound_System_-_05_-_105-Forest_fire.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Salakapakka_Sound_System_-_05_-_105-Forest_fire.ogg",
+   "license": "CC BY 1.0 fi",
+   "license_url": "https://creativecommons.org/licenses/by/1.0/fi/deed.en",
+   "author": "Salakapakka Sound System",
+   "duration": 484.0489795918367
+  },
+  "room": {
+   "file": "room.ogg",
+   "title": "File:Tick2.ogg",
+   "url": "https://upload.wikimedia.org/wikipedia/commons/f/fa/Tick2.ogg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Tick2.ogg",
+   "license": "CC0",
+   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "author": "Marble Toast",
+   "duration": 59.9509977324263
+  },
+  "harbour": {
+   "same_as": "ocean"
+  },
+  "wind": {
+   "synth": "wind"
+  },
+  "underwater": {
+   "synth": "underwater"
+  }
+ }
+}

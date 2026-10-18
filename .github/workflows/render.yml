@@ -1,0 +1,151 @@
+name: render
+
+# Render an episode on GitHub's machines: one job prepares the inputs, one job
+# per part renders its stretch of picture in parallel, and a last job joins
+# the parts with -c copy, mixes the sound and muxes. Started by hand only:
+# this channel has no schedule and uploads nothing.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: episode
+        default: living-fossils
+      res:
+        description: 2160p or 1440p
+        default: 2160p
+      parts:
+        description: parts rendered in parallel
+        default: "6"
+      samples:
+        description: also cut the three 30-second voice samples
+        default: "true"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: render-${{ inputs.slug }}-${{ inputs.res }}
+  cancel-in-progress: false
+
+env:
+  PYTHONUTF8: 1
+  SLUG: ${{ inputs.slug }}
+  RES: ${{ inputs.res }}
+
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    outputs:
+      parts: ${{ steps.plan.outputs.parts }}
+    env:
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install -q -r requirements.txt
+      - name: Models, music, atmosphere, maps
+        run: python automation/fetch_assets.py
+      - name: Narration, plan, footage, 2.5D layers
+        run: python automation/build_doc.py prepare "$SLUG" --res "$RES" --parts "${{ inputs.parts }}"
+      - name: Chatterbox sample lines (Kaggle output)
+        if: inputs.samples == 'true'
+        run: |
+          mkdir -p kaggle/results_voice
+          kaggle kernels output "$KAGGLE_USERNAME/prehistoric-voice" -p kaggle/results_voice || echo "no Chatterbox output yet"
+      - id: plan
+        run: |
+          echo "parts=$(python -c "import json;p=json.load(open('work/$SLUG/plan.json'));print(json.dumps(list(range(len(p['parts'])))))")" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v5
+        with:
+          name: inputs
+          retention-days: 2
+          compression-level: 0
+          path: |
+            work/${{ inputs.slug }}/plan.json
+            work/${{ inputs.slug }}/inputs/
+            cache/maps/
+            assets/music/
+            assets/ambience/
+            assets/models/
+            kaggle/results_voice/
+
+  part:
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        k: ${{ fromJSON(needs.prepare.outputs.parts) }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install -q -r requirements.txt
+      - uses: actions/download-artifact@v5
+        with:
+          name: inputs
+      - name: Render part ${{ matrix.k }}
+        run: |
+          start=$(date +%s)
+          python automation/build_doc.py part "$SLUG" ${{ matrix.k }} --res "$RES"
+          echo "wall_s=$(( $(date +%s) - start ))" | tee "work/$SLUG/parts_$RES/wall_${{ matrix.k }}.txt"
+      - uses: actions/upload-artifact@v5
+        with:
+          name: part-${{ matrix.k }}
+          retention-days: 2
+          compression-level: 0
+          path: work/${{ inputs.slug }}/parts_${{ inputs.res }}/
+
+  merge:
+    needs: part
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install -q -r requirements.txt
+      - uses: actions/download-artifact@v5
+        with:
+          name: inputs
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: part-*
+          merge-multiple: true
+          path: work/${{ inputs.slug }}/parts_${{ inputs.res }}/
+      - name: Join, sound, mux
+        run: python automation/build_doc.py merge "$SLUG" --res "$RES"
+      - name: Voice samples
+        if: inputs.samples == 'true'
+        run: python automation/build_doc.py samples "$SLUG" --res "$RES"
+      - name: Checks
+        run: |
+          f="work/$SLUG/video_$RES.mp4"
+          ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate:format=duration,size,bit_rate -of compact "$f"
+          ffmpeg -hide_banner -nostats -i "$f" -af ebur128=peak=true -f null - 2>&1 | tail -12
+          ffmpeg -hide_banner -loglevel error -y -i "$f" -vf "fps=1/6,scale=480:-2,tile=6x6" -frames:v 1 "work/$SLUG/contact_$RES.jpg"
+      - uses: actions/upload-artifact@v5
+        with:
+          name: video-${{ inputs.res }}
+          retention-days: 5
+          compression-level: 0
+          path: |
+            work/${{ inputs.slug }}/video_${{ inputs.res }}.mp4
+            work/${{ inputs.slug }}/report_${{ inputs.res }}.json
+            work/${{ inputs.slug }}/contact_${{ inputs.res }}.jpg
+            work/${{ inputs.slug }}/plan.json
+            work/${{ inputs.slug }}/samples_report.json
+            test/voice_sample_*.mp4

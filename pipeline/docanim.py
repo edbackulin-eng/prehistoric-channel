@@ -30,14 +30,14 @@ PLACES = {
                   "view": [(-88, 18, 80), (-89.5, 21.0, 26)], "impact": True},
     "east_london": {"lat": -33.02, "lon": 27.91, "name": "EAST LONDON", "sub": "South Africa",
                     "view": [(24, -26, 62), (27.5, -31.5, 20)]},
-    "comoros": {"lat": -12.2, "lon": 44.3, "name": "COMORO ISLANDS", "sub": "first known to science 1952",
+    "comoros": {"lat": -12.2, "lon": 44.3, "name": "COMORO ISLANDS", "sub": "where the fishermen knew it",
                 "view": None},
     "sulawesi": {"lat": 1.5, "lon": 124.8, "name": "SULAWESI", "sub": "Indonesia - a second species",
                  "view": None},
 }
 VIEWS = {  # several places: one view that holds them all
-    ("east_london", "comoros"): [(33, -24, 42), (36.5, -22.5, 33)],
-    ("comoros", "sulawesi"): [(82, -6, 120), (84, -5, 100)],
+    ("east_london", "comoros"): [(34, -23, 56), (36, -22.5, 46)],
+    ("comoros", "sulawesi"): [(83, -6, 122), (86, -5, 104)],
 }
 
 
@@ -100,7 +100,14 @@ def map_frames(places, seconds, out_w=3840, out_h=2160, fps=30, caption=None):
     xa, ya = _xy(lonA, latA, bw, bh)
     xb, yb = _xy(lonB, latB, bw, bh)
     xa, ya, xb, yb = int(max(0, xa)), int(max(0, ya)), int(min(bw, xb)), int(min(bh, yb))
-    region = base[ya:yb, xa:xb].astype(np.float32)
+    deg_per_px = 360 / bw
+    # pre-shrink the region to the density the closest moment of the move needs
+    dens = min(1.0, out_w / (min(wd0, wd1) / deg_per_px) * 1.05)
+    region = base[ya:yb, xa:xb]
+    if dens < 1.0:
+        region = cv2.resize(region, (int(region.shape[1] * dens), int(region.shape[0] * dens)),
+                            interpolation=cv2.INTER_AREA)
+    region = region.astype(np.float32)
     # grade: a touch darker and cooler, so the white pins and labels lead
     region = region * 0.82
     lum = region.mean(axis=2, keepdims=True)
@@ -111,12 +118,12 @@ def map_frames(places, seconds, out_w=3840, out_h=2160, fps=30, caption=None):
 
     yy, xx = np.mgrid[0:out_h, 0:out_w].astype(np.float32)
     vign = 1 - 0.35 * (((xx / out_w - 0.5) ** 2 + (yy / out_h - 0.5) ** 2) / 0.5) ** 1.2
-    vign = vign[..., None]
+    vign = cv2.merge([(vign * 255).clip(0, 255).astype(np.uint8)] * 3)
 
     s = out_w / 3840
-    f_name = font("Montserrat[wght].ttf", int(54 * s), 600)
-    f_sub = font("Montserrat[wght].ttf", int(34 * s), 400)
-    f_cap = font("Montserrat[wght].ttf", int(44 * s), 300)
+    f_name = font("Montserrat[wght].ttf", int(84 * s), 600)
+    f_sub = font("Montserrat[wght].ttf", int(50 * s), 400)
+    f_cap = font("Montserrat[wght].ttf", int(64 * s), 400)
     n = int(round(seconds * fps))
     for k in range(n):
         t = k / max(1, n - 1)
@@ -125,13 +132,13 @@ def map_frames(places, seconds, out_w=3840, out_h=2160, fps=30, caption=None):
         lat = lat0 + (lat1 - lat0) * e
         wd = wd0 * (wd1 / wd0) ** e
         # output px per source px
-        scale = out_w / (wd / deg_per_px)
+        scale = out_w / (wd / deg_per_px) / dens
         sx, sy = _xy(lon, lat, bw, bh)
-        sx, sy = sx - xa, sy - ya
+        sx, sy = (sx - xa) * dens, (sy - ya) * dens
         m = np.array([[scale, 0, out_w / 2 - scale * sx], [0, scale, out_h / 2 - scale * sy]])
-        frame = cv2.warpAffine(region, m, (out_w, out_h), flags=cv2.INTER_AREA if scale < 1 else cv2.INTER_CUBIC,
+        frame = cv2.warpAffine(region, m, (out_w, out_h), flags=cv2.INTER_LINEAR,
                                borderMode=cv2.BORDER_REFLECT)
-        frame = (frame.astype(np.float32) * vign).clip(0, 255).astype(np.uint8)
+        frame = cv2.multiply(frame, vign, scale=1 / 255)
         im = Image.fromarray(frame)
         over = Image.new("RGBA", im.size, (0, 0, 0, 0))
         d = ImageDraw.Draw(over)
@@ -143,8 +150,8 @@ def map_frames(places, seconds, out_w=3840, out_h=2160, fps=30, caption=None):
                 continue
             a = min(1.0, tt / 0.5)
             px, py = _xy(p["lon"], p["lat"], bw, bh)
-            ox, oy = m @ np.array([px - xa, py - ya, 1.0])
-            r = 11 * s
+            ox, oy = m @ np.array([(px - xa) * dens, (py - ya) * dens, 1.0])
+            r = 15 * s
             for ring in range(2):                                   # pulses
                 ph = ((tt + ring * 1.0) % 2.0) / 2.0
                 rr = r + ph * 70 * s
@@ -152,15 +159,19 @@ def map_frames(places, seconds, out_w=3840, out_h=2160, fps=30, caption=None):
                           width=max(2, int(3 * s)))
             col = (255, 120, 60, int(255 * a)) if p.get("impact") else (255, 255, 255, int(255 * a))
             d.ellipse([ox - r, oy - r, ox + r, oy + r], fill=col)
-            lx, ly = ox + 40 * s, oy - 46 * s
-            d.line([ox + r, oy, lx - 10 * s, oy], fill=(255, 255, 255, int(160 * a)), width=max(1, int(2 * s)))
+            wlab = max(d.textlength(p["name"], font=f_name) * 1.15, d.textlength(p["sub"], font=f_sub) * 1.07)
+            left = ox + 70 * s + wlab > out_w * 0.94
+            lx = ox - 70 * s - wlab if left else ox + 70 * s
+            ly = min(max(oy - 70 * s, out_h * 0.06), out_h * 0.84)
+            d.line([ox - r if left else ox + r, oy, (lx + wlab + 10 * s) if left else lx - 10 * s, oy],
+                   fill=(255, 255, 255, int(160 * a)), width=max(1, int(2 * s)))
             tracked(d, (lx, ly), p["name"], f_name, (255, 255, 255, int(255 * a)), 0.14)
-            tracked(d, (lx, ly + 66 * s), p["sub"], f_sub, (225, 230, 235, int(230 * a)), 0.06)
+            tracked(d, (lx, ly + 100 * s), p["sub"], f_sub, (225, 230, 235, int(230 * a)), 0.06)
         if len(places) > 1:                                         # a route between the places
             pts = []
             for pk in places:
                 px, py = _xy(PLACES[pk]["lon"], PLACES[pk]["lat"], bw, bh)
-                pts.append(m @ np.array([px - xa, py - ya, 1.0]))
+                pts.append(m @ np.array([(px - xa) * dens, (py - ya) * dens, 1.0]))
             prog = min(1.0, max(0.0, (k / fps - 1.4) / 1.6))
             if prog > 0:
                 (x0, y0), (x1, y1) = pts[0], pts[1]
@@ -176,10 +187,28 @@ def map_frames(places, seconds, out_w=3840, out_h=2160, fps=30, caption=None):
         if caption:
             a = min(1.0, max(0.0, (k / fps - 0.3) / 0.8))
             tracked(d, (out_w / 2, out_h * 0.86), caption, f_cap, (255, 255, 255, int(235 * a)), 0.3, anchor="c")
-        glow = over.filter(ImageFilter.GaussianBlur(6 * s))
-        im = Image.alpha_composite(Image.alpha_composite(im.convert("RGBA"),
-                                                         Image.eval(glow, lambda v: v // 3)), over)
-        yield np.asarray(im.convert("RGB"))
+        yield _composite(frame, over, s)
+
+
+def _composite(frame, over, s):
+    """Overlay (with a soft glow) onto frame, touching only the drawn area."""
+    box = over.getbbox()
+    if not box:
+        return frame
+    pad = int(30 * s)
+    x0, y0 = max(0, box[0] - pad), max(0, box[1] - pad)
+    x1, y1 = min(frame.shape[1], box[2] + pad), min(frame.shape[0], box[3] + pad)
+    ov = np.asarray(over.crop((x0, y0, x1, y1)), np.float32)
+    small = cv2.resize(ov, ((x1 - x0) // 4 or 1, (y1 - y0) // 4 or 1), interpolation=cv2.INTER_AREA)
+    glow = cv2.resize(cv2.GaussianBlur(small, (0, 0), 1.5 * s), (x1 - x0, y1 - y0))
+    base = frame[y0:y1, x0:x1].astype(np.float32)
+    ga = glow[..., 3:4] / 255 / 3
+    base = base * (1 - ga) + glow[..., :3] * ga
+    oa = ov[..., 3:4] / 255
+    base = base * (1 - oa) + ov[..., :3] * oa
+    out = frame.copy()
+    out[y0:y1, x0:x1] = base.clip(0, 255).astype(np.uint8)
+    return out
 
 
 # -------------------------------------------------------------- timeline
@@ -201,12 +230,12 @@ def timeline_frames(seconds, out_w=3840, out_h=2160, fps=30, backdrop=None):
         bg = np.broadcast_to(g * np.array([0.55, 0.8, 1.0], np.float32), (out_h, out_w, 3)).copy()
     bg = bg.clip(0, 255).astype(np.uint8)
     x0, x1 = out_w * 0.08, out_w * 0.92
-    ax_y = out_h * 0.30
+    ax_y = out_h * 0.24
     X = lambda ma: x0 + (539 - ma) / 539 * (x1 - x0)
-    f_p = font("Montserrat[wght].ttf", int(30 * s), 500)
-    f_l = font("Montserrat[wght].ttf", int(44 * s), 600)
-    f_t = font("Montserrat[wght].ttf", int(34 * s), 400)
-    f_k = font("Montserrat[wght].ttf", int(40 * s), 600)
+    f_p = font("Montserrat[wght].ttf", int(36 * s), 500)
+    f_l = font("Montserrat[wght].ttf", int(66 * s), 600)
+    f_t = font("Montserrat[wght].ttf", int(44 * s), 400)
+    f_k = font("Montserrat[wght].ttf", int(56 * s), 600)
     n = int(round(seconds * fps))
     for k in range(n):
         t = k / fps
@@ -216,9 +245,9 @@ def timeline_frames(seconds, out_w=3840, out_h=2160, fps=30, backdrop=None):
         a0 = min(1.0, t / 0.8)
         for i, (name, a, b) in enumerate(PERIODS):                 # period bands
             band = (90, 130, 160) if i % 2 else (70, 105, 135)
-            d.rectangle([X(a), ax_y - 60 * s, X(b), ax_y], fill=(*band, int(120 * a0)))
-            if X(b) - X(a) > 150 * s:
-                tracked(d, ((X(a) + X(b)) / 2, ax_y - 48 * s), name.upper(), f_p,
+            d.rectangle([X(a), ax_y - 72 * s, X(b), ax_y], fill=(*band, int(120 * a0)))
+            if X(b) - X(a) > d.textlength(name.upper(), font=f_p) * 1.12 + 24 * s:
+                tracked(d, ((X(a) + X(b)) / 2, ax_y - 58 * s), name.upper(), f_p,
                         (235, 240, 245, int(220 * a0)), 0.12, anchor="c")
         for ma in (500, 400, 300, 200, 100, 0):
             d.line([X(ma), ax_y, X(ma), ax_y + 14 * s], fill=(255, 255, 255, int(200 * a0)), width=int(2 * s))
@@ -227,7 +256,7 @@ def timeline_frames(seconds, out_w=3840, out_h=2160, fps=30, backdrop=None):
         # the asteroid
         ka = min(1.0, max(0.0, (t - 0.8) / 0.6))
         d.line([X(66), ax_y - 70 * s, X(66), out_h * 0.90], fill=(255, 90, 60, int(230 * ka)), width=int(4 * s))
-        tracked(d, (X(66) - 16 * s, out_h * 0.91), "ASTEROID  66 MYA", f_k, (255, 120, 90, int(240 * ka)), 0.1,
+        tracked(d, (X(66) - 16 * s, out_h * 0.92), "ASTEROID  66 MYA", f_k, (255, 120, 90, int(240 * ka)), 0.1,
                 anchor="c")
         for i, (name, ma) in enumerate(LINEAGES):                  # lineages drawing in
             st = 1.4 + i * 0.9
@@ -235,13 +264,13 @@ def timeline_frames(seconds, out_w=3840, out_h=2160, fps=30, backdrop=None):
             if p <= 0:
                 continue
             e = 1 - (1 - p) ** 3
-            y = ax_y + (150 + i * 145) * s
+            y = ax_y + (330 + i * 300) * s
             xe = X(ma) + (X(0) - X(ma)) * e
-            d.rounded_rectangle([X(ma), y, xe, y + 26 * s], radius=int(13 * s), fill=(240, 220, 170, 235))
-            d.ellipse([X(ma) - 14 * s, y - 1 * s, X(ma) + 14 * s, y + 27 * s], fill=(255, 255, 255, 255))
+            d.rounded_rectangle([X(ma), y, xe, y + 34 * s], radius=int(17 * s), fill=(240, 220, 170, 235))
+            d.ellipse([X(ma) - 20 * s, y - 3 * s, X(ma) + 20 * s, y + 37 * s], fill=(255, 255, 255, 255))
             al = int(255 * min(1.0, p * 3))
-            tracked(d, (X(ma), y - 62 * s), name, f_l, (255, 255, 255, al), 0.1)
-            tracked(d, (X(ma) + d.textlength(name, font=f_l) * 1.12 + 40 * s, y - 56 * s),
+            tracked(d, (X(ma), y - 92 * s), name, f_l, (255, 255, 255, al), 0.1)
+            tracked(d, (X(ma) + d.textlength(name, font=f_l) * 1.14 + 50 * s, y - 80 * s),
                     f"{ma} MILLION YEARS", f_t, (240, 220, 170, al), 0.08)
         im = Image.alpha_composite(im, over)
         yield np.asarray(im.convert("RGB"))

@@ -702,5 +702,85 @@
   },
   "at": 0.05,
   "alternates": []
+ },
+ "deep_night": {
+  "id": "commons-4ee87522b5",
+  "source": "Wikimedia Commons",
+  "page": "https://commons.wikimedia.org/wiki/File:Jellyfish_-_Deepwater_Exploration_of_the_Marianas_expedition_-_April_24,_2016.webm",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Jellyfish_-_Deepwater_Exploration_of_the_Marianas_expedition_-_April_24%2C_2016.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "width": 1920,
+  "height": 1080,
+  "duration": 42.961,
+  "tags": "This stunningly beautiful jellyfish was seen during Dive 4 of the 2016 Deepwater Exploration of the Marianas expedition on April 24, 2016, while exploring Enigma Seamount at a depth of ~3,700 meters. Scientists identified this hydromedusa as belonging to the genus Crossota. Note the two sets of tent",
+  "title": "File:Jellyfish - Deepwater Exploration of the Marianas expedition - April 24, 2016.webm",
+  "author": "oceanexplorergov",
+  "license": "Public domain",
+  "license_url": "",
+  "attribution_required": false,
+  "manifest": null,
+  "verdict": {
+   "by": "visual review of a contact sheet",
+   "sheet": "commons_deep#5"
+  },
+  "at": 0.46,
+  "alternates": [
+   {
+    "id": "commons-41e26fe10d",
+    "source": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Okeanos_Explorer_PR_and_USVI_Dive_8-_Psychedelic_Medusa-NOAA-1280x720.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/9/9f/Okeanos_Explorer_PR_and_USVI_Dive_8-_Psychedelic_Medusa-NOAA-1280x720.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "width": 1280,
+    "height": 720,
+    "duration": 67.624,
+    "tags": "Medusa — 360-degree video feeding. “With tentacles extended in all directions, the Rhopalonematid jelly Crossota millsae is caught in a very interesting natural pose by the remotely operated vehicle (ROV) Deep Discoverer’s cameras in waters south of La Parguera on the southwestern shore of Puerto Ri",
+    "title": "File:Okeanos Explorer PR and USVI Dive 8- Psychedelic Medusa-NOAA-1280x720.webm",
+    "author": "National Oceanic and Atmospheric Administration",
+    "license": "Public domain",
+    "license_url": "",
+    "attribution_required": false,
+    "manifest": null,
+    "at": 0.6
+   }
+  ]
+ },
+ "reef": {
+  "id": "commons-50648818b8",
+  "source": "Wikimedia Commons",
+  "page": "https://commons.wikimedia.org/wiki/File:First_footage_of_Duobrachium_Sparksae.webm",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/c/cb/First_footage_of_Duobrachium_Sparksae.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "width": 1920,
+  "height": 1080,
+  "duration": 29.032,
+  "tags": "First NOAA footage of Duobrachium sparksae. One of three videos that lead to its identification as a species",
+  "title": "File:First footage of Duobrachium Sparksae.webm",
+  "author": "NOAA Office of Ocean Exploration and Research",
+  "license": "Public domain",
+  "license_url": "",
+  "attribution_required": false,
+  "manifest": null,
+  "verdict": {
+   "by": "visual review of a contact sheet",
+   "sheet": "commons_deep#2"
+  },
+  "at": 0.25,
+  "alternates": [
+   {
+    "id": "commons-14038e0ec4",
+    "source": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Ex1402-dive11_fish.webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/Ex1402-dive11_fish.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "width": 1920,
+    "height": 1080,
+    "duration": 14.398,
+    "tags": "Deep-sea fish. This was filmed at a depth of about 28 m on April 23, 2014 in the north-central Gulf of Mexico. (No audio.)",
+    "title": "File:Ex1402-dive11 fish.webm",
+    "author": "NOAA Okeanos Explorer",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "attribution_required": false,
+    "manifest": null,
+    "at": 0.15
+   }
+  ]
  }
 }

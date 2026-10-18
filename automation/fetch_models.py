@@ -31,13 +31,19 @@ def fetch(url, dest, min_bytes):
         return
     print(f"  fetching {dest.name}...")
     tmp = dest.with_suffix(dest.suffix + ".part")
-    try:
-        with urllib.request.urlopen(url, timeout=900) as r, open(tmp, "wb") as fh:
-            while chunk := r.read(1 << 20):
-                fh.write(chunk)
-    except Exception:
-        tmp.unlink(missing_ok=True)
-        raise
+    import time
+    for attempt in range(6):
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (prehistoric-channel)"})
+            with urllib.request.urlopen(req, timeout=900) as r, open(tmp, "wb") as fh:
+                while chunk := r.read(1 << 20):
+                    fh.write(chunk)
+            break
+        except Exception as e:
+            tmp.unlink(missing_ok=True)
+            if attempt == 5 or "429" not in str(e) and "timed out" not in str(e):
+                raise
+            time.sleep(20 * (attempt + 1))
     if tmp.stat().st_size < min_bytes:
         tmp.unlink(missing_ok=True)
         raise RuntimeError(f"{dest.name} came back short "

@@ -7,8 +7,11 @@ But some animals were already ancient when the asteroid hit.
 < And they are still here.
 [pause 1.4]
 They crawl up moonlit beaches to lay their eggs.
+[pause 0.7]
 They drift through the twilight of deep tropical reefs.
+[pause 0.7]
 They wait, almost motionless, at the water's edge.
+[pause 0.6]
 > Crocodiles. Horseshoe crabs. The chambered nautilus. A New Zealand reptile called the tuatara.
 Scientists sometimes call them living fossils, and they use the term with care.
 These animals never stopped evolving. But their basic body plans have endured for tens, even hundreds, of millions of years.

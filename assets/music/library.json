@@ -1,0 +1,13 @@
+{
+ "source_note": "Incompetech (Kevin MacLeod), CC BY 4.0: cleared for monetised YouTube with the attribution line in the description. Chosen by rule, not by taste: slowest (fewest onsets a minute over 90 s from the first quarter), steady (p90/p10 RMS under 6), warm (spectral centroid under 1300 Hz), instrumental. Measurements: work/music_features.json.",
+ "tracks": [
+  {"file": "lost-frontier.mp3", "title": "Lost Frontier", "artist": "Kevin MacLeod", "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Lost%20Frontier.mp3",
+   "measured": {"onsets_per_min": 5.3, "centroid_hz": 1198, "dynamic_ratio": 2.5}, "role": "bed"},
+  {"file": "night-vigil.mp3", "title": "Night Vigil", "artist": "Kevin MacLeod", "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Night%20Vigil.mp3",
+   "measured": {"onsets_per_min": 5.3, "centroid_hz": 1096, "dynamic_ratio": 4.8}, "role": "spare"}
+ ]
+}
