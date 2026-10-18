@@ -155,13 +155,16 @@ def busy_kernels():
     """Refs of this account's kernels from either channel that are not finished."""
     listing = _run([sys.executable, "-m", "kaggle", "kernels", "list", "--mine",
                     "--page-size", "40", "--csv"], check=False).stdout
+    if not listing.startswith("ref"):
+        return ["kernel list unavailable"]
     refs = [line.split(",")[0] for line in listing.splitlines()[1:] if line.strip()]
     refs = [r for r in refs if r.split("/")[-1].startswith(SHARED_PREFIXES)]
     busy = []
     for ref in refs:
         res = _run([sys.executable, "-m", "kaggle", "kernels", "status", ref], check=False)
         status = (res.stdout + res.stderr).lower()
-        if any(w in status for w in BUSY_WORDS):
+        # a failed call says nothing about the kernel: count it as busy, never as free
+        if any(w in status for w in BUSY_WORDS) or "kernelworkerstatus" not in status:
             busy.append(ref)
     return busy
 
