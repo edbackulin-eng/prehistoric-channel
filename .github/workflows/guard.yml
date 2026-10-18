@@ -1,0 +1,18 @@
+name: guard
+
+# Fails any push that carries a token or a file over 5 MB. The repository is
+# public; see scripts/check_repo.py for why this exists.
+on:
+  push:
+  pull_request:
+
+jobs:
+  guard:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: python scripts/check_repo.py

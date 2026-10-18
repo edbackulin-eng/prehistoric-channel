@@ -1,0 +1,210 @@
+{
+ "topic": "Living Fossils: Animals That Survived the Dinosaurs",
+ "checked": "2026-10-18",
+ "facts": [
+  {
+   "claim": "About 66 million years ago an asteroid about 10 km wide struck what is now Mexico (Chicxulub, Yucatan).",
+   "sources": [
+    {
+     "source": "Wikipedia",
+     "title": "Chicxulub impactor",
+     "url": "https://en.wikipedia.org/wiki/Chicxulub_impactor",
+     "revision": null
+    },
+    {
+     "source": "NASA JPL",
+     "url": "https://www.jpl.nasa.gov/news/more-evidence-points-to-impact-as-dinosaur-killer/"
+    }
+   ]
+  },
+  {
+   "claim": "Around three-quarters of plant and animal species died out, including all non-avian dinosaurs.",
+   "sources": [
+    {
+     "source": "Wikipedia",
+     "title": "Cretaceous–Paleogene extinction event",
+     "url": "https://en.wikipedia.org/wiki/Cretaceous–Paleogene_extinction_event",
+     "revision": 1379830492
+    },
+    {
+     "source": "NASA JPL",
+     "url": "https://www.jpl.nasa.gov/news/more-evidence-points-to-impact-as-dinosaur-killer/",
+     "note": "about 75 percent of species"
+    }
+   ]
+  },
+  {
+   "claim": "Crocodilians survived the K-Pg extinction.",
+   "sources": [
+    {
+     "source": "Wikipedia",
+     "title": "Cretaceous–Paleogene extinction event",
+     "url": "https://en.wikipedia.org/wiki/Cretaceous–Paleogene_extinction_event",
+     "revision": 1379830492
+    },
+    {
+     "source": "Space.com / The Conversation (Mike Lee, Flinders University & South Australian Museum)",
+     "url": "https://space.com/asteroid-impact-dinosaurs-died-crocodiles-survived"
+    }
+   ]
+  },
+  {
+   "claim": "Horseshoe crab lineage: modern forms ~250 Ma, xiphosurans to ~445 Ma; blue copper-based blood; not true crabs.",
+   "sources": [
+    {
+     "source": "Wikipedia",
+     "title": "Horseshoe crab",
+     "url": "https://en.wikipedia.org/wiki/Horseshoe_crab",
+     "revision": 1379998838
+    },
+    {
+     "source": "NOAA Ocean Service",
+     "url": "https://oceanservice.noaa.gov/facts/horseshoe-crab.html"
+    }
+   ]
+  },
+  {
+   "claim": "Nautiluses are the only living nautiloids, little changed over hundreds of millions of years; live on deep reef slopes.",
+   "sources": [
+    {
+     "source": "Wikipedia",
+     "title": "Nautilus",
+     "url": "https://en.wikipedia.org/wiki/Nautilus",
+     "revision": 1376790205
+    },
+    {
+     "source": "Monterey Bay Aquarium",
+     "url": "https://www.montereybayaquarium.org/animals/animals-a-to-z/chambered-nautilus"
+    }
+   ]
+  },
+  {
+   "claim": "Tuatara is the only surviving member of Rhynchocephalia, an order that thrived in the age of dinosaurs; found only in New Zealand.",
+   "sources": [
+    {
+     "source": "Wikipedia",
+     "title": "Tuatara",
+     "url": "https://en.wikipedia.org/wiki/Tuatara",
+     "revision": 1380709873
+    },
+    {
+     "source": "New Zealand Department of Conservation",
+     "url": "https://www.doc.govt.nz/nature/native-animals/reptiles-and-frogs/tuatara/"
+    }
+   ]
+  },
+  {
+   "claim": "'Living fossil' is a term used with care; such lineages still evolve.",
+   "sources": [
+    {
+     "source": "Wikipedia",
+     "title": "Living fossil",
+     "url": "https://en.wikipedia.org/wiki/Living_fossil",
+     "revision": 1376224792
+    }
+   ]
+  },
+  {
+   "claim": "22 December 1938, trawler Nerine, East London, South Africa; Captain Goosen set the fish aside for the museum; curator Marjorie Courtenay-Latimer; five feet long, pale blue with white flecks.",
+   "sources": [
+    {
+     "source": "Wikipedia",
+     "title": "Marjorie Courtenay-Latimer",
+     "url": "https://en.wikipedia.org/wiki/Marjorie_Courtenay-Latimer",
+     "revision": 1312641302
+    },
+    {
+     "source": "Wikipedia",
+     "title": "West Indian Ocean coelacanth",
+     "url": "https://en.wikipedia.org/wiki/West_Indian_Ocean_coelacanth",
+     "revision": 1375975644
+    },
+    {
+     "source": "Natural History Museum, London",
+     "url": "https://www.nhm.ac.uk/discover/coelacanths-the-fish-that-outdid-the-loch-ness-monster.html"
+    }
+   ]
+  },
+  {
+   "claim": "J. L. B. Smith saw the specimen on 16 February (1939) and recognised a coelacanth; named it Latimeria chalumnae after the curator and the Chalumna River.",
+   "sources": [
+    {
+     "source": "Wikipedia",
+     "title": "Marjorie Courtenay-Latimer",
+     "url": "https://en.wikipedia.org/wiki/Marjorie_Courtenay-Latimer",
+     "revision": 1312641302
+    },
+    {
+     "source": "Wikipedia",
+     "title": "West Indian Ocean coelacanth",
+     "url": "https://en.wikipedia.org/wiki/West_Indian_Ocean_coelacanth",
+     "revision": 1375975644
+    }
+   ]
+  },
+  {
+   "claim": "Coelacanths thought extinct since the Cretaceous; fossils from the Devonian, more than 400 million years (NHM: 409-66 Ma).",
+   "sources": [
+    {
+     "source": "Wikipedia",
+     "title": "Coelacanth",
+     "url": "https://en.wikipedia.org/wiki/Coelacanth",
+     "revision": 1380157063
+    },
+    {
+     "source": "Natural History Museum, London",
+     "url": "https://www.nhm.ac.uk/discover/coelacanths-the-fish-that-outdid-the-loch-ness-monster.html"
+    }
+   ]
+  },
+  {
+   "claim": "Search for a second specimen took more than a decade; second caught 1952 off Anjouan (Comoros); Comoran fishermen knew it as gombessa.",
+   "sources": [
+    {
+     "source": "Wikipedia",
+     "title": "West Indian Ocean coelacanth",
+     "url": "https://en.wikipedia.org/wiki/West_Indian_Ocean_coelacanth",
+     "revision": 1375975644
+    },
+    {
+     "source": "Wikipedia",
+     "title": "Coelacanth",
+     "url": "https://en.wikipedia.org/wiki/Coelacanth",
+     "revision": 1380157063
+    },
+    {
+     "source": "Natural History Museum, London",
+     "url": "https://www.nhm.ac.uk/discover/coelacanths-the-fish-that-outdid-the-loch-ness-monster.html",
+     "note": "Comoros fishermen rewarded for reporting captures"
+    }
+   ]
+  },
+  {
+   "claim": "Coelacanths shelter in lava caves by day and hunt at night; females reach about 2 m.",
+   "sources": [
+    {
+     "source": "Wikipedia",
+     "title": "West Indian Ocean coelacanth",
+     "url": "https://en.wikipedia.org/wiki/West_Indian_Ocean_coelacanth",
+     "revision": 1375975644
+    },
+    {
+     "source": "Natural History Museum, London",
+     "url": "https://www.nhm.ac.uk/discover/coelacanths-the-fish-that-outdid-the-loch-ness-monster.html",
+     "note": "up to two metres; nocturnal, caves by day"
+    }
+   ]
+  },
+  {
+   "claim": "Indonesian coelacanth Latimeria menadoensis discovered in the late 1990s.",
+   "sources": [
+    {
+     "source": "Wikipedia",
+     "title": "Coelacanth",
+     "url": "https://en.wikipedia.org/wiki/Coelacanth",
+     "revision": 1380157063
+    }
+   ]
+  }
+ ]
+}

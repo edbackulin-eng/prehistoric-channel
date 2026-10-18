@@ -1,0 +1,48 @@
+{
+ "_note": "Reconstructions for FLUX.1-schnell. Anatomy is written into every prompt because the model otherwise draws a generic 'dinosaur'. References: Wikipedia articles Edmontosaurus, Mosasaurus, Ammonoidea, West Indian Ocean coelacanth, Dunkleosteus, Cretaceous flora (Araucaria, cycads, ferns). Two seeds each; the better one is chosen by visual QC.",
+ "style": "photorealistic wildlife documentary frame, BBC natural history cinematography, natural vivid colours, soft natural light, high dynamic range, sharp detail, 35mm film look, no text, no people",
+ "seeds": 2,
+ "prompts": {
+  "asteroid_sky": "Late Cretaceous coastal plain at dusk, a blazing fireball with a long smoke trail streaking across a vast orange and violet sky, silhouettes of araucaria conifers and cycads on the horizon, calm sea reflecting the light, wide landscape",
+  "impact_forest": "Late Cretaceous conifer forest after the asteroid impact, glowing embers and ash falling through hazy orange light, burnt araucaria trunks, smoke drifting between trees, wide shot",
+  "edmontosaurus_shore": "a herd of Edmontosaurus, large duck-billed hadrosaur dinosaurs with broad flat toothless beaks, scaly grey-green skin, heavy tails held level, walking on all fours along a misty river delta at sunrise, Late Cretaceous, ferns and araucaria trees, wide shot",
+  "mosasaur_ammonites": "underwater in a Late Cretaceous sea, a Mosasaurus, huge marine lizard with long conical-toothed jaws, four paddle flippers and a shark-like downturned tail fluke, gliding past a group of ammonites with ribbed coiled shells and tentacles, sunbeams through blue water",
+  "after_impact_dawn": "pale cold dawn over a devastated Late Cretaceous landscape, charred standing tree trunks, the ground covered in grey ash with fresh green ferns sprouting, low fog, wide shot",
+  "coelacanth_dark": "a coelacanth fish, Latimeria chalumnae, deep steel-blue body with irregular white blotches, thick heavy scales, fleshy lobed paired fins like small limbs, three-lobed tail with a small middle lobe, swimming slowly in dark deep ocean water lit by a soft beam of light from above, side view",
+  "coelacanth_fins": "close-up of a living coelacanth, Latimeria chalumnae, its fleshy lobed pectoral fin moving like a limb, thick blue scales with white spots, deep blue water, shallow depth of field",
+  "coelacanth_hero": "a single coelacanth, Latimeria chalumnae, full body side profile, deep blue with white spots, lobed fins spread, three-lobed tail, hovering in calm deep blue water, rim light from above, centred composition",
+  "cretaceous_sea_coelacanth": "underwater in a Late Cretaceous sea, a large blue-grey coelacanth with lobed fins swimming near the sandy seabed, ammonites with ribbed coiled shells drifting above it, sunbeams in clear blue water",
+  "devonian_sea": "Devonian sea floor 400 million years ago, an early lobe-finned fish swimming over a reef of corals, sponges and swaying crinoids, an armoured placoderm fish Dunkleosteus in the blue distance, clear water with sunbeams",
+  "coelacanth_cave": "two coelacanths, Latimeria chalumnae, blue with white spots, hovering head-down inside a dark volcanic lava cave on a steep underwater slope, soft blue light from the cave opening, drifting particles",
+  "coelacanth_pair": "a large coelacanth, Latimeria chalumnae, blue with white blotches, gliding along a steep slope of black volcanic rock in the deep blue twilight zone, a second coelacanth in the distance",
+  "cretaceous_coast": "Late Cretaceous coastline, tall white chalk cliffs above a turquoise sea, two large azhdarchid pterosaurs with long necks, fuzzy bodies and wide membrane wings gliding over the waves, golden afternoon light, wide shot",
+  "cretaceous_sunrise": "sunrise over a calm Late Cretaceous lagoon, several horseshoe crabs on wet sand in the foreground, cycads and araucaria conifers along the shore, mist on the water, warm golden light, low angle"
+ },
+ "thumbs": {
+  "thumb_coelacanth": "a single coelacanth, Latimeria chalumnae, emerging from darkness into a dramatic shaft of light, deep blue with white spots, lobed fins, three-quarter view facing the camera, black background, high contrast dramatic lighting, empty dark space on the left third",
+  "thumb_hsc": "a single horseshoe crab on wet sand at night, dramatic low side light, glistening shell, moonlit ocean behind softly out of focus, low angle close-up, empty dark sky on the right third",
+  "thumb_croc": "a Nile crocodile head rising from dark still water, dramatic golden side light, water droplets, eye sharp in focus, close-up, dark background, empty space on the left third"
+ },
+ "photos": {
+  "tuatara_photo": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Young_tuatara_sitting_on_the_ground.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Young_tuatara_sitting_on_the_ground.jpg",
+   "title": "File:Young tuatara sitting on the ground.jpg",
+   "author": "Pseudopanax at English Wikipedia",
+   "license": "Public domain",
+   "license_url": "",
+   "width": 4896,
+   "height": 3264
+  },
+  "fossil_fish_photo": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Gfp-ancient-coelacanth.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Gfp-ancient-coelacanth.jpg",
+   "title": "File:Gfp-ancient-coelacanth.jpg",
+   "author": "Yinan Chen",
+   "license": "Public Domain",
+   "license_url": "https://web.archive.org/web/20230926203737/https://creativecommons.org/licenses/publicdomain/",
+   "width": 3456,
+   "height": 2304
+  }
+ }
+}

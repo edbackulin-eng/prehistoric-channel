@@ -1,0 +1,19 @@
+{
+  "_note": "Names Kokoro's espeak front end gets wrong, checked by reading its phonemes (scripts/check_pronunciation.py), not by ear. 'ipa' is spliced into Kokoro's phoneme string per accent; 'respell' is what Chatterbox reads, since it takes text only. Subtitles and descriptions keep the real spelling.",
+  "chalumnae": {"ipa": {"en-gb": "kəlˈʌmniː", "en-us": "kəlˈʌmniː"}, "respell": "kuh-LUM-nee"},
+  "Chalumna": {"ipa": {"en-gb": "kəlˈʌmnə", "en-us": "kəlˈʌmnə"}, "respell": "kuh-LUM-nuh"},
+  "Latimeria": {"ipa": {"en-gb": "lˌatɪmˈɪəɹiə", "en-us": "lˌæɾɪmˈɪɹiə"}, "respell": "Latimeria"},
+  "coelacanth": {"ipa": {"en-gb": "sˈiːləkˌanθ", "en-us": "sˈiːləkˌænθ"}, "respell": "SEE-luh-kanth"},
+  "coelacanths": {"ipa": {"en-gb": "sˈiːləkˌanθs", "en-us": "sˈiːləkˌænθs"}, "respell": "SEE-luh-kanths"},
+  "Nerine": {"ipa": {"en-gb": "nəɹˈaɪni", "en-us": "nəɹˈaɪni"}, "respell": "nuh-RYE-nee"},
+  "Courtenay-Latimer": {"ipa": {"en-gb": "kˈɔːtni lˈatɪmə", "en-us": "kˈɔːɹtni lˈæɾɪmɚ"}, "respell": "Court-nee Lattimer"},
+  "Comoro": {"ipa": {"en-gb": "kˈɒməɹəʊ", "en-us": "kˈɑːməɹoʊ"}, "respell": "KOM-uh-roh"},
+  "Cretaceous": {"ipa": {"en-gb": "kɹɪtˈeɪʃəs", "en-us": "kɹɪtˈeɪʃəs"}, "respell": "Cretaceous"},
+  "tuatara": {"ipa": {"en-gb": "tˌuːətˈɑːɹə", "en-us": "tˌuːətˈɑːɹə"}, "respell": "too-uh-TAH-ruh"},
+  "by-catch": {"ipa": {"en-gb": "bˈaɪkatʃ", "en-us": "bˈaɪkætʃ"}, "respell": "bycatch"},
+  "Sphenodon": {"ipa": {"en-gb": "sfˈiːnədɒn", "en-us": "sfˈiːnədɑːn"}, "respell": "SFEE-nuh-don"},
+  "Limulus": {"ipa": {"en-gb": "lˈɪmjʊləs", "en-us": "lˈɪmjələs"}, "respell": "LIM-yuh-lus"},
+  "Mesolimulus": {"ipa": {"en-gb": "mˌɛzəʊlˈɪmjʊləs", "en-us": "mˌɛzoʊlˈɪmjələs"}, "respell": "mez-oh-LIM-yuh-lus"},
+  "Chicxulub": {"ipa": {"en-gb": "tʃˈiːkʃʊluːb", "en-us": "tʃˈiːkʃuluːb"}, "respell": "CHEEK-shoo-loob"},
+  "Rhynchocephalia": {"ipa": {"en-gb": "ɹˌɪŋkəʊsɪfˈeɪliə", "en-us": "ɹˌɪŋkoʊsɪfˈeɪliə"}, "respell": "ring-koh-sih-FAY-lee-uh"}
+}

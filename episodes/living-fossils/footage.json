@@ -1,0 +1,706 @@
+{
+ "croc_eye": {
+  "id": "pixabay-136331",
+  "source": "Pixabay",
+  "page": "https://pixabay.com/videos/id-136331/",
+  "url": "https://cdn.pixabay.com/video/2022/10/24/136331-764387848_large.mp4",
+  "width": 3840,
+  "height": 2160,
+  "duration": 17,
+  "tags": "crocodile, alligator, reptile, wild, wildlife, predator, green, water, animal",
+  "title": null,
+  "author": "alexman89",
+  "license": "Pixabay Content License",
+  "license_url": "https://pixabay.com/service/license-summary/",
+  "attribution_required": null,
+  "verdict": {
+   "clip": 1,
+   "subject": "crocodile floating in green murky water",
+   "match": 3,
+   "people": false,
+   "branding": false,
+   "text": false,
+   "setting": "wild",
+   "quality": 3,
+   "note": "full body visible from high angle, not a close-up of eye/head"
+  },
+  "phash": [
+   "ed7f4c7091cc0e23",
+   "f99ace60387c861b",
+   "c6cfc1701e0f61f2"
+  ],
+  "manifest": null,
+  "alternates": []
+ },
+ "croc_bank": {
+  "id": "pixabay-83831",
+  "source": "Pixabay",
+  "page": "https://pixabay.com/videos/id-83831/",
+  "url": "https://cdn.pixabay.com/video/2021/08/04/83831-586574923_large.mp4",
+  "width": 3840,
+  "height": 2160,
+  "duration": 15,
+  "tags": "alligators, crocodiles, reptiles, river, swamp, nature, dangerous",
+  "title": null,
+  "author": "Kililla",
+  "license": "Pixabay Content License",
+  "license_url": "https://pixabay.com/service/license-summary/",
+  "attribution_required": null,
+  "verdict": {
+   "clip": 4,
+   "subject": "alligators basking and moving along grassy bank",
+   "match": 5,
+   "people": false,
+   "branding": false,
+   "text": false,
+   "setting": "wild",
+   "quality": 4,
+   "note": "clear aerial top-down view of alligators on bank"
+  },
+  "phash": [
+   "9ab1b655892b7465",
+   "988e6a799a119cee",
+   "8cb241e0f3f9f328"
+  ],
+  "manifest": null,
+  "alternates": [
+   {
+    "id": "pixabay-83831",
+    "url": "https://cdn.pixabay.com/video/2021/08/04/83831-586574923_large.mp4",
+    "width": 3840,
+    "duration": 15,
+    "page": "https://pixabay.com/videos/id-83831/",
+    "author": "Kililla",
+    "license": "Pixabay Content License",
+    "phash": [
+     "9ab1b655892b7465",
+     "988e6a799a119cee",
+     "8cb241e0f3f9f328"
+    ]
+   },
+   {
+    "id": "pixabay-83832",
+    "url": "https://cdn.pixabay.com/video/2021/08/04/83832-586574927_large.mp4",
+    "width": 3840,
+    "duration": 14,
+    "page": "https://pixabay.com/videos/id-83832/",
+    "author": "Kililla",
+    "license": "Pixabay Content License",
+    "phash": [
+     "aad1d2e4d08f0df8",
+     "aed1d0ee03ec07d4",
+     "a8d7d0ec1be407d4"
+    ]
+   }
+  ]
+ },
+ "croc_bank2": {
+  "id": "pixabay-173061",
+  "source": "Pixabay",
+  "page": "https://pixabay.com/videos/id-173061/",
+  "url": "https://cdn.pixabay.com/video/2023/07/24/173061-848531903_large.mp4",
+  "width": 3840,
+  "height": 2160,
+  "duration": 12,
+  "tags": "crocodile, wild, wildlife, nature, animal",
+  "title": null,
+  "author": "VarietycinemaProduction",
+  "license": "Pixabay Content License",
+  "license_url": "https://pixabay.com/service/license-summary/",
+  "attribution_required": null,
+  "verdict": {
+   "clip": 7,
+   "subject": "crocodile lying at grassy water bank",
+   "match": 5,
+   "people": false,
+   "branding": false,
+   "text": false,
+   "setting": "wild",
+   "quality": 4,
+   "note": "fits requested scene well"
+  },
+  "phash": [
+   "fb73731b9a80a069",
+   "fb73731b9a80a069",
+   "fb73731b9a80a069"
+  ],
+  "manifest": null,
+  "alternates": []
+ },
+ "ocean_dawn": {
+  "id": "pixabay-140111",
+  "source": "Pixabay",
+  "page": "https://pixabay.com/videos/id-140111/",
+  "url": "https://cdn.pixabay.com/video/2022/11/22/140111-774507949_large.mp4",
+  "width": 3840,
+  "height": 2160,
+  "duration": 20,
+  "tags": "sea, ocean, seagulls, birds, sunset, dusk, beach, paradise, flight, nature",
+  "title": null,
+  "author": "Natures_Embrace",
+  "license": "Pixabay Content License",
+  "license_url": "https://pixabay.com/service/license-summary/",
+  "attribution_required": null,
+  "verdict": {
+   "clip": 3,
+   "subject": "silhouetted seagulls flying over water at sunset",
+   "match": 4,
+   "people": false,
+   "branding": false,
+   "text": false,
+   "setting": "wild",
+   "quality": 4,
+   "note": "many flying gulls silhouetted against glowing sun"
+  },
+  "phash": [
+   "ccb3334c339528cf",
+   "ccb1314e13913fda",
+   "c4b33b4ccd8c4ecc"
+  ],
+  "manifest": null,
+  "alternates": [
+   {
+    "id": "pixabay-199001",
+    "url": "https://cdn.pixabay.com/video/2024/02/02/199001-909564581_large.mp4",
+    "width": 4096,
+    "duration": 54,
+    "page": "https://pixabay.com/videos/id-199001/",
+    "author": "Matthias_Groeneveld",
+    "license": "Pixabay Content License",
+    "phash": [
+     "ccb3357759846619",
+     "ccb33c77198c6619",
+     "ccb3377619866619"
+    ]
+   },
+   {
+    "id": "pixabay-74888",
+    "url": "https://cdn.pixabay.com/video/2021/05/22/74888-553838564_large.mp4",
+    "width": 3840,
+    "duration": 36,
+    "page": "https://pixabay.com/videos/id-74888/",
+    "author": "daniloriba",
+    "license": "Pixabay Content License",
+    "phash": [
+     "b8f474be8d35060d",
+     "bac743b8a3132997",
+     "e8909fe7e77c0818"
+    ]
+   }
+  ]
+ },
+ "rough_sea": {
+  "id": "pixabay-197439",
+  "source": "Pixabay",
+  "page": "https://pixabay.com/videos/id-197439/",
+  "url": "https://cdn.pixabay.com/video/2024/01/20/197439-904825219_large.mp4",
+  "width": 3840,
+  "height": 2160,
+  "duration": 25,
+  "tags": "sea, coast, japan sea, winter, snowfall, wind, wave, stormy weather, rock, japan",
+  "title": null,
+  "author": "Kanenori",
+  "license": "Pixabay Content License",
+  "license_url": "https://pixabay.com/service/license-summary/",
+  "attribution_required": null,
+  "verdict": {
+   "clip": 1,
+   "subject": "stormy sea with rough waves around sea stacks",
+   "match": 5,
+   "people": false,
+   "branding": false,
+   "text": false,
+   "setting": "wild",
+   "quality": 4,
+   "note": "overcast stormy sea crashing on rocky islets"
+  },
+  "phash": [
+   "a584cc99f31fee01",
+   "e484ee8bb11fe641",
+   "e584ee989137cad8"
+  ],
+  "manifest": null,
+  "alternates": [
+   {
+    "id": "pixabay-116442",
+    "url": "https://cdn.pixabay.com/video/2022/05/09/116442-707851046_large.mp4",
+    "width": 3840,
+    "duration": 59,
+    "page": "https://pixabay.com/videos/id-116442/",
+    "author": "Scottish_Skies",
+    "license": "Pixabay Content License",
+    "phash": [
+     "c4fbac8663b409c7",
+     "c4faac86f93609c6",
+     "c4f9bc86f1b609c2"
+    ]
+   },
+   {
+    "id": "pixabay-243153",
+    "url": "https://cdn.pixabay.com/video/2024/11/25/243153_large.mp4",
+    "width": 3840,
+    "duration": 26,
+    "page": "https://pixabay.com/videos/id-243153/",
+    "author": "CanopyFalls",
+    "license": "Pixabay Content License",
+    "phash": [
+     "b525098db4b79c1e",
+     "8d765b12c8e76495",
+     "d7e6a09999c3f8a0"
+    ]
+   }
+  ]
+ },
+ "strata": {
+  "id": "pixabay-242215",
+  "source": "Pixabay",
+  "page": "https://pixabay.com/videos/id-242215/",
+  "url": "https://cdn.pixabay.com/video/2024/11/19/242215_large.mp4",
+  "width": 3840,
+  "height": 2160,
+  "duration": 22,
+  "tags": "elbe sandstone mountains, haze, fog, rock, rock formation, stones, rainy day, lightening",
+  "title": null,
+  "author": "adege",
+  "license": "Pixabay Content License",
+  "license_url": "https://pixabay.com/service/license-summary/",
+  "attribution_required": null,
+  "verdict": {
+   "clip": 4,
+   "subject": "layered sandstone rock formations above forested valley",
+   "match": 4,
+   "people": false,
+   "branding": false,
+   "text": false,
+   "setting": "wild",
+   "quality": 4,
+   "note": "clear horizontal sedimentary strata visible on cliffs"
+  },
+  "phash": [
+   "d1d9f4c599ad30a2",
+   "95d5e1c38a2e33aa",
+   "85d9d1c694a535ae"
+  ],
+  "manifest": null,
+  "alternates": []
+ },
+ "ocean_horizon": {
+  "id": "pixabay-199001",
+  "source": "Pixabay",
+  "page": "https://pixabay.com/videos/id-199001/",
+  "url": "https://cdn.pixabay.com/video/2024/02/02/199001-909564581_large.mp4",
+  "width": 4096,
+  "height": 2160,
+  "duration": 54,
+  "tags": "sunrise, sea, ocean, waves, beach, lanzarote, spain, canary islands, morning, early, sun, summer, beautiful, peaceful",
+  "title": null,
+  "author": "Matthias_Groeneveld",
+  "license": "Pixabay Content License",
+  "license_url": "https://pixabay.com/service/license-summary/",
+  "attribution_required": null,
+  "verdict": {
+   "clip": 1,
+   "subject": "beach horizon sunset",
+   "match": 4,
+   "people": false,
+   "branding": false,
+   "text": false,
+   "setting": "wild",
+   "quality": 4,
+   "note": "low angle from beach looking at ocean horizon"
+  },
+  "phash": [
+   "ccb3357759846619",
+   "ccb33c77198c6619",
+   "ccb3377619866619"
+  ],
+  "manifest": null,
+  "alternates": [
+   {
+    "id": "pixabay-138278",
+    "url": "https://cdn.pixabay.com/video/2022/11/08/138278-769141674_large.mp4",
+    "width": 3840,
+    "duration": 41,
+    "page": "https://pixabay.com/videos/id-138278/",
+    "author": "adege",
+    "license": "Pixabay Content License",
+    "phash": [
+     "9391666e7a078e93",
+     "9391666c7f078a93",
+     "93937e68760f8392"
+    ]
+   },
+   {
+    "id": "pixabay-74888",
+    "url": "https://cdn.pixabay.com/video/2021/05/22/74888-553838564_large.mp4",
+    "width": 3840,
+    "duration": 36,
+    "page": "https://pixabay.com/videos/id-74888/",
+    "author": "daniloriba",
+    "license": "Pixabay Content License",
+    "phash": [
+     "b8f474be8d35060d",
+     "bac743b8a3132997",
+     "e8909fe7e77c0818"
+    ]
+   }
+  ]
+ },
+ "island": {
+  "id": "pixabay-382760",
+  "source": "Pixabay",
+  "page": "https://pixabay.com/videos/id-382760/",
+  "url": "https://cdn.pixabay.com/video/2026/10/14/382760_large.mp4",
+  "width": 3840,
+  "height": 2160,
+  "duration": 21,
+  "tags": "lightning, eruption, reef, volcano, aerial, island, lava, ash, plume, ocean, lagoon, tropical, explosion, electric, thunder, disaster, nature, geology, sunlight, drone, ai generated",
+  "title": null,
+  "author": "doktorkleinmusic",
+  "license": "Pixabay Content License",
+  "license_url": "https://pixabay.com/service/license-summary/",
+  "attribution_required": null,
+  "verdict": {
+   "clip": 3,
+   "subject": "erupting volcanic island in tropical ocean",
+   "match": 4,
+   "people": false,
+   "branding": false,
+   "text": false,
+   "setting": "wild",
+   "quality": 3,
+   "note": "AI-generated or CGI volcanic island eruption"
+  },
+  "phash": [
+   "e2e6a6e04ccb39c9",
+   "e6e6a6e04cc969c9",
+   "e6ee82e0ccb16ae1"
+  ],
+  "manifest": null,
+  "alternates": []
+ },
+ "island2": {
+  "id": "pixabay-184069",
+  "source": "Pixabay",
+  "page": "https://pixabay.com/videos/id-184069/",
+  "url": "https://cdn.pixabay.com/video/2023/10/08/184069-872413642_large.mp4",
+  "width": 3840,
+  "height": 2160,
+  "duration": 26,
+  "tags": "sea, coast, waves, mallorca, spain, aerial view, drone footage, nature, ocean",
+  "title": null,
+  "author": "Radds",
+  "license": "Pixabay Content License",
+  "license_url": "https://pixabay.com/service/license-summary/",
+  "attribution_required": null,
+  "verdict": {
+   "clip": 5,
+   "subject": "Rocky shoreline and turquoise ocean water",
+   "match": 4,
+   "people": false,
+   "branding": false,
+   "text": false,
+   "setting": "wild",
+   "quality": 4,
+   "note": "Turquoise sea with dark rock, manicured lawn edge in corner"
+  },
+  "phash": [
+   "d98426b963cc6c3e",
+   "d9a433e48c263f3c",
+   "d8219b66373e7544"
+  ],
+  "manifest": null,
+  "alternates": [
+   {
+    "id": "pixabay-338904",
+    "url": "https://cdn.pixabay.com/video/2026/03/08/338904_large.mp4",
+    "width": 3840,
+    "duration": 23,
+    "page": "https://pixabay.com/videos/id-338904/",
+    "author": "TonyDias7",
+    "license": "Pixabay Content License",
+    "phash": [
+     "a03a7f2e5c8fc1e0",
+     "a03a5322459f7db6",
+     "bb1f732240111ff6"
+    ]
+   },
+   {
+    "id": "pixabay-344389",
+    "url": "https://cdn.pixabay.com/video/2026/04/03/344389_large.mp4",
+    "width": 3840,
+    "duration": 28,
+    "page": "https://pixabay.com/videos/id-344389/",
+    "author": "Shutter_Footage",
+    "license": "Pixabay Content License",
+    "phash": [
+     "c8d9e58616637999",
+     "d1f8ee843660599b",
+     "d9f8ea8626654533"
+    ]
+   }
+  ]
+ },
+ "fern_forest": {
+  "id": "pixabay-356076",
+  "source": "Pixabay",
+  "page": "https://pixabay.com/videos/id-356076/",
+  "url": "https://cdn.pixabay.com/video/2026/06/02/356076_large.mp4",
+  "width": 3840,
+  "height": 2160,
+  "duration": 30,
+  "tags": "fern, river, nature, forest, water, green, trees, leaves",
+  "title": null,
+  "author": "McPix22",
+  "license": "Pixabay Content License",
+  "license_url": "https://pixabay.com/service/license-summary/",
+  "attribution_required": null,
+  "manifest": null,
+  "verdict": {
+   "by": "visual review of a contact sheet",
+   "sheet": "fern_forest#3"
+  },
+  "at": 0.3,
+  "alternates": [
+   {
+    "id": "pixabay-355467",
+    "source": "Pixabay",
+    "page": "https://pixabay.com/videos/id-355467/",
+    "url": "https://cdn.pixabay.com/video/2026/05/29/355467_large.mp4",
+    "width": 3840,
+    "height": 2160,
+    "duration": 29,
+    "tags": "forest, trees, ferns, woods, misty, sky, trail, path, nature",
+    "title": null,
+    "author": "McPix22",
+    "license": "Pixabay Content License",
+    "license_url": "https://pixabay.com/service/license-summary/",
+    "attribution_required": null,
+    "manifest": null,
+    "at": 0.2
+   }
+  ]
+ },
+ "deep_blue": {
+  "id": "pixabay-63559",
+  "source": "Pixabay",
+  "page": "https://pixabay.com/videos/id-63559/",
+  "url": "https://cdn.pixabay.com/video/2021/01/30/63559-506616455_large.mp4",
+  "width": 3840,
+  "height": 2160,
+  "duration": 48,
+  "tags": "ocean, waves, sea, water, surf, beams, light, underwater, nature",
+  "title": null,
+  "author": "Jackdrafahl",
+  "license": "Pixabay Content License",
+  "license_url": "https://pixabay.com/service/license-summary/",
+  "attribution_required": null,
+  "manifest": null,
+  "verdict": {
+   "by": "visual review of a contact sheet",
+   "sheet": "deep_blue#4"
+  },
+  "at": 0.2,
+  "alternates": [
+   {
+    "id": "pixabay-25908",
+    "source": "Pixabay",
+    "page": "https://pixabay.com/videos/id-25908/",
+    "url": "https://cdn.pixabay.com/video/2019/08/10/25908-354651339_large.mp4",
+    "width": 3840,
+    "height": 2160,
+    "duration": 25,
+    "tags": "sea, blue, deep, turquoise, trip, summer, waves, that, nature, wave, coast, holiday, tropical, calm, goal, tourism, peaceful, beautiful, view, abstract, background, tissue, clean, ocean, fish",
+    "title": null,
+    "author": "Engin_Akyurt",
+    "license": "Pixabay Content License",
+    "license_url": "https://pixabay.com/service/license-summary/",
+    "attribution_required": null,
+    "manifest": null,
+    "at": 0.3
+   }
+  ]
+ },
+ "river_mouth": {
+  "id": "pixabay-288272",
+  "source": "Pixabay",
+  "page": "https://pixabay.com/videos/id-288272/",
+  "url": "https://cdn.pixabay.com/video/2025/06/27/288272_large.mp4",
+  "width": 3840,
+  "height": 2160,
+  "duration": 34,
+  "tags": "regency, linear, holy spirit, mouth of the sweet river, surf, fishing village, village, fishermen, fishing, sea, waves, paradise, quiet, nature, river, horizon, biological reserve, tamar project, turtles, lighthouse, caboclo bernardo, culture, tourism, cycle tourism, environment",
+  "title": null,
+  "author": "AVISOtaON",
+  "license": "Pixabay Content License",
+  "license_url": "https://pixabay.com/service/license-summary/",
+  "attribution_required": null,
+  "manifest": null,
+  "verdict": {
+   "by": "visual review of a contact sheet",
+   "sheet": "river_mouth#3"
+  },
+  "at": 0.82,
+  "alternates": [
+   {
+    "id": "pixabay-288278",
+    "source": "Pixabay",
+    "page": "https://pixabay.com/videos/id-288278/",
+    "url": "https://cdn.pixabay.com/video/2025/06/27/288278_large.mp4",
+    "width": 3840,
+    "height": 2160,
+    "duration": 26,
+    "tags": "linear, holy spirit, mouth of the sweet river, surf, fishing village, village, fishermen, fishing, sea, beach, waves, paradise, quiet, nature, tropical, environment, ecosystem, sustainability, river, horizon, nook, culture, tourism, cycle tourism",
+    "title": null,
+    "author": "AVISOtaON",
+    "license": "Pixabay Content License",
+    "license_url": "https://pixabay.com/service/license-summary/",
+    "attribution_required": null,
+    "manifest": null,
+    "at": 0.85
+   }
+  ]
+ },
+ "books": {
+  "id": "pixabay-103787",
+  "source": "Pixabay",
+  "page": "https://pixabay.com/videos/id-103787/",
+  "url": "https://cdn.pixabay.com/video/2022/01/07/103787-664328469_large.mp4",
+  "width": 3840,
+  "height": 2160,
+  "duration": 23,
+  "tags": "candles, candle flame, candlelight, burning candle, light, yellow, 4k, old book, focus, tealight",
+  "title": null,
+  "author": "AttilaPergel",
+  "license": "Pixabay Content License",
+  "license_url": "https://pixabay.com/service/license-summary/",
+  "attribution_required": null,
+  "manifest": null,
+  "verdict": {
+   "by": "visual review of a contact sheet",
+   "sheet": "books#0"
+  },
+  "at": 0.2,
+  "alternates": [
+   {
+    "id": "pixabay-141525",
+    "source": "Pixabay",
+    "page": "https://pixabay.com/videos/id-141525/",
+    "url": "https://cdn.pixabay.com/video/2022/12/03/141525-777930401_large.mp4",
+    "width": 3840,
+    "height": 2160,
+    "duration": 24,
+    "tags": "book, reading, literature, poetry, prose, novel, wind, pages, writing, seaside, by the sea, shoreline, coastal, coast",
+    "title": null,
+    "author": "stefaniejockschat",
+    "license": "Pixabay Content License",
+    "license_url": "https://pixabay.com/service/license-summary/",
+    "attribution_required": null,
+    "manifest": null,
+    "at": 0.2
+   }
+  ]
+ },
+ "hsc_beach": {
+  "id": "commons-330db35f9b",
+  "source": "Wikimedia Commons",
+  "page": "https://commons.wikimedia.org/wiki/File:American_horseshoe_crabs_(Limulus_polyphemus).webm",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/American_horseshoe_crabs_%28Limulus_polyphemus%29.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "width": 1280,
+  "height": 720,
+  "duration": 137.698,
+  "tags": "American horseshoe crabs (Limulus polyphemus) on Slaughter Beach in Delaware Bay, Northeast seaboard of the United States, on June 15, 2011. In this video, the audio has been removed from the original material.",
+  "title": "File:American horseshoe crabs (Limulus polyphemus).webm",
+  "author": "Roshan Patel",
+  "license": "CC BY 3.0",
+  "license_url": "https://creativecommons.org/licenses/by/3.0",
+  "attribution_required": true,
+  "manifest": null,
+  "verdict": {
+   "by": "visual review of a contact sheet",
+   "sheet": "commons_hsc#0"
+  },
+  "at": 0.5,
+  "alternates": [
+   {
+    "id": "commons-330db35f9b",
+    "source": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:American_horseshoe_crabs_(Limulus_polyphemus).webm",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/American_horseshoe_crabs_%28Limulus_polyphemus%29.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "width": 1280,
+    "height": 720,
+    "duration": 137.698,
+    "tags": "American horseshoe crabs (Limulus polyphemus) on Slaughter Beach in Delaware Bay, Northeast seaboard of the United States, on June 15, 2011. In this video, the audio has been removed from the original material.",
+    "title": "File:American horseshoe crabs (Limulus polyphemus).webm",
+    "author": "Roshan Patel",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "attribution_required": true,
+    "manifest": null,
+    "at": 0.86
+   }
+  ]
+ },
+ "nautilus": {
+  "id": "commons-d6ed660637",
+  "source": "Wikimedia Commons",
+  "page": "https://commons.wikimedia.org/wiki/File:Comparative-Population-Assessments-of-Nautilus-sp.-in-the-Philippines-Australia-Fiji-and-American-pone.0100799.s003.ogv",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/4/41/Comparative-Population-Assessments-of-Nautilus-sp.-in-the-Philippines-Australia-Fiji-and-American-pone.0100799.s003.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "width": 1920,
+  "height": 1080,
+  "duration": 39.77310643977311,
+  "tags": "Video footage of BRUVS in American Samoa. Here, our baited remote underwater video systems recorded two larger adult Nautilus samoaensis and one juvenile Nautilus.",
+  "title": "File:Comparative-Population-Assessments-of-Nautilus-sp.-in-the-Philippines-Australia-Fiji-and-American-pone.0100799.s003.ogv",
+  "author": "Barord G, Dooley F, Dunstan A, Ilano A, Keister K, Neumeister H, Preuss T, Schoepfer S, Ward P",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "attribution_required": true,
+  "manifest": null,
+  "verdict": {
+   "by": "visual review of a contact sheet",
+   "sheet": "commons_naut#2"
+  },
+  "at": 0.05,
+  "alternates": [
+   {
+    "id": "commons-2fd5681a5b",
+    "source": "Wikimedia Commons",
+    "page": "https://commons.wikimedia.org/wiki/File:Comparative-Population-Assessments-of-Nautilus-sp.-in-the-Philippines-Australia-Fiji-and-American-pone.0100799.s004.ogv",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/4/40/Comparative-Population-Assessments-of-Nautilus-sp.-in-the-Philippines-Australia-Fiji-and-American-pone.0100799.s004.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "width": 1920,
+    "height": 1080,
+    "duration": 14.047380714047382,
+    "tags": "Video footage of BRUVS in the Philippines. Here our baited remote underwater video systems record one Nautilus attracted to our bait as well as other species that that co-exist with Nautilus, such as the hagfish and shrimps.",
+    "title": "File:Comparative-Population-Assessments-of-Nautilus-sp.-in-the-Philippines-Australia-Fiji-and-American-pone.0100799.s004.ogv",
+    "author": "Barord G, Dooley F, Dunstan A, Ilano A, Keister K, Neumeister H, Preuss T, Schoepfer S, Ward P",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "attribution_required": true,
+    "manifest": null,
+    "at": 0.02
+   }
+  ]
+ },
+ "nautilus2": {
+  "id": "commons-fdcfe45266",
+  "source": "Wikimedia Commons",
+  "page": "https://commons.wikimedia.org/wiki/File:Comparative-Population-Assessments-of-Nautilus-sp.-in-the-Philippines-Australia-Fiji-and-American-pone.0100799.s002.ogv",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Comparative-Population-Assessments-of-Nautilus-sp.-in-the-Philippines-Australia-Fiji-and-American-pone.0100799.s002.ogv?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "width": 1920,
+  "height": 1080,
+  "duration": 58.4250917584251,
+  "tags": "Video footage of BRUVS in Fiji. Here, our baited remote underwater video systems recorded one nautilus as well as a shrimp in the foreground.",
+  "title": "File:Comparative-Population-Assessments-of-Nautilus-sp.-in-the-Philippines-Australia-Fiji-and-American-pone.0100799.s002.ogv",
+  "author": "Barord G, Dooley F, Dunstan A, Ilano A, Keister K, Neumeister H, Preuss T, Schoepfer S, Ward P",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0",
+  "attribution_required": true,
+  "manifest": null,
+  "verdict": {
+   "by": "visual review of a contact sheet",
+   "sheet": "commons_naut#1"
+  },
+  "at": 0.05,
+  "alternates": []
+ }
+}

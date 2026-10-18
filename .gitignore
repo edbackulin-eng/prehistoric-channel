@@ -1,0 +1,41 @@
+# Secrets. Never commit: this repository is public.
+.env
+.env.*
+*.pem
+kaggle.json
+client_secret*.json
+youtube_token.json
+
+# The owner's private research and every test output stay local.
+analysis/
+test/
+
+# Media and models. The repository holds code, plans and credits, nothing heavy.
+assets/models/
+assets/music/*
+!assets/music/library.json
+assets/ambience/*
+!assets/ambience/library.json
+work/
+cache/
+kaggle/build*/
+kaggle/results*/
+kaggle/job_*.json
+*.wav
+*.mp3
+*.ogg
+*.oga
+*.flac
+*.mp4
+*.webm
+*.mov
+*.m4a
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.npy
+*.log
+__pycache__/
+*.pyc
+.venv/

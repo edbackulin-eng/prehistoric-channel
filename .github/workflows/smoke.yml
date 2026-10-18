@@ -1,0 +1,60 @@
+name: smoke
+
+# Code reaches main only through here. Work is pushed to dev; this runs the
+# whole chain on ten seconds of a real script (scripts/smoke.py) and, if it
+# passes, merges dev into main - where the daily build runs it. A failure
+# leaves main as it was and emails the owner.
+on:
+  push:
+    branches: [dev]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: smoke
+  cancel-in-progress: false
+
+jobs:
+  smoke:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PYTHONUTF8: 1
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: dev
+          fetch-depth: 0
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg fonts-dejavu-core
+      - run: pip install -q -r requirements.txt
+      - name: Models and music
+        run: |
+          python automation/fetch_models.py
+          python automation/fetch_music.py
+      - name: Smoke test
+        run: python scripts/smoke.py
+      - name: Promote dev to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git fetch -q origin main dev
+          git checkout -q -B main origin/main
+          git merge --no-edit origin/dev -m "Promote dev ($(git rev-parse --short origin/dev)) after a passing smoke test"
+          for i in 1 2 3 4 5; do
+            git push origin main && break
+            sleep $((i * 8)); git fetch -q origin main && git rebase -q origin/main || { git rebase --abort; git merge --no-edit origin/main; }
+          done
+          git push origin main:dev || echo "dev moved on meanwhile; it is merged next time"
+      - name: Email on failure
+        if: failure()
+        run: |
+          n=$(gh issue list -R ${{ github.repository }} --label run-log --state open --json number --jq '.[0].number // empty')
+          [ -n "$n" ] && gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} **smoke test failed - the change was NOT moved to main**: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
