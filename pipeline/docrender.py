@@ -137,7 +137,10 @@ def still_clip(shot, layers_dir, need_s, out, size):
     from pipeline import parallax
     name = shot["image"]
     d = Path(layers_dir)
-    img = cv2.imread(str(d / f"{name}.jpg"))[:, :, ::-1]
+    raw = cv2.imread(str(d / f"{name}.jpg"))
+    if raw is None:
+        raise FileNotFoundError(f"2.5D source {name}.jpg is not in {d}")
+    img = raw[:, :, ::-1]
     bgp, ap = d / f"{name}_bg.jpg", d / f"{name}_alpha.png"
     bg = cv2.imread(str(bgp))[:, :, ::-1] if bgp.exists() else None
     alpha = cv2.imread(str(ap), cv2.IMREAD_GRAYSCALE) if ap.exists() else None

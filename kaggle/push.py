@@ -81,8 +81,13 @@ def _run(args, check=True):
     # The Kaggle CLI prints non-ASCII; under a Windows cp1251 console it crashed
     # while writing a downloaded log, after the kernel itself had finished.
     env = {**os.environ, "PYTHONIOENCODING": "utf-8", "PYTHONUTF8": "1"}
-    result = subprocess.run(args, capture_output=True, text=True, encoding="utf-8",
-                            errors="replace", env=env)
+    try:
+        result = subprocess.run(args, capture_output=True, text=True, encoding="utf-8",
+                                errors="replace", env=env, timeout=120)
+    except subprocess.TimeoutExpired:
+        if check:
+            raise RuntimeError(f"{' '.join(args)} timed out")
+        return subprocess.CompletedProcess(args, 1, "", "timed out")
     if check and result.returncode != 0:
         raise RuntimeError(f"{' '.join(args)} failed:\n{result.stdout}\n{result.stderr}")
     return result
@@ -157,7 +162,25 @@ def busy_kernels():
                     "--page-size", "40", "--csv"], check=False).stdout
     if not listing.startswith("ref"):
         return ["kernel list unavailable"]
-    refs = [line.split(",")[0] for line in listing.splitlines()[1:] if line.strip()]
+    from datetime import datetime, timedelta, timezone
+    lines = listing.splitlines()
+    header = [h.strip() for h in lines[0].split(",")]
+    i_time = header.index("lastRunTime") if "lastRunTime" in header else None
+    recent = datetime.now(timezone.utc) - timedelta(hours=12)
+    refs = []
+    for line in lines[1:]:
+        cols = line.split(",")
+        if not line.strip():
+            continue
+        if i_time is not None and len(cols) > i_time:
+            try:
+                when = datetime.fromisoformat(cols[i_time].strip().replace("Z", "+00:00"))
+                when = when if when.tzinfo else when.replace(tzinfo=timezone.utc)
+                if when < recent:
+                    continue                  # not run for half a day: cannot be running now
+            except ValueError:
+                pass
+        refs.append(cols[0])
     refs = [r for r in refs if r.split("/")[-1].startswith(SHARED_PREFIXES)]
     busy = []
     for ref in refs:

@@ -168,7 +168,11 @@ def whatif_hours(now=None):
     since = now - timedelta(days=7)
     cache = _j.loads(WHATIF_CACHE.read_text(encoding="utf-8")) if WHATIF_CACHE.exists() else {}
     total, main_h, seen_main = 0.0, None, False
-    for ref, when in _kernels():
+    rows = _kernels()
+    if not rows:
+        # an empty listing is a failed call, not a quiet week
+        raise RuntimeError("could not list the account's kernels")
+    for ref, when in rows:
         if not ref.split("/")[-1].startswith("whatif") or when < since:
             continue
         key = f"{ref}@{when.isoformat()}"
@@ -191,7 +195,10 @@ def check(job_hours=DEFAULT_JOB_H, now=None):
     """(ok, reason). No time window here: this channel goes by the others'
     activity instead (push.wait_for_free_gpu), and by the shared weekly cap,
     which keeps What If's next build in reserve."""
-    me, ct, wi = own_hours(now), closed_tabs_hours(now), whatif_hours(now)
+    try:
+        me, ct, wi = own_hours(now), closed_tabs_hours(now), whatif_hours(now)
+    except Exception as e:                                       # noqa: BLE001
+        return False, f"GPU use could not be measured ({e}); not submitting blind"
     total = me + ct + wi + WHATIF_HOURS_PER_RUN + job_hours
     line = (f"GPU week: prehistoric {me:.2f} h, Closed Tabs {ct:.2f} h, What If ~{wi:.2f} h, "
             f"reserve {WHATIF_HOURS_PER_RUN:.1f} h, this job {job_hours:.2f} h")
