@@ -49,7 +49,7 @@ GEN = OUT / "gen"; GEN.mkdir(exist_ok=True)
 t = time.time()
 jobs = []                                  # (id, prompt, seed)
 for k, p in JOB["prompts"].items():
-    for s in range(JOB.get("seeds", 2)):
+    for s in range(2 if k in JOB.get("two_seeds", []) else 1):
         jobs.append((f"{k}__s{s}", f"{p}, {JOB['style']}", 1000 + s * 17 + len(jobs)))
 for k, p in JOB["thumbs"].items():
     for s in range(2):
@@ -218,11 +218,12 @@ def main():
     import push
     spec = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
     job = {k: spec[k] for k in ("style", "seeds", "prompts", "thumbs", "photos")}
+    job["two_seeds"] = spec.get("two_seeds", [])
     BUILD.mkdir(parents=True, exist_ok=True)
     (BUILD / "notebook.ipynb").write_text(json.dumps(notebook(job), indent=1), encoding="utf-8")
     meta = push._metadata(push.username(), SLUG, SLUG)
     (BUILD / "kernel-metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
-    push.submit_when_idle(BUILD, job_hours=1.2)
+    push.submit_when_idle(BUILD, job_hours=0.75)
     ref = f"{push.username()}/{SLUG}"
     ok = push.wait(ref, poll_s=60, timeout_s=4 * 3600)
     push.fetch(ref, RESULTS)

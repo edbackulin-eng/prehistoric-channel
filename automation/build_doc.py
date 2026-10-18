@@ -85,7 +85,11 @@ def fetch_layers(slug):
     else:
         import push
         src = W(slug) / "inputs" / "kaggle"
-        push.fetch(f"{push.username()}/{RECON_KERNEL}", src)
+        try:
+            push.fetch(f"{push.username()}/{RECON_KERNEL}", src)
+        except Exception as e:                                   # noqa: BLE001
+            log.warning("no reconstructions yet (%s); parts that need them will fail", e)
+            return dest
     dest.mkdir(parents=True, exist_ok=True)
     for f in list((src / "up").glob("*.jpg")) + list((src / "layers").glob("*")):
         tgt = dest / f.name

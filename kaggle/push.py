@@ -187,7 +187,7 @@ def wait_for_free_gpu(poll_s=60, timeout_s=GPU_WAIT_TIMEOUT_S):
 IDLE_FOR_S = 15 * 60
 
 
-def submit_when_idle(build_dir, job_hours, poll_s=60, timeout_s=8 * 3600):
+def submit_when_idle(build_dir, job_hours, poll_s=60, timeout_s=20 * 3600):
     """Push a prepared kernel folder only after the GPU has been free a while.
 
     Closed Tabs submits its image jobs in series with ~40 s between them, so a
@@ -197,12 +197,18 @@ def submit_when_idle(build_dir, job_hours, poll_s=60, timeout_s=8 * 3600):
     IDLE_FOR_S without a break.
     """
     import gpu_budget
-    ok, why = gpu_budget.check(job_hours)
-    print(why, flush=True)
-    if not ok:
-        raise RuntimeError(f"not submitting to Kaggle: {why}")
-    started, idle_since = time.time(), None
+    started, idle_since, last_why = time.time(), None, None
     while True:
+        ok, why = gpu_budget.check(job_hours)
+        if why != last_why:
+            print(f"  [{time.strftime('%H:%M:%S')}] {why}", flush=True)
+            last_why = why
+        if not ok:                       # wait for the rolling week to free hours
+            idle_since = None
+            if time.time() - started > timeout_s:
+                raise RuntimeError(f"not submitting to Kaggle: {why}")
+            time.sleep(15 * 60)
+            continue
         busy = busy_kernels()
         if not busy and whatif_building():
             busy = ["What If build (GitHub Actions)"]

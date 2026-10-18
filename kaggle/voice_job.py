@@ -62,7 +62,7 @@ def main():
     os.environ["FLUX_MIRROR"] = "0"
     meta = push._metadata(push.username(), SLUG, SLUG)
     (BUILD / "kernel-metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
-    push.submit_when_idle(BUILD, job_hours=0.4)
+    push.submit_when_idle(BUILD, job_hours=0.3)
     ref = f"{push.username()}/{SLUG}"
     ok = push.wait(ref, poll_s=30, timeout_s=2 * 3600)
     push.fetch(ref, RESULTS)
