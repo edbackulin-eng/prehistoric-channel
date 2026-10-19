@@ -157,39 +157,9 @@ def whatif_building():
 
 
 def busy_kernels():
-    """Refs of this account's kernels from either channel that are not finished."""
-    listing = _run([sys.executable, "-m", "kaggle", "kernels", "list", "--mine",
-                    "--page-size", "40", "--csv"], check=False).stdout
-    if not listing.startswith("ref"):
-        return ["kernel list unavailable"]
-    from datetime import datetime, timedelta, timezone
-    lines = listing.splitlines()
-    header = [h.strip() for h in lines[0].split(",")]
-    i_time = header.index("lastRunTime") if "lastRunTime" in header else None
-    recent = datetime.now(timezone.utc) - timedelta(hours=12)
-    refs = []
-    for line in lines[1:]:
-        cols = line.split(",")
-        if not line.strip():
-            continue
-        if i_time is not None and len(cols) > i_time:
-            try:
-                when = datetime.fromisoformat(cols[i_time].strip().replace("Z", "+00:00"))
-                when = when if when.tzinfo else when.replace(tzinfo=timezone.utc)
-                if when < recent:
-                    continue                  # not run for half a day: cannot be running now
-            except ValueError:
-                pass
-        refs.append(cols[0])
-    refs = [r for r in refs if r.split("/")[-1].startswith(SHARED_PREFIXES)]
-    busy = []
-    for ref in refs:
-        res = _run([sys.executable, "-m", "kaggle", "kernels", "status", ref], check=False)
-        status = (res.stdout + res.stderr).lower()
-        # a failed call says nothing about the kernel: count it as busy, never as free
-        if any(w in status for w in BUSY_WORDS) or "kernelworkerstatus" not in status:
-            busy.append(ref)
-    return busy
+    """Refs of kernels of any channel that are queued, running or unknown."""
+    import gpu_shared
+    return [r for r, _, _ in gpu_shared.busy_kernels()]
 
 
 def wait_for_free_gpu(poll_s=60, timeout_s=GPU_WAIT_TIMEOUT_S):
@@ -211,44 +181,47 @@ IDLE_FOR_S = 15 * 60
 
 
 def submit_when_idle(build_dir, job_hours, poll_s=60, timeout_s=20 * 3600):
-    """Push a prepared kernel folder only after the GPU has been free a while.
-
-    Closed Tabs submits its image jobs in series with ~40 s between them, so a
-    single free moment proves nothing: a kernel pushed into that gap would sit
-    beside its next one. This channel waits until no kernel of any channel has
-    been queued or running, and no What If build has been in progress, for
-    IDLE_FOR_S without a break.
-    """
+    """Push a prepared kernel folder when the shared week has room and the GPU
+    has been free IDLE_FOR_S; if another channel won a push race, wait again.
+    The lock itself is kaggle/gpu_shared.py, identical in all three channels."""
     import gpu_budget
-    started, idle_since, last_why = time.time(), None, None
-    while True:
+    import gpu_shared
+    started, last_why = time.time(), None
+    while time.time() - started < timeout_s:
         ok, why = gpu_budget.check(job_hours)
         if why != last_why:
             print(f"  [{time.strftime('%H:%M:%S')}] {why}", flush=True)
             last_why = why
-        if not ok:                       # wait for the rolling week to free hours
-            idle_since = None
-            if time.time() - started > timeout_s:
-                raise RuntimeError(f"not submitting to Kaggle: {why}")
+        if not ok:
             time.sleep(15 * 60)
             continue
-        busy = busy_kernels()
-        if not busy and whatif_building():
-            busy = ["What If build (GitHub Actions)"]
-        now = time.time()
-        if busy:
-            idle_since = None
-            print(f"  [{time.strftime('%H:%M:%S')}] busy: {', '.join(busy)}", flush=True)
-        else:
-            idle_since = idle_since or now
-            if now - idle_since >= IDLE_FOR_S:
-                break
-            print(f"  [{time.strftime('%H:%M:%S')}] idle {int(now - idle_since)} s", flush=True)
-        if now - started > timeout_s:
-            raise RuntimeError("the GPU never stayed free long enough")
-        time.sleep(poll_s)
-    out = _run([sys.executable, "-m", "kaggle", "kernels", "push", "-p", str(build_dir)])
-    print(out.stdout.strip(), flush=True)
+        if not gpu_shared.wait_for_free(IDLE_FOR_S, poll_s, max_wait_s=2 * 3600,
+                                        log=lambda m: print(f"  [{time.strftime('%H:%M:%S')}]{m}", flush=True)):
+            continue
+        if whatif_building():
+            print("  What If build in progress; waiting", flush=True)
+            time.sleep(poll_s)
+            continue
+        meta = json.loads((Path(build_dir) / "kernel-metadata.json").read_text(encoding="utf-8"))
+        out = _run([sys.executable, "-m", "kaggle", "kernels", "push", "-p", str(build_dir)])
+        print(out.stdout.strip(), flush=True)
+        if gpu_shared.after_push(meta["id"], log=lambda m: print(m, flush=True)):
+            return meta["id"]
+    raise RuntimeError("the GPU never came free inside the time-out")
+
+
+def publish_ledger():
+    """Commit and push state/gpu_ledger.json so the other channels count these hours."""
+    repo = ROOT.parent
+    for cmd in (["git", "add", "state/gpu_ledger.json"],
+                ["git", "commit", "-m", "gpu ledger: a Kaggle job finished"],
+                ["git", "pull", "--rebase", "-q", "origin", "main"],
+                ["git", "push", "-q", "origin", "HEAD:main"]):
+        r = subprocess.run(cmd, cwd=repo, capture_output=True, text=True)
+        if r.returncode and cmd[1] != "commit":
+            print(f"  ledger not published ({' '.join(cmd)}): {r.stderr[-300:]}", flush=True)
+            return False
+    return True
 
 
 def push(job, slug, title, job_hours=None, force_window=False):

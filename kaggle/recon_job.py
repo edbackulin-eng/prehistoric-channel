@@ -223,9 +223,9 @@ def main():
     (BUILD / "notebook.ipynb").write_text(json.dumps(notebook(job), indent=1), encoding="utf-8")
     meta = push._metadata(push.username(), SLUG, SLUG)
     (BUILD / "kernel-metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
-    push.submit_when_idle(BUILD, job_hours=0.75)
-    ref = f"{push.username()}/{SLUG}"
+    ref = push.submit_when_idle(BUILD, job_hours=0.75)
     ok = push.wait(ref, poll_s=60, timeout_s=4 * 3600)
+    push.publish_ledger()
     push.fetch(ref, RESULTS)
     (BUILD / "notebook.ipynb").unlink(missing_ok=True)      # carries the token
     return 0 if ok else 1

@@ -195,10 +195,12 @@ def check(job_hours=DEFAULT_JOB_H, now=None):
     """(ok, reason). No time window here: this channel goes by the others'
     activity instead (push.wait_for_free_gpu), and by the shared weekly cap,
     which keeps What If's next build in reserve."""
+    import gpu_shared
     try:
-        me, ct, wi = own_hours(now), closed_tabs_hours(now), whatif_hours(now)
+        week = gpu_shared.week_hours(whatif_hours, own={"prehistoric": own_hours(now)}, now=now)
     except Exception as e:                                       # noqa: BLE001
         return False, f"GPU use could not be measured ({e}); not submitting blind"
+    me, ct, wi = week["prehistoric"], week["closedtabs"], week["whatif"]
     total = me + ct + wi + WHATIF_HOURS_PER_RUN + job_hours
     line = (f"GPU week: prehistoric {me:.2f} h, Closed Tabs {ct:.2f} h, What If ~{wi:.2f} h, "
             f"reserve {WHATIF_HOURS_PER_RUN:.1f} h, this job {job_hours:.2f} h")
