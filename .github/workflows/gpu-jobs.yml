@@ -1,0 +1,113 @@
+name: gpu-jobs
+
+# The episode's Kaggle work, run entirely on GitHub: nobody's computer has to
+# stay on. It waits inside the runner for the shared weekly budget and a free
+# GPU (kaggle/gpu_shared.py: What If > Closed Tabs > this channel), runs the
+# reconstructions (FLUX, Real-ESRGAN, Depth Anything, LaMa) and then the
+# Chatterbox voice sample, keeps both outputs as artifacts, publishes the GPU
+# ledger, and starts the render.
+#
+# A GitHub job lives at most six hours. When the wait outlasts one run, the
+# workflow starts itself again (the "relay" step), so the chain survives a
+# long busy week without anyone watching. A kernel already on Kaggle from an
+# earlier run is waited for, never submitted twice.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: episode
+        default: living-fossils
+      render:
+        description: start the render when the GPU work is done
+        default: "true"
+      relay:
+        description: how many times this chain has restarted itself
+        default: "0"
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: gpu-jobs
+  cancel-in-progress: false
+
+env:
+  PYTHONUTF8: 1
+  SLUG: ${{ inputs.slug }}
+  KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+  KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+  GH_TOKEN: ${{ github.token }}
+  GPU_MAX_WAIT_S: "17000"          # about 4 h 45 min of waiting per run, inside the 6 h job limit
+
+jobs:
+  gpu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 355
+    outputs:
+      state: ${{ steps.done.outputs.state }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install -q -r requirements.txt
+      - name: Kokoro (times the 30-second voice sample)
+        run: python automation/fetch_models.py
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      - name: Reconstructions
+        id: recon
+        run: |
+          set +e
+          python -u kaggle/recon_job.py "episodes/$SLUG/recon.json"
+          rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          [ $rc -eq 0 ] || [ $rc -eq 3 ] || exit $rc
+      - name: Chatterbox voice sample
+        id: voice
+        if: steps.recon.outputs.rc == '0'
+        run: |
+          set +e
+          python -u kaggle/voice_job.py "episodes/$SLUG/script.txt" 30
+          rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          [ $rc -eq 0 ] || [ $rc -eq 3 ] || exit $rc
+      - id: done
+        run: |
+          if [ "${{ steps.recon.outputs.rc }}" = "0" ] && [ "${{ steps.voice.outputs.rc }}" = "0" ]; then
+            echo "state=done" >> "$GITHUB_OUTPUT"
+          else
+            echo "state=waiting" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: gpu-results
+          retention-days: 7
+          if-no-files-found: ignore
+          path: |
+            kaggle/results_recon/report.json
+            kaggle/results_recon/up/thumb_*.jpg
+            kaggle/results_recon/*.log
+            kaggle/results_voice/
+            state/gpu_ledger.json
+      - name: Keep the GPU ledger
+        if: always()
+        run: |
+          git add state/gpu_ledger.json
+          git diff --cached --quiet && exit 0
+          git commit -m "GPU ledger after gpu-jobs ${{ github.run_id }}"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep 10; done
+          exit 1
+      - name: Relay (still waiting for the GPU)
+        if: steps.done.outputs.state == 'waiting' && fromJSON(inputs.relay) < 12
+        run: |
+          gh workflow run gpu-jobs.yml -R "${{ github.repository }}" -f slug="$SLUG" \
+            -f render="${{ inputs.render }}" -f relay="$(( ${{ inputs.relay }} + 1 ))"
+      - name: Render
+        if: steps.done.outputs.state == 'done' && inputs.render == 'true'
+        run: gh workflow run render.yml -R "${{ github.repository }}" -f slug="$SLUG" -f res=2160p -f samples=true

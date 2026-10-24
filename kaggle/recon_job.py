@@ -31,6 +31,32 @@ RESULTS = ROOT / "kaggle" / "results_recon"
 SLUG = "prehistoric-recon"
 
 SOURCE = r'''
+
+# ---- the session's own deadline (as in the shared kaggle/job_template.py) ----
+import threading as _th, os as _os, json as _js, time as _tm, pathlib as _pl, sys as _sys
+_OUT = _pl.Path("/kaggle/working"); _OUT.mkdir(parents=True, exist_ok=True)
+_BUDGET_S = float(JOB.get("budget_s") or 300 + 105 * (len(JOB['prompts']) + len(JOB.get('two_seeds', [])) + 2 * len(JOB['thumbs'])))
+_STAGE = {"name": "starting", "since": _tm.time(), "began": _tm.time()}
+def _mark(name):
+    _STAGE["name"], _STAGE["since"] = name, _tm.time()
+    print(f"-- {name} (at {_tm.time() - _STAGE['began']:.0f}s)", flush=True)
+def _give_up():
+    ran = _tm.time() - _STAGE["began"]
+    rep = {"errors": [f"timeout: {ran:.0f}s over a {2 * _BUDGET_S:.0f}s deadline, stuck in {_STAGE['name']}"],
+           "timed_out": {"ran_s": round(ran, 1), "stage": _STAGE["name"]}}
+    try:
+        (_OUT / "report.json").write_text(_js.dumps(rep, indent=2))
+    except Exception:
+        pass
+    print("==== GAVE UP ====", rep, flush=True)
+    _os._exit(0)
+_WD = _th.Timer(2 * _BUDGET_S, _give_up); _WD.daemon = True; _WD.start()
+def _need_gpu():
+    import torch
+    if not torch.cuda.is_available():
+        (_OUT / "report.json").write_text(_js.dumps({"errors": ["no GPU in this session"]}))
+        print("no GPU in this session; stopping before loading anything", flush=True)
+        _os._exit(0)
 import json, os, sys, time, gc, pathlib, subprocess, urllib.request
 OUT = pathlib.Path("/kaggle/working"); OUT.mkdir(parents=True, exist_ok=True)
 T0 = time.time()
@@ -39,6 +65,7 @@ def stage(name, t): report["stages"][name] = round(time.time() - t, 1); print(f"
 
 subprocess.run("pip install -q -U diffusers torchao transformers accelerate sentencepiece protobuf "
                "huggingface_hub bitsandbytes psutil spandrel", shell=True)
+_mark("install done"); _need_gpu()
 import numpy as np, torch, cv2
 from PIL import Image
 DTYPE = torch.float16
@@ -46,7 +73,7 @@ print(torch.__version__, torch.cuda.get_device_name(0))
 GEN = OUT / "gen"; GEN.mkdir(exist_ok=True)
 
 # ---------------------------------------------------------------- 1. FLUX
-t = time.time()
+_mark("flux"); t = time.time()
 jobs = []                                  # (id, prompt, seed)
 for k, p in JOB["prompts"].items():
     for s in range(2 if k in JOB.get("two_seeds", []) else 1):
@@ -97,11 +124,11 @@ def cover(im, w, h):
     return im.crop((l, tp, l + w, tp + h))
 
 # --------------------------------------------------------- 2. Real-ESRGAN
-t = time.time()
+_mark("esrgan"); t = time.time()
 UP = OUT / "up"; UP.mkdir(exist_ok=True)
 try:
     from spandrel import ModelLoader
-    wpath = "/kaggle/working/RealESRGAN_x4plus.pth"
+    wpath = "/tmp/RealESRGAN_x4plus.pth"   # not in /kaggle/working: it would be served back
     urllib.request.urlretrieve("https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth", wpath)
     sr = ModelLoader().load_from_file(wpath).cuda().eval().half()
     def upscale(im, tile=384, pad=24):
@@ -136,12 +163,12 @@ for p in PHOTOS.glob("*.jpg"):
 stage("esrgan", t)
 
 # ------------------------------------------- 3. depth, 4. mask and LaMa
-t = time.time()
+_mark("layers"); t = time.time()
 LAY = OUT / "layers"; LAY.mkdir(exist_ok=True)
 try:
     from transformers import pipeline as hf_pipeline
     depth_pipe = hf_pipeline("depth-estimation", model="depth-anything/Depth-Anything-V2-Small-hf", device=0)
-    lama_path = "/kaggle/working/big-lama.pt"
+    lama_path = "/tmp/big-lama.pt"
     urllib.request.urlretrieve("https://github.com/enesmsahin/simple-lama-inpainting/releases/download/v0.1.0/big-lama.pt", lama_path)
     lama = torch.jit.load(lama_path, map_location="cuda").eval()
     SW, SH = 1408, 792                     # working scale for depth, mask and fill
@@ -193,6 +220,7 @@ except Exception as e:
     import traceback; traceback.print_exc()
     report["errors"].append(f"layers: {type(e).__name__}: {e}")
 stage("layers", t)
+_WD.cancel()
 report["total_s"] = round(time.time() - T0, 1)
 (OUT / "report.json").write_text(json.dumps(report, indent=1))
 for f in GEN.glob("*.png"): f.unlink()          # the upscaled jpgs are what the edit uses
@@ -214,6 +242,16 @@ def notebook(job):
             "nbformat": 4, "nbformat_minor": 5}
 
 
+MAX_WAIT_S = float(os.environ.get("GPU_MAX_WAIT_S", 20 * 3600))
+
+
+def existing(ref):
+    """The status of this channel's kernel if one is already on Kaggle."""
+    import gpu_shared
+    st = gpu_shared.status(ref)
+    return None if st == "unknown" else st
+
+
 def main():
     import push
     spec = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
@@ -223,8 +261,19 @@ def main():
     (BUILD / "notebook.ipynb").write_text(json.dumps(notebook(job), indent=1), encoding="utf-8")
     meta = push._metadata(push.username(), SLUG, SLUG)
     (BUILD / "kernel-metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
-    ref = push.submit_when_idle(BUILD, job_hours=0.75)
-    ok = push.wait(ref, poll_s=60, timeout_s=4 * 3600)
+    ref = f"{push.username()}/{SLUG}"
+    state = existing(ref)
+    if state == "complete":
+        print(f"{ref} already finished; fetching its output", flush=True)
+    elif state in ("running", "queued", "pending"):
+        print(f"{ref} is already {state}; waiting for it", flush=True)
+    else:
+        try:
+            ref = push.submit_when_idle(BUILD, job_hours=0.75, timeout_s=MAX_WAIT_S)
+        except RuntimeError as e:
+            print(f"not submitted: {e}", flush=True)
+            return 3
+    ok = state == "complete" or push.wait(ref, poll_s=60, timeout_s=4 * 3600)
     push.publish_ledger()
     push.fetch(ref, RESULTS)
     (BUILD / "notebook.ipynb").unlink(missing_ok=True)      # carries the token

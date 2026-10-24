@@ -37,17 +37,61 @@ def body():
                         'exag = {"fast": 0.55, "base": 0.50, "slow": 0.45}[line["kind"]]')
     # every line also on its own, so the sample can be laid on the edit line by line
     code += """
+_WD.cancel()
 for _i, (_l, _w) in enumerate(matched):
     torchaudio.save(str(OUT / f"line_{_i:02d}.wav"), torch.tensor(_w).unsqueeze(0), SR)
 """
+    code = code.replace("from chatterbox.tts import ChatterboxTTS",
+                        "from chatterbox.tts import ChatterboxTTS
+_need_gpu()", 1)
     return code
+
+
+WATCHDOG = """
+# ---- the session's own deadline (as in the shared kaggle/job_template.py) ----
+import threading as _th, os as _os, json as _js, time as _tm, pathlib as _pl, sys as _sys
+_OUT = _pl.Path("/kaggle/working"); _OUT.mkdir(parents=True, exist_ok=True)
+_BUDGET_S = float(JOB.get("budget_s") or 900)
+_STAGE = {"name": "starting", "since": _tm.time(), "began": _tm.time()}
+def _mark(name):
+    _STAGE["name"], _STAGE["since"] = name, _tm.time()
+    print(f"-- {name} (at {_tm.time() - _STAGE['began']:.0f}s)", flush=True)
+def _give_up():
+    ran = _tm.time() - _STAGE["began"]
+    rep = {"errors": [f"timeout: {ran:.0f}s over a {2 * _BUDGET_S:.0f}s deadline, stuck in {_STAGE['name']}"],
+           "timed_out": {"ran_s": round(ran, 1), "stage": _STAGE["name"]}}
+    try:
+        (_OUT / "report.json").write_text(_js.dumps(rep, indent=2))
+    except Exception:
+        pass
+    print("==== GAVE UP ====", rep, flush=True)
+    _os._exit(0)
+_WD = _th.Timer(2 * _BUDGET_S, _give_up); _WD.daemon = True; _WD.start()
+def _need_gpu():
+    import torch
+    if not torch.cuda.is_available():
+        (_OUT / "report.json").write_text(_js.dumps({"errors": ["no GPU in this session"]}))
+        print("no GPU in this session; stopping before loading anything", flush=True)
+        _os._exit(0)
+"""
+
+
+MAX_WAIT_S = float(os.environ.get("GPU_MAX_WAIT_S", 20 * 3600))
+
+
+def existing(ref):
+    """The status of this channel's kernel if one is already on Kaggle."""
+    import gpu_shared
+    st = gpu_shared.status(ref)
+    return None if st == "unknown" else st
 
 
 def main():
     import push
     script = Path(sys.argv[1]).read_text(encoding="utf-8")
     seconds = float(sys.argv[2]) if len(sys.argv) > 2 else 30
-    timeline = json.loads((ROOT / "work" / "voice" / "bm_lewis.json").read_text())["timeline"]
+    from automation import build_doc
+    timeline = build_doc.narration(Path(sys.argv[1]).parent.name)[1]["timeline"]
     keep = sum(1 for l in timeline if l["end"] <= seconds + 1.0)
     lines = delivery.parse(script)[:keep]
     lex = narrate.lexicon()
@@ -62,8 +106,19 @@ def main():
     os.environ["FLUX_MIRROR"] = "0"
     meta = push._metadata(push.username(), SLUG, SLUG)
     (BUILD / "kernel-metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
-    ref = push.submit_when_idle(BUILD, job_hours=0.3)
-    ok = push.wait(ref, poll_s=30, timeout_s=2 * 3600)
+    ref = f"{push.username()}/{SLUG}"
+    state = existing(ref)
+    if state == "complete":
+        print(f"{ref} already finished; fetching its output", flush=True)
+    elif state in ("running", "queued", "pending"):
+        print(f"{ref} is already {state}; waiting for it", flush=True)
+    else:
+        try:
+            ref = push.submit_when_idle(BUILD, job_hours=0.3, timeout_s=MAX_WAIT_S)
+        except RuntimeError as e:
+            print(f"not submitted: {e}", flush=True)
+            return 3
+    ok = state == "complete" or push.wait(ref, poll_s=30, timeout_s=2 * 3600)
     push.publish_ledger()
     push.fetch(ref, RESULTS)
     return 0 if ok else 1

@@ -91,10 +91,14 @@ def fetch_layers(slug):
             log.warning("no reconstructions yet (%s); parts that need them will fail", e)
             return dest
     dest.mkdir(parents=True, exist_ok=True)
+    if (src / "report.json").exists():
+        shutil.copy(src / "report.json", W(slug) / "inputs" / "kaggle_recon_report.json")
     for f in list((src / "up").glob("*.jpg")) + list((src / "layers").glob("*")):
         tgt = dest / f.name
         if not tgt.exists():
             shutil.copy(f, tgt)
+    if src != local:
+        shutil.rmtree(src, ignore_errors=True)      # the layers are all that travel on
     return dest
 
 

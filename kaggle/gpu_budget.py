@@ -94,8 +94,11 @@ def _kernels():
                               "PYTHONIOENCODING": "utf-8"}).stdout
     rows = []
     lines = out.splitlines()
-    if not lines:
+    # the CLI may print a version warning before the CSV: start at the header
+    head = next((i for i, l in enumerate(lines) if l.startswith("ref,")), None)
+    if head is None:
         return rows
+    lines = lines[head:]
     header = [h.strip() for h in lines[0].split(",")]
     if "ref" not in header or "lastRunTime" not in header:
         return rows

@@ -22,6 +22,7 @@ on:
 
 permissions:
   contents: read
+  actions: write
 
 concurrency:
   group: render-${{ inputs.slug }}-${{ inputs.res }}
@@ -131,6 +132,23 @@ jobs:
       - name: Voice samples
         if: inputs.samples == 'true'
         run: python automation/build_doc.py samples "$SLUG" --res "$RES"
+      - name: Thumbnails and credits
+        if: inputs.res == '2160p'
+        run: |
+          python automation/make_thumbs.py "$SLUG" || echo "a thumbnail failed its readability check (see report)"
+          python automation/credits.py "$SLUG"
+      - name: Render time and the 25-minute forecast
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python automation/forecast.py "$SLUG" "$RES" "${{ github.run_id }}"
+      - name: A 1440p version for comparison, if 4K would take over an hour at 25 minutes
+        if: inputs.res == '2160p'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [ "$(cat work/$SLUG/forecast_over_hour.txt)" = "yes" ]; then
+            gh workflow run render.yml -R "${{ github.repository }}" -f slug="$SLUG" -f res=1440p -f samples=false
+          fi
       - name: Checks
         run: |
           f="work/$SLUG/video_$RES.mp4"
@@ -148,4 +166,6 @@ jobs:
             work/${{ inputs.slug }}/contact_${{ inputs.res }}.jpg
             work/${{ inputs.slug }}/plan.json
             work/${{ inputs.slug }}/samples_report.json
-            test/voice_sample_*.mp4
+            work/${{ inputs.slug }}/timing_${{ inputs.res }}.json
+            work/${{ inputs.slug }}/inputs/kaggle_recon_report.json
+            test/

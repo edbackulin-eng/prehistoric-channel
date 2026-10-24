@@ -21,8 +21,11 @@ VARIANTS = [
 
 
 def main(slug):
-    picks = json.loads((ROOT / "episodes" / slug / "recon_picks.json").read_text(encoding="utf-8"))
+    pp = ROOT / "episodes" / slug / "recon_picks.json"
+    picks = json.loads(pp.read_text(encoding="utf-8")) if pp.exists() else {}
     up = ROOT / "kaggle" / "results_recon" / "up"
+    if not up.exists():                     # on a render machine: the prepared inputs
+        up = ROOT / "work" / slug / "inputs" / "layers"
     out = ROOT / "test"
     out.mkdir(exist_ok=True)
     reps = []

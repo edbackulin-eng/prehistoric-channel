@@ -62,8 +62,11 @@ def kernels():
     """[(ref, lastRunTime)] of every channel's kernels, newest first; None if the call failed."""
     out = _kaggle("kernels", "list", "--mine", "--page-size", "60", "--sort-by", "dateRun", "--csv")
     lines = out.splitlines()
-    if not lines or not lines[0].startswith("ref"):
+    # the CLI may print a version warning before the CSV: start at the header
+    head = next((i for i, l in enumerate(lines) if l.startswith("ref,")), None)
+    if head is None:
         return None
+    lines = lines[head:]
     header = [h.strip() for h in lines[0].split(",")]
     i_t = header.index("lastRunTime")
     rows = []
