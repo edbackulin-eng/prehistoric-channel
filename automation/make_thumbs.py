@@ -1,4 +1,4 @@
-"""Three thumbnails from the FLUX bases (kaggle/recon_job.py), into test/.
+"""Three thumbnails from the FLUX bases (gpu/modal_app.py), into test/.
 
     python automation/make_thumbs.py living-fossils
 
@@ -14,16 +14,16 @@ sys.path.insert(0, str(ROOT))
 from pipeline import doc_thumb  # noqa: E402
 
 VARIANTS = [
-    ("thumb_coelacanth", ["THOUGHT", "EXTINCT"], "left", 1),
-    ("thumb_hsc", ["OLDER THAN", "DINOSAURS"], "right", 1),
-    ("thumb_croc", ["THEY", "SURVIVED"], "left", 1),
+    ("thumb_coelacanth", ["Thought", "Extinct?"], "left", 1),
+    ("thumb_hsc", ["Older Than", "Dinosaurs"], "right", 1),
+    ("thumb_croc", ["They", "Survived"], "left", 1),
 ]
 
 
 def main(slug):
     pp = ROOT / "episodes" / slug / "recon_picks.json"
     picks = json.loads(pp.read_text(encoding="utf-8")) if pp.exists() else {}
-    up = ROOT / "kaggle" / "results_recon" / "up"
+    up = ROOT / "gpu" / "results_recon" / "up"
     if not up.exists():                     # on a render machine: the prepared inputs
         up = ROOT / "work" / slug / "inputs" / "layers"
     out = ROOT / "test"
@@ -31,7 +31,7 @@ def main(slug):
     reps = []
     for i, (base, words, side, accent) in enumerate(VARIANTS, 1):
         seed = picks.get(base, 0)
-        rep = doc_thumb.compose(up / f"{base}__s{seed}.jpg", words, side, out / f"thumbnail_{i}.jpg", accent)
+        rep = doc_thumb.best(up / f"{base}__s{seed}.jpg", words, side, out / f"thumbnail_{i}.jpg", accent)
         rep["base"] = f"{base}__s{seed}"
         reps.append(rep)
         print(rep)

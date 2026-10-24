@@ -18,6 +18,8 @@ assets/ambience/*
 !assets/ambience/library.json
 work/
 cache/
+gpu/results*/
+modal_out/
 kaggle/build*/
 kaggle/results*/
 kaggle/job_*.json

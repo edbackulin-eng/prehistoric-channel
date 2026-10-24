@@ -10,3 +10,4 @@ scipy>=1.11
 opencv-python-headless>=4.9
 pyloudnorm>=0.1.1
 imagehash>=4.3
+modal==1.6.2

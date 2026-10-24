@@ -1,4 +1,5 @@
-"""Reconstructions and 2.5D layers on a Kaggle GPU, in one session.
+"""Reconstructions and 2.5D layers: the GPU session's code (run on Modal by gpu/modal_app.py;
+written for Kaggle, where it first ran).
 
     python kaggle/recon_job.py episodes/living-fossils/recon.json
 
@@ -24,10 +25,8 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "kaggle"))
-BUILD = ROOT / "kaggle" / "build_recon"
-RESULTS = ROOT / "kaggle" / "results_recon"
+ROOT = Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 SLUG = "prehistoric-recon"
 
 SOURCE = r'''
@@ -228,56 +227,9 @@ print(json.dumps({k: v for k, v in report.items() if k != "images"}, indent=1))
 '''
 
 
-def notebook(job):
-    import push
-    job = dict(job)
-    token = os.environ.get("HF_TOKEN") or push._env_token()
-    if token:
-        job["hf_token"] = token          # only if the mirror is missing; never written to the repo
-    cell = f"JOB = {json.dumps(job, indent=1)}\n{SOURCE}"
-    return {"cells": [{"cell_type": "code", "metadata": {}, "execution_count": None,
-                       "outputs": [], "source": cell.splitlines(keepends=True)}],
-            "metadata": {"kernelspec": {"display_name": "Python 3", "language": "python",
-                                        "name": "python3"}},
-            "nbformat": 4, "nbformat_minor": 5}
-
-
-MAX_WAIT_S = float(os.environ.get("GPU_MAX_WAIT_S", 20 * 3600))
-
-
-def existing(ref):
-    """The status of this channel's kernel if one is already on Kaggle."""
-    import gpu_shared
-    st = gpu_shared.status(ref)
-    return None if st == "unknown" else st
-
-
 def main():
-    import push
-    spec = json.loads(Path(sys.argv[1]).read_text(encoding="utf-8"))
-    job = {k: spec[k] for k in ("style", "seeds", "prompts", "thumbs", "photos")}
-    job["two_seeds"] = spec.get("two_seeds", [])
-    BUILD.mkdir(parents=True, exist_ok=True)
-    (BUILD / "notebook.ipynb").write_text(json.dumps(notebook(job), indent=1), encoding="utf-8")
-    meta = push._metadata(push.username(), SLUG, SLUG)
-    (BUILD / "kernel-metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
-    ref = f"{push.username()}/{SLUG}"
-    state = existing(ref)
-    if state == "complete":
-        print(f"{ref} already finished; fetching its output", flush=True)
-    elif state in ("running", "queued", "pending"):
-        print(f"{ref} is already {state}; waiting for it", flush=True)
-    else:
-        try:
-            ref = push.submit_when_idle(BUILD, job_hours=0.75, timeout_s=MAX_WAIT_S)
-        except RuntimeError as e:
-            print(f"not submitted: {e}", flush=True)
-            return 3
-    ok = state == "complete" or push.wait(ref, poll_s=60, timeout_s=4 * 3600)
-    push.publish_ledger()
-    push.fetch(ref, RESULTS)
-    (BUILD / "notebook.ipynb").unlink(missing_ok=True)      # carries the token
-    return 0 if ok else 1
+    raise SystemExit("This channel no longer uses Kaggle: the GPU work runs on Modal "
+                     "(python -m modal run gpu/modal_app.py --task recon|voice).")
 
 
 if __name__ == "__main__":

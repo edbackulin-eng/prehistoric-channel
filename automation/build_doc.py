@@ -26,7 +26,6 @@ import soundfile as sf
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "kaggle"))
 
 from core.logger import get_logger  # noqa: E402
 
@@ -77,29 +76,53 @@ def fetch_media(slug, plan):
     return media
 
 
+def modal_get(slug, what, dest):
+    """Copy /out/<slug>/<what> from the Modal Volume "prehistoric-out" into dest.
+    Returns the folder that holds the files, or None if Modal has nothing yet."""
+    dest = Path(dest)
+    tmp = dest.parent / f"_modal_{what}"
+    shutil.rmtree(tmp, ignore_errors=True)
+    tmp.mkdir(parents=True, exist_ok=True)
+    r = subprocess.run(["modal", "volume", "get", "--force", "prehistoric-out", f"{slug}/{what}", str(tmp)],
+                       capture_output=True, text=True)
+    if r.returncode:
+        log.warning("modal volume get %s/%s failed: %s", slug, what, r.stderr[-400:])
+        return None
+    reports = list(tmp.rglob("report.json"))
+    root = reports[0].parent if reports else tmp
+    if dest.exists():
+        shutil.rmtree(dest)
+    shutil.move(str(root), str(dest))
+    shutil.rmtree(tmp, ignore_errors=True)
+    return dest
+
+
 def fetch_layers(slug):
+    """The 2.5D layers and thumbnail bases made on Modal (gpu/modal_app.py)."""
     dest = W(slug) / "inputs" / "layers"
-    local = ROOT / "kaggle" / "results_recon"
-    if (local / "report.json").exists():
-        src = local
-    else:
-        import push
-        src = W(slug) / "inputs" / "kaggle"
-        try:
-            push.fetch(f"{push.username()}/{RECON_KERNEL}", src)
-        except Exception as e:                                   # noqa: BLE001
-            log.warning("no reconstructions yet (%s); parts that need them will fail", e)
+    src = ROOT / "gpu" / "results_recon"
+    if not (src / "report.json").exists():
+        src = modal_get(slug, "recon", W(slug) / "inputs" / "modal_recon")
+        if src is None:
+            log.warning("no reconstructions yet; parts that need them will fail")
             return dest
     dest.mkdir(parents=True, exist_ok=True)
-    if (src / "report.json").exists():
-        shutil.copy(src / "report.json", W(slug) / "inputs" / "kaggle_recon_report.json")
+    shutil.copy(src / "report.json", W(slug) / "inputs" / "kaggle_recon_report.json")
     for f in list((src / "up").glob("*.jpg")) + list((src / "layers").glob("*")):
         tgt = dest / f.name
         if not tgt.exists():
             shutil.copy(f, tgt)
-    if src != local:
+    if src != ROOT / "gpu" / "results_recon":
         shutil.rmtree(src, ignore_errors=True)      # the layers are all that travel on
     return dest
+
+
+def fetch_voice(slug):
+    """Chatterbox's sample lines (gpu/modal_app.py) into gpu/results_voice."""
+    dest = ROOT / "gpu" / "results_voice"
+    if list(dest.glob("line_*.wav")):
+        return dest
+    return modal_get(slug, "voice", dest)
 
 
 def prepare(slug, res):
@@ -112,6 +135,7 @@ def prepare(slug, res):
     (W(slug) / "plan.json").write_text(json.dumps(plan, indent=1, ensure_ascii=False), encoding="utf-8")
     fetch_media(slug, plan)
     fetch_layers(slug)
+    fetch_voice(slug)
     log.info("plan: %d shots, %d parts, %.1f s", len(plan["shots"]), len(plan["parts"]), plan["total_s"])
     return plan
 
@@ -196,7 +220,7 @@ def samples(slug, res):
             a, _ = narrate._render(k, [line.__class__(line.text, line.kind, line.speed, 0.0)], v, scale, lex)
             audio.append(a)
         voices[f"kokoro_{v}"] = (audio, 24000, rep)
-    cb = sorted((ROOT / "kaggle" / "results_voice").glob("line_*.wav"))
+    cb = sorted((ROOT / "gpu" / "results_voice").glob("line_*.wav"))
     if cb:
         audio = [sf.read(str(f), dtype="float32")[0] for f in cb]
         sr = sf.info(str(cb[0])).samplerate

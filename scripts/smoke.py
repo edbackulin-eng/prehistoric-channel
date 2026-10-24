@@ -25,7 +25,7 @@ import soundfile as sf
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "kaggle"))
+sys.path.insert(0, str(ROOT / "gpu" / "kernels"))
 W = ROOT / "work" / "smoke"
 failures = []
 
@@ -46,6 +46,13 @@ def main():
             except Exception as e:                               # noqa: BLE001
                 check(f"import {pkg}.{m.name}", False, repr(e)[:200])
     check("imports", not failures)
+
+    # the GPU code Modal runs is assembled from the kernels; it must build clean
+    sys.path.insert(0, str(ROOT / "gpu"))
+    import modal_app
+    src = modal_app.recon_source("smoke")
+    vsrc = modal_app.voice_source("smoke")
+    check("modal sources", "/kaggle/" not in src + vsrc and "flux4bit" in src, f"{len(src)}+{len(vsrc)} chars")
 
     from core import narrate
     k = narrate.load_kokoro()

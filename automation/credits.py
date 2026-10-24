@@ -10,7 +10,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 MODELS = [
-    {"what": "Reconstructions", "name": "FLUX.1-schnell", "by": "Black Forest Labs", "license": "Apache-2.0"},
+    {"what": "Reconstructions", "name": "FLUX.1-schnell (4-bit NF4 build magespace/FLUX.1-schnell-bnb-nf4)", "by": "Black Forest Labs", "license": "Apache-2.0"},
     {"what": "Upscaling", "name": "Real-ESRGAN x4plus", "by": "Xintao Wang et al.", "license": "BSD-3-Clause"},
     {"what": "Depth for 2.5D", "name": "Depth Anything V2 Small", "by": "Lihe Yang et al.", "license": "Apache-2.0"},
     {"what": "Background fill for 2.5D", "name": "LaMa (big-lama)", "by": "Samsung AI", "license": "Apache-2.0"},

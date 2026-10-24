@@ -14,14 +14,12 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "kaggle"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 from core import delivery, narrate  # noqa: E402
 
 SLUG = "prehistoric-voice"
-BUILD = ROOT / "kaggle" / "build_voice"
-RESULTS = ROOT / "kaggle" / "results_voice"
 
 SOURCE_PATH = Path(__file__).with_name("chatterbox_job.py")
 
@@ -42,8 +40,7 @@ for _i, (_l, _w) in enumerate(matched):
     torchaudio.save(str(OUT / f"line_{_i:02d}.wav"), torch.tensor(_w).unsqueeze(0), SR)
 """
     code = code.replace("from chatterbox.tts import ChatterboxTTS",
-                        "from chatterbox.tts import ChatterboxTTS
-_need_gpu()", 1)
+                        "from chatterbox.tts import ChatterboxTTS\n_need_gpu()", 1)
     return code
 
 
@@ -76,52 +73,9 @@ def _need_gpu():
 """
 
 
-MAX_WAIT_S = float(os.environ.get("GPU_MAX_WAIT_S", 20 * 3600))
-
-
-def existing(ref):
-    """The status of this channel's kernel if one is already on Kaggle."""
-    import gpu_shared
-    st = gpu_shared.status(ref)
-    return None if st == "unknown" else st
-
-
 def main():
-    import push
-    script = Path(sys.argv[1]).read_text(encoding="utf-8")
-    seconds = float(sys.argv[2]) if len(sys.argv) > 2 else 30
-    from automation import build_doc
-    timeline = build_doc.narration(Path(sys.argv[1]).parent.name)[1]["timeline"]
-    keep = sum(1 for l in timeline if l["end"] <= seconds + 1.0)
-    lines = delivery.parse(script)[:keep]
-    lex = narrate.lexicon()
-    job = {"lines": [{**l.__dict__, "text": narrate.respell(l.text, lex)} for l in lines]}
-    BUILD.mkdir(parents=True, exist_ok=True)
-    cell = f"JOB = {json.dumps(job, indent=1)}\n{body()}"
-    nb = {"cells": [{"cell_type": "code", "metadata": {}, "execution_count": None,
-                     "outputs": [], "source": cell.splitlines(keepends=True)}],
-          "metadata": {"kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"}},
-          "nbformat": 4, "nbformat_minor": 5}
-    (BUILD / "notebook.ipynb").write_text(json.dumps(nb, indent=1), encoding="utf-8")
-    os.environ["FLUX_MIRROR"] = "0"
-    meta = push._metadata(push.username(), SLUG, SLUG)
-    (BUILD / "kernel-metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
-    ref = f"{push.username()}/{SLUG}"
-    state = existing(ref)
-    if state == "complete":
-        print(f"{ref} already finished; fetching its output", flush=True)
-    elif state in ("running", "queued", "pending"):
-        print(f"{ref} is already {state}; waiting for it", flush=True)
-    else:
-        try:
-            ref = push.submit_when_idle(BUILD, job_hours=0.3, timeout_s=MAX_WAIT_S)
-        except RuntimeError as e:
-            print(f"not submitted: {e}", flush=True)
-            return 3
-    ok = state == "complete" or push.wait(ref, poll_s=30, timeout_s=2 * 3600)
-    push.publish_ledger()
-    push.fetch(ref, RESULTS)
-    return 0 if ok else 1
+    raise SystemExit("This channel no longer uses Kaggle: the GPU work runs on Modal "
+                     "(python -m modal run gpu/modal_app.py --task recon|voice).")
 
 
 if __name__ == "__main__":
