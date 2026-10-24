@@ -19,6 +19,9 @@ on:
       samples:
         description: also cut the three 30-second voice samples
         default: "true"
+      gpu_source:
+        description: where the reconstructions and voice lines are (modal or kaggle)
+        default: modal
 
 permissions:
   contents: read
@@ -42,6 +45,8 @@ jobs:
     env:
       MODAL_TOKEN_ID: ${{ secrets.MODAL_TOKEN_ID }}
       MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -60,6 +65,9 @@ jobs:
           { echo "MODAL_TOKEN_ID=$id"; echo "MODAL_TOKEN_SECRET=$sec"; } >> "$GITHUB_ENV"
       - name: Models, music, atmosphere, maps
         run: python automation/fetch_assets.py
+      - name: GPU results from the one-off Kaggle run
+        if: inputs.gpu_source == 'kaggle'
+        run: python gpu/kaggle_once.py fetch
       - name: Narration, plan, footage, 2.5D layers and voice lines (Modal Volume)
         run: python automation/build_doc.py prepare "$SLUG" --res "$RES" --parts "${{ inputs.parts }}"
       - id: plan
@@ -150,7 +158,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           if [ "$(cat work/$SLUG/forecast_over_hour.txt)" = "yes" ]; then
-            gh workflow run render.yml -R "${{ github.repository }}" -f slug="$SLUG" -f res=1440p -f samples=false
+            gh workflow run render.yml -R "${{ github.repository }}" -f slug="$SLUG" -f res=1440p -f samples=false               -f gpu_source="${{ inputs.gpu_source }}"
           fi
       - name: Checks
         run: |

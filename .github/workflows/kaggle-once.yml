@@ -1,0 +1,94 @@
+name: kaggle-once
+
+# One-off: the living-fossils test's GPU work on Kaggle, in What If's and
+# Closed Tabs' free hours only (gpu/kaggle_once.py has the rules). Modal stays
+# the channel's GPU home (gpu-jobs.yml); this exists because Modal runs no GPU
+# without a card. A wait longer than one job restarts the workflow, and the
+# render starts on its own when both kernels are done.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: episode
+        default: living-fossils
+      relay:
+        description: how many times this chain has restarted itself
+        default: "0"
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: kaggle-once
+  cancel-in-progress: false
+
+env:
+  PYTHONUTF8: 1
+  SLUG: ${{ inputs.slug }}
+  KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+  KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+  GH_TOKEN: ${{ github.token }}
+  GPU_MAX_WAIT_S: "17000"
+
+jobs:
+  gpu:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 355
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install -q -r requirements.txt
+      - name: Kokoro (times the 30-second voice sample)
+        run: python automation/fetch_models.py
+      - name: Reconstructions
+        id: recon
+        run: |
+          set +e
+          python -u gpu/kaggle_once.py recon "$SLUG"; rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          [ $rc -eq 0 ] || [ $rc -eq 3 ] || exit $rc
+      - name: Chatterbox
+        id: voice
+        if: steps.recon.outputs.rc == '0'
+        run: |
+          set +e
+          python -u gpu/kaggle_once.py voice "$SLUG"; rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          [ $rc -eq 0 ] || [ $rc -eq 3 ] || exit $rc
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: kaggle-once-${{ github.run_id }}
+          retention-days: 7
+          if-no-files-found: ignore
+          path: |
+            gpu/results_recon/report.json
+            gpu/results_recon/up/thumb_*.jpg
+            gpu/results_recon/*.log
+            gpu/results_voice/
+            state/kaggle_once.json
+      - name: Keep the usage record
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/kaggle_once.json 2>/dev/null || exit 0
+          git diff --cached --quiet && exit 0
+          git commit -m "Kaggle one-off usage after run ${{ github.run_id }}"
+          for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep 10; done
+          exit 1
+      - name: Relay (still waiting for a free slot)
+        if: (steps.recon.outputs.rc == '3' || steps.voice.outputs.rc == '3') && fromJSON(inputs.relay) < 20
+        run: |
+          gh workflow run kaggle-once.yml -R "${{ github.repository }}" -f slug="$SLUG" \
+            -f relay="$(( ${{ inputs.relay }} + 1 ))"
+      - name: Render
+        if: steps.recon.outputs.rc == '0' && steps.voice.outputs.rc == '0'
+        run: |
+          gh workflow run render.yml -R "${{ github.repository }}" -f slug="$SLUG" -f res=2160p \
+            -f samples=true -f gpu_source=kaggle
