@@ -8,9 +8,9 @@ Run from GitHub Actions (.github/workflows/gpu-jobs.yml) with the repository's
 MODAL_TOKEN_ID / MODAL_TOKEN_SECRET; nothing depends on anyone's computer.
 
 Money first - the account starts with $1 and no card:
-  - one GPU type: NVIDIA T4 ($0.59/h). An L4 ($0.80/h) would hold 4-bit FLUX
-    whole and cost less per image, but Modal allows it only with a card on
-    file; set MODAL_GPU=L4 once one is added. On the T4 FLUX runs in float16
+  - one GPU type: NVIDIA T4 ($0.59/h), or L4 ($0.80/h) with MODAL_GPU=L4 - the
+    L4 holds 4-bit FLUX whole and costs less per image. Modal runs no GPU at
+    all, of any type, until a payment method is on file (checked 24.10). On the T4 FLUX runs in float16
     with CPU offload, exactly as it did on Kaggle's T4s.
   - every model lives in the Volume "prehistoric-weights": FLUX, already in
     4-bit, is downloaded once on a CPU-only container (a few cents) and from
@@ -34,7 +34,7 @@ from pathlib import Path
 import modal
 
 ROOT = Path(__file__).resolve().parent.parent
-GPU = os.environ.get("MODAL_GPU", "T4")   # L4 needs a card on file; T4 does not (24.10)
+GPU = os.environ.get("MODAL_GPU", "T4")   # any Modal GPU needs a payment method on file (24.10)
 # Modal list prices, per second (checked 24.10.2026 on modal.com/pricing)
 PRICE = {"T4": 0.000164, "L4": 0.000222, "cpu_core": 0.0000131, "mem_gib": 0.00000222}
 
