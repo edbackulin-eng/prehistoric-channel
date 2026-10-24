@@ -50,6 +50,14 @@ jobs:
           cache: pip
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - run: pip install -q -r requirements.txt modal==1.6.2
+      - name: Modal credentials (trim stray whitespace; ID is ak-, secret as-)
+        run: |
+          id="$(printf '%s' "$MODAL_TOKEN_ID" | tr -d '[:space:]')"
+          sec="$(printf '%s' "$MODAL_TOKEN_SECRET" | tr -d '[:space:]')"
+          case "$id" in as-*) t="$id"; id="$sec"; sec="$t"; echo "ID and secret were swapped";; esac
+          echo "token id prefix: ${id:0:3}, secret prefix: ${sec:0:3}, lengths ${#id}/${#sec}"
+          echo "::add-mask::$id"; echo "::add-mask::$sec"
+          { echo "MODAL_TOKEN_ID=$id"; echo "MODAL_TOKEN_SECRET=$sec"; } >> "$GITHUB_ENV"
       - name: Models, music, atmosphere, maps
         run: python automation/fetch_assets.py
       - name: Narration, plan, footage, 2.5D layers and voice lines (Modal Volume)
