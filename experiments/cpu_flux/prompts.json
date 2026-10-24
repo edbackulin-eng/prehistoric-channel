@@ -1,0 +1,44 @@
+{
+ "style": "photorealistic wildlife documentary frame, BBC natural history cinematography, natural vivid colours, soft natural light, high dynamic range, sharp detail, 35mm film look, no text, no people",
+ "width": 1344,
+ "height": 768,
+ "steps": 4,
+ "models": {
+  "diffusion": "https://huggingface.co/leejet/FLUX.1-schnell-gguf/resolve/main/flux1-schnell-q4_k.gguf",
+  "t5xxl": "https://huggingface.co/second-state/FLUX.1-schnell-GGUF/resolve/main/t5xxl-Q4_K.gguf",
+  "clip_l": "https://huggingface.co/comfyanonymous/flux_text_encoders/resolve/main/clip_l.safetensors",
+  "vae": "https://huggingface.co/second-state/FLUX.1-schnell-GGUF/resolve/main/ae.safetensors"
+ },
+ "prompts": [
+  {
+   "id": 0,
+   "name": "coelacanth",
+   "prompt": "a single coelacanth, Latimeria chalumnae, deep steel-blue body with irregular white blotches, thick heavy scales, fleshy lobed paired fins like small limbs, three-lobed tail with a small middle lobe, hovering in calm deep blue water near a dark volcanic slope, soft beam of light from above, side view, photorealistic wildlife documentary frame, BBC natural history cinematography, natural vivid colours, soft natural light, high dynamic range, sharp detail, 35mm film look, no text, no people",
+   "seed": 3100
+  },
+  {
+   "id": 1,
+   "name": "ancient_crocodile",
+   "prompt": "Deinosuchus, a giant Late Cretaceous crocodylian ten metres long, broad rounded snout, heavy bony osteoderm armour along its back, lying half-submerged in the muddy shallows of a Late Cretaceous coastal swamp, conifers and ferns on the bank, morning haze, low angle, photorealistic wildlife documentary frame, BBC natural history cinematography, natural vivid colours, soft natural light, high dynamic range, sharp detail, 35mm film look, no text, no people",
+   "seed": 3111
+  },
+  {
+   "id": 2,
+   "name": "horseshoe_crab",
+   "prompt": "Mesolimulus, a Late Jurassic horseshoe crab with a smooth horseshoe-shaped carapace and a long spine-like tail, crawling across wet pale carbonate mud of a shallow tropical lagoon at Solnhofen, a faint trackway behind it, low golden sun, close-up at ground level, photorealistic wildlife documentary frame, BBC natural history cinematography, natural vivid colours, soft natural light, high dynamic range, sharp detail, 35mm film look, no text, no people",
+   "seed": 3122
+  },
+  {
+   "id": 3,
+   "name": "tuatara_relative",
+   "prompt": "an early rhynchocephalian reptile, a tuatara-like lizard-shaped animal with a beaked snout, a crest of soft spines along its neck and back and granular olive-grey skin, resting on a mossy rock in a Jurassic conifer forest, dappled light, close-up, photorealistic wildlife documentary frame, BBC natural history cinematography, natural vivid colours, soft natural light, high dynamic range, sharp detail, 35mm film look, no text, no people",
+   "seed": 3133
+  },
+  {
+   "id": 4,
+   "name": "nautilus",
+   "prompt": "a chambered nautilus with a cream shell banded in red-brown stripes and a hood of tentacles, drifting in clear blue water of a Late Cretaceous sea among ammonites with ribbed coiled shells, sunbeams from the surface, photorealistic wildlife documentary frame, BBC natural history cinematography, natural vivid colours, soft natural light, high dynamic range, sharp detail, 35mm film look, no text, no people",
+   "seed": 3144
+  }
+ ]
+}

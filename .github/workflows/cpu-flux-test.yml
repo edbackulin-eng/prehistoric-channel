@@ -1,0 +1,153 @@
+name: cpu-flux-test
+
+# EXPERIMENT: can FLUX.1-schnell run on GitHub's CPU runners, with no GPU at all?
+# stable-diffusion.cpp (MIT) built for AVX2, FLUX.1-schnell Q4_K GGUF and T5-XXL
+# Q4_K GGUF (Apache-2.0), CLIP-L and the FLUX autoencoder - all ungated on
+# Hugging Face, downloaded in every job (about 10 GB: more than the 10 GB
+# Actions cache allows). One image per job, five jobs at once, measured: model
+# download, model load, generation, peak RAM. Publishes nothing.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  SDCPP_REPO: https://github.com/leejet/stable-diffusion.cpp
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    outputs:
+      ref: ${{ steps.ref.outputs.ref }}
+    steps:
+      - id: ref
+        run: |
+          ref=$(git ls-remote "$SDCPP_REPO" HEAD | cut -f1)
+          echo "ref=$ref" >> "$GITHUB_OUTPUT"; echo "stable-diffusion.cpp $ref"
+      - uses: actions/cache@v4
+        id: cache
+        with:
+          path: sd-bin
+          key: sdcpp-avx2-${{ steps.ref.outputs.ref }}
+      - name: Build (AVX2, FMA, F16C; no -march=native, so any AVX2 runner can use it)
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq cmake build-essential
+          git clone --recursive "$SDCPP_REPO" sdcpp
+          cd sdcpp && git checkout -q ${{ steps.ref.outputs.ref }} && git submodule update --init --recursive -q
+          cmake -B build -DCMAKE_BUILD_TYPE=Release -DGGML_NATIVE=OFF -DGGML_AVX=ON -DGGML_AVX2=ON \
+                -DGGML_FMA=ON -DGGML_F16C=ON -DGGML_OPENMP=ON
+          cmake --build build --config Release -j 4
+          mkdir -p ../sd-bin
+          bin=$(find build/bin -maxdepth 1 -type f -perm -u+x \( -name sd -o -name sd-cli \) | head -1)
+          cp "$bin" ../sd-bin/sd
+          find build -name "*.so*" -exec cp {} ../sd-bin/ \; || true
+      - run: ls -la sd-bin && LD_LIBRARY_PATH=sd-bin sd-bin/sd --help | head -5
+      - uses: actions/upload-artifact@v5
+        with:
+          name: sd-bin
+          path: sd-bin/
+          retention-days: 2
+
+  generate:
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        id: [0, 1, 2, 3, 4]
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v5
+        with:
+          name: sd-bin
+          path: sd-bin
+      - name: Room on the disk (the runner image is mostly toolchains this job never uses)
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL || true
+          df -h / | tail -1; nproc; free -g | head -2; grep -m1 -o 'avx512[a-z]*\|avx2' /proc/cpuinfo | head -1
+      - name: Models
+        id: models
+        run: |
+          mkdir -p models; t0=$(date +%s)
+          python3 - <<'PY'
+          import json, subprocess
+          m = json.load(open("experiments/cpu_flux/prompts.json"))["models"]
+          procs = [subprocess.Popen(["curl", "-sSL", "--retry", "5", "-o", f"models/{k}{'.gguf' if u.endswith('.gguf') else '.safetensors'}", u])
+                   for k, u in m.items()]
+          assert all(p.wait() == 0 for p in procs)
+          PY
+          echo "download_s=$(( $(date +%s) - t0 ))" >> "$GITHUB_OUTPUT"; ls -la models
+      - name: Generate
+        run: |
+          chmod +x sd-bin/sd
+          P='import json,sys; d=json.load(open("experiments/cpu_flux/prompts.json")); p=d["prompts"][int(sys.argv[1])]'
+          name=$(python3 -c "$P; print(p['name'])" ${{ matrix.id }})
+          seed=$(python3 -c "$P; print(p['seed'])" ${{ matrix.id }})
+          w=$(python3 -c "$P; print(d['width'])" ${{ matrix.id }})
+          h=$(python3 -c "$P; print(d['height'])" ${{ matrix.id }})
+          steps=$(python3 -c "$P; print(d['steps'])" ${{ matrix.id }})
+          prompt="$(python3 -c "import json;print(json.load(open('experiments/cpu_flux/prompts.json'))['prompts'][${{ matrix.id }}]['prompt'])")"
+          out="cpu_flux_${{ matrix.id }}_${name}.png"
+          t0=$(date +%s)
+          LD_LIBRARY_PATH=sd-bin /usr/bin/time -v sd-bin/sd \
+            --diffusion-model models/diffusion.gguf --t5xxl models/t5xxl.gguf \
+            --clip_l models/clip_l.safetensors --vae models/vae.safetensors \
+            -p "$prompt" --cfg-scale 1.0 --sampling-method euler --steps "$steps" \
+            -W "$w" -H "$h" -s "$seed" -t "$(nproc)" -o "$out" -v > sd.log 2> time.log || { tail -50 sd.log; tail -30 time.log; exit 1; }
+          wall=$(( $(date +%s) - t0 ))
+          tail -25 sd.log
+          python3 - "$name" "$wall" "${{ steps.models.outputs.download_s }}" <<'PY'
+          import json, re, sys
+          name, wall, dl = sys.argv[1], float(sys.argv[2]), float(sys.argv[3])
+          log, tm = open("sd.log", errors="replace").read(), open("time.log").read()
+          rss = int(re.search(r"Maximum resident set size \(kbytes\): (\d+)", tm).group(1))
+          def took(pat):
+              m = re.findall(pat + r".*?taking ([\d.]+) ?s", log)
+              return float(m[-1]) if m else None
+          load = took(r"loading tensors completed")
+          sample = took(r"sampling completed")
+          decode = took(r"decode_first_stage completed")
+          m = {"id": int("${{ matrix.id }}"), "name": name, "wall_s": wall, "download_s": dl,
+               "load_s": load, "sampling_s": sample, "decode_s": decode,
+               "generate_s": round(wall - (load or 0), 1), "peak_rss_gb": round(rss / 1024 / 1024, 2),
+               "threads": int(open("/proc/cpuinfo").read().count("processor\t:"))}
+          json.dump(m, open(f"metrics_{m['id']}.json", "w"), indent=1)
+          print(json.dumps(m, indent=1))
+          PY
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: cpu-flux-${{ matrix.id }}
+          retention-days: 7
+          if-no-files-found: ignore
+          path: |
+            cpu_flux_*.png
+            metrics_*.json
+            sd.log
+            time.log
+
+  sheet:
+    needs: generate
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install -q pillow
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: cpu-flux-*
+          path: jobs
+      - run: python experiments/cpu_flux/sheet.py jobs out
+      - uses: actions/upload-artifact@v5
+        with:
+          name: cpu-flux-sheet
+          retention-days: 7
+          path: out/
