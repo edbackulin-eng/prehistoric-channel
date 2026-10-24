@@ -8,9 +8,10 @@ Run from GitHub Actions (.github/workflows/gpu-jobs.yml) with the repository's
 MODAL_TOKEN_ID / MODAL_TOKEN_SECRET; nothing depends on anyone's computer.
 
 Money first - the account starts with $1 and no card:
-  - one GPU type, NVIDIA L4 ($0.80/h). A T4 is cheaper by the hour but cannot
-    hold 4-bit FLUX without offloading to the CPU, which made it ~3x slower
-    per image on Kaggle; the L4 holds it whole and costs less per image.
+  - one GPU type: NVIDIA T4 ($0.59/h). An L4 ($0.80/h) would hold 4-bit FLUX
+    whole and cost less per image, but Modal allows it only with a card on
+    file; set MODAL_GPU=L4 once one is added. On the T4 FLUX runs in float16
+    with CPU offload, exactly as it did on Kaggle's T4s.
   - every model lives in the Volume "prehistoric-weights": FLUX, already in
     4-bit, is downloaded once on a CPU-only container (a few cents) and from
     then on only read. Real-ESRGAN, LaMa, Depth Anything,
@@ -33,9 +34,9 @@ from pathlib import Path
 import modal
 
 ROOT = Path(__file__).resolve().parent.parent
-GPU = "L4"
+GPU = os.environ.get("MODAL_GPU", "T4")   # L4 needs a card on file; T4 does not (24.10)
 # Modal list prices, per second (checked 24.10.2026 on modal.com/pricing)
-PRICE = {"L4": 0.000222, "cpu_core": 0.0000131, "mem_gib": 0.00000222}
+PRICE = {"T4": 0.000164, "L4": 0.000222, "cpu_core": 0.0000131, "mem_gib": 0.00000222}
 
 app = modal.App("prehistoric-channel")
 weights = modal.Volume.from_name("prehistoric-weights", create_if_missing=True)
@@ -118,8 +119,10 @@ def recon_source(slug):
     s = re.sub(r'subprocess\.run\("pip install[^)]*\)\n', "", s, flags=re.S)
     s = s.replace('pathlib.Path("/kaggle/input/whatif-flux-weights/flux4bit")', f'pathlib.Path("{FLUX_4BIT}")')
     s = s.replace('"kaggle-mirror"', '"modal-volume"')
-    # an L4 computes in bfloat16, which is what the NF4 weights were saved for
-    s = s.replace("DTYPE = torch.float16", "DTYPE = torch.bfloat16")
+    # an L4 computes in bfloat16, which the NF4 weights were saved for; a T4 has
+    # no usable bfloat16, so there it stays float16 with CPU offload, as on Kaggle
+    if GPU == "L4":
+        s = s.replace("DTYPE = torch.float16", "DTYPE = torch.bfloat16")
     s = re.sub(r'wpath = "/tmp/RealESRGAN_x4plus\.pth".*', 'wpath = "/w/models/RealESRGAN_x4plus.pth"', s)
     s = re.sub(r'lama_path = "/tmp/big-lama\.pt".*', 'lama_path = "/w/models/big-lama.pt"', s)
     s = re.sub(r'(\n\s*)urllib\.request\.urlretrieve\(([^,]+), (wpath|lama_path)\)',
@@ -156,7 +159,7 @@ def voice_job_dict(slug):
 
 
 def _price(seconds, gpu=True, cores=0.125, mem_gib=16):
-    return round(seconds * ((PRICE["L4"] if gpu else 0) + cores * PRICE["cpu_core"] + mem_gib * PRICE["mem_gib"]), 4)
+    return round(seconds * ((PRICE[GPU] if gpu else 0) + cores * PRICE["cpu_core"] + mem_gib * PRICE["mem_gib"]), 4)
 
 
 @app.local_entrypoint()
