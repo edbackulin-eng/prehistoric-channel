@@ -63,7 +63,7 @@ report = {"images": [], "errors": [], "stages": {}}
 def stage(name, t): report["stages"][name] = round(time.time() - t, 1); print(f"== {name}: {report['stages'][name]} s", flush=True)
 
 subprocess.run("pip install -q -U diffusers torchao transformers accelerate sentencepiece protobuf "
-               "huggingface_hub bitsandbytes psutil spandrel", shell=True)
+               "huggingface_hub bitsandbytes psutil spandrel timm kornia einops rembg onnxruntime", shell=True)
 _mark("install done"); _need_gpu()
 import numpy as np, torch, cv2
 from PIL import Image
@@ -84,9 +84,30 @@ try:
     from diffusers import FluxPipeline, FluxTransformer2DModel
     from diffusers import BitsAndBytesConfig as DiffBnb
     from transformers import BitsAndBytesConfig as TfBnb, T5EncoderModel
-    MIRROR = pathlib.Path("/kaggle/input/whatif-flux-weights/flux4bit")
-    REPO = str(MIRROR) if MIRROR.exists() else "black-forest-labs/FLUX.1-schnell"
-    report["weights_source"] = "kaggle-mirror" if MIRROR.exists() else "huggingface"
+    # 25.10: the mirror was attached (kernel_sources) but not at the path this
+    # code expected, the fallback hit Hugging Face's gate with no token, and no
+    # image was made. So: show what is mounted, look for flux4bit anywhere under
+    # /kaggle/input, then Hugging Face with the token injected at submit time,
+    # and otherwise stop with a clear error instead of a quiet fallback.
+    import glob as _glob
+    _inp = pathlib.Path("/kaggle/input")
+    print("== /kaggle/input (2 levels):", flush=True)
+    for _p in sorted(_inp.glob("*")) + sorted(_inp.glob("*/*")):
+        print("   ", _p, flush=True)
+    _found = [pathlib.Path(x) for x in _glob.glob("/kaggle/input/**/flux4bit", recursive=True)
+              if pathlib.Path(x, "transformer").exists()]
+    report["mirror_candidates"] = [str(x) for x in _found]
+    if _found:
+        REPO = str(_found[0])
+        report["weights_source"] = f"kaggle-mirror:{REPO}"
+    elif JOB.get("hf_token"):
+        os.environ["HF_TOKEN"] = JOB["hf_token"]
+        os.environ["HUGGING_FACE_HUB_TOKEN"] = JOB["hf_token"]
+        REPO = "black-forest-labs/FLUX.1-schnell"
+        report["weights_source"] = "huggingface (token)"
+    else:
+        raise RuntimeError("no FLUX weights: mirror flux4bit not found under /kaggle/input and no HF token")
+    print("FLUX weights from:", report["weights_source"], flush=True)
     te2 = T5EncoderModel.from_pretrained(REPO, subfolder="text_encoder_2", torch_dtype=DTYPE,
             quantization_config=TfBnb(load_in_4bit=True, bnb_4bit_compute_dtype=DTYPE))
     tr = FluxTransformer2DModel.from_pretrained(REPO, subfolder="transformer", torch_dtype=DTYPE,
@@ -161,6 +182,56 @@ for p in PHOTOS.glob("*.jpg"):
         report["errors"].append(f"photo resize {p.stem}: {e}")
 stage("esrgan", t)
 
+# ------------------------------------------- segmentation of the subject
+_SEG = {}
+
+
+def seg_birefnet(img):
+    if "birefnet" not in _SEG:
+        from transformers import AutoModelForImageSegmentation
+        _SEG["birefnet"] = AutoModelForImageSegmentation.from_pretrained(
+            "ZhengPeng7/BiRefNet", trust_remote_code=True).to("cuda").eval().half()
+    x = np.asarray(img.resize((1024, 1024), Image.BILINEAR), np.float32) / 255
+    x = (x - np.array([0.485, 0.456, 0.406], np.float32)) / np.array([0.229, 0.224, 0.225], np.float32)
+    t_ = torch.from_numpy(x).permute(2, 0, 1)[None].cuda().half()
+    with torch.no_grad():
+        pr = _SEG["birefnet"](t_)[-1].sigmoid().float().cpu().numpy()[0, 0]
+    return cv2.resize(pr, img.size, interpolation=cv2.INTER_LINEAR)
+
+
+def seg_isnet(img):
+    if "isnet" not in _SEG:
+        from rembg import new_session
+        _SEG["isnet"] = new_session("isnet-general-use", providers=["CPUExecutionProvider"])
+    from rembg import remove
+    return np.asarray(remove(img, session=_SEG["isnet"], only_mask=True), np.float32) / 255
+
+
+def mask_checks(prob):
+    """A usable animal mask: a sensible share of the frame, one dominant piece,
+    and its centre of mass on (or right next to) the object, not in a gap."""
+    b = (prob > 0.5).astype(np.uint8)
+    h_, w_ = b.shape
+    area = float(b.mean())
+    n_, lab_, st_, _ = cv2.connectedComponentsWithStats(b)
+    if n_ <= 1:
+        return {"ok": False, "why": "empty", "area": 0.0}
+    big = 1 + int(np.argmax(st_[1:, cv2.CC_STAT_AREA]))
+    share = float(st_[big, cv2.CC_STAT_AREA] / b.sum())
+    keep = ((lab_ == big) | np.isin(lab_, [i for i in range(1, n_)
+                                           if st_[i, cv2.CC_STAT_AREA] >= 0.15 * st_[big, cv2.CC_STAT_AREA]]))
+    keep = keep.astype(np.uint8)
+    ys_, xs_ = np.nonzero(keep)
+    cx, cy = float(xs_.mean()), float(ys_.mean())
+    near = cv2.dilate(keep, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (int(0.06 * w_) | 1,) * 2))
+    com_on = bool(near[int(cy), int(cx)])
+    ok = 0.02 <= area <= 0.65 and share >= 0.8 and com_on
+    why = [] if ok else [w for w, bad in (("area", not 0.02 <= area <= 0.65), ("pieces", share < 0.8),
+                                          ("centre off the object", not com_on)) if bad]
+    return {"ok": ok, "why": ", ".join(why), "area": round(area, 3), "main_piece": round(share, 2),
+            "centre": [round(cx / w_, 2), round(cy / h_, 2)], "centre_on_object": com_on, "mask": keep}
+
+
 # ------------------------------------------- 3. depth, 4. mask and LaMa
 _mark("layers"); t = time.time()
 LAY = OUT / "layers"; LAY.mkdir(exist_ok=True)
@@ -183,25 +254,44 @@ try:
         d = cv2.resize(d, (SW, SH), interpolation=cv2.INTER_CUBIC)
         d = (d - d.min()) / max(1e-6, d.max() - d.min())          # 1 = near
         cv2.imwrite(str(LAY / f"{p.stem}_depth.png"), (d * 65535).astype(np.uint16))
-        u8 = (d * 255).astype(np.uint8)
-        thr, _ = cv2.threshold(cv2.GaussianBlur(u8, (5, 5), 0), 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-        fg = (u8 > thr).astype(np.uint8)
-        area = fg.mean()
-        if area > 0.55:                    # mostly near: keep only the nearest part
-            fg = (u8 > np.percentile(u8, 60)).astype(np.uint8)
-        k = cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (7, 7))
-        fg = cv2.morphologyEx(cv2.morphologyEx(fg, cv2.MORPH_OPEN, k), cv2.MORPH_CLOSE, k)
-        n, lab, stats, _ = cv2.connectedComponentsWithStats(fg)
-        keep = np.zeros_like(fg)
-        for i in range(1, n):
-            if stats[i, cv2.CC_STAT_AREA] >= 0.01 * SW * SH:
-                keep[lab == i] = 1
-        fg = keep
-        alpha = cv2.GaussianBlur(fg.astype(np.float32), (0, 0), 1.6)
+        # The foreground is the animal itself, from a segmentation model, not a
+        # depth threshold: 25.10 the depth cut took the corner of a fossil slab
+        # and left the fish on the background. BiRefNet (MIT) runs on the GPU;
+        # IS-Net (rembg, Apache-2.0) runs on the CPU beside it as a fallback and
+        # a second opinion. A mask has to pass the checks below, or the shot
+        # gets no foreground layer and the render gives it a plain Ken Burns.
+        probs = {}
+        try:
+            probs["birefnet"] = seg_birefnet(small)
+        except Exception as _e:
+            report.setdefault("seg_errors", []).append(f"birefnet: {type(_e).__name__}: {str(_e)[:200]}")
+        try:
+            probs["isnet"] = seg_isnet(small)
+        except Exception as _e:
+            report.setdefault("seg_errors", []).append(f"isnet: {type(_e).__name__}: {str(_e)[:200]}")
+        checks = {k: mask_checks(v) for k, v in probs.items()}
+        if len(probs) == 2:
+            _a, _b = (probs["birefnet"] > 0.5), (probs["isnet"] > 0.5)
+            iou = float((_a & _b).sum() / max(1, (_a | _b).sum()))
+        else:
+            iou = None
+        chosen = next((k for k in ("birefnet", "isnet") if k in checks and checks[k]["ok"]), None)
+        if chosen and iou is not None and iou < 0.5:
+            chosen = None          # the two models disagree about what the subject is
+        if chosen:
+            fg = checks[chosen]["mask"]
+            prob = probs[chosen] * fg
+        else:
+            fg = np.zeros((SH, SW), np.uint8)
+            prob = fg.astype(np.float32)
+        thr = 0
+        alpha = cv2.GaussianBlur(np.clip(prob, 0, 1).astype(np.float32), (0, 0), 1.2)
         hole = cv2.dilate(fg, cv2.getStructuringElement(cv2.MORPH_ELLIPSE, (2 * DILATE + 1, 2 * DILATE + 1)))
         info = {"id": p.stem, "fg_area": round(float(fg.mean()), 3), "hole_area": round(float(hole.mean()), 3),
-                "otsu": int(thr), "dilate_px_at_1408": DILATE}
-        if fg.mean() > 0.002:
+                "segmentation": chosen or "none - Ken Burns", "iou_birefnet_isnet": None if iou is None else round(iou, 3),
+                "checks": {k: {kk: vv for kk, vv in c.items() if kk != "mask"} for k, c in checks.items()},
+                "dilate_px_at_1408": DILATE}
+        if chosen and fg.mean() > 0.002:
             x = torch.from_numpy(np.asarray(small)).permute(2, 0, 1).float().div(255)[None].cuda()
             m = torch.from_numpy(hole).float()[None, None].cuda()
             with torch.no_grad():
@@ -211,8 +301,9 @@ try:
             hole_big = cv2.resize(cv2.GaussianBlur(hole.astype(np.float32), (0, 0), 2), (W, H))[..., None]
             bg = (full * (1 - hole_big) + filled * hole_big).astype(np.uint8)
             Image.fromarray(bg).save(LAY / f"{p.stem}_bg.jpg", quality=93)
-        a_big = cv2.resize(alpha, (W, H), interpolation=cv2.INTER_LINEAR)
-        cv2.imwrite(str(LAY / f"{p.stem}_alpha.png"), (a_big * 255).astype(np.uint8))
+        if chosen:
+            a_big = cv2.resize(alpha, (W, H), interpolation=cv2.INTER_LINEAR)
+            cv2.imwrite(str(LAY / f"{p.stem}_alpha.png"), (a_big * 255).astype(np.uint8))
         report.setdefault("layers", []).append(info)
         print("  layers", info, flush=True)
 except Exception as e:

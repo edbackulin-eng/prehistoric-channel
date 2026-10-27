@@ -26,6 +26,7 @@ import soundfile as sf
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "gpu" / "kernels"))
+sys.path.insert(0, str(ROOT / "gpu"))
 W = ROOT / "work" / "smoke"
 failures = []
 
@@ -53,6 +54,32 @@ def main():
     src = modal_app.recon_source("smoke")
     vsrc = modal_app.voice_source("smoke")
     check("modal sources", "/kaggle/" not in src + vsrc and "flux4bit" in src, f"{len(src)}+{len(vsrc)} chars")
+
+    # a kernel is judged by its output, not by Kaggle's COMPLETE (25.10)
+    import kaggle_once
+    for label, rep, want, expect in (
+            ("0 of 14 images", {"images": [], "errors": ["flux: 401"]}, 14, False),
+            ("13 of 14, no errors", {"images": [{}] * 13, "errors": []}, 14, True),
+            ("14 of 14 but an error", {"images": [{}] * 14, "errors": ["layers: x"]}, 14, False)):
+        d = W / "once" / label.replace(" ", "_")
+        d.mkdir(parents=True, exist_ok=True)
+        (d / "report.json").write_text(json.dumps(rep), encoding="utf-8")
+        ok, why = kaggle_once.validate("recon", d, want)
+        check(f"kernel output check: {label}", ok == expect, why)
+
+    # the 2.5D mask rules: one clear subject passes, scraps and empty fail
+    import recon_job
+    src = recon_job.SOURCE
+    g = {"np": np, "cv2": cv2, "Image": None}
+    exec(src[src.index("_SEG = {}"): src.index("# ------------------------------------------- 3. depth")], g)
+    blob = np.zeros((792, 1408), np.float32)
+    cv2.ellipse(blob, (700, 400), (300, 160), 0, 0, 360, 1.0, -1)
+    scraps = np.zeros_like(blob)
+    for i in range(12):
+        cv2.circle(scraps, (100 + i * 110, 200 + (i % 3) * 180), 30, 1.0, -1)
+    check("mask: one subject passes", g["mask_checks"](blob)["ok"])
+    check("mask: scattered scraps fail", not g["mask_checks"](scraps)["ok"])
+    check("mask: empty fails", not g["mask_checks"](np.zeros_like(blob))["ok"])
 
     from core import narrate
     k = narrate.load_kokoro()

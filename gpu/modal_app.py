@@ -118,6 +118,12 @@ def recon_source(slug):
     s = s.replace('"/kaggle/working"', f'"{out}"')
     s = re.sub(r'subprocess\.run\("pip install[^)]*\)\n', "", s, flags=re.S)
     s = s.replace('pathlib.Path("/kaggle/input/whatif-flux-weights/flux4bit")', f'pathlib.Path("{FLUX_4BIT}")')
+    # the mirror search looks under the Volume instead of Kaggle's inputs
+    s = s.replace('_inp = pathlib.Path("/kaggle/input")', '_inp = pathlib.Path("/w")')
+    s = s.replace('_glob.glob("/kaggle/input/**/flux4bit", recursive=True)', f'_glob.glob("{FLUX_4BIT}")')
+    s = s.replace('print("== /kaggle/input (2 levels):", flush=True)', 'print("== /w (2 levels):", flush=True)')
+    s = s.replace('mirror flux4bit not found under /kaggle/input', 'flux4bit not found in the Volume')
+    s = re.sub(r"#[^\n]*/kaggle/[^\n]*", "#", s)      # comments that still name Kaggle paths
     s = s.replace('"kaggle-mirror"', '"modal-volume"')
     # an L4 computes in bfloat16, which the NF4 weights were saved for; a T4 has
     # no usable bfloat16, so there it stays float16 with CPU offload, as on Kaggle

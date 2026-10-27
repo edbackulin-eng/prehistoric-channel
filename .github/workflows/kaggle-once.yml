@@ -28,6 +28,7 @@ env:
   SLUG: ${{ inputs.slug }}
   KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
   KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+  HF_TOKEN: ${{ secrets.HF_TOKEN }}         # injected into the private notebook at submit time only
   GH_TOKEN: ${{ github.token }}
   GPU_MAX_WAIT_S: "17000"
 

@@ -47,6 +47,7 @@ jobs:
       MODAL_TOKEN_SECRET: ${{ secrets.MODAL_TOKEN_SECRET }}
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -179,4 +180,5 @@ jobs:
             work/${{ inputs.slug }}/samples_report.json
             work/${{ inputs.slug }}/timing_${{ inputs.res }}.json
             work/${{ inputs.slug }}/inputs/kaggle_recon_report.json
+            work/${{ inputs.slug }}/inputs/mask_check.json
             test/

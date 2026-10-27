@@ -134,8 +134,12 @@ def prepare(slug, res):
     plan["narration"] = data["report"]
     (W(slug) / "plan.json").write_text(json.dumps(plan, indent=1, ensure_ascii=False), encoding="utf-8")
     fetch_media(slug, plan)
-    fetch_layers(slug)
+    layers = fetch_layers(slug)
     fetch_voice(slug)
+    from pipeline import maskcheck
+    mc = maskcheck.check(layers, W(slug) / "inputs" / "mask_check.json")
+    log.info("mask check: %s", {k: v.get("kept", v.get("verdict")) for k, v in mc["masks"].items()}
+             or mc.get("skipped"))
     log.info("plan: %d shots, %d parts, %.1f s", len(plan["shots"]), len(plan["parts"]), plan["total_s"])
     return plan
 

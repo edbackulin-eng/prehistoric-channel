@@ -20,7 +20,9 @@ strictly last:
 Exit codes: 0 done, 3 not yet (the workflow restarts itself), other = failure.
 """
 import json
+import math
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -158,6 +160,14 @@ def build(task, slug, folder):
         spec = json.loads((ROOT / "episodes" / slug / "recon.json").read_text(encoding="utf-8"))
         job = {k: spec[k] for k in ("style", "seeds", "prompts", "thumbs", "photos")}
         job["two_seeds"] = spec.get("two_seeds", [])
+        want = len(job["prompts"]) + len(job["two_seeds"]) + 2 * len(job["thumbs"])
+        # The Hugging Face token goes into the notebook at submit time and into
+        # nothing else: no job file, no repository (as whatif-channel's
+        # kaggle/push.py does it). The kernel is private, and the token is only
+        # used if the weight mirror cannot be found.
+        token = os.environ.get("HF_TOKEN", "").strip()
+        if token:
+            job["hf_token"] = token
         cell = f"JOB = {json.dumps(job, indent=1)}\n{recon_job.SOURCE}"
         sources = [f"{user()}/whatif-flux-weights"]          # the 4-bit FLUX mirror, read only
     else:
@@ -165,6 +175,7 @@ def build(task, slug, folder):
         sys.path.insert(0, str(ROOT / "gpu"))
         import modal_app
         job = modal_app.voice_job_dict(slug)
+        want = len(job["lines"])
         cell = f"JOB = {json.dumps(job, indent=1)}\n{voice_job.WATCHDOG}\n{voice_job.body()}"
         sources = []
     nb = {"cells": [{"cell_type": "code", "metadata": {}, "execution_count": None, "outputs": [],
@@ -177,7 +188,7 @@ def build(task, slug, folder):
             "enable_internet": True, "dataset_sources": [], "competition_sources": [],
             "kernel_sources": sources}
     (folder / "kernel-metadata.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
-    return meta["id"]
+    return meta["id"], want
 
 
 def lost_race(ref):
@@ -208,21 +219,58 @@ def wait_done(ref, timeout_s):
     return False
 
 
+def validate(task, out, want):
+    """(ok, why). A kernel counts as done only by what it produced: Kaggle marks
+    a session COMPLETE even when every image in it failed (25.10: FLUX hit a
+    401, the run still read as a success, and voice and render went ahead with
+    nothing to show)."""
+    rp = out / "report.json"
+    if not rp.exists():
+        return False, "no report.json in the kernel output"
+    r = json.loads(rp.read_text(encoding="utf-8"))
+    errors = r.get("errors") or []
+    if task == "recon":
+        got = len(r.get("images") or [])
+        files = len(list((out / "up").glob("*.jpg"))) if (out / "up").exists() else 0
+        need = math.ceil(0.9 * want)
+        ok = got >= need and not errors
+        return ok, (f"{got}/{want} images (need {need}), {files} upscaled files, "
+                    f"weights: {r.get('weights_source')}, errors: {errors[:3]}")
+    got = len(r.get("lines") or [])
+    wavs = len(list(out.glob("line_*.wav")))
+    ok = got >= want and wavs >= want and not errors
+    return ok, f"{got}/{want} lines, {wavs} line files, errors: {errors[:3]}"
+
+
+def pull(ref, out):
+    shutil.rmtree(out, ignore_errors=True)
+    out.mkdir(parents=True, exist_ok=True)
+    say(kaggle("kernels", "output", ref, "-p", str(out), timeout=1800)[-300:])
+
+
 def main(task, slug):
+    """0: done and valid. 3: no free slot yet (the workflow retries). 1: the
+    kernel ran and its output is not good enough - the chain stops here."""
     ref = f"{user()}/{SLUGS[task]}"
     out = ROOT / "gpu" / f"results_{task}"
     usage_p = ROOT / "state" / "kaggle_once.json"
     usage = json.loads(usage_p.read_text()) if usage_p.exists() else []
+    folder = Path(tempfile.mkdtemp())
+    _, want = build(task, slug, folder)
     st = status(ref)
     started = None
-    if st == "complete" and any(u["task"] == task and u.get("ok") for u in usage):
-        say(f"{ref} already finished")
-    elif st in ("running", "queued", "pending"):
+    if st == "complete":
+        pull(ref, out)
+        ok, why = validate(task, out, want)
+        if ok:
+            say(f"{ref} already finished and its output is good: {why}")
+            return 0
+        say(f"{ref} finished earlier but its output is not good enough ({why}); running it again")
+        st = None
+    if st in ("running", "queued", "pending"):
         say(f"{ref} already {st}; waiting for it")
         started = datetime.now(timezone.utc)
     else:
-        folder = Path(tempfile.mkdtemp())
-        build(task, slug, folder)
         t0, idle_since = time.time(), None
         while True:
             if time.time() - t0 > MAX_WAIT_S:
@@ -257,17 +305,16 @@ def main(task, slug):
                 idle_since, started = None, None
                 continue
             break
-    ok = True
-    if started:
-        ok = wait_done(ref, 3 * 3600)
-        usage.append({"task": task, "ref": ref, "start": started.isoformat(),
-                      "end": datetime.now(timezone.utc).isoformat(),
-                      "hours": round((datetime.now(timezone.utc) - started).total_seconds() / 3600, 3),
-                      "ok": ok})
-        usage_p.parent.mkdir(exist_ok=True)
-        usage_p.write_text(json.dumps(usage, indent=1))
-    out.mkdir(parents=True, exist_ok=True)
-    say(kaggle("kernels", "output", ref, "-p", str(out), timeout=1800)[-500:])
+    finished = wait_done(ref, 3 * 3600)
+    pull(ref, out)
+    ok, why = validate(task, out, want) if finished else (False, f"kernel ended as {status(ref)}")
+    usage.append({"task": task, "ref": ref, "start": started.isoformat(),
+                  "end": datetime.now(timezone.utc).isoformat(),
+                  "hours": round((datetime.now(timezone.utc) - started).total_seconds() / 3600, 3),
+                  "ok": ok, "check": why})
+    usage_p.parent.mkdir(exist_ok=True)
+    usage_p.write_text(json.dumps(usage, indent=1))
+    say(("output good: " if ok else "OUTPUT NOT GOOD ENOUGH - stopping the chain: ") + why)
     return 0 if ok else 1
 
 
