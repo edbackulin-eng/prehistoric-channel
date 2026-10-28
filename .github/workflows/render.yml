@@ -28,6 +28,9 @@ on:
       layer_jobs:
         description: CPU jobs for the 2.5D layers, in parallel
         default: "8"
+      layers_run:
+        description: reuse the layers and narration of this earlier render run (its id), instead of making them again
+        default: ""
 
 permissions:
   contents: read
@@ -53,6 +56,7 @@ jobs:
 
   layers:
     needs: shards
+    if: inputs.layers_run == ''
     runs-on: ubuntu-24.04
     timeout-minutes: 150
     strategy:
@@ -94,6 +98,7 @@ jobs:
           path: work/${{ inputs.slug }}/layers_cpu/
 
   narration:
+    if: inputs.layers_run == ''
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     steps:
@@ -114,8 +119,9 @@ jobs:
 
   prepare:
     needs: [layers, narration]
+    if: ${{ !cancelled() && contains(fromJSON('["success","skipped"]'), needs.layers.result) && contains(fromJSON('["success","skipped"]'), needs.narration.result) }}
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 150
     outputs:
       parts: ${{ steps.plan.outputs.parts }}
     env:
@@ -150,10 +156,14 @@ jobs:
           pattern: layers-*
           merge-multiple: true
           path: work/${{ inputs.slug }}/layers_cpu/
+          run-id: ${{ inputs.layers_run || github.run_id }}
+          github-token: ${{ github.token }}
       - uses: actions/download-artifact@v5
         with:
           name: narration
           path: work/${{ inputs.slug }}/inputs/
+          run-id: ${{ inputs.layers_run || github.run_id }}
+          github-token: ${{ github.token }}
       - name: German narration, 2.5D layers, species check, plan, footage, voice lines
         run: python automation/build_doc.py prepare "$SLUG" --res "$RES" --parts "${{ inputs.parts }}"
       - id: plan

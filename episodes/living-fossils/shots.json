@@ -1,5 +1,5 @@
 {
- "_note": "One entry per narration line (de-DE), matched by the line's opening words. Each beat is a shot; a line's time is split across its beats. kinds: real (stock / PD / CC BY footage), recon (FLUX reconstruction of an extinct animal or a lost landscape -> 2.5D), photo (real PD / CC0 / CC BY still -> 2.5D), anim (drawn in code). Living species are never 'recon'. 'species' names the checklist pipeline/speciescheck.py asks Gemini about; 'alts' are further candidates, tried in order when one fails; 'archive' marks a historical photograph, judged on whether it shows the animal at all rather than on every feature. 'cut' opens a new movement: a hard cut, and a place a render part may start. 'amb' names the atmosphere bed; 'fx' the particle layer on a 2.5D shot.",
+ "_note": "One entry per narration line (de-DE), matched by the line's opening words. Each beat is a shot; a line's time is split across its beats. kinds: real (stock / PD / CC BY footage), recon (FLUX reconstruction of an extinct animal or a lost landscape -> 2.5D), photo (real PD / CC0 / CC BY still -> 2.5D), anim (drawn in code). Living species are never 'recon'. 'species' names the checklist pipeline/speciescheck.py asks Gemini about; 'alts' are further candidates, tried in order when one fails; 'archive' marks a historical photograph, judged on whether it shows the animal at all rather than on every feature. 'cut' opens a new movement: a hard cut, and a place a render part may start. 'amb' names the atmosphere bed; 'fx' the particle layer on a 2.5D shot. 'allow' lists objects that belong in a beat's real pictures and are not off topic there (a museum specimen's label and case; the bait cage of the only open-licence nautilus footage).",
  "lines": [
   {
    "at": "Vor sechsundsechzig Millionen",
@@ -94,7 +94,18 @@
       "Perlboot",
       "Nautilus pompilius"
      ],
-     "brief": "a living chambered nautilus swimming"
+     "brief": "a living chambered nautilus swimming",
+     "allow": [
+      "bait",
+      "camera",
+      "cage",
+      "pole",
+      "research",
+      "equipment",
+      "can",
+      "container",
+      "rope"
+     ]
     }
    ]
   },
@@ -225,7 +236,21 @@
       "coel_harvard"
      ],
      "species": "latimeria",
-     "fx": "dust"
+     "fx": "dust",
+     "allow": [
+      "text",
+      "label",
+      "display",
+      "case",
+      "glass",
+      "museum",
+      "sign",
+      "plaque",
+      "stand",
+      "mount",
+      "wall",
+      "pedestal"
+     ]
     }
    ]
   },
@@ -241,7 +266,21 @@
       "coel_museum_vivente"
      ],
      "species": "latimeria",
-     "fx": "dust"
+     "fx": "dust",
+     "allow": [
+      "text",
+      "label",
+      "display",
+      "case",
+      "glass",
+      "museum",
+      "sign",
+      "plaque",
+      "stand",
+      "mount",
+      "wall",
+      "pedestal"
+     ]
     }
    ]
   },
@@ -296,7 +335,21 @@
       "coel_shirshov"
      ],
      "species": "latimeria",
-     "fx": "dust"
+     "fx": "dust",
+     "allow": [
+      "text",
+      "label",
+      "display",
+      "case",
+      "glass",
+      "museum",
+      "sign",
+      "plaque",
+      "stand",
+      "mount",
+      "wall",
+      "pedestal"
+     ]
     }
    ]
   },
@@ -316,6 +369,20 @@
      "label": [
       "Quastenflosser",
       "Latimeria chalumnae"
+     ],
+     "allow": [
+      "text",
+      "label",
+      "display",
+      "case",
+      "glass",
+      "museum",
+      "sign",
+      "plaque",
+      "stand",
+      "mount",
+      "wall",
+      "pedestal"
      ]
     }
    ]
@@ -355,7 +422,21 @@
       "coel_paris",
       "coel_museum_vivente"
      ],
-     "species": "latimeria"
+     "species": "latimeria",
+     "allow": [
+      "text",
+      "label",
+      "display",
+      "case",
+      "glass",
+      "museum",
+      "sign",
+      "plaque",
+      "stand",
+      "mount",
+      "wall",
+      "pedestal"
+     ]
     },
     {
      "kind": "real",
@@ -439,7 +520,21 @@
      ],
      "species": "latimeria",
      "fx": "marine_snow",
-     "topic": "a coelacanth among dark volcanic rocks, its cave habitat"
+     "topic": "a coelacanth among dark volcanic rocks, its cave habitat",
+     "allow": [
+      "text",
+      "label",
+      "display",
+      "case",
+      "glass",
+      "museum",
+      "sign",
+      "plaque",
+      "stand",
+      "mount",
+      "wall",
+      "pedestal"
+     ]
     }
    ]
   },

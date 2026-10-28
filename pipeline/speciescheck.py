@@ -45,6 +45,7 @@ ROOT = Path(__file__).resolve().parent.parent
 MODELS = ("gemini-flash-latest", "gemini-flash-lite-latest")
 URL = "https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent"
 WANT_PASSING = 2          # enough for a line long enough to need a second shot
+_SPENT = set()            # models out of quota for the rest of this run
 
 SPECIES = {
     "crocodile": {
@@ -120,7 +121,7 @@ Look at the image(s) - {what} - and answer with JSON only:
  "species_match": true|false|null,
  "features": {{{features_json}}},
  "forbidden_seen": [<every item from the forbidden list that you do see>],
- "fits_narration": true|false,
+ "fits_narration": true|false,   // true if it shows what "The picture should show" describes, or is a fair documentary stand-in for the line (a sea for a voyage, a harbour coast for a harbour); false only if it contradicts or distracts from it
  "off_topic_objects": [<objects that do not belong under this line: candles, books (unless books are spoken of), people, text, logos, watermarks, modern objects, buildings, vehicles>],
  "people": true|false,
  "text_or_logo": true|false,
@@ -160,7 +161,9 @@ def ask(key, images, line, species=None, topic=None, archive=False, what="one st
                "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}
     last = None
     for model in MODELS:
-        for attempt in range(4):
+        if model in _SPENT:
+            continue
+        for attempt in range(2):
             try:
                 req = urllib.request.Request(URL.format(m=model), data=json.dumps(payload).encode(),
                                              headers={"Content-Type": "application/json", "x-goog-api-key": key})
@@ -172,9 +175,13 @@ def ask(key, images, line, species=None, topic=None, archive=False, what="one st
                 return v
             except urllib.error.HTTPError as e:
                 last = f"HTTP {e.code}"
-                if e.code == 429 and attempt < 3:
-                    time.sleep(20 * (attempt + 1))
+                if e.code == 429 and attempt == 0:
+                    time.sleep(8)
                     continue
+                if e.code == 429:
+                    # 28.10: waiting out 429s took two minutes a picture and the job ran
+                    # out of time; a model that is out of quota is set aside for the run
+                    _SPENT.add(model)
                 break                                   # 404 / quota: try the next model
             except Exception as e:                      # noqa: BLE001
                 last = f"{type(e).__name__}: {str(e)[:120]}"
@@ -182,8 +189,10 @@ def ask(key, images, line, species=None, topic=None, archive=False, what="one st
     return {"error": last}
 
 
-def passes(v, species=None, archive=False):
-    """(ok, why)."""
+def passes(v, species=None, archive=False, allow=()):
+    """(ok, why). `allow`: words for objects that belong in this beat's pictures
+    (a museum specimen's label and case, the bait cage of the only nautilus footage)."""
+    allow = [a.lower() for a in allow]
     if "error" in v:
         return None, v["error"]
     why = []
@@ -203,11 +212,11 @@ def passes(v, species=None, archive=False):
             why.append("forbidden: " + "; ".join(map(str, v["forbidden_seen"])))
     if v.get("fits_narration") is False:
         why.append("does not fit the line")
-    off = [o for o in (v.get("off_topic_objects") or [])
-           if not (archive and any(w in str(o).lower() for w in ("people", "person", "text", "man", "woman")))]
+    ok_words = list(allow) + (["people", "person", "text", "man", "woman"] if archive else [])
+    off = [o for o in (v.get("off_topic_objects") or []) if not any(w in str(o).lower() for w in ok_words)]
     if off:
         why.append("off topic: " + "; ".join(map(str, off)))
-    if not archive and (v.get("people") or v.get("text_or_logo")):
+    if not archive and ((v.get("people") and "people" not in allow) or (v.get("text_or_logo") and "text" not in allow)):
         why.append("people or text in shot")
     return not why, ", ".join(why)
 
@@ -265,9 +274,13 @@ def check(slug, layers, out_dir, timeline=None):
             species, archive = beat.get("species"), bool(beat.get("archive"))
             row = {"beat": bk, "kind": beat["kind"], "line": line, "species": species, "candidates": []}
             passing = []
+            tried = set()
             for cid, kind, src in candidates(beat, footage, layers):
                 if len(passing) >= WANT_PASSING:
                     break
+                if cid in tried:                     # an alternate listed twice
+                    continue
+                tried.add(cid)
                 fr = _frames(cid, src, out_dir)
                 label = source_label(kind, src)
                 if not fr:
@@ -281,7 +294,7 @@ def check(slug, layers, out_dir, timeline=None):
                 what = "three frames from the start, middle and end of one video clip" if kind == "real" \
                     else "one still image"
                 v = ask(key, fr, line, species, beat.get("topic"), archive, what)
-                ok, why = passes(v, species, archive)
+                ok, why = passes(v, species, archive, beat.get("allow", ()))
                 if ok is None:                       # the checker failed, not the picture: keep it
                     ok, why = True, f"unchecked ({why})"
                 row["candidates"].append({"id": cid, "pass": ok, "why": why, "answer": v, "source": label,
@@ -289,7 +302,7 @@ def check(slug, layers, out_dir, timeline=None):
                 log.info("%-22s %-34s %s %s", bk, cid, "PASS" if ok else "fail", why)
                 if ok:
                     passing.append(cid)
-                time.sleep(3)
+                time.sleep(1.5)
             picks[bk] = passing
             row["picks"] = passing
             row["action"] = ("kept" if passing and passing[0] == candidates(beat, footage, layers)[0][0]
