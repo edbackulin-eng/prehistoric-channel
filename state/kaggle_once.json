@@ -32,5 +32,14 @@
   "hours": 0.058,
   "ok": false,
   "check": "0/23 images (need 21), 2 upscaled files, weights: kaggle-mirror:/kaggle/input/notebooks/metberi/whatif-flux-weights/flux4bit, errors: ['flux: OSError: Error no file named model.safetensors, or pytorch_model.bin, found in directory /kaggle/input/notebooks/metberi/whatif-flux-weights/flux4bit.']"
+ },
+ {
+  "task": "recon",
+  "ref": "metberi/prehistoric-recon",
+  "start": "2026-10-28T07:49:03.644467+00:00",
+  "end": "2026-10-28T08:21:15.956031+00:00",
+  "hours": 0.537,
+  "ok": true,
+  "check": "23/23 images (need 21), 25 upscaled files, weights: kaggle-mirror:/kaggle/input/notebooks/metberi/whatif-flux-weights/flux4bit, errors: []"
  }
 ]
