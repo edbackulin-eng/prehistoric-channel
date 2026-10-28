@@ -68,10 +68,11 @@ jobs:
         with:
           python-version: "3.11"
           cache: pip
+      # transformers 5 needs torch >= 2.6 and, without it, fails as "name 'torch' is not defined" (28.10)
       - name: CPU models (torch for the CPU, the 2.5D models' libraries)
         run: |
-          pip install -q torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cpu
-          pip install -q "transformers>=4.48,<6" timm kornia einops spandrel==0.4.1 rembg onnxruntime \
+          pip install -q torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cpu
+          pip install -q transformers==4.56.2 timm kornia einops spandrel==0.4.1 rembg onnxruntime \
             opencv-python-headless pillow "numpy<2.2" kaggle
       - uses: actions/cache@v4
         with:

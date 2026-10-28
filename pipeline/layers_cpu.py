@@ -258,8 +258,10 @@ def main(slug, shard, shards, raw_dir=None):
             print(json.dumps({k: r[k] for k in ("id", "esrgan_s", "depth_s", "segment_s", "lama_s", "total_s",
                                                 "segmentation")}), flush=True)
         except Exception as e:                                       # noqa: BLE001
+            import traceback
             rep["errors"].append(f"{fid}: {type(e).__name__}: {str(e)[:200]}")
             print("FAILED", fid, e, flush=True)
+            traceback.print_exc()
     rep["wall_s"] = round(time.perf_counter() - t0, 1)
     (out / f"report_{shard}.json").write_text(json.dumps(rep, indent=1), encoding="utf-8")
     return 0 if not rep["errors"] else 1
