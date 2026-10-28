@@ -182,6 +182,12 @@ def record(ref, started, finished):
     LEDGER.write_text(json.dumps(rows, indent=1), encoding="utf-8")
 
 
+def job_line(job):
+    """JOB as a line of Python. Not json.dumps pasted in: JSON's true/false/null
+    are not Python (28.10: the German voice kernel died on "required": true)."""
+    return f"import json as _json\nJOB = _json.loads({json.dumps(json.dumps(job, ensure_ascii=False))})"
+
+
 def build(task, slug, folder):
     folder.mkdir(parents=True, exist_ok=True)
     if task == "recon":
@@ -203,7 +209,7 @@ def build(task, slug, folder):
         token = os.environ.get("HF_TOKEN", "").strip()
         if token:
             job["hf_token"] = token
-        cell = f"JOB = {json.dumps(job, indent=1)}\n{recon_job.flux_source()}"
+        cell = f"{job_line(job)}\n{recon_job.flux_source()}"
         sources = [f"{user()}/whatif-flux-weights"]          # the 4-bit FLUX mirror, read only
     else:
         # German samples A and C: Chatterbox Multilingual (gpu/kernels/voice_de_job.py)
@@ -211,8 +217,7 @@ def build(task, slug, folder):
         import voice_job
         job = voice_de_job.job(slug)
         want = len(job["lines"])
-        cell = (f"JOB = {json.dumps(job, indent=1, ensure_ascii=False)}\n{voice_job.WATCHDOG}\n"
-                f"{voice_de_job.SOURCE}")
+        cell = f"{job_line(job)}\n{voice_job.WATCHDOG}\n{voice_de_job.SOURCE}"
         sources = []
     nb = {"cells": [{"cell_type": "code", "metadata": {}, "execution_count": None, "outputs": [],
                      "source": cell.splitlines(keepends=True)}],

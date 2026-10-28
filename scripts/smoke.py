@@ -87,6 +87,16 @@ def main():
     compile("JOB = {}\n" + fsrc, "flux_only", "exec")
     check("GPU job is FLUX only", "esrgan" not in fsrc.lower() and "big-lama" not in fsrc
           and "new_session" not in fsrc and "depth-estimation" not in fsrc and "RAW = OUT" in fsrc)
+    # the JOB line each kernel starts with must run as Python, booleans included
+    import voice_de_job
+    for name, job in (("voice", voice_de_job.job("living-fossils")),
+                      ("recon", {"prompts": {"a": "b"}, "flag": True, "none": None})):
+        g2 = {}
+        try:
+            exec(kaggle_once.job_line(job), g2)
+            check(f"kernel JOB line runs ({name})", g2["JOB"] == job)
+        except Exception as e:                                   # noqa: BLE001
+            check(f"kernel JOB line runs ({name})", False, repr(e)[:200])
     from pipeline import layers_cpu
     check("CPU mask rules match", layers_cpu.mask_checks(blob)["ok"] and not layers_cpu.mask_checks(scraps)["ok"])
 
