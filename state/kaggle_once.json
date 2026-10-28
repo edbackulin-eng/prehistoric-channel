@@ -41,5 +41,23 @@
   "hours": 0.537,
   "ok": true,
   "check": "23/23 images (need 21), 25 upscaled files, weights: kaggle-mirror:/kaggle/input/notebooks/metberi/whatif-flux-weights/flux4bit, errors: []"
+ },
+ {
+  "task": "recon",
+  "ref": "metberi/prehistoric-recon",
+  "start": "2026-10-28T14:56:50.158516+00:00",
+  "end": "2026-10-28T15:53:03.330481+00:00",
+  "hours": 0.937,
+  "ok": true,
+  "check": "21/21 images (need 19), 29 upscaled files, weights: kaggle-mirror:/kaggle/input/notebooks/metberi/whatif-flux-weights/flux4bit, errors: []"
+ },
+ {
+  "task": "voice",
+  "ref": "metberi/prehistoric-voice",
+  "start": "2026-10-28T16:08:44.547450+00:00",
+  "end": "2026-10-28T16:09:06.493096+00:00",
+  "hours": 0.006,
+  "ok": false,
+  "check": "kernel ended as error"
  }
 ]
