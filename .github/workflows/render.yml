@@ -1,9 +1,12 @@
 name: render
 
-# Render an episode on GitHub's machines: one job prepares the inputs, one job
-# per part renders its stretch of picture in parallel, and a last job joins
-# the parts with -c copy, mixes the sound and muxes. Started by hand only:
-# this channel has no schedule and uploads nothing.
+# Render an episode on GitHub's machines. Kaggle's GPU has made the FLUX frames
+# and nothing else; here, in parallel: a matrix of CPU jobs turns every frame
+# and photograph into its 2.5D layers (Real-ESRGAN, depth, masks, LaMa -
+# pipeline/layers_cpu.py) while one job narrates with Piper. Then one job
+# prepares the inputs (species check, plan), one job per part renders its
+# stretch of picture, and a last job joins the parts with -c copy, mixes the
+# sound and muxes. Started by hand only: this channel uploads nothing.
 on:
   workflow_dispatch:
     inputs:
@@ -20,8 +23,11 @@ on:
         description: also make the three German 40-second voice samples (A, B, C)
         default: "true"
       gpu_source:
-        description: where the reconstructions and voice lines are (modal or kaggle)
-        default: modal
+        description: where the FLUX frames and voice lines are (kaggle; modal is no longer used)
+        default: kaggle
+      layer_jobs:
+        description: CPU jobs for the 2.5D layers, in parallel
+        default: "8"
 
 permissions:
   contents: read
@@ -37,7 +43,76 @@ env:
   RES: ${{ inputs.res }}
 
 jobs:
+  shards:
+    runs-on: ubuntu-24.04
+    outputs:
+      list: ${{ steps.n.outputs.list }}
+    steps:
+      - id: n
+        run: echo "list=$(python3 -c "print(list(range(int('${{ inputs.layer_jobs }}'))))")" >> "$GITHUB_OUTPUT"
+
+  layers:
+    needs: shards
+    runs-on: ubuntu-24.04
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      matrix:
+        k: ${{ fromJSON(needs.shards.outputs.list) }}
+    env:
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: CPU models (torch for the CPU, the 2.5D models' libraries)
+        run: |
+          pip install -q torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cpu
+          pip install -q "transformers>=4.48,<6" timm kornia einops spandrel==0.4.1 rembg onnxruntime \
+            opencv-python-headless pillow "numpy<2.2" kaggle
+      - uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cache/huggingface
+            ~/.u2net
+            assets/models/layers
+          key: layers-models-v1
+      - name: The FLUX frames from Kaggle
+        run: python gpu/kaggle_once.py fetch recon
+      - name: 2.5D layers, shard ${{ matrix.k }} of ${{ inputs.layer_jobs }}
+        run: python -m pipeline.layers_cpu "$SLUG" ${{ matrix.k }} ${{ inputs.layer_jobs }}
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: layers-${{ matrix.k }}
+          retention-days: 2
+          compression-level: 0
+          path: work/${{ inputs.slug }}/layers_cpu/
+
+  narration:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - run: python automation/fetch_models.py
+      - name: German narration (Piper, Thorsten, CPU)
+        run: python -c "import sys; sys.path.insert(0, '.'); from automation import build_doc; print(build_doc.narration('$SLUG')[1]['report'])"
+      - uses: actions/upload-artifact@v5
+        with:
+          name: narration
+          retention-days: 2
+          path: work/${{ inputs.slug }}/inputs/narration_*
+
   prepare:
+    needs: [layers, narration]
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     outputs:
@@ -66,9 +141,18 @@ jobs:
           { echo "MODAL_TOKEN_ID=$id"; echo "MODAL_TOKEN_SECRET=$sec"; } >> "$GITHUB_ENV"
       - name: Models, music, atmosphere, maps
         run: python automation/fetch_assets.py
-      - name: GPU results from the one-off Kaggle run
+      - name: The FLUX report and the voice lines from Kaggle
         if: inputs.gpu_source == 'kaggle'
-        run: python gpu/kaggle_once.py fetch
+        run: python gpu/kaggle_once.py fetch recon voice
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: layers-*
+          merge-multiple: true
+          path: work/${{ inputs.slug }}/layers_cpu/
+      - uses: actions/download-artifact@v5
+        with:
+          name: narration
+          path: work/${{ inputs.slug }}/inputs/
       - name: German narration, 2.5D layers, species check, plan, footage, voice lines
         run: python automation/build_doc.py prepare "$SLUG" --res "$RES" --parts "${{ inputs.parts }}"
       - id: plan
@@ -162,7 +246,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           if [ "$(cat work/$SLUG/forecast_over_hour.txt)" = "yes" ]; then
-            gh workflow run render.yml -R "${{ github.repository }}" -f slug="$SLUG" -f res=1440p -f samples=false               -f gpu_source="${{ inputs.gpu_source }}"
+            gh workflow run render.yml -R "${{ github.repository }}" -f slug="$SLUG" -f res=1440p -f samples=false \
+              -f gpu_source="${{ inputs.gpu_source }}" -f layer_jobs="${{ inputs.layer_jobs }}"
           fi
       - name: Checks
         run: |
@@ -185,5 +270,7 @@ jobs:
             work/${{ inputs.slug }}/inputs/kaggle_recon_report.json
             work/${{ inputs.slug }}/inputs/mask_check.json
             work/${{ inputs.slug }}/inputs/species_check.json
+            work/${{ inputs.slug }}/inputs/cpu_layers_report.json
+            work/${{ inputs.slug }}/inputs/species_picks.json
             work/${{ inputs.slug }}/inputs/subtitles_de.srt
             test/

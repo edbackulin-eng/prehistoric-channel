@@ -71,29 +71,39 @@ def forecast_render(m, plan):
             "with_prepare_min": round((total + m["prepare_s"] * TARGET_S / plan["total_s"]) / 60, 1)}
 
 
-def forecast_gpu(gpu_report, plan, voice_report=None):
+def forecast_week(gpu_report, cpu_summary=None, samples=None, videos=2, frames=60, minutes=25):
+    """GPU hours a week for `videos` episodes of `minutes`, Kaggle doing FLUX
+    alone (at most `frames` an episode), per voice option; and what the CPU
+    stages cost on the runners."""
     r = json.loads(Path(gpu_report).read_text())
     imgs = r.get("images", [])
     n = max(1, len(imgs))
-    st = r.get("stages", {})
     flux_per = sum(i["s"] for i in imgs) / n
-    flux_fixed = max(0, st.get("flux", 0) - flux_per * n)
-    esr_per = st.get("esrgan", 0) / n
-    layers = r.get("layers", [])
-    lay_per = st.get("layers", 0) / max(1, len(layers))
-    recon_shots = sum(1 for s in plan["shots"] if s["kind"] == "recon")
-    scale = TARGET_S / plan["total_s"]
-    n25 = math.ceil(recon_shots * scale)
-    thumbs = 6
-    sec = flux_fixed + (n25 + thumbs) * (flux_per + esr_per) + n25 * lay_per + 300   # +5 min installs
-    out = {"test_kernel_s": r.get("total_s"), "images_test": n, "flux_s_per_image": round(flux_per, 1),
-           "esrgan_s_per_image": round(esr_per, 1), "layers_s_per_image": round(lay_per, 1),
-           "recon_images_25min": n25 + thumbs, "recon_gpu_min_25min": round(sec / 60, 1)}
-    if voice_report and Path(voice_report).exists():
-        v = json.loads(Path(voice_report).read_text())
-        speech = v.get("seconds") or 0
-        # the test kernel's wall time is not in its report; use the ledger entry if present
-        out["chatterbox_audio_s_test"] = round(speech, 1)
+    # what the kernel spends besides the frames themselves: installs, weights, warm-up
+    overhead = max(0.0, (r.get("total_s") or 0) - sum(i["s"] for i in imgs)) if r.get("flux_only") else 300.0
+    flux_ep_h = (overhead + frames * flux_per) / 3600
+    out = {"flux_s_per_frame": round(flux_per, 1), "kernel_overhead_s": round(overhead),
+           "frames_per_episode": frames, "flux_gpu_h_per_episode": round(flux_ep_h, 2),
+           "flux_gpu_h_per_week": round(videos * flux_ep_h, 2), "voices": {}}
+    for key in ("A", "B", "C"):
+        v = (samples or {}).get(key) or {}
+        if key == "B":
+            ep = 0.0
+        elif "gpu_s_per_audio_min" in v:
+            ep = (v["gpu_s_per_audio_min"] * minutes + (v.get("model_load_s") or 0) + 240) / 3600   # +4 min installs
+        else:
+            out["voices"][key] = {"missing": True}
+            continue
+        out["voices"][key] = {"voice_gpu_h_per_episode": round(ep, 2),
+                              "gpu_h_per_week": round(videos * (flux_ep_h + ep), 2)}
+    if cpu_summary:
+        per = (cpu_summary.get("per_flux_frame_s") or {}).get("total_s")
+        allf = (cpu_summary.get("per_frame_all_s") or {}).get("total_s")
+        cpu_s = frames * (per or 0)
+        out["cpu_layers"] = {"s_per_flux_frame": per, "s_per_frame_incl_photos": allf, "flux_frames_per_episode": frames,
+                             "cpu_min_per_episode_flux": round(cpu_s / 60, 1),
+                             "wall_min_on_12_runners": round(cpu_s / 12 / 60, 1),
+                             "note": "real photographs add their own s_per_frame each; they need no GPU"}
     return out
 
 
@@ -105,8 +115,11 @@ if __name__ == "__main__":
     m = render_times(run_id, repo, plan, W / f"parts_{res}")
     rep = {"res": res, "measured": m, "forecast_25min": forecast_render(m, plan)}
     gp = W / "inputs" / "kaggle_recon_report.json"
+    cp = W / "inputs" / "cpu_layers_report.json"
+    sp = W / "samples_report.json"
     if gp.exists():
-        rep["gpu_forecast_25min"] = forecast_gpu(gp, plan)
+        rep["week_2x25min"] = forecast_week(gp, json.loads(cp.read_text()) if cp.exists() else None,
+                                            json.loads(sp.read_text(encoding="utf-8")) if sp.exists() else None)
     (W / f"timing_{res}.json").write_text(json.dumps(rep, indent=1), encoding="utf-8")
     print(json.dumps(rep, indent=1))
     over = rep["forecast_25min"]["render_min"] > 60

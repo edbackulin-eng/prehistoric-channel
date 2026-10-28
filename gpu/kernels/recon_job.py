@@ -402,6 +402,30 @@ print(json.dumps({k: v for k, v in report.items() if k != "images"}, indent=1))
 '''
 
 
+FLUX_TAIL = r'''
+# ----------------------------------------- FLUX only: the frames as they came
+RAW = OUT / "raw"; RAW.mkdir(exist_ok=True)
+for p in sorted(GEN.glob("*.png")):
+    Image.open(p).convert("RGB").save(RAW / f"{p.stem}.jpg", quality=97)
+    p.unlink()
+_WD.cancel()
+report["flux_only"] = True
+report["total_s"] = round(time.time() - T0, 1)
+(OUT / "report.json").write_text(json.dumps(report, indent=1))
+print(json.dumps({k: v for k, v in report.items() if k != "images"}, indent=1))
+'''
+
+
+def flux_source():
+    """The kernel cut down to what needs a GPU: FLUX and nothing else (28.10).
+    Real-ESRGAN, depth, the masks and LaMa run on GitHub's CPUs afterwards
+    (pipeline/layers_cpu.py), so the shared Kaggle hours go to FLUX alone."""
+    s = SOURCE[:SOURCE.index("# ---------------------------------------------------------- photos (real)")]
+    s = s.replace('subprocess.run("pip install -q -c /tmp/pins.txt rembg onnxruntime", shell=True)\n', "")
+    s = s.replace(" spandrel timm kornia einops", "")
+    return s + FLUX_TAIL
+
+
 def main():
     raise SystemExit("This channel no longer uses Kaggle: the GPU work runs on Modal "
                      "(python -m modal run gpu/modal_app.py --task recon|voice).")

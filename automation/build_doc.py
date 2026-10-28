@@ -143,8 +143,24 @@ def modal_get(slug, what, dest):
 
 
 def fetch_layers(slug):
-    """The 2.5D layers and thumbnail bases made on Modal (gpu/modal_app.py)."""
+    """The 2.5D layers: made on the runners' CPUs (pipeline/layers_cpu.py, the
+    render's "layers" matrix) from the FLUX frames Kaggle made; failing that, an
+    older all-GPU kernel output or Modal's."""
     dest = W(slug) / "inputs" / "layers"
+    cpu = W(slug) / "layers_cpu"
+    if (cpu / "up").exists() and any((cpu / "up").glob("*.jpg")):
+        from pipeline import layers_cpu
+        dest.mkdir(parents=True, exist_ok=True)
+        for f in list((cpu / "up").glob("*.jpg")) + list((cpu / "layers").glob("*")):
+            shutil.copy(f, dest / f.name)
+        summary = layers_cpu.merge_reports(slug)
+        (W(slug) / "inputs" / "cpu_layers_report.json").write_text(json.dumps(summary, indent=1), encoding="utf-8")
+        rp = ROOT / "gpu" / "results_recon" / "report.json"
+        if rp.exists():
+            shutil.copy(rp, W(slug) / "inputs" / "kaggle_recon_report.json")
+        log.info("layers from the CPU matrix: %d frames, %s s a FLUX frame", summary["frames"],
+                 summary["per_flux_frame_s"].get("total_s"))
+        return dest
     src = ROOT / "gpu" / "results_recon"
     if not (src / "report.json").exists():
         src = modal_get(slug, "recon", W(slug) / "inputs" / "modal_recon")

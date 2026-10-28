@@ -82,6 +82,13 @@ def main():
     check("mask: one subject passes", g["mask_checks"](blob)["ok"])
     check("mask: scattered scraps fail", not g["mask_checks"](scraps)["ok"])
     check("mask: empty fails", not g["mask_checks"](np.zeros_like(blob))["ok"])
+    # Kaggle runs FLUX and nothing else; the CPU layers apply the same mask rules
+    fsrc = recon_job.flux_source()
+    compile("JOB = {}\n" + fsrc, "flux_only", "exec")
+    check("GPU job is FLUX only", "esrgan" not in fsrc.lower() and "big-lama" not in fsrc
+          and "new_session" not in fsrc and "depth-estimation" not in fsrc and "RAW = OUT" in fsrc)
+    from pipeline import layers_cpu
+    check("CPU mask rules match", layers_cpu.mask_checks(blob)["ok"] and not layers_cpu.mask_checks(scraps)["ok"])
 
     from core import narrate_de, speech_de
     spoken = speech_de.for_text_engine("East London, Südafrika. Der 22. Dezember 1938.")

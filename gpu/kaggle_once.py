@@ -2,7 +2,7 @@
 
     python gpu/kaggle_once.py recon living-fossils
     python gpu/kaggle_once.py voice living-fossils
-    python gpu/kaggle_once.py fetch                  # outputs only, for the render
+    python gpu/kaggle_once.py fetch [recon|voice]    # outputs only, for the render
 
 The channel's GPU home is Modal (gpu/modal_app.py); this exists because Modal
 runs no GPU without a card, and the test should not wait for one. It uses the
@@ -12,9 +12,16 @@ strictly last:
     day (Mon, Tue, Thu, Fri, Sat) before 17:30 UTC - its worst-case finish;
   - only after no What If or Closed Tabs kernel has been queued or running for
     15 minutes, and no What If build is in progress on GitHub;
-  - only if the shared week stays under 25 h with What If's next build held in
-    reserve - measured by Closed Tabs' own kaggle/gpu_budget.py, fetched from
-    its repository, so the accounting is theirs, not a copy;
+  - only if the account's week stays within 27.5 h: Closed Tabs + What If (as
+    Closed Tabs' own kaggle/gpu_budget.py measures them, fetched from its
+    repository, so the accounting is theirs) + What If's next build in reserve
+    + this channel's own week (state/gpu_ledger.json) + this job. The 25 h the
+    two of them keep between themselves is theirs and unchanged;
+  - only FLUX runs here (gpu/kernels/recon_job.py flux_source); everything
+    after it runs on GitHub's CPUs (pipeline/layers_cpu.py);
+  - every kernel run is written to state/kaggle_once.json and to
+    state/gpu_ledger.json, the ledger in the format the other channels publish
+    theirs ({ref, start, end, hours}), so the shared account can be read whole;
   - and if either of them pushed in the same minute, this kernel is deleted
     and the wait starts again.
 Exit codes: 0 done, 3 not yet (the workflow restarts itself), other = failure.
@@ -36,7 +43,12 @@ sys.path.insert(0, str(ROOT / "gpu" / "kernels"))
 sys.path.insert(0, str(ROOT))
 OTHERS = ("whatif", "closedtabs")
 CT_RAW = "https://raw.githubusercontent.com/edbackulin-eng/closed-tabs/main/kaggle/"
-JOB_HOURS = {"recon": 0.75, "voice": 0.5}
+JOB_HOURS = {"recon": 0.75, "voice": 0.5}     # recon is re-estimated from its frame count in main()
+ACCOUNT_LIMIT_H = 27.5                        # the whole Kaggle week this channel may run into
+FLUX_S_PER_FRAME = 33.0                       # measured on a T4, 28.10 (4-bit, 4 steps, 1360x768)
+FLUX_OVERHEAD_H = 0.12                        # install, weights, warm-up
+MAX_FLUX_FRAMES = 60                          # per episode: the GPU budget is planned on this
+LEDGER = ROOT / "state" / "gpu_ledger.json"
 SLUGS = {"recon": "prehistoric-recon", "voice": "prehistoric-voice"}
 IDLE_S = 15 * 60
 MAX_WAIT_S = float(os.environ.get("GPU_MAX_WAIT_S", 5 * 3600))
@@ -147,10 +159,27 @@ def budget(job_hours):
         gb.LEDGER.write_bytes(r.read())
     gb.WHATIF_CACHE = d / "whatif_gpu.json"
     ct, wi = gb.closed_tabs_hours(), gb.whatif_hours()
-    total = ct + wi + gb.WHATIF_HOURS_PER_RUN + job_hours
+    own = own_week_hours()
+    total = ct + wi + gb.WHATIF_HOURS_PER_RUN + own + job_hours
     line = (f"week: Closed Tabs {ct:.2f} h + What If ~{wi:.2f} h + What If reserve "
-            f"{gb.WHATIF_HOURS_PER_RUN:.1f} h + this job {job_hours:.2f} h = {total:.2f} h")
-    return total <= gb.WEEKLY_LIMIT_H, line
+            f"{gb.WHATIF_HOURS_PER_RUN:.1f} h + dinosaurs so far {own:.2f} h + this job {job_hours:.2f} h "
+            f"= {total:.2f} h of {ACCOUNT_LIMIT_H} h")
+    return total <= ACCOUNT_LIMIT_H, line
+
+
+def own_week_hours(now=None):
+    since = (now or datetime.now(timezone.utc)) - timedelta(days=7)
+    rows = json.loads(LEDGER.read_text(encoding="utf-8")) if LEDGER.exists() else []
+    return sum(r["hours"] for r in rows if datetime.fromisoformat(r["start"]) >= since)
+
+
+def record(ref, started, finished):
+    """The run into this channel's ledger, in the shared format."""
+    rows = json.loads(LEDGER.read_text(encoding="utf-8")) if LEDGER.exists() else []
+    rows.append({"ref": ref, "start": started.isoformat(), "end": finished.isoformat(),
+                 "hours": round((finished - started).total_seconds() / 3600, 3)})
+    LEDGER.parent.mkdir(parents=True, exist_ok=True)
+    LEDGER.write_text(json.dumps(rows, indent=1), encoding="utf-8")
 
 
 def build(task, slug, folder):
@@ -158,12 +187,15 @@ def build(task, slug, folder):
     if task == "recon":
         import recon_job
         spec = json.loads((ROOT / "episodes" / slug / "recon.json").read_text(encoding="utf-8"))
-        job = {k: spec[k] for k in ("style", "prompts", "thumbs", "photos")}
+        # FLUX only: real photographs are fetched and layered on the CPU later
+        job = {k: spec[k] for k in ("style", "prompts", "thumbs")}
         job["two_seeds"] = spec.get("two_seeds", [])
         job["seeds_per_prompt"] = n = spec.get("seeds_per_prompt", 1)
         # the ids this job makes: an earlier run's output (other prompts) never counts
         want = [f"{k}__s{i}" for k in job["prompts"] for i in range(max(n, 2 if k in job["two_seeds"] else 1))]
         want += [f"{k}__s{i}" for k in job["thumbs"] for i in range(2)]
+        if len(want) > MAX_FLUX_FRAMES:
+            raise SystemExit(f"{len(want)} FLUX frames asked for; the plan allows {MAX_FLUX_FRAMES} an episode")
         # The Hugging Face token goes into the notebook at submit time and into
         # nothing else: no job file, no repository (as whatif-channel's
         # kaggle/push.py does it). The kernel is private, and the token is only
@@ -171,7 +203,7 @@ def build(task, slug, folder):
         token = os.environ.get("HF_TOKEN", "").strip()
         if token:
             job["hf_token"] = token
-        cell = f"JOB = {json.dumps(job, indent=1)}\n{recon_job.SOURCE}"
+        cell = f"JOB = {json.dumps(job, indent=1)}\n{recon_job.flux_source()}"
         sources = [f"{user()}/whatif-flux-weights"]          # the 4-bit FLUX mirror, read only
     else:
         # German samples A and C: Chatterbox Multilingual (gpu/kernels/voice_de_job.py)
@@ -237,10 +269,10 @@ def validate(task, out, want):
         ids = set(want) if isinstance(want, (list, tuple, set)) else None
         n_want = len(ids) if ids is not None else want
         got = len([i for i in (r.get("images") or []) if ids is None or i.get("id") in ids])
-        files = len(list((out / "up").glob("*.jpg"))) if (out / "up").exists() else 0
+        files = sum(len(list((out / d).glob("*.jpg"))) for d in ("raw", "up") if (out / d).exists())
         need = math.ceil(0.9 * n_want)
         ok = got >= need and not errors
-        return ok, (f"{got}/{n_want} images (need {need}), {files} upscaled files, "
+        return ok, (f"{got}/{n_want} images (need {need}), {files} image files, "
                     f"weights: {r.get('weights_source')}, errors: {errors[:3]}")
     # German samples: A (Thorsten reference) is required, C (demo voice) is
     # judged only if it was made; every line of each must be on disk
@@ -265,6 +297,9 @@ def main(task, slug):
     usage = json.loads(usage_p.read_text()) if usage_p.exists() else []
     folder = Path(tempfile.mkdtemp())
     _, want = build(task, slug, folder)
+    job_h = JOB_HOURS[task]
+    if task == "recon":
+        job_h = round(FLUX_OVERHEAD_H + len(want) * FLUX_S_PER_FRAME / 3600, 2)
     st = status(ref)
     started = None
     if st == "complete":
@@ -290,7 +325,7 @@ def main(task, slug):
                 say(f"waiting: {why}")
                 time.sleep(15 * 60)
                 continue
-            ok, line = budget(JOB_HOURS[task])
+            ok, line = budget(job_h)
             if not ok:
                 idle_since = None
                 say(f"waiting: {line}")
@@ -316,19 +351,20 @@ def main(task, slug):
     finished = wait_done(ref, 3 * 3600)
     pull(ref, out)
     ok, why = validate(task, out, want) if finished else (False, f"kernel ended as {status(ref)}")
-    usage.append({"task": task, "ref": ref, "start": started.isoformat(),
-                  "end": datetime.now(timezone.utc).isoformat(),
-                  "hours": round((datetime.now(timezone.utc) - started).total_seconds() / 3600, 3),
-                  "ok": ok, "check": why})
+    ended = datetime.now(timezone.utc)
+    usage.append({"task": task, "ref": ref, "start": started.isoformat(), "end": ended.isoformat(),
+                  "hours": round((ended - started).total_seconds() / 3600, 3), "ok": ok, "check": why})
+    record(ref, started, ended)
     usage_p.parent.mkdir(exist_ok=True)
     usage_p.write_text(json.dumps(usage, indent=1))
     say(("output good: " if ok else "OUTPUT NOT GOOD ENOUGH - stopping the chain: ") + why)
     return 0 if ok else 1
 
 
-def fetch():
-    """Pull both kernels' outputs (for the render's prepare step)."""
-    for task in ("recon", "voice"):
+def fetch(tasks=("recon", "voice")):
+    """Pull the kernels' outputs (FLUX frames for the CPU layers matrix, voice
+    lines for the render's prepare step)."""
+    for task in tasks:
         out = ROOT / "gpu" / f"results_{task}"
         out.mkdir(parents=True, exist_ok=True)
         say(kaggle("kernels", "output", f"{user()}/{SLUGS[task]}", "-p", str(out), timeout=1800)[-300:])
@@ -337,5 +373,5 @@ def fetch():
 
 if __name__ == "__main__":
     if sys.argv[1] == "fetch":
-        sys.exit(fetch())
+        sys.exit(fetch(tuple(sys.argv[2:]) or ("recon", "voice")))
     sys.exit(main(sys.argv[1], sys.argv[2]))

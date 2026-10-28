@@ -67,16 +67,17 @@ jobs:
           if-no-files-found: ignore
           path: |
             gpu/results_recon/report.json
-            gpu/results_recon/up/thumb_*.jpg
+            gpu/results_recon/raw/
             gpu/results_recon/*.log
             gpu/results_voice/
             state/kaggle_once.json
+            state/gpu_ledger.json
       - name: Keep the usage record
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state/kaggle_once.json 2>/dev/null || exit 0
+          git add state/kaggle_once.json state/gpu_ledger.json 2>/dev/null || exit 0
           git diff --cached --quiet && exit 0
           git commit -m "Kaggle one-off usage after run ${{ github.run_id }}"
           for i in 1 2 3; do git pull --rebase origin main && git push origin HEAD:main && exit 0; sleep 10; done
