@@ -62,8 +62,21 @@ T0 = time.time()
 report = {"images": [], "errors": [], "stages": {}}
 def stage(name, t): report["stages"][name] = round(time.time() - t, 1); print(f"== {name}: {report['stages'][name]} s", flush=True)
 
-subprocess.run("pip install -q -U diffusers torchao transformers accelerate sentencepiece protobuf "
-               "huggingface_hub bitsandbytes psutil spandrel timm kornia einops rembg onnxruntime", shell=True)
+# 28.10: "-U" plus rembg pulled numpy 2.5 over Kaggle's own build, and numpy,
+# scipy and diffusers stopped importing (no image made). The packages Kaggle
+# compiled together stay at the versions it shipped: they go in as constraints.
+import importlib.metadata as _md
+_pins = []
+for _pkg in ("numpy", "scipy", "scikit-image", "numba", "pillow", "opencv-python", "opencv-python-headless"):
+    try:
+        _pins.append(f"{_pkg}=={_md.version(_pkg)}")
+    except _md.PackageNotFoundError:
+        pass
+pathlib.Path("/tmp/pins.txt").write_text("\n".join(_pins) + "\n")
+print("pinned:", _pins, flush=True)
+subprocess.run("pip install -q -U -c /tmp/pins.txt diffusers torchao transformers accelerate sentencepiece protobuf "
+               "huggingface_hub bitsandbytes psutil spandrel timm kornia einops", shell=True)
+subprocess.run("pip install -q -c /tmp/pins.txt rembg onnxruntime", shell=True)
 _mark("install done"); _need_gpu()
 import numpy as np, torch, cv2
 from PIL import Image
