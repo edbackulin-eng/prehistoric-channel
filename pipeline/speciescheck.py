@@ -269,12 +269,14 @@ def check(slug, layers, out_dir, timeline=None):
                 if len(passing) >= WANT_PASSING:
                     break
                 fr = _frames(cid, src, out_dir)
+                label = source_label(kind, src)
                 if not fr:
                     row["candidates"].append({"id": cid, "verdict": "missing"})
                     continue
                 if not key:
                     passing.append(cid)
-                    row["candidates"].append({"id": cid, "verdict": "not checked (no GEMINI_API_KEY_PH)"})
+                    row["candidates"].append({"id": cid, "verdict": "not checked (no GEMINI_API_KEY_PH)",
+                                              "source": label, "frame": str(fr[len(fr) // 2])})
                     continue
                 what = "three frames from the start, middle and end of one video clip" if kind == "real" \
                     else "one still image"
@@ -282,7 +284,8 @@ def check(slug, layers, out_dir, timeline=None):
                 ok, why = passes(v, species, archive)
                 if ok is None:                       # the checker failed, not the picture: keep it
                     ok, why = True, f"unchecked ({why})"
-                row["candidates"].append({"id": cid, "pass": ok, "why": why, "answer": v})
+                row["candidates"].append({"id": cid, "pass": ok, "why": why, "answer": v, "source": label,
+                                          "frame": str(fr[len(fr) // 2])})
                 log.info("%-22s %-34s %s %s", bk, cid, "PASS" if ok else "fail", why)
                 if ok:
                     passing.append(cid)
@@ -301,9 +304,57 @@ def check(slug, layers, out_dir, timeline=None):
                "dropped": [r["beat"] for r in logrows if r["action"] == "scene dropped"],
                "rows": logrows}
     (out_dir / "species_check.json").write_text(json.dumps(summary, indent=1, ensure_ascii=False), encoding="utf-8")
+    try:
+        grid(summary, out_dir / "species_grid.jpg")
+    except Exception as e:                                       # noqa: BLE001
+        log.warning("species grid failed: %s", e)
     log.info("species check: %d beats, %d kept, %d alternates, dropped %s", summary["beats"], summary["kept"],
              summary["alternate"], summary["dropped"])
     return picks
+
+
+def source_label(kind, src):
+    """FLUX / Commons / NOAA / Pixabay, for the grid."""
+    if kind == "recon":
+        return "FLUX"
+    if kind == "photo":
+        return "Commons"
+    text = f"{src.get('source', '')} {src.get('author', '')} {src.get('url', '')}".lower()
+    if "noaa" in text or "oceanexplorer" in text:
+        return "NOAA"
+    return "Pixabay" if "pixabay" in text else "Commons"
+
+
+def grid(summary, out_path, tile_w=360, cols=6):
+    """Every candidate that was looked at: green frame = passed and used in
+    order, red = turned down (replaced by the next, or the scene dropped)."""
+    from PIL import ImageDraw
+    tiles = []
+    for row in summary["rows"]:
+        for c in row["candidates"]:
+            if not c.get("frame") or not Path(c["frame"]).exists():
+                continue
+            im = Image.open(c["frame"]).convert("RGB")
+            im.thumbnail((tile_w, tile_w))
+            th = int(tile_w * 9 / 16)
+            t = Image.new("RGB", (tile_w + 12, th + 64), (18, 18, 18))
+            ok = c.get("pass", True)
+            col = (40, 200, 70) if ok else (225, 40, 40)
+            ImageDraw.Draw(t).rectangle([0, 0, tile_w + 11, th + 11], outline=col, width=6)
+            t.paste(im.crop((0, 0, min(im.width, tile_w), min(im.height, th))), (6, 6))
+            d = ImageDraw.Draw(t)
+            d.text((6, th + 14), f"{c.get('source', '?')} | {row['beat']}"[:52], fill=(255, 255, 255))
+            d.text((6, th + 30), str(c["id"])[:52], fill=(200, 200, 200))
+            d.text((6, th + 46), ("PASS" if ok else "FAIL: " + str(c.get("why", ""))[:44]), fill=col)
+            tiles.append(t)
+    if not tiles:
+        return None
+    w, h = tiles[0].size
+    sheet = Image.new("RGB", (cols * w, ((len(tiles) + cols - 1) // cols) * h), (0, 0, 0))
+    for i, t in enumerate(tiles):
+        sheet.paste(t, ((i % cols) * w, (i // cols) * h))
+    sheet.save(out_path, quality=86)
+    return out_path
 
 
 def check_thumbnail(path, species, words):

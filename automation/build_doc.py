@@ -246,7 +246,7 @@ def merge(slug, res):
     (W(slug) / f"report_{res}.json").write_text(json.dumps(rep, indent=1), encoding="utf-8")
     test = ROOT / "test"
     test.mkdir(exist_ok=True)
-    for f in ("subtitles_de.srt", "species_check.json"):
+    for f in ("subtitles_de.srt", "species_check.json", "species_grid.jpg", "cpu_layers_report.json"):
         if (W(slug) / "inputs" / f).exists():
             shutil.copy(W(slug) / "inputs" / f, test / f)
     log.info("video %s: %.1f s, %s", out.name, info["duration"], sound)
