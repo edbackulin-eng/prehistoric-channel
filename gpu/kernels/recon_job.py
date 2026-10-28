@@ -121,11 +121,65 @@ try:
     else:
         raise RuntimeError("no FLUX weights: mirror flux4bit not found under /kaggle/input and no HF token")
     print("FLUX weights from:", report["weights_source"], flush=True)
-    te2 = T5EncoderModel.from_pretrained(REPO, subfolder="text_encoder_2", torch_dtype=DTYPE,
-            quantization_config=TfBnb(load_in_4bit=True, bnb_4bit_compute_dtype=DTYPE))
+    # 28.10: the mirror holds the transformer, VAE, tokenizers and scheduler but
+    # no text encoders - when it was made (12.10) Hugging Face refused both with
+    # a 401 (its manifest.json says so). A part the mirror lacks comes from
+    # Hugging Face: the gated original with the token, else the ungated 4-bit
+    # copy of the same Apache-2.0 weights (magespace/FLUX.1-schnell-bnb-nf4).
+    from transformers import CLIPTextModel
+    if JOB.get("hf_token"):
+        os.environ["HF_TOKEN"] = JOB["hf_token"]
+        os.environ["HUGGING_FACE_HUB_TOKEN"] = JOB["hf_token"]
+    NF4 = "magespace/FLUX.1-schnell-bnb-nf4"
+
+    def _sources(sub):
+        here = pathlib.Path(REPO, sub)
+        if here.is_dir() and (any(here.glob("*.safetensors")) or any(here.glob("*.bin"))):
+            return [REPO]
+        return (["black-forest-labs/FLUX.1-schnell"] if JOB.get("hf_token") else []) + [NF4]
+
+    def _load(sub, fn):
+        errs = []
+        for src in _sources(sub):
+            try:
+                m = fn(src)
+                report.setdefault("parts_from", {})[sub] = src
+                print(f"  {sub} from {src}", flush=True)
+                return m
+            except Exception as _e:
+                errs.append(f"{src}: {type(_e).__name__}: {str(_e)[:160]}")
+        raise RuntimeError(f"{sub}: " + " | ".join(errs))
+
+    def _t5(src):
+        if src == NF4:
+            # already 4-bit; saved for bfloat16, which a T4 cannot compute in
+            m = T5EncoderModel.from_pretrained(src, subfolder="text_encoder_2", torch_dtype=DTYPE)
+            import bitsandbytes as _bnb
+            for _l in m.modules():
+                if isinstance(_l, _bnb.nn.Linear4bit):
+                    _l.compute_dtype = DTYPE
+            return m
+        return T5EncoderModel.from_pretrained(src, subfolder="text_encoder_2", torch_dtype=DTYPE,
+                quantization_config=TfBnb(load_in_4bit=True, bnb_4bit_compute_dtype=DTYPE))
+
+    te2 = _load("text_encoder_2", _t5)
+    te1 = _load("text_encoder", lambda src: CLIPTextModel.from_pretrained(src, subfolder="text_encoder",
+                                                                          torch_dtype=DTYPE))
     tr = FluxTransformer2DModel.from_pretrained(REPO, subfolder="transformer", torch_dtype=DTYPE,
             quantization_config=DiffBnb(load_in_4bit=True, bnb_4bit_compute_dtype=DTYPE))
-    pipe = FluxPipeline.from_pretrained(REPO, text_encoder_2=te2, transformer=tr, torch_dtype=DTYPE)
+    if pathlib.Path(REPO, "model_index.json").exists() or not pathlib.Path(REPO).is_dir():
+        pipe = FluxPipeline.from_pretrained(REPO, text_encoder=te1, text_encoder_2=te2, transformer=tr,
+                                            torch_dtype=DTYPE)
+    else:
+        # the mirror has no model_index.json, so the pipeline is put together by hand
+        from diffusers import AutoencoderKL, FlowMatchEulerDiscreteScheduler
+        from transformers import AutoTokenizer
+        pipe = FluxPipeline(
+            scheduler=FlowMatchEulerDiscreteScheduler.from_pretrained(REPO, subfolder="scheduler"),
+            vae=AutoencoderKL.from_pretrained(REPO, subfolder="vae", torch_dtype=DTYPE),
+            text_encoder=te1, tokenizer=AutoTokenizer.from_pretrained(REPO, subfolder="tokenizer"),
+            text_encoder_2=te2, tokenizer_2=AutoTokenizer.from_pretrained(REPO, subfolder="tokenizer_2"),
+            transformer=tr)
     pipe.enable_model_cpu_offload()
     for i, (name, prompt, seed) in enumerate(jobs):
         t1 = time.time()
@@ -135,7 +189,7 @@ try:
         im.save(GEN / f"{name}.png")
         report["images"].append({"id": name, "seed": seed, "prompt": prompt, "s": round(time.time() - t1, 1)})
         print(f"  [{i+1}/{len(jobs)}] {name} {time.time()-t1:.1f}s", flush=True)
-    del pipe, tr, te2; gc.collect(); torch.cuda.empty_cache()
+    del pipe, tr, te2, te1; gc.collect(); torch.cuda.empty_cache()
 except Exception as e:
     report["errors"].append(f"flux: {type(e).__name__}: {e}"); print("FLUX FAILED", e)
 stage("flux", t)
