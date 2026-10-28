@@ -1,0 +1,13 @@
+{
+  "_note": "German narration (de-DE). 'ipa' is what Piper's espeak-ng front end gets instead of its own guess (spliced in as [[ phonemes ]]), checked by reading PiperVoice.phonemize(), not by ear; 'respell' is what Chatterbox reads, since it takes text only. Subtitles, captions and descriptions keep the real spelling.",
+  "Latimeria": {"ipa": "latiːmˈeːriːa", "respell": "Latimeria"},
+  "chalumnae": {"ipa": "kalˈʊmnɛː", "respell": "kalumnä"},
+  "Chalumna": {"ipa": "kalˈʊmna", "respell": "Kalumna"},
+  "Courtenay-Latimer": {"ipa": "kˈɔːɾtni lˈɛtɪmɜ", "respell": "Kortni-Lättimer"},
+  "East London": {"ipa": "ˈiːst lˈandən", "respell": "Iest London"},
+  "J. L. B. Smith": {"ipa": "jˈɔt ˈɛl bˈeː smˈɪθ", "respell": "Jott El Be Smith"},
+  "Anjouan": {"ipa": "anʒuːˈan", "respell": "Anschuan"},
+  "Nerine": {"ipa": "neːrˈiːnə", "respell": "Nerine"},
+  "Gombessa": {"ipa": "ɡɔmbˈɛsa", "respell": "Gombessa"},
+  "Devon": {"ipa": "deːvˈoːn", "respell": "Dewohn"}
+}

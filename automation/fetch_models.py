@@ -1,6 +1,7 @@
 """Fetch the local models a build needs. Runs on a clean CI machine every time.
 
-Only the voice is fetched here. The image model lives on Kaggle and never
+Only the voice is fetched here: Piper's German Thorsten voice (CC0), which
+narrates on the runner's CPU. The image model lives on Kaggle and never
 touches this runner, which is the whole reason a 20-minute video can be built on
 a free 2-core box.
 """
@@ -13,10 +14,10 @@ MODELS = ROOT / "assets" / "models"
 FONTS = ROOT / "assets" / "fonts"
 
 FILES = [
-    ("https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx",
-     MODELS / "kokoro-v1.0.onnx", 300_000_000),
-    ("https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin",
-     MODELS / "voices-v1.0.bin", 20_000_000),
+    ("https://huggingface.co/rhasspy/piper-voices/resolve/main/de/de_DE/thorsten/high/de_DE-thorsten-high.onnx",
+     MODELS / "piper" / "de_DE-thorsten-high.onnx", 100_000_000),
+    ("https://huggingface.co/rhasspy/piper-voices/resolve/main/de/de_DE/thorsten/high/de_DE-thorsten-high.onnx.json",
+     MODELS / "piper" / "de_DE-thorsten-high.onnx.json", 3_000),
     ("https://github.com/google/fonts/raw/main/ofl/anton/Anton-Regular.ttf",
      FONTS / "Anton-Regular.ttf", 100_000),
     ("https://github.com/google/fonts/raw/main/ofl/bebasneue/BebasNeue-Regular.ttf",

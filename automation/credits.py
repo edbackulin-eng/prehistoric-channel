@@ -14,8 +14,17 @@ MODELS = [
     {"what": "Upscaling", "name": "Real-ESRGAN x4plus", "by": "Xintao Wang et al.", "license": "BSD-3-Clause"},
     {"what": "Depth for 2.5D", "name": "Depth Anything V2 Small", "by": "Lihe Yang et al.", "license": "Apache-2.0"},
     {"what": "Background fill for 2.5D", "name": "LaMa (big-lama)", "by": "Samsung AI", "license": "Apache-2.0"},
-    {"what": "Narration", "name": "Kokoro-82M", "by": "hexgrad", "license": "Apache-2.0"},
-    {"what": "Voice comparison", "name": "Chatterbox", "by": "Resemble AI", "license": "MIT"},
+    {"what": "Subject masks for 2.5D", "name": "BiRefNet / IS-Net (rembg)", "by": "ZhengPeng7 / Xuebin Qin et al.", "license": "MIT / Apache-2.0"},
+    {"what": "Narration (German)", "name": "Piper 1.8, voice de_DE-thorsten-high", "by": "Open Home Foundation / Thorsten Mueller", "license": "engine GPL-3.0 (output not covered), voice CC0"},
+    {"what": "Voice comparison (German)", "name": "Chatterbox Multilingual 0.1.7", "by": "Resemble AI", "license": "MIT"},
+]
+VOICES = [
+    {"what": "Reference voice for sample A", "name": "Thorsten-Voice dataset, TV-2022.10-Neutral, two utterances (11.4 s)",
+     "by": "Thorsten Mueller", "license": "CC0 1.0",
+     "url": "https://huggingface.co/datasets/Thorsten-Voice/TV-44kHz-Full", "file": "assets/voice/thorsten_ref.wav"},
+    {"what": "Reference voice for sample C", "name": "Chatterbox Multilingual demo prompt de_f1.flac",
+     "by": "Resemble AI", "license": "not stated - for this internal comparison only, not for publication",
+     "url": "https://storage.googleapis.com/chatterbox-demo-samples/mtl_prompts/de_f1.flac"},
 ]
 FONTS = [{"name": n, "license": "SIL Open Font License 1.1"} for n in
          ("Montserrat", "Cormorant Garamond", "Anton")]
@@ -39,7 +48,9 @@ def main(slug):
                     "Pixabay" if x["id"].startswith("pixabay") else "Wikimedia Commons")
                 clips[x["id"]]["license"] = x.get("license") or (
                     "Pixabay Content License" if x["id"].startswith("pixabay") else None)
-    photos = [recon["photos"][s["need"]] for s in plan["shots"] if s["kind"] == "photo"]
+    photos = [recon["photos"][s["image"]] for s in plan["shots"] if s["kind"] == "photo" and s["image"] in recon["photos"]]
+    tr = ROOT / "test" / "thumbnails_report.json"
+    thumbs = [r["source"] for r in json.loads(tr.read_text(encoding="utf-8")) if "source" in r] if tr.exists() else []
     photos = list({p["page"]: p for p in photos}.values())
     music = [t for t in json.loads((ROOT / "assets/music/library.json").read_text(encoding="utf-8"))["tracks"]
              if t["role"] == "bed"]
@@ -47,7 +58,7 @@ def main(slug):
     used_amb = {s.get("amb") for s in plan["shots"]}
     amb = [{"scene": k, **v} for k, v in amb_lib.items() if k in used_amb and "file" in v]
     credits = {"footage": list(clips.values()), "photos": photos, "music": music, "ambience": amb,
-               "maps": MAPS, "models": MODELS, "fonts": FONTS,
+               "maps": MAPS, "models": MODELS, "voices": VOICES, "fonts": FONTS, "thumbnails": thumbs,
                "reconstructions": [s["image"] for s in plan["shots"] if s["kind"] == "recon"]}
     out = ROOT / "test"
     out.mkdir(exist_ok=True)
@@ -56,19 +67,21 @@ def main(slug):
 
     attrib = [c for c in clips.values() if c["license"] and c["license"].upper().startswith("CC BY")]
     attrib += [p for p in photos if p["license"].upper().startswith("CC BY")]
-    desc = ["Footage and images:"]
+    attrib += [t for t in thumbs if (t.get("license") or "").upper().startswith("CC BY")]
+    desc = ["Filmmaterial und Bilder:"]
     for c in attrib:
-        desc.append(f"- {c.get('title') or (c.get('tags') or '')[:60]} by {c['author']}, {c['license']} - {c['page']}")
-    desc.append("- Additional footage: Pixabay (Pixabay Content License); NOAA Ocean Exploration and NASA "
-                "(public domain); Wikimedia Commons (public domain / CC0).")
+        desc.append(f"- {c.get('title') or (c.get('tags') or '')[:60]} von {c['author']}, {c['license']} - {c['page']}")
+    desc.append("- Weiteres Material: Pixabay (Pixabay-Inhaltslizenz); NOAA Ocean Exploration und NASA "
+                "(gemeinfrei); Wikimedia Commons (gemeinfrei / CC0).")
     for t in music:
-        desc.append(f'Music: "{t["title"]}" Kevin MacLeod (incompetech.com), licensed under Creative Commons: '
+        desc.append(f'Musik: "{t["title"]}" Kevin MacLeod (incompetech.com), licensed under Creative Commons: '
                     f'By Attribution 4.0 License, http://creativecommons.org/licenses/by/4.0/')
     for a in amb:
         if a["license"].upper().startswith("CC BY"):
-            desc.append(f'Sound: "{a["title"].replace("File:", "")}" by {a["author"]}, {a["license"]} - {a["page"]}')
-    desc.append("Maps: NASA Earth Observatory, Blue Marble Next Generation.")
-    desc.append("Reconstructions of extinct animals are illustrations based on published research.")
+            desc.append(f'Ton: "{a["title"].replace("File:", "")}" von {a["author"]}, {a["license"]} - {a["page"]}')
+    desc.append("Karten: NASA Earth Observatory, Blue Marble Next Generation.")
+    desc.append("Sprecherstimme: Thorsten-Voice (Thorsten Müller, CC0).")
+    desc.append("Rekonstruktionen ausgestorbener Tiere sind Illustrationen auf Grundlage veröffentlichter Forschung.")
     (out / "description_credits.txt").write_text("\n".join(desc), encoding="utf-8")
 
     lic = ["# Licences\n", "Every third-party element in the test video and why it may be used in a "
@@ -87,6 +100,12 @@ def main(slug):
                    f"- {c['page']}")
     for p in photos:
         lic.append(f"- Wikimedia Commons: {p['title']} - {p['author']} - {p['license']} - {p['page']}")
+    lic.append("\n## Thumbnail photographs\n")
+    for t in thumbs:
+        lic.append(f"- {t.get('source')}: {t.get('title')} - {t.get('author')} - {t.get('license')} - {t.get('page')}")
+    lic.append("\n## Voices\n")
+    for v in VOICES:
+        lic.append(f"- {v['what']}: {v['name']} ({v['by']}) - {v['license']} - {v['url']}")
     lic.append(f"\n## Maps\n\n- {MAPS['name']}, {MAPS['by']} - {MAPS['license']} - {MAPS['url']}")
     lic.append("\n## Models (all permit commercial use of their output)\n")
     for m in MODELS:

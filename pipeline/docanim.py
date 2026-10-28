@@ -26,13 +26,13 @@ BLUE_MARBLE_URL = ("https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/739
 Image.MAX_IMAGE_PIXELS = None
 
 PLACES = {
-    "chicxulub": {"lat": 21.3, "lon": -89.5, "name": "CHICXULUB", "sub": "Yucatán Peninsula, Mexico",
+    "chicxulub": {"lat": 21.3, "lon": -89.5, "name": "CHICXULUB", "sub": "Halbinsel Yucatán, Mexiko",
                   "view": [(-88, 18, 80), (-89.5, 21.0, 26)], "impact": True},
-    "east_london": {"lat": -33.02, "lon": 27.91, "name": "EAST LONDON", "sub": "South Africa",
+    "east_london": {"lat": -33.02, "lon": 27.91, "name": "EAST LONDON", "sub": "Südafrika",
                     "view": [(24, -26, 62), (27.5, -31.5, 20)]},
-    "comoros": {"lat": -12.2, "lon": 44.3, "name": "COMORO ISLANDS", "sub": "where the fishermen knew it",
+    "comoros": {"lat": -12.2, "lon": 44.3, "name": "KOMOREN", "sub": "wo die Fischer ihn kannten",
                 "view": None},
-    "sulawesi": {"lat": 1.5, "lon": 124.8, "name": "SULAWESI", "sub": "Indonesia - a second species",
+    "sulawesi": {"lat": 1.5, "lon": 124.8, "name": "SULAWESI", "sub": "Indonesien - eine zweite Art",
                  "view": None},
 }
 VIEWS = {  # several places: one view that holds them all
@@ -212,12 +212,16 @@ def _composite(frame, over, s):
 
 
 # -------------------------------------------------------------- timeline
-PERIODS = [("Cambrian", 539, 485), ("Ordovician", 485, 443), ("Silurian", 443, 419),
-           ("Devonian", 419, 359), ("Carboniferous", 359, 299), ("Permian", 299, 252),
-           ("Triassic", 252, 201), ("Jurassic", 201, 145), ("Cretaceous", 145, 66),
-           ("Cenozoic", 66, 0)]
-LINEAGES = [("NAUTILOIDS", 500), ("HORSESHOE CRABS", 445), ("COELACANTHS", 410),
-            ("TUATARA'S ORDER", 244)]
+# The channel speaks German (de-DE): every word drawn on screen is set here.
+PERIODS = [("Kambrium", 539, 485), ("Ordovizium", 485, 443), ("Silur", 443, 419),
+           ("Devon", 419, 359), ("Karbon", 359, 299), ("Perm", 299, 252),
+           ("Trias", 252, 201), ("Jura", 201, 145), ("Kreide", 145, 66),
+           ("Känozoikum", 66, 0)]
+LINEAGES = [("NAUTILIDEN", 500), ("PFEILSCHWANZKREBSE", 445), ("QUASTENFLOSSER", 410),
+            ("SCHNABELKÖPFE", 244)]          # Rhynchocephalia, the tuatara's order
+TODAY, MYA, LINEAGE_AGE = "HEUTE", "{} MIO. J.", "SEIT {} MIO. JAHREN"
+ASTEROID = "ASTEROID  VOR 66 MIO. J."
+TITLE_SUB = "TIERE, DIE DIE DINOSAURIER ÜBERLEBTEN"
 
 
 def timeline_frames(seconds, out_w=3840, out_h=2160, fps=30, backdrop=None):
@@ -251,12 +255,12 @@ def timeline_frames(seconds, out_w=3840, out_h=2160, fps=30, backdrop=None):
                         (235, 240, 245, int(220 * a0)), 0.12, anchor="c")
         for ma in (500, 400, 300, 200, 100, 0):
             d.line([X(ma), ax_y, X(ma), ax_y + 14 * s], fill=(255, 255, 255, int(200 * a0)), width=int(2 * s))
-            lab = "TODAY" if ma == 0 else f"{ma} MYA"
+            lab = TODAY if ma == 0 else MYA.format(ma)
             tracked(d, (X(ma), ax_y + 22 * s), lab, f_t, (220, 225, 230, int(220 * a0)), 0.08, anchor="c")
         # the asteroid
         ka = min(1.0, max(0.0, (t - 0.8) / 0.6))
         d.line([X(66), ax_y - 70 * s, X(66), out_h * 0.90], fill=(255, 90, 60, int(230 * ka)), width=int(4 * s))
-        tracked(d, (X(66) - 16 * s, out_h * 0.92), "ASTEROID  66 MYA", f_k, (255, 120, 90, int(240 * ka)), 0.1,
+        tracked(d, (X(66) - 16 * s, out_h * 0.92), ASTEROID, f_k, (255, 120, 90, int(240 * ka)), 0.1,
                 anchor="c")
         for i, (name, ma) in enumerate(LINEAGES):                  # lineages drawing in
             st = 1.4 + i * 0.9
@@ -271,7 +275,7 @@ def timeline_frames(seconds, out_w=3840, out_h=2160, fps=30, backdrop=None):
             al = int(255 * min(1.0, p * 3))
             tracked(d, (X(ma), y - 92 * s), name, f_l, (255, 255, 255, al), 0.1)
             tracked(d, (X(ma) + d.textlength(name, font=f_l) * 1.14 + 50 * s, y - 80 * s),
-                    f"{ma} MILLION YEARS", f_t, (240, 220, 170, al), 0.08)
+                    LINEAGE_AGE.format(ma), f_t, (240, 220, 170, al), 0.08)
         im = Image.alpha_composite(im, over)
         yield np.asarray(im.convert("RGB"))
 

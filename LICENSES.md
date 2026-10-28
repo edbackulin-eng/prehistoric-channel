@@ -47,8 +47,14 @@ Every third-party element in the test video and why it may be used in a monetise
 - Upscaling: Real-ESRGAN x4plus (Xintao Wang et al.) - BSD-3-Clause
 - Depth for 2.5D: Depth Anything V2 Small (Lihe Yang et al.) - Apache-2.0
 - Background fill for 2.5D: LaMa (big-lama) (Samsung AI) - Apache-2.0
-- Narration: Kokoro-82M (hexgrad) - Apache-2.0
-- Voice comparison: Chatterbox (Resemble AI) - MIT
+- Subject masks for 2.5D: BiRefNet / IS-Net (rembg) (ZhengPeng7 / Xuebin Qin et al.) - MIT / Apache-2.0
+- Narration (German): Piper 1.8, voice de_DE-thorsten-high (Open Home Foundation / Thorsten Mueller) - engine GPL-3.0 (output not covered), voice CC0
+- Voice comparison (German): Chatterbox Multilingual 0.1.7 (Resemble AI) - MIT
+
+## Voices
+
+- Reference voice for sample A: Thorsten-Voice dataset, TV-2022.10-Neutral, two consecutive utterances joined (11.4 s, assets/voice/thorsten_ref.wav, provenance in assets/voice/thorsten_ref.json) (Thorsten Mueller) - CC0 1.0 - https://huggingface.co/datasets/Thorsten-Voice/TV-44kHz-Full
+- Reference voice for sample C: Chatterbox Multilingual demo prompt de_f1.flac (Resemble AI) - licence not stated: for this internal comparison only, not for publication - https://storage.googleapis.com/chatterbox-demo-samples/mtl_prompts/de_f1.flac
 
 ## Fonts
 

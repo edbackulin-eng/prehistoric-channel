@@ -34,7 +34,7 @@ SOURCE = r'''
 # ---- the session's own deadline (as in the shared kaggle/job_template.py) ----
 import threading as _th, os as _os, json as _js, time as _tm, pathlib as _pl, sys as _sys
 _OUT = _pl.Path("/kaggle/working"); _OUT.mkdir(parents=True, exist_ok=True)
-_BUDGET_S = float(JOB.get("budget_s") or 300 + 105 * (len(JOB['prompts']) + len(JOB.get('two_seeds', [])) + 2 * len(JOB['thumbs'])))
+_BUDGET_S = float(JOB.get("budget_s") or 300 + 105 * (JOB.get("seeds_per_prompt", 1) * len(JOB['prompts']) + len(JOB.get('two_seeds', [])) + 2 * len(JOB['thumbs']) + 2 * len(JOB.get('photos', {}))))
 _STAGE = {"name": "starting", "since": _tm.time(), "began": _tm.time()}
 def _mark(name):
     _STAGE["name"], _STAGE["since"] = name, _tm.time()
@@ -87,8 +87,10 @@ GEN = OUT / "gen"; GEN.mkdir(exist_ok=True)
 # ---------------------------------------------------------------- 1. FLUX
 _mark("flux"); t = time.time()
 jobs = []                                  # (id, prompt, seed)
+# every reconstruction in several seeds: the species check (pipeline/speciescheck.py)
+# takes the first one that is anatomically right, and drops the scene if none is
 for k, p in JOB["prompts"].items():
-    for s in range(2 if k in JOB.get("two_seeds", []) else 1):
+    for s in range(max(JOB.get("seeds_per_prompt", 1), 2 if k in JOB.get("two_seeds", []) else 1)):
         jobs.append((f"{k}__s{s}", f"{p}, {JOB['style']}", 1000 + s * 17 + len(jobs)))
 for k, p in JOB["thumbs"].items():
     for s in range(2):
@@ -196,12 +198,20 @@ stage("flux", t)
 
 # ---------------------------------------------------------- photos (real)
 PHOTOS = OUT / "photos"; PHOTOS.mkdir(exist_ok=True)
+# Commons answers a burst of downloads with 429: back off and retry. A photo
+# that still fails is reported apart - the species check simply has one
+# candidate fewer - instead of failing the whole run.
 for pid, ph in JOB.get("photos", {}).items():
-    try:
-        req = urllib.request.Request(ph["url"], headers={"User-Agent": "prehistoric-channel/0.1 (research)"})
-        (PHOTOS / f"{pid}.jpg").write_bytes(urllib.request.urlopen(req, timeout=120).read())
-    except Exception as e:
-        report["errors"].append(f"photo {pid}: {e}")
+    for _try in range(5):
+        try:
+            req = urllib.request.Request(ph["url"], headers={"User-Agent": "prehistoric-channel/0.1 (research)"})
+            (PHOTOS / f"{pid}.jpg").write_bytes(urllib.request.urlopen(req, timeout=120).read())
+            break
+        except Exception as e:
+            if _try == 4:
+                report.setdefault("photo_errors", []).append(f"photo {pid}: {e}")
+            time.sleep(8 * (_try + 1))
+    time.sleep(1.5)
 
 W, H = 4224, 2376
 def cover(im, w, h):
@@ -239,14 +249,21 @@ try:
         else:
             cover(big, W, H).save(UP / f"{p.stem}.jpg", quality=94)
         print("  up", p.stem, flush=True)
+    # real photos smaller than the frame are upscaled the same way (the live
+    # coelacanth photograph is 963 px wide); big ones are only resized
+    for p in sorted(PHOTOS.glob("*.jpg")):
+        try:
+            im = Image.open(p).convert("RGB")
+            if im.width < 2400:
+                im.thumbnail((1400, 1400))
+                im = upscale(im)
+            cover(im, W, H).save(UP / f"{p.stem}.jpg", quality=94)
+            print("  photo", p.stem, flush=True)
+        except Exception as e:
+            report.setdefault("photo_errors", []).append(f"photo {p.stem}: {type(e).__name__}: {e}")
     del sr; gc.collect(); torch.cuda.empty_cache()
 except Exception as e:
     report["errors"].append(f"esrgan: {type(e).__name__}: {e}"); print("ESRGAN FAILED", e)
-for p in PHOTOS.glob("*.jpg"):
-    try:
-        cover(Image.open(p).convert("RGB"), W, H).save(UP / f"{p.stem}.jpg", quality=94)
-    except Exception as e:
-        report["errors"].append(f"photo resize {p.stem}: {e}")
 stage("esrgan", t)
 
 # ------------------------------------------- segmentation of the subject

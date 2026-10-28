@@ -5,7 +5,9 @@
 Run by .github/workflows/smoke.yml on every push to dev; only a passing run
 moves the code to main.
   1. every module imports;
-  2. the opening line is narrated (Kokoro, pronunciation lexicon applied);
+  2. two German lines are narrated (Piper Thorsten, numbers spoken as words,
+     pronunciation lexicon applied); the species check's pass rule, the
+     plan's handling of a dropped scene and the subtitles are exercised;
   3. a two-part plan of drawn shots and a 2.5D still is rendered at 640x360,
      each part on its own, and the parts are joined with -c copy;
   4. the sound is mixed and measured: -14 LUFS (+-0.5), true peak <= -1 dBTP;
@@ -81,15 +83,60 @@ def main():
     check("mask: scattered scraps fail", not g["mask_checks"](scraps)["ok"])
     check("mask: empty fails", not g["mask_checks"](np.zeros_like(blob))["ok"])
 
-    from core import narrate
-    k = narrate.load_kokoro()
-    text = "> Smith named the fish Latimeria chalumnae.\n< It is a coelacanth."
-    audio, timeline, rep = narrate.synthesize(k, text, "bm_lewis")
+    from core import narrate_de, speech_de
+    spoken = speech_de.for_text_engine("East London, Südafrika. Der 22. Dezember 1938.")
+    check("numbers in words", "zweiundzwanzigste Dezember neunzehnhundertachtunddreißig" in spoken
+          and "Iest London" in spoken, spoken)
+    check("lexicon to Piper", "[[ kalˈʊmnɛː ]]" in speech_de.for_piper("Latimeria chalumnae"),
+          speech_de.for_piper("Latimeria chalumnae"))
+    voice = narrate_de.load()
+    text = "> Smith gab dem Fisch den Namen Latimeria chalumnae.\n< Es ist ein Quastenflosser."
+    audio, sr, timeline, rep = narrate_de.synthesize(voice, text)
     wav = W / "narration.wav"
-    sf.write(wav, audio, 24000)
-    check("narration", rep["seconds"] > 2, json.dumps(rep))
-    ph = narrate.phonemes(k, "Latimeria chalumnae", "en-gb")
-    check("lexicon", "kəlˈʌmniː" in ph, ph)
+    sf.write(wav, audio, sr)
+    check("narration (Piper)", rep["seconds"] > 2 and len(timeline) == 2, json.dumps(rep))
+
+    # the species check's rule, on answers as Gemini gives them
+    from pipeline import speciescheck as sc
+    good = {"species_match": True, "features": {"a": "yes", "b": "yes", "c": "not visible"},
+            "forbidden_seen": [], "fits_narration": True, "off_topic_objects": [], "people": False,
+            "text_or_logo": False}
+    check("species: right animal passes", sc.passes(good, "latimeria")[0] is True)
+    check("species: a wrong feature fails", sc.passes({**good, "features": {"a": "yes", "b": "no"}}, "latimeria")[0]
+          is False)
+    check("species: a bird's head fails", sc.passes({**good, "forbidden_seen": ["a bird's head"]}, "quetzalcoatlus")[0]
+          is False)
+    check("relevance: candles fail", sc.passes({**good, "off_topic_objects": ["candles"]})[0] is False)
+    check("archive: people are fine", sc.passes({**good, "people": True, "off_topic_objects": ["people"]},
+                                                "latimeria", archive=True)[0] is True)
+
+    # a beat nothing passed for is dropped and its neighbour runs on; nothing is shown twice
+    from pipeline import docplan
+    tl = [{"text": t, "kind": "base", "start": a, "end": b} for t, a, b in
+          (("Vor sechsundsechzig Millionen Jahren.", 0.0, 6.0), ("Er schlug an der Küste ein.", 6.0, 11.0),
+           ("Etwa drei Viertel.", 11.0, 16.0), ("Die großen Dinosaurier.", 16.0, 20.0))]
+    picks = {"asteroid_sky": ["asteroid_sky__s1"], "impact_forest": [], "edmontosaurus_shore": ["edmontosaurus_shore__s2"]}
+    real = docplan.ROOT
+    shots_spec = json.loads((real / "episodes" / "living-fossils" / "shots.json").read_text(encoding="utf-8"))
+    tmp_ep = W / "ep"
+    (tmp_ep / "episodes" / "smoke").mkdir(parents=True)
+    (tmp_ep / "episodes" / "smoke" / "shots.json").write_text(
+        json.dumps({"lines": shots_spec["lines"][:4]}, ensure_ascii=False), encoding="utf-8")
+    (tmp_ep / "episodes" / "smoke" / "footage.json").write_text("{}", encoding="utf-8")
+    docplan.ROOT = tmp_ep
+    try:
+        pl = docplan.build("smoke", tl, 20.0, parts=2, picks=picks)
+    finally:
+        docplan.ROOT = real
+    imgs = [x.get("image") for x in pl["shots"] if x.get("image")]
+    check("plan: dropped scene covered", "impact_forest__s0" not in imgs and len(imgs) == len(set(imgs))
+          and abs(pl["shots"][-1]["end"] - pl["total_s"]) < 0.01, str([(x["kind"], x.get("image"), x["start"], x["end"])
+                                                                       for x in pl["shots"]]))
+    from automation import build_doc
+    (W / "inputs").mkdir(exist_ok=True)
+    build_doc.W = lambda slug: W
+    srt = build_doc.subtitles("smoke", tl).read_text(encoding="utf-8")
+    check("subtitles", srt.startswith("1\n00:00:00,000 --> ") and "Dinosaurier" in srt, srt[:80])
 
     # a synthetic still with a foreground disc, as the Kaggle job would leave it
     img = np.zeros((2376, 4224, 3), np.uint8)

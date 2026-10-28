@@ -1,5 +1,5 @@
 """Everything a render machine needs that the repository does not hold:
-the Kokoro voice, the music and atmosphere beds named in their libraries, and
+the Piper voice, the music and atmosphere beds named in their libraries, and
 NASA's Blue Marble for the maps. Each is checked for size, so an error page
 is never mistaken for a file.
 """

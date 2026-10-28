@@ -214,7 +214,7 @@ def render_part(plan, k, inputs, work, out_dir, res="2160p"):
             overlays.append((png, st, min(4.2, s["end"] - s["start"] - 1.2)))
         if s.get("title"):
             png = work / "title.png"
-            docanim.title_png(s["title"], "ANIMALS THAT SURVIVED THE DINOSAURS", png, *size)
+            docanim.title_png(s["title"], docanim.TITLE_SUB, png, *size)
             st = s["start"] - p0 + 0.5
             overlays.append((png, st, min(s.get("hold", 3.0) + 1.0, s["end"] - s["start"] - 0.9)))
 

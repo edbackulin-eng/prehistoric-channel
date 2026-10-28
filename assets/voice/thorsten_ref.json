@@ -1,0 +1,26 @@
+{
+ "_note": "The reference voice for Chatterbox sample A: two consecutive utterances from one recording session of the Thorsten-Voice dataset, joined with 0.35 s of silence (the dataset has no single 10-15 s utterance), trimmed, loudness-normalised to -20 LUFS, mono 24 kHz.",
+ "dataset": "Thorsten-Voice, TV-2022.10-Neutral (Thorsten Mueller)",
+ "licence": "CC0 1.0 (public domain dedication)",
+ "source": "https://huggingface.co/datasets/Thorsten-Voice/TV-44kHz-Full (TV-2022.10-Neutral/train-00003-of-00008.parquet)",
+ "homepage": "https://www.thorsten-voice.de",
+ "seconds": 11.39,
+ "utterances": [
+  {
+   "row": 299,
+   "id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---4b19872df7c33da4a602f1997afe9646",
+   "text": "steigende meerestemperaturen führten zu wetterextremen wie wirbelstürmen und heftigen niederschlägen.",
+   "seconds": 5.65,
+   "microphone": "good_rodePodcaster",
+   "recorded": "2021-08"
+  },
+  {
+   "row": 140,
+   "id": "dd01c488-10f3-a683-00cf-4d215f4d9b19---afd411915b20a96436571625d44bfa5b",
+   "text": "durch grundschleppnetze gerieten artenreiche steinriffe und miesmuschelbänke in gefahr.",
+   "seconds": 5.39,
+   "microphone": "good_rodePodcaster",
+   "recorded": "2021-08"
+  }
+ ]
+}

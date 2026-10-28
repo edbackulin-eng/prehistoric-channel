@@ -1,19 +1,20 @@
 {
- "_note": "One entry per narration line, matched by the line's opening words. Each beat is a shot; a line's time is split across its beats by weight. kinds: real (stock / PD / CC BY footage), recon (FLUX reconstruction -> 2.5D), photo (real PD / CC BY still -> 2.5D), anim (drawn in code). 'amb' names the atmosphere bed under that stretch; 'fx' the particle layer on a 2.5D shot.",
+ "_note": "One entry per narration line (de-DE), matched by the line's opening words. Each beat is a shot; a line's time is split across its beats. kinds: real (stock / PD / CC BY footage), recon (FLUX reconstruction of an extinct animal or a lost landscape -> 2.5D), photo (real PD / CC0 / CC BY still -> 2.5D), anim (drawn in code). Living species are never 'recon'. 'species' names the checklist pipeline/speciescheck.py asks Gemini about; 'alts' are further candidates, tried in order when one fails; 'archive' marks a historical photograph, judged on whether it shows the animal at all rather than on every feature. 'cut' opens a new movement: a hard cut, and a place a render part may start. 'amb' names the atmosphere bed; 'fx' the particle layer on a 2.5D shot.",
  "lines": [
   {
-   "at": "Sixty-six million years ago",
+   "at": "Vor sechsundsechzig Millionen",
    "amb": "wind",
    "beats": [
     {
      "kind": "recon",
      "id": "asteroid_sky",
-     "fx": "dust"
+     "fx": "dust",
+     "topic": "the asteroid falling from the sky over a Cretaceous coast"
     }
    ]
   },
   {
-   "at": "It struck the coast",
+   "at": "Er schlug an der Küste",
    "amb": "wind",
    "beats": [
     {
@@ -26,114 +27,130 @@
    ]
   },
   {
-   "at": "And around three-quarters",
+   "at": "Etwa drei Viertel",
    "amb": "fire",
    "beats": [
     {
      "kind": "recon",
      "id": "impact_forest",
-     "fx": "embers"
+     "fx": "embers",
+     "topic": "a Cretaceous forest burning after the impact"
     }
    ]
   },
   {
-   "at": "The giant dinosaurs",
+   "at": "Die großen Dinosaurier",
    "amb": "ocean",
    "beats": [
     {
      "kind": "recon",
      "id": "edmontosaurus_shore",
-     "fx": "fog"
+     "fx": "fog",
+     "species": "edmontosaurus"
     }
    ]
   },
   {
-   "at": "But some animals",
+   "at": "Doch manche Tiere",
    "amb": "swamp",
+   "cut": true,
    "beats": [
     {
      "kind": "real",
      "need": "croc_eye",
-     "brief": "a crocodile or alligator eye or head at the water surface, close",
-     "title": "LIVING FOSSILS",
-     "hold": 3.2
+     "species": "crocodile",
+     "title": "LEBENDE FOSSILIEN",
+     "hold": 3.2,
+     "brief": "a crocodile or alligator eye or head at the water surface, close"
     }
    ]
   },
   {
-   "at": "They crawl up moonlit beaches",
+   "at": "Sie kriechen im Mondlicht",
    "amb": "beach",
+   "cut": true,
    "beats": [
     {
      "kind": "real",
      "need": "hsc_beach",
-     "brief": "horseshoe crabs on a beach or in shallow water",
+     "species": "limulus",
      "label": [
-      "Horseshoe crab",
+      "Pfeilschwanzkrebs",
       "Limulus polyphemus"
-     ]
+     ],
+     "brief": "horseshoe crabs on a beach or in shallow water"
     }
    ]
   },
   {
-   "at": "They drift through the twilight",
+   "at": "Sie schweben durch das Dämmerlicht",
    "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "nautilus",
-     "brief": "a living chambered nautilus swimming",
+     "species": "nautilus",
      "label": [
-      "Chambered nautilus",
+      "Perlboot",
       "Nautilus pompilius"
-     ]
+     ],
+     "brief": "a living chambered nautilus swimming"
     }
    ]
   },
   {
-   "at": "They wait, almost motionless",
+   "at": "Sie warten, fast reglos",
    "amb": "swamp",
    "beats": [
     {
      "kind": "real",
      "need": "croc_bank2",
-     "brief": "a crocodile motionless at the water's edge",
+     "species": "crocodile",
      "label": [
-      "Nile crocodile",
+      "Nilkrokodil",
       "Crocodylus niloticus"
-     ]
+     ],
+     "brief": "a crocodile motionless at the water's edge"
     }
    ]
   },
   {
-   "at": "Crocodiles. Horseshoe crabs.",
+   "at": "Krokodile. Pfeilschwanzkrebse.",
    "amb": "forest",
+   "cut": true,
    "beats": [
     {
      "kind": "photo",
-     "need": "tuatara_photo",
-     "brief": "a tuatara photographed in the wild",
+     "need": "tuatara_head",
+     "alts": [
+      "tuatara_spiny",
+      "tuatara_rock",
+      "tuatara_zealandia",
+      "tuatara_waikanae",
+      "tuatara_photo"
+     ],
+     "species": "tuatara",
      "fx": "dust",
      "label": [
-      "Tuatara",
+      "Brückenechse",
       "Sphenodon punctatus"
      ]
     }
    ]
   },
   {
-   "at": "Scientists sometimes call",
+   "at": "Forscher nennen sie",
    "amb": "forest",
    "beats": [
     {
      "kind": "real",
      "need": "fern_forest",
-     "brief": "a primeval-looking fern or misty forest, no people, no paths"
+     "topic": "an old fern forest, a primeval-looking landscape"
     }
    ]
   },
   {
-   "at": "These animals never stopped",
+   "at": "Denn auch diese Tiere",
    "amb": "forest",
    "beats": [
     {
@@ -143,35 +160,37 @@
     {
      "kind": "real",
      "need": "croc_bank",
-     "brief": "a crocodile resting or moving in the wild"
+     "species": "crocodile"
     }
    ]
   },
   {
-   "at": "This is the story of the survivors",
+   "at": "Dies ist die Geschichte",
    "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "ocean_dawn",
-     "brief": "the open ocean at sunrise or sunset, empty horizon"
+     "topic": "the sea at dawn, a calm establishing view"
     }
    ]
   },
   {
-   "at": "How they made it through",
+   "at": "Wie sie das Ende",
    "amb": "wind",
    "beats": [
     {
      "kind": "recon",
      "id": "after_impact_dawn",
-     "fx": "fog"
+     "fx": "fog",
+     "topic": "a devastated landscape at dawn after the impact"
     }
    ]
   },
   {
-   "at": "East London, South Africa",
+   "at": "East London, Südafrika",
    "amb": "harbour",
+   "cut": true,
    "beats": [
     {
      "kind": "anim",
@@ -179,145 +198,187 @@
      "places": [
       "east_london"
      ],
-     "caption": "22 DECEMBER 1938"
+     "caption": "22. DEZEMBER 1938"
     }
    ]
   },
   {
-   "at": "A trawler called the Nerine",
+   "at": "Ein Fischkutter namens",
    "amb": "harbour",
    "beats": [
     {
      "kind": "real",
      "need": "rough_sea",
-     "brief": "grey rough sea and waves, no boats"
+     "topic": "a rough sea off a coast, where a trawler would fish"
     }
    ]
   },
   {
-   "at": "Among the by-catch",
+   "at": "Im Beifang liegt",
    "amb": "underwater",
    "beats": [
     {
-     "kind": "recon",
-     "id": "coelacanth_dark",
-     "fx": "marine_snow"
+     "kind": "photo",
+     "need": "coel_model_dark",
+     "alts": [
+      "coel_museum_vivente",
+      "coel_harvard"
+     ],
+     "species": "latimeria",
+     "fx": "dust"
     }
    ]
   },
   {
-   "at": "It is five feet long",
+   "at": "Er ist anderthalb Meter",
    "amb": "underwater",
    "beats": [
     {
-     "kind": "recon",
-     "id": "coelacanth_fins",
-     "fx": "marine_snow"
+     "kind": "photo",
+     "need": "coel_model_fins",
+     "alts": [
+      "coel_paris",
+      "coel_museum_vivente"
+     ],
+     "species": "latimeria",
+     "fx": "dust"
     }
    ]
   },
   {
-   "at": "The captain sets it aside",
+   "at": "Der Kapitän legt ihn",
    "amb": "harbour",
    "beats": [
     {
+     "kind": "photo",
+     "need": "marjorie_1938",
+     "alts": [
+      "marjorie_postcard"
+     ],
+     "species": "latimeria",
+     "archive": true,
+     "topic": "the curator Marjorie Courtenay-Latimer with the coelacanth, 1938"
+    },
+    {
      "kind": "real",
      "need": "river_mouth",
-     "brief": "a wild coastline or river mouth meeting the sea, aerial or wide"
+     "topic": "a river mouth on the South African coast"
     }
    ]
   },
   {
-   "at": "She searches her books",
+   "at": "Sie durchsucht ihre Bücher",
    "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "books",
-     "brief": "old books, pages, a natural-history illustration, no hands"
+     "topic": "old books, a curator searching reference books for the fish",
+     "brief": "old books, pages or a shelf of old books, no candles, no people"
     }
    ]
   },
   {
-   "at": "In February, the ichthyologist",
+   "at": "Erst im Februar",
    "amb": "room",
    "beats": [
     {
      "kind": "photo",
      "need": "fossil_fish_photo",
-     "brief": "a fossil coelacanth in stone",
+     "alts": [],
+     "species": "coelacanth_fossil",
      "fx": "dust"
     },
     {
-     "kind": "recon",
-     "id": "coelacanth_dark",
-     "second": true,
-     "fx": "marine_snow"
+     "kind": "photo",
+     "need": "coel_head_tournai",
+     "alts": [
+      "coel_shirshov"
+     ],
+     "species": "latimeria",
+     "fx": "dust"
     }
    ]
   },
   {
-   "at": "It is a coelacanth",
+   "at": "Es ist ein Quastenflosser",
    "amb": "underwater",
+   "cut": true,
    "beats": [
     {
-     "kind": "recon",
-     "id": "coelacanth_hero",
+     "kind": "photo",
+     "need": "coel_live",
+     "alts": [
+      "coel_harvard"
+     ],
+     "species": "latimeria",
      "fx": "marine_snow",
      "label": [
-      "Coelacanth",
+      "Quastenflosser",
       "Latimeria chalumnae"
      ]
     }
    ]
   },
   {
-   "at": "Their fossils run back",
+   "at": "Ihre Fossilien reichen",
    "amb": "underwater",
    "beats": [
     {
      "kind": "recon",
      "id": "devonian_sea",
-     "fx": "marine_snow"
+     "fx": "marine_snow",
+     "species": "devonian"
     }
    ]
   },
   {
-   "at": "Then, after the Cretaceous",
+   "at": "Nach der Kreidezeit aber",
    "amb": "wind",
+   "cut": true,
    "beats": [
     {
      "kind": "real",
      "need": "strata",
-     "brief": "layered sedimentary rock cliff or canyon strata"
+     "topic": "layers of sedimentary rock, where fossils are found"
     }
    ]
   },
   {
-   "at": "Smith named the fish",
+   "at": "Smith gab dem Fisch",
    "amb": "ocean",
    "beats": [
     {
+     "kind": "photo",
+     "need": "coel_shirshov",
+     "alts": [
+      "coel_paris",
+      "coel_museum_vivente"
+     ],
+     "species": "latimeria"
+    },
+    {
      "kind": "real",
      "need": "deep_blue",
-     "brief": "deep blue open water with light rays from above"
+     "topic": "open deep blue ocean"
     }
    ]
   },
   {
-   "at": "His hunt for a second",
+   "at": "Die Suche nach einem zweiten",
    "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "ocean_horizon",
-     "brief": "a wide empty ocean, waves or horizon, moody"
+     "topic": "the ocean horizon, a long search at sea"
     }
    ]
   },
   {
-   "at": "Yet fishermen in the Comoro",
+   "at": "Dabei kannten Fischer",
    "amb": "beach",
+   "cut": true,
    "beats": [
     {
      "kind": "anim",
@@ -330,62 +391,72 @@
    ]
   },
   {
-   "at": "There, they called it gombessa",
+   "at": "Dort nannten sie ihn",
    "amb": "beach",
    "beats": [
     {
      "kind": "real",
      "need": "island",
-     "brief": "a steep volcanic tropical island coast from the air"
+     "topic": "a volcanic island in the Indian Ocean like the Comoros"
     }
    ]
   },
   {
-   "at": "In 1952, a second coelacanth",
+   "at": "1952 ging schließlich",
    "amb": "beach",
    "beats": [
     {
-     "kind": "real",
-     "need": "island2",
-     "brief": "tropical island shoreline, volcanic rock, turquoise sea"
+     "kind": "photo",
+     "need": "smith_1952",
+     "alts": [],
+     "species": "latimeria",
+     "archive": true,
+     "topic": "J. L. B. Smith with the second coelacanth, 1952"
     }
    ]
   },
   {
-   "at": "And slowly, the living fish",
+   "at": "Und nach und nach",
    "amb": "underwater",
+   "cut": true,
    "beats": [
     {
      "kind": "real",
      "need": "reef",
-     "brief": "a deep reef slope or drop-off, blue water"
+     "topic": "the deep sea where the living fish was studied"
     }
    ]
   },
   {
-   "at": "By day, coelacanths shelter",
+   "at": "Tagsüber ziehen sich",
    "amb": "underwater",
    "beats": [
     {
-     "kind": "recon",
-     "id": "coelacanth_cave",
-     "fx": "marine_snow"
+     "kind": "photo",
+     "need": "coel_diorama",
+     "alts": [
+      "coel_harvard"
+     ],
+     "species": "latimeria",
+     "fx": "marine_snow",
+     "topic": "a coelacanth among dark volcanic rocks, its cave habitat"
     }
    ]
   },
   {
-   "at": "At night, they leave",
+   "at": "Nachts verlassen sie",
    "amb": "underwater",
    "beats": [
     {
-     "kind": "recon",
-     "id": "coelacanth_pair",
-     "fx": "marine_snow"
+     "kind": "real",
+     "need": "deep_slope",
+     "topic": "a dark deep-sea rocky slope at night, the coelacanth's hunting ground",
+     "brief": "dark volcanic rock on the deep sea floor lit by a submersible"
     }
    ]
   },
   {
-   "at": "Then, in the late 1990s",
+   "at": "Ende der 1990er",
    "amb": "underwater",
    "beats": [
     {
@@ -399,29 +470,32 @@
     {
      "kind": "real",
      "need": "deep_night",
-     "brief": "dark deep water, jellyfish"
+     "topic": "the deep sea at night"
     }
    ]
   },
   {
-   "at": "So how does a lineage",
+   "at": "Wie also überlebt",
    "amb": "ocean",
+   "cut": true,
    "beats": [
     {
      "kind": "recon",
      "id": "cretaceous_coast",
-     "fx": "fog"
+     "fx": "fog",
+     "species": "quetzalcoatlus"
     }
    ]
   },
   {
-   "at": "To answer that",
+   "at": "Um das zu verstehen",
    "amb": "ocean",
    "beats": [
     {
      "kind": "recon",
      "id": "cretaceous_sunrise",
-     "fx": "dust"
+     "fx": "dust",
+     "topic": "a Cretaceous lagoon at sunrise, the world the coelacanth came from"
     }
    ]
   }

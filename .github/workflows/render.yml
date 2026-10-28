@@ -17,7 +17,7 @@ on:
         description: parts rendered in parallel
         default: "6"
       samples:
-        description: also cut the three 30-second voice samples
+        description: also make the three German 40-second voice samples (A, B, C)
         default: "true"
       gpu_source:
         description: where the reconstructions and voice lines are (modal or kaggle)
@@ -69,7 +69,7 @@ jobs:
       - name: GPU results from the one-off Kaggle run
         if: inputs.gpu_source == 'kaggle'
         run: python gpu/kaggle_once.py fetch
-      - name: Narration, plan, footage, 2.5D layers and voice lines (Modal Volume)
+      - name: German narration, 2.5D layers, species check, plan, footage, voice lines
         run: python automation/build_doc.py prepare "$SLUG" --res "$RES" --parts "${{ inputs.parts }}"
       - id: plan
         run: |
@@ -123,6 +123,9 @@ jobs:
     needs: part
     runs-on: ubuntu-24.04
     timeout-minutes: 60
+    env:
+      GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
+      PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -181,4 +184,6 @@ jobs:
             work/${{ inputs.slug }}/timing_${{ inputs.res }}.json
             work/${{ inputs.slug }}/inputs/kaggle_recon_report.json
             work/${{ inputs.slug }}/inputs/mask_check.json
+            work/${{ inputs.slug }}/inputs/species_check.json
+            work/${{ inputs.slug }}/inputs/subtitles_de.srt
             test/

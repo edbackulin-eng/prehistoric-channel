@@ -44,8 +44,6 @@ jobs:
           cache: pip
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - run: pip install -q -r requirements.txt
-      - name: Kokoro (times the 30-second voice sample)
-        run: python automation/fetch_models.py
       - name: Reconstructions
         id: recon
         run: |

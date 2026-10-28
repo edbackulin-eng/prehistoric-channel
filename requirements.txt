@@ -1,4 +1,6 @@
 kokoro-onnx>=0.4
+piper-tts==1.8.0
+num2words>=0.5.13
 onnxruntime>=1.17
 soundfile>=0.12
 numpy>=1.26

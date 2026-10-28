@@ -38,6 +38,8 @@ kaggle/job_*.json
 *.webp
 *.npy
 *.log
+# the one exception: the CC0 reference voice for the German Chatterbox sample (0.5 MB)
+!assets/voice/thorsten_ref.wav
 __pycache__/
 *.pyc
 .venv/

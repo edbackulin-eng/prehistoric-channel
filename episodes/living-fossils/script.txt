@@ -1,45 +1,45 @@
-> Sixty-six million years ago, a rock about ten kilometres wide fell out of the sky.
-It struck the coast of what is now Mexico.
-< And around three-quarters of all plant and animal species on Earth disappeared.
-> The giant dinosaurs. The great sea reptiles. The ammonites.
+> Vor sechsundsechzig Millionen Jahren stürzte ein Gesteinsbrocken vom Himmel, rund zehn Kilometer groß.
+Er schlug an der Küste des heutigen Mexiko ein.
+< Etwa drei Viertel aller Tier- und Pflanzenarten der Erde verschwanden.
+> Die großen Dinosaurier. Die gewaltigen Meeresreptilien. Die Ammoniten.
 [pause 0.6]
-But some animals were already ancient when the asteroid hit.
-< And they are still here.
+Doch manche Tiere waren schon uralt, als der Asteroid einschlug.
+< Und es gibt sie bis heute.
 [pause 1.4]
-They crawl up moonlit beaches to lay their eggs.
+Sie kriechen im Mondlicht an die Strände, um dort ihre Eier abzulegen.
 [pause 0.7]
-They drift through the twilight of deep tropical reefs.
+Sie schweben durch das Dämmerlicht tiefer tropischer Riffe.
 [pause 0.7]
-They wait, almost motionless, at the water's edge.
+Sie warten, fast reglos, am Rand des Wassers.
 [pause 0.6]
-> Crocodiles. Horseshoe crabs. The chambered nautilus. A New Zealand reptile called the tuatara.
-Scientists sometimes call them living fossils, and they use the term with care.
-These animals never stopped evolving. But their basic body plans have endured for tens, even hundreds, of millions of years.
-< This is the story of the survivors.
-How they made it through the end of a world, and what they can still tell us about it.
+> Krokodile. Pfeilschwanzkrebse. Das Perlboot. Und ein Reptil aus Neuseeland: die Brückenechse.
+Forscher nennen sie manchmal lebende Fossilien, und sie verwenden den Begriff mit Bedacht.
+Denn auch diese Tiere haben sich weiterentwickelt. Doch ihr Bauplan hat Dutzende, manche sogar Hunderte Millionen Jahre überdauert.
+< Dies ist die Geschichte der Überlebenden.
+Wie sie das Ende einer Welt überstanden, und was sie uns heute noch darüber erzählen.
 [pause 1.6]
-< East London, South Africa. The twenty-second of December, 1938.
-A trawler called the Nerine returns to harbour with its catch.
-Among the by-catch is a fish that no one on board can name.
-It is five feet long, a pale blue flecked with white, and its fins grow from fleshy lobes, almost like limbs.
-The captain sets it aside for the town museum, and its young curator, Marjorie Courtenay-Latimer, comes down to the docks to see it.
-She searches her books. She finds nothing like it.
-In February, the ichthyologist J. L. B. Smith finally sees the specimen, and he recognises it at once.
-< It is a coelacanth.
+< East London, Südafrika. Der 22. Dezember 1938.
+Ein Fischkutter namens Nerine läuft mit seinem Fang in den Hafen ein.
+Im Beifang liegt ein Fisch, den an Bord niemand kennt.
+Er ist anderthalb Meter lang, blassblau mit weißen Flecken, und seine Flossen sitzen auf fleischigen Stielen, fast wie Gliedmaßen.
+Der Kapitän legt ihn für das Museum der Stadt beiseite, und die junge Kuratorin Marjorie Courtenay-Latimer kommt zum Hafen, um ihn sich anzusehen.
+Sie durchsucht ihre Bücher. Nichts darin gleicht diesem Fisch.
+Erst im Februar bekommt der Fischkundler J. L. B. Smith das Tier zu sehen, und er erkennt es sofort.
+< Es ist ein Quastenflosser.
 [pause 0.5]
-And as far as science knew, coelacanths had vanished with the dinosaurs.
-Their fossils run back more than four hundred million years, to the Devonian period.
-Then, after the Cretaceous, they simply disappear from the rocks.
-Smith named the fish Latimeria chalumnae, after the curator, and after the Chalumna River, off which it was caught.
-His hunt for a second specimen would take more than a decade.
-< Yet fishermen in the Comoro Islands had known this fish all along.
-There, they called it gombessa.
-In 1952, a second coelacanth was finally caught, off the island of Anjouan.
-And slowly, the living fish began to give up its secrets.
-By day, coelacanths shelter in caves in old lava flows, on steep slopes far below the surface.
-At night, they leave the caves to hunt.
-A large female can reach two metres in length.
-Then, in the late 1990s, a second species turned up on the other side of the Indian Ocean, in Indonesia.
+Und nach allem, was die Wissenschaft wusste, waren Quastenflosser zusammen mit den Dinosauriern verschwunden.
+Ihre Fossilien reichen mehr als vierhundert Millionen Jahre zurück, bis ins Devon.
+Nach der Kreidezeit aber fehlt von ihnen im Gestein plötzlich jede Spur.
+Smith gab dem Fisch den Namen Latimeria chalumnae, nach der Kuratorin und nach dem Fluss Chalumna, vor dessen Mündung er gefangen worden war.
+Die Suche nach einem zweiten Exemplar sollte ihn mehr als ein Jahrzehnt kosten.
+< Dabei kannten Fischer auf den Komoren diesen Fisch schon lange.
+Dort nannten sie ihn Gombessa.
+1952 ging schließlich ein zweiter Quastenflosser an die Angel, vor der Insel Anjouan.
+Und nach und nach gab der lebende Fisch seine Geheimnisse preis.
+Tagsüber ziehen sich Quastenflosser in Höhlen alter Lavaströme zurück, an steilen Hängen tief unter der Oberfläche.
+Nachts verlassen sie die Höhlen und gehen auf die Jagd.
+Ein großes Weibchen kann zwei Meter lang werden.
+Ende der 1990er Jahre tauchte dann auf der anderen Seite des Indischen Ozeans, in Indonesien, eine zweite Art auf.
 [pause 0.5]
-< So how does a lineage that seems to vanish from the rocks with the dinosaurs survive for sixty-six million years?
-< To answer that, we have to go back to the world it came from.
+< Wie also überlebt eine Linie, die mit den Dinosauriern aus dem Gestein verschwindet, sechsundsechzig Millionen Jahre lang?
+< Um das zu verstehen, müssen wir zurück in die Welt, aus der sie stammt.

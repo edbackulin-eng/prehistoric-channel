@@ -1,29 +1,28 @@
 {
- "_note": "Reconstructions for FLUX.1-schnell. Anatomy is written into every prompt because the model otherwise draws a generic 'dinosaur'. References: Wikipedia articles Edmontosaurus, Mosasaurus, Ammonoidea, West Indian Ocean coelacanth, Dunkleosteus, Cretaceous flora (Araucaria, cycads, ferns). Two seeds each; the better one is chosen by visual QC.",
+ "_note": "Reconstructions for FLUX.1-schnell - extinct animals and lost landscapes only. Living species (coelacanth, horseshoe crab, nautilus, tuatara, crocodile) are shown only in real photographs and footage (photos below, footage.json). Each prompt spells out the anatomy the species check (pipeline/speciescheck.py) then asks for, and describes the animal in its own terms only: FLUX draws whatever a prompt names, so a 'not like a bird' brings the bird in. Three seeds each; the first that passes the check is used. Anatomy after the Wikipedia articles Edmontosaurus, Quetzalcoatlus, Azhdarchidae, Eusthenopteron, Dunkleosteus, Cretaceous flora.",
  "style": "photorealistic wildlife documentary frame, BBC natural history cinematography, natural vivid colours, soft natural light, high dynamic range, sharp detail, 35mm film look, no text, no people",
- "seeds": 2,
+ "seeds_per_prompt": 3,
  "prompts": {
-  "asteroid_sky": "Late Cretaceous coastal plain at dusk, a blazing fireball with a long smoke trail streaking across a vast orange and violet sky, silhouettes of araucaria conifers and cycads on the horizon, calm sea reflecting the light, wide landscape",
-  "impact_forest": "Late Cretaceous conifer forest after the asteroid impact, glowing embers and ash falling through hazy orange light, burnt araucaria trunks, smoke drifting between trees, wide shot",
-  "edmontosaurus_shore": "a herd of Edmontosaurus, large duck-billed hadrosaur dinosaurs with broad flat toothless beaks, scaly grey-green skin, heavy tails held level, walking on all fours along a misty river delta at sunrise, Late Cretaceous, ferns and araucaria trees, wide shot",
-  "mosasaur_ammonites": "underwater in a Late Cretaceous sea, a Mosasaurus, huge marine lizard with long conical-toothed jaws, four paddle flippers and a shark-like downturned tail fluke, gliding past a group of ammonites with ribbed coiled shells and tentacles, sunbeams through blue water",
-  "after_impact_dawn": "pale cold dawn over a devastated Late Cretaceous landscape, charred standing tree trunks, the ground covered in grey ash with fresh green ferns sprouting, low fog, wide shot",
-  "coelacanth_dark": "a coelacanth fish, Latimeria chalumnae, deep steel-blue body with irregular white blotches, thick heavy scales, fleshy lobed paired fins like small limbs, three-lobed tail with a small middle lobe, swimming slowly in dark deep ocean water lit by a soft beam of light from above, side view",
-  "coelacanth_fins": "close-up of a living coelacanth, Latimeria chalumnae, its fleshy lobed pectoral fin moving like a limb, thick blue scales with white spots, deep blue water, shallow depth of field",
-  "coelacanth_hero": "a single coelacanth, Latimeria chalumnae, full body side profile, deep blue with white spots, lobed fins spread, three-lobed tail, hovering in calm deep blue water, rim light from above, centred composition",
-  "cretaceous_sea_coelacanth": "underwater in a Late Cretaceous sea, a large blue-grey coelacanth with lobed fins swimming near the sandy seabed, ammonites with ribbed coiled shells drifting above it, sunbeams in clear blue water",
-  "devonian_sea": "Devonian sea floor 400 million years ago, an early lobe-finned fish swimming over a reef of corals, sponges and swaying crinoids, an armoured placoderm fish Dunkleosteus in the blue distance, clear water with sunbeams",
-  "coelacanth_cave": "two coelacanths, Latimeria chalumnae, blue with white spots, hovering head-down inside a dark volcanic lava cave on a steep underwater slope, soft blue light from the cave opening, drifting particles",
-  "coelacanth_pair": "a large coelacanth, Latimeria chalumnae, blue with white blotches, gliding along a steep slope of black volcanic rock in the deep blue twilight zone, a second coelacanth in the distance",
-  "cretaceous_coast": "Late Cretaceous coastline, tall white chalk cliffs above a turquoise sea, two large azhdarchid pterosaurs with long necks, fuzzy bodies and wide membrane wings gliding over the waves, golden afternoon light, wide shot",
-  "cretaceous_sunrise": "sunrise over a calm Late Cretaceous lagoon, several horseshoe crabs on wet sand in the foreground, cycads and araucaria conifers along the shore, mist on the water, warm golden light, low angle"
+  "asteroid_sky": "Late Cretaceous coastal plain at dusk, a blazing fireball with a long smoke trail streaking across a vast orange and violet sky, silhouettes of araucaria conifers and cycads on the horizon, calm sea reflecting the light, empty landscape, wide shot",
+  "impact_forest": "Late Cretaceous conifer forest after the asteroid impact, glowing embers and ash falling through hazy orange light, burnt araucaria trunks, smoke drifting between trees, empty forest, wide shot",
+  "edmontosaurus_shore": "a herd of Edmontosaurus, large hadrosaurid dinosaurs of the Late Cretaceous, each with a long low flat-topped head ending in a broad flat duck-like bill, no crest on the head, a short thick neck held low and level with the back, a bulky barrel-shaped body, a long heavy tail held straight out behind, pillar-like hind legs with three blunt hoof-like toes, smaller front legs; most graze on all fours, one stands on its hind legs; pebbly grey-green scaly skin; along a misty river delta at sunrise with ferns, horsetails and araucaria trees, wide shot",
+  "after_impact_dawn": "pale cold dawn over a devastated Late Cretaceous landscape, charred standing tree trunks, the ground covered in grey ash with fresh green ferns sprouting, low fog, empty landscape, wide shot",
+  "devonian_sea": "Devonian sea floor 380 million years ago, an Eusthenopteron swimming over the reef: a long slender torpedo-shaped fish with a pointed head, thick rounded scales, paired fleshy lobed fins with a bony stalk, and a symmetrical three-lobed tail with a small pointed middle lobe; behind it a Dunkleosteus, a huge armoured fish whose head and front body are covered by thick jointed bony plates and whose jaws are sharp self-sharpening bone blades instead of teeth; the reef built of stromatoporoid sponges, horn-shaped rugose corals and swaying crinoids, clear blue water with sunbeams",
+  "cretaceous_coast": "Late Cretaceous coastline, tall white chalk cliffs above a turquoise sea, two giant Quetzalcoatlus pterosaurs gliding over the waves: each has an enormous straight pointed toothless beak as long as its body, a small bony crest on the back of the skull, a very long stiff neck held straight, a short compact body covered in fine short reddish fuzz, and huge wings of thin brown leathery skin stretched from one extremely long wing finger down to the ankles, small clawed fingers at the front of each wing, a tiny tail; golden afternoon light, wide shot",
+  "cretaceous_sunrise": "sunrise over a calm Late Cretaceous lagoon, wet sand and shallow water in the foreground, cycads, tree ferns and araucaria conifers along the shore, mist on the water, warm golden light, empty shore, low angle wide shot"
  },
- "thumbs": {
-  "thumb_coelacanth": "a single coelacanth, Latimeria chalumnae, emerging from darkness into a dramatic shaft of light, deep blue with white spots, lobed fins, three-quarter view facing the camera, black background, high contrast dramatic lighting, empty dark space on the left third",
-  "thumb_hsc": "a single horseshoe crab on wet sand at night, dramatic low side light, glistening shell, moonlit ocean behind softly out of focus, low angle close-up, empty dark sky on the right third",
-  "thumb_croc": "a Nile crocodile head rising from dark still water, dramatic golden side light, water droplets, eye sharp in focus, close-up, dark background, empty space on the left third"
- },
+ "thumbs": {},
  "photos": {
+  "fossil_fish_photo": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Gfp-ancient-coelacanth.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Gfp-ancient-coelacanth.jpg",
+   "title": "File:Gfp-ancient-coelacanth.jpg",
+   "author": "Yinan Chen",
+   "license": "Public Domain",
+   "license_url": "https://web.archive.org/web/20230926203737/https://creativecommons.org/licenses/publicdomain/",
+   "width": 3456,
+   "height": 2304
+  },
   "tuatara_photo": {
    "url": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Young_tuatara_sitting_on_the_ground.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
    "page": "https://commons.wikimedia.org/wiki/File:Young_tuatara_sitting_on_the_ground.jpg",
@@ -34,20 +33,176 @@
    "width": 4896,
    "height": 3264
   },
-  "fossil_fish_photo": {
-   "url": "https://upload.wikimedia.org/wikipedia/commons/e/eb/Gfp-ancient-coelacanth.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-   "page": "https://commons.wikimedia.org/wiki/File:Gfp-ancient-coelacanth.jpg",
-   "title": "File:Gfp-ancient-coelacanth.jpg",
-   "author": "Yinan Chen",
-   "license": "Public Domain",
-   "license_url": "https://web.archive.org/web/20230926203737/https://creativecommons.org/licenses/publicdomain/",
-   "width": 3456,
+  "tuatara_head": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Sphenodon_punctatus_head.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Sphenodon_punctatus_head.jpg",
+   "title": "File:Sphenodon punctatus head.jpg",
+   "author": "TimVickers",
+   "license": "Public domain",
+   "license_url": "",
+   "width": 2560,
+   "height": 2020
+  },
+  "tuatara_spiny": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/1/13/Sphenodon_punctatus_106371236.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Sphenodon_punctatus_106371236.jpg",
+   "title": "File:Sphenodon punctatus 106371236.jpg",
+   "author": "wild_wind",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "width": 2048,
+   "height": 2048
+  },
+  "tuatara_rock": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/f/f4/Sphenodon_punctatus_%283%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Sphenodon_punctatus_(3).jpg",
+   "title": "File:Sphenodon punctatus (3).jpg",
+   "author": "TimVickers",
+   "license": "Public domain",
+   "license_url": "",
+   "width": 4224,
+   "height": 2376
+  },
+  "tuatara_waikanae": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/7/75/Sphenodon_punctatus_in_Waikanae%2C_New_Zealand.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Sphenodon_punctatus_in_Waikanae,_New_Zealand.jpg",
+   "title": "File:Sphenodon punctatus in Waikanae, New Zealand.jpg",
+   "author": "unknown",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "width": 3264,
+   "height": 2448
+  },
+  "tuatara_zealandia": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/95/Tuatara_at_Zealandia_EcoSanctuary.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Tuatara_at_Zealandia_EcoSanctuary.jpg",
+   "title": "File:Tuatara at Zealandia EcoSanctuary.jpg",
+   "author": "Judi Lapsley Miller",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "width": 5845,
+   "height": 3897
+  },
+  "coel_live": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Coelacanth_off_Pumula_on_the_KwaZulu-Natal_South_Coast%2C_South_Africa%2C_on_22_November_2019.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Coelacanth_off_Pumula_on_the_KwaZulu-Natal_South_Coast,_South_Africa,_on_22_November_2019.png",
+   "title": "File:Coelacanth off Pumula on the KwaZulu-Natal South Coast, South Africa, on 22 November 2019.png",
+   "author": "Bruce A.S. Henderson",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "width": 963,
+   "height": 578
+  },
+  "coel_model_fins": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/93/Latimeria_chalumnae_%28model%29_%28coelacanth%29_1_%2815695435636%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Latimeria_chalumnae_(model)_(coelacanth)_1_(15695435636).jpg",
+   "title": "File:Latimeria chalumnae (model) (coelacanth) 1 (15695435636).jpg",
+   "author": "James St. John",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "width": 2907,
+   "height": 1849
+  },
+  "coel_model_dark": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Latimeria_chalumnae_%28model%29_%28coelacanth%29_2_%2815717251761%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Latimeria_chalumnae_(model)_(coelacanth)_2_(15717251761).jpg",
+   "title": "File:Latimeria chalumnae (model) (coelacanth) 2 (15717251761).jpg",
+   "author": "James St. John",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "width": 2949,
+   "height": 1690
+  },
+  "coel_museum_vivente": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/c/cc/Latimeria_Fossile_Vivente.JPG?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Latimeria_Fossile_Vivente.JPG",
+   "title": "File:Latimeria Fossile Vivente.JPG",
+   "author": "Jacopo Werther",
+   "license": "Public domain",
+   "license_url": "",
+   "width": 3072,
    "height": 2304
+  },
+  "coel_paris": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Latimeria_Paris.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Latimeria_Paris.jpg",
+   "title": "File:Latimeria Paris.jpg",
+   "author": "sybarite48",
+   "license": "CC BY 2.0",
+   "license_url": "https://creativecommons.org/licenses/by/2.0",
+   "width": 1024,
+   "height": 681
+  },
+  "coel_shirshov": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Latimeria_Shirshov.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Latimeria_Shirshov.jpg",
+   "title": "File:Latimeria Shirshov.jpg",
+   "author": "Rdfr",
+   "license": "CC BY 3.0",
+   "license_url": "https://creativecommons.org/licenses/by/3.0",
+   "width": 1200,
+   "height": 748
+  },
+  "coel_harvard": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/Latimeria_chalumnae_Harvard.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Latimeria_chalumnae_Harvard.jpg",
+   "title": "File:Latimeria chalumnae Harvard.jpg",
+   "author": "David Starner",
+   "license": "CC BY 3.0",
+   "license_url": "https://creativecommons.org/licenses/by/3.0",
+   "width": 2592,
+   "height": 1456
+  },
+  "coel_head_tournai": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Latimeria_chalumnae_Mus%C3%A9e_d%27Histoire_Naturelle_Tournai_27122015_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Latimeria_chalumnae_Mus%C3%A9e_d%27Histoire_Naturelle_Tournai_27122015_1.jpg",
+   "title": "File:Latimeria chalumnae Musée d'Histoire Naturelle Tournai 27122015 1.jpg",
+   "author": "Vassil",
+   "license": "CC0",
+   "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+   "width": 3744,
+   "height": 2976
+  },
+  "coel_diorama": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/7/7f/Latimeria_zoological_reconstruction_diorama_%28coelacanth%29_by_Sebastian_Brandt_%28Reco-Brandt%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Latimeria_zoological_reconstruction_diorama_(coelacanth)_by_Sebastian_Brandt_(Reco-Brandt).jpg",
+   "title": "File:Latimeria zoological reconstruction diorama (coelacanth) by Sebastian Brandt (Reco-Brandt).jpg",
+   "author": "TB0815",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "width": 1801,
+   "height": 1198
+  },
+  "smith_1952": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/4/45/Smith_with_the_second_coelacanth_ever_caught-transformed.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Smith_with_the_second_coelacanth_ever_caught-transformed.png",
+   "title": "File:Smith with the second coelacanth ever caught-transformed.png",
+   "author": "Unknown authorUnknown author",
+   "license": "Public domain",
+   "license_url": "",
+   "width": 3200,
+   "height": 2048
+  },
+  "marjorie_1938": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/6/67/Marjorie_Courtenay-Latimer_and_Coelacanth.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Marjorie_Courtenay-Latimer_and_Coelacanth.jpg",
+   "title": "File:Marjorie Courtenay-Latimer and Coelacanth.jpg",
+   "author": "Unknown authorUnknown author",
+   "license": "Public domain",
+   "license_url": "",
+   "width": 745,
+   "height": 506
+  },
+  "marjorie_postcard": {
+   "url": "https://upload.wikimedia.org/wikipedia/commons/7/7a/Marjorie_Courtenay-Latimer_Postcard.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+   "page": "https://commons.wikimedia.org/wiki/File:Marjorie_Courtenay-Latimer_Postcard.jpg",
+   "title": "File:Marjorie Courtenay-Latimer Postcard.jpg",
+   "author": "Unknown authorUnknown author",
+   "license": "Public domain",
+   "license_url": "",
+   "width": 800,
+   "height": 520
   }
  },
- "two_seeds": [
-  "coelacanth_dark",
-  "cretaceous_coast",
-  "coelacanth_hero"
- ]
+ "two_seeds": []
 }

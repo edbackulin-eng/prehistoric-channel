@@ -36,7 +36,7 @@ sys.path.insert(0, str(ROOT / "gpu" / "kernels"))
 sys.path.insert(0, str(ROOT))
 OTHERS = ("whatif", "closedtabs")
 CT_RAW = "https://raw.githubusercontent.com/edbackulin-eng/closed-tabs/main/kaggle/"
-JOB_HOURS = {"recon": 0.75, "voice": 0.3}
+JOB_HOURS = {"recon": 0.75, "voice": 0.5}
 SLUGS = {"recon": "prehistoric-recon", "voice": "prehistoric-voice"}
 IDLE_S = 15 * 60
 MAX_WAIT_S = float(os.environ.get("GPU_MAX_WAIT_S", 5 * 3600))
@@ -158,9 +158,12 @@ def build(task, slug, folder):
     if task == "recon":
         import recon_job
         spec = json.loads((ROOT / "episodes" / slug / "recon.json").read_text(encoding="utf-8"))
-        job = {k: spec[k] for k in ("style", "seeds", "prompts", "thumbs", "photos")}
+        job = {k: spec[k] for k in ("style", "prompts", "thumbs", "photos")}
         job["two_seeds"] = spec.get("two_seeds", [])
-        want = len(job["prompts"]) + len(job["two_seeds"]) + 2 * len(job["thumbs"])
+        job["seeds_per_prompt"] = n = spec.get("seeds_per_prompt", 1)
+        # the ids this job makes: an earlier run's output (other prompts) never counts
+        want = [f"{k}__s{i}" for k in job["prompts"] for i in range(max(n, 2 if k in job["two_seeds"] else 1))]
+        want += [f"{k}__s{i}" for k in job["thumbs"] for i in range(2)]
         # The Hugging Face token goes into the notebook at submit time and into
         # nothing else: no job file, no repository (as whatif-channel's
         # kaggle/push.py does it). The kernel is private, and the token is only
@@ -171,12 +174,13 @@ def build(task, slug, folder):
         cell = f"JOB = {json.dumps(job, indent=1)}\n{recon_job.SOURCE}"
         sources = [f"{user()}/whatif-flux-weights"]          # the 4-bit FLUX mirror, read only
     else:
+        # German samples A and C: Chatterbox Multilingual (gpu/kernels/voice_de_job.py)
+        import voice_de_job
         import voice_job
-        sys.path.insert(0, str(ROOT / "gpu"))
-        import modal_app
-        job = modal_app.voice_job_dict(slug)
+        job = voice_de_job.job(slug)
         want = len(job["lines"])
-        cell = f"JOB = {json.dumps(job, indent=1)}\n{voice_job.WATCHDOG}\n{voice_job.body()}"
+        cell = (f"JOB = {json.dumps(job, indent=1, ensure_ascii=False)}\n{voice_job.WATCHDOG}\n"
+                f"{voice_de_job.SOURCE}")
         sources = []
     nb = {"cells": [{"cell_type": "code", "metadata": {}, "execution_count": None, "outputs": [],
                      "source": cell.splitlines(keepends=True)}],
@@ -230,16 +234,20 @@ def validate(task, out, want):
     r = json.loads(rp.read_text(encoding="utf-8"))
     errors = r.get("errors") or []
     if task == "recon":
-        got = len(r.get("images") or [])
+        ids = set(want) if isinstance(want, (list, tuple, set)) else None
+        n_want = len(ids) if ids is not None else want
+        got = len([i for i in (r.get("images") or []) if ids is None or i.get("id") in ids])
         files = len(list((out / "up").glob("*.jpg"))) if (out / "up").exists() else 0
-        need = math.ceil(0.9 * want)
+        need = math.ceil(0.9 * n_want)
         ok = got >= need and not errors
-        return ok, (f"{got}/{want} images (need {need}), {files} upscaled files, "
+        return ok, (f"{got}/{n_want} images (need {need}), {files} upscaled files, "
                     f"weights: {r.get('weights_source')}, errors: {errors[:3]}")
-    got = len(r.get("lines") or [])
-    wavs = len(list(out.glob("line_*.wav")))
-    ok = got >= want and wavs >= want and not errors
-    return ok, f"{got}/{want} lines, {wavs} line files, errors: {errors[:3]}"
+    # German samples: A (Thorsten reference) is required, C (demo voice) is
+    # judged only if it was made; every line of each must be on disk
+    v = r.get("variants") or {}
+    counts = {k: (len(v[k].get("lines") or []), len(list((out / k).glob("line_*.wav")))) for k in v}
+    ok = "A" in v and all(a >= want and b >= want for a, b in counts.values()) and not errors
+    return ok, f"variants {counts} of {want} lines, errors: {errors[:3]}"
 
 
 def pull(ref, out):

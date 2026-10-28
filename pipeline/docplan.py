@@ -1,14 +1,18 @@
 """The edit plan: which picture is on screen when, cut to the narration.
 
-Inputs: the narration timeline (core/narrate.py), shots.json (what each line
-shows), footage.json (the chosen real clips) and recon_picks.json (which seed
-of each reconstruction). Output: plan.json, a flat list of shots with times,
-transitions, motion and overlays, plus the parts the render is split into.
+Inputs: the narration timeline (core/narrate_de.py), shots.json (what each
+line shows), footage.json (the real clips and their alternates) and the
+species check's picks (pipeline/speciescheck.py: for every beat, the
+candidates that are the right animal and fit the line, in order). Output:
+plan.json, a flat list of shots with times, transitions, motion and overlays,
+plus the parts the render is split into.
 
 Rules
   - a shot lasts 4-7 s (3.5-7.5 s at the edges); a line too long for one shot
-    gets a second one from a different source - another clip, the other seed -
-    so no picture is ever shown twice;
+    gets a second one from the beat's next passing candidate - another clip,
+    photo or seed - so no picture is ever shown twice;
+  - a beat none of whose candidates passed the species check is dropped, and
+    the shot before it runs on over its words;
   - pictures lead the words by a quarter of a second, as an editor cuts;
   - transitions are 0.6 s dissolves, except hard cuts where the story turns
     (and the render parts begin only on those cuts, so the parts join with
@@ -22,10 +26,6 @@ LEAD_S = 0.25
 MIN_S, MAX_S = 3.5, 7.5
 XFADE_S = 0.6
 OUTRO_S = 3.0
-# Lines that open a new movement: a hard cut, and a place a render part may start.
-CUT_BEFORE = ("But some animals", "They crawl up", "East London", "It is a coelacanth",
-              "Then, after the Cretaceous", "Yet fishermen", "And slowly, the living",
-              "So how does")
 MOVES = ["push_in", "truck_right", "pull_out", "truck_left", "crane_up", "push_in_left"]
 
 
@@ -36,12 +36,36 @@ def _match(lines, at):
     raise KeyError(f"no narration line starts with {at!r}")
 
 
-def build(slug, timeline, narration_s, parts=6):
+def _clips(footage):
+    """Every clip by id: the chosen ones and their alternates."""
+    out = {}
+    for need, c in footage.items():
+        out.setdefault(c["id"], c)
+        for alt in c.get("alternates") or []:
+            out.setdefault(alt["id"], {**c, **alt})
+    return out
+
+
+def build(slug, timeline, narration_s, parts=6, picks=None):
+    from pipeline import speciescheck
     ep = ROOT / "episodes" / slug
     spec = json.loads((ep / "shots.json").read_text(encoding="utf-8"))["lines"]
     footage = json.loads((ep / "footage.json").read_text(encoding="utf-8"))
-    picks_path = ep / "recon_picks.json"
-    picks = json.loads(picks_path.read_text(encoding="utf-8")) if picks_path.exists() else {}
+    clips = _clips(footage)
+    picks = picks or {}
+    used = set()
+
+    def take(beat):
+        """The beat's next passing candidate not shown yet, or None."""
+        bk = speciescheck.beat_key(beat)
+        order = picks.get(bk)
+        if order is None:                          # no check ran: the candidates in their own order
+            order = [c[0] for c in speciescheck.candidates(beat, footage, Path("."))]
+        for cid in order:
+            if cid not in used:
+                used.add(cid)
+                return cid
+        return None
 
     starts = [max(0.0, l["start"] - LEAD_S) for l in timeline]
     starts[0] = 0.0
@@ -57,7 +81,7 @@ def build(slug, timeline, narration_s, parts=6):
     for entry, li, a, b in segs:
         beats = entry["beats"]
         span = b - a
-        # one beat on a long line: a second shot from another source
+        # one beat on a long line: a second shot from the beat's next candidate
         if len(beats) == 1 and span > MAX_S and beats[0]["kind"] != "anim":
             beats = [beats[0], {**beats[0], "second": True, "label": None, "title": None}]
         n = len(beats)
@@ -65,36 +89,39 @@ def build(slug, timeline, narration_s, parts=6):
             s = a + span * bi / n
             e = a + span * (bi + 1) / n
             shot = {"line": li, "text": timeline[li]["text"], "start": round(s, 3), "end": round(e, 3),
-                    "amb": entry.get("amb"), **{k: v for k, v in beat.items() if v is not None}}
-            if beat["kind"] == "real":
-                clip = footage[beat["need"]]
-                if beat.get("second"):
-                    alt = (clip.get("alternates") or [None])[0]
-                    if alt is None:
-                        raise RuntimeError(f"{beat['need']}: a second shot is needed and there is no alternate")
-                    clip = {**clip, **alt}
-                shot["clip"] = {k: clip.get(k) for k in ("id", "url", "width", "height", "duration",
-                                                         "source", "at", "speed")}
-            elif beat["kind"] in ("recon", "photo"):
-                rid = beat.get("id") or beat["need"]
-                seed = picks.get(rid, 0)
-                if beat.get("second"):
-                    seed = 1 - seed if beat["kind"] == "recon" else seed
-                shot["image"] = rid if beat["kind"] == "photo" else f"{rid}__s{seed}"
+                    "amb": entry.get("amb"), "cut_here": bool(entry.get("cut")),
+                    **{k: v for k, v in beat.items() if v is not None and k != "alts"}}
+            if beat["kind"] != "anim":
+                cid = take(beat)
+                if cid is None:
+                    # nothing passed the species check (or no second candidate):
+                    # the neighbour runs on over these words
+                    shot["drop"] = True
+                elif beat["kind"] == "real":
+                    clip = clips[cid]
+                    shot["clip"] = {k: clip.get(k) for k in ("id", "url", "width", "height", "duration",
+                                                             "source", "at", "speed")}
+                else:
+                    shot["image"] = cid
             shots.append(shot)
 
-    # merge shots that came out too short into their neighbour
+    # dropped beats and shots that came out too short go into their neighbour
     merged = []
     for s in shots:
-        if merged and s["end"] - s["start"] < MIN_S and not s.get("label") and not s.get("title"):
+        if s.get("drop") and not merged:
+            continue
+        if merged and (s.get("drop") or (s["end"] - s["start"] < MIN_S and not s.get("label")
+                                         and not s.get("title"))):
             merged[-1]["end"] = s["end"]
             continue
         merged.append(s)
+    if shots and shots[0].get("drop") and merged:          # a dropped opening: the next shot starts at 0
+        merged[0]["start"] = 0.0
     shots = merged
 
     for n, s in enumerate(shots):
         first_of_line = n == 0 or shots[n - 1]["line"] != s["line"]
-        turn = any(s["text"].startswith(c) for c in CUT_BEFORE)
+        turn = s.get("cut_here", False)
         fast = timeline[s["line"]]["kind"] == "fast"
         s["transition"] = "cut" if n == 0 or (first_of_line and (turn or fast)) else "fade"
         s["move"] = MOVES[n % len(MOVES)]

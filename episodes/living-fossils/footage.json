@@ -30,7 +30,36 @@
    "c6cfc1701e0f61f2"
   ],
   "manifest": null,
-  "alternates": []
+  "alternates": [
+   {
+    "id": "pixabay-13024",
+    "url": "https://cdn.pixabay.com/video/2017/11/20/13024-244124722_large.mp4",
+    "width": 3840,
+    "duration": 9,
+    "page": "https://pixabay.com/videos/id-13024/",
+    "author": "dianakuehn30010",
+    "license": "Pixabay Content License",
+    "phash": null,
+    "source": "Pixabay",
+    "license_url": "https://pixabay.com/service/license-summary/",
+    "at": 0.3,
+    "height": 2160
+   },
+   {
+    "id": "pixabay-330882",
+    "url": "https://cdn.pixabay.com/video/2026/01/28/330882_large.mp4",
+    "width": 1920,
+    "duration": 5,
+    "page": "https://pixabay.com/videos/id-330882/",
+    "author": "Yocchi09",
+    "license": "Pixabay Content License",
+    "phash": null,
+    "source": "Pixabay",
+    "license_url": "https://pixabay.com/service/license-summary/",
+    "at": 0.3,
+    "height": 1080
+   }
+  ]
  },
  "croc_bank": {
   "id": "pixabay-83831",
@@ -125,7 +154,36 @@
    "fb73731b9a80a069"
   ],
   "manifest": null,
-  "alternates": []
+  "alternates": [
+   {
+    "id": "pixabay-214432",
+    "url": "https://cdn.pixabay.com/video/2024/05/30/214432_large.mp4",
+    "width": 3840,
+    "duration": 7,
+    "page": "https://pixabay.com/videos/id-214432/",
+    "author": "EclipseChasers",
+    "license": "Pixabay Content License",
+    "phash": null,
+    "source": "Pixabay",
+    "license_url": "https://pixabay.com/service/license-summary/",
+    "at": 0.3,
+    "height": 2160
+   },
+   {
+    "id": "pixabay-166060",
+    "url": "https://cdn.pixabay.com/video/2023/06/06/166060-833909374_large.mp4",
+    "width": 1920,
+    "duration": 6,
+    "page": "https://pixabay.com/videos/id-166060/",
+    "author": "GreenCardShow",
+    "license": "Pixabay Content License",
+    "phash": null,
+    "source": "Pixabay",
+    "license_url": "https://pixabay.com/service/license-summary/",
+    "at": 0.3,
+    "height": 1080
+   }
+  ]
  },
  "ocean_dawn": {
   "id": "pixabay-140111",
@@ -562,42 +620,67 @@
   ]
  },
  "books": {
-  "id": "pixabay-103787",
-  "source": "Pixabay",
-  "page": "https://pixabay.com/videos/id-103787/",
-  "url": "https://cdn.pixabay.com/video/2022/01/07/103787-664328469_large.mp4",
+  "id": "pixabay-113407",
+  "page": "https://pixabay.com/videos/id-113407/",
+  "url": "https://cdn.pixabay.com/video/2022/04/09/113407-698385778_large.mp4",
   "width": 3840,
   "height": 2160,
-  "duration": 23,
-  "tags": "candles, candle flame, candlelight, burning candle, light, yellow, 4k, old book, focus, tealight",
+  "duration": 14,
+  "tags": "old books, antique books, paper, gold, red, torn, religion, bible",
   "title": null,
   "author": "AttilaPergel",
   "license": "Pixabay Content License",
   "license_url": "https://pixabay.com/service/license-summary/",
-  "attribution_required": null,
-  "manifest": null,
+  "attribution_required": false,
+  "source": "Pixabay",
   "verdict": {
-   "by": "visual review of a contact sheet",
-   "sheet": "books#0"
+   "by": "species/relevance check at prepare (pipeline/speciescheck.py)"
   },
-  "at": 0.2,
+  "phash": null,
+  "manifest": null,
+  "at": 0.3,
   "alternates": [
    {
-    "id": "pixabay-141525",
-    "source": "Pixabay",
-    "page": "https://pixabay.com/videos/id-141525/",
-    "url": "https://cdn.pixabay.com/video/2022/12/03/141525-777930401_large.mp4",
+    "id": "pixabay-272756",
+    "url": "https://cdn.pixabay.com/video/2025/04/18/272756_large.mp4",
     "width": 3840,
-    "height": 2160,
-    "duration": 24,
-    "tags": "book, reading, literature, poetry, prose, novel, wind, pages, writing, seaside, by the sea, shoreline, coastal, coast",
-    "title": null,
-    "author": "stefaniejockschat",
+    "duration": 7,
+    "page": "https://pixabay.com/videos/id-272756/",
+    "author": "SUF_YAN36",
     "license": "Pixabay Content License",
+    "phash": null,
+    "source": "Pixabay",
     "license_url": "https://pixabay.com/service/license-summary/",
-    "attribution_required": null,
-    "manifest": null,
-    "at": 0.2
+    "at": 0.2,
+    "height": 2160
+   },
+   {
+    "id": "pixabay-143683",
+    "url": "https://cdn.pixabay.com/video/2022/12/20/143683-784129669_large.mp4",
+    "width": 3840,
+    "duration": 16,
+    "page": "https://pixabay.com/videos/id-143683/",
+    "author": "AttilaPergel",
+    "license": "Pixabay Content License",
+    "phash": null,
+    "source": "Pixabay",
+    "license_url": "https://pixabay.com/service/license-summary/",
+    "at": 0.3,
+    "height": 2160
+   },
+   {
+    "id": "pixabay-84006",
+    "url": "https://cdn.pixabay.com/video/2021/08/05/84006-584870923_large.mp4",
+    "width": 1920,
+    "duration": 18,
+    "page": "https://pixabay.com/videos/id-84006/",
+    "author": "Oliver_GR",
+    "license": "Pixabay Content License",
+    "phash": null,
+    "source": "Pixabay",
+    "license_url": "https://pixabay.com/service/license-summary/",
+    "at": 0.3,
+    "height": 1080
    }
   ]
  },
@@ -780,6 +863,41 @@
     "attribution_required": false,
     "manifest": null,
     "at": 0.15
+   }
+  ]
+ },
+ "deep_slope": {
+  "id": "commons-Dive_7-_March_10,_2016-_2016_Hohonu",
+  "source": "Wikimedia Commons",
+  "page": "https://commons.wikimedia.org/wiki/File:Dive_7-_March_10,_2016-_2016_Hohonu_Moana.webm",
+  "url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Dive_7-_March_10%2C_2016-_2016_Hohonu_Moana.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+  "width": 1920,
+  "height": 1080,
+  "duration": null,
+  "tags": "An amazing diversity of beautiful and fragile coral and ancient organisms have occupied Papahānaumokuākea Marine National Monument for hundreds to thousands of years. This footage was captured at a de",
+  "title": "File:Dive 7- March 10, 2016- 2016 Hohonu Moana.webm",
+  "author": "oceanexplorergov",
+  "license": "Public domain",
+  "license_url": "",
+  "attribution_required": false,
+  "verdict": null,
+  "phash": null,
+  "manifest": null,
+  "at": 0.35,
+  "alternates": [
+   {
+    "id": "commons-Venus_Flytrap_Anemone-_2017_America",
+    "url": "https://upload.wikimedia.org/wikipedia/commons/0/02/Venus_Flytrap_Anemone-_2017_American_Samoa.webm?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "width": 1280,
+    "duration": null,
+    "page": "https://commons.wikimedia.org/wiki/File:Venus_Flytrap_Anemone-_2017_American_Samoa.webm",
+    "author": "oceanexplorergov",
+    "license": "Public domain",
+    "phash": null,
+    "source": "Wikimedia Commons",
+    "license_url": "",
+    "at": 0.3,
+    "height": 720
    }
   ]
  }

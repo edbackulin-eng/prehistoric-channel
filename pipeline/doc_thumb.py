@@ -33,7 +33,7 @@ def contrast(a, b):
     return (la + 0.05) / (lb + 0.05)
 
 
-def compose(base_path, lines, side, out_path, accent_line=None, shade_k=0.45):
+def compose(base_path, lines, side, out_path, accent_line=None, shade_k=0.45, box_frac=0.46):
     """lines: 1-2 strings; side: 'left' or 'right' third; accent_line: index in yellow."""
     im = Image.open(base_path).convert("RGB")
     s = max(SIZE[0] / im.width, SIZE[1] / im.height)
@@ -50,7 +50,7 @@ def compose(base_path, lines, side, out_path, accent_line=None, shade_k=0.45):
     im = Image.fromarray(arr.astype(np.uint8))
 
     words = list(lines)
-    box_w = SIZE[0] * 0.46
+    box_w = SIZE[0] * box_frac
     size = 200
     while size > 60:
         f = ImageFont.truetype(str(FONT), size)
@@ -109,10 +109,10 @@ def check(img, masks, size, n_lines, path):
     return rep
 
 
-def best(base_path, lines, side, out_path, accent_line=None):
+def best(base_path, lines, side, out_path, accent_line=None, box_frac=0.46):
     """Compose, deepening the shade on the text side until every line reads."""
     for k in (0.45, 0.62, 0.78, 0.9):
-        rep = compose(base_path, lines, side, out_path, accent_line, shade_k=k)
+        rep = compose(base_path, lines, side, out_path, accent_line, shade_k=k, box_frac=box_frac)
         rep["shade"] = k
         if rep["readable"]:
             break
