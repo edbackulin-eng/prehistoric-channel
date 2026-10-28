@@ -185,6 +185,8 @@ jobs:
 
   part:
     needs: prepare
+    # a skipped layers job (layers_run) would otherwise skip everything after prepare
+    if: ${{ !cancelled() && needs.prepare.result == 'success' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 120
     strategy:
@@ -216,6 +218,7 @@ jobs:
 
   merge:
     needs: part
+    if: ${{ !cancelled() && needs.part.result == 'success' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     env:
