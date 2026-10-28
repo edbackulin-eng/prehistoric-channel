@@ -14,5 +14,14 @@
   "end": "2026-10-25T10:38:58.632795+00:00",
   "hours": 0.123,
   "ok": true
+ },
+ {
+  "task": "recon",
+  "ref": "metberi/prehistoric-recon",
+  "start": "2026-10-28T04:17:28.898274+00:00",
+  "end": "2026-10-28T04:19:54.664433+00:00",
+  "hours": 0.04,
+  "ok": false,
+  "check": "0/23 images (need 21), 2 upscaled files, weights: None, errors: [\"flux: RuntimeError: Failed to import diffusers.pipelines.flux.pipeline_flux because of the following error (look up to see its traceback):\\ncannot import name '_slice' from 'numpy._core.umath' (/usr/local/lib/python3.13/dist-packages/numpy/_core/umath.py)\", \"layers: ImportError: cannot import name '_slice' from 'numpy._core.umath' (/usr/local/lib/python3.13/dist-packages/numpy/_core/umath.py)\"]"
  }
 ]
