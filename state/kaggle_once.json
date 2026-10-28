@@ -59,5 +59,14 @@
   "hours": 0.006,
   "ok": false,
   "check": "kernel ended as error"
+ },
+ {
+  "task": "voice",
+  "ref": "metberi/prehistoric-voice",
+  "start": "2026-10-28T16:33:41.233488+00:00",
+  "end": "2026-10-28T16:47:21.093349+00:00",
+  "hours": 0.228,
+  "ok": true,
+  "check": "variants {'A': (9, 9), 'C': (9, 9)} of 9 lines, errors: []"
  }
 ]
