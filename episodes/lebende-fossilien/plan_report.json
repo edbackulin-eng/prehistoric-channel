@@ -1,5 +1,5 @@
 {
- "version": 2,
+ "version": 3,
  "lines": 133,
  "species": 5,
  "living": [
@@ -9,18 +9,13 @@
   "nautilus",
   "tuatara"
  ],
- "flux_prompts": 8,
- "flux_frames": 16,
+ "flux_prompts": 3,
+ "flux_frames": 6,
  "animate": [
-  "ancient_ocean_diversity",
-  "ordovician_seabed",
-  "mesozoic_ammonites",
-  "nautilus_cutaway_phragmocone",
-  "nautilus_pinhole_eye",
-  "ghostly_mesozoic_ocean",
-  "mesozoic_fern_forest",
-  "mesozoic_fern_swamp"
+  "asteroid_impact_earth",
+  "mesozoic_forest",
+  "devonian_extinction_landscape"
  ],
- "video_beats": 125,
+ "video_beats": 137,
  "lines_without_picture": []
 }

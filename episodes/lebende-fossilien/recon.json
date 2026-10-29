@@ -3,36 +3,23 @@
  "style": "photorealistic wildlife documentary frame, BBC natural history cinematography, natural vivid colours, soft natural light, high dynamic range, sharp detail, 35mm film look, no text, no people",
  "seeds_per_prompt": 2,
  "prompts": {
-  "ancient_ocean_diversity": "Diverse prehistoric arthropods swimming in a shallow Paleozoic sea, cinematic lighting, 4k",
-  "ordovician_seabed": "Primeval Ordovician shallow seabed with primitive armored creatures, hazy underwater light, highly detailed",
-  "mesozoic_ammonites": "Vibrant Mesozoic ocean filled with diverse ammonites and ancient marine life, cinematic 4k",
-  "nautilus_cutaway_phragmocone": "Detailed scientific cross section illustration of a nautilus shell showing internal chambers and septa, realistic style",
-  "nautilus_pinhole_eye": "Macro detail of a nautilus simple pinhole eye without lens, dark deep sea background, highly detailed",
-  "ghostly_mesozoic_ocean": "Empty twilight deep sea trench with faint distant glow of ancient ammonite fossils on the floor, cinematic",
-  "mesozoic_fern_forest": "Lush prehistoric fern forest in the Mesozoic era, atmospheric mist, sunbeams through ancient trees, 4k",
-  "mesozoic_fern_swamp": "Dense prehistoric fern swamp in the Mesozoic era, towering primitive conifers, misty morning light, highly detailed 4K landscape"
+  "asteroid_impact_earth": "A massive asteroid impact flash lighting up the dark horizon of the prehistoric earth, apocalyptic atmosphere",
+  "mesozoic_forest": "Dense prehistoric fern forest in the Mesozoic era, misty atmosphere, golden sunlight filtering through giant conifers, cinematic BBC documentary style, no humans",
+  "devonian_extinction_landscape": "Barren desolate volcanic coastline during a prehistoric mass extinction, glowing red lava flows meeting dark ocean waters, smoke filled sky, cinematic 4k"
  },
  "species": {
-  "ancient_ocean_diversity": null,
-  "ordovician_seabed": null,
-  "mesozoic_ammonites": null,
-  "nautilus_cutaway_phragmocone": null,
-  "nautilus_pinhole_eye": null,
-  "ghostly_mesozoic_ocean": null,
-  "mesozoic_fern_forest": null,
-  "mesozoic_fern_swamp": null
+  "asteroid_impact_earth": null,
+  "mesozoic_forest": null,
+  "devonian_extinction_landscape": null
  },
  "animate": {
-  "ancient_ocean_diversity": "camera pans across various ancient marine creatures moving gracefully in clear water",
-  "ordovician_seabed": "gentle water currents swaying ancient sea plants over the rocky bottom",
-  "mesozoic_ammonites": "camera drifts slowly through a school of prehistoric shelled cephalopods",
-  "nautilus_cutaway_phragmocone": "subtle zoom into the chambered structure of the shell",
-  "nautilus_pinhole_eye": "subtle focus shift on the open aperture of the eye",
-  "ghostly_mesozoic_ocean": "slow eerie drift of particulate matter in deep ocean currents",
-  "mesozoic_fern_forest": "slow camera movement through dense prehistoric vegetation with towering primitive conifers",
-  "mesozoic_fern_swamp": "mist slowly drifts across the calm swamp water"
+  "asteroid_impact_earth": "shockwave ripples across the burning landscape",
+  "mesozoic_forest": "camera slowly pans across the primeval forest floor",
+  "devonian_extinction_landscape": "waves crash slowly against the smoking volcanic rocks"
  },
- "thumbs": {},
+ "thumbs": {
+  "thumb_b": "Extreme close up head shot of a living tuatara lizard with a glowing parietal third eye on top of its head, vibrant neon green and brown skin, dramatic studio lighting, dark background, lots of negative space on the left side, highly detailed, photorealistic"
+ },
  "photos": {},
  "two_seeds": []
 }

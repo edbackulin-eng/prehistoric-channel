@@ -2,91 +2,91 @@
  "coelacanth": {
   "name": "Quastenflosser (Latimeria)",
   "features": [
-   "Fleshy, muscular limb-like lobed fins",
-   "Unique three-lobed diphycercal caudal tail fin with a small central projection",
-   "Distinctive steel-blue to dark-brown body color with irregular white mottling",
-   "Thick, cosmoid-like armored scales covering the heavy body"
+   "steel-blue to royal-blue coloration",
+   "lobe-finned paired limbs",
+   "intracranial joint in skull",
+   "rostral organ on snout"
   ],
   "forbidden": [
-   "Standard thin rayed fins without fleshy basal stalks",
-   "Forked or shark-like heterocercal tail fin",
-   "Smooth scaleless skin or shiny silvery teleost scales",
-   "Slender serpentine eel-like body without paired fins",
+   "feathered body",
+   "mammalian fur",
+   "long neck like a sauropod",
+   "ray-finned common goldfish body",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "coelacanth fish swimming deep ocean Latimeria"
- },
- "horseshoe_crab": {
-  "name": "Pfeilschwanzkrebs (Limulidae)",
-  "features": [
-   "Large, smooth, horseshoe-shaped unsegmented prosoma (head shield)",
-   "Long, stiff, sword-like telson (tail spine) at the rear",
-   "Spiny hexagonal opisthosoma (abdomen) flanked by movable lateral spines",
-   "Underside featuring five pairs of walking legs and overlapping book gills"
-  ],
-  "forbidden": [
-   "Large lobster-like crushing claws or prominent crab pincers",
-   "Scorpion tail ending in a bulbous venomous stinger",
-   "Visible dorsal multi-segmentation like an adult trilobite",
-   "Cephalopod tentacles or soft shell-less body",
-   "a modern animal in a prehistoric scene"
-  ],
-  "living": true,
-  "video_query": "horseshoe crab walking on sandy beach shallow water"
- },
- "nautilus": {
-  "name": "Perlboot (Nautilus)",
-  "features": [
-   "Planispirally coiled external smooth shell with reddish-brown zebra stripes",
-   "Mass of up to ninety slender, suckerless retractable tentacles (cirri)",
-   "Thick leathery hood acting as an operculum to close the shell opening",
-   "Simple open pinhole eyes lacking lenses on the sides of the head"
-  ],
-  "forbidden": [
-   "Eight or ten long suckered arms like modern octopuses or squids",
-   "Advanced camera eyes with pupils, iris, and clear spherical lenses",
-   "Spiral conical high-spired snail shell",
-   "Complete absence of an external calcareous shell",
-   "a modern animal in a prehistoric scene"
-  ],
-  "living": true,
-  "video_query": "chambered nautilus swimming underwater coral reef"
- },
- "tuatara": {
-  "name": "Brückenechse (Sphenodon punctatus)",
-  "features": [
-   "Stout lizard-like body with a spiky crest along the neck and spine",
-   "Olive-brown to grayish granular skin with pale flecks",
-   "Large, robust diapsid head with prominent dark eyes",
-   "Parietal third eye feature located on top of the head"
-  ],
-  "forbidden": [
-   "External ear openings or tympanic membranes",
-   "Large colorful throat dewlap like an anole lizard",
-   "Long deeply forked tongue like a monitor lizard or snake",
-   "Zygodactylous mitten-like feet like a chameleon",
-   "a modern animal in a prehistoric scene"
-  ],
-  "living": true,
-  "video_query": "tuatara reptile New Zealand Sphenodon punctatus"
+  "video_query": "coelacanth swimming underwater ocean"
  },
  "lungfish": {
   "name": "Lungenfisch (Dipnoi)",
   "features": [
-   "Elongated, heavy, eel-like body with continuous dorsal, caudal, and anal fin fringe",
-   "Thin, whip-like or fleshy filamentous paired pectoral and pelvic fins",
-   "Broad, flattened snout with small fleshy nostrils and reduced eyes",
-   "Frequent surfacing behavior to gulp atmospheric air directly from the water surface"
+   "elongated eel-like body",
+   "filamentous pectoral and pelvic fins",
+   "diphycercal tail fin",
+   "crushing tooth plates"
   ],
   "forbidden": [
-   "Three-lobed tail fin typical of a coelacanth",
-   "Deep, laterally compressed oval disc-shaped reef fish body",
-   "Prominent sharp rows of external predator teeth or bioluminescent lures",
-   "Hard armored scutes or turtle-like shells",
+   "shell",
+   "legs with distinct toes",
+   "feathers",
+   "hard carapace",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "lungfish swimming underwater freshwater aquarium"
+  "video_query": "african lungfish underwater"
+ },
+ "horseshoe_crab": {
+  "name": "Pfeilschwanzkrebs (Limulidae)",
+  "features": [
+   "horseshoe-shaped carapace (prosoma)",
+   "long movable tail spine (telson)",
+   "compound eyes on sides",
+   "five pairs of walking legs"
+  ],
+  "forbidden": [
+   "soft worm-like body",
+   "vertebrate backbone",
+   "claws like a lobster",
+   "antennae",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "horseshoe crab crawling on sand underwater"
+ },
+ "nautilus": {
+  "name": "Perlboot (Nautilus)",
+  "features": [
+   "spiral-shaped chambered shell",
+   "numerous tentacles without suckers",
+   "pinhole camera eyes without lenses",
+   "hood-like head cover"
+  ],
+  "forbidden": [
+   "internal cuttlebone",
+   "eight or ten arms with suckers",
+   "advanced camera lens eyes",
+   "flat uncoiled shell",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "nautilus swimming underwater"
+ },
+ "tuatara": {
+  "name": "Brückenechse (Sphenodon punctatus)",
+  "features": [
+   "diapsid skull with two temporal arches",
+   "parietal eye on top of head",
+   "crest of spiky scales along back",
+   "lizard-like body without external ear openings"
+  ],
+  "forbidden": [
+   "feathers",
+   "smooth amphibian skin",
+   "long snake-like body without legs",
+   "turtle shell",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "tuatara New Zealand reptile"
  }
 }

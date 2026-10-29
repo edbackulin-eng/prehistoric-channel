@@ -13,7 +13,7 @@
      "need": "v000_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth swimming underwater dark ocean",
+     "topic": "coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -25,9 +25,9 @@
     {
      "kind": "real",
      "need": "v000_1",
-     "species": "coelacanth",
-     "dark": false,
-     "topic": "coelacanth fish swimming deep ocean Latimeria",
+     "species": null,
+     "dark": true,
+     "topic": "indian ocean dark stormy waters aerial",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -49,7 +49,7 @@
      "need": "v001_0",
      "species": null,
      "dark": true,
-     "topic": "deep sea bioluminescence dark water mysterious",
+     "topic": "dna double helix abstract blue science",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -71,7 +71,7 @@
      "need": "v002_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth swimming deep sea cave",
+     "topic": "coelacanth swimming cave deep sea",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -94,7 +94,7 @@
      "need": "v003_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth fish swimming near seafloor",
+     "topic": "coelacanth dark deep water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -109,14 +109,14 @@
    "at": "Fossilien von Quastenflossern brachen",
    "n": 4,
    "section": "story",
-   "amb": "ocean",
+   "amb": "beach",
    "beats": [
     {
      "kind": "real",
      "need": "v004_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth fish swimming deep ocean Latimeria",
+     "topic": "coelacanth swimming underwater ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -135,28 +135,16 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v005_0",
-     "species": null,
+     "need": "v005_1",
+     "species": "coelacanth",
      "dark": false,
-     "topic": "vintage 1930s fishing boat harbour sepia mood",
+     "topic": "coelacanth specimen on boat deck",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ]
-    },
-    {
-     "kind": "anim",
-     "anim": "map",
-     "places": [
-      {
-       "name": "SÜDAFRIKA",
-       "sub": "Ostkap, Südafrika",
-       "lat": -33.0153,
-       "lon": 27.9116
-      }
      ]
     }
    ]
@@ -172,7 +160,7 @@
      "need": "v006_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "historic museum specimen fish preserved",
+     "topic": "museum specimen coelacanth preserved fish",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -187,32 +175,20 @@
    "at": "Spätere Entdeckungen wie der",
    "n": 7,
    "section": "story",
-   "amb": "ocean",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "v007_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth in deep underwater cave indonesia",
+     "topic": "sulawesi deep sea underwater cave cave diving",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ]
-    },
-    {
-     "kind": "anim",
-     "anim": "map",
-     "places": [
-      {
-       "name": "SULAWESI",
-       "sub": "Indonesien",
-       "lat": -1.43,
-       "lon": 121.4456
-      }
      ]
     }
    ]
@@ -221,14 +197,14 @@
    "at": "Im Schutz jener stillen",
    "n": 8,
    "section": "story",
-   "amb": "ocean",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "v008_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "deep sea dark blue water currents calm",
+     "topic": "coelacanth swimming dark abyssal water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -250,7 +226,7 @@
      "need": "v009_0",
      "species": null,
      "dark": false,
-     "topic": "old scientific books and laboratory equipment",
+     "topic": "scientists examining ancient fish fossils laboratory",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -271,8 +247,8 @@
      "kind": "real",
      "need": "v010_0",
      "species": null,
-     "dark": false,
-     "topic": "scientist examining genetic data on computer screen",
+     "dark": true,
+     "topic": "dna sequence data screen genetic tree biology",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -294,7 +270,7 @@
      "need": "v011_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth fish swimming deep ocean Latimeria",
+     "topic": "coelacanth swimming underwater ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -316,7 +292,7 @@
      "need": "v012_0",
      "species": "lungfish",
      "dark": false,
-     "topic": "african lungfish swimming in murky water",
+     "topic": "african lungfish swimming in muddy water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -331,14 +307,14 @@
    "at": "So zeigt sich, dass",
    "n": 13,
    "section": "story",
-   "amb": "ocean",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "v013_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth swimming gracefully in dark blue ocean",
+     "topic": "coelacanth swimming majestic underwater",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -353,14 +329,14 @@
    "at": "Lange hatte man angenommen,",
    "n": 14,
    "section": "story",
-   "amb": "fire",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v014_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth fish swimming deep ocean Latimeria",
+     "topic": "coelacanth swimming underwater ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -382,7 +358,7 @@
      "need": "v015_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth near dark coral reef",
+     "topic": "coelacanth rare footage deep sea",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -397,14 +373,26 @@
    "at": "Obgleich der Fang jenes",
    "n": 16,
    "section": "story",
-   "amb": "harbour",
+   "amb": "beach",
    "beats": [
     {
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "SÜDAFRIKA",
+       "sub": "East London",
+       "lat": -33.0153,
+       "lon": 27.9116
+      }
+     ]
+    },
+    {
      "kind": "real",
-     "need": "v016_0",
-     "species": null,
-     "dark": false,
-     "topic": "vintage fishing boat deck ocean waves 1930s style",
+     "need": "v016_1",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth swimming near seafloor rocks",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -422,11 +410,23 @@
    "amb": "ocean",
    "beats": [
     {
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "SULAWESI",
+       "sub": "Indonesien",
+       "lat": -1.43,
+       "lon": 121.4457
+      }
+     ]
+    },
+    {
      "kind": "real",
-     "need": "v017_0",
+     "need": "v017_1",
      "species": "coelacanth",
      "dark": true,
-     "topic": "scuba diver underwater cave exploration indonesia",
+     "topic": "indonesian deep sea underwater trench",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -441,14 +441,14 @@
    "at": "Diese Exemplare belegen, dass",
    "n": 18,
    "section": "story",
-   "amb": "ocean",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "v018_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth fish close up in natural habitat",
+     "topic": "coelacanth pair swimming in dark cave",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -470,7 +470,7 @@
      "need": "v019_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "deep sea abyss mysterious dark ocean currents",
+     "topic": "coelacanth fading into deep blue ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -492,7 +492,7 @@
      "need": "v020_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth fish swimming deep ocean Latimeria",
+     "topic": "coelacanth swimming underwater ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -510,18 +510,9 @@
    "amb": "fire",
    "beats": [
     {
-     "kind": "real",
-     "need": "v021_0",
-     "species": "coelacanth",
-     "dark": false,
-     "topic": "coelacanth fish swimming deep ocean Latimeria",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
+     "kind": "recon",
+     "id": "asteroid_impact_earth",
+     "species": null
     }
    ]
   },
@@ -536,7 +527,7 @@
      "need": "v022_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "fisherman pulling heavy fishing net from ocean water",
+     "topic": "historic fishing boat deck 1930s",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -558,7 +549,7 @@
      "need": "v023_0",
      "species": null,
      "dark": false,
-     "topic": "vintage natural history museum interior 1930s",
+     "topic": "historical museum archive room 1930s style",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -573,14 +564,14 @@
    "at": "Dieser identifizierte das spektakuläre",
    "n": 24,
    "section": "story",
-   "amb": "room",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v024_0",
      "species": "coelacanth",
-     "dark": false,
-     "topic": "old museum taxidermy specimen research laboratory",
+     "dark": true,
+     "topic": "coelacanth swimming graceful deep water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -595,14 +586,14 @@
    "at": "Spätere bahnbrechende Entdeckungen wie",
    "n": 25,
    "section": "story",
-   "amb": "ocean",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "v025_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "deep sea underwater cave entrance dark blue",
+     "topic": "coelacanth near underwater volcanic cave entrance",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -624,7 +615,7 @@
      "need": "v026_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab walking on shallow sandy seafloor",
+     "topic": "horseshoe crab crawling on sandy ocean floor",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -646,7 +637,7 @@
      "need": "v027_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab crawling on sandy beach shore",
+     "topic": "horseshoe crab walking shallow beach sand",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -668,7 +659,7 @@
      "need": "v028_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crabs mating in shallow coastal water tide",
+     "topic": "horseshoe crabs mating shallow tide water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -690,7 +681,7 @@
      "need": "v029_0",
      "species": null,
      "dark": false,
-     "topic": "medical laboratory blue liquid in test tubes science",
+     "topic": "medical laboratory blue liquid science test tube",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -712,7 +703,7 @@
      "need": "v030_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab walking on sandy beach shallow water",
+     "topic": "horseshoe crab crawling on sand underwater",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -734,7 +725,7 @@
      "need": "v031_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab walking on sandy beach shallow water",
+     "topic": "horseshoe crab crawling on sand underwater",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -756,7 +747,7 @@
      "need": "v032_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab crawling on wet sand beach",
+     "topic": "horseshoe crab walking coastal sand flat",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -778,7 +769,7 @@
      "need": "v033_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crabs moving towards beach in springtime tide",
+     "topic": "horseshoe crabs arriving at sandy shore wave tide",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -800,7 +791,7 @@
      "need": "v034_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab laying eggs in sand beach",
+     "topic": "horseshoe crab burying eggs in sand beach",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -815,14 +806,14 @@
    "at": "Jahrmillionen der Evolution prallten",
    "n": 35,
    "section": "story",
-   "amb": "beach",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v035_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab shell texture close up waves",
+     "topic": "horseshoe crab shell armor macro shot",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -844,7 +835,7 @@
      "need": "v036_0",
      "species": null,
      "dark": false,
-     "topic": "scientific laboratory glassware blue glowing liquid",
+     "topic": "bright blue glowing biomedical fluid in laboratory flask",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -866,7 +857,7 @@
      "need": "v037_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "blue blood extraction horseshoe crab medical research laboratory",
+     "topic": "blue blood extraction horseshoe crab medical lab",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -888,7 +879,7 @@
      "need": "v038_0",
      "species": null,
      "dark": false,
-     "topic": "medical laboratory scientist working microscope pharmaceutical",
+     "topic": "advanced medical research laboratory microscope analysis",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -903,14 +894,14 @@
    "at": "Während der Urzeit verbreiteten",
    "n": 39,
    "section": "story",
-   "amb": "ocean",
+   "amb": "beach",
    "beats": [
     {
      "kind": "real",
      "need": "v039_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab walking on sandy beach shallow water",
+     "topic": "horseshoe crab crawling on sand underwater",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -932,7 +923,7 @@
      "need": "v040_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab walking on sandy sea floor underwater",
+     "topic": "horseshoe crab walking on sandy seabed ocean floor",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -954,7 +945,7 @@
      "need": "v041_0",
      "species": null,
      "dark": true,
-     "topic": "microscopic DNA strand abstract science visualization",
+     "topic": "underwater scientific laboratory DNA sequence graphic abstract dark",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -976,7 +967,7 @@
      "need": "v042_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab crawling shallow tropical water",
+     "topic": "tropical shallow water sea floor with marine life",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -991,14 +982,14 @@
    "at": "Dazu zählt der amerikanische",
    "n": 43,
    "section": "story",
-   "amb": "ocean",
+   "amb": "beach",
    "beats": [
     {
      "kind": "real",
      "need": "v043_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab underwater sandy bottom close up",
+     "topic": "horseshoe crab crawling on shallow sandy beach",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1020,7 +1011,7 @@
      "need": "v044_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab digging in sand tidal zone",
+     "topic": "horseshoe crab digging into sand underwater",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1042,7 +1033,7 @@
      "need": "v045_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab burying in sand wave action",
+     "topic": "horseshoe crab weathering strong coastal waves",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1063,8 +1054,8 @@
      "kind": "real",
      "need": "v046_0",
      "species": "horseshoe_crab",
-     "dark": true,
-     "topic": "mangrove swamp muddy water shallow river mouth",
+     "dark": false,
+     "topic": "mangrove swamp muddy river mouth southeast asia",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1082,9 +1073,18 @@
    "amb": "ocean",
    "beats": [
     {
-     "kind": "recon",
-     "id": "ancient_ocean_diversity",
-     "species": null
+     "kind": "real",
+     "need": "v047_0",
+     "species": null,
+     "dark": true,
+     "topic": "ancient prehistoric ocean evolutionary timeline diagram dark",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -1092,14 +1092,14 @@
    "at": "Unter ihrer harten Cuticula,",
    "n": 48,
    "section": "story",
-   "amb": "ocean",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v048_0",
      "species": "horseshoe_crab",
-     "dark": true,
-     "topic": "horseshoe crab underside legs moving glass tank macro",
+     "dark": false,
+     "topic": "horseshoe crab anatomy underside walking legs close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1120,8 +1120,8 @@
      "kind": "real",
      "need": "v049_0",
      "species": "horseshoe_crab",
-     "dark": true,
-     "topic": "horseshoe crab gills moving underwater macro shot",
+     "dark": false,
+     "topic": "horseshoe crab gill operculum moving underwater close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1143,7 +1143,7 @@
      "need": "v050_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crabs mating on sandy beach at tide",
+     "topic": "horseshoe crab mating and eggs in sand shallow water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1165,7 +1165,7 @@
      "need": "v051_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab close up shell texture underwater",
+     "topic": "horseshoe crab shell texture macro cinematic lighting",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1180,14 +1180,14 @@
    "at": "Jahrhundertelang schienen sie unverändert",
    "n": 52,
    "section": "story",
-   "amb": "ocean",
+   "amb": "beach",
    "beats": [
     {
      "kind": "real",
      "need": "v052_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab walking calm shallow ocean floor",
+     "topic": "horseshoe crab moving through shallow coastal water aerial view",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1205,9 +1205,18 @@
    "amb": "ocean",
    "beats": [
     {
-     "kind": "recon",
-     "id": "ordovician_seabed",
-     "species": null
+     "kind": "real",
+     "need": "v053_0",
+     "species": null,
+     "dark": true,
+     "topic": "ancient ordovician sea floor prehistoric underwater landscape",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -1222,7 +1231,7 @@
      "need": "v054_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab tail spine track in wet sand",
+     "topic": "horseshoe crab prosoma and tail spine close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1244,7 +1253,7 @@
      "need": "v055_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crabs laying eggs in sand beach",
+     "topic": "horseshoe crabs spawning on sandy beach at tide",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1264,9 +1273,9 @@
     {
      "kind": "real",
      "need": "v056_0",
-     "species": null,
+     "species": "horseshoe_crab",
      "dark": true,
-     "topic": "bright blue liquid in medical laboratory vial science",
+     "topic": "blue blood medical laboratory vial biomedical research",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1281,14 +1290,14 @@
    "at": "Perlboote oder Nautiliden repräsentieren",
    "n": 57,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v057_0",
      "species": "nautilus",
      "dark": true,
-     "topic": "nautilus swimming gracefully in deep dark blue ocean",
+     "topic": "nautilus swimming gracefully in deep dark ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1303,14 +1312,14 @@
    "at": "Ihre spiralig aufgerollte Schale",
    "n": 58,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v058_0",
      "species": "nautilus",
      "dark": true,
-     "topic": "nautilus shell close up pattern glowing underwater",
+     "topic": "nautilus shell cross section chambers glowing",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1325,14 +1334,14 @@
    "at": "Im Gegensatz zu modernen",
    "n": 59,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v059_0",
      "species": "nautilus",
      "dark": true,
-     "topic": "nautilus tentacles moving close up underwater",
+     "topic": "nautilus tentacles moving without suckers macro",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1350,9 +1359,18 @@
    "amb": "ocean",
    "beats": [
     {
-     "kind": "recon",
-     "id": "mesozoic_ammonites",
-     "species": null
+     "kind": "real",
+     "need": "v060_0",
+     "species": "nautilus",
+     "dark": true,
+     "topic": "mesozoic ocean prehistoric ammonites and nautilus swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -1360,14 +1378,14 @@
    "at": "Die Wohnkammer als jüngster",
    "n": 61,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v061_0",
      "species": "nautilus",
      "dark": true,
-     "topic": "nautilus retracting into shell defensive action",
+     "topic": "nautilus retracting into its shell hood closing",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1382,12 +1400,21 @@
    "at": "Das Geheimnis ihrer Tarierung",
    "n": 62,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
-     "kind": "recon",
-     "id": "nautilus_cutaway_phragmocone",
-     "species": null
+     "kind": "real",
+     "need": "v062_0",
+     "species": "nautilus",
+     "dark": true,
+     "topic": "nautilus phragmocone shell structure chambers cinematic",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -1395,14 +1422,14 @@
    "at": "Exakt durch die Mitte",
    "n": 63,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v063_0",
-     "species": null,
+     "species": "nautilus",
      "dark": true,
-     "topic": "nautilus siphuncle diagram",
+     "topic": "nautilus siphuncle tube inside shell close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1417,14 +1444,14 @@
    "at": "Entlang des Randes der",
    "n": 64,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v064_0",
      "species": "nautilus",
      "dark": true,
-     "topic": "nautilus tentacles reaching out searching for food",
+     "topic": "nautilus tentacles opening near mouth opening",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1439,14 +1466,14 @@
    "at": "Statt der für Tintenfische",
    "n": 65,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v065_0",
      "species": "nautilus",
      "dark": true,
-     "topic": "nautilus many tentacles swaying underwater macro",
+     "topic": "nautilus numerous cirri tentacles swaying underwater",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1461,14 +1488,14 @@
    "at": "Stattdessen nutzen die Tiere",
    "n": 66,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v066_0",
      "species": "nautilus",
      "dark": true,
-     "topic": "nautilus gripping rock surface with tentacles underwater",
+     "topic": "nautilus clinging to rocky reef with tentacles",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1483,14 +1510,14 @@
    "at": "Auch der Blick auf",
    "n": 67,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v067_0",
      "species": "nautilus",
      "dark": true,
-     "topic": "nautilus eye close up pinhole eye structure macro",
+     "topic": "nautilus eye macro shot pinhole camera eye",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1505,12 +1532,21 @@
    "at": "Stattdessen handelt es sich",
    "n": 68,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
-     "kind": "recon",
-     "id": "nautilus_pinhole_eye",
-     "species": null
+     "kind": "real",
+     "need": "v068_0",
+     "species": "nautilus",
+     "dark": true,
+     "topic": "nautilus pinhole eye structure scientific close up",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -1518,14 +1554,14 @@
    "at": "So ziehen diese lebenden",
    "n": 69,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v069_0",
      "species": "nautilus",
      "dark": true,
-     "topic": "nautilus swimming jet propulsion in deep water",
+     "topic": "nautilus jet propulsion swimming backward in dark water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1543,9 +1579,18 @@
    "amb": "ocean",
    "beats": [
     {
-     "kind": "recon",
-     "id": "ghostly_mesozoic_ocean",
-     "species": null
+     "kind": "real",
+     "need": "v070_0",
+     "species": "nautilus",
+     "dark": true,
+     "topic": "deep sea ancient fossils ammonite silhouette dark water",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -1553,14 +1598,14 @@
    "at": "Ihr Stoffwechsel und die",
    "n": 71,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v071_0",
      "species": "nautilus",
      "dark": true,
-     "topic": "nautilus descending into deep dark ocean abyss",
+     "topic": "deep sea mesozoic ocean abyss mysterious lighting",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1575,14 +1620,14 @@
    "at": "Als letzte Überlebende der",
    "n": 72,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v072_0",
      "species": "nautilus",
-     "dark": true,
-     "topic": "nautilus swimming peacefully in deep blue sea",
+     "dark": false,
+     "topic": "nautilus swimming in deep blue sea peaceful",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1597,14 +1642,14 @@
    "at": "Ihre markante, spiralig aufgerollte",
    "n": 73,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v073_0",
      "species": "nautilus",
      "dark": true,
-     "topic": "nautilus shell spiral pattern rotating slowly underwater",
+     "topic": "nautilus spiral shell glowing in deep ocean current",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1619,14 +1664,14 @@
    "at": "Im deutlichen Kontrast zu",
    "n": 74,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v074_0",
      "species": "nautilus",
      "dark": true,
-     "topic": "nautilus head and tentacles close up underwater",
+     "topic": "nautilus head and tentacles close up dark background",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1648,25 +1693,13 @@
      "need": "v075_0",
      "species": null,
      "dark": false,
-     "topic": "misty green temperate rainforest New Zealand aerial view",
+     "topic": "new zealand remote native forest mist aerial view",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ]
-    },
-    {
-     "kind": "anim",
-     "anim": "map",
-     "places": [
-      {
-       "name": "NEUSEELAND",
-       "sub": "Südpazifik",
-       "lat": -40.9006,
-       "lon": 174.886
-      }
      ]
     }
    ]
@@ -1682,7 +1715,7 @@
      "need": "v076_0",
      "species": "tuatara",
      "dark": false,
-     "topic": "tuatara lizard resting on mossy forest floor New Zealand",
+     "topic": "tuatara resting on forest floor moss and ferns",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1697,14 +1730,14 @@
    "at": "Ihr diapsider Schädel unterscheidet",
    "n": 77,
    "section": "story",
-   "amb": "forest",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v077_0",
      "species": "tuatara",
      "dark": false,
-     "topic": "tuatara head close up spiky crest parietal eye macro",
+     "topic": "tuatara parietal eye on top of head macro close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1726,7 +1759,7 @@
      "need": "v078_0",
      "species": null,
      "dark": true,
-     "topic": "glowing genetic code double helix abstract animation",
+     "topic": "ancient dna double helix rotating scientific abstract",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1745,7 +1778,7 @@
    "beats": [
     {
      "kind": "recon",
-     "id": "mesozoic_fern_forest",
+     "id": "mesozoic_forest",
      "species": null
     }
    ]
@@ -1759,9 +1792,9 @@
     {
      "kind": "real",
      "need": "v080_0",
-     "species": "tuatara",
+     "species": null,
      "dark": false,
-     "topic": "tuatara reptile New Zealand Sphenodon punctatus",
+     "topic": "New Zealand native dense prehistoric forest mist",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1771,15 +1804,17 @@
      ]
     },
     {
-     "kind": "anim",
-     "anim": "map",
-     "places": [
-      {
-       "name": "NEUSEELAND",
-       "sub": "Ozeanien",
-       "lat": -40.9006,
-       "lon": 174.886
-      }
+     "kind": "real",
+     "need": "v080_1",
+     "species": "tuatara",
+     "dark": false,
+     "topic": "tuatara New Zealand reptile",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
      ]
     }
    ]
@@ -1795,7 +1830,7 @@
      "need": "v081_0",
      "species": "tuatara",
      "dark": false,
-     "topic": "tuatara reptile New Zealand Sphenodon punctatus",
+     "topic": "tuatara New Zealand reptile",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1815,9 +1850,9 @@
     {
      "kind": "real",
      "need": "v082_0",
-     "species": null,
-     "dark": true,
-     "topic": "scientist analyzing DNA strands on computer screen dark laboratory",
+     "species": "tuatara",
+     "dark": false,
+     "topic": "tuatara New Zealand reptile",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1839,7 +1874,7 @@
      "need": "v083_0",
      "species": null,
      "dark": true,
-     "topic": "genetic sequencing data charts scrolling on digital screens dark",
+     "topic": "scientific laboratory molecular sequencing conceptual dark",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1861,7 +1896,7 @@
      "need": "v084_0",
      "species": "tuatara",
      "dark": false,
-     "topic": "tuatara reptile New Zealand Sphenodon punctatus",
+     "topic": "tuatara New Zealand reptile",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1883,7 +1918,7 @@
      "need": "v085_0",
      "species": null,
      "dark": false,
-     "topic": "dramatic waves crashing on remote rocky southern ocean coast aerial view",
+     "topic": "South Pacific ocean waves crashing dramatic cliffs aerial",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1905,7 +1940,7 @@
      "need": "v086_0",
      "species": "tuatara",
      "dark": false,
-     "topic": "tuatara reptile New Zealand Sphenodon punctatus",
+     "topic": "tuatara New Zealand reptile",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1927,7 +1962,7 @@
      "need": "v087_0",
      "species": null,
      "dark": true,
-     "topic": "modern scientific laboratory equipment glowing in dark room close up",
+     "topic": "DNA helix rotating microscopic abstract laboratory",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1942,14 +1977,14 @@
    "at": "Zwar hat sich ihr",
    "n": 88,
    "section": "story",
-   "amb": "room",
+   "amb": "forest",
    "beats": [
     {
      "kind": "real",
      "need": "v088_0",
-     "species": null,
-     "dark": true,
-     "topic": "DNA double helix rotating animation glowing on dark screen",
+     "species": "tuatara",
+     "dark": false,
+     "topic": "tuatara New Zealand reptile",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1964,14 +1999,14 @@
    "at": "Diese Kombination aus äußerlicher",
    "n": 89,
    "section": "story",
-   "amb": "forest",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v089_0",
      "species": "tuatara",
      "dark": false,
-     "topic": "tuatara reptile New Zealand Sphenodon punctatus",
+     "topic": "tuatara New Zealand reptile",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1986,14 +2021,14 @@
    "at": "Besonders deutlich wird dieser",
    "n": 90,
    "section": "story",
-   "amb": "forest",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v090_0",
      "species": "tuatara",
      "dark": false,
-     "topic": "tuatara reptile New Zealand Sphenodon punctatus",
+     "topic": "tuatara New Zealand reptile",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2013,9 +2048,9 @@
     {
      "kind": "real",
      "need": "v091_0",
-     "species": "tuatara",
+     "species": null,
      "dark": false,
-     "topic": "tuatara reptile New Zealand Sphenodon punctatus",
+     "topic": "ancient New Zealand rainforest sunbeams piercing trees",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2030,14 +2065,14 @@
    "at": "In dieser einzigartigen morphologischen",
    "n": 92,
    "section": "story",
-   "amb": "beach",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v092_0",
      "species": null,
      "dark": false,
-     "topic": "isolated rocky coastline with mist rolling over the cliffs aerial",
+     "topic": "isolated rocky island ocean waves aerial drone shot",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2052,12 +2087,21 @@
    "at": "Sie bewahren als letzte",
    "n": 93,
    "section": "story",
-   "amb": "swamp",
+   "amb": "forest",
    "beats": [
     {
-     "kind": "recon",
-     "id": "mesozoic_fern_swamp",
-     "species": null
+     "kind": "real",
+     "need": "v093_0",
+     "species": "tuatara",
+     "dark": false,
+     "topic": "tuatara New Zealand reptile",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -2065,14 +2109,14 @@
    "at": "Während die äußere Hülle",
    "n": 94,
    "section": "story",
-   "amb": "forest",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v094_0",
      "species": "tuatara",
      "dark": false,
-     "topic": "tuatara reptile New Zealand Sphenodon punctatus",
+     "topic": "tuatara New Zealand reptile",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2094,7 +2138,7 @@
      "need": "v095_0",
      "species": null,
      "dark": true,
-     "topic": "scientist peering into advanced microscope in dimly lit laboratory",
+     "topic": "scientific data analysis graphs dark background glowing",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2116,31 +2160,13 @@
      "need": "v096_0",
      "species": null,
      "dark": true,
-     "topic": "deep dark ocean trench underwater abyss blue light rays",
+     "topic": "deep dark ocean trench underwater abyss mysterious",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ]
-    },
-    {
-     "kind": "anim",
-     "anim": "map",
-     "places": [
-      {
-       "name": "INDISCHER OZEAN",
-       "sub": "Südafrika",
-       "lat": -32.0,
-       "lon": 30.0
-      },
-      {
-       "name": "INDONESIEN",
-       "sub": "Südostasien",
-       "lat": -0.7893,
-       "lon": 113.9213
-      }
      ]
     }
    ]
@@ -2156,7 +2182,7 @@
      "need": "v097_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth swimming slowly in deep dark water cave",
+     "topic": "coelacanth swimming underwater deep sea dark cave",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2178,7 +2204,7 @@
      "need": "v098_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth steel blue body with white mottling swimming close",
+     "topic": "coelacanth fish swimming close up steel blue scales",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2200,7 +2226,7 @@
      "need": "v099_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth head close up moving jaw underwater dark",
+     "topic": "coelacanth moving fins underwater dark cave",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2222,7 +2248,7 @@
      "need": "v100_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth near dark rocky cave opening in deep sea",
+     "topic": "coelacanth opening mouth feeding deep sea",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2244,7 +2270,7 @@
      "need": "v101_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth swimming past dark underwater volcanic rock wall",
+     "topic": "coelacanth head detail glowing eyes deep sea",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2259,14 +2285,14 @@
    "at": "Während man sie früher",
    "n": 102,
    "section": "story",
-   "amb": "underwater",
+   "amb": "swamp",
    "beats": [
     {
      "kind": "real",
      "need": "v102_0",
      "species": "lungfish",
      "dark": false,
-     "topic": "african lungfish swimming in murky freshwater river bottom",
+     "topic": "lungfish swimming in murky water swamp aquarium",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2288,7 +2314,7 @@
      "need": "v103_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth lobed fins moving in slow motion underwater",
+     "topic": "coelacanth lobe fins swimming slow motion deep sea",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2308,9 +2334,9 @@
     {
      "kind": "real",
      "need": "v104_0",
-     "species": "horseshoe_crab",
+     "species": null,
      "dark": false,
-     "topic": "horseshoe crab walking on shallow sandy beach seabed",
+     "topic": "ancient shallow sea coastal water aerial view shoreline",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2325,14 +2351,14 @@
    "at": "Als einzige heute noch",
    "n": 105,
    "section": "story",
-   "amb": "underwater",
+   "amb": "beach",
    "beats": [
     {
      "kind": "real",
      "need": "v105_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab walking on sandy beach shallow water",
+     "topic": "horseshoe crab walking on sandy seabed shallow water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2347,14 +2373,14 @@
    "at": "Ihr starrer, hufeisenförmiger Vorderkörper,",
    "n": 106,
    "section": "story",
-   "amb": "underwater",
+   "amb": "beach",
    "beats": [
     {
      "kind": "real",
      "need": "v106_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab close up of shell and eyes on sand",
+     "topic": "horseshoe crab close up shell prosoma eyes sand",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2369,14 +2395,14 @@
    "at": "Am hinteren Teil des",
    "n": 107,
    "section": "story",
-   "amb": "underwater",
+   "amb": "beach",
    "beats": [
     {
      "kind": "real",
      "need": "v107_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crab tail spine dragging in shallow sand underwater",
+     "topic": "horseshoe crab tail spine telson dragging in sand",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2398,7 +2424,7 @@
      "need": "v108_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "horseshoe crabs mating on sandy beach during spring tide aerial",
+     "topic": "horseshoe crabs mating spawning shallow sandy beach",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2413,14 +2439,14 @@
    "at": "Dort legen die Weibchen",
    "n": 109,
    "section": "story",
-   "amb": "underwater",
+   "amb": "beach",
    "beats": [
     {
      "kind": "real",
      "need": "v109_0",
      "species": "horseshoe_crab",
      "dark": false,
-     "topic": "tiny horseshoe crab larvae swimming near sandy seabed close up",
+     "topic": "horseshoe crab larvae hatching microscopic view water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2442,7 +2468,7 @@
      "need": "v110_0",
      "species": "nautilus",
      "dark": true,
-     "topic": "chambered nautilus swimming gracefully in deep dark blue water",
+     "topic": "nautilus swimming gracefully in deep blue ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2464,7 +2490,7 @@
      "need": "v111_0",
      "species": null,
      "dark": true,
-     "topic": "dramatic stormy ocean waves crashing over ancient rocks aerial",
+     "topic": "stormy ancient ocean waves dramatic lighting cinematic",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2487,7 +2513,7 @@
      "need": "v112_0",
      "species": null,
      "dark": false,
-     "topic": "paleontologists examining fossils in modern bright laboratory",
+     "topic": "paleontology museum fossils skeletons exhibition hall",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2509,7 +2535,7 @@
      "need": "v113_0",
      "species": null,
      "dark": true,
-     "topic": "digital DNA sequencing animation glowing blue in dark room",
+     "topic": "DNA strands sequencing glowing in dark laboratory",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2531,7 +2557,7 @@
      "need": "v114_0",
      "species": null,
      "dark": true,
-     "topic": "genetic mutation code scrolling rapidly on computer screen",
+     "topic": "genetic mutation code abstract digital visualization",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2546,12 +2572,21 @@
    "at": "Ähnliche Körperpläne täuschen über",
    "n": 115,
    "section": "climax",
-   "amb": "swamp",
+   "amb": "ocean",
    "beats": [
     {
-     "kind": "recon",
-     "id": "mesozoic_fern_swamp",
-     "species": null
+     "kind": "real",
+     "need": "v115_0",
+     "species": null,
+     "dark": true,
+     "topic": "evolutionary tree animation digital scientific graphics",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -2559,14 +2594,14 @@
    "at": "Was äußerlich wie Konservierung",
    "n": 116,
    "section": "climax",
-   "amb": "room",
+   "amb": "forest",
    "beats": [
     {
      "kind": "real",
      "need": "v116_0",
-     "species": null,
-     "dark": true,
-     "topic": "scientific data graphs evolving on digital touchscreen display",
+     "species": "tuatara",
+     "dark": false,
+     "topic": "tuatara New Zealand reptile",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2581,14 +2616,14 @@
    "at": "Selbst dort, wo Organismen",
    "n": 117,
    "section": "climax",
-   "amb": "forest",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v117_0",
-     "species": "tuatara",
+     "species": null,
      "dark": false,
-     "topic": "tuatara reptile New Zealand Sphenodon punctatus",
+     "topic": "remote island cliffs aerial view moody atmosphere",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2610,7 +2645,7 @@
      "need": "v118_0",
      "species": "tuatara",
      "dark": false,
-     "topic": "tuatara reptile New Zealand Sphenodon punctatus",
+     "topic": "tuatara New Zealand reptile",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2625,14 +2660,28 @@
    "at": "Auch bei anderen klassischen",
    "n": 119,
    "section": "climax",
-   "amb": "ocean",
+   "amb": "beach",
    "beats": [
     {
      "kind": "real",
      "need": "v119_0",
-     "species": "nautilus",
+     "species": "horseshoe_crab",
      "dark": false,
-     "topic": "nautilus swimming gracefully near coral reef in deep blue sea",
+     "topic": "horseshoe crab walking on coastal sand beach sunset",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v119_1",
+     "species": "nautilus",
+     "dark": true,
+     "topic": "nautilus swimming in deep blue water tentacles moving",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2662,6 +2711,20 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "real",
+     "need": "v120_1",
+     "species": null,
+     "dark": false,
+     "topic": "scientific genetic sequencing laboratory DNA screen",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -2676,7 +2739,7 @@
      "need": "v121_0",
      "species": null,
      "dark": true,
-     "topic": "deep dark ocean current abstract",
+     "topic": "deep dark ocean currents abstract nature",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2698,7 +2761,21 @@
      "need": "v122_0",
      "species": "lungfish",
      "dark": false,
-     "topic": "lungfish swimming underwater freshwater",
+     "topic": "lungfish swimming in murky water",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v122_1",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth dark water close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2720,7 +2797,21 @@
      "need": "v123_0",
      "species": "nautilus",
      "dark": true,
-     "topic": "nautilus swimming underwater night",
+     "topic": "nautilus swimming in deep water",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v123_1",
+     "species": "coelacanth",
+     "dark": false,
+     "topic": "coelacanth swimming underwater ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2757,7 +2848,7 @@
    "at": "Trotz anhaltender wissenschaftlicher Debatten",
    "n": 125,
    "section": "finale",
-   "amb": "ocean",
+   "amb": "underwater",
    "cut": true,
    "beats": [
     {
@@ -2780,14 +2871,14 @@
    "at": "Sie zeugen von einer",
    "n": 126,
    "section": "finale",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v126_0",
      "species": null,
      "dark": true,
-     "topic": "ancient deep ocean trench dark",
+     "topic": "deep sea layers and abyssal plain",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2805,30 +2896,13 @@
    "amb": "fire",
    "beats": [
     {
-     "kind": "real",
-     "need": "v127_0",
-     "species": null,
-     "dark": true,
-     "topic": "volcanic underwater hydrothermal vent",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    }
-   ]
-  },
-  {
-   "at": "Obwohl diese vermeintlichen Relikte",
-   "n": 128,
-   "section": "finale",
-   "amb": "beach",
-   "beats": [
+     "kind": "recon",
+     "id": "devonian_extinction_landscape",
+     "species": null
+    },
     {
      "kind": "real",
-     "need": "v128_0",
+     "need": "v127_1",
      "species": "horseshoe_crab",
      "dark": false,
      "topic": "horseshoe crab walking on sandy beach",
@@ -2843,17 +2917,39 @@
    ]
   },
   {
+   "at": "Obwohl diese vermeintlichen Relikte",
+   "n": 128,
+   "section": "finale",
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v128_0",
+     "species": null,
+     "dark": false,
+     "topic": "paleontology museum fossil bones examination",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
    "at": "Sie repräsentieren die einzigen",
    "n": 129,
    "section": "finale",
-   "amb": "ocean",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "v129_0",
      "species": "nautilus",
      "dark": true,
-     "topic": "nautilus glowing tentacles deep water",
+     "topic": "nautilus shell close up underwater",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2868,14 +2964,14 @@
    "at": "Jenseits aller terminologischen Debatten",
    "n": 130,
    "section": "finale",
-   "amb": "forest",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v130_0",
-     "species": "tuatara",
-     "dark": false,
-     "topic": "tuatara close up breathing",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth swimming gracefully in deep blue sea",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2890,14 +2986,14 @@
    "at": "Trotz wissenschaftlicher Debatten über",
    "n": 131,
    "section": "finale",
-   "amb": "underwater",
+   "amb": "forest",
    "beats": [
     {
      "kind": "real",
      "need": "v131_0",
-     "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth lone fish deep sea",
+     "species": "tuatara",
+     "dark": false,
+     "topic": "tuatara close up breathing gently",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2912,14 +3008,14 @@
    "at": "Sie bewahren urtümliche Merkmale",
    "n": 132,
    "section": "finale",
-   "amb": "ocean",
+   "amb": "beach",
    "beats": [
     {
      "kind": "real",
      "need": "v132_0",
-     "species": "lungfish",
-     "dark": false,
-     "topic": "lungfish gulping air water surface",
+     "species": "horseshoe_crab",
+     "dark": true,
+     "topic": "horseshoe crabs on ancient shore at dusk",
      "allow": [
       "scientific equipment",
       "research camera",
