@@ -24,7 +24,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from core import delivery, gemini  # noqa: E402
+from core import delivery, gemini, textllm  # noqa: E402
 from core.logger import get_logger  # noqa: E402
 
 log = get_logger("write")
@@ -199,21 +199,29 @@ def words(script):
     return len(delivery.plain_text(script).split())
 
 
-def fact_check(script, src_block, rounds=2):
+def fact_check(script, src, rounds=2, chunk=18):
+    """Every line against the sources, in chunks of lines, each chunk with the
+    source paragraphs that concern it."""
     log_rows = []
     for r in range(rounds):
         raw = [l for l in script.splitlines() if l.strip()]
-        numbered = "\n".join(f"{i}: {l}" for i, l in enumerate(raw))
-        ans = gemini.ask(CHECK.format(lines=numbered, sources=src_block), temperature=0.1)
-        bad = {int(x["n"]): x for x in gemini.pick(ans, "lines") if str(x.get("n", "")).isdigit()}
+        bad = {}
+        for c0 in range(0, len(raw), chunk):
+            part = raw[c0:c0 + chunk]
+            numbered = "\n".join(f"{c0 + j}: {l}" for j, l in enumerate(part))
+            ans = textllm.ask(CHECK.format(lines=numbered, sources=textllm.relevant(src, " ".join(part), 9000)),
+                              step="fact_check", temperature=0.1, max_tokens=2000)
+            for x in gemini.pick(ans, "lines"):
+                if isinstance(x, dict) and str(x.get("n", "")).isdigit():
+                    bad[int(x["n"])] = x
         out = []
         for i, l in enumerate(raw):
             x = bad.get(i)
             if x and not l.startswith("["):
                 log_rows.append({"round": r, "n": i, "was": l, **x})
-                if x["verdict"] == "drop":
+                if x.get("verdict") == "drop":
                     continue
-                if x["verdict"] == "fix" and x.get("text"):
+                if x.get("verdict") == "fix" and x.get("text"):
                     l = x["text"].strip()
             out.append(l)
         script = "\n".join(out)
@@ -248,6 +256,20 @@ def hook_text(script):
     return [l.text for l in delivery.parse(script) if l.section == "hook"]
 
 
+def _gist(body, limit=5000):
+    """What a hook is written from: the story's opening and its climax, short
+    enough for one request."""
+    rows = [l for l in body.splitlines() if l.strip() and not l.startswith("[")]
+    climax = []
+    sec = None
+    for l in body.splitlines():
+        if l.startswith("[section"):
+            sec = l
+        elif sec == "[section climax]":
+            climax.append(l)
+    return ("\n".join(rows[:25]))[: limit // 2] + "\n...\n" + ("\n".join(climax))[: limit // 2]
+
+
 def hook_sha(script):
     import hashlib
     return hashlib.sha1(" ".join(t.strip() for t in hook_text(script)).encode("utf-8")).hexdigest()[:12]
@@ -261,7 +283,8 @@ def hook_ok(script, block):
     h = hook_text(script)
     if not h:
         return False, None
-    v = gemini.ask(HOOK_CHECK.format(hook="\n".join(h), sources=block), temperature=0.1)
+    v = textllm.ask(HOOK_CHECK.format(hook="\n".join(h), sources=textllm.relevant(block, " ".join(h), 8000)),
+                    step="hook", temperature=0.1, max_tokens=600)
     n = len(" ".join(h).split())
     ok = all(v.get(k) for k in ("strongest_moment", "question", "promise", "facts_supported")) and 40 <= n <= 85
     return ok, {"hook": h, "check": v, "words": n}
@@ -293,9 +316,11 @@ def write_hook(script, block, tries=4):
     body = strip_hook(script)
     last = None
     for _ in range(tries):
-        hook = [l.strip() for l in gemini.pick(gemini.ask(HOOK.format(script=body[:40000], sources=block),
-                                                          temperature=0.7), "hook") if l.strip()]
-        v = gemini.ask(HOOK_CHECK.format(hook="\n".join(hook), sources=block), temperature=0.1)
+        gist = _gist(body)
+        hook = [l.strip() for l in gemini.pick(textllm.ask(HOOK.format(script=gist, sources=textllm.relevant(
+            block, gist, 6000)), step="hook", temperature=0.7, max_tokens=800), "hook") if l.strip()]
+        v = textllm.ask(HOOK_CHECK.format(hook="\n".join(hook), sources=textllm.relevant(block, " ".join(hook), 8000)),
+                        step="hook", temperature=0.1, max_tokens=600)
         n = len(" ".join(hook).split())
         last = {"hook": hook, "check": v, "words": n}
         if all(v.get(k) for k in ("strongest_moment", "question", "promise", "facts_supported")) and 40 <= n <= 85:
@@ -317,7 +342,7 @@ def ensure_hook(slug):
     if meta.get("hook_sha") == hook_sha(script):          # this very hook has passed its check
         log.info("%s: hook already checked", slug)
         return 0
-    block = _src_block(sources(topic))
+    block = sources(topic)
     ok, rep = hook_ok(script, block)
     if ok:
         log.info("%s: hook passes (%s)", slug, rep["check"])
@@ -353,17 +378,20 @@ def fit_length(script, block):
         if MIN_WORDS <= n <= MAX_WORDS:
             return script
         if n > MAX_WORDS:
-            script = gemini.ask(SHORTEN.format(have=n, minutes=n / WPM, want=WORDS, script=script, sources=block),
-                                temperature=0.4)["script"].replace("\\n", "\n")
+            script = textllm.ask(SHORTEN.format(have=n, minutes=n / WPM, want=WORDS, script=script,
+                                                sources=textllm.relevant(block, script[:3000], 12000)),
+                                 step="script", temperature=0.4, big=True)["script"].replace("\\n", "\n")
         else:
             # added to the story where it ends, not rewritten whole: a whole
             # rewrite comes back cut at the model's answer length
             rows = script.splitlines()
             end = max((i for i, l in enumerate(rows) if not l.startswith("[")
                        and _section_at(rows, i) == "story"), default=len(rows) - 1)
-            more = gemini.ask(MORE.format(section="story", heading="weitere Fakten und Momente", words=WORDS - n,
-                                          points="was die Quellen noch erzählen", so_far="\n".join(rows[max(0, end - 25):end + 1]),
-                                          sources=block), temperature=0.6)
+            so_far = "\n".join(rows[max(0, end - 12):end + 1])
+            more = textllm.ask(MORE.format(section="story", heading="weitere Fakten und Momente",
+                                           words=min(500, WORDS - n), points="was die Quellen noch erzählen",
+                                           so_far=so_far, sources=textllm.relevant(block, so_far, 7000)),
+                               step="script", temperature=0.6, max_tokens=1600)
             add = [l.strip() for l in gemini.pick(more, "lines") if l.strip() and l.strip() not in rows]
             script = "\n".join(rows[:end + 1] + add + rows[end + 1:])
         log.info("length: %d -> %d words", n, words(script))
@@ -376,16 +404,20 @@ def fit_length(script, block):
 def write_by_chapters(topic, block):
     """The script chapter by chapter, each to its word budget: one long answer
     came out 463 words long when the model fell back (29.10)."""
-    plan = gemini.ask(OUTLINE.format(title=topic["title"], focus=topic["focus"], words=WORDS,
-                                     minutes=CFG["length_min"], sources=block), temperature=0.5)
+    plan = textllm.ask(OUTLINE.format(title=topic["title"], focus=topic["focus"], words=WORDS,
+                                      minutes=CFG["length_min"],
+                                      sources=textllm.relevant(block, f"{topic['title']} {topic['focus']}", 10000)),
+                       step="script", temperature=0.5, max_tokens=2000)
     chapters = gemini.pick(plan, "chapters")
     total = sum(int(c.get("words") or 0) for c in chapters) or WORDS
     out, before, section = [], "(Anfang der Folge)", None
     for c in chapters:
         want = max(50, int(int(c.get("words") or 0) * WORDS / total))
-        ans = gemini.ask(PART.format(title=topic["title"], section=c["section"], heading=c["heading"],
-                                     points="; ".join(c.get("points", [])), words=want,
-                                     before=before, sources=block), temperature=0.6)
+        topic_q = f"{c['heading']} {' '.join(c.get('points', []))}"
+        ans = textllm.ask(PART.format(title=topic["title"], section=c["section"], heading=c["heading"],
+                                      points="; ".join(c.get("points", [])), words=min(want, 450),
+                                      before=before, sources=textllm.relevant(block, topic_q, 7500)),
+                          step="script", temperature=0.6, max_tokens=1700)
         lines = [l.strip() for l in gemini.pick(ans, "lines") if l.strip()]
         # a lighter model writes 150-300 words an answer: the chapter is
         # continued until it reaches its budget
@@ -393,9 +425,10 @@ def write_by_chapters(topic, block):
             have = len(" ".join(lines).split())
             if have >= 0.9 * want:
                 break
-            more = gemini.ask(MORE.format(section=c["section"], heading=c["heading"], words=want - have,
-                                          points="; ".join(c.get("points", [])), so_far="\n".join(lines),
-                                          sources=block), temperature=0.6)
+            more = textllm.ask(MORE.format(section=c["section"], heading=c["heading"], words=min(450, want - have),
+                                           points="; ".join(c.get("points", [])), so_far="\n".join(lines[-12:]),
+                                           sources=textllm.relevant(block, topic_q, 7000)),
+                               step="script", temperature=0.6, max_tokens=1600)
             add = [l.strip() for l in gemini.pick(more, "lines") if l.strip() and l.strip() not in lines]
             if not add:
                 break
@@ -416,7 +449,7 @@ def main(slug):
     ep = ROOT / "episodes" / slug
     ep.mkdir(parents=True, exist_ok=True)
     src = sources(topic)
-    block = _src_block(src)
+    block = src
     ans, script = write_by_chapters(topic, block)
     script = normalise(script)
     (ep / "script_draft.txt").write_text(script, encoding="utf-8")

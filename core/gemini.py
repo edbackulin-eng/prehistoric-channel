@@ -37,7 +37,21 @@ def image_part(path, side=768):
     return {"inline_data": {"mime_type": "image/jpeg", "data": base64.b64encode(buf.getvalue()).decode()}}
 
 
-def ask(prompt, images=(), models=TEXT_MODELS, json_out=True, temperature=0.4, max_tokens=None, timeout=240):
+def _quota(body):
+    """The limit a 429 states, e.g. 'GenerateRequestsPerDayPerProjectPerModel-FreeTier=20'."""
+    try:
+        d = json.loads(body)
+        out = []
+        for det in d.get("error", {}).get("details", []):
+            for v in det.get("violations", []) or []:
+                out.append(f"{v.get('quotaId')}={v.get('quotaValue')}")
+        return ", ".join(out)
+    except Exception:                                                    # noqa: BLE001
+        return ""
+
+
+def ask(prompt, images=(), models=TEXT_MODELS, json_out=True, temperature=0.4, max_tokens=None, timeout=240,
+        step=None):
     """The model's answer: parsed JSON when json_out, else text."""
     parts = [{"text": prompt}] + [image_part(p) for p in images]
     cfg = {"temperature": temperature}
@@ -57,12 +71,17 @@ def ask(prompt, images=(), models=TEXT_MODELS, json_out=True, temperature=0.4, m
                 with urllib.request.urlopen(req, timeout=timeout) as r:
                     d = json.loads(r.read())
                 text = "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"])
+                um = d.get("usageMetadata", {})
+                from core import llm_usage
+                llm_usage.record(m, um.get("promptTokenCount"), um.get("candidatesTokenCount"), step)
                 log.info("gemini %s: %d chars", m, len(text))
                 if not json_out:
                     return text
                 return json.loads(text[min(i for i in (text.find("{"), text.find("[")) if i >= 0):])
             except urllib.error.HTTPError as e:
-                body = e.read()[:600].decode("utf-8", "replace")
+                body = e.read()[:4000].decode("utf-8", "replace")
+                if e.code == 429:
+                    log.warning("gemini %s 429: %s", m, _quota(body) or body[:200])
                 last = f"{m}: HTTP {e.code} {body[:200]}"
                 # a per-minute limit is waited out; only a spent day (or a missing
                 # model) sends the call to the next, lighter model

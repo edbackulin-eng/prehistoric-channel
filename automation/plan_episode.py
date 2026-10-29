@@ -24,7 +24,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-from core import delivery, gemini  # noqa: E402
+from core import delivery, gemini, textllm  # noqa: E402
 from core.logger import get_logger  # noqa: E402
 
 log = get_logger("plan")
@@ -155,8 +155,13 @@ def main(slug):
     ep = ROOT / "episodes" / slug
     script = (ep / "script.txt").read_text(encoding="utf-8")
     lines = delivery.parse(script)
-    animals = gemini.pick(gemini.ask(ANIMALS.format(script=delivery.plain_text(script)[:60000]), temperature=0.2),
-                          "animals")
+    # the animals, from the script in pieces a Groq request can carry, merged by key
+    animals, plain = [], delivery.plain_text(script)
+    for c0 in range(0, len(plain), 9000):
+        for a in gemini.pick(textllm.ask(ANIMALS.format(script=plain[c0:c0 + 9000]), step="plan", temperature=0.2,
+                                         max_tokens=2500), "animals"):
+            if isinstance(a, dict) and a.get("key") and all(a["key"] != b.get("key") for b in animals):
+                animals.append(a)
     animals = [a for a in animals if isinstance(a, dict) and a.get("key")]
     species = {a["key"]: {"name": f"{a.get('name_de')} ({a.get('latin')})", "features": (a.get("features") or [])[:5],
                           "forbidden": (a.get("forbidden") or [])[:5] + ["a modern animal in a prehistoric scene"],
@@ -167,9 +172,10 @@ def main(slug):
                       for k, v in species.items())
 
     planned = {}
-    for i0, part in chunks(lines, 40):
+    for i0, part in chunks(lines, 20):
         numbered = "\n".join(f"{i0 + j} [{l.section}]: {l.text}" for j, l in enumerate(part))
-        ans = gemini.ask(BEATS.format(amb=", ".join(AMB), animals=alist, lines=numbered), temperature=0.3)
+        ans = textllm.ask(BEATS.format(amb=", ".join(AMB), animals=alist, lines=numbered), step="plan",
+                          temperature=0.3, max_tokens=3000)
         for row in gemini.pick(ans, "lines"):
             if isinstance(row, dict) and str(row.get("n", "")).isdigit():
                 planned[int(row["n"])] = row
@@ -224,14 +230,17 @@ def main(slug):
     # living animals plans few FLUX frames of its own (29.10: three), so the past is added -
     # extinct relatives, earlier seas and coasts - on the lines that tell of it
     lo_anim = CFG["motion"]["animated_per_episode"][0]
-    numbered = "\n".join(f"{i} [{l.section}]: {l.text}" for i, l in enumerate(lines))
+    # the lines that tell of the past, short enough for one request
+    past = re.compile(r"Millionen|Fossil|ausgestorb|Urzeit|Kreide|Devon|Perm|Trias|Jura|Kambri|Ordovizi|Silur|"
+                      r"Karbon|Vorfahr|Massenausster|Erdzeitalter|versteinert|Dinosaur", re.I)
+    numbered = "\n".join(f"{i} [{l.section}]: {l.text}" for i, l in enumerate(lines) if past.search(l.text))[:9000]
     by_n = {r["n"]: r for r in out_lines}
     for _ in range(3):                         # rounds, until there are enough
         if len(order) >= lo_anim + 2:
             break
-        extra = gemini.pick(gemini.ask(EXTINCT.format(need=lo_anim + 2 - len(order), living=", ".join(sorted(living)),
-                                                      have=", ".join(order) or "nichts", lines=numbered[:60000]),
-                                       temperature=0.6), "frames")
+        extra = gemini.pick(textllm.ask(EXTINCT.format(need=lo_anim + 2 - len(order), living=", ".join(sorted(living)),
+                                                       have=", ".join(order) or "nichts", lines=numbered),
+                                        step="plan", temperature=0.6, max_tokens=2500), "frames")
         for f in extra:
             if not isinstance(f, dict):
                 continue
@@ -252,8 +261,8 @@ def main(slug):
 
     # at most flux_frames_max frames: the prompts that come first in the hook and climax win
     meta = json.loads((ep / "meta.json").read_text(encoding="utf-8")) if (ep / "meta.json").exists() else {}
-    thumbs = gemini.pick(gemini.ask(THUMBS.format(title=meta.get("title", slug), animals=alist), temperature=0.7),
-                         "thumbs")[:3]
+    thumbs = gemini.pick(textllm.ask(THUMBS.format(title=meta.get("title", slug), animals=alist), step="plan",
+                                     temperature=0.7, max_tokens=1500), "thumbs")[:3]
     flux_thumbs = {t["id"]: t["prompt"] for t in thumbs if t.get("base") == "flux" and t.get("prompt")}
     # the thumbnails' FLUX bases (two seeds each) come out of the same 60 frames
     max_prompts = (CFG["motion"]["flux_frames_max"] - 2 * len(flux_thumbs)) // CFG["motion"]["flux_seeds"]

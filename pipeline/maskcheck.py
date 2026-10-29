@@ -61,6 +61,9 @@ def _ask(key, b64):
             with urllib.request.urlopen(req, timeout=60) as r:
                 d = json.loads(r.read())
             text = "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"])
+            from core import llm_usage
+            llm_usage.record(MODEL, d.get("usageMetadata", {}).get("promptTokenCount"),
+                             d.get("usageMetadata", {}).get("candidatesTokenCount"), "mask_check")
             return json.loads(text[text.find("{"): text.rfind("}") + 1])
         except Exception as e:                                   # noqa: BLE001
             if "429" in str(e) and attempt < 3:

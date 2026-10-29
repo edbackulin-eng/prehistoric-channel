@@ -124,7 +124,12 @@ def check_runs(mem, actions):
 
 def check_buffer(busy, actions):
     from automation import release
+    from automation import llm_budget
     have = release.ahead()
+    d = llm_budget.deferred_now()
+    if d:
+        actions.append(f"{d['slug']} waits for the quota day (until {d['until']})")
+        return have
     if len(have) < CFG["buffer"] and not busy:
         gh("workflow", "run", "episode.yml", "-R", REPO, parse=False)
         actions.append(f"only {len(have)} ahead; next episode started")

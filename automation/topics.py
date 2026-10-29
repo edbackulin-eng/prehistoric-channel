@@ -42,10 +42,16 @@ def save(q):
 
 def pick():
     from automation import release
+    from automation import llm_budget
     q = load()
-    if any(t["status"] == "building" for t in q["topics"]):
-        log.info("a topic is being built already")
+    d = llm_budget.deferred_now()
+    if d:
+        log.info("%s waits for the next quota day (%s, until %s)", d["slug"], d["why"], d["until"])
         return None
+    building = next((t for t in q["topics"] if t["status"] == "building"), None)
+    if building:
+        log.info("resuming %s", building["slug"])
+        return building["slug"]
     if len(release.ahead()) >= CFG["buffer"]:
         log.info("buffer full: %d ahead", len(release.ahead()))
         return None
@@ -80,7 +86,9 @@ def refill(target=20):
         log.info("%d topics waiting; nothing to add", len(waiting))
         return 0
     have = ", ".join(t["title"] for t in q["topics"])
-    ans = gemini.ask(REFILL.format(n=target - len(waiting) + 3, have=have), temperature=0.8)
+    from core import textllm
+    ans = textllm.ask(REFILL.format(n=target - len(waiting) + 3, have=have), step="topics", temperature=0.8,
+                      max_tokens=3000)
     added = 0
     slugs = {t["slug"] for t in q["topics"]}
     for t in gemini.pick(ans, "topics"):
