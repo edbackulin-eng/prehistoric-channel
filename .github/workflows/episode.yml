@@ -89,6 +89,14 @@ jobs:
           fi
           python automation/plan_episode.py --if-stale "$SLUG"
           git add "episodes/$SLUG" && bash "$RUNNER_TEMP/push.sh" "Plan for $SLUG"
+      - name: Species check of the stock footage (its candidates are known from the plan; no GPU needed)
+        if: steps.pick.outputs.slug != '' && env.deferred != '1'
+        env:
+          SLUG: ${{ steps.pick.outputs.slug }}
+        run: |
+          python automation/llm_budget.py need footage_check "$SLUG" || { echo "deferred=1" >> "$GITHUB_ENV"; exit 0; }
+          python -c "import sys; sys.path.insert(0, '.'); from pipeline import speciescheck; speciescheck.check('$SLUG', 'work/none', 'work/$SLUG/footage_check', kinds=('real',))"
+          git add "episodes/$SLUG/species_verdicts.json" && bash "$RUNNER_TEMP/push.sh" "Footage species check for $SLUG" || true
       - name: FLUX on Kaggle
         id: flux
         if: steps.pick.outputs.slug != '' && env.deferred != '1'

@@ -29,16 +29,25 @@ FLASH, LITE = "gemini-flash-latest", "gemini-flash-lite-latest"
 DEFERRED = ROOT / "state" / "deferred.json"
 
 
-def image_need(slug):
-    """Requests the render's checks will make: picture beats not yet judged, masks, thumbnails."""
+def image_need(slug, kinds=("real", "recon", "photo"), fixed=True):
+    """Requests the checks will make: picture beats not judged yet (verdicts are
+    kept in episodes/<slug>/species_verdicts.json), plus masks and thumbnails."""
     ep = ROOT / "episodes" / slug
     shots = json.loads((ep / "shots.json").read_text(encoding="utf-8"))["lines"]
+    footage = json.loads((ep / "footage.json").read_text(encoding="utf-8")) if (ep / "footage.json").exists() else {}
     known = json.loads((ep / "species_verdicts.json").read_text(encoding="utf-8")) \
         if (ep / "species_verdicts.json").exists() else {}
-    beats = {b.get("id") or b.get("need") for l in shots for b in l["beats"] if b["kind"] != "anim"}
-    recon_known = sum(1 for b in beats if any(k.startswith(f"{b}__s") for k in known))
+    todo = 0
+    for b in {(b.get("id") or b.get("need")): b for l in shots for b in l["beats"] if b["kind"] in kinds}.values():
+        if b["kind"] == "real":
+            f = footage.get(b["need"], {})
+            ids = [f.get("id")] + [a.get("id") for a in f.get("alternates") or []]
+            done = any(i in known for i in ids if i)
+        else:
+            done = any(k.startswith(f"{b.get('id') or b.get('need')}__s") or k == b.get("need") for k in known)
+        todo += 0 if done else 1
     r = Q["per_episode"]["render"]
-    return int((len(beats) - recon_known) * r["image_per_picture_beat"] + r["image_fixed"])
+    return int(todo * r["image_per_picture_beat"] + (r["image_fixed"] if fixed else 0))
 
 
 def text_ok(requests, tokens):
@@ -67,6 +76,10 @@ def need(step, slug):
         ok, why = text_ok(pe[step]["text_requests"], pe[step]["text_tokens"])
     elif step == "flux_check":
         ok, why = image_ok(pe["flux_check"]["image_requests"])
+    elif step == "footage_check":
+        n = image_need(slug, kinds=("real",), fixed=False)
+        ok, why = image_ok(n)
+        why = f"needs ~{n}; {why}"
     elif step == "render":
         n = image_need(slug)
         ok, why = image_ok(n)
