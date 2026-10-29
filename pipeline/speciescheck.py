@@ -170,10 +170,13 @@ def ask(key, images, line, species=None, topic=None, archive=False, what="one st
             continue
         for attempt in range(2):
             try:
+                from core import gemini as _g
+                _g._pace(model, 1800 * len(images))               # the model's minute (config rpm/tpm)
                 req = urllib.request.Request(URL.format(m=model), data=json.dumps(payload).encode(),
                                              headers={"Content-Type": "application/json", "x-goog-api-key": key})
                 with urllib.request.urlopen(req, timeout=90) as r:
                     d = json.loads(r.read())
+                _g._WINDOW.setdefault(model, []).append((time.time(), 1800 * len(images)))
                 out = "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"])
                 from core import llm_usage
                 um = d.get("usageMetadata", {})

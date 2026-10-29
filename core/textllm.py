@@ -1,9 +1,12 @@
-"""The text steps' model: Groq first, Gemini (flash-lite) only when Groq cannot answer.
+"""The text steps' model: Gemma 3 27B on this channel's Gemini key, flash-lite in reserve.
 
-Script, fact check, plan and topics go through here, so Gemini's free day is
-kept for the image checks (pipeline/speciescheck.py, pipeline/maskcheck.py,
-the thumbnails). Groq's minute holds 8000 tokens, so callers size their
-sources to SOURCE_CHARS (relevant() picks the paragraphs that matter).
+Script, fact check, hook, plan and topics go through here. Gemma has its own
+quota on the Gemini API, apart from flash and flash-lite, so the flash models'
+free day is kept for the image checks (pipeline/speciescheck.py,
+pipeline/maskcheck.py, the thumbnails). Its minute holds few tokens, so callers
+size their sources to SOURCE_CHARS (relevant() picks the paragraphs that
+matter) and core/gemini.py paces the requests. Groq stays in the code, switched
+off in config/channel.json ("text_llm").
 """
 import re
 
@@ -11,18 +14,22 @@ from core import gemini, groq, llm_usage
 from core.logger import get_logger
 
 log = get_logger("textllm")
-SOURCE_CHARS = 11000          # what a Groq request can carry beside its prompt and answer
-FALLBACK = ("gemini-flash-lite-latest",)
+SOURCE_CHARS = 11000          # what one request can carry beside its prompt and answer
+_C = llm_usage.CFG["text_llm"]
+PRIMARY, FALLBACK = _C["primary"], _C["fallback"]
 
 
 def ask(prompt, step, json_out=True, temperature=0.4, max_tokens=2200, big=False):
-    """big: a request too long for Groq's minute (a whole script) goes to Gemini."""
-    if groq.available() and not big and llm_usage.enough(f"groq:{groq.MODEL}", 1, len(prompt) // 3 + max_tokens):
+    """big: a request too long for the primary model's minute (a whole script) goes to the reserve."""
+    if _C.get("groq_enabled") and groq.available() and not big and \
+            llm_usage.enough(f"groq:{groq.MODEL}", 1, len(prompt) // 3 + max_tokens):
         try:
             return groq.ask(prompt, json_out=json_out, temperature=temperature, max_tokens=max_tokens, step=step)
         except Exception as e:                                           # noqa: BLE001
-            log.warning("groq could not answer (%s); Gemini instead", str(e)[:160])
-    return gemini.ask(prompt, models=FALLBACK, json_out=json_out, temperature=temperature, step=step)
+            log.warning("groq could not answer (%s)", str(e)[:160])
+    order = (FALLBACK,) if big or not llm_usage.enough(PRIMARY, 1) else (PRIMARY, FALLBACK)
+    return gemini.ask(prompt, models=order, json_out=json_out, temperature=temperature, max_tokens=max_tokens,
+                      step=step)
 
 
 def relevant(sources, query, limit=SOURCE_CHARS):

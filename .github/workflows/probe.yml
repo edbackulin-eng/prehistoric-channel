@@ -1,0 +1,38 @@
+name: probe
+
+# By hand: what Gemma 3 27B allows on this channel's key (the limits its 429s
+# state) and one chapter written by Gemma and by flash-lite (scripts/probe_llm.py).
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      PYTHONUTF8: 1
+      GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install -q pillow
+      - run: python scripts/probe_llm.py
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: probe
+          path: work/probe/
+      - name: Keep the quota record
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/llm_usage 2>/dev/null || exit 0
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Quota usage of the LLM probe"
+          for i in 1 2 3; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep 10; done

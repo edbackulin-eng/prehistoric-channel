@@ -127,17 +127,25 @@
   "models": {
    "gemini-flash-latest": {
     "rpd": 20,
-    "source": "estimate"
+    "source": "estimate",
+    "rpm": 10
    },
    "gemini-flash-lite-latest": {
     "rpd": 250,
-    "source": "estimate (>= 180 seen in one day)"
+    "source": "estimate (>= 180 seen in one day)",
+    "rpm": 15
    },
    "groq:openai/gpt-oss-120b": {
     "rpd": 1000,
     "tpd": 200000,
     "tpm": 8000,
     "source": "groq docs"
+   },
+   "gemma-3-27b-it": {
+    "rpm": 30,
+    "tpm": 15000,
+    "rpd": 14400,
+    "source": "estimate; to be confirmed by scripts/probe_llm.py (429 quotaValue)"
    }
   },
   "per_episode": {
@@ -161,5 +169,11 @@
     "image_fixed": 25
    }
   }
+ },
+ "text_llm": {
+  "_note": "Text steps (script, fact check, hook, plan, topics): Gemma 3 27B on GEMINI_API_KEY_PH, a quota of its own; flash-lite in reserve. Groq is switched off (no key for this channel).",
+  "primary": "gemma-3-27b-it",
+  "fallback": "gemini-flash-lite-latest",
+  "groq_enabled": false
  }
 }

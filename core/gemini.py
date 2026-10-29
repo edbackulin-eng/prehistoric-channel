@@ -19,6 +19,42 @@ log = get_logger("gemini")
 URL = "https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent"
 TEXT_MODELS = ("gemini-flash-latest", "gemini-flash-lite-latest")
 _SPENT = set()
+_WINDOW = {}                           # model -> [(time, tokens)] of the last minute
+
+
+def _limits(m):
+    from core import llm_usage
+    return llm_usage.CFG["llm_quota"]["models"].get(m, {})
+
+
+def _pace(m, tokens):
+    """Keep a model within its minute: requests (rpm) and tokens (tpm) from config."""
+    lim = _limits(m)
+    rpm, tpm = lim.get("rpm"), lim.get("tpm")
+    if not rpm and not tpm:
+        return
+    w = _WINDOW.setdefault(m, [])
+    while True:
+        now = time.time()
+        w[:] = [(t, n) for t, n in w if now - t < 60]
+        over_r = rpm and len(w) + 1 > rpm * 0.9
+        over_t = tpm and sum(n for _, n in w) + tokens > tpm * 0.9
+        if not w or not (over_r or over_t):
+            return
+        wait = 61 - (now - w[0][0])
+        log.info("%s: pacing %.0f s (%d requests, %d tokens this minute)", m, wait, len(w), sum(n for _, n in w))
+        time.sleep(max(1, wait))
+
+
+def _json_from(text):
+    """JSON out of a model's text: Gemma has no JSON mode and may wrap it in a code fence."""
+    t = text.strip()
+    if t.startswith("```"):
+        t = t.split("\n", 1)[1] if "\n" in t else t[3:]
+        t = t.rsplit("```", 1)[0]
+    i = min(x for x in (t.find("{"), t.find("[")) if x >= 0)
+    j = max(t.rfind("}"), t.rfind("]"))
+    return json.loads(t[i:j + 1])
 
 
 def key():
@@ -54,17 +90,19 @@ def ask(prompt, images=(), models=TEXT_MODELS, json_out=True, temperature=0.4, m
         step=None):
     """The model's answer: parsed JSON when json_out, else text."""
     parts = [{"text": prompt}] + [image_part(p) for p in images]
-    cfg = {"temperature": temperature}
-    if json_out:
-        cfg["responseMimeType"] = "application/json"
-    if max_tokens:
-        cfg["maxOutputTokens"] = max_tokens
-    payload = json.dumps({"contents": [{"parts": parts}], "generationConfig": cfg}).encode()
     last = None
     for m in models:
         if m in _SPENT:
             continue
+        cfg = {"temperature": temperature}
+        if json_out and not m.startswith("gemma"):          # Gemma takes no response MIME type
+            cfg["responseMimeType"] = "application/json"
+        if max_tokens:
+            cfg["maxOutputTokens"] = max_tokens
+        payload = json.dumps({"contents": [{"parts": parts}], "generationConfig": cfg}).encode()
+        est = len(prompt) // 3 + (max_tokens or 1500) + 260 * len(images)
         for attempt in range(5):
+            _pace(m, est)
             try:
                 req = urllib.request.Request(URL.format(m=m), data=payload,
                                              headers={"Content-Type": "application/json", "x-goog-api-key": key()})
@@ -74,10 +112,12 @@ def ask(prompt, images=(), models=TEXT_MODELS, json_out=True, temperature=0.4, m
                 um = d.get("usageMetadata", {})
                 from core import llm_usage
                 llm_usage.record(m, um.get("promptTokenCount"), um.get("candidatesTokenCount"), step)
+                _WINDOW.setdefault(m, []).append((time.time(), (um.get("promptTokenCount") or 0)
+                                                  + (um.get("candidatesTokenCount") or 0) or est))
                 log.info("gemini %s: %d chars", m, len(text))
                 if not json_out:
                     return text
-                return json.loads(text[min(i for i in (text.find("{"), text.find("[")) if i >= 0):])
+                return _json_from(text)
             except urllib.error.HTTPError as e:
                 body = e.read()[:4000].decode("utf-8", "replace")
                 if e.code == 429:

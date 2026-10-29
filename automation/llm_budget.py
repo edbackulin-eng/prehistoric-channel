@@ -51,9 +51,12 @@ def image_need(slug, kinds=("real", "recon", "photo"), fixed=True):
 
 
 def text_ok(requests, tokens):
-    if groq.available() and llm_usage.enough(GROQ, requests, tokens):
+    tl = llm_usage.CFG["text_llm"]
+    if tl.get("groq_enabled") and groq.available() and llm_usage.enough(GROQ, requests, tokens):
         return True, f"Groq: {llm_usage.left(GROQ)} left"
-    return llm_usage.enough(LITE, requests), f"Gemini flash-lite: {llm_usage.left(LITE)} left"
+    if llm_usage.enough(tl["primary"], requests):
+        return True, f"{tl['primary']}: {llm_usage.left(tl['primary'])} left"
+    return llm_usage.enough(LITE, requests), f"{tl['primary']} spent; Gemini flash-lite: {llm_usage.left(LITE)} left"
 
 
 def image_ok(requests):
