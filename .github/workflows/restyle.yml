@@ -35,6 +35,13 @@ jobs:
           python-version: "3.11"
       - run: pip install -q pillow num2words
       - run: python automation/write_episode.py --${{ inputs.mode }} "${{ inputs.slug }}"
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: script-${{ inputs.slug }}
+          path: |
+            episodes/${{ inputs.slug }}/script.txt
+            episodes/${{ inputs.slug }}/meta.json
       - name: Keep the script
         if: always()
         run: |
@@ -43,5 +50,7 @@ jobs:
           git add "episodes/${{ inputs.slug }}" state/llm_usage 2>/dev/null || true
           git diff --cached --quiet && exit 0
           git commit -q -m "Script of ${{ inputs.slug }} retold (editor pass, fact check)"
-          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep 10; done
+          # 29.10 a commit of the build touched meta.json meanwhile and the rebase stopped:
+          # in this episode's files the new script wins
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash -X theirs origin main && git push -q origin HEAD:main && exit 0; git rebase --abort 2>/dev/null; sleep 10; done
           exit 1
