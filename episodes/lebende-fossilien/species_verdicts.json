@@ -1,0 +1,4490 @@
+{
+ "pixabay-27784": {
+  "subject": "freshwater aquarium with small fish",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "no",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a planted freshwater aquarium with small tetras instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-26818": {
+  "subject": "blue and white jellyfish swimming",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "no",
+   "rostral organ at the snout tip": "no",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The video shows jellyfish, not a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-345424": {
+  "subject": "blue jellyfish",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "no",
+   "rostral organ at the snout tip": "no",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows jellyfish instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-361729": {
+  "subject": "chalk cliffs and sea coastline",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows coastal cliffs instead of deep ocean abyss.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-33194": {
+  "subject": "ocean surface and cloudy sky",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of the sea under cloudy sky",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-156149": {
+  "subject": "aquarium setup with suspended rock formations and freshwater fish",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "no",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "no",
+   "rostral organ at the snout tip": "no",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "aquarium setup"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": true,
+  "note": "shows an aquarium display, not a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-302163": {
+  "subject": "South African landscape with mountains and fields",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows South African landscape instead of a vintage 1930s fishing boat harbour",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-302189": {
+  "subject": "aerial view of rocky coast and waves",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of coastline, acceptable stand-in",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-218411": {
+  "subject": "aerial harbor view",
+  "species_match": null,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "water",
+   "boats",
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial harbor scene establishing shot",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-89833": {
+  "subject": "dried-up reservoir and dam",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "dam",
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a dry dam landscape, completely off-topic for a coelacanth or ichthyologist.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-218410": {
+  "subject": "aerial view of a harbour with moored boats",
+  "species_match": null,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles",
+   "water"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial shot of a modern harbour, completely unrelated to the coelacanth or museum specimens.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-202813": {
+  "subject": "church in fog aerial view",
+  "species_match": null,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial shot of a church enveloped in fog, unrelated to the coelacanth or ichthyologist.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-10844": {
+  "subject": "abstract flying creature with pink fabric",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "no",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Does not show a coelacanth; completely wrong subject.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-37079": {
+  "subject": "Volcano crater with smoke and lake",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a volcano instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-87812": {
+  "subject": "shallow clear water over rocks",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Water surface shot, no coelacanth visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-204165": {
+  "subject": "underwater tunnel in an aquarium",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an aquarium visitor tunnel instead of a coelacanth in the deep sea.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-258241": {
+  "subject": "clear coastal water over rocks",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows shallow coastal water instead of a deep-sea coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-204565": {
+  "subject": "ocean waves breaking on a rocky shore",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial shot of waves breaking on a rocky beach, no coelacanth visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-197488": {
+  "subject": "scientists in a laboratory conducting research",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "people",
+   "modern objects",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "scientists working in a lab fits the general research context",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-197931": {
+  "subject": "digital DNA strand animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "shows a CGI DNA strand made of binary code instead of historical research documents",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-262188": {
+  "subject": "laboratory research under a microscope",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "fits laboratory research theme well",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-76395": {
+  "subject": "automated laboratory liquid handling pipettes",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "modern laboratory equipment fitting scientific research",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-27228": {
+  "subject": "dark blue abstract texture",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "does not show a laboratory monitor",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-141412": {
+  "subject": "DNA double helix animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows genetic visualization fitting the narrative context of DNA/sequencing research.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-67358": {
+  "subject": "colored ink dispersing in water",
+  "species_match": false,
+  "features": {
+   "elongated eel-like body": "no",
+   "thread-like pectoral and pelvic fins": "no",
+   "continuous dorsal and caudal fin": "no",
+   "heavy crushing tooth plates": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract ink in water footage, completely off-topic",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-63559": {
+  "subject": "underwater view with sunrays",
+  "species_match": false,
+  "features": {
+   "elongated eel-like body": "not visible",
+   "thread-like pectoral and pelvic fins": "not visible",
+   "continuous dorsal and caudal fin": "not visible",
+   "heavy crushing tooth plates": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "empty underwater scene, no lungfish visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-15324": {
+  "subject": "jellyfish swimming in water",
+  "species_match": false,
+  "features": {
+   "elongated eel-like body": "no",
+   "thread-like pectoral and pelvic fins": "no",
+   "continuous dorsal and caudal fin": "no",
+   "heavy crushing tooth plates": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The images show jellyfish, not lungfish.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-108366": {
+  "subject": "freshwater aquarium with small tetras",
+  "species_match": false,
+  "features": {
+   "elongated eel-like body": "no",
+   "thread-like pectoral and pelvic fins": "no",
+   "continuous dorsal and caudal fin": "no",
+   "heavy crushing tooth plates": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows small aquarium fish, not lungfish",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-197946": {
+  "subject": "reeds or grass stalks",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "no",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "no",
+   "rostral organ at the snout tip": "no",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows plants instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-183136": {
+  "subject": "abstract colorful liquid swirl with glitter",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "glitter",
+   "abstract liquid"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract visuals unrelated to a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-367126": {
+  "subject": "blue flowers",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "flowers"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows flowers instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-212453": {
+  "subject": "yellow buttercup wildflowers",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "no",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "no",
+   "rostral organ at the snout tip": "no",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows yellow flowers instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-134822": {
+  "subject": "surface of the ocean water",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clip shows open sea water surface, serving as establishing shot.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-208492": {
+  "subject": "large public aquarium tank with sharks and rays",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "aquarium setup"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an aquarium tank with sharks instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-348904": {
+  "subject": "coastal rocks and ocean waves at sunset",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Coastal scene fits the narration about ocean catches.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-169757": {
+  "subject": "View of the Milky Way through a cave opening",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Does not show coelacanth or deep water cave exploration as requested",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-181583": {
+  "subject": "cave interior with stalactites",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a cave landscape, not a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-217115": {
+  "subject": "ocean waves crashing against rocky shore",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows waves on rocks instead of a coelacanth in the deep sea.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-130231": {
+  "subject": "jellyfish swimming in the ocean",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "no",
+   "rostral organ at the snout tip": "no",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a jellyfish instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-10480": {
+  "subject": "jellyfish swimming in an aquarium",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "no",
+   "rostral organ at the snout tip": "no",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows jellyfish instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-12716": {
+  "subject": "abstract digital network animation",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract graphic, not a fisherman or vintage boat",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-130156": {
+  "subject": "Active volcano erupting",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an active volcano instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-212348": {
+  "subject": "lush green forest canyon",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a dense forest canyon instead of a coelacanth underwater.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-160867": {
+  "subject": "coastal beach landscape",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a beach with rocks and waves, but no horseshoe crab is present.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-366430": {
+  "subject": "blue damselflies mating on a leaf",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "no",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows damselflies instead of a horseshoe crab.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-224226": {
+  "subject": "yellow crab spider on a yellow flower",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "no",
+   "five pairs of walking legs underneath": "no",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a spider on a flower, completely unrelated to horseshoe crabs.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-160367": {
+  "subject": "sea waves breaking on a shingle beach",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape shot of the sea and beach, fitting the coastal environment of horseshoe crabs.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-44580": {
+  "subject": "red liquid dissolving in water",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "glass"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows red ink or dye in water, illustrating blood metaphorically",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-262464": {
+  "subject": "a scientist in a medical or chemical laboratory",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "people",
+   "buildings",
+   "text"
+  ],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows a laboratory setting fitting the theme of blue blood science, though no animal is visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-26799": {
+  "subject": "blood vessels with blood cells",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Animation showing blood flow inside a blood vessel.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-172148": {
+  "subject": "ocean buoy in rough sea",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buoy",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a buoy in the sea, not a horseshoe crab.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-63427": {
+  "subject": "underwater ocean view with sun rays",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Underwater ocean scene without any animals visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-259359": {
+  "subject": "soft coral on ocean floor",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "no",
+   "five pairs of walking legs underneath": "no",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows soft coral instead of a horseshoe crab",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-217517": {
+  "subject": "red crabs on rocks by the water",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "no",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows true crabs instead of horseshoe crabs.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-201308": {
+  "subject": "sunset over water and rocky coast",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape shot matching sunset context, but no horseshoe crabs are shown.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-38220": {
+  "subject": "glass of fizzy water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a glass of water, not a laboratory or glowing blue liquid",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-40353": {
+  "subject": "medical office with computer screens and a person",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "modern objects",
+   "text"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "modern objects",
+   "text"
+  ],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows a medical office/clinic setting with computers, not a laboratory with glowing vials.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-22315": {
+  "subject": "abstract liquid or microscopic bubbles",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Abstract video clip, does not show blood or horseshoe crabs.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-92545": {
+  "subject": "red crabs on a sandy beach",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "no",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows red crabs on a beach instead of a horseshoe crab underwater.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-186195": {
+  "subject": "Cows grazing in a meadow",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "no",
+   "five pairs of walking legs underneath": "no",
+   "blue blood": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows cows in a meadow instead of a horseshoe crab underwater.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-179207": {
+  "subject": "Cows on a meadow",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "no",
+   "five pairs of walking legs underneath": "no",
+   "blue blood": "no"
+  },
+  "forbidden_seen": [
+   "vertebral backbone"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows cows instead of a horseshoe crab.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-270941": {
+  "subject": "aerial view of a sandy beach spit and shallow sea water",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial landscape shot, shows no horseshoe crabs.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-174944": {
+  "subject": "DNA double helix animation on dark background",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Matches scientific context of genetic research for living fossils.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-24910": {
+  "subject": "beach view with wooden boardwalk railing",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Establishing shot of a beach, fitting the narration about shallow seas.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-222299": {
+  "subject": "spider on yellow flower",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "no",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a spider on a flower, completely unrelated to horseshoe crabs.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-85718": {
+  "subject": "two European pond turtles basking on a log",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "no",
+   "five pairs of walking legs underneath": "no",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows turtles instead of horseshoe crabs.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-186115": {
+  "subject": "sand beach with waves from above",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "only sand and waves shown, missing the horseshoe crab",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-14297": {
+  "subject": "empty sandy beach from above",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of a beach, no horseshoe crab visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-338904": {
+  "subject": "aerial view of ocean coast and beach",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a coastal landscape without the requested horseshoe crab.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-111263": {
+  "subject": "aerial view of ocean waves hitting a sandy beach",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Establishing aerial shot of coastal habitat, no horseshoe crab visible yet",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-284566": {
+  "subject": "a person standing on top of a large sand dune",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a desert landscape with a person instead of a horseshoe crab.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-176303": {
+  "subject": "waves hitting a sandy beach from above",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of beach matching the tidal zone narration, but no horseshoe crab is visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-236325": {
+  "subject": "coastal waves breaking on a sandy beach",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows coastal waves and beach, fitting the scene setting but missing the horseshoe crab",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-22619": {
+  "subject": "coastal cliffs and sea",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows coastal cliffs and a dam, not a horseshoe crab.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-59118": {
+  "subject": "coastal wave washing onto a sandy beach",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a coastal wave on a sandy beach, fitting the scene setting but lacking the horseshoe crab.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-61143": {
+  "subject": "coastal wave washing onto a sandy beach",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Coastal wave clip, no horseshoe crab visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-150224": {
+  "subject": "aquarium tank with freshwater fish",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": true,
+  "note": "shows freshwater fish in an aquarium, not horseshoe crabs in a mangrove swamp",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-216720": {
+  "subject": "aerial view of a flooded mangrove swamp",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial shot of a swamp matching narration, no animals visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-384625": {
+  "subject": "rocky stream or river rapids",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a rocky mountain stream instead of a mangrove swamp",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-75034": {
+  "subject": "misty wetland landscape with water and mountains",
+  "species_match": null,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "General establishing shot of a misty wetland, fitting the narration about mangrove swamps.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-19368": {
+  "subject": "ocean waves crashing against rocky coast with lighthouse",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial view of rocky coastline and sea, fits general ocean scenery.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-164215": {
+  "subject": "red poppy flowers in a field",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows poppy flowers instead of a horseshoe crab",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-223336": {
+  "subject": "spider and beetle on a yellow flower",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "no",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows insects and a spider on a flower, not a horseshoe crab.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-34855": {
+  "subject": "mechanical watch movement gears",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "no",
+   "five pairs of walking legs underneath": "no",
+   "blue blood": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "mechanical watch movement",
+   "gears"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows watch mechanism instead of a horseshoe crab.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-58193": {
+  "subject": "abstract ink in water",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows ink in water, completely unrelated to horseshoe crab gills",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-206783": {
+  "subject": "freshwater catfish swimming in an aquarium",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "no",
+   "five pairs of walking legs underneath": "no",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a catfish in an aquarium instead of a horseshoe crab",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-27802": {
+  "subject": "glittering particles on water surface",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Does not show horseshoe crab gills.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-67354": {
+  "subject": "blue ink in water",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows blue ink dispersing in water, not a horseshoe crab",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-85674": {
+  "subject": "freshwater aquarium with various small fish and aquatic plants",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "no",
+   "five pairs of walking legs underneath": "no",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows freshwater fish in an aquarium, not horseshoe crabs",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-133624": {
+  "subject": "river landscape with trees",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of a river and forest, no horseshoe crabs visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-124461": {
+  "subject": "coastal cliffs and sea",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows coastal cliffs instead of a horseshoe crab.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-210550": {
+  "subject": "ghost crab on sand",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "no",
+   "five pairs of walking legs underneath": "no",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a true crab, not a horseshoe crab.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-309365": {
+  "subject": "coastal beach and waves",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Coastal scene fitting the seasonal transition narration, but no horseshoe crabs are visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-20001": {
+  "subject": "coastal landscape with sea and sky",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape shot matching the narration of early summer setting in, but no horseshoe crabs are visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-63983": {
+  "subject": "coastal beach and waves",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Establishes a coastal scenery matching the narration intro, but horseshoe crabs are not visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-242945": {
+  "subject": "autumn tree with orange leaves",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows autumn trees instead of horseshoe crab blood.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-35554": {
+  "subject": "Moon through tree branches at night",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows moon and tree branches, completely unrelated to horseshoe crab blood.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-165827": {
+  "subject": "a field of red clover flowers",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Wrong animal, shows plants instead of horseshoe crab blood.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-364463": {
+  "subject": "diver in deep blue water",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a diver in deep blue water instead of a nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-279814": {
+  "subject": "coastal landscape with mountains and ocean waves",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "mountains",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape shot showing mountains and sea, no nautilus present.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-120522": {
+  "subject": "a dog running through shallow water",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The clip shows a dog running in water instead of a nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-120012": {
+  "subject": "small snail on a green leaf",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [
+   "a snail"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a land snail instead of a chambered nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-240531": {
+  "subject": "bacon strips frying in a pan",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows cooking bacon instead of a nautilus",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-199545": {
+  "subject": "a burger patty on a grill",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "burger patty",
+   "grill"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "completely off-topic, shows a burger on a grill instead of a nautilus",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-383281": {
+  "subject": "a butterfly on a plant stem",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a butterfly instead of a nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-64630": {
+  "subject": "colorful ink spreading in water",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows ink in water, completely unrelated to nautilus",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-85686": {
+  "subject": "blue-spotted jellyfish",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows jellyfish instead of a nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-363570": {
+  "subject": "a butterfly on a purple flower",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a butterfly instead of a chambered nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-31611": {
+  "subject": "Underwater bubbles rising in dark water",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows only bubbles, no nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-109821": {
+  "subject": "starry night sky",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The image shows a starry night sky, completely unrelated to nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-535": {
+  "subject": "deep space nebula and stars",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows space instead of nautilus",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-292363": {
+  "subject": "a mushroom growing in pine needles",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a mushroom instead of a nautilus",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-292366": {
+  "subject": "a small mushroom in the forest ground",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a mushroom instead of a nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-233241": {
+  "subject": "tropical beach landscape with driftwood",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a beach scenery instead of a nautilus",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-213025": {
+  "subject": "coastal cliffs and sea",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape shot of coastal cliffs and ocean, missing the nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-226564": {
+  "subject": "tropical beach and ocean scenery",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a sandy beach and sea instead of a nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-147192": {
+  "subject": "coastal sea landscape",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "landscape shot of the sea with rocky shore, no animals visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-219686": {
+  "subject": "coral reef with diver",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "diver"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a coral reef and a scuba diver, not a nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-1198": {
+  "subject": "small octopus on seabed",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [
+   "an octopus or squid without an external shell"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows an octopus instead of a chambered nautilus",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-200439": {
+  "subject": "water flowing from a pipe",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows water running from a pipe instead of a nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-244334": {
+  "subject": "fighter jet flying in the sky",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a fighter jet instead of a nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-219047": {
+  "subject": "jet ski riding in the sea",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles",
+   "people",
+   "modern objects"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a jet ski on the ocean, completely unrelated to nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-158411": {
+  "subject": "aerial view of waterfall and swimming pool in nature",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a waterfall and people swimming, completely unrelated to nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-125023": {
+  "subject": "harbor with boats and coastal village",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles",
+   "boats"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a coastal harbor scene instead of a nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-25909": {
+  "subject": "clear turquoise sea water",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows shallow water surface, not a nautilus",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-118484": {
+  "subject": "clouds in the sky",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The video shows clouds, not a nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-125021": {
+  "subject": "coastal landscape with cliffs and ocean",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a coastal landscape with a town instead of a nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-165397": {
+  "subject": "Glowing book with a cross",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "books"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an unrelated glowing book.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-27797": {
+  "subject": "smoke or ink swirling in water",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract visuals instead of nautilus",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-15241": {
+  "subject": "snow-covered mountain valley",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape shot of mountains, completely unrelated to nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-216058": {
+  "subject": "misty green forest and water aerial",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "fits the description of a misty temperate forest aerial view",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-169249": {
+  "subject": "forest waterfall and mossy rocks",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a waterfall in a forest instead of a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-325498": {
+  "subject": "river and mossy forest landscape in New Zealand",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "landscape shot establishing the habitat, no tuatara visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-67502": {
+  "subject": "a chameleon on branches",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "no",
+   "a large head with a blunt snout": "no",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [
+   "chameleon"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a chameleon, not a tuatara",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-233037": {
+  "subject": "chameleon head",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [
+   "chameleon"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a chameleon instead of a tuatara",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-67498": {
+  "subject": "a green lizard, likely a water dragon",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "no",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [
+   "water dragon"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a bright green lizard, not a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-13441": {
+  "subject": "snow-covered town landscape at dusk",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape shot with town, unrelated to the narration about tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-218955": {
+  "subject": "rotating DNA helix model",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "matches DNA/genetics visual requirement",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-67500": {
+  "subject": "a chameleon on branches",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "no",
+   "a large head with a blunt snout": "no",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [
+   "chameleon",
+   "gecko"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a chameleon, not a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-118417": {
+  "subject": "purple bellflower in a forest",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows flowers instead of a tuatara",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-191289": {
+  "subject": "snowy forest landscape at night",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape shot showing a winter forest with snow, no tuatara visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-191288": {
+  "subject": "snowy winter landscape with pine trees",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a snowy landscape instead of a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-227072": {
+  "subject": "coastal landscape with rocky shore",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "landscape shot, no animal visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-67513": {
+  "subject": "lizard on branches",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "no",
+   "a large head with a blunt snout": "no",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [
+   "anole",
+   "bright green or vivid colours like an iguana, anole or chameleon"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an anole lizard instead of a tuatara",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-326677": {
+  "subject": "aerial view of city with fireworks at night",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows city fireworks at night, completely unrelated to a tuatara or the narration.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-189730": {
+  "subject": "a woman exercising outdoors",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "modern objects",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "completely off-topic video showing a woman working out",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-65129": {
+  "subject": "Planet Mars rotating",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows planet Mars instead of DNA",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-220111": {
+  "subject": "abstract rotating blue spheres with red lights",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows abstract spheres, not dna double helix",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-220418": {
+  "subject": "abstract neon tunnel animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an abstract glowing tunnel, not a DNA double helix.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-192649": {
+  "subject": "snow-covered forest aerial view",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a snowy forest instead of the South Pacific Ocean.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-50638": {
+  "subject": "aerial view of ocean waves breaking on a beach",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "fits the narration about remote oceans",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-321588": {
+  "subject": "mossy rocks and stream",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "landscape shot showing mossy stream environment with no tuatara visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-367677": {
+  "subject": "mossy waterfall and fallen logs",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "habitat shot, no animal visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-38388": {
+  "subject": "vinyl record player",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "record player"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a record player instead of laboratory equipment",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-65390": {
+  "subject": "vinyl record spinning",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a record player instead of genetic sequencing equipment",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-217018": {
+  "subject": "DNA double helix 3D render",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Computer animation representing DNA sequencing",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-214512": {
+  "subject": "french fries / potato chips",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "no",
+   "a large head with a blunt snout": "no",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The clip shows food (french fries), completely unrelated to a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-120355": {
+  "subject": "ladybug on a plant stem",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "no",
+   "a large head with a blunt snout": "no",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a ladybug on a plant instead of a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-277603": {
+  "subject": "aerial view of a boat on a river with lush green banks",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "boat",
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial footage of a boat on a river, completely unrelated to a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-236711": {
+  "subject": "campfire at night",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a campfire at night, completely unrelated to a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-176481": {
+  "subject": "purple fantasy forest",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a fantasy forest with no animal.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-20277": {
+  "subject": "human skull with smoke/ink",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [
+   "a skeleton or preserved specimen"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a human skull, completely unrelated to a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-20278": {
+  "subject": "human skull submerged in water with yellow and blue ink",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "no",
+   "a large head with a blunt snout": "no",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [
+   "a skeleton or preserved specimen"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a skull with ink swirls, not a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-146169": {
+  "subject": "sky and clouds",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The video shows only clouds in the sky, not a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-19990": {
+  "subject": "waterfall",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a waterfall instead of a tuatara head detail",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-72382": {
+  "subject": "an iguana",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "no",
+   "a large head with a blunt snout": "no",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [
+   "an iguana",
+   "a dewlap or throat fan"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an iguana instead of a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-197739": {
+  "subject": "foggy remote island coastline aerial shot",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "matches the requested remote island coastline scenery",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-72394": {
+  "subject": "a chameleon on a branch",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "no",
+   "a large head with a blunt snout": "no",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [
+   "a chameleon"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a chameleon instead of a tuatara",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-189813": {
+  "subject": "sunny forest scene with sunrays shining through trees",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Forest landscape clip without any animal visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-59291": {
+  "subject": "misty landscape with mountains and sun",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape shot showing mountains and fog, no animal visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-16230": {
+  "subject": "sleeping cat",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "no",
+   "a large head with a blunt snout": "no",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The video shows a sleeping cat instead of a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-152054": {
+  "subject": "ants crawling on pine needles",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "no",
+   "a large head with a blunt snout": "no",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows ants, not a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-188483": {
+  "subject": "tree of life landscape at sunset",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a tree landscape instead of a scientist with a phylogenetic tree.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-121255": {
+  "subject": "abstract digital wave animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows abstract motion graphics instead of a scientist examining a phylogenetic tree",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-202987": {
+  "subject": "person typing on smartphone",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows hands typing on a smartphone, completely unrelated to a phylogenetic tree.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-28268": {
+  "subject": "coastal shoreline with waves",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a terrestrial coastline rather than a deep underwater abyss.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-16160": {
+  "subject": "dark ocean at night under stormy clouds",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows ocean surface instead of deep abyss",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-289882": {
+  "subject": "seals resting on a rocky shore",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "no",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "no",
+   "rostral organ at the snout tip": "no",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [
+   "mammalian fur"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows seals instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-372241": {
+  "subject": "dolphins swimming in the ocean",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "no",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows dolphins instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-216102": {
+  "subject": "swimming pool at sunset",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "pool rails",
+   "sunset"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "does not show a coelacanth or deep ocean cave",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-48897": {
+  "subject": "blue sky with clouds",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows sky and clouds instead of coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-98793": {
+  "subject": "stylized ocean waves or clouds",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows abstract or stylized blue waves/clouds instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-10360": {
+  "subject": "aquarium plants and bubbles",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "aquarium setup"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows aquarium plants with air bubbles, not a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-109400": {
+  "subject": "freshwater turtle",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "no",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "no",
+   "rostral organ at the snout tip": "no",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The video shows a turtle instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-211771": {
+  "subject": "beer foam in a glass",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "no",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "no",
+   "rostral organ at the snout tip": "no",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows beer instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-161128": {
+  "subject": "cat sitting in front of ivy",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "no",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "no",
+   "rostral organ at the snout tip": "no",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [
+   "mammalian fur"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a domestic cat instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-282086": {
+  "subject": "Tulip field with wind turbine",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "wind turbine",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Completely unrelated landscape shot showing tulips and a wind turbine.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-204985": {
+  "subject": "baboons grooming",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "no",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "no",
+   "rostral organ at the snout tip": "no",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [
+   "mammalian fur"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows baboons instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-174260": {
+  "subject": "baboon",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "no",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "no",
+   "rostral organ at the snout tip": "no",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [
+   "mammalian fur"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Wrong animal completely, shows a baboon.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-297938": {
+  "subject": "mallard duck in a pond",
+  "species_match": false,
+  "features": {
+   "elongated eel-like body": "no",
+   "thread-like pectoral and pelvic fins": "no",
+   "continuous dorsal and caudal fin": "no",
+   "heavy crushing tooth plates": "not visible"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a duck instead of a lungfish",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-215070": {
+  "subject": "flamingo bathing in water",
+  "species_match": false,
+  "features": {
+   "elongated eel-like body": "no",
+   "thread-like pectoral and pelvic fins": "no",
+   "continuous dorsal and caudal fin": "no",
+   "heavy crushing tooth plates": "not visible"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a flamingo, not a lungfish.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-206772": {
+  "subject": "giant gourami in an aquarium",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "no",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "no",
+   "rostral organ at the snout tip": "no",
+   "three-lobed tail fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Wrong fish species, shows a giant gourami instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-218377": {
+  "subject": "abstract digital pattern",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "no",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "abstract digital pattern"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract graphic, completely unrelated to coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-118113": {
+  "subject": "abstract green cellular pattern background",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "no",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "abstract graphics"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Abstract animation, does not show the coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-119987": {
+  "subject": "aerial view of a coastal beach",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial shot of a beach and sea, no horseshoe crab visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-383538": {
+  "subject": "sunset landscape over a wavy sea with a rock on a sandy beach",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape shot of a beach at sunset, missing the requested horseshoe crab.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-13771": {
+  "subject": "coastal landscape with cliffs and beach",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows beach and cliffs, but no horseshoe crab",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-21770": {
+  "subject": "night aerial view of a town and highway",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows landscape and highway at night instead of a horseshoe crab.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-111395": {
+  "subject": "frog spawn in shallow water",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "no",
+   "long rigid tail spine (telson)": "no",
+   "compound eyes on the sides": "no",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows amphibian spawn instead of horseshoe crabs.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-263305": {
+  "subject": "busy sandy beach with umbrellas and people",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "umbrellas",
+   "modern objects"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a crowded modern beach, no horseshoe crabs.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-114340": {
+  "subject": "aerial view of a rocky coastline and turquoise sea",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial coastal landscape view, no horseshoe crabs",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-224821": {
+  "subject": "aerial view of a waterfall and forest",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of waterfall, completely unrelated to nautilus",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-21528": {
+  "subject": "wake of a ship in the ocean",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "not visible",
+   "brown or orange stripes on a pale shell": "not visible",
+   "many thin tentacles without suckers around the head": "not visible",
+   "a leathery hood above the eye": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "ship wake"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a ship wake instead of a nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-38270": {
+  "subject": "sand dunes in desert",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows desert landscape instead of a paleontologist in a museum archive.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-19641": {
+  "subject": "spiral galaxy in space",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a galaxy instead of a paleontologist studying fossils",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-267473": {
+  "subject": "white spring snowflake flowers by stream",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows flowers instead of scientist with evolutionary chart",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-168313": {
+  "subject": "raindrops on a window pane",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows raindrops on glass instead of a scientist pointing at an evolutionary chart.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-110426": {
+  "subject": "two pigeons in the rain",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "does not show a scientist pointing at an evolutionary chart",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-189290": {
+  "subject": "raindrops on glass",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows raindrops on glass instead of a scientist with an evolutionary chart",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-121812": {
+  "subject": "abstract digital motion background with glowing shapes",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract graphic, does not show DNA strands",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-120883": {
+  "subject": "abstract glowing particle animation",
+  "species_match": null,
+  "features": {
+   "dna strand": "no",
+   "mutating": "no",
+   "digital animation": "yes",
+   "glowing bonds": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows abstract glowing particles, not a DNA strand.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-14668": {
+  "subject": "abstract neon glowing shapes",
+  "species_match": null,
+  "features": {
+   "dna strand": "no",
+   "mutating": "no",
+   "digital animation": "yes",
+   "glowing bonds": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows abstract light shapes instead of DNA",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-172820": {
+  "subject": "abstract blue and purple flowing light waves",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract visual representation suitable for genetic analysis narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-199127": {
+  "subject": "Great Wall of China aerial landscape",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows the Great Wall of China instead of a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-87449": {
+  "subject": "tree trunks with a trail marker sign",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "trail marker sign"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows tree trunks and a trail marker sign instead of a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-216517": {
+  "subject": "Canada geese on a lake",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "no",
+   "a large head with a blunt snout": "no",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows geese instead of a tuatara",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-370344": {
+  "subject": "solar eclipse",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a solar eclipse, completely unrelated to a tuatara.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-26085": {
+  "subject": "arid landscape at sunset with mountains",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape shot showing a desert at sunset instead of a horseshoe crab",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-197440": {
+  "subject": "waves washing on sandy beach at sunset",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "missing the horseshoe crab entirely",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-353079": {
+  "subject": "empty rocky beach at sunset",
+  "species_match": false,
+  "features": {
+   "horseshoe-shaped carapace (prosoma)": "not visible",
+   "long rigid tail spine (telson)": "not visible",
+   "compound eyes on the sides": "not visible",
+   "five pairs of walking legs underneath": "not visible",
+   "blue blood": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Only rocks and water are shown, no horseshoe crab.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-90544": {
+  "subject": "coastal cliffs and sea",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial shot of rocky coast and sea waves.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-217000": {
+  "subject": "ocean landscape timelapse with sunset and islands",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Timelapse of an ocean sunset, not deep dark ocean current.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-94443": {
+  "subject": "nutria by water",
+  "species_match": false,
+  "features": {
+   "elongated eel-like body": "no",
+   "thread-like pectoral and pelvic fins": "no",
+   "continuous dorsal and caudal fin": "no",
+   "heavy crushing tooth plates": "not visible"
+  },
+  "forbidden_seen": [
+   "mammalian fur"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a nutria, not an African lungfish.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-222661": {
+  "subject": "forest landscape with a lake",
+  "species_match": false,
+  "features": {
+   "elongated eel-like body": "not visible",
+   "thread-like pectoral and pelvic fins": "not visible",
+   "continuous dorsal and caudal fin": "not visible",
+   "heavy crushing tooth plates": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape shot showing a forest and lake, matching the general nature documentary style.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-233677": {
+  "subject": "running water over rocks",
+  "species_match": false,
+  "features": {
+   "elongated eel-like body": "not visible",
+   "thread-like pectoral and pelvic fins": "not visible",
+   "continuous dorsal and caudal fin": "not visible",
+   "heavy crushing tooth plates": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows freshwater stream scenery, serving as a generic transitional shot for genetic comparisons.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-236706": {
+  "subject": "jellyfish swimming underwater",
+  "species_match": false,
+  "features": {
+   "elongated eel-like body": "no",
+   "thread-like pectoral and pelvic fins": "no",
+   "continuous dorsal and caudal fin": "no",
+   "heavy crushing tooth plates": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows jellyfish instead of a lungfish.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-10861": {
+  "subject": "various small fish swimming against a dark background",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows fish instead of a nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-110879": {
+  "subject": "school of fish swimming underwater",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a school of fish instead of a nautilus.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-247497": {
+  "subject": "many small jellyfish swimming in dark water",
+  "species_match": false,
+  "features": {
+   "smooth coiled external shell": "no",
+   "brown or orange stripes on a pale shell": "no",
+   "many thin tentacles without suckers around the head": "no",
+   "a leathery hood above the eye": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows jellyfish instead of a nautilus",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-260163": {
+  "subject": "abstract 3D microscopic cellular tunnel animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract science visual matching narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-21174": {
+  "subject": "ocean sunset landscape",
+  "species_match": null,
+  "features": {
+   "deep_ocean_abyssal_trench": "no",
+   "dark_moody": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a sunset over the ocean instead of a deep abyssal trench.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-188108": {
+  "subject": "early Earth with glowing lava rivers",
+  "species_match": null,
+  "features": {
+   "volcanic eruption": "yes",
+   "glowing lava": "yes",
+   "night landscape": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows primitive planet with volcanic activity",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-127621": {
+  "subject": "a cat sleeping on a bed",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "no",
+   "a large head with a blunt snout": "no",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a cat on a bed, completely unrelated to tuataras or living fossils",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-153458": {
+  "subject": "pile of US hundred dollar bills",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "no",
+   "a large head with a blunt snout": "no",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "completely off-topic, shows money instead of a tuatara",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-131495": {
+  "subject": "amanita mushrooms on forest floor",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "no",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Forest floor scene with mushrooms, suitable documentary establishing shot for living fossils preamble.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-243198": {
+  "subject": "coastal landscape with rocky shore and sea",
+  "species_match": false,
+  "features": {
+   "steel-blue to royal-blue coloration": "not visible",
+   "lobe-finned limbs moving in a diagonal pattern": "not visible",
+   "intracranial joint in the skull": "not visible",
+   "rostral organ at the snout tip": "not visible",
+   "three-lobed tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape shot matching general sea context, but no coelacanth is shown.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-98977": {
+  "subject": "decorated Christmas tree in snowy landscape at night",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "Christmas tree"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "completely off-topic Christmas scene",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-93835": {
+  "subject": "decorated Christmas tree in snow",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "Christmas tree"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "completely off-topic Christmas tree image",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-99607": {
+  "subject": "Winter scene with Christmas tree and snowmen",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Christmas decoration scene, completely unrelated to tuatara or living fossils",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-98981": {
+  "subject": "snowy winter scene with a decorated Christmas tree in front of a house",
+  "species_match": false,
+  "features": {
+   "olive-grey, grey-brown or dull greenish-grey skin": "not visible",
+   "a crest of soft pale spines along the neck and back": "not visible",
+   "a large head with a blunt snout": "not visible",
+   "small granular scales with paler spots": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a Christmas tree in winter snow, completely unrelated to a tuatara",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-311442": {
+  "subject": "mountain forest landscape with hikers",
+  "species_match": null,
+  "features": {
+   "misty": "no",
+   "ancient": "not visible",
+   "ferns": "no",
+   "prehistoric forest": "no",
+   "wind": "not visible"
+  },
+  "forbidden_seen": [
+   "people"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "backpacks"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Hikers appear in the final frame, making it unsuitable for a nature documentary scene about prehistoric forests.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-382584": {
+  "subject": "sunlit misty forest",
+  "species_match": null,
+  "features": {
+   "misty": "yes",
+   "ancient ferns": "not visible",
+   "prehistoric forest": "yes",
+   "wind": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Atmospheric forest scene fitting the narration.",
+  "model": "gemini-flash-lite-latest"
+ }
+}
