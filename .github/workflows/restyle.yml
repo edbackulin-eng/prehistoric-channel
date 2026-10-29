@@ -1,0 +1,44 @@
+name: restyle
+
+# By hand: an existing script retold - scenes, characters, tension, transitions,
+# open loops - line for line, so its plan stays right; the hook is kept and the
+# fact check runs again (automation/write_episode.py --restyle).
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: episode
+        default: lebende-fossilien
+
+permissions:
+  contents: write
+
+concurrency:
+  group: restyle-${{ inputs.slug }}
+  cancel-in-progress: false
+
+jobs:
+  restyle:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    env:
+      PYTHONUTF8: 1
+      GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
+      GROQ_API_KEY_PH: ${{ secrets.GROQ_API_KEY }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install -q pillow num2words
+      - run: python automation/write_episode.py --restyle "${{ inputs.slug }}"
+      - name: Keep the script
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "episodes/${{ inputs.slug }}" state/llm_usage 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Script of ${{ inputs.slug }} retold (editor pass, fact check)"
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep 10; done
+          exit 1

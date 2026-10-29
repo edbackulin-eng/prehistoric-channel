@@ -171,8 +171,20 @@ def main():
     check("Gemma's JSON read from its text", gm._json_from(fence + 'json' + chr(10) + '{"lines": ["a"]}' + chr(10) + fence)
           == {"lines": ["a"]} and gm._json_from('Hier: {"a": 1} fertig') == {"a": 1})
     from core import textllm as tlm
-    check("text steps on Gemma, Groq off", tlm.PRIMARY.startswith("gemma") and tlm.FALLBACK == "gemini-flash-lite-latest"
-          and not tlm._C["groq_enabled"])
+    from core import groq as gq
+    check("text: Groq (not the other channels' model), then Gemma, then flash-lite",
+          tlm._C["groq_enabled"] and gq.MODEL != "openai/gpt-oss-120b" and tlm.PRIMARY.startswith("gemma")
+          and tlm.FALLBACK == "gemini-flash-lite-latest")
+    real_ask = tlm.ask
+    tlm.ask = lambda *a, **k: {"lines": ["eins", "zwei"]}               # the editor answering two lines for three
+    try:
+        kept = we.edit(["a", "b", "c"])
+        tlm.ask = lambda *a, **k: {"lines": ["1: A", "2: B"]}
+        told = we.edit(["a", "[pause 0.8]"])
+    finally:
+        tlm.ask = real_ask
+    check("editor keeps the line count, and pauses", kept == ["a", "b", "c"] and told == ["A", "[pause 0.8]"],
+          f"{kept} {told}")
     check("answers read as object or bare list", gm.pick([1, 2], "animals") == [1, 2]
           and gm.pick({"animals": [3]}, "animals") == [3] and gm.pick({"tiere": [4]}, "animals") == [4]
           and gm.pick({"x": 1}, "animals") == [])

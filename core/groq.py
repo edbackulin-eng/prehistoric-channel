@@ -1,8 +1,9 @@
 """Groq for the channel's text steps (script, fact check, plan), so Gemini's free
-day is left to the image checks. This channel's own key: GROQ_API_KEY_PH.
+day is left to the image checks. The key is the GROQ_API_KEY secret (the
+owner's, shared with Closed Tabs by his leave), read here as GROQ_API_KEY_PH.
 
-Model openai/gpt-oss-120b: 30 requests a minute, 1000 a day, 8000 tokens a
-minute and 200000 a day (console.groq.com/docs/rate-limits). The minute's token
+Model qwen/qwen3.8-27b - another model than the other channels use: 1000
+requests a day and 8000 tokens a minute (its rate-limit headers, 29.10). The minute's token
 cap is the tight one - a request is input and answer together - so requests are
 kept under it (callers trim their sources) and paced: a request that would pass
 the minute's tokens waits for the minute to clear.
@@ -19,7 +20,10 @@ from core.logger import get_logger
 
 log = get_logger("groq")
 URL = "https://api.groq.com/openai/v1/chat/completions"
-MODEL = "openai/gpt-oss-120b"
+# Closed Tabs and What If use openai/gpt-oss-120b; Groq counts its limits per model, so
+# this channel takes another (config/channel.json text_llm.groq_model)
+MODEL = json.loads((__import__("pathlib").Path(__file__).resolve().parent.parent / "config" / "channel.json")
+                   .read_text(encoding="utf-8"))["text_llm"].get("groq_model", "qwen/qwen3.8-27b")
 TPM = 8000
 _WINDOW = deque()                      # (time, tokens) of the last minute
 
@@ -46,6 +50,8 @@ def ask(prompt, json_out=True, temperature=0.4, max_tokens=2500, step=None):
         raise ValueError(f"request of ~{est} tokens is over Groq's {TPM} a minute; trim it")
     payload = {"model": MODEL, "messages": [{"role": "user", "content": prompt}], "temperature": temperature,
                "max_tokens": max_tokens}
+    if MODEL.startswith("qwen"):
+        payload["reasoning_format"] = "hidden"          # the answer only, not the model's thinking
     if json_out:
         payload["response_format"] = {"type": "json_object"}
     last = None

@@ -18,7 +18,7 @@ jobs:
     env:
       PYTHONUTF8: 1
       GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
-      GROQ_API_KEY_PH: ${{ secrets.GROQ_API_KEY_PH }}
+      GROQ_API_KEY_PH: ${{ secrets.GROQ_API_KEY }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v5

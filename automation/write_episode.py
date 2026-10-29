@@ -84,6 +84,17 @@ QUELLEN:
 
 PART = """Schreibe ein Kapitel des Sprechertexts einer deutschen Urzeit-Doku (Stil Terra X: ruhig, präzise,
 bildhaft, packend; keine Floskeln, kein "KI", keine Anrede). Thema der Folge: "{title}".
+ERZÄHLEN, NICHT AUFZÄHLEN: eine Dokumentation erzählt eine Geschichte, sie reiht keine Fakten.
+- Szenen: ein Ort, eine Zeit, ein Mensch, der etwas tut oder sieht - der Zuschauer ist dabei.
+- Figuren: Forscher, Fischer, Entdecker mit dem, was sie wollten, fürchteten, nicht wussten.
+- Spannung: was auf dem Spiel steht; was noch niemand ahnt.
+- Übergänge: jede Zeile führt in die nächste ("Doch...", "Was er nicht wusste...", "Erst Jahre später...").
+- Offene Schleifen: eine Frage stellen, deren Antwort erst später kommt ("Wie konnte dieser Fisch überleben? Die
+  Antwort lag in 200 Metern Tiefe - aber dazu später.").
+- Rhetorische Fragen, sparsam, an den Wendepunkten.
+- Rhythmus: kurze Sätze für Wucht. Längere, fließende Sätze für Bilder und Zusammenhänge. Abwechseln.
+- Sauberes, natürliches Deutsch.
+
 Dieses Kapitel ({section}): {heading}. Es erzählt: {points}.
 Länge: {words} Wörter - nicht weniger. Nur Fakten aus den Quellen. Zahlen dürfen als Ziffern stehen.
 Markup, eine Zeile pro Satzgruppe von 1-3 Sätzen: "> " schnelle Zeile, "< " langsame Zeile mit Pause davor
@@ -94,6 +105,30 @@ Antworte als JSON {{"lines": ["<Zeile>", "..."]}}
 
 QUELLEN:
 {sources}"""
+
+EDIT = """Du bist Redakteur einer deutschen Natur-Doku (Terra X). Überarbeite die nummerierten Zeilen des
+Sprechertexts so, dass sie erzählen statt aufzählen. Regeln:
+ERZÄHLEN, NICHT AUFZÄHLEN: eine Dokumentation erzählt eine Geschichte, sie reiht keine Fakten.
+- Szenen: ein Ort, eine Zeit, ein Mensch, der etwas tut oder sieht - der Zuschauer ist dabei.
+- Figuren: Forscher, Fischer, Entdecker mit dem, was sie wollten, fürchteten, nicht wussten.
+- Spannung: was auf dem Spiel steht; was noch niemand ahnt.
+- Übergänge: jede Zeile führt in die nächste ("Doch...", "Was er nicht wusste...", "Erst Jahre später...").
+- Offene Schleifen: eine Frage stellen, deren Antwort erst später kommt ("Wie konnte dieser Fisch überleben? Die
+  Antwort lag in 200 Metern Tiefe - aber dazu später.").
+- Rhetorische Fragen, sparsam, an den Wendepunkten.
+- Rhythmus: kurze Sätze für Wucht. Längere, fließende Sätze für Bilder und Zusammenhänge. Abwechseln.
+- Sauberes, natürliches Deutsch.
+- Gleich viele Zeilen, in derselben Reihenfolge: Zeile n bleibt Zeile n und behält ihr Thema (zu jeder Zeile
+  sind schon Bilder geplant). Sätze innerhalb einer Zeile dürfen neu gebaut werden.
+- KEINE Tatsache ändern, keine neue hinzufügen, keine weglassen: Namen, Zahlen, Orte, Daten bleiben exakt.
+- Das Markup-Präfix jeder Zeile ("> ", "< " oder keines) bleibt; Zeilen wie [pause 0.8] bleiben unverändert.
+- Schon gute Zeilen dürfen bleiben, wie sie sind.
+Antworte als JSON {{"lines": ["<Zeile 1>", "..."]}} mit genau {n} Zeilen.
+
+So geht es davor weiter: {before}
+
+ZEILEN:
+{lines}"""
 
 MORE = """Setze dieses Kapitel einer deutschen Urzeit-Doku fort ({section}: {heading}). Es soll noch etwa
 {words} Wörter mehr werden, mit weiteren Fakten und Momenten AUS DEN QUELLEN zu: {points}. Nichts wiederholen,
@@ -199,7 +234,7 @@ def words(script):
     return len(delivery.plain_text(script).split())
 
 
-def fact_check(script, src, rounds=2, chunk=18):
+def fact_check(script, src, rounds=2, chunk=18, keep_count=False):
     """Every line against the sources, in chunks of lines, each chunk with the
     source paragraphs that concern it."""
     log_rows = []
@@ -219,7 +254,7 @@ def fact_check(script, src, rounds=2, chunk=18):
             x = bad.get(i)
             if x and not l.startswith("["):
                 log_rows.append({"round": r, "n": i, "was": l, **x})
-                if x.get("verdict") == "drop":
+                if x.get("verdict") == "drop" and not keep_count:
                     continue
                 if x.get("verdict") == "fix" and x.get("text"):
                     l = x["text"].strip()
@@ -401,6 +436,62 @@ def fit_length(script, block):
     return script
 
 
+def edit(lines, before="(Anfang)", step="editor"):
+    """The editor's pass over lines: told, not listed; same number of lines, same
+    facts. An answer of another length keeps the lines as they were."""
+    if not lines:
+        return lines
+    numbered = "\n".join(f"{i + 1}: {l}" for i, l in enumerate(lines))
+    try:
+        ans = textllm.ask(EDIT.format(n=len(lines), before=before[-400:], lines=numbered), step=step,
+                          temperature=0.6, max_tokens=min(4500, 300 + 150 * len(lines)))
+        out = [re.sub(r"^\d+:\s*", "", str(l)).strip() for l in gemini.pick(ans, "lines")]
+    except Exception as e:                                               # noqa: BLE001
+        log.warning("editor pass failed (%s); lines kept", str(e)[:120])
+        return lines
+    if len(out) != len(lines) or any(not l for l in out):
+        log.warning("editor gave %d lines for %d; kept as they were", len(out), len(lines))
+        return lines
+    # a [pause] or [section] line stays exactly what it was
+    return [a if a.startswith("[") else b for a, b in zip(lines, out)]
+
+
+def restyle(slug, chunk=10):
+    """An existing script, told instead of listed: every line after the hook goes
+    through the editor, line for line, so the plan made for it stays right;
+    then the fact check, which may correct a line but not remove one."""
+    q = json.loads((ROOT / "topics" / "queue.json").read_text(encoding="utf-8"))
+    topic = next(t for t in q["topics"] if t["slug"] == slug)
+    ep = ROOT / "episodes" / slug
+    rows = (ep / "script.txt").read_text(encoding="utf-8").splitlines()
+    hook_end = next((i for i, l in enumerate(rows) if l.strip().startswith("[section") and "hook" not in l and i), 0)
+    head, body = rows[:hook_end], rows[hook_end:]
+    out, before = [], "\n".join(head[-2:])
+    for c0 in range(0, len(body), chunk):
+        part = body[c0:c0 + chunk]
+        idx = [i for i, l in enumerate(part) if l.strip() and not l.strip().startswith("[")]
+        new = edit([part[i] for i in idx], before)
+        for i, l in zip(idx, new):
+            part[i] = l
+        out += part
+        before = "\n".join([l for l in part if not l.startswith("[")][-2:])
+        log.info("restyled lines %d-%d", c0 + hook_end, c0 + hook_end + len(part) - 1)
+    script = "\n".join(head + out)
+    n_before = len(delivery.parse("\n".join(rows)))
+    script, checks = fact_check(script, sources(topic), keep_count=True)
+    lines = delivery.parse(script)
+    if len(lines) != n_before:
+        raise RuntimeError(f"restyle changed the number of lines ({n_before} -> {len(lines)}); not kept")
+    (ep / "script.txt").write_text(script.strip() + "\n", encoding="utf-8")
+    meta = json.loads((ep / "meta.json").read_text(encoding="utf-8"))
+    meta.update({"words": words(script), "minutes_est": round(words(script) / WPM, 1), "restyled": True,
+                 "restyle_fact_check": checks})
+    (ep / "meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False), encoding="utf-8")
+    log.info("%s restyled: %d lines, %d words (%.1f min), %d fact-check changes", slug, len(lines), meta["words"],
+             meta["minutes_est"], len(checks))
+    return 0
+
+
 def write_by_chapters(topic, block):
     """The script chapter by chapter, each to its word budget: one long answer
     came out 463 words long when the model fell back (29.10)."""
@@ -433,6 +524,7 @@ def write_by_chapters(topic, block):
             if not add:
                 break
             lines += add
+        lines = edit(lines, before)                       # the editor: told, not listed
         if c["section"] != section:
             out.append(f"[section {c['section']}]")
             section = c["section"]
@@ -477,4 +569,6 @@ def main(slug):
 
 
 if __name__ == "__main__":
+    if sys.argv[1] == "--restyle":
+        sys.exit(restyle(sys.argv[2]))
     sys.exit(ensure_hook(sys.argv[2]) if sys.argv[1] == "--hook-only" else main(sys.argv[1]))

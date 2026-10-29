@@ -135,12 +135,6 @@
     "source": "estimate (>= 180 seen in one day)",
     "rpm": 15
    },
-   "groq:openai/gpt-oss-120b": {
-    "rpd": 1000,
-    "tpd": 200000,
-    "tpm": 8000,
-    "source": "groq docs"
-   },
    "gemma-4-31b-it": {
     "rpm": 30,
     "tpm": 16000,
@@ -152,6 +146,11 @@
     "tpm": 16000,
     "rpd": 14400,
     "source": "tpm measured 29.10 (429: GenerateContentInputTokensPerModelPerMinute-FreeTier=16000); rpm, rpd estimates - the model gave 500s before a request limit was reached"
+   },
+   "groq:qwen/qwen3.8-27b": {
+    "rpd": 1000,
+    "tpm": 8000,
+    "source": "x-ratelimit headers, 29.10; tokens a day not stated"
    }
   },
   "per_episode": {
@@ -177,13 +176,14 @@
   }
  },
  "text_llm": {
-  "_note": "Text steps (script, fact check, hook, plan, topics) on Gemma, a quota of its own on GEMINI_API_KEY_PH; flash-lite in reserve. 29.10 (scripts/probe_llm.py): Gemma 3 27B is no longer offered on this key (404); Gemma 4 31B and 26B-A4B are, and answered 500/503 all afternoon - a model failing twice in a row is set aside for the run (core/gemini.py). Groq is switched off (no key for this channel).",
+  "_note": "Text steps (script, editor, fact check, hook, plan, topics): Groq first - qwen/qwen3.8-27b, a model neither Closed Tabs nor What If uses (they use openai/gpt-oss-120b; Groq counts limits per model) - then Gemma 4 on GEMINI_API_KEY_PH (its own quota; answered only 500/503 on 29.10), then flash-lite.",
   "primary": "gemma-4-31b-it",
   "primaries": [
    "gemma-4-31b-it",
    "gemma-4-26b-a4b-it"
   ],
   "fallback": "gemini-flash-lite-latest",
-  "groq_enabled": false
+  "groq_enabled": true,
+  "groq_model": "qwen/qwen3.8-27b"
  }
 }

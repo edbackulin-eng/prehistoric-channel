@@ -38,7 +38,7 @@ jobs:
     timeout-minutes: 355
     env:
       GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
-      GROQ_API_KEY_PH: ${{ secrets.GROQ_API_KEY_PH }}
+      GROQ_API_KEY_PH: ${{ secrets.GROQ_API_KEY }}
       PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
