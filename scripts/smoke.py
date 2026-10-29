@@ -158,6 +158,10 @@ def main():
     berlin = [x.astimezone(ZoneInfo("Europe/Berlin")) for x in sl]
     check("slots Wed/Sat 17:00 Berlin", all(b.weekday() in (2, 5) and b.hour == 17 for b in berlin)
           and len({b.date() for b in berlin}) == 4, str([b.isoformat() for b in berlin]))
+    kept = youtube.own_tags(["Terra X", "terra-x Doku", "ZDF", "BBC Earth", "Jurassic Park", "Urzeit", "Quastenflosser",
+                             "Brückenechse", "Arterien", "Welten der Urzeit"])
+    check("tags without other brands", kept == ["Urzeit", "Quastenflosser", "Brückenechse", "Arterien",
+                                                "Welten der Urzeit"], str(kept))
     # sections: the markup carries them, the music follows them by mood
     from core import delivery
     secs = [l.section for l in delivery.parse("[section hook]\n> A.\n[section story]\nB.\n[section finale]\nC.")]

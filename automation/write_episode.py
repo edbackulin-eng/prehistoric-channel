@@ -24,6 +24,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
+from pipeline import youtube
 from core import delivery, gemini, textllm  # noqa: E402
 from core.logger import get_logger  # noqa: E402
 
@@ -61,7 +62,7 @@ Aufbau:
 Antworte als JSON:
 {{"title_de": "<YouTube-Titel, max 70 Zeichen, neugierig machend, wahr>",
   "description_de": "<2-4 Sätze Beschreibung ohne Quellenliste>",
-  "tags": ["<10-15 deutsche Tags>"],
+  "tags": ["<10-15 deutsche Tags zum Thema; KEINE Sender-, Sendungs-, Film- oder Kanalnamen>"],
   "script": "<der ganze Text im Markup, Zeilen mit \\n getrennt>"}}
 
 QUELLEN:
@@ -77,7 +78,7 @@ in das sie gehört - kein Kapitel wiederholt, was ein anderes schon erzählt hat
 Fragen, die erst in einem späteren Kapitel beantwortet werden.
 Antworte als JSON:
 {{"title_de": "<YouTube-Titel, max 70 Zeichen, neugierig, wahr>", "description_de": "<2-4 Sätze>",
-  "tags": ["<10-15 deutsche Tags>"],
+  "tags": ["<10-15 deutsche Tags zum Thema; KEINE Sender-, Sendungs-, Film- oder Kanalnamen>"],
   "chapters": [{{"section": "hook|story|climax|finale", "heading": "<worum es geht>",
                  "points": ["<Fakten und Momente aus den Quellen, die dieses Kapitel erzählt>"], "words": <Zahl>}}]}}
 
@@ -598,7 +599,7 @@ def main(slug):
     (ep / "sources.json").write_text(json.dumps([{k: s[k] for k in ("lang", "title", "url")} for s in src],
                                                 indent=1, ensure_ascii=False), encoding="utf-8")
     quellen = "\n".join(f"- {s['title']} (Wikipedia, {s['lang']}): {s['url']}" for s in src)
-    meta = {"slug": slug, "title": ans["title_de"][:100], "tags": ans.get("tags", [])[:15],
+    meta = {"slug": slug, "title": ans["title_de"][:100], "tags": youtube.own_tags(ans.get("tags", []))[:15],
             "description": f"{ans['description_de'].strip()}\n\nQuellen:\n{quellen}",
             "words": words(script), "minutes_est": round(words(script) / WPM, 1), "fact_check": checks,
             "hook_written_separately": hook_check, "hook_sha": hook_sha(script)}

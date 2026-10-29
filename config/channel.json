@@ -103,7 +103,14 @@
   "tz": "Europe/Berlin",
   "privacy": "private",
   "contains_synthetic_media": true,
-  "subtitles": "de"
+  "subtitles": "de",
+  "tag_brands": ["Terra X", "TerraX", "ZDF", "ARD", "Arte", "3sat", "WDR", "NDR", "SWR", "BR", "MDR", "Phoenix",
+                 "Planet Wissen", "Quarks", "Galileo", "Universum", "Leschs Kosmos", "Kurzgesagt", "Doc Planet",
+                 "BBC", "Discovery", "National Geographic", "Nat Geo", "NatGeo", "History Channel", "Animal Planet",
+                 "Netflix", "Disney", "Apple TV", "Prime Video", "Jurassic Park", "Jurassic World",
+                 "Walking with Dinosaurs", "Dinosaurier - Im Reich der Giganten", "Prehistoric Planet",
+                 "Planet Earth", "Blue Planet", "Attenborough", "N24", "ntv", "RTL", "ProSieben",
+                 "Pro7", "Sat.1", "Kabel Eins", "DMAX", "YouTube"]
  },
  "buffer": 2,
  "render": {

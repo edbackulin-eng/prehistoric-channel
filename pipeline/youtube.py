@@ -89,8 +89,24 @@ def slots(n, taken=(), now=None):
     return out
 
 
+def own_tags(tags):
+    """The tags without any other channel's, broadcaster's or film's name (config schedule.tag_brands)."""
+    import re
+    brands = [re.sub(r"[^a-z0-9äöüß]", "", b.lower()) for b in CFG.get("tag_brands", [])]
+    out = []
+    for t in tags:
+        words = re.findall(r"[a-z0-9äöüß.]+", t.lower())
+        flat = re.sub(r"[^a-z0-9äöüß]", "", t.lower())
+        if any(b and (b == flat or (len(b) > 4 and b in flat) or b in [re.sub(r"\.", "", w) for w in words])
+               for b in brands):
+            log.info("tag dropped (a brand): %s", t)
+            continue
+        out.append(t)
+    return out
+
+
 def body(title, description, tags, publish_at):
-    return {"snippet": {"title": title[:100], "description": description[:5000], "tags": tags[:30],
+    return {"snippet": {"title": title[:100], "description": description[:5000], "tags": own_tags(tags)[:30],
                         "categoryId": CATEGORY_EDUCATION, "defaultLanguage": "de", "defaultAudioLanguage": "de"},
             "status": {"privacyStatus": CFG["privacy"], "publishAt": publish_at.strftime("%Y-%m-%dT%H:%M:%SZ"),
                        "selfDeclaredMadeForKids": False,
