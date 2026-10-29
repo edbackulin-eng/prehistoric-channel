@@ -1,129 +1,59 @@
 {
  "coelacanth": {
-  "name": "Quastenflosser (Latimeria)",
+  "name": "Quastenflosser (Latimeria chalumnae)",
   "features": [
-   "steel-blue to royal-blue coloration",
-   "lobe-finned limbs moving in a diagonal pattern",
-   "intracranial joint in the skull",
-   "rostral organ at the snout tip",
-   "three-lobed tail fin"
+   "steel-blue coloration",
+   "large, thick scales",
+   "fleshy, lobe-like paired fins",
+   "powerful lower jaw",
+   "deep-sea habitat"
   ],
   "forbidden": [
-   "feathers",
-   "mammalian fur",
-   "dinosaur neck",
-   "regular fish fins without fleshy lobes",
+   "bird-like head",
+   "long neck",
+   "bony external skeleton",
+   "feathers or fur",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "coelacanth underwater swimming ocean"
+  "video_query": "coelacanth swimming deep sea"
  },
  "lungfish": {
-  "name": "Lungenfisch (Dipnoi)",
+  "name": "Lungenfische (Dipnoi)",
   "features": [
-   "elongated eel-like body",
-   "thread-like pectoral and pelvic fins",
-   "continuous dorsal and caudal fin",
-   "heavy crushing tooth plates"
+   "external gills",
+   "lobed fins",
+   "ability to breathe air",
+   "elongated body",
+   "distinctive mouth structure"
   ],
   "forbidden": [
-   "visible external legs",
-   "feathers",
-   "mammalian fur",
-   "shell",
+   "feathers or bird-like head",
+   "long neck like a sauropod",
+   "smooth skin without scales",
+   "external gills missing",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "lungfish underwater freshwater"
+  "video_query": "lungfish swimming in water"
  },
- "horseshoe_crab": {
-  "name": "Pfeilschwanzkrebs (Limulidae)",
+ "tetrapods": {
+  "name": "Landwirbeltiere (Tetrapoda)",
   "features": [
-   "horseshoe-shaped carapace (prosoma)",
-   "long rigid tail spine (telson)",
-   "compound eyes on the sides",
-   "five pairs of walking legs underneath",
-   "blue blood"
+   "four limbs",
+   "vertebral column",
+   "jaws",
+   "internal ears",
+   "diverse body shapes"
   ],
   "forbidden": [
-   "soft segmented body like a caterpillar",
-   "vertebral backbone",
-   "tentacles",
-   "feathers",
+   "feathers or bird-like head",
+   "long neck like a sauropod",
+   "smooth skin without scales",
+   "external gills missing",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "horseshoe crab underwater ocean floor"
- },
- "trilobite": {
-  "name": "Trilobit (Trilobita)",
-  "features": [
-   "three-lobed body division",
-   "distinct cephalon, thorax, and pygidium",
-   "calcified exoskeleton",
-   "pair of antennae on head"
-  ],
-  "forbidden": [
-   "long tail spine like a horseshoe crab",
-   "tentacles",
-   "feathers",
-   "mammalian fur",
-   "a modern animal in a prehistoric scene"
-  ],
-  "living": false,
-  "video_query": null
- },
- "nautilus": {
-  "name": "Perlboot (Nautilus)",
-  "features": [
-   "spiral-shaped chambered shell",
-   "numerous tentacles without suckers",
-   "pinhole eyes without lenses",
-   "hood-like structure to cover shell opening"
-  ],
-  "forbidden": [
-   "internal cuttlebone",
-   "ten or eight arms with suction cups",
-   "large vertebrate eyes with lenses",
-   "feathers",
-   "a modern animal in a prehistoric scene"
-  ],
-  "living": true,
-  "video_query": "nautilus swimming underwater deep ocean"
- },
- "ammonite": {
-  "name": "Ammonit (Ammonoidea)",
-  "features": [
-   "tightly coiled flat shell with complex suture lines",
-   "external shell with ribs or tubercles",
-   "cephalopod body plan"
-  ],
-  "forbidden": [
-   "simple internal shell",
-   "vertebrate backbone",
-   "legs for walking on land",
-   "feathers",
-   "a modern animal in a prehistoric scene"
-  ],
-  "living": false,
-  "video_query": null
- },
- "tuatara": {
-  "name": "Brückenechse (Sphenodon punctatus)",
-  "features": [
-   "diapsid skull with two temporal bars",
-   "parietal eye (third eye) on top of head",
-   "crest of spiky scales along the back",
-   "lizard-like body shape without external ear openings"
-  ],
-  "forbidden": [
-   "feathers",
-   "mammalian fur",
-   "smooth moist amphibian skin",
-   "long turtle shell",
-   "a modern animal in a prehistoric scene"
-  ],
-  "living": true,
-  "video_query": "tuatara new zealand lizard reptile"
+  "video_query": "tetrapod animals walking on land"
  }
 }

@@ -1,0 +1,30 @@
+{
+ "version": 5,
+ "script_sha": "f00440480e7b",
+ "lines": 148,
+ "species": 3,
+ "living": [
+  "coelacanth",
+  "lungfish",
+  "tetrapods"
+ ],
+ "flux_prompts": 10,
+ "flux_frames": 20,
+ "animate": [
+  "devonian_mawsonia_swim",
+  "early_devonian_coelacanth_swimming",
+  "cretaceous_ichthyosaur_glide",
+  "carboniferous_eurypterid_crawl",
+  "late_cretaceous_mosasaurs_play",
+  "kpg_impact_megafauna",
+  "triassic_ichthyosaur_breath",
+  "devonian_ammonite_shell",
+  "early_devonian_sea_landscape"
+ ],
+ "video_beats": 144,
+ "lines_without_picture": [
+  119,
+  137,
+  139
+ ]
+}

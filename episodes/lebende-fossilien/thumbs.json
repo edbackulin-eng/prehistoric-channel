@@ -4,38 +4,40 @@
   "hook": "scale",
   "animal": "coelacanth",
   "base": "photo",
-  "query": "Coelacanth underwater glowing blue close up head",
+  "query": "close up coelacanth face deep sea steel blue scales",
+  "prompt": "",
+  "fossil_query": "",
   "words": [
-   "Uralter",
-   "Fisch",
-   "überlebt"
+   "LIVE",
+   "URZEIT"
   ],
-  "accent": 0
+  "accent": 1
  },
  {
   "id": "thumb_b",
   "hook": "split",
-  "animal": "ammonite",
-  "base": "flux",
-  "prompt": "Macro shot of a prehistoric ammonite head and glowing chambered shell, vibrant iridescent colors, dramatic neon lighting, dark background, lots of negative space on the left, photorealistic, 8k",
-  "fossil_query": "Ammonite fossil close up macro",
+  "animal": "lungfish",
+  "base": "photo",
+  "query": "close up lungfish eye and gills dark water",
+  "prompt": "",
+  "fossil_query": "fossilized lungfish jaw skeleton",
   "words": [
-   "Das",
-   "perfekte",
-   "Fossil"
+   "ATMEN",
+   "LUFT"
   ],
-  "accent": 2
+  "accent": 0
  },
  {
   "id": "thumb_c",
   "hook": "silhouette",
-  "animal": "tuatara",
-  "base": "photo",
-  "query": "Tuatara lizard head close up glowing skin texture",
+  "animal": "tetrapods",
+  "base": "flux",
+  "query": "",
+  "prompt": "Extreme close-up of a prehistoric tetrapod eye, large reptilian pupil, dramatic red rim light, dark murky swamp background, hyper-realistic, 8k, no text, negative space on left",
+  "fossil_query": "",
   "words": [
-   "Drittes",
-   "Auge",
-   "aktiv"
+   "QUER",
+   "LAND"
   ],
   "accent": 1
  }
