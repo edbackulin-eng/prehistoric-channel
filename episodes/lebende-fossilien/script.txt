@@ -1,10 +1,9 @@
 [section hook]
-Vor 66 Millionen Jahren endete das Zeitalter der Dinosaurier in einer globalen Katastrophe an der Kreide-Paläogen-Grenze.
-> Doch einige wenige Wesen überlebten das Massenaussterben und existieren bis heute, nachdem man sie längst für ausgestorben hielt.
-Zu diesen erstaunlichen Überlebenden gehören die urtümlichen Quastenflosser und die widerstandsfähigen Pfeilschwanzkrebse, deren Linien seit Millionen von Jahren die Erdgeschichte überdauern.
+< Am 22. Dezember 1938 tauchte im Indischen Ozean ein stahlblauer, 1,50 Meter langer und 52 Kilogramm schwerer Fisch auf, den man mit den Dinosauriern ausgestorben glaubte.
+> Welches Geheimnis verbirgt sich im Erbgut dieser lebenden Fossilien, das die Wissenschaft bis heute vor neue Rätsel stellt?
+< Erfahren Sie, wie diese einzigartigen Urzeit-Überlebenden Jahrmillionen der Erdgeschichte und katastrophale Umbrüche trotzen konnten.
 [section story]
 Doch einige wenige Wesen überlebten das Massenaussterben und existieren bis heute, nachdem man sie für ausgestorben hielt.
-Zu diesen erstaunlichen Überlebenden gehören die urtümlichen Quastenflosser und die widerstandsfähigen Pfeilschwanzkrebse, deren Linien seit Millionen von Jahren die Erdgeschichte überdauern.
 Fossilien von Quastenflossern brachen in der späten Oberkreide vor mehr als 70 Millionen Jahren ab, weshalb man ihr Aussterben mit den Dinosauriern annahm.
 [pause 0.8]
 < Am 22. Dezember 1938 entdeckte Marjorie Courtenay-Latimer in Südafrika einen stahlblauen, 1,50 Meter langen und 52 Kilogramm schweren Fisch im Schleppnetz von Kapitän Hendrik Goosen.

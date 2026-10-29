@@ -18,8 +18,8 @@
   "Wissenschaft"
  ],
  "description": "Eine dokumentarische Reise zu Tieren, die die Dinosaurier und das Massenaussterben vor 66 Millionen Jahren überstanden haben. Von Quastenflossern über Pfeilschwanzkrebse bis zur Brückenechse beleuchtet dieser Film die faszinierende Geschichte sogenannter lebender Fossilien.\n\nQuellen:\n- Lebendes Fossil (Wikipedia, de): https://de.wikipedia.org/wiki/Lebendes_Fossil\n- Quastenflosser (Wikipedia, de): https://de.wikipedia.org/wiki/Quastenflosser\n- Latimeria (Wikipedia, de): https://de.wikipedia.org/wiki/Latimeria\n- Pfeilschwanzkrebse (Wikipedia, de): https://de.wikipedia.org/wiki/Pfeilschwanzkrebse\n- Perlboote (Wikipedia, de): https://de.wikipedia.org/wiki/Perlboote\n- Brückenechse (Wikipedia, de): https://de.wikipedia.org/wiki/Br%C3%BCckenechse\n- Kreide-Paläogen-Grenze (Wikipedia, de): https://de.wikipedia.org/wiki/Kreide-Pal%C3%A4ogen-Grenze\n- Living fossil (Wikipedia, en): https://en.wikipedia.org/wiki/Living_fossil\n- Coelacanth (Wikipedia, en): https://en.wikipedia.org/wiki/Coelacanth\n- West Indian Ocean coelacanth (Wikipedia, en): https://en.wikipedia.org/wiki/West_Indian_Ocean_coelacanth\n- Horseshoe crab (Wikipedia, en): https://en.wikipedia.org/wiki/Horseshoe_crab\n- Nautilus (Wikipedia, en): https://en.wikipedia.org/wiki/Nautilus\n- Tuatara (Wikipedia, en): https://en.wikipedia.org/wiki/Tuatara",
- "words": 3331,
- "minutes_est": 26.0,
+ "words": 3313,
+ "minutes_est": 25.9,
  "fact_check": [
   {
    "round": 0,
@@ -1038,5 +1038,20 @@
    "why": "Durch die Quellen gedeckt."
   }
  ],
- "hook_written_separately": null
+ "hook_written_separately": {
+  "hook": [
+   "< Am 22. Dezember 1938 tauchte im Indischen Ozean ein stahlblauer, 1,50 Meter langer und 52 Kilogramm schwerer Fisch auf, den man mit den Dinosauriern ausgestorben glaubte.",
+   "> Welches Geheimnis verbirgt sich im Erbgut dieser lebenden Fossilien, das die Wissenschaft bis heute vor neue Rätsel stellt?",
+   "< Erfahren Sie, wie diese einzigartigen Urzeit-Überlebenden Jahrmillionen der Erdgeschichte und katastrophale Umbrüche trotzen konnten."
+  ],
+  "check": {
+   "strongest_moment": true,
+   "question": true,
+   "promise": true,
+   "facts_supported": true,
+   "words": 73,
+   "note": "Der Hook enthält präzise Fakten zur Entdeckung des Quastenflossers (Datum, Maße, Farbe, Fundort), eine spannende Frage zum Erbgut und ein passendes Versprechen für eine Urzeit-Doku."
+  },
+  "words": 61
+ }
 }
