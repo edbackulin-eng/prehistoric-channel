@@ -21,7 +21,7 @@ FAST, BASE, SLOW = 1.10, 1.02, 0.95       # Kokoro speed factors, kept in 0.95-1
 SLOW_LEAD_S = 0.75                        # silence before every slow line
 LINE_GAP_S = 0.12                         # ordinary breath between lines
 _PAUSE = re.compile(r"^\[pause\s+([0-9.]+)\]$", re.I)
-_SECTION = re.compile(r"^\[section\s+(\w+)\]$", re.I)
+_SECTION = re.compile(r"^\[\s*(?:section|abschnitt)\s*[:=]?\s*(\w+)\s*\]$", re.I)
 
 
 @dataclass

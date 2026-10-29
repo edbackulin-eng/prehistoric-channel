@@ -147,6 +147,41 @@ def fact_check(script, src_block, rounds=2):
     return script, log_rows
 
 
+NAMES = {"hook": "hook", "einstieg": "hook", "story": "story", "geschichte": "story", "climax": "climax",
+         "höhepunkt": "climax", "hoehepunkt": "climax", "finale": "finale", "schluss": "finale", "ausklang": "finale"}
+
+
+def normalise(script):
+    """Section markers as the delivery markup reads them; a script that does not
+    open with its hook gets one: its first lines, up to about 30 seconds."""
+    out = []
+    for raw in script.splitlines():
+        m = re.match(r"^\s*\[\s*(?:section|abschnitt)?\s*[:=]?\s*([A-Za-zÄÖÜäöü]+)\s*\]\s*$", raw, re.I)
+        if m and m.group(1).lower() in NAMES:
+            out.append(f"[section {NAMES[m.group(1).lower()]}]")
+        else:
+            out.append(raw)
+    text = "\n".join(out)
+    first = next((l for l in text.splitlines() if l.strip()), "")
+    if first != "[section hook]":
+        body = [l for l in text.splitlines() if l.strip() != "[section hook]"]
+        n, cut = 0, 0
+        for i, l in enumerate(body):
+            if l.startswith("["):
+                if i:
+                    break
+                continue
+            n += len(l.split())
+            cut = i + 1
+            if n >= 55:
+                break
+        rest = body[cut:]
+        if not rest or not rest[0].startswith("[section"):
+            rest = ["[section story]"] + rest
+        text = "\n".join(["[section hook]"] + body[:cut] + rest)
+    return text
+
+
 def main(slug):
     q = json.loads((ROOT / "topics" / "queue.json").read_text(encoding="utf-8"))
     topic = next(t for t in q["topics"] if t["slug"] == slug)
@@ -162,10 +197,11 @@ def main(slug):
             break
         script = gemini.ask(EXTEND.format(have=words(script), want=WORDS, script=script, sources=block),
                             temperature=0.5)["script"].replace("\\n", "\n")
+    (ep / "script_draft.txt").write_text(script, encoding="utf-8")
     script, checks = fact_check(script, block)
+    script = normalise(script)
     lines = delivery.parse(script)
-    sections = [l.section for l in lines]
-    if "hook" not in sections or sections[0] != "hook":
+    if not lines or lines[0].section != "hook":
         raise RuntimeError("the script has no hook section at its start")
     (ep / "script.txt").write_text(script.strip() + "\n", encoding="utf-8")
     (ep / "sources.json").write_text(json.dumps([{k: s[k] for k in ("lang", "title", "url")} for s in src],
