@@ -286,7 +286,9 @@ def main(slug):
     (ep / "footage.json").write_text(json.dumps(footage_json, indent=1, ensure_ascii=False), encoding="utf-8")
     (ep / "shots.json").write_text(json.dumps({"_note": "Planned by automation/plan_episode.py from script.txt.",
                                                "lines": out_lines}, indent=1, ensure_ascii=False), encoding="utf-8")
-    rep = {"version": PLAN_VERSION, "lines": len(lines), "species": len(species), "living": sorted(living), "flux_prompts": len(keep),
+    import hashlib
+    rep = {"version": PLAN_VERSION, "script_sha": hashlib.sha1(script.encode("utf-8")).hexdigest()[:12],
+           "lines": len(lines), "species": len(species), "living": sorted(living), "flux_prompts": len(keep),
            "flux_frames": len(keep) * CFG["motion"]["flux_seeds"], "animate": animate,
            "video_beats": len(footage_json), "lines_without_picture": [r["n"] for r in out_lines if not r["beats"]]}
     (ep / "plan_report.json").write_text(json.dumps(rep, indent=1), encoding="utf-8")
@@ -295,8 +297,15 @@ def main(slug):
 
 
 def stale(slug):
+    """A plan of an older planner, or made for another script than the one there now."""
+    import hashlib
     rp = ROOT / "episodes" / slug / "plan_report.json"
-    return not rp.exists() or json.loads(rp.read_text(encoding="utf-8")).get("version") != PLAN_VERSION
+    if not rp.exists():
+        return True
+    r = json.loads(rp.read_text(encoding="utf-8"))
+    sha = hashlib.sha1((ROOT / "episodes" / slug / "script.txt").read_bytes().decode("utf-8").encode("utf-8")
+                       ).hexdigest()[:12]
+    return r.get("version") != PLAN_VERSION or ("script_sha" in r and r["script_sha"] != sha)
 
 
 if __name__ == "__main__":

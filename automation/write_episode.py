@@ -72,7 +72,9 @@ Text, kein "KI"). Thema: "{title}" - {focus}. Gesamtlänge {words} Wörter (= {m
 Gliederung: ein Hook (65 Wörter: der stärkste Moment oder das größte Rätsel der Folge, eine Frage, die hängen
 bleibt, ein Versprechen), dann 4-5 Kapitel "story", ein Kapitel "climax" (die überraschendste Erkenntnis),
 ein Kapitel "finale" (ruhiger Ausklang, zurück zur Frage aus dem Hook). Die Wortzahlen der Kapitel ergeben
-zusammen {words}. Nur Inhalte, die die Quellen tragen.
+zusammen {words}. Nur Inhalte, die die Quellen tragen. Jede Begebenheit wird GENAU EINMAL erzählt, im Kapitel,
+in das sie gehört - kein Kapitel wiederholt, was ein anderes schon erzählt hat. Plane mindestens zwei offene
+Fragen, die erst in einem späteren Kapitel beantwortet werden.
 Antworte als JSON:
 {{"title_de": "<YouTube-Titel, max 70 Zeichen, neugierig, wahr>", "description_de": "<2-4 Sätze>",
   "tags": ["<10-15 deutsche Tags>"],
@@ -141,8 +143,10 @@ QUELLEN:
 {sources}"""
 
 CHECK = """Prüfe jede nummerierte Zeile dieses deutschen Doku-Texts gegen die Quellen.
-Eine Zeile ist "ok", wenn jede Tatsachenbehauptung darin von den Quellen gedeckt ist (stilistische Sätze
-ohne Behauptung sind ok). Sonst "fix": gib eine korrigierte Fassung, die nur Gedecktes sagt, im selben
+Eine Zeile ist "ok", wenn jede Tatsachenbehauptung darin von den Quellen gedeckt ist. Erzählerisches ist ok:
+Szenen, Übergänge, rhetorische Fragen, offene Fragen, Spannung, Bilder - solange sie keine neue Tatsache
+behaupten. Ändere NIE den Stil oder die Grammatik einer gedeckten Zeile; nur eine falsche oder ungedeckte
+Tatsache wird korrigiert, und dann im selben erzählenden Ton. Sonst "fix": gib eine korrigierte Fassung, die nur Gedecktes sagt, im selben
 Ton und Markup-Präfix (>, < oder nichts) - oder "drop", wenn sich nichts retten lässt.
 Antworte als JSON: {{"lines": [{{"n": <Nummer>, "verdict": "ok|fix|drop", "text": "<neue Zeile bei fix>",
 "why": "<kurz>"}}]}} - nur Zeilen, die nicht ok sind.
@@ -492,18 +496,53 @@ def restyle(slug, chunk=10):
     return 0
 
 
-def write_by_chapters(topic, block):
+def rewrite_body(slug):
+    """The script after its hook written anew, chapter by chapter in the told
+    style, each chapter through the editor; then length and fact check. The hook
+    stays word for word (its check is remembered by hook_sha)."""
+    q = json.loads((ROOT / "topics" / "queue.json").read_text(encoding="utf-8"))
+    topic = next(t for t in q["topics"] if t["slug"] == slug)
+    ep = ROOT / "episodes" / slug
+    old = (ep / "script.txt").read_text(encoding="utf-8")
+    rows = old.splitlines()
+    hook_end = next((i for i, l in enumerate(rows) if l.strip().startswith("[section") and "hook" not in l and i),
+                    len(rows))
+    head = rows[:hook_end]
+    src = sources(topic)
+    hook_words = len(" ".join(hook_text(old)).split())
+    plan, body = write_by_chapters({**topic, "focus": topic["focus"] + ". Der Hook ist schon geschrieben: "
+                                    + " ".join(hook_text(old))}, src, words=WORDS - hook_words, skip_hook=True)
+    script = normalise("\n".join(head) + "\n" + body)
+    script = normalise(fit_length(script, src))
+    script, checks = fact_check(script, src)
+    script = fit_length(normalise(script), src)
+    if hook_text(script) != hook_text(old):
+        raise RuntimeError("the hook changed; not kept")
+    (ep / "script.txt").write_text(script.strip() + "\n", encoding="utf-8")
+    meta = json.loads((ep / "meta.json").read_text(encoding="utf-8"))
+    meta.update({"words": words(script), "minutes_est": round(words(script) / WPM, 1), "restyled": "rewritten",
+                 "rewrite_fact_check": checks, "chapters": [c.get("heading") for c in gemini.pick(plan, "chapters")]})
+    (ep / "meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False), encoding="utf-8")
+    (ep / "plan_report.json").unlink(missing_ok=True)      # the lines are new: the plan is made again
+    log.info("%s rewritten: %d lines, %d words (%.1f min), %d fact-check changes", slug,
+             len(delivery.parse(script)), meta["words"], meta["minutes_est"], len(checks))
+    return 0
+
+
+def write_by_chapters(topic, block, words=None, skip_hook=False):
     """The script chapter by chapter, each to its word budget: one long answer
     came out 463 words long when the model fell back (29.10)."""
-    plan = textllm.ask(OUTLINE.format(title=topic["title"], focus=topic["focus"], words=WORDS,
+    words = words or WORDS
+    plan = textllm.ask(OUTLINE.format(title=topic["title"], focus=topic["focus"], words=words,
                                       minutes=CFG["length_min"],
                                       sources=textllm.relevant(block, f"{topic['title']} {topic['focus']}", 10000)),
                        step="script", temperature=0.5, max_tokens=2000)
-    chapters = gemini.pick(plan, "chapters")
-    total = sum(int(c.get("words") or 0) for c in chapters) or WORDS
+    chapters = [c for c in gemini.pick(plan, "chapters") if isinstance(c, dict)
+                and not (skip_hook and c.get("section") == "hook")]
+    total = sum(int(c.get("words") or 0) for c in chapters) or words
     out, before, section = [], "(Anfang der Folge)", None
     for c in chapters:
-        want = max(50, int(int(c.get("words") or 0) * WORDS / total))
+        want = max(50, int(int(c.get("words") or 0) * words / total))
         topic_q = f"{c['heading']} {' '.join(c.get('points', []))}"
         ans = textllm.ask(PART.format(title=topic["title"], section=c["section"], heading=c["heading"],
                                       points="; ".join(c.get("points", [])), words=min(want, 450),
@@ -571,4 +610,6 @@ def main(slug):
 if __name__ == "__main__":
     if sys.argv[1] == "--restyle":
         sys.exit(restyle(sys.argv[2]))
+    if sys.argv[1] == "--rewrite":
+        sys.exit(rewrite_body(sys.argv[2]))
     sys.exit(ensure_hook(sys.argv[2]) if sys.argv[1] == "--hook-only" else main(sys.argv[1]))

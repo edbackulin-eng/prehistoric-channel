@@ -9,6 +9,9 @@ on:
       slug:
         description: episode
         default: lebende-fossilien
+      mode:
+        description: rewrite (the body anew, chapter by chapter; the plan is made again) or restyle (line for line)
+        default: rewrite
 
 permissions:
   contents: write
@@ -31,7 +34,7 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install -q pillow num2words
-      - run: python automation/write_episode.py --restyle "${{ inputs.slug }}"
+      - run: python automation/write_episode.py --${{ inputs.mode }} "${{ inputs.slug }}"
       - name: Keep the script
         if: always()
         run: |
