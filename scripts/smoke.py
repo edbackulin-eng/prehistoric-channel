@@ -191,6 +191,22 @@ def main():
     hs = [x for x in hp["shots"] if x.get("section") == "hook"]
     check("hook shots 1.5-3 s, moving", hs and all(1.5 <= x["end"] - x["start"] <= 3.05 and x["kind"] == "real"
                                                    for x in hs), str([(x["start"], x["end"]) for x in hs]))
+    # the watchdog hands a built episode in the buffer to upload.yml once a token exists
+    from automation import release, watchdog
+    calls = []
+    saved = (release.rows, youtube.available, watchdog.gh)
+    release.rows = lambda: [{"slug": "smoke-ep", "status": "built", "run_id": "123"},
+                            {"slug": "old-ep", "status": "scheduled", "publish_at": "2026-11-04T16:00:00Z"}]
+    youtube.available = lambda: True
+    watchdog.gh = lambda *a, **k: calls.append(a)
+    try:
+        acts = []
+        watchdog.check_uploads(acts)
+    finally:
+        release.rows, youtube.available, watchdog.gh = saved
+    check("watchdog starts the upload of a buffered episode",
+          len(calls) == 1 and "upload.yml" in calls[0] and "slug=smoke-ep" in calls[0] and "run_id=123" in calls[0],
+          str(calls))
     from automation import build_doc
     (W / "inputs").mkdir(exist_ok=True)
     build_doc.W = lambda slug: W
