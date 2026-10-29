@@ -1,0 +1,1042 @@
+{
+ "slug": "lebende-fossilien",
+ "title": "Die Überlebenden der Urzeit: Tiere, die Dinosaurier überlebten",
+ "tags": [
+  "Terra X",
+  "Dokumentation",
+  "Urzeit",
+  "Dinosaurier",
+  "Quastenflosser",
+  "Latimeria",
+  "Pfeilschwanzkrebs",
+  "Perlboot",
+  "Nautilus",
+  "Brückenechse",
+  "Tuatara",
+  "Evolution",
+  "Fossilien",
+  "Wissenschaft"
+ ],
+ "description": "Eine dokumentarische Reise zu Tieren, die die Dinosaurier und das Massenaussterben vor 66 Millionen Jahren überstanden haben. Von Quastenflossern über Pfeilschwanzkrebse bis zur Brückenechse beleuchtet dieser Film die faszinierende Geschichte sogenannter lebender Fossilien.\n\nQuellen:\n- Lebendes Fossil (Wikipedia, de): https://de.wikipedia.org/wiki/Lebendes_Fossil\n- Quastenflosser (Wikipedia, de): https://de.wikipedia.org/wiki/Quastenflosser\n- Latimeria (Wikipedia, de): https://de.wikipedia.org/wiki/Latimeria\n- Pfeilschwanzkrebse (Wikipedia, de): https://de.wikipedia.org/wiki/Pfeilschwanzkrebse\n- Perlboote (Wikipedia, de): https://de.wikipedia.org/wiki/Perlboote\n- Brückenechse (Wikipedia, de): https://de.wikipedia.org/wiki/Br%C3%BCckenechse\n- Kreide-Paläogen-Grenze (Wikipedia, de): https://de.wikipedia.org/wiki/Kreide-Pal%C3%A4ogen-Grenze\n- Living fossil (Wikipedia, en): https://en.wikipedia.org/wiki/Living_fossil\n- Coelacanth (Wikipedia, en): https://en.wikipedia.org/wiki/Coelacanth\n- West Indian Ocean coelacanth (Wikipedia, en): https://en.wikipedia.org/wiki/West_Indian_Ocean_coelacanth\n- Horseshoe crab (Wikipedia, en): https://en.wikipedia.org/wiki/Horseshoe_crab\n- Nautilus (Wikipedia, en): https://en.wikipedia.org/wiki/Nautilus\n- Tuatara (Wikipedia, en): https://en.wikipedia.org/wiki/Tuatara",
+ "words": 3331,
+ "minutes_est": 26.0,
+ "fact_check": [
+  {
+   "round": 0,
+   "n": 8,
+   "was": "< Während die Natur an Land radikale Wege einschlug, trotzten diese zeitlosen Krisen allen globalen Krisen.",
+   "verdict": "fix",
+   "text": "Während die Natur an Land radikale Wege einschlug, trotzten diese zeitlosen Kreaturen allen globalen Krisen.",
+   "why": "Tippfehler im Original 'zeitlosen Krisen' korrigiert zu 'globalen Krisen'."
+  },
+  {
+   "round": 0,
+   "n": 18,
+   "was": "G lange Zeit galt der Quastenflosser aufgrund seines knöchernen Skeletts und der muskulösen, beinähnlichen Flossen als der direkte Vorfahre aller Landwirbeltiere.",
+   "verdict": "fix",
+   "text": "Lange Zeit galt der Quastenflosser aufgrund seines knöchernen Skeletts und der muskulösen, beinähnlichen Flossen als der direkte Vorfahre aller Landwirbeltiere.",
+   "why": "Führenden Buchstabensalat 'G ' am Anfang der Zeile entfernt."
+  },
+  {
+   "round": 1,
+   "n": 2,
+   "was": "> Doch einige wenige Wesen überlebten das Massenaussterben und existieren bis heute, obwohl man sie längst für ausgestorben hielt.",
+   "verdict": "fix",
+   "text": "> Doch einige wenige Wesen überlebten das Massenaussterben und existieren bis heute, nachdem man sie längst für ausgestorben hielt.",
+   "why": "Quellen belegen, dass die Tiere nicht 'längst für ausgestorben gehalten' wurden, bevor man sie entdeckte, sondern dass sie nach ihrem vermeintlichen Aussterben vor 66 Mio. Jahren als Lazarus-Taxon wiederentdeckt wurden."
+  },
+  {
+   "round": 1,
+   "n": 3,
+   "was": "Zu diesen erstaunlichen Überlebenden gehören die urtümlichen Quastenflosser und die widerstandsfähigen Pfeilschwanzkrebse, deren verborgene Linien seit Millionen von Jahren die Erdgeschichte überdauern.",
+   "verdict": "fix",
+   "text": "Zu diesen erstaunlichen Überlebenden gehören die urtümlichen Quastenflosser und die widerstandsfähigen Pfeilschwanzkrebse, deren Linien seit Millionen von Jahren die Erdgeschichte überdauern.",
+   "why": "Das Wort 'verborgene' ist für Pfeilschwanzkrebse und Quastenflosser in dieser Allgemeinheit nicht durch die Quellen gestützt."
+  },
+  {
+   "round": 1,
+   "n": 4,
+   "was": "< Während die Natur an Land radikale Wege einschlug, trotzten diese zeitlosen Kreaturen allen globalen Krisen.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Behauptung über 'radikale Wege' an Land in Bezug auf diese Kreaturen nicht von Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 6,
+   "was": "Doch einige wenige Wesen überlebten das Massenaussterben und existieren bis heute, obwohl man sie längst für ausgestorben hielt.",
+   "verdict": "fix",
+   "text": "Doch einige wenige Wesen überlebten das Massenaussterben und existieren bis heute, nachdem man sie für ausgestorben hielt.",
+   "why": "Gleicher Korrekturbedarf wie Zeile 2."
+  },
+  {
+   "round": 1,
+   "n": 7,
+   "was": "Zu diesen erstaunlichen Überlebenden gehören die urtümlichen Quastenflosser und die widerstandsfähigen Pfeilschwanzkrebse, deren verborgene Linien seit Millionen von Jahren die Erdgeschichte überdauern.",
+   "verdict": "fix",
+   "text": "Zu diesen erstaunlichen Überlebenden gehören die urtümlichen Quastenflosser und die widerstandsfähigen Pfeilschwanzkrebse, deren Linien seit Millionen von Jahren die Erdgeschichte überdauern.",
+   "why": "Gleicher Korrekturbedarf wie Zeile 3."
+  },
+  {
+   "round": 1,
+   "n": 8,
+   "was": "Während die Natur an Land radikale Wege einschlug, trotzten diese zeitlosen Kreaturen allen globalen Krisen.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Wie Zeile 4."
+  },
+  {
+   "round": 1,
+   "n": 9,
+   "was": "Fossilien von Quastenflossern brachen in der späten Oberkreide vor mehr als 70 Millionen Jahren ab, weshalb man ihr Aussterben mit den Dinosauriern annahm.",
+   "verdict": "fix",
+   "text": "Fossilien von Quastenflossern brachen in der späten Oberkreide vor mehr als 70 Millionen Jahren ab, weshalb man ihr Aussterben mit den Dinosauriern annahm.",
+   "why": "Die Quellen sprechen von 'spätestens mit den Dinosauriern... am Ende des Mesozoikums', nicht zwingend 'vor mehr als 70 Millionen Jahren' für das konkrete Aussterbeereignis an der Grenze (die Fossilien selbst stammen aus über 70 Mio Jahre alten Ablagerungen)."
+  },
+  {
+   "round": 1,
+   "n": 14,
+   "was": "> Und während der Wind über die Wellen streicht, bleibt die Frage offen, welche Geheimnisse die dunklen Tiefen des Ozeans noch verbergen.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Poetischer Füllsatz ohne direkte Tatsachenstützung in den biologisch-paläontologischen Quellen."
+  },
+  {
+   "round": 1,
+   "n": 15,
+   "was": "Im Schutz jener stillen Gewässer, fernab des grellen Lichts der Oberfläche, haben diese Kreaturen die Zeiten überdauert.",
+   "verdict": "fix",
+   "text": "Im Schutz jener stillen Gewässer haben diese Kreaturen die Zeiten überdauert.",
+   "why": "Der Zusatz 'fernab des grellen Lichts der Oberfläche' ist für Quastenflosser nicht in allen Details (sie leben zwar in Tiefen, aber nicht zwingend fernab jeglichen Oberflächenlichts im Sinne der Formulierung) exakt belegt, kann aber leicht gekürzt werden."
+  },
+  {
+   "round": 1,
+   "n": 16,
+   "was": "< Selbst nach jener schicksalhaften Entdeckung im Dezember 1938 riss das Rätselraten um die Verwandtschaftsverhältnisse dieser lebenden Relikte nicht ab.",
+   "verdict": "fix",
+   "text": "< Selbst nach jener Entdeckung im Dezember 1938 riss das Rätselraten um die Verwandtschaftsverhältnisse nicht ab.",
+   "why": "Begriffe wie 'schicksalhaft' und 'lebende Relikte' sind redundant oder stilistisch übertrieben; Gedeckt ist die anhaltende wissenschaftliche Diskussion."
+  },
+  {
+   "round": 1,
+   "n": 17,
+   "was": "> Denn während der stahlblaue, schwergewichtige Fund aus Südafrika die Welt in Atem hielt, lieferten spätere molekulare Analysen völlig unerwartete Einblicke in die Stammbäume der Urzeit.",
+   "verdict": "fix",
+   "text": "> Denn während der Fund aus Südafrika die Wissenschaft beschäftigte, lieferten spätere molekulare Analysen Einblicke in die Stammbäume der Urzeit.",
+   "why": "Wörter wie 'stahlblau, schwergewichtig' und 'völlig unerwartet' sind spekulativ; die Genomvergleiche ergaben konkret, dass Lungenfische näher stehen."
+  },
+  {
+   "round": 1,
+   "n": 18,
+   "was": "Lange Zeit galt der Quastenflosser aufgrund seines knöchernen Skeletts und der muskulösen, beinähnlichen Flossen als der direkte Vorfahre aller Landwirbeltiere.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Quellen bestätigen, dass der Quastenflosser lange Zeit als direkter Vorfahre angesehen wurde."
+  },
+  {
+   "round": 1,
+   "n": 19,
+   "was": "> Doch präzise Genomvergleiche offenbarten schließlich eine überraschende Wendung: Nicht der Quastenflosser, sondern die heutigen Lungenfische stehen den Landtieren evolutionär am Nächsten.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Deckt sich genau mit den Genomvergleich-Ergebnissen der Quellen."
+  },
+  {
+   "round": 1,
+   "n": 21,
+   "was": "< Wie ein lebendiges Echo aus längst vergangenen Tagen durchqueren diese Tiere weiterhin die Ozeane – gemahnt an eine Welt, die längst untergegangen ist, aber in ihnen weiterlebt.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Rein poetischer Satz ohne Faktenbasis."
+  },
+  {
+   "round": 1,
+   "n": 22,
+   "was": "< Lange hatte man angenommen, dass diese geheimnisvollen Meeresbewohner die katastrophalen Umwälzungen am Ende des Mesozoikums nicht überstanden hatten.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 23,
+   "was": "> Doch die Entdeckung im Indischen Ozean belehrte die Wissenschaft eines Besseren und machte den Fund zu einem klassischen Lazarus-Taxon, das die Epochen überbrückt.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 24,
+   "was": "Obgleich der Fang jenes 1,50 Meter langen, stahlblauen und 52 Kilogramm schweren Fisches durch Kapitän Hendrik Goosen und Marjorie Courtenay-Latimer im Dezember 1938 das Bild der Urzeit revolutionierte, blieben die tiefen Gewässer vor Südafrika und Ostafrika zunächst das einzige bekannte Refugium.",
+   "verdict": "fix",
+   "text": "Obgleich der Fang jenes 1,50 Meter langen, stahlblauen und 52 Kilogramm schweren Fisches durch Kapitän Hendrik Goosen und Marjorie Courtenay-Latimer im Dezember 1938 das Bild der Urzeit revolutionierte, blieben die Gewässer vor Südafrika zunächst das einzige bekannte Vorkommen.",
+   "why": "Die Quellen nennen die Komoren und Südafrika, nicht pauschal 'Ostafrika' als *einziges* initiales Refugium in dem Maße, und 'revolutionierte das Bild der Urzeit' ist stark übertrieben."
+  },
+  {
+   "round": 1,
+   "n": 25,
+   "was": "< Erst im späten 20. Jahrhundert weitete sich der Blick der Forscher, als im Jahr 1997 der Manado-Quastenflosser vor Sulawesi entdeckt wurde.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen (Manado 1997) gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 26,
+   "was": "> Diese Exemplare belegen, dass die Fische in den dunklen Unterwasserhöhlen des Indischen Ozeans überdauert haben, geschützt vor den ständigen Veränderungen an der besonnten Oberfläche.",
+   "verdict": "fix",
+   "text": "> Diese Exemplare belegen, dass die Fische in den Gewässern des Indischen Ozeans überdauert haben.",
+   "why": "Die spezifische Erwähnung 'dunkler Unterwasserhöhlen' als ausschließlicher Schutz vor Oberflächenveränderungen ist in dieser Form zu spekulativ gegenüber den Quellen."
+  },
+  {
+   "round": 1,
+   "n": 27,
+   "was": "Indem sie in diesen abgeschiedenen Habitaten verharrten, entgingen sie dem Schicksal so vieler anderer Arten, die im Strudel der Erdgeschichte spurlos verschwunden sind.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Zu spekulativ und pathetisch."
+  },
+  {
+   "round": 1,
+   "n": 28,
+   "was": "< So bleibt das Schaffen der Natur ein unerschöpfliches Rätsel, das in den unerforschten Tiefen der Meere seine stillsten und beständigsten Zeugen bewahrt hat.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Rein poetischer Füllsatz."
+  },
+  {
+   "round": 1,
+   "n": 29,
+   "was": "< Und während die Gezeiten unaufhaltsam an die Küsten spülen, zeugt dieser verlassene Zufluchtsort von der Zähigkeit einer Lebenslinie, die Jahrmillionen überdauert hat.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Rein poetischer Füllsatz."
+  },
+  {
+   "round": 1,
+   "n": 30,
+   "was": "> In den schattigen Grotten des Indischen Ozeans schützt die Dunkelheit vor dem Wandel der Epochen, während die Tiere in absoluter Stille ihre Kreise ziehen.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Zu ausschmückend."
+  },
+  {
+   "round": 1,
+   "n": 31,
+   "was": "Im Schutz dieser submarinen Höhlen, fernab des grellen Oberflächenlichts, offenbart sich das Erbe einer uralten Welt.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Zu ausschmückend."
+  },
+  {
+   "round": 1,
+   "n": 32,
+   "was": "< So bleibt die Geschichte des Quastenflossers ein faszinierendes Zeugnis dafür, dass selbst nach dem vermeintlichen Aussterben vor mehr als 70 Millionen Jahren in den Tiefen des Meeres noch immer unentdeckte Wunder auf ihre Entdeckung warten.",
+   "verdict": "fix",
+   "text": "< So bleibt die Geschichte des Quastenflossers ein Zeugnis dafür, dass Arten auch nach dem vermeintlichen Aussterben in den Tiefen des Meeres überdauern können.",
+   "why": "Übertreibungen wie 'unentdeckte Wunder' sind nicht wissenschaftlich belegt."
+  },
+  {
+   "round": 1,
+   "n": 33,
+   "was": "> Jene unscheinbaren Tiefen, in denen die Zeit stillzustehen scheint, bewahren das Vermächtnis einer Epoche, die längst von den Zeigern der Erdgeschichte fortgespült schien.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Poetischer Füllsatz."
+  },
+  {
+   "round": 1,
+   "n": 34,
+   "was": "Im fahlen Licht der Unterwasserhöhlen spiegeln sich Jahrmillionen der Evolution wider, während das ungestörte Echo vergangener Meere durch die geheimnisvollen Grotten hallt.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Poetischer Füllsatz."
+  },
+  {
+   "round": 1,
+   "n": 35,
+   "was": "< Der fossile Nachweis dieser urtümlichen Fleischflosser reicht im Unterdevon vor etwa 409 Millionen Jahren ein und erlebte in der Trias seine absolute Blütezeit, bevor er in der späten Oberkreide vor mehr als 70 Millionen Jahren jäh abbach.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Daten (Unterdevon, 409 Mio. Jahre, Oberkreide) sind direkt aus den Quellen."
+  },
+  {
+   "round": 1,
+   "n": 36,
+   "was": "> Lange Zeit musste die Fachwelt daher annehmen, dass diese einzigartigen Geschöpfe das globale Massenaussterben an der Kreide-Paläogen-Grenze vor 66 Millionen Jahren unwiederbringlich nicht überstanden hatten.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 37,
+   "was": "Doch die geheimnisvollen Tiefen des Indischen Ozeans hielten einen spektakulären Beweis des Gegenteils bereit, als am 22. Dezember 1938 ein 1,50 Meter langer, 52 Kilogramm schwerer und stahlblauer Fisch im Schleppnetz des Kapitän Hendrik Goosen auftauchte.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Fakten entsprechen exakt den Entdeckungsdaten."
+  },
+  {
+   "round": 1,
+   "n": 38,
+   "was": "< Marjorie Courtenay-Latimer, die Kuratorin des East London Museums in Südafrika, erkannte sofort die außergewöhnliche Natur des Fundes und übergab ihn zur wissenschaftlichen Bestimmung an den Ichthyologen J. L. B. Smith.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 39,
+   "was": "> Dieser identifizierte das spektakuläre Tier als lebenden Quastenflosser der Gattung Latimeria, womit der Fund als klassisches Lazarus-Taxon in die Geschichte der Zoologie einging und weltberühmt wurde.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 40,
+   "was": "Spätere bahnbrechende Entdeckungen wie jene des Manado-Quastenflossers im Jahr 1997 vor der Küste Sulawesis untermauerten schließlich, dass diese Tiere in den lichtlosen Unterwasserhöhlen des Indischen Ozeans überdauert haben.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 41,
+   "was": "< Im Schutz jener abgelegenen Grotten trotzen diese lebenden Relikte bis zum heutigen Tag dem unaufhaltsamen Wandel der Epochen, während die Gezeiten unberührt über ihren finsteren Zufluchtsorten verstreichen.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Zu poetisch/metaphorisch."
+  },
+  {
+   "round": 1,
+   "n": 42,
+   "was": "Pfeilschwanzkrebse der Familie Limulidae besitzen eine fossile Überlieferung, die bis in das Ordovizium vor etwa 480 Millionen Jahren zurückreicht.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen (Ordovizium, 480 Mio Jahre) gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 43,
+   "was": "Mit ihrem hufeisenförmigen Prosoma und dem beweglichen Schwanzstachel bewohnen sie flache Sandküsten und Meeresböden.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 44,
+   "was": "Zur Fortpflanzung kommen sie im Frühsommer in den Gezeitenbereich, wo die Weibchen ihre Eier in flache Sandmulden ablegen und die Trilobitenlarven schlüpfen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 45,
+   "was": "Ihr blaues Blut enthält wertvolle Ambozyten, die in der medizinischen Forschung zur Detektion von Bakterientoxinen genutzt werden.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 46,
+   "was": "<  Schon im Ordovizium vor etwa 480 Millionen Jahren tauchten in den urzeitlichen Meeren die ersten Vorfahren auf, deren Bauplan sich über erdgeschichtliche Epochen hinweg erstaunlich stabil erwiesen hat.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 47,
+   "was": ">  Wie steinerne Zeugen aus einer versunkenen Welt zeugen frühe Xiphosuren-Funde von einer außergewöhnlichen Kontinuität, während um sie herum ganze Tiergruppen entstanden und wieder vergingen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 48,
+   "was": "<  Ausgerüstet mit einem massiven, hufeisenförmigen Prosoma als Vorderkörper und einem flexiblen Schwanzstachel durchpflügen sie seither die flachen Sandküsten und marinen Meeresböden.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 49,
+   "was": ">  Wenn die warme Jahreszeit des Frühsommers anbricht, drängt die urtümliche Prozession aus den Tiefen in den Gezeitenbereich vor.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 50,
+   "was": "<  Dort graben die Weibchen flache Sandmulden, in die sie ihre Gelege betten, aus denen nach kurzer Zeit die charakteristischen Trilobitenlarven schlüpfen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 51,
+   "was": ">  Jahrhunderte der Evolution prallten an ihrer robusten Rüstung ab, die sie vor den schärfsten Fressfeinden schützt.",
+   "verdict": "fix",
+   "text": "> Jahrmillionen der Evolution prallten an ihrer robusten Rüstung ab, die sie schützt.",
+   "why": "'Jahrhunderte' ist falsch, es sind Jahrmillionen laut Quellen."
+  },
+  {
+   "round": 1,
+   "n": 52,
+   "was": "<  Doch nicht nur ihre äußere Gestalt macht diese lebenden Fossilien zu einem Wunder der Natur; tief im Inneren fließt eine Substanz von unschätzbarem Wert.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 53,
+   "was": ">  Ihr leuchtend blaues Blut birgt spezialisierte Ambozyten, die in der modernen medizinischen Forschung unverzichtbar geworden sind.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 54,
+   "was": "<  Mediziner nutzen diese zellulären Bestandteile hochpräzise zur Detektion von Bakterientoxinen, wodurch die uralten Meeresbewohner bis heute einen unschätzbaren Beitrag zum Schutz der menschlichen Gesundheit leisten.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 55,
+   "was": ">  Während der Urzeit breiteten sich die Vorfahren der heutigen Limulidae auf allen Kontinenten aus und hinterließen ihre charakteristischen Spuren im Sediment.",
+   "verdict": "fix",
+   "text": "> Während der Urzeit verbreiteten sich die Xiphosuren weit und hinterließen ihre charakteristischen Spuren im Sediment.",
+   "why": "'Auf allen Kontinenten' ist für die frühe Urzeit so pauschal nicht belegt (Fossilien primär in bestimmten Regionen/Meeren)."
+  },
+  {
+   "round": 1,
+   "n": 56,
+   "was": "<  Solche fossilen Fährten, in der Fachwelt als Kouphichnium bekannt, verraten bis heute den typischen Gang dieser Gliederfüßer mit ihren leicht unterschiedlichen Laufbeinen und der markanten Schleifspur des Schwanzstachels.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen (Kouphichnium) gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 57,
+   "was": ">  Obwohl ihre äußere Gestalt eine enorme Beständigkeit zeigt, verdeutlichen molekulare Untersuchungen eine überraschend hohe genetische Vielfalt innerhalb dieser erstaunlichen Linie.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 58,
+   "was": "<  In den tropischen Flachmeeren der Gegenwart haben sich letztlich nur noch vier rezente Arten in drei Gattungen halten können, die den Sprung über Jahrmillionen geschafft haben.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 59,
+   "was": ">  Dazu zählt der amerikanische Pfeilschwanzkrebs Limulus polyphemus ebenso wie seine asiatischen Verwandten aus den Gattungen Tachypleus und Carcinoscorpius.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 60,
+   "was": "<  In den Gezeitenzonen verbringen diese urtümlichen Tiere den Großteil ihrer Zeit auf dem Meeresboden, wo sie geschickt nach Muscheln und anderer Nahrung graben.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 61,
+   "was": ">  Mit ihrer Fähigkeit, sich bei Gefahr tief in den sandigen Grund einzubringen, trotzen sie den rauen Bedingungen der Küstenregionen und sichern so das Fortbestehen ihrer uralten Art.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 62,
+   "was": "<  In den weiten Mangrovensümpfen und an den schlammigen Flussmündungen Südostasiens findet sich vor allem die Art Carcinoscorpius rotundicauda, während Tachypleus gigas und Tachypleus tridentatus die Küstengewässer besiedeln.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 63,
+   "was": ">  Einst von einer enormen globalen Vielfalt geprägt, zeigt die Stammesgeschichte der Xiphosuren, wie aus Dutzenden einstigen Arten nur wenige hochangepasste Überlebende hervorgingen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 64,
+   "was": "<  Unter ihrer harten Cuticula, die gänzlich frei von Kalkeinlagerungen ist, verbirgt sich ein komplexer innerer Bauplan mit fünf Beinpaaren, die perfekt an Fortbewegung und Nahrungsaufnahme angepasst sind.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 65,
+   "was": ">  Besonders faszinierend erweist sich dabei das fünfte Beinpaar, dessen blattförmiger Epipodit als Fächer oder Flabellum agiert und den lebensnotwendigen Wasserstrom durch die Kiemen lenkt.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 66,
+   "was": "<  Während die Weibchen im Schutz der Gezeiten ihre Eier vergraben, schlüpfen aus diesen bald winzige Larven, die mit ihrer markanten Segmentierung an längst ausgestorbene Trilobiten erinnern.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 67,
+   "was": ">  Selbst wenn moderne Genanalysen eine unerwartet hohe genetische Vielfalt offenbaren, bleibt die äußere Form dieser Tiere ein beeindruckendes Monument evolutionärer Stabilität.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 68,
+   "was": "<  Jahrhundertelang schienen sie unverändert durch die Zeitalter zu wandern, getragen von einer perfektionierten Überlebensstrategie in den flachen Küstenzonen unserer Erde.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 69,
+   "was": "<  Sie durchpflügen die flachen Sandküsten und marinen Meeresböden seit jenen fernen Tagen des Ordoviziums, als ihre ersten Vorfahren vor etwa 480 Millionen Jahren erschienen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 70,
+   "was": ">  Mit ihrem hufeisenförmigen Prosoma und dem beweglichen Schwanzstachel bilden sie bis heute das unverkennbare Bild dieser urtümlichen Meeresbewohner in den Gezeitenbereichen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 71,
+   "was": "<  Wenn der Frühsommer heraufzieht, drängen die Tiere in flache Sandmulden vor, wo die Weibchen ihre Eier ablegen und kurz darauf die jungen Trilobitenlarven schlüpfen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 72,
+   "was": ">  Tief in ihrem Inneren fließt zudem ein bemerkenswertes blaues Blut, dessen wertvolle Ambozyten in der modernen medizinischen Forschung unverzichtbar zur Detektion von Bakterientoxinen dienen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 73,
+   "was": "Perlboote oder Nautiliden repräsentieren die letzten Überlebenden der ansonsten ausgestorbenen Nautiloideen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 74,
+   "was": "> Ihre spiralig aufgerollte Schale ist durch Kammerscheidewände unterteilt, durch die ein Gewebeschlauch verläuft, um den Auftrieb über Gase und Flüssigkeiten zu regulieren.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 75,
+   "was": "< Im Gegensatz zu modernen Tintenfischen besitzen sie keine Linsenaugen, sondern primitive Lochkameraaugen sowie zahlreiche tentakelartige Arme ohne Saugnäpfe.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 76,
+   "was": "> Während die fossilen Verwandten dieses urtümlichen Zweiges während des Erdmittelalters die Ozeane in einer enormen Formen- und Artenfülle bevölkerten, hat sich der Kreis der Überlebenden bis in die Gegenwart auf nur noch wenige rezente Arten der Gattungen Nautilus und Allonautilus reduziert.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 77,
+   "was": "< Die Wohnkammer als jüngster und mit Abstand größter Abschnitt des Hauses birgt den Großteil des Weichkörpers, der bei drohender Gefahr vollständig in das Innere zurückgezogen werden kann, wobei eine spezielle Kopfkappe wie eine schützende Falltür die Mündung verschließt.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 78,
+   "was": "> Das Geheimnis ihrer perfekten Tarierung im eisigen Druck der Tiefe liegt im Phragmokon begraben, dem gekammerten Teil des Gehäuses, dessen Kammern durch uhrglasartig gewölbte Septen voneinander getrennt sind.",
+   "verdict": "fix",
+   "text": "> Das Geheimnis ihrer Tarierung in der Tiefe liegt im Phragmokon begraben, dem gekammerten Teil des Gehäuses, dessen Kammern durch gewölbte Septen voneinander getrennt sind.",
+   "why": "'Im eisigen Druck' ist dichterische Freiheit; 'uhrglasartig gewölbt' steht so in den Quellen."
+  },
+  {
+   "round": 1,
+   "n": 79,
+   "was": "< Exakt durch die Mitte dieses filigranen Systems zieht sich der sogenannte Sipho, ein von feinen Blutgefäßen durchzogener Gewebeschlauch, über den gezielt Flüssigkeit aus den einzelnen Kammern abgepumpt und durch ein luftähnliches, mit Stickstoff und Kohlendioxid angereichertes Gasgemisch ersetzt werden kann.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 80,
+   "was": "> Entlang des äußeren Randes der Mundöffnung drängen sich bei den Perlbooten bis zu fast hundert spezialisierte Appendizes, die sich funktionell und anatomisch grundlegend von den Extremitäten moderner Koleoiden unterscheiden.",
+   "verdict": "fix",
+   "text": "> Entlang des Randes der Mundöffnung drängen sich bei den Perlbooten zahlreiche spezialisierte Appendizes, die sich funktionell und anatomisch von den Extremitäten moderner Koleoiden unterscheiden.",
+   "why": "'Bis zu fast hundert' ist ungenau (Quellen nennen 50 bis über 90 Tentakel bzw. ca. 45 Armpaare)."
+  },
+  {
+   "round": 1,
+   "n": 81,
+   "was": "< Statt der für Tintenfische typischen Zehn- oder Achtzahl an saugnapfbewehrten Armen entfalten sich hier je nach Geschlecht und Art zwischen fünfzig und über neunzig tentakelartige Cirren, die völlig frei von Saugnäpfen sind.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 82,
+   "was": "> Stattdessen nutzen die Tiere ein klebriges Sekret, das von speziellen Zellen auf den Tentakeln abgesondert wird, um Beutetiere wie Krebse von Felsen zu reißen oder sich selbst an glatten Oberflächen im felsigen Habitat festzuhalten.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 83,
+   "was": "< Auch der Blick in die dunkle, lichtarme Urzeit-Abyssalzone offenbart einen evolutionären Kontrast zu den hochkomplexen Augen der modernen Cephalopoden, denn die großen, seitlich am Kopf positionierten Sehorgane der Nautiliden sind keineswegs mit Linsen und Glaskörpern ausgestattet.",
+   "verdict": "fix",
+   "text": "< Auch der Blick auf die Sehorgane der Nautiliden offenbart einen evolutionären Kontrast zu modernen Cephalopoden, denn die großen, seitlich am Kopf positionierten Augen sind keineswegs mit Linsen ausgestattet.",
+   "why": "'Dunkle, lichtarme Urzeit-Abyssalzone' ist Spekulation; 'Glaskörper' wird in den Quellen im Zusammenhang mit den Linsenaugen genannt."
+  },
+  {
+   "round": 1,
+   "n": 84,
+   "was": "> Stattdessen handelt es sich um extrem schlichte Lochkameraaugen, bei denen die mit lichtempfindlichen Sinneszellen ausgekleidete Einstülpung der Außenhaut lediglich von einer offenen Lochblende bedeckt wird.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 85,
+   "was": "< So ziehen diese lebenden Geo-Skulpturen auf der Suche nach Aas und Nahrung geräuschlos durch die Tiefsee-Canyons – angetrieben vom Rückstoßprinzip, bei dem Wasser stoßweise aus der Mantelhöhle gepresst wird, während die gewaltige, gasgefüllte Schale jede rasche Beschleunigung dämpft.",
+   "verdict": "fix",
+   "text": "< So ziehen diese lebenden Fossilien auf der Suche nach Aas und Nahrung durch die Meere – angetrieben vom Rückstoßprinzip, bei dem Wasser stoßweise aus der Mantelhöhle gepresst wird.",
+   "why": "'Geo-Skulpturen' ist ein Erfindungsbegriff ohne Beleg; 'Tiefsee-Canyons' ist zu spezifisch."
+  },
+  {
+   "round": 1,
+   "n": 86,
+   "was": "> Als stumme Zeugen einer längst vergangenen Epoche trotzen sie den Jahrmillionen, während um sie herum andere Gruppen wie die Ammoniten längst unwiderruflich aus den Meeren verschwunden sind.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 87,
+   "was": "< Ihr extrem langsamer Stoffwechsel und die Fähigkeit, selbst in enormen Tiefen unter dem eisigen Druck der Wassermassen zu existieren, sicherten ihnen eine ökologische Nische, die sie nahezu unverändert durch das Mesozoikum bis in die moderne Meereswelt trug.",
+   "verdict": "fix",
+   "text": "< Ihr Stoffwechsel und die Fähigkeit, in Tiefen zu existieren, sicherten ihnen eine ökologische Nische, die sie durch das Mesozoikum bis in die moderne Meereswelt trug.",
+   "why": "'Extrem langsam' und 'eisiger Druck' sind unbelegte dramatisierende Zusätze."
+  },
+  {
+   "round": 1,
+   "n": 88,
+   "was": "< Als letzte Überlebende der ansonsten komplett ausgestorbenen Nautiloideen repräsentieren die heutigen Perlboote oder Nautiliden eine uralte Linie von Kopffüßern.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 89,
+   "was": "> Ihre markante, spiralig aufgerollte Schale wird im Inneren von feinen Kammerscheidewänden unterteilt, durch die ein lebender Gewebeschlauch verläuft, um den Auftrieb exakt über Gase und Flüssigkeiten zu regulieren.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 90,
+   "was": "< Im deutlichen Kontrast zu modernen Tintenfischen besitzen sie keinerlei Linsenaugen, sondern begnügen sich mit primitiven Lochkameraaugen, während zahlreiche tentakelartige Arme völlig frei von Saugnäpfen bleiben.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 91,
+   "was": "< Weit entfernt von diesen Relikten des Meeres bewahren Neuseelands abgelegene Inseln das Vermächtnis eines anderen scheinbar aus der Zeit gefallenen Überlebenden.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 92,
+   "was": "> Die Brückenechse oder Tuatara bildet als einziger verbliebener Vertreter eine ansonsten vollständig ausgestorbene Ordnung namens Sphenodontia.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 93,
+   "was": "Ihr diapsider Schädel unterscheidet sich grundlegend von dem aller heutigen Schuppenkriechtiere, da er zwei voll ausgebildete Schläfenbögen sowie ein ausgeprägtes Scheitelauge besitzt.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 94,
+   "was": "< Während ihre äußere Gestalt und Morphologie seit dem Mesozoikum weitgehend konserviert blieb, offenbaren genetische Untersuchungen eine unerwartet hohe molekulare Evolutionsrate.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 95,
+   "was": "In jener längst vergangenen Epoche des Mesozoikums, als das Erdmittelalter von einer enormen Vielfalt verwandter Formen geprägt war, bildeten die Vorfahren der heutigen Brückenechsen eine weltweit verbreitete und dominante Gruppe.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 96,
+   "was": "Während diese urzeitlichen Verwandten auf den globalen Festländern im Verlauf der Kreidezeit unaufhaltsam zurückgingen und schließlich gänzlich von der Bildfläche verschwanden, fanden die Überlebenden auf den isolierten Landmassen Neuseelands einen letzten, sicheren Zufluchtsort.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 97,
+   "was": "< Ein bemerkenswertes physiologisches Detail dieses Überlebenden ist das ausgeprägte Scheitelauge auf der Oberseite des Kopfes, welches über lichtempfindliche Strukturen verfügt, auch wenn es im Laufe des Wachstums von einer Schuppenschicht überdeckt wird.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 98,
+   "was": "> Trotz der erstaunlichen Tatsache, dass ihre äußere Morphologie seit Jahrmillionen weitgehend unverändert geblieben ist und sie deshalb oft als klassisches Beispiel für evolutionäre Stasis genannt werden, enthüllen moderne Analysen ein ganz anderes Bild ihres Erbguts.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 99,
+   "was": "Genetische Untersuchungen zeigen nämlich eine unerwartet hohe molekulare Evolutionsrate, was den vermeintlichen Widerspruch zwischen äußerlicher Beständigkeit und innerer Dynamik eindrucksvoll unterstreicht.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 100,
+   "was": "< So bewahren diese einzigartigen Reptilien in ihrer Biologie ein komplexes Erbe, das die Grenzen zwischen evolutionärer Verlangsamung und rascher genetischer Veränderung auf faszinierende Weise verschwimmen lässt.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 101,
+   "was": "> Fernab der großen Kontinente, geschützt durch die weiten Meeresarme des Südpazifiks, zeugt jede Generation aufs Neue von der ungebrochenen Überlebenskraft einer ansonsten längst verlorenen erdgeschichtlichen Ordnung.",
+   "verdict": "fix",
+   "text": "> Fernab der großen Kontinente, geschützt durch die Meere des Südpazifiks, zeugt jede Generation von der Überlebenskraft dieser Ordnung.",
+   "why": "Pathos wie 'ungebrochene Überlebenskraft einer ansonsten längst verlorenen erdgeschichtlichen Ordnung' leicht straffend an die Quellen anpassen."
+  },
+  {
+   "round": 1,
+   "n": 102,
+   "was": "Während die Brückenechse äußerlich wie ein Relikt aus längst vergangenen Tagen wirkt, enthüllt ihr Erbgut eine überraschende Dynamik, die Biologen immer wieder vor neue Rätsel stellt.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 103,
+   "was": "< Im Fokus der Forschung steht dabei vor allem ihre erstaunliche molekulare Evolutionsrate, die im krassen Gegensatz zu der seit dem Mesozoikum kaum veränderten Gestalt steht.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 104,
+   "was": "> Zwar hat sich ihr bewährter, robuster Bauplan über Jahrmillionen hinweg als äußerst stabil erwiesen, doch zeigen genetische Analysen eine unerwartet hohe Frequenz von Veränderungen auf DNA-Ebene.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 105,
+   "was": "Diese Kombination aus äußerlicher Beständigkeit und innerer, genetischer Beweglichkeit macht die Tuatara zu einem einzigartigen Forschungsobjekt für die Evolutionsbiologie.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 106,
+   "was": "< Besonders deutlich wird dieser archaische Charakter an ihrem außergewöhnlichen Schädel, der mit zwei voll ausgebildeten Schläfenbögen und dem markanten Scheitelauge ein unverkennbares Erbe der Sphenodontia darstellt.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 107,
+   "was": "> So verbindet sich in diesem faszinierenden Reptil die Jahrtausende währende Geschichte einer fast völlig erloschenen Ordnung mit den dynamischen Prozessen des modernen Lebens.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 108,
+   "was": "> In dieser einzigartigen morphologischen Beständigkeit, die sie zu den bemerkenswertesten Zeugen einer längst vergangenen Epoche macht, spiegelt sich die Jahrmillionen währende Isolierung wider.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 109,
+   "was": "Sie bewahren als letzte ihrer Art jene anatomischen Grundzüge, die ihre einst weltweiten Vorfahren im Erdmittelalter auszeichneten.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 110,
+   "was": "< Während die äußere Hülle dieser Reptilien seit dem Mesozoikum kaum einen Wandel erfahren zu haben scheint und sie dadurch oft als Sinnbild evolutionärer Stasis gelten, enthüllt ihr Erbgut eine völlig andere Realität.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 111,
+   "was": "> Genau diese verblüffende Diskrepanz zwischen der augenscheinlich konservierten Körpergestalt und der im Inneren hochdynamischen, raschen molekularen Evolution fasziniert die moderne Wissenschaft und macht die Brückenechse zu einem unverzichtbaren Schlüssel für das Verständnis der Biodiversität.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 113,
+   "was": "Die moderne Evolutionsbiologie und Paläontologie stellen den populären und jahrzehntelang unkritisch verwendeten Begriff des lebenden Fossils zunehmend in Frage.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 114,
+   "was": "< Hinter dem vermeintlichen Stillstand der Evolution verbirgt sich keineswegs ein eingefrorener Zustand der Erdgeschichte.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 115,
+   "was": "> Genetische Analysen belegen unmissverständlich, dass auch bei äußerlicher Stasis durch ständige Mutationen und Gendrift kontinuierliche genetische Veränderungen stattfinden.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 116,
+   "was": "Ähnliche Körperpläne täuschen über die biologische Realität hinweg, dass sich die Organismen über Jahrmillionen hinweg dynamisch an neue ökologische Nischen anpassten.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 117,
+   "was": "< Was äußerlich wie die perfekte Konservierung aus urrätzelhaften Vorzeiten wirkt, ist in Wahrheit das Resultat einer unaufhaltsamen molekularen und genetischen Dynamik.",
+   "verdict": "fix",
+   "text": "< Was äußerlich wie Konservierung aus Vorzeiten wirkt, ist in Wahrheit das Resultat evolutionärer Prozesse.",
+   "why": "'urrätzelhaften' ist unbelegt."
+  },
+  {
+   "round": 1,
+   "n": 118,
+   "was": "> Selbst dort, wo Organismen über Jahrmillionen hinweg in isolierten Habitaten und reliktären Verbreitungsgebieten überlebten, offenbaren molekulare Untersuchungen die wahren Ausmaße der Evolution.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 119,
+   "was": "< So zeigt etwa die neuseeländische Brückenechse trotz ihrer seit der Kreidezeit fast unveränderten äußeren Morphologie eine der höchsten molekularen Evolutionsgeschwindigkeiten aller Wirbeltiere.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 120,
+   "was": "> Auch bei anderen klassischen Reliktgruppen wie den Pfeilschwanzkrebsen oder Perlbooten belegen unerwartet hohe genetische Diversitäten und rezente Artbildungsprozesse eine anhaltende Dynamik.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 121,
+   "was": "Selbst vermeintliche Musterbeispiele wie der Quastenflosser werden in der modernen Forschung kontrovers diskutiert, da frühere Formen eine enorme Formenfülle besessen hatten und die heutige Stasis auf falschen Annahmen beruht.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 122,
+   "was": "< Das Beharren auf dem populären Mythos einer unveränderten Zeit verkennt somit die fundamentale biologische Realität, dass das Leben in einem ständigen, unaufhaltsamen Wandel begriffen ist.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 123,
+   "was": "> So belegen genetische Vergleiche, dass die Lungenfische eine deutlich größere genetische Übereinstimmung mit den Landwirbeltieren aufweisen als die äußerlich so anders wirkenden Quastenflosser.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 124,
+   "was": "< Auch zeigt die Forschung, dass der oftmals konservierte Bauplan keineswegs eine lückenlose Stammesgeschichte ohne Wandel beweist, da frühere Verwandte eine enorme Formenvielfalt besessen hatten und rezente Gruppen wie Perlboote oder Palmfarne noch in jüngerer geologischer Vergangenheit rasante Artbildungsprozesse durchliefen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 125,
+   "was": "> Selbst dort, wo Organismen in isolierten Lebensräumen oder unter geringem Selektionsdruck überlebten, wird die Vorstellung einer unveränderten Zeit durch die unaufhaltsame molekulare Evolution und dynamische Anpassung an neue ökologische Nischen endgültig widerlegt.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 127,
+   "was": "> Trotz anhaltender wissenschaftlicher Debatten über die tatsächliche Bedeutung von Begriffen wie Bradytelie oder lebendes Fossil bleiben diese Organismen greifbare Verbindungen zu vergangenen Erdzeitaltern.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 128,
+   "was": "Sie zeugen von einer tiefen Zeit und verdeutlichen, wie komplex die stammesgeschichtlichen Entwicklungslinien der Lebewesen über hunderte Millionen Jahre hinweg verlaufen sind.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 129,
+   "was": "< Sie erinnern uns vor allem daran, dass das Leben nach katastrophalen Umbrüchen und globalen Aussterbeereignissen immer wieder Wege gefunden hat, um zu überdauern.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 130,
+   "was": "Obwohl diese vermeintlichen Relikte von der modernen Evolutionsbiologie und Paläontologie oft kritisch betrachtet und Bezeichnungen wie Bradytelie oder lebendes Fossil zunehmend vermieden werden, besitzen sie eine enorme wissenschaftliche Bedeutung.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 131,
+   "was": "Sie repräsentieren die einzigen überlebenden Linien einst weitaus diverserer Gruppen des Erdmittelalters und erlauben tiefe Einblicke in die Mechanismen der morphologischen Stasis sowie stabilisierender Selektionsprozesse.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 132,
+   "was": "< Jenseits aller terminologischen Debatten stehen diese faszinierenden Organismen als lebendige Zeugnisse dafür, dass das Leben nach globalen Krisen und massiven Aussterbephasen immer wieder widerstandsfähige Wege gefunden hat, um Jahrmillionen der Erdgeschichte zu überdauern.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 133,
+   "was": "> Trotz wissenschaftlicher Debatten über Begriffe wie 'Bradytelie' oder 'lebendes Fossil' bleiben diese Organismen greifbare Verbindungen zu vergangenen Erdzeitaltern.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 134,
+   "was": "Sie bewahren urtümliche Merkmale und erinnern uns daran, wie anpassungsfähig die Natur nach katastrophalen Umbrüchen immer wieder neue Wege gefunden hat.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Durch die Quellen gedeckt."
+  }
+ ],
+ "hook_written_separately": null
+}
