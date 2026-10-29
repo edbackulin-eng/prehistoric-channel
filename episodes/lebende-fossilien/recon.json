@@ -1,0 +1,40 @@
+{
+ "_note": "FLUX prompts of this episode, written by automation/plan_episode.py; extinct animals and lost landscapes only. 'animate' are the frames LTX-Video brings to life.",
+ "style": "photorealistic wildlife documentary frame, BBC natural history cinematography, natural vivid colours, soft natural light, high dynamic range, sharp detail, 35mm film look, no text, no people",
+ "seeds_per_prompt": 2,
+ "prompts": {
+  "asteroid_impact": "A massive asteroid impact on Earth 66 million years ago, fiery cataclysmic explosion, glowing debris raining down through a dark ash-filled sky, dramatic cinematic lighting, 4K, no humans",
+  "ancient_ecosystem_shift": "An ancient shallow coastal sea evolving over geological epochs, dramatic sunlight breaking through clouds onto the water, no modern animals, no humans, cinematic lighting, 4K",
+  "devonian_swamp": "Early Devonian swamp landscape, primitive flora, murky shallow water, atmospheric mist, cinematic BBC style, 4K, no humans",
+  "dna_helix_abstract": "Abstract microscopic visualization of glowing DNA strands and genetic code mutations, dark moody scientific laboratory background, cinematic lighting, shallow depth of field, 4K",
+  "molecular_evolution_chart": "Scientific visualization of a phylogenetic tree and molecular evolution data glowing on a dark screen, cinematic lighting, shallow depth of field, 4K",
+  "ancient_lungfish_swamp": "A prehistoric lungfish swimming in a murky shallow Devonian swamp, no modern animals, no humans, cinematic lighting, 4K",
+  "ordovician_seabed": "An ancient Ordovician seabed filled with primitive trilobites and early marine organisms, no modern animals, no humans, cinematic lighting, 4K",
+  "trilobite_larvae_sand": "Tiny prehistoric trilobite larvae crawling on fine marine sand in shallow water, no modern animals, no humans, macro lens, cinematic lighting, 4K",
+  "prehistoric_ocean_cataclysm": "A dramatic ancient ocean landscape during a prehistoric extinction event, glowing volcanic fissures on the seafloor, no modern animals, no humans, cinematic lighting, 4K"
+ },
+ "species": {
+  "asteroid_impact": null,
+  "ancient_ecosystem_shift": null,
+  "devonian_swamp": null,
+  "dna_helix_abstract": null,
+  "molecular_evolution_chart": null,
+  "ancient_lungfish_swamp": null,
+  "ordovician_seabed": null,
+  "trilobite_larvae_sand": null,
+  "prehistoric_ocean_cataclysm": null
+ },
+ "animate": {
+  "asteroid_impact": "camera slowly pulls back as shockwaves expand across the burning landscape",
+  "ancient_ecosystem_shift": "light rays shift dynamically across the submerged rocks",
+  "devonian_swamp": "camera pans slowly across the misty primordial waters",
+  "dna_helix_abstract": "dna strands slowly rotate and pulse with light",
+  "molecular_evolution_chart": "data points slowly shift and connect",
+  "ancient_lungfish_swamp": "lungfish glides slowly through murky water toward the surface",
+  "ordovician_seabed": "camera pans slowly across the ancient rocky seabed",
+  "trilobite_larvae_sand": "larvae scuttle across the sandy ripple marks"
+ },
+ "thumbs": {},
+ "photos": {},
+ "two_seeds": []
+}

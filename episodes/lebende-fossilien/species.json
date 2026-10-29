@@ -1,0 +1,74 @@
+{
+ "coelacanth": {
+  "name": "Quastenflosser (Latimeria)",
+  "features": [
+   "steel-blue to royal-blue coloration",
+   "lobbed, fleshy paired fins",
+   "intracranial joint in the skull",
+   "rostral organ at the snout tip"
+  ],
+  "forbidden": [
+   "ray-finned fish without lobe fins",
+   "smooth modern fish skin without scales",
+   "dorsal lungfish-like elongated body",
+   "terrestrial limbs or feet",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "coelacanth swimming underwater ocean"
+ },
+ "horseshoe_crab": {
+  "name": "Pfeilschwanzkrebs (Limulidae)",
+  "features": [
+   "horseshoe-shaped prosoma carapace",
+   "long movable tail spine",
+   "five pairs of walking legs",
+   "blue blood containing amebocytes"
+  ],
+  "forbidden": [
+   "soft-bodied crab with claws",
+   "segmented lobster body",
+   "spider-like web spinning",
+   "vertebrate fish tail",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "horseshoe crab walking on sandy seabed"
+ },
+ "nautilus": {
+  "name": "Perlboot (Nautilus)",
+  "features": [
+   "spirally coiled chambered shell",
+   "numerous tentacles without suckers",
+   "pinhole camera eyes without lenses",
+   "hood used as a trapdoor"
+  ],
+  "forbidden": [
+   "modern squid with ten arms",
+   "octopus with suction cups",
+   "shell-less cephalopod",
+   "vertebrate fish fins",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "nautilus swimming underwater deep sea"
+ },
+ "tuatara": {
+  "name": "Brückenechse (Sphenodon punctatus)",
+  "features": [
+   "diapsid skull with two temporal bars",
+   "prominent parietal eye on top of head",
+   "spiky crest along the back",
+   "lizard-like nocturnal reptile form"
+  ],
+  "forbidden": [
+   "smooth snake body without legs",
+   "turtle shell",
+   "modern gecko toe pads",
+   "crocodile scutes and snout",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "tuatara lizard New Zealand wildlife"
+ }
+}
