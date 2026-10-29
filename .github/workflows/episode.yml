@@ -38,6 +38,7 @@ jobs:
     timeout-minutes: 355
     env:
       GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
+      GROQ_API_KEY_PH: ${{ secrets.GROQ_API_KEY_PH }}
       PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
       KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
       KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
@@ -58,7 +59,7 @@ jobs:
           cat > "$RUNNER_TEMP/push.sh" <<'EOF'
           git diff --cached --quiet && exit 0
           git commit -q -m "$1"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
           exit 1
           EOF
       - id: pick
@@ -67,23 +68,30 @@ jobs:
           if [ -n "${{ inputs.slug }}" ]; then echo "slug=${{ inputs.slug }}" >> "$GITHUB_OUTPUT"; exit 0; fi
           python automation/topics.py --pick
           git add topics/queue.json && bash "$RUNNER_TEMP/push.sh" "Building next topic"
+      - name: Today's free quotas
+        run: python automation/llm_budget.py report
       - name: Script (German, from Wikipedia, fact-checked)
         if: steps.pick.outputs.slug != ''
         env:
           SLUG: ${{ steps.pick.outputs.slug }}
         run: |
-          if [ -f "episodes/$SLUG/script.txt" ]; then python automation/write_episode.py --hook-only "$SLUG"; else python automation/write_episode.py "$SLUG"; fi
+          if [ -f "episodes/$SLUG/script.txt" ]; then step=hook_check; else step=script; fi
+          python automation/llm_budget.py need $step "$SLUG" || { echo "deferred=1" >> "$GITHUB_ENV"; exit 0; }
+          if [ $step = hook_check ]; then python automation/write_episode.py --hook-only "$SLUG"; else python automation/write_episode.py "$SLUG"; fi
           git add "episodes/$SLUG" && bash "$RUNNER_TEMP/push.sh" "Script for $SLUG"
       - name: Plan, species checklists, footage candidates
-        if: steps.pick.outputs.slug != ''
+        if: steps.pick.outputs.slug != '' && env.deferred != '1'
         env:
           SLUG: ${{ steps.pick.outputs.slug }}
         run: |
+          if python -c "import sys; sys.path.insert(0, 'automation'); import plan_episode; sys.exit(0 if plan_episode.stale('$SLUG') else 1)"; then
+            python automation/llm_budget.py need plan "$SLUG" || { echo "deferred=1" >> "$GITHUB_ENV"; exit 0; }
+          fi
           python automation/plan_episode.py --if-stale "$SLUG"
           git add "episodes/$SLUG" && bash "$RUNNER_TEMP/push.sh" "Plan for $SLUG"
       - name: FLUX on Kaggle
         id: flux
-        if: steps.pick.outputs.slug != ''
+        if: steps.pick.outputs.slug != '' && env.deferred != '1'
         run: |
           set +e
           python -u gpu/kaggle_once.py recon "${{ steps.pick.outputs.slug }}"; rc=$?
@@ -94,11 +102,12 @@ jobs:
         env:
           SLUG: ${{ steps.pick.outputs.slug }}
         run: |
+          python automation/llm_budget.py need flux_check "$SLUG" || { echo "deferred=1" >> "$GITHUB_ENV"; exit 0; }
           python automation/select_animate.py "$SLUG"
           git add "episodes/$SLUG/species_verdicts.json" && bash "$RUNNER_TEMP/push.sh" "FLUX species check for $SLUG" || true
       - name: LTX-Video on Kaggle
         id: ltx
-        if: steps.flux.outputs.rc == '0'
+        if: steps.flux.outputs.rc == '0' && env.deferred != '1'
         run: |
           set +e
           python -u gpu/kaggle_once.py animate "${{ steps.pick.outputs.slug }}"; rc=$?
@@ -106,7 +115,7 @@ jobs:
           [ $rc -eq 3 ] && exit 0
           [ $rc -eq 0 ] || echo "::warning::animation failed (rc $rc); the episode goes on with stills there"
       - uses: actions/upload-artifact@v5
-        if: steps.flux.outputs.rc == '0' && steps.ltx.outputs.rc != '3'
+        if: steps.flux.outputs.rc == '0' && steps.ltx.outputs.rc != '3' && env.deferred != '1'
         with:
           name: gpu-${{ steps.pick.outputs.slug }}
           retention-days: 14
@@ -117,19 +126,23 @@ jobs:
             gpu/results_animate/clips/
             gpu/results_animate/report.json
             gpu/animate_job.json
-      - name: Keep the GPU record
+      - name: Keep the GPU and quota records
         if: always()
         run: |
-          git add state/kaggle_once.json state/gpu_ledger.json 2>/dev/null || true
-          bash "$RUNNER_TEMP/push.sh" "GPU usage after episode run ${{ github.run_id }}"
+          git add state/kaggle_once.json state/gpu_ledger.json state/llm_usage state/deferred.json 2>/dev/null || true
+          git add -A state/deferred.json 2>/dev/null || true
+          bash "$RUNNER_TEMP/push.sh" "GPU and quota usage after episode run ${{ github.run_id }}"
       - name: Relay (still waiting for a free GPU slot)
         if: (steps.flux.outputs.rc == '3' || steps.ltx.outputs.rc == '3') && fromJSON(inputs.relay) < 30
         run: |
           gh workflow run episode.yml -R "${{ github.repository }}" -f slug="${{ steps.pick.outputs.slug }}" \
             -f relay="$(( ${{ inputs.relay }} + 1 ))"
       - name: Render (2160p, parallel on Actions), then upload or buffer
-        if: steps.flux.outputs.rc == '0' && steps.ltx.outputs.rc != '3'
+        if: steps.flux.outputs.rc == '0' && steps.ltx.outputs.rc != '3' && env.deferred != '1'
         run: |
+          # the render's image checks need their own share of the day: otherwise tomorrow
+          python automation/llm_budget.py need render "${{ steps.pick.outputs.slug }}" || {
+            git add -A state/deferred.json && bash "$RUNNER_TEMP/push.sh" "Render of ${{ steps.pick.outputs.slug }} waits for the quota day"; exit 0; }
           gh workflow run render.yml -R "${{ github.repository }}" -f slug="${{ steps.pick.outputs.slug }}" \
             -f gpu_run="${{ github.run_id }}" -f release=true
       - name: Email on failure

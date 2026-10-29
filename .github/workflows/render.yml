@@ -196,6 +196,7 @@ jobs:
           path: |
             work/${{ inputs.slug }}/plan.json
             work/${{ inputs.slug }}/inputs/
+            state/llm_usage/
             cache/maps/
             assets/music/
             assets/ambience/
@@ -293,6 +294,15 @@ jobs:
             work/${{ inputs.slug }}/inputs/kaggle_recon_report.json
             work/${{ inputs.slug }}/inputs/mask_check.json
             work/${{ inputs.slug }}/inputs/species_picks.json
+      - name: Keep the quota record (the species check in prepare, the masks and thumbnails here)
+        if: always() && inputs.release != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/llm_usage 2>/dev/null || exit 0
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Quota usage of render ${{ github.run_id }}"
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
       - name: Release - upload on the nearest free slot, or keep in the buffer
         if: inputs.release == 'true'
         env:
@@ -304,10 +314,10 @@ jobs:
           python automation/topics.py --done "$SLUG"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state/episodes.json topics/queue.json episodes/$SLUG/uploaded.json 2>/dev/null || true
+          git add state/episodes.json topics/queue.json episodes/$SLUG/uploaded.json state/llm_usage 2>/dev/null || true
           git diff --cached --quiet && exit 0
           git commit -q -m "Released $SLUG (render ${{ github.run_id }})"
-          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
           exit 1
       - name: Email on failure
         if: failure()

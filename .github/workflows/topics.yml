@@ -18,6 +18,7 @@ jobs:
     env:
       PYTHONUTF8: 1
       GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
+      GROQ_API_KEY_PH: ${{ secrets.GROQ_API_KEY_PH }}
       GH_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@v5
@@ -29,7 +30,7 @@ jobs:
       - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add topics/queue.json
+          git add topics/queue.json state/llm_usage 2>/dev/null || true
           git diff --cached --quiet && exit 0
           git commit -q -m "Topic queue topped up"
           for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 10; done

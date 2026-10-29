@@ -170,6 +170,31 @@ def main():
     check("answers read as object or bare list", gm.pick([1, 2], "animals") == [1, 2]
           and gm.pick({"animals": [3]}, "animals") == [3] and gm.pick({"tiere": [4]}, "animals") == [4]
           and gm.pick({"x": 1}, "animals") == [])
+    # the quota ledger and the budget: counted per model per Pacific day, a step that
+    # would overrun its model waits for the next day
+    from core import llm_usage
+    from automation import llm_budget
+    real_dir, real_def = llm_usage.DIR, llm_budget.DEFERRED
+    llm_usage.DIR, llm_budget.DEFERRED = W / "llm_usage", W / "deferred.json"
+    try:
+        for _ in range(3):
+            llm_usage.record("gemini-flash-lite-latest", 100, 20, "species_check")
+        u = llm_usage.used("gemini-flash-lite-latest")
+        lim = llm_usage.CFG["llm_quota"]["models"]["gemini-flash-lite-latest"]["rpd"]
+        check("quota ledger", u["requests"] == 3 and u["in_tokens"] == 300
+              and llm_usage.left("gemini-flash-lite-latest")["requests"] == int(lim * 0.85) - 3, str(u))
+        check("a step too big for today is deferred", llm_budget.image_ok(10 ** 6)[0] is False)
+        llm_budget.defer("smoke-ep", "test")
+        d = llm_budget.deferred_now()
+        check("deferred until the next Pacific day", d and d["slug"] == "smoke-ep")
+    finally:
+        llm_usage.DIR, llm_budget.DEFERRED = real_dir, real_def
+        llm_usage._RUN.clear()                 # the test's requests are not the channel's
+    from core import textllm
+    rel = textllm.relevant([{"title": "A", "text": "Der Quastenflosser lebt in Höhlen.\n\n" + "Füllwort " * 40 +
+                             "\n\nAmmoniten starben am Ende der Kreidezeit aus, zusammen mit den Dinosauriern."}],
+                           "Ammoniten Kreidezeit", 200)
+    check("sources trimmed to what the request needs", "Ammoniten" in rel and len(rel) <= 260, rel)
     from automation import plan_episode as pe
     check("abstract frames are not drawn", pe.abstract("dna_helix_abstract", "glowing DNA strands")
           and pe.abstract("molecular_evolution_chart", "x") and not pe.abstract("ancient_lungfish_swamp",

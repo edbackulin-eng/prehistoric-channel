@@ -44,7 +44,7 @@ log = get_logger("species")
 ROOT = Path(__file__).resolve().parent.parent
 MODELS = ("gemini-flash-latest", "gemini-flash-lite-latest")
 URL = "https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent"
-WANT_PASSING = 2          # enough for a line long enough to need a second shot
+WANT_PASSING = 1          # a line's second shot is another moment of the same clip (docplan): half the requests
 _SPENT = set()            # models out of quota for the rest of this run
 
 SCENE = {"name": "a prehistoric scene (no particular animal asked for)", "features": [],
@@ -175,6 +175,9 @@ def ask(key, images, line, species=None, topic=None, archive=False, what="one st
                 with urllib.request.urlopen(req, timeout=90) as r:
                     d = json.loads(r.read())
                 out = "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"])
+                from core import llm_usage
+                um = d.get("usageMetadata", {})
+                llm_usage.record(model, um.get("promptTokenCount"), um.get("candidatesTokenCount"), "species_check")
                 v = json.loads(out[out.find("{"): out.rfind("}") + 1])
                 v["model"] = model
                 return v
