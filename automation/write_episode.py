@@ -95,6 +95,16 @@ Antworte als JSON {{"lines": ["<Zeile>", "..."]}}
 QUELLEN:
 {sources}"""
 
+MORE = """Setze dieses Kapitel einer deutschen Urzeit-Doku fort ({section}: {heading}). Es soll noch etwa
+{words} Wörter mehr werden, mit weiteren Fakten und Momenten AUS DEN QUELLEN zu: {points}. Nichts wiederholen,
+was schon gesagt ist; selbes Markup ("> ", "< ", normale Zeilen), selber Ton.
+Bisher:
+{so_far}
+Antworte als JSON {{"lines": ["<neue Zeile>", "..."]}}
+
+QUELLEN:
+{sources}"""
+
 CHECK = """Prüfe jede nummerierte Zeile dieses deutschen Doku-Texts gegen die Quellen.
 Eine Zeile ist "ok", wenn jede Tatsachenbehauptung darin von den Quellen gedeckt ist (stilistische Sätze
 ohne Behauptung sind ok). Sonst "fix": gib eine korrigierte Fassung, die nur Gedecktes sagt, im selben
@@ -253,9 +263,18 @@ def write_hook(script, block, tries=3):
     raise RuntimeError(f"no hook passed its check: {last}")
 
 
+def _section_at(rows, i):
+    sec = "story"
+    for l in rows[:i + 1]:
+        m = re.match(r"^\[section (\w+)\]$", l.strip())
+        if m:
+            sec = m.group(1)
+    return sec
+
+
 def fit_length(script, block):
     """22-27 minutes: a long script is condensed, a short one extended from the sources."""
-    for _ in range(3):
+    for _ in range(6):
         n = words(script)
         if MIN_WORDS <= n <= MAX_WORDS:
             return script
@@ -263,8 +282,16 @@ def fit_length(script, block):
             script = gemini.ask(SHORTEN.format(have=n, minutes=n / WPM, want=WORDS, script=script, sources=block),
                                 temperature=0.4)["script"].replace("\\n", "\n")
         else:
-            script = gemini.ask(EXTEND.format(have=n, want=WORDS, script=script, sources=block),
-                                temperature=0.5)["script"].replace("\\n", "\n")
+            # added to the story where it ends, not rewritten whole: a whole
+            # rewrite comes back cut at the model's answer length
+            rows = script.splitlines()
+            end = max((i for i, l in enumerate(rows) if not l.startswith("[")
+                       and _section_at(rows, i) == "story"), default=len(rows) - 1)
+            more = gemini.ask(MORE.format(section="story", heading="weitere Fakten und Momente", words=WORDS - n,
+                                          points="was die Quellen noch erzählen", so_far="\n".join(rows[max(0, end - 25):end + 1]),
+                                          sources=block), temperature=0.6)
+            add = [l.strip() for l in more.get("lines", []) if l.strip() and l.strip() not in rows]
+            script = "\n".join(rows[:end + 1] + add + rows[end + 1:])
         log.info("length: %d -> %d words", n, words(script))
     n = words(script)
     if not MIN_WORDS <= n <= MAX_WORDS:
@@ -282,14 +309,23 @@ def write_by_chapters(topic, block):
     out, before, section = [], "(Anfang der Folge)", None
     for c in chapters:
         want = max(50, int(int(c.get("words") or 0) * WORDS / total))
-        lines = []
-        for _ in range(3):
-            ans = gemini.ask(PART.format(title=topic["title"], section=c["section"], heading=c["heading"],
-                                         points="; ".join(c.get("points", [])), words=want,
-                                         before=before, sources=block), temperature=0.6)
-            lines = [l.strip() for l in ans.get("lines", []) if l.strip()]
-            if len(" ".join(lines).split()) >= 0.8 * want:
+        ans = gemini.ask(PART.format(title=topic["title"], section=c["section"], heading=c["heading"],
+                                     points="; ".join(c.get("points", [])), words=want,
+                                     before=before, sources=block), temperature=0.6)
+        lines = [l.strip() for l in ans.get("lines", []) if l.strip()]
+        # a lighter model writes 150-300 words an answer: the chapter is
+        # continued until it reaches its budget
+        for _ in range(5):
+            have = len(" ".join(lines).split())
+            if have >= 0.9 * want:
                 break
+            more = gemini.ask(MORE.format(section=c["section"], heading=c["heading"], words=want - have,
+                                          points="; ".join(c.get("points", [])), so_far="\n".join(lines),
+                                          sources=block), temperature=0.6)
+            add = [l.strip() for l in more.get("lines", []) if l.strip() and l.strip() not in lines]
+            if not add:
+                break
+            lines += add
         if c["section"] != section:
             out.append(f"[section {c['section']}]")
             section = c["section"]
