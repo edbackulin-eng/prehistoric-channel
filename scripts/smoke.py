@@ -170,6 +170,9 @@ def main():
     check("abstract frames are not drawn", pe.abstract("dna_helix_abstract", "glowing DNA strands")
           and pe.abstract("molecular_evolution_chart", "x") and not pe.abstract("ancient_lungfish_swamp",
                                                                               "a prehistoric lungfish swimming"))
+    spx = {"nautilus": {"living": True, "name": "Perlboot (Nautilus pompilius)"}, "mosasaur": {"living": False, "name": "Mosasaurus"}}
+    check("a living animal is never drawn", pe.living_named("nautilus_pinhole_eye", "eye of a nautilus", spx) == "nautilus"
+          and pe.living_named("mosasaur_hunt", "a mosasaur hunting", spx) is None)
     sh = "[section hook]\n> Ein Rätsel.\n< Wer überlebte?\n[section story]\nEin Rätsel.\nDie Geschichte beginnt.\n"
     check("hook is stripped, and its copies with it", we.strip_hook(sh).strip() ==
           "[section story]\nDie Geschichte beginnt.", repr(we.strip_hook(sh)))
