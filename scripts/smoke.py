@@ -166,6 +166,10 @@ def main():
     check("script rules", we.MIN_WORDS == 22 * 128 and we.MAX_WORDS == 27 * 128
           and we.has_hook(we.normalise("[Hook]\n> A.\n[Geschichte]\nB."))
           and not we.has_hook(we.normalise("> A.\n[section story]\nB.")))
+    from core import gemini as gm
+    check("answers read as object or bare list", gm.pick([1, 2], "animals") == [1, 2]
+          and gm.pick({"animals": [3]}, "animals") == [3] and gm.pick({"tiere": [4]}, "animals") == [4]
+          and gm.pick({"x": 1}, "animals") == [])
     from automation import plan_episode as pe
     check("abstract frames are not drawn", pe.abstract("dna_helix_abstract", "glowing DNA strands")
           and pe.abstract("molecular_evolution_chart", "x") and not pe.abstract("ancient_lungfish_swamp",

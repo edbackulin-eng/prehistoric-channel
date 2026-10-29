@@ -83,7 +83,7 @@ def refill(target=20):
     ans = gemini.ask(REFILL.format(n=target - len(waiting) + 3, have=have), temperature=0.8)
     added = 0
     slugs = {t["slug"] for t in q["topics"]}
-    for t in ans.get("topics", []):
+    for t in gemini.pick(ans, "topics"):
         if t["slug"] in slugs or len(waiting) + added >= target:
             continue
         arts = {lang: [a for a in t.get("articles", {}).get(lang, []) if _exists(lang, a)] for lang in ("de", "en")}

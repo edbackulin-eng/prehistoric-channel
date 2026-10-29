@@ -155,9 +155,11 @@ def main(slug):
     ep = ROOT / "episodes" / slug
     script = (ep / "script.txt").read_text(encoding="utf-8")
     lines = delivery.parse(script)
-    animals = gemini.ask(ANIMALS.format(script=delivery.plain_text(script)[:60000]), temperature=0.2)["animals"]
-    species = {a["key"]: {"name": f"{a.get('name_de')} ({a.get('latin')})", "features": a["features"][:5],
-                          "forbidden": a["forbidden"][:5] + ["a modern animal in a prehistoric scene"],
+    animals = gemini.pick(gemini.ask(ANIMALS.format(script=delivery.plain_text(script)[:60000]), temperature=0.2),
+                          "animals")
+    animals = [a for a in animals if isinstance(a, dict) and a.get("key")]
+    species = {a["key"]: {"name": f"{a.get('name_de')} ({a.get('latin')})", "features": (a.get("features") or [])[:5],
+                          "forbidden": (a.get("forbidden") or [])[:5] + ["a modern animal in a prehistoric scene"],
                           "living": bool(a.get("living")), "video_query": a.get("video_query")} for a in animals}
     (ep / "species.json").write_text(json.dumps(species, indent=1, ensure_ascii=False), encoding="utf-8")
     living = {k for k, v in species.items() if v["living"]}
@@ -168,8 +170,9 @@ def main(slug):
     for i0, part in chunks(lines, 40):
         numbered = "\n".join(f"{i0 + j} [{l.section}]: {l.text}" for j, l in enumerate(part))
         ans = gemini.ask(BEATS.format(amb=", ".join(AMB), animals=alist, lines=numbered), temperature=0.3)
-        for row in ans.get("lines", []):
-            planned[int(row["n"])] = row
+        for row in gemini.pick(ans, "lines"):
+            if isinstance(row, dict) and str(row.get("n", "")).isdigit():
+                planned[int(row["n"])] = row
     # ---- the rules, in code
     flux, order = {}, []
     out_lines, footage_json, used = [], {}, set()
@@ -225,7 +228,8 @@ def main(slug):
         numbered = "\n".join(f"{i} [{l.section}]: {l.text}" for i, l in enumerate(lines))
         extra = gemini.ask(EXTINCT.format(need=lo_anim + 2 - len(order), living=", ".join(sorted(living)),
                                           have=", ".join(order) or "nichts", lines=numbered[:60000]),
-                           temperature=0.5).get("frames", [])
+                           temperature=0.5)
+        extra = gemini.pick(extra, "frames")
         by_n = {r["n"]: r for r in out_lines}
         for f in extra:
             fid = re.sub(r"[^a-z0-9_]", "_", str(f.get("id") or "").lower())[:40]
@@ -241,7 +245,8 @@ def main(slug):
 
     # at most flux_frames_max frames: the prompts that come first in the hook and climax win
     meta = json.loads((ep / "meta.json").read_text(encoding="utf-8")) if (ep / "meta.json").exists() else {}
-    thumbs = gemini.ask(THUMBS.format(title=meta.get("title", slug), animals=alist), temperature=0.7)["thumbs"][:3]
+    thumbs = gemini.pick(gemini.ask(THUMBS.format(title=meta.get("title", slug), animals=alist), temperature=0.7),
+                         "thumbs")[:3]
     flux_thumbs = {t["id"]: t["prompt"] for t in thumbs if t.get("base") == "flux" and t.get("prompt")}
     # the thumbnails' FLUX bases (two seeds each) come out of the same 60 frames
     max_prompts = (CFG["motion"]["flux_frames_max"] - 2 * len(flux_thumbs)) // CFG["motion"]["flux_seeds"]

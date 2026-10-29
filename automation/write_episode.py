@@ -205,7 +205,7 @@ def fact_check(script, src_block, rounds=2):
         raw = [l for l in script.splitlines() if l.strip()]
         numbered = "\n".join(f"{i}: {l}" for i, l in enumerate(raw))
         ans = gemini.ask(CHECK.format(lines=numbered, sources=src_block), temperature=0.1)
-        bad = {int(x["n"]): x for x in ans.get("lines", []) if str(x.get("n", "")).isdigit()}
+        bad = {int(x["n"]): x for x in gemini.pick(ans, "lines") if str(x.get("n", "")).isdigit()}
         out = []
         for i, l in enumerate(raw):
             x = bad.get(i)
@@ -293,8 +293,8 @@ def write_hook(script, block, tries=4):
     body = strip_hook(script)
     last = None
     for _ in range(tries):
-        hook = [l.strip() for l in gemini.ask(HOOK.format(script=body[:40000], sources=block),
-                                              temperature=0.7)["hook"] if l.strip()]
+        hook = [l.strip() for l in gemini.pick(gemini.ask(HOOK.format(script=body[:40000], sources=block),
+                                                          temperature=0.7), "hook") if l.strip()]
         v = gemini.ask(HOOK_CHECK.format(hook="\n".join(hook), sources=block), temperature=0.1)
         n = len(" ".join(hook).split())
         last = {"hook": hook, "check": v, "words": n}
@@ -364,7 +364,7 @@ def fit_length(script, block):
             more = gemini.ask(MORE.format(section="story", heading="weitere Fakten und Momente", words=WORDS - n,
                                           points="was die Quellen noch erzählen", so_far="\n".join(rows[max(0, end - 25):end + 1]),
                                           sources=block), temperature=0.6)
-            add = [l.strip() for l in more.get("lines", []) if l.strip() and l.strip() not in rows]
+            add = [l.strip() for l in gemini.pick(more, "lines") if l.strip() and l.strip() not in rows]
             script = "\n".join(rows[:end + 1] + add + rows[end + 1:])
         log.info("length: %d -> %d words", n, words(script))
     n = words(script)
@@ -378,7 +378,7 @@ def write_by_chapters(topic, block):
     came out 463 words long when the model fell back (29.10)."""
     plan = gemini.ask(OUTLINE.format(title=topic["title"], focus=topic["focus"], words=WORDS,
                                      minutes=CFG["length_min"], sources=block), temperature=0.5)
-    chapters = plan["chapters"]
+    chapters = gemini.pick(plan, "chapters")
     total = sum(int(c.get("words") or 0) for c in chapters) or WORDS
     out, before, section = [], "(Anfang der Folge)", None
     for c in chapters:
@@ -386,7 +386,7 @@ def write_by_chapters(topic, block):
         ans = gemini.ask(PART.format(title=topic["title"], section=c["section"], heading=c["heading"],
                                      points="; ".join(c.get("points", [])), words=want,
                                      before=before, sources=block), temperature=0.6)
-        lines = [l.strip() for l in ans.get("lines", []) if l.strip()]
+        lines = [l.strip() for l in gemini.pick(ans, "lines") if l.strip()]
         # a lighter model writes 150-300 words an answer: the chapter is
         # continued until it reaches its budget
         for _ in range(5):
@@ -396,7 +396,7 @@ def write_by_chapters(topic, block):
             more = gemini.ask(MORE.format(section=c["section"], heading=c["heading"], words=want - have,
                                           points="; ".join(c.get("points", [])), so_far="\n".join(lines),
                                           sources=block), temperature=0.6)
-            add = [l.strip() for l in more.get("lines", []) if l.strip() and l.strip() not in lines]
+            add = [l.strip() for l in gemini.pick(more, "lines") if l.strip() and l.strip() not in lines]
             if not add:
                 break
             lines += add

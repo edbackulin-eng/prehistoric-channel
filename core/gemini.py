@@ -79,3 +79,16 @@ def ask(prompt, images=(), models=TEXT_MODELS, json_out=True, temperature=0.4, m
                 last = f"{m}: {type(e).__name__}: {str(e)[:200]}"
                 time.sleep(5 * (attempt + 1))
     raise RuntimeError(f"Gemini gave no answer: {last}")
+
+
+def pick(ans, key):
+    """A list field of an answer. A lighter model sometimes answers with the bare
+    list instead of {key: [...]} (29.10, the animals of a plan): both are read."""
+    if isinstance(ans, list):
+        return ans
+    if isinstance(ans, dict):
+        v = ans.get(key)
+        if v is None and len(ans) == 1 and isinstance(next(iter(ans.values())), list):
+            v = next(iter(ans.values()))
+        return v or []
+    return []
