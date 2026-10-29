@@ -1,7 +1,7 @@
 {
- "version": 4,
+ "version": 5,
  "lines": 133,
- "species": 5,
+ "species": 7,
  "living": [
   "coelacanth",
   "horseshoe_crab",
@@ -9,18 +9,19 @@
   "nautilus",
   "tuatara"
  ],
- "flux_prompts": 6,
- "flux_frames": 12,
+ "flux_prompts": 11,
+ "flux_frames": 22,
  "animate": [
-  "cretaceous_paleogene_extinction_event",
-  "ancient_ocean_life",
+  "ammonite_diversity_ocean",
+  "ancient_cretaceous_sea",
+  "mesozoic_extinction_sea",
   "ordovician_sea_floor",
-  "mesozoic_nautiloids_ocean",
-  "devastated_primeval_landscape",
-  "ancient_fern_forest_storm"
+  "ordovician_seabed",
+  "mesozoic_ammonites",
+  "extinct_ammonites_seabed",
+  "mesozoic_ocean",
+  "trilobite_seabed_history"
  ],
- "video_beats": 140,
- "lines_without_picture": [
-  93
- ]
+ "video_beats": 125,
+ "lines_without_picture": []
 }

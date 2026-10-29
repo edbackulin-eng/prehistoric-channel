@@ -4,24 +4,24 @@
   "hook": "scale",
   "animal": "coelacanth",
   "base": "photo",
-  "query": "Latimeria chalumnae coelacanth deep sea underwater close up royal blue white spots",
+  "query": "Coelacanth underwater glowing blue close up head",
   "words": [
-   "Dinosaurier",
-   "überlebt",
-   "heute"
+   "Uralter",
+   "Fisch",
+   "überlebt"
   ],
-  "accent": 1
+  "accent": 0
  },
  {
   "id": "thumb_b",
   "hook": "split",
-  "animal": "tuatara",
+  "animal": "ammonite",
   "base": "flux",
-  "prompt": "Extreme close-up of a Tuatara head and eye, vibrant emerald green and olive skin, distinct parietal eye on top of head, dramatic cinematic lighting, neon blue backlight, ultra-detailed, dark background with lots of negative space on the left",
-  "fossil_query": "Sphenodon fossil skull diapsid reptile rock matrix",
+  "prompt": "Macro shot of a prehistoric ammonite head and glowing chambered shell, vibrant iridescent colors, dramatic neon lighting, dark background, lots of negative space on the left, photorealistic, 8k",
+  "fossil_query": "Ammonite fossil close up macro",
   "words": [
    "Das",
-   "wahre",
+   "perfekte",
    "Fossil"
   ],
   "accent": 2
@@ -29,14 +29,14 @@
  {
   "id": "thumb_c",
   "hook": "silhouette",
-  "animal": "horseshoe_crab",
+  "animal": "tuatara",
   "base": "photo",
-  "query": "Limulus polyphemus horseshoe crab underwater close up hard carapace compound eyes",
+  "query": "Tuatara lizard head close up glowing skin texture",
   "words": [
-   "Älter",
-   "als",
-   "Dinos"
+   "Drittes",
+   "Auge",
+   "aktiv"
   ],
-  "accent": 0
+  "accent": 1
  }
 ]

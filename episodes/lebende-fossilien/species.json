@@ -2,96 +2,128 @@
  "coelacanth": {
   "name": "Quastenflosser (Latimeria)",
   "features": [
-   "steel-blue to royal blue coloration with white spots",
+   "steel-blue to royal-blue coloration",
    "lobe-finned limbs moving in a diagonal pattern",
-   "intracranial joint allowing the upper jaw to lift",
-   "rostral organ at the snout tip for electroreception",
-   "three-lobed tail fin with a central fleshy fringe"
+   "intracranial joint in the skull",
+   "rostral organ at the snout tip",
+   "three-lobed tail fin"
   ],
   "forbidden": [
    "feathers",
    "mammalian fur",
    "dinosaur neck",
-   "bird beak",
+   "regular fish fins without fleshy lobes",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "coelacanth swimming underwater ocean cave"
+  "video_query": "coelacanth underwater swimming ocean"
  },
  "lungfish": {
   "name": "Lungenfisch (Dipnoi)",
   "features": [
-   "elongated eel-like body shape",
-   "long thread-like pectoral and pelvic fins",
-   "continuous dorsal, caudal, and anal fin",
-   "small embedded scales",
-   "powerful crushing tooth plates"
+   "elongated eel-like body",
+   "thread-like pectoral and pelvic fins",
+   "continuous dorsal and caudal fin",
+   "heavy crushing tooth plates"
   ],
   "forbidden": [
-   "shell",
-   "segmented exoskeleton",
+   "visible external legs",
    "feathers",
-   "claws",
+   "mammalian fur",
+   "shell",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "lungfish swimming underwater freshwater"
+  "video_query": "lungfish underwater freshwater"
  },
  "horseshoe_crab": {
-  "name": "Pfeilschwanzkrebs (Xiphosura)",
+  "name": "Pfeilschwanzkrebs (Limulidae)",
   "features": [
-   "horseshoe-shaped carapace prosoma",
-   "long flexible tail spike telson",
-   "compound eyes on the sides of the head",
+   "horseshoe-shaped carapace (prosoma)",
+   "long rigid tail spine (telson)",
+   "compound eyes on the sides",
    "five pairs of walking legs underneath",
-   "hard uncalcated dorsal cuticle"
+   "blue blood"
   ],
   "forbidden": [
-   "soft worm body",
+   "soft segmented body like a caterpillar",
    "vertebral backbone",
-   "fur",
+   "tentacles",
    "feathers",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "horseshoe crab walking on sandy ocean floor"
+  "video_query": "horseshoe crab underwater ocean floor"
+ },
+ "trilobite": {
+  "name": "Trilobit (Trilobita)",
+  "features": [
+   "three-lobed body division",
+   "distinct cephalon, thorax, and pygidium",
+   "calcified exoskeleton",
+   "pair of antennae on head"
+  ],
+  "forbidden": [
+   "long tail spine like a horseshoe crab",
+   "tentacles",
+   "feathers",
+   "mammalian fur",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": false,
+  "video_query": null
  },
  "nautilus": {
   "name": "Perlboot (Nautilus)",
   "features": [
    "spiral-shaped chambered shell",
    "numerous tentacles without suckers",
-   "pinhole camera eyes without lenses",
-   "hood-like muscular head structure",
-   "siphuncle tube running through shell chambers"
+   "pinhole eyes without lenses",
+   "hood-like structure to cover shell opening"
   ],
   "forbidden": [
-   "ten arms like modern squids",
-   "lens eyes",
-   "internal backbone",
+   "internal cuttlebone",
+   "ten or eight arms with suction cups",
+   "large vertebrate eyes with lenses",
    "feathers",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "nautilus swimming in deep ocean water"
+  "video_query": "nautilus swimming underwater deep ocean"
+ },
+ "ammonite": {
+  "name": "Ammonit (Ammonoidea)",
+  "features": [
+   "tightly coiled flat shell with complex suture lines",
+   "external shell with ribs or tubercles",
+   "cephalopod body plan"
+  ],
+  "forbidden": [
+   "simple internal shell",
+   "vertebrate backbone",
+   "legs for walking on land",
+   "feathers",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": false,
+  "video_query": null
  },
  "tuatara": {
   "name": "Brückenechse (Sphenodon punctatus)",
   "features": [
-   "diapsid skull with two temporal arches",
-   "distinct parietal eye on top of the head",
-   "crest of spiky scales along the back and tail",
-   "lizard-like robust body structure",
-   "olive-green to brownish skin with yellowish spots"
+   "diapsid skull with two temporal bars",
+   "parietal eye (third eye) on top of head",
+   "crest of spiky scales along the back",
+   "lizard-like body shape without external ear openings"
   ],
   "forbidden": [
    "feathers",
-   "wings",
-   "carapace shell",
-   "long snake-like body without legs",
+   "mammalian fur",
+   "smooth moist amphibian skin",
+   "long turtle shell",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "tuatara lizard New Zealand close up"
+  "video_query": "tuatara new zealand lizard reptile"
  }
 }
