@@ -47,6 +47,10 @@ URL = "https://generativelanguage.googleapis.com/v1beta/models/{m}:generateConte
 WANT_PASSING = 2          # enough for a line long enough to need a second shot
 _SPENT = set()            # models out of quota for the rest of this run
 
+SCENE = {"name": "a prehistoric scene (no particular animal asked for)", "features": [],
+         "forbidden": ["a modern animal (bird, mammal, modern fish) in a prehistoric scene", "people",
+                       "buildings, roads or vehicles"]}
+
 SPECIES = {
     "crocodile": {
         "name": "a crocodilian (crocodile, alligator or caiman)",
@@ -125,6 +129,7 @@ Look at the image(s) - {what} - and answer with JSON only:
  "off_topic_objects": [<objects that do not belong under this line: candles, books (unless books are spoken of), people, text, logos, watermarks, modern objects, buildings, vehicles>],
  "people": true|false,
  "text_or_logo": true|false,
+ "museum_display": true|false,   // a preserved specimen, taxidermy, a model or a museum display case
  "note": "<a few words>"}}
 For every feature answer "yes" (clearly seen), "no" (seen to be different) or "not visible".
 species_match is null when no species is asked for."""
@@ -255,23 +260,40 @@ def _frames(cid, src, work):
     return select.frames(path, src.get("duration") or 12, work / "frames", cid.replace("/", "_"))
 
 
-def check(slug, layers, out_dir, timeline=None):
-    """Writes species_picks.json and species_check.json into out_dir; returns the picks."""
+def check(slug, layers, out_dir, timeline=None, kinds=None):
+    """Writes species_picks.json and species_check.json into out_dir; returns the picks.
+    kinds: only these beat kinds (the FLUX frames are checked on their own
+    before animation). Verdicts already given for a picture
+    (episodes/<slug>/species_verdicts.json) are reused, not asked again."""
     ep = ROOT / "episodes" / slug
     spec = json.loads((ep / "shots.json").read_text(encoding="utf-8"))["lines"]
     footage = json.loads((ep / "footage.json").read_text(encoding="utf-8"))
+    # the episode's own checklists, written with its plan (automation/plan_episode.py)
+    sp_path = ep / "species.json"
+    if sp_path.exists():
+        SPECIES.update({k: v for k, v in json.loads(sp_path.read_text(encoding="utf-8")).items()
+                        if k not in SPECIES})
+    SPECIES["prehistoric_scene"] = SCENE
     layers, out_dir = Path(layers), Path(out_dir)
     key = _key()
-    picks, logrows = {}, []
+    picks, logrows, seen, museum = {}, [], {}, []
+    vpath = ep / "species_verdicts.json"
+    known = json.loads(vpath.read_text(encoding="utf-8")) if vpath.exists() else {}
     for entry in spec:
         line = entry["at"]
         if timeline:
-            line = next((l["text"] for l in timeline if l["text"].startswith(entry["at"])), line)
+            n = entry.get("n")
+            line = (timeline[n]["text"] if n is not None and n < len(timeline) else
+                    next((l["text"] for l in timeline if l["text"].startswith(entry["at"])), line))
         for beat in entry["beats"]:
-            if beat["kind"] == "anim":
+            if beat["kind"] == "anim" or (kinds and beat["kind"] not in kinds):
                 continue
             bk = beat_key(beat)
+            if bk in picks:                          # the same frame or clip planned again later
+                continue
             species, archive = beat.get("species"), bool(beat.get("archive"))
+            if beat["kind"] == "recon" and species not in SPECIES:
+                species = "prehistoric_scene"       # no modern animals in a prehistoric scene
             row = {"beat": bk, "kind": beat["kind"], "line": line, "species": species, "candidates": []}
             passing = []
             tried = set()
@@ -293,10 +315,14 @@ def check(slug, layers, out_dir, timeline=None):
                     continue
                 what = "three frames from the start, middle and end of one video clip" if kind == "real" \
                     else "one still image"
-                v = ask(key, fr, line, species, beat.get("topic"), archive, what)
+                v = known[cid] if cid in known else ask(key, fr, line, species, beat.get("topic"), archive, what)
+                if "error" not in v:
+                    known[cid] = v
                 ok, why = passes(v, species, archive, beat.get("allow", ()))
                 if ok is None:                       # the checker failed, not the picture: keep it
                     ok, why = True, f"unchecked ({why})"
+                if ok and v.get("museum_display"):
+                    museum.append(cid)
                 row["candidates"].append({"id": cid, "pass": ok, "why": why, "answer": v, "source": label,
                                           "frame": str(fr[len(fr) // 2])})
                 log.info("%-22s %-34s %s %s", bk, cid, "PASS" if ok else "fail", why)
@@ -308,6 +334,8 @@ def check(slug, layers, out_dir, timeline=None):
             row["action"] = ("kept" if passing and passing[0] == candidates(beat, footage, layers)[0][0]
                              else "replaced by an alternate" if passing else "scene dropped")
             logrows.append(row)
+    picks["_museum"] = museum                   # docplan shows at most three of these
+    vpath.write_text(json.dumps(known, indent=1, ensure_ascii=False), encoding="utf-8")
     out_dir.mkdir(parents=True, exist_ok=True)
     (out_dir / "species_picks.json").write_text(json.dumps(picks, indent=1), encoding="utf-8")
     summary = {"checked_with": MODELS[0] if key else None,

@@ -84,11 +84,21 @@ def _xy(lon, lat, w, h):
     return (lon + 180) / 360 * w, (90 - lat) / 180 * h
 
 
+def _auto_view(pl):
+    lons, lats = [p["lon"] for p in pl], [p["lat"] for p in pl]
+    cx, cy = (min(lons) + max(lons)) / 2, (min(lats) + max(lats)) / 2
+    wd = max(24.0, (max(lons) - min(lons)) * 1.8, (max(lats) - min(lats)) * 1.8 * 16 / 9)
+    return [(cx, cy, min(300.0, wd * 2.4)), (cx, cy, min(260.0, wd))]
+
+
 def map_frames(places, seconds, out_w=3840, out_h=2160, fps=30, caption=None):
     base = _blue_marble()
     bh, bw = base.shape[:2]
-    key = tuple(places)
-    view = VIEWS.get(key) or PLACES[places[0]]["view"]
+    # a place is a key of PLACES or, from the shot planner, its own dict
+    # {"name", "sub", "lat", "lon"}; a view is then framed around the places
+    pl = [p if isinstance(p, dict) else PLACES[p] for p in places]
+    keyed = all(isinstance(p, str) for p in places)
+    view = (VIEWS.get(tuple(places)) if keyed else None) or pl[0].get("view") or _auto_view(pl)
     (lon0, lat0, wd0), (lon1, lat1, wd1) = view
     # crop the region the whole move covers, once, and grade it
     pad = 1.15
@@ -142,8 +152,7 @@ def map_frames(places, seconds, out_w=3840, out_h=2160, fps=30, caption=None):
         im = Image.fromarray(frame)
         over = Image.new("RGBA", im.size, (0, 0, 0, 0))
         d = ImageDraw.Draw(over)
-        for pi, pk in enumerate(places):
-            p = PLACES[pk]
+        for pi, p in enumerate(pl):
             appear = 0.6 + pi * 1.6
             tt = k / fps - appear
             if tt < 0:
@@ -169,8 +178,8 @@ def map_frames(places, seconds, out_w=3840, out_h=2160, fps=30, caption=None):
             tracked(d, (lx, ly + 100 * s), p["sub"], f_sub, (225, 230, 235, int(230 * a)), 0.06)
         if len(places) > 1:                                         # a route between the places
             pts = []
-            for pk in places:
-                px, py = _xy(PLACES[pk]["lon"], PLACES[pk]["lat"], bw, bh)
+            for p in pl:
+                px, py = _xy(p["lon"], p["lat"], bw, bh)
                 pts.append(m @ np.array([(px - xa) * dens, (py - ya) * dens, 1.0]))
             prog = min(1.0, max(0.0, (k / fps - 1.4) / 1.6))
             if prog > 0:

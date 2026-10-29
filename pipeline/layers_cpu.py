@@ -4,8 +4,12 @@ Kaggle's GPU makes only the FLUX frames (gpu/kernels/recon_job.py, flux-only).
 Everything else that turns a frame or a real photograph into a shot runs here,
 spread over a matrix of runners (.github/workflows/render.yml, job "layers"):
 
-  1. Real-ESRGAN x4plus      upscale to the 4224x2376 working frame
-                             (photos already that large are only resized);
+  1. Real-ESRGAN, compact     realesr-general-x4v3 (SRVGGNetCompact, BSD-3):
+                             upscale to the 4224x2376 working frame (photos
+                             already that large are only resized). x4plus took
+                             295 s a frame on a runner (28.10); the compact
+                             model does the same job in a fraction of it. LTX
+                             clips are upscaled frame by frame the same way;
   2. Depth Anything V2 Small depth, kept for the background layers;
   3. BiRefNet + IS-Net        the subject's mask; both must agree (IoU >= 0.5)
                              and the mask must pass the checks below, or the
@@ -35,8 +39,8 @@ SW, SH = 1408, 792                  # working scale for depth, mask and fill
 DILATE = 22                         # at SW: covers the largest parallax offset
 UA = {"User-Agent": "prehistoric-channel/0.1 (research)"}
 WEIGHTS = {
-    "esrgan": ("https://github.com/xinntao/Real-ESRGAN/releases/download/v0.1.0/RealESRGAN_x4plus.pth",
-               "RealESRGAN_x4plus.pth"),
+    "esrgan": ("https://github.com/xinntao/Real-ESRGAN/releases/download/v0.2.5.0/realesr-general-x4v3.pth",
+               "realesr-general-x4v3.pth"),
     "lama": ("https://github.com/enesmsahin/simple-lama-inpainting/releases/download/v0.1.0/big-lama.pt",
              "big-lama.pt"),
 }
@@ -152,6 +156,29 @@ def lama_fill(small, hole):
         return _M["lama"](x, m)[0].clamp(0, 1).permute(1, 2, 0).numpy()
 
 
+def clip(fid, src, clip_dir):
+    """An LTX-Video clip (768x448) upscaled frame by frame to 3072x1792; the
+    render scales it to the frame. Returns its timing."""
+    import subprocess
+    import tempfile
+    t0 = time.perf_counter()
+    tmp = Path(tempfile.mkdtemp())
+    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", str(src), str(tmp / "f%04d.png")],
+                   check=True)
+    frames = sorted(tmp.glob("f*.png"))
+    for f in frames:
+        upscale(Image.open(f).convert("RGB")).save(f)
+    out = clip_dir / f"{fid}.mp4"
+    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-framerate", "24", "-i",
+                    str(tmp / "f%04d.png"), "-c:v", "libx264", "-preset", "medium", "-crf", "15",
+                    "-pix_fmt", "yuv420p", str(out)], check=True)
+    for f in frames:
+        f.unlink()
+    s_ = round(time.perf_counter() - t0, 1)
+    return {"id": fid, "clip": True, "frames": len(frames), "upscale_s": s_,
+            "s_per_frame": round(s_ / max(1, len(frames)), 2), "total_s": s_}
+
+
 def frame(fid, src, up_dir, lay_dir, is_photo):
     """One frame or photo, all four stages. Returns its timings and mask info."""
     t = {}
@@ -213,6 +240,8 @@ def items(slug, raw_dir):
     spec = json.loads((ROOT / "episodes" / slug / "recon.json").read_text(encoding="utf-8"))
     out = [(p.stem, p, False) for p in sorted(Path(raw_dir).glob("*.jpg")) if not p.stem.startswith("thumb_")]
     out += [(pid, ph["url"], True) for pid, ph in spec.get("photos", {}).items()]
+    clips = ROOT / "gpu" / "results_animate" / "clips"
+    out += [(p.stem, p, "clip") for p in sorted(clips.glob("*.mp4"))] if clips.exists() else []
     return out
 
 
@@ -243,14 +272,19 @@ def main(slug, shard, shards, raw_dir=None):
             if p.exists():
                 Image.open(p).convert("RGB").resize((1360, 768), Image.LANCZOS).save(raw_dir / f"{i}.jpg", quality=97)
     out = ROOT / "work" / slug / "layers_cpu"
-    up, lay, tmp = out / "up", out / "layers", out / "photos"
-    for d in (up, lay, tmp):
+    up, lay, tmp, cl = out / "up", out / "layers", out / "photos", out / "clips"
+    for d in (up, lay, tmp, cl):
         d.mkdir(parents=True, exist_ok=True)
     mine = [x for i, x in enumerate(items(slug, raw_dir)) if i % shards == shard]
     rep = {"shard": shard, "shards": shards, "cpus": os.cpu_count(), "frames": [], "errors": []}
     t0 = time.perf_counter()
     for fid, src, is_photo in mine:
         try:
+            if is_photo == "clip":
+                r = clip(fid, Path(src), cl)
+                rep["frames"].append(r)
+                print(json.dumps(r), flush=True)
+                continue
             if is_photo:
                 src = fetch_photo(src, tmp / f"{fid}.jpg")
             r = frame(fid, Path(src), up, lay, is_photo)
@@ -271,7 +305,8 @@ def merge_reports(slug):
     """One report for the plan and the forecast: per-frame CPU time on a runner."""
     out = ROOT / "work" / slug / "layers_cpu"
     reps = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(out.glob("report_*.json"))]
-    frames = [f for r in reps for f in r["frames"]]
+    clips = [f for r in reps for f in r["frames"] if f.get("clip")]
+    frames = [f for r in reps for f in r["frames"] if not f.get("clip")]
     gen = [f for f in frames if not f["photo"]]
 
     def mean(rows, k):
@@ -282,6 +317,9 @@ def merge_reports(slug):
                "per_flux_frame_s": {k: mean(gen, k) for k in ("esrgan_s", "depth_s", "segment_s", "lama_s", "total_s")},
                "per_frame_all_s": {k: mean(frames, k) for k in ("esrgan_s", "depth_s", "segment_s", "lama_s", "total_s")},
                "slowest_shard_wall_s": max((r["wall_s"] for r in reps), default=None),
+               "clips": len(clips), "clip_upscale_s_per_frame": round(sum(c["s_per_frame"] for c in clips) /
+                                                                    len(clips), 2) if clips else None,
+               "clip_upscale_s_per_clip": round(sum(c["total_s"] for c in clips) / len(clips), 1) if clips else None,
                "layers": frames}
     return summary
 

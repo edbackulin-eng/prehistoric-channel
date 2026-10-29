@@ -1,40 +1,42 @@
 name: render
 
 # Render an episode on GitHub's machines. Kaggle's GPU has made the FLUX frames
-# and nothing else; here, in parallel: a matrix of CPU jobs turns every frame
-# and photograph into its 2.5D layers (Real-ESRGAN, depth, masks, LaMa -
-# pipeline/layers_cpu.py) while one job narrates with Piper. Then one job
-# prepares the inputs (species check, plan), one job per part renders its
-# stretch of picture, and a last job joins the parts with -c copy, mixes the
-# sound and muxes. Started by hand only: this channel uploads nothing.
+# and the LTX-Video clips and nothing else (episode.yml); here, in parallel: a
+# matrix of CPU jobs upscales every frame and clip and turns frames and photos
+# into their 2.5D layers (pipeline/layers_cpu.py) while one job narrates with
+# Piper. Then one job prepares the inputs (species check, plan), one job per
+# part renders its stretch of picture, and a last job joins the parts with
+# -c copy, mixes the sound, makes the thumbnails and the credits, and releases
+# the episode: uploaded on the nearest free slot, or into the buffer.
 on:
   workflow_dispatch:
     inputs:
       slug:
         description: episode
-        default: living-fossils
+        default: lebende-fossilien
       res:
         description: 2160p or 1440p
         default: 2160p
       parts:
         description: parts rendered in parallel
-        default: "6"
-      samples:
-        description: also make the three German 40-second voice samples (A, B, C)
-        default: "true"
-      gpu_source:
-        description: where the FLUX frames and voice lines are (kaggle; modal is no longer used)
-        default: kaggle
+        default: "20"
       layer_jobs:
-        description: CPU jobs for the 2.5D layers, in parallel
-        default: "8"
+        description: CPU jobs for upscaling and the 2.5D layers, in parallel
+        default: "12"
+      gpu_run:
+        description: the episode.yml run whose GPU results (FLUX frames, LTX clips) to use
+        default: ""
       layers_run:
         description: reuse the layers and narration of this earlier render run (its id), instead of making them again
         default: ""
+      release:
+        description: upload (or buffer) the finished episode
+        default: "false"
 
 permissions:
-  contents: read
+  contents: write
   actions: write
+  issues: write
 
 concurrency:
   group: render-${{ inputs.slug }}-${{ inputs.res }}
@@ -85,8 +87,17 @@ jobs:
             ~/.u2net
             assets/models/layers
           key: layers-models-v1
-      - name: The FLUX frames from Kaggle
-        run: python gpu/kaggle_once.py fetch recon
+      - name: The FLUX frames and LTX clips (from the episode run)
+        if: inputs.gpu_run != ''
+        uses: actions/download-artifact@v5
+        with:
+          name: gpu-${{ inputs.slug }}
+          path: gpu/
+          run-id: ${{ inputs.gpu_run }}
+          github-token: ${{ github.token }}
+      - name: The FLUX frames from Kaggle (no episode run given)
+        if: inputs.gpu_run == ''
+        run: python gpu/kaggle_once.py fetch recon animate
       - name: 2.5D layers, shard ${{ matrix.k }} of ${{ inputs.layer_jobs }}
         run: python -m pipeline.layers_cpu "$SLUG" ${{ matrix.k }} ${{ inputs.layer_jobs }}
       - uses: actions/upload-artifact@v5
@@ -100,7 +111,7 @@ jobs:
   narration:
     if: inputs.layers_run == ''
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    timeout-minutes: 150
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -148,9 +159,17 @@ jobs:
           { echo "MODAL_TOKEN_ID=$id"; echo "MODAL_TOKEN_SECRET=$sec"; } >> "$GITHUB_ENV"
       - name: Models, music, atmosphere, maps
         run: python automation/fetch_assets.py
-      - name: The FLUX report and the voice lines from Kaggle
-        if: inputs.gpu_source == 'kaggle'
-        run: python gpu/kaggle_once.py fetch recon voice
+      - name: The FLUX report and thumbnail bases (from the episode run)
+        if: inputs.gpu_run != ''
+        uses: actions/download-artifact@v5
+        with:
+          name: gpu-${{ inputs.slug }}
+          path: gpu/
+          run-id: ${{ inputs.gpu_run }}
+          github-token: ${{ github.token }}
+      - name: The FLUX report from Kaggle (no episode run given)
+        if: inputs.gpu_run == ''
+        run: python gpu/kaggle_once.py fetch recon
       - uses: actions/download-artifact@v5
         with:
           pattern: layers-*
@@ -242,49 +261,58 @@ jobs:
           path: work/${{ inputs.slug }}/parts_${{ inputs.res }}/
       - name: Join, sound, mux
         run: python automation/build_doc.py merge "$SLUG" --res "$RES"
-      - name: Voice samples
-        if: inputs.samples == 'true'
-        run: python automation/build_doc.py samples "$SLUG" --res "$RES"
-      - name: Thumbnails and credits
-        if: inputs.res == '2160p'
+      - name: Thumbnails (three variants, Gemini picks) and credits
         run: |
-          python automation/make_thumbs.py "$SLUG" || echo "a thumbnail failed its readability check (see report)"
+          pip install -q rembg onnxruntime
+          python automation/make_thumbs.py "$SLUG" || echo "::warning::no readable thumbnail"
           python automation/credits.py "$SLUG"
       - name: Render time and the 25-minute forecast
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python automation/forecast.py "$SLUG" "$RES" "${{ github.run_id }}"
-      - name: A 1440p version for comparison, if 4K would take over an hour at 25 minutes
-        if: inputs.res == '2160p'
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          if [ "$(cat work/$SLUG/forecast_over_hour.txt)" = "yes" ]; then
-            gh workflow run render.yml -R "${{ github.repository }}" -f slug="$SLUG" -f res=1440p -f samples=false \
-              -f gpu_source="${{ inputs.gpu_source }}" -f layer_jobs="${{ inputs.layer_jobs }}"
-          fi
+        run: python automation/forecast.py "$SLUG" "$RES" "${{ github.run_id }}" || true
       - name: Checks
         run: |
-          f="work/$SLUG/video_$RES.mp4"
+          f="work/$SLUG/release/video.mp4"
           ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate:format=duration,size,bit_rate -of compact "$f"
           ffmpeg -hide_banner -nostats -i "$f" -af ebur128=peak=true -f null - 2>&1 | tail -12
-          ffmpeg -hide_banner -loglevel error -y -i "$f" -vf "fps=1/6,scale=480:-2,tile=6x6" -frames:v 1 "work/$SLUG/contact_$RES.jpg"
+          ffmpeg -hide_banner -loglevel error -y -i "$f" -vf "fps=1/30,scale=480:-2,tile=8x7" -frames:v 1 "work/$SLUG/release/contact.jpg"
       - uses: actions/upload-artifact@v5
         with:
-          name: video-${{ inputs.res }}
-          retention-days: 5
+          name: release-${{ inputs.slug }}
+          retention-days: 90
           compression-level: 0
+          path: work/${{ inputs.slug }}/release/
+      - uses: actions/upload-artifact@v5
+        with:
+          name: reports-${{ inputs.slug }}
+          retention-days: 30
           path: |
-            work/${{ inputs.slug }}/video_${{ inputs.res }}.mp4
             work/${{ inputs.slug }}/report_${{ inputs.res }}.json
-            work/${{ inputs.slug }}/contact_${{ inputs.res }}.jpg
             work/${{ inputs.slug }}/plan.json
-            work/${{ inputs.slug }}/samples_report.json
             work/${{ inputs.slug }}/timing_${{ inputs.res }}.json
             work/${{ inputs.slug }}/inputs/kaggle_recon_report.json
             work/${{ inputs.slug }}/inputs/mask_check.json
-            work/${{ inputs.slug }}/inputs/species_check.json
-            work/${{ inputs.slug }}/inputs/cpu_layers_report.json
             work/${{ inputs.slug }}/inputs/species_picks.json
-            work/${{ inputs.slug }}/inputs/subtitles_de.srt
-            test/
+      - name: Release - upload on the nearest free slot, or keep in the buffer
+        if: inputs.release == 'true'
+        env:
+          YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          pip install -q google-api-python-client google-auth
+          python automation/release.py record "$SLUG" "${{ github.run_id }}"
+          python automation/topics.py --done "$SLUG"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/episodes.json topics/queue.json episodes/$SLUG/uploaded.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Released $SLUG (render ${{ github.run_id }})"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
+          exit 1
+      - name: Email on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          n=$(gh issue list -R ${{ github.repository }} --label run-log --state open --json number --jq '.[0].number // empty')
+          [ -n "$n" ] && gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} **render failed** ($SLUG): ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

@@ -1,0 +1,51 @@
+{
+ "_note": "The rules every episode of the German prehistoric channel is built to. Code reads them from here (core/channel.py); changing a rule is a reviewed change to this file, through dev -> smoke -> main.",
+ "language": "de-DE",
+ "length_min": 25,
+ "voice": {"engine": "piper", "model": "de_DE-thorsten-high", "device": "cpu", "target_wpm": 128},
+ "structure": {
+  "sections": ["hook", "story", "climax", "finale"],
+  "hook_s": 30,
+  "hook_shot_s": [1.5, 3.0],
+  "hook_moving_only": true,
+  "first_minute_moving_share": 0.70,
+  "hook_sound_hit": true
+ },
+ "motion": {
+  "living_species": "real video only (Wikimedia Commons, NOAA, Pixabay video; PD, CC0 or CC BY; credited in the description)",
+  "extinct_species": "FLUX frames; the best of them animated with LTX-Video image-to-video on Kaggle",
+  "flux_frames_max": 60,
+  "flux_seeds": 2,
+  "animated_per_episode": [8, 10],
+  "upscaler": "realesr-general-x4v3 (compact, CPU)"
+ },
+ "species_check": {
+  "model": "gemini-flash-latest",
+  "key_env": "GEMINI_API_KEY_PH",
+  "allow": ["scientific equipment", "research camera", "bait", "submersible", "archival photograph"],
+  "reject": ["modern animals in a prehistoric scene"],
+  "museum_shots_max": 3
+ },
+ "music": {
+  "library": "assets/music/library.json",
+  "moods": {"hook": "tension", "story": "mystery", "climax": "epic", "finale": "calm"},
+  "under_voice_db": 22,
+  "under_voice_range_db": [20, 24],
+  "crossfade_s": 3.0
+ },
+ "loudness": {"integrated_lufs": -14.0, "true_peak_dbtp": -1.0},
+ "thumbnail": {
+  "variants": 3,
+  "words": [2, 3],
+  "empty_corner": {"right": 0.25, "bottom": 0.20},
+  "check_size": [336, 189],
+  "hooks": ["scale", "split", "silhouette"],
+  "chooser": "gemini-flash-latest"
+ },
+ "schedule": {"weekdays": ["Wed", "Sat"], "time": "17:00", "tz": "Europe/Berlin",
+              "privacy": "private", "contains_synthetic_media": true, "subtitles": "de"},
+ "buffer": 2,
+ "render": {"res": "2160p", "parts": 24, "layer_jobs": 12, "video_kbps": 40000},
+ "gpu": {"source": "kaggle", "account_week_h": 27.5,
+         "never": ["Closed Tabs window 20:00-04:00 UTC", "What If build days Mon/Tue/Thu/Fri/Sat before 17:30 UTC"]}
+}

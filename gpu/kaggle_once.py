@@ -1,8 +1,8 @@
 """One-off: this episode's GPU work on Kaggle, in What If's and Closed Tabs' free hours.
 
     python gpu/kaggle_once.py recon living-fossils
-    python gpu/kaggle_once.py voice living-fossils
-    python gpu/kaggle_once.py fetch [recon|voice]    # outputs only, for the render
+    python gpu/kaggle_once.py animate <slug>
+    python gpu/kaggle_once.py fetch [recon|animate]  # outputs only, for the render
 
 The channel's GPU home is Modal (gpu/modal_app.py); this exists because Modal
 runs no GPU without a card, and the test should not wait for one. It uses the
@@ -43,13 +43,14 @@ sys.path.insert(0, str(ROOT / "gpu" / "kernels"))
 sys.path.insert(0, str(ROOT))
 OTHERS = ("whatif", "closedtabs")
 CT_RAW = "https://raw.githubusercontent.com/edbackulin-eng/closed-tabs/main/kaggle/"
-JOB_HOURS = {"recon": 0.75, "voice": 0.5}     # recon is re-estimated from its frame count in main()
+JOB_HOURS = {"recon": 0.75, "animate": 1.2}     # recon is re-estimated from its frame count in main()
 ACCOUNT_LIMIT_H = 27.5                        # the whole Kaggle week this channel may run into
 FLUX_S_PER_FRAME = 33.0                       # measured on a T4, 28.10 (4-bit, 4 steps, 1360x768)
 FLUX_OVERHEAD_H = 0.12                        # install, weights, warm-up
 MAX_FLUX_FRAMES = 60                          # per episode: the GPU budget is planned on this
 LEDGER = ROOT / "state" / "gpu_ledger.json"
-SLUGS = {"recon": "prehistoric-recon", "voice": "prehistoric-voice"}
+SLUGS = {"recon": "prehistoric-recon", "animate": "prehistoric-animate"}
+LTX_H_PER_CLIP = 0.10                         # LTX-Video 97 frames on a T4, estimated; measured per run
 IDLE_S = 15 * 60
 MAX_WAIT_S = float(os.environ.get("GPU_MAX_WAIT_S", 5 * 3600))
 WHATIF_DAYS = {0, 1, 3, 4, 5}          # Mon Tue Thu Fri Sat
@@ -182,6 +183,11 @@ def record(ref, started, finished):
     LEDGER.write_text(json.dumps(rows, indent=1), encoding="utf-8")
 
 
+def kernel_watchdog():
+    import watchdog
+    return watchdog.WATCHDOG
+
+
 def job_line(job):
     """JOB as a line of Python. Not json.dumps pasted in: JSON's true/false/null
     are not Python (28.10: the German voice kernel died on "required": true)."""
@@ -211,14 +217,15 @@ def build(task, slug, folder):
             job["hf_token"] = token
         cell = f"{job_line(job)}\n{recon_job.flux_source()}"
         sources = [f"{user()}/whatif-flux-weights"]          # the 4-bit FLUX mirror, read only
+    elif task == "animate":
+        # LTX-Video image-to-video on the FLUX frames the species check passed
+        import animate_job
+        job = json.loads((ROOT / "gpu" / "animate_job.json").read_text(encoding="utf-8"))
+        want = [f["id"] for f in job["frames"]]
+        cell = f"{job_line(job)}\n{kernel_watchdog()}\n{animate_job.SOURCE}"
+        sources = [f"{user()}/{SLUGS['recon']}"]           # the FLUX frames, read only
     else:
-        # German samples A and C: Chatterbox Multilingual (gpu/kernels/voice_de_job.py)
-        import voice_de_job
-        import voice_job
-        job = voice_de_job.job(slug)
-        want = len(job["lines"])
-        cell = f"{job_line(job)}\n{voice_job.WATCHDOG}\n{voice_de_job.SOURCE}"
-        sources = []
+        raise SystemExit(f"unknown task {task}")
     nb = {"cells": [{"cell_type": "code", "metadata": {}, "execution_count": None, "outputs": [],
                      "source": cell.splitlines(keepends=True)}],
           "metadata": {"kernelspec": {"display_name": "Python 3", "language": "python", "name": "python3"}},
@@ -270,6 +277,11 @@ def validate(task, out, want):
         return False, "no report.json in the kernel output"
     r = json.loads(rp.read_text(encoding="utf-8"))
     errors = r.get("errors") or []
+    if task == "animate":
+        # animation is a bonus: what came out is used, a frame that failed stays a still
+        clips = [c for c in r.get("clips", []) if c.get("ok")]
+        ok = "frames_found" in r and (r["frames_found"] > 0 or not want)
+        return ok, f"{len(clips)}/{len(want)} clips, errors: {(r.get('errors') or [])[:3]}"
     if task == "recon":
         ids = set(want) if isinstance(want, (list, tuple, set)) else None
         n_want = len(ids) if ids is not None else want
@@ -279,12 +291,7 @@ def validate(task, out, want):
         ok = got >= need and not errors
         return ok, (f"{got}/{n_want} images (need {need}), {files} image files, "
                     f"weights: {r.get('weights_source')}, errors: {errors[:3]}")
-    # German samples: A (Thorsten reference) is required, C (demo voice) is
-    # judged only if it was made; every line of each must be on disk
-    v = r.get("variants") or {}
-    counts = {k: (len(v[k].get("lines") or []), len(list((out / k).glob("line_*.wav")))) for k in v}
-    ok = "A" in v and all(a >= want and b >= want for a, b in counts.values()) and not errors
-    return ok, f"variants {counts} of {want} lines, errors: {errors[:3]}"
+    return False, f"unknown task {task}"
 
 
 def pull(ref, out):
@@ -302,9 +309,14 @@ def main(task, slug):
     usage = json.loads(usage_p.read_text()) if usage_p.exists() else []
     folder = Path(tempfile.mkdtemp())
     _, want = build(task, slug, folder)
-    job_h = JOB_HOURS[task]
+    job_h = JOB_HOURS.get(task, 0.5)
     if task == "recon":
         job_h = round(FLUX_OVERHEAD_H + len(want) * FLUX_S_PER_FRAME / 3600, 2)
+    if task == "animate":
+        if not want:
+            say("nothing to animate")
+            return 0
+        job_h = round(0.2 + len(want) * LTX_H_PER_CLIP, 2)
     st = status(ref)
     started = None
     if st == "complete":
@@ -366,9 +378,8 @@ def main(task, slug):
     return 0 if ok else 1
 
 
-def fetch(tasks=("recon", "voice")):
-    """Pull the kernels' outputs (FLUX frames for the CPU layers matrix, voice
-    lines for the render's prepare step)."""
+def fetch(tasks=("recon", "animate")):
+    """Pull the kernels' outputs: FLUX frames and LTX clips, for the CPU layers matrix."""
     for task in tasks:
         out = ROOT / "gpu" / f"results_{task}"
         out.mkdir(parents=True, exist_ok=True)
@@ -378,5 +389,5 @@ def fetch(tasks=("recon", "voice")):
 
 if __name__ == "__main__":
     if sys.argv[1] == "fetch":
-        sys.exit(fetch(tuple(sys.argv[2:]) or ("recon", "voice")))
+        sys.exit(fetch(tuple(sys.argv[2:]) or ("recon", "animate")))
     sys.exit(main(sys.argv[1], sys.argv[2]))

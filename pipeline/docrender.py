@@ -39,7 +39,13 @@ TARGET_LUMA = 0.43
 
 def H264(size):
     level = "5.1" if size[0] > 2560 else "5.0"
+    # grain at CRF 18 ran to 143 Mbit/s (28.10: 3.8 GB for 3.5 min); YouTube asks for
+    # 35-45 Mbit/s at 2160p30, so the rate is capped there (config render.video_kbps)
+    kbps = json.loads((Path(__file__).resolve().parent.parent / "config" / "channel.json")
+                      .read_text(encoding="utf-8"))["render"]["video_kbps"]
+    kbps = kbps if size[0] > 2560 else kbps // 2
     return ["-c:v", "libx264", "-preset", "medium", "-crf", "18", "-tune", "film",
+            "-maxrate", f"{kbps}k", "-bufsize", f"{2 * kbps}k",
             "-profile:v", "high", "-level:v", level, "-pix_fmt", "yuv420p",
             "-r", str(FPS), "-g", str(FPS * 2), "-keyint_min", str(FPS * 2), "-sc_threshold", "0",
             "-bf", "2", "-color_primaries", "bt709", "-color_trc", "bt709", "-colorspace", "bt709",
@@ -104,7 +110,7 @@ def real_clip(shot, src, need_s, out, size):
         speed = min(speed, avail / need_s * 0.98)
     start = avail * at
     src_len = need_s * speed + 0.2
-    dark = shot.get("need") in ("deep_night", "reef", "nautilus", "nautilus2", "books")
+    dark = bool(shot.get("dark")) or shot.get("need") in ("deep_night", "reef", "nautilus", "nautilus2", "books")
     g = gamma_for(mean_luma(src, start, src_len), dark_ok=dark)
     w, h = size
     vf = (f"scale=trunc(iw*sar/2)*2:ih,setsar=1,setpts={1 / speed:.4f}*PTS,fps={FPS},"

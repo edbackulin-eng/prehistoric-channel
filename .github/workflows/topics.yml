@@ -1,0 +1,41 @@
+name: topics
+
+# Monday mornings: the topic queue is topped up to 20 (automation/topics.py),
+# each new topic with the Wikipedia articles its script will be written from.
+on:
+  schedule:
+    - cron: "17 5 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  refill:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONUTF8: 1
+      GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install -q pillow
+      - run: python automation/topics.py --refill
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add topics/queue.json
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Topic queue topped up"
+          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep 10; done
+          exit 1
+      - name: Email on failure
+        if: failure()
+        run: |
+          n=$(gh issue list -R ${{ github.repository }} --label run-log --state open --json number --jq '.[0].number // empty')
+          [ -n "$n" ] && gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} topic refill failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

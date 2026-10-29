@@ -101,7 +101,8 @@ def check(img, masks, size, n_lines, path):
     for m in masks:
         big |= np.asarray(m) > 0
     ys, xs = np.nonzero(big)
-    corner = bool(((xs > SIZE[0] * 0.80) & (ys > SIZE[1] * 0.82)).any()) if len(xs) else False
+    # the bottom-right 25 % x 20 % stays empty: YouTube prints the running time there
+    corner = bool(((xs > SIZE[0] * 0.75) & (ys > SIZE[1] * 0.80)).any()) if len(xs) else False
     rep = {"file": str(path), "cap_height_px_at_336": round(cap_px, 1), "contrast_per_line": per_line,
            "lines": n_lines, "clear_of_timestamp": not corner}
     rep["readable"] = cap_px >= 26 and min(per_line) >= 3.0 and not corner

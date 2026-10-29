@@ -27,8 +27,11 @@ log = get_logger("docsound")
 ROOT = Path(__file__).resolve().parent.parent
 SR = 48000
 TARGET_LUFS, TRUE_PEAK = -14.0, -1.0
-MUSIC_UNDER_VOICE = 13.0          # LU, measured under speech
-DUCK_DB = 5.0
+_CFG = json.loads((Path(__file__).resolve().parent.parent / "config" / "channel.json").read_text(encoding="utf-8"))
+MUSIC_UNDER_VOICE = float(_CFG["music"]["under_voice_db"])   # LU under speech: 22 (rule: 20-24)
+DUCK_DB = 8.0                     # between sentences the score comes up to ~14 LU under the voice
+CROSSFADE_S = float(_CFG["music"]["crossfade_s"])
+MOODS = _CFG["music"]["moods"]
 AMB_BELOW_VOICE = {"ocean": 20, "beach": 20, "harbour": 21, "underwater": 21, "forest": 22,
                    "swamp": 22, "wind": 22, "fire": 21, "room": 26}
 
@@ -151,6 +154,48 @@ def envelope_gain(voice_mono, depth_db=DUCK_DB, attack=0.02, release=0.45, thres
     return out, np.repeat(act, hop)
 
 
+def score(plan, slug):
+    """A track for every section of the plan, by the mood config/channel.json gives
+    it (hook tension, story mystery, climax epic, finale calm); never the same track
+    twice in an episode, and a different choice from one episode to the next."""
+    import hashlib
+    lib = json.loads((ROOT / "assets" / "music" / "library.json").read_text(encoding="utf-8"))["tracks"]
+    used, out = set(), []
+    for sec in plan.get("sections") or [{"name": "story", "start": 0.0, "end": plan["total_s"]}]:
+        mood = MOODS.get(sec["name"], "mystery")
+        pool = [t for t in lib if t.get("mood") == mood and t["title"] not in used] or \
+               [t for t in lib if t["title"] not in used] or lib
+        h = int(hashlib.sha1(f"{slug}|{sec['name']}|{sec['start']:.0f}".encode()).hexdigest(), 16)
+        t = pool[h % len(pool)]
+        used.add(t["title"])
+        out.append({**t, "section": sec["name"], "start": sec["start"], "end": sec["end"]})
+    return {"tracks": out}
+
+
+def _score_audio(music, n, offset_s):
+    """One bed from the section tracks, each looped over its section and
+    crossfaded into the next."""
+    if not isinstance(music, dict):                 # a single file, as before
+        mus = load(music)
+        reps = int(np.ceil((n + offset_s * SR) / len(mus))) + 1
+        return np.concatenate([mus] * reps)[int(offset_s * SR): int(offset_s * SR) + n]
+    bed = np.zeros((n, 2), np.float32)
+    x = int(CROSSFADE_S * SR)
+    for t in music["tracks"]:
+        a = max(0, int((t["start"] - offset_s) * SR) - x // 2)
+        b = min(n, int((t["end"] - offset_s) * SR) + x // 2)
+        if b <= a:
+            continue
+        tr = load(ROOT / "assets" / "music" / t["file"])
+        tr = np.concatenate([tr] * (int(np.ceil((b - a) / len(tr))) + 1))[: b - a]
+        env = np.ones(b - a, np.float32)
+        r = min(x, (b - a) // 2)
+        env[:r] = np.linspace(0, 1, r)
+        env[-r:] = np.linspace(1, 0, r)
+        bed[a:b] += tr * env[:, None]
+    return bed
+
+
 def build(plan, narration_wav, music_path, amb_lib, out_wav, offset_s=0.0, length_s=None):
     """Mix the film's sound into out_wav (48 kHz stereo float). Returns a report.
     offset_s/length_s cut a stretch (for the 30-second voice samples)."""
@@ -163,9 +208,7 @@ def build(plan, narration_wav, music_path, amb_lib, out_wav, offset_s=0.0, lengt
     v_l = lufs(voice, meter)
 
     # music: loop if needed, fade in and out
-    mus = load(music_path)
-    reps = int(np.ceil((n + offset_s * SR) / len(mus))) + 1
-    mus = np.concatenate([mus] * reps)[int(offset_s * SR): int(offset_s * SR) + n]
+    mus = _score_audio(music_path, n, offset_s)
     fade_in = np.minimum(1, np.arange(n) / (SR * (3.0 if offset_s == 0 else 0.5)))
     fade_out = np.minimum(1, (n - np.arange(n)) / (SR * 3.0))
     mus = mus * (fade_in * fade_out)[:, None]
@@ -213,17 +256,20 @@ def build(plan, narration_wav, music_path, amb_lib, out_wav, offset_s=0.0, lengt
         if 0 <= i < n:
             m = min(len(sig), n - i)
             fx[i:i + m] += gain_db(sig[:m], v_l + db - lufs(np.tile(sig, (3, 1)), meter))
+    # the sound hit that opens the hook, and one where the climax begins
+    for sec in plan.get("sections") or []:
+        if sec["name"] == "hook":
+            put(boom(4.0), sec["start"] + 0.25, -6)
+        elif sec["name"] == "climax":
+            put(boom(3.0, seed=7), sec["start"] + 0.2, -12)
     for s in plan["shots"]:
-        if s.get("id") == "asteroid_sky":
-            put(air(3.0), s["start"] + 0.8, -10)
-        if s.get("anim") == "map" and "chicxulub" in s.get("places", []):
+        if s.get("anim") == "map" and any(isinstance(p, dict) and p.get("impact") or p == "chicxulub"
+                                          for p in s.get("places", [])):
             put(boom(4.0), s["start"] + 0.55, -6)
-        if s.get("id") == "impact_forest":
-            put(rumble(min(7.0, s["end"] - s["start"] + 1)), s["start"], -12)
         if s.get("title"):
             put(boom(3.0, seed=5), s["start"] + 0.5, -12)
-        if s["text"].startswith("It is a coelacanth") and s["kind"] == "recon":
-            put(boom(2.5, seed=9), s["start"] + 0.3, -16)
+        if s.get("sfx") == "rumble":
+            put(rumble(min(7.0, s["end"] - s["start"] + 1)), s["start"], -12)
 
     mix = voice + mus + amb + fx
     sf.write(str(out_wav) + ".pre.wav", mix, SR, subtype="FLOAT")

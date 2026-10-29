@@ -8,6 +8,8 @@ the script carries that, line by line:
     < slow line        slower, with a pause before it: reveals, key facts
     plain line         the base pace
     [pause 0.8]        an explicit silence, in seconds
+    [section hook]     the part of the episode the lines below belong to:
+                       hook, story, climax, finale (music and pacing follow it)
 
 Every TTS engine reads the same parse, so swapping the voice does not change
 the timing the script was written for.
@@ -19,6 +21,7 @@ FAST, BASE, SLOW = 1.10, 1.02, 0.95       # Kokoro speed factors, kept in 0.95-1
 SLOW_LEAD_S = 0.75                        # silence before every slow line
 LINE_GAP_S = 0.12                         # ordinary breath between lines
 _PAUSE = re.compile(r"^\[pause\s+([0-9.]+)\]$", re.I)
+_SECTION = re.compile(r"^\[section\s+(\w+)\]$", re.I)
 
 
 @dataclass
@@ -27,13 +30,18 @@ class Line:
     kind: str          # "fast" | "base" | "slow"
     speed: float
     pause_before: float
+    section: str = "story"
 
 
 def parse(script):
-    lines, pending = [], 0.0
+    lines, pending, section = [], 0.0, "story"
     for raw in script.splitlines():
         raw = raw.strip()
         if not raw:
+            continue
+        sm = _SECTION.match(raw)
+        if sm:
+            section = sm.group(1).lower()
             continue
         m = _PAUSE.match(raw)
         if m:
@@ -48,7 +56,7 @@ def parse(script):
         gap = pending if pending else LINE_GAP_S
         if kind == "slow":
             gap = max(gap, SLOW_LEAD_S)
-        lines.append(Line(text, kind, speed, 0.0 if not lines and not pending else gap))
+        lines.append(Line(text, kind, speed, 0.0 if not lines and not pending else gap, section))
         pending = 0.0
     return lines
 

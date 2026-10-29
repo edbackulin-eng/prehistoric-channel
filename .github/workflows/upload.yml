@@ -1,0 +1,54 @@
+name: upload
+
+# A buffered episode to YouTube: private, publishAt on the nearest free slot
+# (Wednesday or Saturday 17:00 Europe/Berlin), German subtitles, the chosen
+# thumbnail. Started by the watchdog once YT_TOKEN_JSON exists; never twice
+# for one episode (episodes/<slug>/uploaded.json).
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: episode
+      run_id:
+        description: the render run that holds its release-<slug> artifact
+
+permissions:
+  contents: write
+  actions: read
+  issues: write
+
+concurrency:
+  group: upload
+  cancel-in-progress: false
+
+jobs:
+  upload:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    env:
+      PYTHONUTF8: 1
+      GH_TOKEN: ${{ github.token }}
+      YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install -q google-api-python-client google-auth
+      - uses: actions/download-artifact@v5
+        with:
+          name: release-${{ inputs.slug }}
+          path: work/${{ inputs.slug }}/release/
+          run-id: ${{ inputs.run_id }}
+          github-token: ${{ github.token }}
+      - run: python automation/release.py upload "${{ inputs.slug }}"
+      - name: Keep the record
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add state/episodes.json "episodes/${{ inputs.slug }}/uploaded.json" 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Uploaded ${{ inputs.slug }}"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
+          exit 1

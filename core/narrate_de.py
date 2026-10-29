@@ -77,7 +77,7 @@ def render(voice, lines, scale, lex=None):
             tail = SENTENCE_TAIL_S + (QUESTION_EXTRA_S if s.rstrip().endswith("?") else 0)
             chunks.append(np.zeros(int(sr * tail), np.float32))
             t += tail
-        timeline.append({"text": line.text, "kind": line.kind, "start": round(start, 3),
+        timeline.append({"text": line.text, "kind": line.kind, "section": line.section, "start": round(start, 3),
                          "end": round(t, 3), "speed": round(speed, 3)})
     return np.concatenate(chunks), timeline
 
@@ -93,15 +93,24 @@ def synthesize(voice, script, target_wpm=TARGET_WPM):
     lines = delivery.parse(script)
     # Thorsten reads briskly: at Piper's own speed he is near 150 words a minute
     scale, passes, wall = 0.82, 0, 0.0
+    # a long script is calibrated on its first lines, then read once in full
+    # (three full passes of 25 minutes would not fit a runner's job)
+    probe = lines if len(lines) <= 40 else lines[:30]
+    probe_script = script if len(lines) <= 40 else " ".join(l.text for l in probe)
     for _ in range(3):
+        t0 = time.perf_counter()
+        audio, timeline = render(voice, probe, scale, lex)
+        wall += time.perf_counter() - t0
+        passes += 1
+        got = wpm(probe_script, len(audio) / sr)
+        if abs(got - target_wpm) < 2.5:
+            break
+        scale = min(1.25, max(0.66, scale * (target_wpm / got) ** 1.15))
+    if probe is not lines:
         t0 = time.perf_counter()
         audio, timeline = render(voice, lines, scale, lex)
         wall += time.perf_counter() - t0
         passes += 1
-        got = wpm(script, len(audio) / sr)
-        if abs(got - target_wpm) < 2.5:
-            break
-        scale = min(1.25, max(0.66, scale * (target_wpm / got) ** 1.15))
     seconds = len(audio) / sr
     audio = audio / max(1e-6, float(np.abs(audio).max())) * 0.89
     report = {"voice": VOICE, "engine": "piper de_DE-thorsten-high", "seconds": round(seconds, 2),

@@ -1,13 +1,205 @@
 {
- "source_note": "Incompetech (Kevin MacLeod), CC BY 4.0: cleared for monetised YouTube with the attribution line in the description. Chosen by rule, not by taste: slowest (fewest onsets a minute over 90 s from the first quarter), steady (p90/p10 RMS under 6), warm (spectral centroid under 1300 Hz), instrumental. Measurements: work/music_features.json.",
+ "source_note": "20 cinematic tracks by Kevin MacLeod (incompetech.com), CC BY 4.0: cleared for monetised YouTube with the attribution line in the description. Kevin MacLeod does not register his music with Content ID (incompetech FAQ); a claim on it is a third party's error and is disputed with the licence. Moods follow config/channel.json: hook tension, story mystery, climax epic, finale calm. Fetched and size-checked by automation/fetch_assets.py.",
  "tracks": [
-  {"file": "lost-frontier.mp3", "title": "Lost Frontier", "artist": "Kevin MacLeod", "license": "CC BY 4.0",
+  {
+   "file": "volatile-reaction.mp3",
+   "title": "Volatile Reaction",
+   "artist": "Kevin MacLeod",
+   "mood": "tension",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Volatile%20Reaction.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "impact-prelude.mp3",
+   "title": "Impact Prelude",
+   "artist": "Kevin MacLeod",
+   "mood": "tension",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Impact%20Prelude.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "impact-intermezzo.mp3",
+   "title": "Impact Intermezzo",
+   "artist": "Kevin MacLeod",
+   "mood": "tension",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Impact%20Intermezzo.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "gathering-darkness.mp3",
+   "title": "Gathering Darkness",
+   "artist": "Kevin MacLeod",
+   "mood": "tension",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Gathering%20Darkness.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "crypto.mp3",
+   "title": "Crypto",
+   "artist": "Kevin MacLeod",
+   "mood": "tension",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Crypto.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "lost-frontier.mp3",
+   "title": "Lost Frontier",
+   "artist": "Kevin MacLeod",
+   "mood": "mystery",
+   "license": "CC BY 4.0",
    "license_url": "https://creativecommons.org/licenses/by/4.0/",
    "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Lost%20Frontier.mp3",
-   "measured": {"onsets_per_min": 5.3, "centroid_hz": 1198, "dynamic_ratio": 2.5}, "role": "bed"},
-  {"file": "night-vigil.mp3", "title": "Night Vigil", "artist": "Kevin MacLeod", "license": "CC BY 4.0",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "night-vigil.mp3",
+   "title": "Night Vigil",
+   "artist": "Kevin MacLeod",
+   "mood": "mystery",
+   "license": "CC BY 4.0",
    "license_url": "https://creativecommons.org/licenses/by/4.0/",
    "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Night%20Vigil.mp3",
-   "measured": {"onsets_per_min": 5.3, "centroid_hz": 1096, "dynamic_ratio": 4.8}, "role": "spare"}
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "dark-walk.mp3",
+   "title": "Dark Walk",
+   "artist": "Kevin MacLeod",
+   "mood": "mystery",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dark%20Walk.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "ossuary-6-air.mp3",
+   "title": "Ossuary 6 - Air",
+   "artist": "Kevin MacLeod",
+   "mood": "mystery",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Ossuary%206%20-%20Air.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "long-note-four.mp3",
+   "title": "Long Note Four",
+   "artist": "Kevin MacLeod",
+   "mood": "mystery",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Long%20Note%20Four.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "lightless-dawn.mp3",
+   "title": "Lightless Dawn",
+   "artist": "Kevin MacLeod",
+   "mood": "mystery",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Lightless%20Dawn.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "heroic-age.mp3",
+   "title": "Heroic Age",
+   "artist": "Kevin MacLeod",
+   "mood": "epic",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Heroic%20Age.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "five-armies.mp3",
+   "title": "Five Armies",
+   "artist": "Kevin MacLeod",
+   "mood": "epic",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Five%20Armies.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "rites.mp3",
+   "title": "Rites",
+   "artist": "Kevin MacLeod",
+   "mood": "epic",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Rites.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "ascending-the-vale.mp3",
+   "title": "Ascending the Vale",
+   "artist": "Kevin MacLeod",
+   "mood": "epic",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Ascending%20the%20Vale.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "echoes-of-time.mp3",
+   "title": "Echoes of Time",
+   "artist": "Kevin MacLeod",
+   "mood": "epic",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Echoes%20of%20Time.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "dreamer.mp3",
+   "title": "Dreamer",
+   "artist": "Kevin MacLeod",
+   "mood": "calm",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamer.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "clean-soul.mp3",
+   "title": "Clean Soul",
+   "artist": "Kevin MacLeod",
+   "mood": "calm",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Clean%20Soul.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "healing.mp3",
+   "title": "Healing",
+   "artist": "Kevin MacLeod",
+   "mood": "calm",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Healing.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  },
+  {
+   "file": "peaceful-desolation.mp3",
+   "title": "Peaceful Desolation",
+   "artist": "Kevin MacLeod",
+   "mood": "calm",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0/",
+   "url": "https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolation.mp3",
+   "page": "https://incompetech.com/music/royalty-free/music.html"
+  }
  ]
 }

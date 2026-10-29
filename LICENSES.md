@@ -4,7 +4,28 @@ Every third-party element in the test video and why it may be used in a monetise
 
 ## Music
 
-- **Lost Frontier**, Kevin MacLeod - CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Commercial use allowed, attribution in the description (see description_credits.txt).
+Kevin MacLeod (incompetech.com), CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/): commercial use and monetisation allowed with the attribution line in the description; Kevin MacLeod does not register his music with Content ID, a claim on it is disputed with this licence. The library, by mood (config/channel.json):
+
+- **Volatile Reaction** (tension) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Volatile%20Reaction.mp3
+- **Impact Prelude** (tension) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Impact%20Prelude.mp3
+- **Impact Intermezzo** (tension) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Impact%20Intermezzo.mp3
+- **Gathering Darkness** (tension) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Gathering%20Darkness.mp3
+- **Crypto** (tension) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Crypto.mp3
+- **Lost Frontier** (mystery) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Lost%20Frontier.mp3
+- **Night Vigil** (mystery) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Night%20Vigil.mp3
+- **Dark Walk** (mystery) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dark%20Walk.mp3
+- **Ossuary 6 - Air** (mystery) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Ossuary%206%20-%20Air.mp3
+- **Long Note Four** (mystery) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Long%20Note%20Four.mp3
+- **Lightless Dawn** (mystery) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Lightless%20Dawn.mp3
+- **Heroic Age** (epic) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Heroic%20Age.mp3
+- **Five Armies** (epic) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Five%20Armies.mp3
+- **Rites** (epic) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Rites.mp3
+- **Ascending the Vale** (epic) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Ascending%20the%20Vale.mp3
+- **Echoes of Time** (epic) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Echoes%20of%20Time.mp3
+- **Dreamer** (calm) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Dreamer.mp3
+- **Clean Soul** (calm) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Clean%20Soul.mp3
+- **Healing** (calm) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Healing.mp3
+- **Peaceful Desolation** (calm) - https://incompetech.com/music/royalty-free/mp3-royaltyfree/Peaceful%20Desolation.mp3
 
 ## Atmosphere
 
@@ -49,12 +70,13 @@ Every third-party element in the test video and why it may be used in a monetise
 - Background fill for 2.5D: LaMa (big-lama) (Samsung AI) - Apache-2.0
 - Subject masks for 2.5D: BiRefNet / IS-Net (rembg) (ZhengPeng7 / Xuebin Qin et al.) - MIT / Apache-2.0
 - Narration (German): Piper 1.8, voice de_DE-thorsten-high (Open Home Foundation / Thorsten Mueller) - engine GPL-3.0 (output not covered), voice CC0
-- Voice comparison (German): Chatterbox Multilingual 0.1.7 (Resemble AI) - MIT
+- Animated reconstructions: LTX-Video 2B 0.9.x, diffusers weights of Lightricks/LTX-Video (Lightricks) - LTX-Video OpenRAIL-M style licence (ltx-video-2b-v0.9.1.license.txt in that repository): outputs may be used commercially; its use restrictions (Attachment A) apply. Versions released from 15.04.2025 are under the LTX-Video Open Weights License, free for entities under USD 10 M annual revenue.
+- Upscaling: Real-ESRGAN realesr-general-x4v3 (compact) - BSD-3-Clause
 
 ## Voices
 
-- Reference voice for sample A: Thorsten-Voice dataset, TV-2022.10-Neutral, two consecutive utterances joined (11.4 s, assets/voice/thorsten_ref.wav, provenance in assets/voice/thorsten_ref.json) (Thorsten Mueller) - CC0 1.0 - https://huggingface.co/datasets/Thorsten-Voice/TV-44kHz-Full
-- Reference voice for sample C: Chatterbox Multilingual demo prompt de_f1.flac (Resemble AI) - licence not stated: for this internal comparison only, not for publication - https://storage.googleapis.com/chatterbox-demo-samples/mtl_prompts/de_f1.flac
+- Narration: Piper voice de_DE-thorsten-high, trained on the Thorsten-Voice dataset (Thorsten Mueller) - voice and dataset CC0 1.0 - https://huggingface.co/rhasspy/piper-voices/tree/main/de/de_DE/thorsten/high
+- assets/voice/thorsten_ref.wav: 11.4 s from the Thorsten-Voice dataset (CC0 1.0), kept from the voice comparison of 28.10; not used by the channel.
 
 ## Fonts
 

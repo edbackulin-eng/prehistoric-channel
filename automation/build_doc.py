@@ -3,19 +3,16 @@
     python automation/build_doc.py prepare <slug> [--res 2160p]
     python automation/build_doc.py part    <slug> <k> [--res 2160p]
     python automation/build_doc.py merge   <slug> [--res 2160p]
-    python automation/build_doc.py samples <slug> [--res 2160p]
 
-prepare  German narration (Piper, Thorsten, on the CPU), the 2.5D layers from
-         the Kaggle kernel's output, the species check of every candidate
-         picture (pipeline/speciescheck.py), the edit plan built from what
-         passed, the real clips fetched, German subtitles; everything lands in
-         work/<slug>/inputs.
+prepare  German narration (Piper, Thorsten, on the CPU), the 2.5D layers and the
+         upscaled LTX-Video clips from the runners' CPU matrix, the species
+         check of every candidate picture (pipeline/speciescheck.py), the edit
+         plan built from what passed (hook, moving shots, at most three museum
+         pictures), the real clips fetched, German subtitles; everything lands
+         in work/<slug>/inputs.
 part k   renders work/<slug>/parts/part_k.mp4 (GitHub Actions runs one per job).
-merge    joins the parts with -c copy, mixes the sound, muxes, checks.
-samples  the three German voice samples, about 40 s of the same opening text,
-         each normalised to -14 LUFS: A Chatterbox Multilingual with Thorsten's
-         voice as reference, B Piper Thorsten, C Chatterbox Multilingual's
-         standard German voice; with what a minute of each costs.
+merge    joins the parts with -c copy, mixes the sound (music by section),
+         muxes, checks; the finished episode goes to work/<slug>/release/.
 """
 import argparse
 import json
@@ -36,8 +33,6 @@ from core.logger import get_logger  # noqa: E402
 log = get_logger("build")
 MAIN_VOICE = "piper_thorsten"
 RECON_KERNEL = "prehistoric-recon"
-SAMPLE_S = 40.0
-SAMPLES = {"A": "voice_A_chatterbox_thorsten", "B": "voice_B_piper_thorsten", "C": "voice_C_chatterbox_standard"}
 
 
 def W(slug):
@@ -99,12 +94,17 @@ def subtitles(slug, timeline, max_chars=42):
     return out
 
 
-def fetch_media(slug, plan):
+def fetch_media(slug, plan, shots=None, local_only=False):
+    """The real clips: in prepare only the LTX clips (local files), in each part
+    job the clips of its own shots - a 25-minute episode has ~150 clips, too
+    much to pass through one artifact."""
     from pipeline import footage
     media = W(slug) / "inputs" / "media"
     media.mkdir(parents=True, exist_ok=True)
-    for s in plan["shots"]:
+    for s in (plan["shots"] if shots is None else shots):
         if s["kind"] != "real":
+            continue
+        if local_only and not s["clip"]["url"].startswith("file:"):
             continue
         c = s["clip"]
         ext = Path(c["url"].split("?")[0]).suffix or ".mp4"
@@ -112,7 +112,9 @@ def fetch_media(slug, plan):
         dest = media / f"{c['id']}{ext}"
         if dest.exists():
             continue
-        if cached.exists():
+        if c["url"].startswith("file:"):           # an LTX-Video clip, upscaled on the runners
+            shutil.copy(c["url"][5:], dest)
+        elif cached.exists():
             shutil.copy(cached, dest)
         else:
             footage.download(c["url"], dest)
@@ -178,12 +180,17 @@ def fetch_layers(slug):
     return dest
 
 
-def fetch_voice(slug):
-    """Chatterbox Multilingual's German sample lines (A/, C/) into gpu/results_voice."""
-    dest = ROOT / "gpu" / "results_voice"
-    if list(dest.glob("*/line_*.wav")):
-        return dest
-    return modal_get(slug, "voice", dest)
+def animated(slug):
+    """The LTX-Video clips that came through: FLUX frame id -> clip."""
+    from pipeline import docrender
+    out = {}
+    for p in sorted((W(slug) / "layers_cpu" / "clips").glob("*.mp4")):
+        try:
+            i = docrender.probe(p)
+            out[p.stem] = {"path": str(p), "w": i["w"], "h": i["h"], "duration": round(i["duration"], 2)}
+        except Exception as e:                                       # noqa: BLE001
+            log.warning("clip %s unreadable: %s", p.name, e)
+    return out
 
 
 def prepare(slug, res):
@@ -192,24 +199,31 @@ def prepare(slug, res):
     seconds = sf.info(str(wav)).duration
     layers = fetch_layers(slug)
     picks = speciescheck.check(slug, layers, W(slug) / "inputs", data["timeline"])
-    plan = docplan.build(slug, data["timeline"], seconds, parts=int(ARGS.parts), picks=picks)
+    plan = docplan.build(slug, data["timeline"], seconds, parts=int(ARGS.parts), picks=picks,
+                         animated=animated(slug))
     plan["voice"] = MAIN_VOICE
     plan["narration"] = data["report"]
     (W(slug) / "plan.json").write_text(json.dumps(plan, indent=1, ensure_ascii=False), encoding="utf-8")
     subtitles(slug, data["timeline"])
-    fetch_media(slug, plan)
-    fetch_voice(slug)
+    fetch_media(slug, plan, local_only=True)
+    tb = W(slug) / "inputs" / "thumb_bases"                 # FLUX bases for the thumbnails, made at merge
+    tb.mkdir(parents=True, exist_ok=True)
+    for f in (ROOT / "gpu" / "results_recon" / "raw").glob("thumb_*.jpg"):
+        shutil.copy(f, tb / f.name)
     from pipeline import maskcheck
     mc = maskcheck.check(layers, W(slug) / "inputs" / "mask_check.json")
     log.info("mask check: %s", {k: v.get("kept", v.get("verdict")) for k, v in mc["masks"].items()}
              or mc.get("skipped"))
-    log.info("plan: %d shots, %d parts, %.1f s", len(plan["shots"]), len(plan["parts"]), plan["total_s"])
+    log.info("plan: %d shots, %d parts, %.1f s, %s", len(plan["shots"]), len(plan["parts"]), plan["total_s"],
+             plan["checks"])
     return plan
 
 
 def part(slug, k, res):
     from pipeline import docrender
     plan = json.loads((W(slug) / "plan.json").read_text(encoding="utf-8"))
+    a, b = plan["parts"][k]
+    fetch_media(slug, plan, plan["shots"][a:b])
     inputs = {"media": W(slug) / "inputs" / "media", "layers": W(slug) / "inputs" / "layers"}
     return docrender.render_part(plan, k, inputs, W(slug) / "tmp" / f"p{k}_{res}", W(slug) / f"parts_{res}",
                                  res=res)
@@ -232,9 +246,11 @@ def merge(slug, res):
     t0 = time.monotonic()
     picture = docrender.join(files, W(slug) / f"picture_{res}.mp4")
     amb = json.loads((ROOT / "assets" / "ambience" / "library.json").read_text(encoding="utf-8"))
-    music = ROOT / "assets" / "music" / "lost-frontier.mp3"
+    music = docsound.score(plan, slug)                       # a track per section, by mood
     wav = W(slug) / "mix.wav"
     sound = docsound.build(plan, W(slug) / "inputs" / f"narration_{MAIN_VOICE}.wav", music, amb, wav)
+    plan["music"] = [m["title"] for m in music["tracks"]]
+    (W(slug) / "plan.json").write_text(json.dumps(plan, indent=1, ensure_ascii=False), encoding="utf-8")
     out = W(slug) / f"video_{res}.mp4"
     _mux(picture, wav, out)
     info = docrender.probe(out)
@@ -244,96 +260,16 @@ def merge(slug, res):
            "merge_s": round(time.monotonic() - t0, 1), "parts": reports, "sound": sound,
            "size_mb": round(out.stat().st_size / 1e6, 1)}
     (W(slug) / f"report_{res}.json").write_text(json.dumps(rep, indent=1), encoding="utf-8")
-    test = ROOT / "test"
-    test.mkdir(exist_ok=True)
+    rel = W(slug) / "release"                               # what the upload (or the buffer) takes
+    rel.mkdir(exist_ok=True)
     for f in ("subtitles_de.srt", "species_check.json", "species_grid.jpg", "cpu_layers_report.json"):
         if (W(slug) / "inputs" / f).exists():
-            shutil.copy(W(slug) / "inputs" / f, test / f)
+            shutil.copy(W(slug) / "inputs" / f, rel / f)
+    shutil.move(str(out), rel / "video.mp4")
+    rep["video"] = str(rel / "video.mp4")
+    (W(slug) / f"report_{res}.json").write_text(json.dumps(rep, indent=1), encoding="utf-8")
     log.info("video %s: %.1f s, %s", out.name, info["duration"], sound)
     return rep
-
-
-def loudnorm(src, dst, lufs=-14.0, tp=-1.0):
-    """Two-pass EBU R128 normalisation to `lufs` integrated, true peak <= tp."""
-    import re
-    r = subprocess.run(["ffmpeg", "-hide_banner", "-i", str(src), "-af",
-                        f"loudnorm=I={lufs}:TP={tp}:LRA=11:print_format=json", "-f", "null", "-"],
-                       capture_output=True, text=True)
-    m = json.loads(re.findall(r"\{[^{}]+\}", r.stderr)[-1])
-    af = (f"loudnorm=I={lufs}:TP={tp}:LRA=11:measured_I={m['input_i']}:measured_TP={m['input_tp']}:"
-          f"measured_LRA={m['input_lra']}:measured_thresh={m['input_thresh']}:offset={m['target_offset']}:"
-          "linear=true")
-    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(src), "-af", af,
-                    "-ar", "48000", "-ac", "1", str(dst)], check=True)
-    r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", str(dst), "-af", "ebur128=peak=true",
-                        "-f", "null", "-"], capture_output=True, text=True)
-    i = re.findall(r"I:\s+(-?[0-9.]+) LUFS", r.stderr)
-    p = re.findall(r"Peak:\s+(-?[0-9.]+) dBFS", r.stderr)
-    return {"integrated_lufs": float(i[-1]) if i else None, "true_peak_dbtp": float(p[-1]) if p else None}
-
-
-def samples(slug, res):
-    """The three German voice samples (about 40 s, same text), each at -14 LUFS,
-    with what a minute of narration costs in each engine and the 25-minute forecast."""
-    import time
-    sys.path.insert(0, str(ROOT / "gpu" / "kernels"))
-    import voice_de_job
-    from core import delivery, narrate_de
-    script = (ROOT / "episodes" / slug / "script.txt").read_text(encoding="utf-8")
-    lines = voice_de_job.sample_lines(delivery.parse(script), SAMPLE_S)
-    out_dir = ROOT / "test"
-    out_dir.mkdir(exist_ok=True)
-    reps = {"text": [l.text for l in lines], "words": sum(len(l.text.split()) for l in lines)}
-
-    # B: Piper on this runner's CPU, at the pace the whole narration was calibrated to
-    meta = json.loads((W(slug) / "inputs" / f"narration_{MAIN_VOICE}.json").read_text(encoding="utf-8"))
-    voice = narrate_de.load()
-    t0 = time.perf_counter()
-    audio, _ = narrate_de.render(voice, lines, meta["report"]["speed_scale"])
-    wall = time.perf_counter() - t0
-    sr = voice.config.sample_rate
-    raw = W(slug) / "sample_B_raw.wav"
-    sf.write(raw, audio, sr)
-    per_min = wall / (len(audio) / sr / 60)
-    full = meta["report"]
-    reps["B"] = {"engine": "Piper 1.8 (GPL-3.0), voice de_DE-thorsten-high (CC0)", "device": "GitHub runner CPU",
-                 "seconds": round(len(audio) / sr, 1), "cpu_s": round(wall, 1),
-                 "cpu_s_per_audio_min": round(per_min, 1),
-                 "full_narration": {k: full.get(k) for k in ("seconds", "wpm", "cpu_wall_s", "passes",
-                                                               "cpu_s_per_audio_min")},
-                 "forecast_25min": {"cpu_min_one_pass": round(per_min * 25 / 60, 1),
-                                    "cpu_min_with_pace_calibration": round(per_min * 25 * 3 / 60, 1),
-                                    "gpu_h": 0}}
-
-    # A and C: Chatterbox Multilingual on Kaggle (gpu/kernels/voice_de_job.py)
-    vdir = ROOT / "gpu" / "results_voice"
-    kr = json.loads((vdir / "report.json").read_text(encoding="utf-8")) if (vdir / "report.json").exists() else {}
-    for key in ("A", "C"):
-        v = (kr.get("variants") or {}).get(key)
-        if not v or not (vdir / key / "sample.wav").exists():
-            reps[key] = {"missing": True}
-            continue
-        g = v["gpu_s_per_audio_min"]
-        reps[key] = {"engine": "Chatterbox Multilingual 0.1.7 (MIT)", "device": kr.get("gpu", "Kaggle GPU"),
-                     "label": v["label"], "reference": v["reference"], "seconds": v["sample_s"],
-                     "gpu_s": round(v["gen_s"] + v["asr_s"], 1), "gen_s": v["gen_s"], "whisper_check_s": v["asr_s"],
-                     "gpu_s_per_audio_min": g, "gen_s_per_audio_min": v["gen_s_per_audio_min"],
-                     "redraws": v["redraws"], "min_match": v["min_match"], "model_load_s": kr.get("load_s"),
-                     "forecast_25min": {"gpu_min": round(g * 25 / 60 + (kr.get("load_s") or 0) / 60, 1),
-                                        "gpu_h": round((g * 25 + (kr.get("load_s") or 0)) / 3600, 2)}}
-    for key, name in SAMPLES.items():
-        src = W(slug) / "sample_B_raw.wav" if key == "B" else vdir / key / "sample.wav"
-        if not src.exists():
-            continue
-        out = out_dir / f"{name}.wav"
-        reps[key]["file"] = str(out)
-        reps[key]["loudness"] = loudnorm(src, out)
-        subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(out), "-c:a", "aac",
-                        "-b:a", "192k", str(out.with_suffix(".m4a"))], check=True)
-        log.info("sample %s: %s", key, reps[key]["loudness"])
-    (W(slug) / "samples_report.json").write_text(json.dumps(reps, indent=1, ensure_ascii=False), encoding="utf-8")
-    shutil.copy(W(slug) / "samples_report.json", out_dir / "voice_samples_report.json")
-    return reps
 
 
 if __name__ == "__main__":
@@ -350,5 +286,3 @@ if __name__ == "__main__":
         part(ARGS.slug, ARGS.k, ARGS.res)
     elif ARGS.cmd == "merge":
         merge(ARGS.slug, ARGS.res)
-    elif ARGS.cmd == "samples":
-        samples(ARGS.slug, ARGS.res)

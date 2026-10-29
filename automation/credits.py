@@ -16,15 +16,12 @@ MODELS = [
     {"what": "Background fill for 2.5D", "name": "LaMa (big-lama)", "by": "Samsung AI", "license": "Apache-2.0"},
     {"what": "Subject masks for 2.5D", "name": "BiRefNet / IS-Net (rembg)", "by": "ZhengPeng7 / Xuebin Qin et al.", "license": "MIT / Apache-2.0"},
     {"what": "Narration (German)", "name": "Piper 1.8, voice de_DE-thorsten-high", "by": "Open Home Foundation / Thorsten Mueller", "license": "engine GPL-3.0 (output not covered), voice CC0"},
-    {"what": "Voice comparison (German)", "name": "Chatterbox Multilingual 0.1.7", "by": "Resemble AI", "license": "MIT"},
+    {"what": "Animated reconstructions", "name": "LTX-Video 2B 0.9.x (diffusers weights, Lightricks/LTX-Video)", "by": "Lightricks", "license": "LTX-Video OpenRAIL-M style licence: commercial use of outputs allowed, use restrictions apply"},
 ]
 VOICES = [
-    {"what": "Reference voice for sample A", "name": "Thorsten-Voice dataset, TV-2022.10-Neutral, two utterances (11.4 s)",
-     "by": "Thorsten Mueller", "license": "CC0 1.0",
-     "url": "https://huggingface.co/datasets/Thorsten-Voice/TV-44kHz-Full", "file": "assets/voice/thorsten_ref.wav"},
-    {"what": "Reference voice for sample C", "name": "Chatterbox Multilingual demo prompt de_f1.flac",
-     "by": "Resemble AI", "license": "not stated - for this internal comparison only, not for publication",
-     "url": "https://storage.googleapis.com/chatterbox-demo-samples/mtl_prompts/de_f1.flac"},
+    {"what": "Narration", "name": "Piper voice de_DE-thorsten-high (trained on the Thorsten-Voice dataset)",
+     "by": "Thorsten Mueller / Open Home Foundation", "license": "voice and dataset CC0 1.0",
+     "url": "https://huggingface.co/rhasspy/piper-voices/tree/main/de/de_DE/thorsten/high"},
 ]
 FONTS = [{"name": n, "license": "SIL Open Font License 1.1"} for n in
          ("Montserrat", "Cormorant Garamond", "Anton")]
@@ -49,18 +46,21 @@ def main(slug):
                 clips[x["id"]]["license"] = x.get("license") or (
                     "Pixabay Content License" if x["id"].startswith("pixabay") else None)
     photos = [recon["photos"][s["image"]] for s in plan["shots"] if s["kind"] == "photo" and s["image"] in recon["photos"]]
-    tr = ROOT / "test" / "thumbnails_report.json"
-    thumbs = [r["source"] for r in json.loads(tr.read_text(encoding="utf-8")) if "source" in r] if tr.exists() else []
+    tr = ROOT / "work" / slug / "release" / "thumbnails_report.json"
+    trep = json.loads(tr.read_text(encoding="utf-8")) if tr.exists() else {}
+    thumbs = [r["source"] for r in (trep.get("variants", []) if isinstance(trep, dict) else trep)
+              if r.get("source") and r["source"].get("source") != "FLUX.1-schnell"]
     photos = list({p["page"]: p for p in photos}.values())
+    used_music = set(plan.get("music") or [])
     music = [t for t in json.loads((ROOT / "assets/music/library.json").read_text(encoding="utf-8"))["tracks"]
-             if t["role"] == "bed"]
+             if t["title"] in used_music or (not used_music and t.get("role") == "bed")]
     amb_lib = json.loads((ROOT / "assets/ambience/library.json").read_text(encoding="utf-8"))["beds"]
     used_amb = {s.get("amb") for s in plan["shots"]}
     amb = [{"scene": k, **v} for k, v in amb_lib.items() if k in used_amb and "file" in v]
     credits = {"footage": list(clips.values()), "photos": photos, "music": music, "ambience": amb,
                "maps": MAPS, "models": MODELS, "voices": VOICES, "fonts": FONTS, "thumbnails": thumbs,
                "reconstructions": [s["image"] for s in plan["shots"] if s["kind"] == "recon"]}
-    out = ROOT / "test"
+    out = ROOT / "work" / slug / "release"
     out.mkdir(exist_ok=True)
     (out / "credits.json").write_text(json.dumps(credits, indent=1, ensure_ascii=False), encoding="utf-8")
     (ep / "credits.json").write_text(json.dumps(credits, indent=1, ensure_ascii=False), encoding="utf-8")

@@ -1,0 +1,141 @@
+name: episode
+
+# The production line before the render, one episode a run:
+#   pick     the next topic of topics/queue.json, if fewer than two episodes are ahead
+#   script   German, from Wikipedia, fact-checked (automation/write_episode.py) - kept in the repo
+#   plan     shots, FLUX prompts, footage candidates, species checklists (automation/plan_episode.py)
+#   FLUX     on Kaggle, only in What If's and Closed Tabs' free hours, the account week <= 27.5 h
+#   animate  the species check of the FLUX frames, then LTX-Video on the best 8-10 (Kaggle, same rules)
+#   render   render.yml is started with this run's GPU results; it uploads or buffers the episode
+# A wait for the GPU longer than one job restarts this workflow (relay); the
+# watchdog reruns a failed run and emails the owner when it cannot recover.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: build this topic (empty - the next one of the queue)
+        default: ""
+      relay:
+        description: how many times this build has restarted itself waiting for the GPU
+        default: "0"
+
+permissions:
+  contents: write
+  actions: write
+  issues: write
+
+concurrency:
+  group: episode
+  cancel-in-progress: false
+
+env:
+  PYTHONUTF8: 1
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 355
+    env:
+      GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
+      PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      GPU_MAX_WAIT_S: "15000"
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install -q -r requirements.txt
+      - name: Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          cat > "$RUNNER_TEMP/push.sh" <<'EOF'
+          git diff --cached --quiet && exit 0
+          git commit -q -m "$1"
+          for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
+          exit 1
+          EOF
+      - id: pick
+        name: Topic
+        run: |
+          if [ -n "${{ inputs.slug }}" ]; then echo "slug=${{ inputs.slug }}" >> "$GITHUB_OUTPUT"; exit 0; fi
+          python automation/topics.py --pick
+          git add topics/queue.json && bash "$RUNNER_TEMP/push.sh" "Building next topic"
+      - name: Script (German, from Wikipedia, fact-checked)
+        if: steps.pick.outputs.slug != ''
+        env:
+          SLUG: ${{ steps.pick.outputs.slug }}
+        run: |
+          [ -f "episodes/$SLUG/script.txt" ] && exit 0
+          python automation/write_episode.py "$SLUG"
+          git add "episodes/$SLUG" && bash "$RUNNER_TEMP/push.sh" "Script for $SLUG"
+      - name: Plan, species checklists, footage candidates
+        if: steps.pick.outputs.slug != ''
+        env:
+          SLUG: ${{ steps.pick.outputs.slug }}
+        run: |
+          [ -f "episodes/$SLUG/shots.json" ] && exit 0
+          python automation/plan_episode.py "$SLUG"
+          git add "episodes/$SLUG" && bash "$RUNNER_TEMP/push.sh" "Plan for $SLUG"
+      - name: FLUX on Kaggle
+        id: flux
+        if: steps.pick.outputs.slug != ''
+        run: |
+          set +e
+          python -u gpu/kaggle_once.py recon "${{ steps.pick.outputs.slug }}"; rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          [ $rc -eq 0 ] || [ $rc -eq 3 ] || exit $rc
+      - name: Species check of the FLUX frames, and which to animate
+        if: steps.flux.outputs.rc == '0'
+        env:
+          SLUG: ${{ steps.pick.outputs.slug }}
+        run: |
+          python automation/select_animate.py "$SLUG"
+          git add "episodes/$SLUG/species_verdicts.json" && bash "$RUNNER_TEMP/push.sh" "FLUX species check for $SLUG" || true
+      - name: LTX-Video on Kaggle
+        id: ltx
+        if: steps.flux.outputs.rc == '0'
+        run: |
+          set +e
+          python -u gpu/kaggle_once.py animate "${{ steps.pick.outputs.slug }}"; rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          [ $rc -eq 3 ] && exit 0
+          [ $rc -eq 0 ] || echo "::warning::animation failed (rc $rc); the episode goes on with stills there"
+      - uses: actions/upload-artifact@v5
+        if: steps.flux.outputs.rc == '0' && steps.ltx.outputs.rc != '3'
+        with:
+          name: gpu-${{ steps.pick.outputs.slug }}
+          retention-days: 14
+          compression-level: 0
+          path: |
+            gpu/results_recon/raw/
+            gpu/results_recon/report.json
+            gpu/results_animate/clips/
+            gpu/results_animate/report.json
+            gpu/animate_job.json
+      - name: Keep the GPU record
+        if: always()
+        run: |
+          git add state/kaggle_once.json state/gpu_ledger.json 2>/dev/null || true
+          bash "$RUNNER_TEMP/push.sh" "GPU usage after episode run ${{ github.run_id }}"
+      - name: Relay (still waiting for a free GPU slot)
+        if: (steps.flux.outputs.rc == '3' || steps.ltx.outputs.rc == '3') && fromJSON(inputs.relay) < 30
+        run: |
+          gh workflow run episode.yml -R "${{ github.repository }}" -f slug="${{ steps.pick.outputs.slug }}" \
+            -f relay="$(( ${{ inputs.relay }} + 1 ))"
+      - name: Render (2160p, parallel on Actions), then upload or buffer
+        if: steps.flux.outputs.rc == '0' && steps.ltx.outputs.rc != '3'
+        run: |
+          gh workflow run render.yml -R "${{ github.repository }}" -f slug="${{ steps.pick.outputs.slug }}" \
+            -f gpu_run="${{ github.run_id }}" -f release=true
+      - name: Email on failure
+        if: failure()
+        run: |
+          n=$(gh issue list -R ${{ github.repository }} --label run-log --state open --json number --jq '.[0].number // empty')
+          [ -n "$n" ] && gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} **episode build failed** (${{ steps.pick.outputs.slug }}): ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

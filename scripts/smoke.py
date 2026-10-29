@@ -50,12 +50,14 @@ def main():
                 check(f"import {pkg}.{m.name}", False, repr(e)[:200])
     check("imports", not failures)
 
-    # the GPU code Modal runs is assembled from the kernels; it must build clean
+    # the channel's rules load, and the kernels compile with their watchdog in front
     sys.path.insert(0, str(ROOT / "gpu"))
-    import modal_app
-    src = modal_app.recon_source("smoke")
-    vsrc = modal_app.voice_source("smoke")
-    check("modal sources", "/kaggle/" not in src + vsrc and "flux4bit" in src, f"{len(src)}+{len(vsrc)} chars")
+    cfg = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))
+    check("rules", cfg["language"] == "de-DE" and cfg["voice"]["engine"] == "piper" and cfg["buffer"] == 2)
+    import animate_job
+    import watchdog
+    compile("JOB = {}\n" + watchdog.WATCHDOG + "\n" + animate_job.SOURCE, "animate", "exec")
+    check("LTX kernel compiles", "LTXImageToVideoPipeline" in animate_job.SOURCE)
 
     # a kernel is judged by its output, not by Kaggle's COMPLETE (25.10)
     import kaggle_once
@@ -88,8 +90,7 @@ def main():
     check("GPU job is FLUX only", "esrgan" not in fsrc.lower() and "big-lama" not in fsrc
           and "new_session" not in fsrc and "depth-estimation" not in fsrc and "RAW = OUT" in fsrc)
     # the JOB line each kernel starts with must run as Python, booleans included
-    import voice_de_job
-    for name, job in (("voice", voice_de_job.job("living-fossils")),
+    for name, job in (("animate", {"frames": [{"id": "x__s0", "prompt": "ä", "motion": "m"}], "steps": 30}),
                       ("recon", {"prompts": {"a": "b"}, "flag": True, "none": None})):
         g2 = {}
         try:
@@ -149,6 +150,43 @@ def main():
     check("plan: dropped scene covered", "impact_forest__s0" not in imgs and len(imgs) == len(set(imgs))
           and abs(pl["shots"][-1]["end"] - pl["total_s"]) < 0.01, str([(x["kind"], x.get("image"), x["start"], x["end"])
                                                                        for x in pl["shots"]]))
+    # the schedule: Wednesday and Saturday, 17:00 in Berlin (15:00 or 16:00 UTC)
+    from datetime import datetime, timezone
+    from zoneinfo import ZoneInfo
+    from pipeline import youtube
+    sl = youtube.slots(4, now=datetime(2026, 10, 29, 12, 0, tzinfo=timezone.utc))
+    berlin = [x.astimezone(ZoneInfo("Europe/Berlin")) for x in sl]
+    check("slots Wed/Sat 17:00 Berlin", all(b.weekday() in (2, 5) and b.hour == 17 for b in berlin)
+          and len({b.date() for b in berlin}) == 4, str([b.isoformat() for b in berlin]))
+    # sections: the markup carries them, the music follows them by mood
+    from core import delivery
+    secs = [l.section for l in delivery.parse("[section hook]\n> A.\n[section story]\nB.\n[section finale]\nC.")]
+    check("sections", secs == ["hook", "story", "finale"], str(secs))
+    from pipeline import docsound
+    sc = docsound.score({"total_s": 90, "sections": [{"name": "hook", "start": 0, "end": 30},
+                                                      {"name": "climax", "start": 30, "end": 60},
+                                                      {"name": "finale", "start": 60, "end": 90}]}, "smoke")
+    check("music by mood", [t["mood"] for t in sc["tracks"]] == ["tension", "epic", "calm"]
+          and len({t["title"] for t in sc["tracks"]}) == 3)
+    # the hook: short moving shots, 1.5-3 s
+    hook_tl = [{"text": "Ein Rätsel aus der Tiefe.", "kind": "fast", "section": "hook", "start": 0.0, "end": 9.0},
+               {"text": "Es lebt noch heute.", "kind": "base", "section": "story", "start": 9.2, "end": 15.0}]
+    hook_spec = {"lines": [{"at": "Ein Rätsel", "n": 0, "section": "hook", "cut": True, "beats": [
+        {"kind": "real", "need": "h1"}, {"kind": "real", "need": "h2"}]},
+        {"at": "Es lebt", "n": 1, "section": "story", "beats": [{"kind": "real", "need": "h3"}]}]}
+    clip = lambda i: {"id": i, "url": "x", "width": 1920, "height": 1080, "duration": 20, "source": "Pixabay"}
+    hook_foot = {f"h{k}": {**clip(f"c{k}"), "alternates": [clip(f"c{k}b")]} for k in (1, 2, 3)}
+    (tmp_ep / "episodes" / "hook").mkdir(parents=True)
+    (tmp_ep / "episodes" / "hook" / "shots.json").write_text(json.dumps(hook_spec), encoding="utf-8")
+    (tmp_ep / "episodes" / "hook" / "footage.json").write_text(json.dumps(hook_foot), encoding="utf-8")
+    docplan.ROOT = tmp_ep
+    try:
+        hp = docplan.build("hook", hook_tl, 15.0, parts=1)
+    finally:
+        docplan.ROOT = real
+    hs = [x for x in hp["shots"] if x.get("section") == "hook"]
+    check("hook shots 1.5-3 s, moving", hs and all(1.5 <= x["end"] - x["start"] <= 3.05 and x["kind"] == "real"
+                                                   for x in hs), str([(x["start"], x["end"]) for x in hs]))
     from automation import build_doc
     (W / "inputs").mkdir(exist_ok=True)
     build_doc.W = lambda slug: W
