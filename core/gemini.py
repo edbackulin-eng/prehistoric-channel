@@ -50,7 +50,7 @@ def ask(prompt, images=(), models=TEXT_MODELS, json_out=True, temperature=0.4, m
     for m in models:
         if m in _SPENT:
             continue
-        for attempt in range(3):
+        for attempt in range(5):
             try:
                 req = urllib.request.Request(URL.format(m=m), data=payload,
                                              headers={"Content-Type": "application/json", "x-goog-api-key": key()})
@@ -73,7 +73,8 @@ def ask(prompt, images=(), models=TEXT_MODELS, json_out=True, temperature=0.4, m
                     _SPENT.add(m)
                     log.warning("%s set aside for this run: %s", m, body[:160])
                     break
-                time.sleep(5 * (attempt + 1))
+                # 5xx ("high demand", 29.10 a 503) passes in a minute or two: wait it out
+                time.sleep(20 * (attempt + 1) if e.code >= 500 else 5 * (attempt + 1))
             except Exception as e:                                   # noqa: BLE001
                 last = f"{m}: {type(e).__name__}: {str(e)[:200]}"
                 time.sleep(5 * (attempt + 1))

@@ -248,6 +248,11 @@ def hook_text(script):
     return [l.text for l in delivery.parse(script) if l.section == "hook"]
 
 
+def hook_sha(script):
+    import hashlib
+    return hashlib.sha1(" ".join(t.strip() for t in hook_text(script)).encode("utf-8")).hexdigest()[:12]
+
+
 def hook_ok(script, block):
     """The hook the script has, judged by the rule: strongest moment, a question,
     a promise, facts the sources carry, 40-85 words. (A marker alone proves
@@ -308,15 +313,21 @@ def ensure_hook(slug):
     topic = next(t for t in q["topics"] if t["slug"] == slug)
     ep = ROOT / "episodes" / slug
     script = (ep / "script.txt").read_text(encoding="utf-8")
+    meta = json.loads((ep / "meta.json").read_text(encoding="utf-8"))
+    if meta.get("hook_sha") == hook_sha(script):          # this very hook has passed its check
+        log.info("%s: hook already checked", slug)
+        return 0
     block = _src_block(sources(topic))
     ok, rep = hook_ok(script, block)
     if ok:
         log.info("%s: hook passes (%s)", slug, rep["check"])
+        meta["hook_sha"] = hook_sha(script)
+        (ep / "meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False), encoding="utf-8")
         return 0
     script, rep = write_hook(script, block)
     (ep / "script.txt").write_text(script.strip() + "\n", encoding="utf-8")
-    meta = json.loads((ep / "meta.json").read_text(encoding="utf-8"))
     meta["hook_written_separately"] = rep
+    meta["hook_sha"] = hook_sha(script)
     meta["words"] = words(script)
     meta["minutes_est"] = round(words(script) / WPM, 1)
     (ep / "meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False), encoding="utf-8")
@@ -426,7 +437,7 @@ def main(slug):
     meta = {"slug": slug, "title": ans["title_de"][:100], "tags": ans.get("tags", [])[:15],
             "description": f"{ans['description_de'].strip()}\n\nQuellen:\n{quellen}",
             "words": words(script), "minutes_est": round(words(script) / WPM, 1), "fact_check": checks,
-            "hook_written_separately": hook_check}
+            "hook_written_separately": hook_check, "hook_sha": hook_sha(script)}
     (ep / "meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False), encoding="utf-8")
     log.info("%s: %d words, %d lines, %d fact-check changes", slug, meta["words"], len(lines), len(checks))
     return 0
