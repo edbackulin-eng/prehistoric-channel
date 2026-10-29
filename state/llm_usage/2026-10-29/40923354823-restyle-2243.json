@@ -1,0 +1,11 @@
+{
+ "groq:qwen/qwen3.8-27b": {
+  "requests": 30,
+  "in_tokens": 66474,
+  "out_tokens": 37507,
+  "steps": {
+   "editor": 14,
+   "fact_check": 16
+  }
+ }
+}
