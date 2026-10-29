@@ -31,7 +31,8 @@ log = get_logger("watchdog")
 REPO = os.environ.get("GITHUB_REPOSITORY", "edbackulin-eng/prehistoric-channel")
 OWNER = REPO.split("/")[0]
 CFG = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))
-WATCHED = {"episode.yml": 7, "render.yml": 10, "upload.yml": 3}     # hours before a run counts as hung
+WATCHED = {"episode.yml": 7, "render.yml": 10, "upload.yml": 3,      # hours before a run counts as hung
+           "restyle.yml": 3}       # a script being retold: no build of it may start meanwhile
 MAX_ATTEMPTS = 3
 SETTLE_MIN = 12
 STATE = ROOT / "state" / "watchdog.json"
