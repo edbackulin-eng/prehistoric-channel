@@ -3,22 +3,31 @@
  "style": "photorealistic wildlife documentary frame, BBC natural history cinematography, natural vivid colours, soft natural light, high dynamic range, sharp detail, 35mm film look, no text, no people",
  "seeds_per_prompt": 2,
  "prompts": {
-  "asteroid_impact_earth": "A massive asteroid impact flash lighting up the dark horizon of the prehistoric earth, apocalyptic atmosphere",
-  "mesozoic_forest": "Dense prehistoric fern forest in the Mesozoic era, misty atmosphere, golden sunlight filtering through giant conifers, cinematic BBC documentary style, no humans",
-  "devonian_extinction_landscape": "Barren desolate volcanic coastline during a prehistoric mass extinction, glowing red lava flows meeting dark ocean waters, smoke filled sky, cinematic 4k"
+  "ancient_ocean_life": "prehistoric ocean floor with ancient marine life and ammonites, bioluminescent glow, photorealistic 4k, calm bbc documentary aesthetic",
+  "ordovician_sea_floor": "An Ordovician sea floor 480 million years ago with very early ancestral arthropods and primitive marine life, murky ancient waters, dramatic natural lighting, 4k",
+  "mesozoic_nautiloids_ocean": "A vast Mesozoic ocean filled with a rich variety of ancient shelled cephalopods and nautiloids swimming through clear blue water, cinematic 4k, BBC nature documentary style",
+  "cretaceous_paleogene_extinction_event": "A dramatic prehistoric marine landscape during a global catastrophe, a massive extinct Mosasaurus swimming through turbulent, ash-darkened waters, glowing volcanic debris falling from the surface, apocalyptic lighting, highly detailed aquatic reptile anatomy, cinematic wide angle",
+  "devastated_primeval_landscape": "A desolate volcanic landscape after a global extinction event, glowing magma cracks in dark rock, ash-filled atmosphere, cinematic wide shot, no people",
+  "ancient_fern_forest_storm": "An ancient prehistoric coastline with primitive ferns and conifers beaten by strong coastal winds, dramatic overcast sky, crashing waves on dark volcanic rocks, no people"
  },
  "species": {
-  "asteroid_impact_earth": null,
-  "mesozoic_forest": null,
-  "devonian_extinction_landscape": null
+  "ancient_ocean_life": null,
+  "ordovician_sea_floor": null,
+  "mesozoic_nautiloids_ocean": null,
+  "cretaceous_paleogene_extinction_event": null,
+  "devastated_primeval_landscape": null,
+  "ancient_fern_forest_storm": null
  },
  "animate": {
-  "asteroid_impact_earth": "shockwave ripples across the burning landscape",
-  "mesozoic_forest": "camera slowly pans across the primeval forest floor",
-  "devonian_extinction_landscape": "waves crash slowly against the smoking volcanic rocks"
+  "cretaceous_paleogene_extinction_event": "Powerful undulations of its massive tail and body driving it swiftly through the churning, dark water.",
+  "ancient_ocean_life": "camera glides slowly over the ancient seabed",
+  "ordovician_sea_floor": "gentle underwater currents sway primitive sea plants and small ancient creatures on the seabed",
+  "mesozoic_nautiloids_ocean": "camera moves smoothly through a school of ancient shelled cephalopods drifting in the open ocean",
+  "devastated_primeval_landscape": "smoke drifting slowly across the frame as heat ripples rise from the ground",
+  "ancient_fern_forest_storm": "wind violently shaking the fronds of ancient ferns as heavy waves splash against the shore"
  },
  "thumbs": {
-  "thumb_b": "Extreme close up head shot of a living tuatara lizard with a glowing parietal third eye on top of its head, vibrant neon green and brown skin, dramatic studio lighting, dark background, lots of negative space on the left side, highly detailed, photorealistic"
+  "thumb_b": "Extreme close-up of a Tuatara head and eye, vibrant emerald green and olive skin, distinct parietal eye on top of head, dramatic cinematic lighting, neon blue backlight, ultra-detailed, dark background with lots of negative space on the left"
  },
  "photos": {},
  "two_seeds": []

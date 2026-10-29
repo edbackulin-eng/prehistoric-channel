@@ -4,25 +4,25 @@
   "hook": "scale",
   "animal": "coelacanth",
   "base": "photo",
-  "query": "coelacanth alive underwater close up deep sea royal blue",
+  "query": "Latimeria chalumnae coelacanth deep sea underwater close up royal blue white spots",
   "words": [
-   "Unsterbliches",
-   "Urzeit",
-   "Monster"
+   "Dinosaurier",
+   "überlebt",
+   "heute"
   ],
-  "accent": 2
+  "accent": 1
  },
  {
   "id": "thumb_b",
   "hook": "split",
   "animal": "tuatara",
   "base": "flux",
-  "prompt": "Extreme close up head shot of a living tuatara lizard with a glowing parietal third eye on top of its head, vibrant neon green and brown skin, dramatic studio lighting, dark background, lots of negative space on the left side, highly detailed, photorealistic",
-  "fossil_query": "Sphenodon fossil skull diapsid prehistoric rock",
+  "prompt": "Extreme close-up of a Tuatara head and eye, vibrant emerald green and olive skin, distinct parietal eye on top of head, dramatic cinematic lighting, neon blue backlight, ultra-detailed, dark background with lots of negative space on the left",
+  "fossil_query": "Sphenodon fossil skull diapsid reptile rock matrix",
   "words": [
-   "Dieses",
-   "Tier",
-   "sieht"
+   "Das",
+   "wahre",
+   "Fossil"
   ],
   "accent": 2
  },
@@ -31,12 +31,12 @@
   "hook": "silhouette",
   "animal": "horseshoe_crab",
   "base": "photo",
-  "query": "horseshoe crab underwater macro shot glowing shell deep sea",
+  "query": "Limulus polyphemus horseshoe crab underwater close up hard carapace compound eyes",
   "words": [
-   "Dinosaurier",
-   "Überlebt",
-   "Heute"
+   "Älter",
+   "als",
+   "Dinos"
   ],
-  "accent": 1
+  "accent": 0
  }
 ]

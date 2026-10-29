@@ -1,5 +1,5 @@
 {
- "version": 3,
+ "version": 4,
  "lines": 133,
  "species": 5,
  "living": [
@@ -9,13 +9,18 @@
   "nautilus",
   "tuatara"
  ],
- "flux_prompts": 3,
- "flux_frames": 6,
+ "flux_prompts": 6,
+ "flux_frames": 12,
  "animate": [
-  "asteroid_impact_earth",
-  "mesozoic_forest",
-  "devonian_extinction_landscape"
+  "cretaceous_paleogene_extinction_event",
+  "ancient_ocean_life",
+  "ordovician_sea_floor",
+  "mesozoic_nautiloids_ocean",
+  "devastated_primeval_landscape",
+  "ancient_fern_forest_storm"
  ],
- "video_beats": 137,
- "lines_without_picture": []
+ "video_beats": 140,
+ "lines_without_picture": [
+  93
+ ]
 }
