@@ -67,6 +67,34 @@ Antworte als JSON:
 QUELLEN:
 {sources}"""
 
+OUTLINE = """Plane eine deutsche Urzeit-Doku für YouTube (Stil Terra X: ruhig, präzise, packend; kein Clickbait im
+Text, kein "KI"). Thema: "{title}" - {focus}. Gesamtlänge {words} Wörter (= {minutes} Minuten).
+Gliederung: ein Hook (65 Wörter: der stärkste Moment oder das größte Rätsel der Folge, eine Frage, die hängen
+bleibt, ein Versprechen), dann 4-5 Kapitel "story", ein Kapitel "climax" (die überraschendste Erkenntnis),
+ein Kapitel "finale" (ruhiger Ausklang, zurück zur Frage aus dem Hook). Die Wortzahlen der Kapitel ergeben
+zusammen {words}. Nur Inhalte, die die Quellen tragen.
+Antworte als JSON:
+{{"title_de": "<YouTube-Titel, max 70 Zeichen, neugierig, wahr>", "description_de": "<2-4 Sätze>",
+  "tags": ["<10-15 deutsche Tags>"],
+  "chapters": [{{"section": "hook|story|climax|finale", "heading": "<worum es geht>",
+                 "points": ["<Fakten und Momente aus den Quellen, die dieses Kapitel erzählt>"], "words": <Zahl>}}]}}
+
+QUELLEN:
+{sources}"""
+
+PART = """Schreibe ein Kapitel des Sprechertexts einer deutschen Urzeit-Doku (Stil Terra X: ruhig, präzise,
+bildhaft, packend; keine Floskeln, kein "KI", keine Anrede). Thema der Folge: "{title}".
+Dieses Kapitel ({section}): {heading}. Es erzählt: {points}.
+Länge: {words} Wörter - nicht weniger. Nur Fakten aus den Quellen. Zahlen dürfen als Ziffern stehen.
+Markup, eine Zeile pro Satzgruppe von 1-3 Sätzen: "> " schnelle Zeile, "< " langsame Zeile mit Pause davor
+(Enthüllungen), sonst normale Zeile; [pause 0.8] sparsam. Keine Überschriften.
+So endet das Kapitel davor (nahtlos anschließen, nichts wiederholen):
+{before}
+Antworte als JSON {{"lines": ["<Zeile>", "..."]}}
+
+QUELLEN:
+{sources}"""
+
 CHECK = """Prüfe jede nummerierte Zeile dieses deutschen Doku-Texts gegen die Quellen.
 Eine Zeile ist "ok", wenn jede Tatsachenbehauptung darin von den Quellen gedeckt ist (stilistische Sätze
 ohne Behauptung sind ok). Sonst "fix": gib eine korrigierte Fassung, die nur Gedecktes sagt, im selben
@@ -244,6 +272,34 @@ def fit_length(script, block):
     return script
 
 
+def write_by_chapters(topic, block):
+    """The script chapter by chapter, each to its word budget: one long answer
+    came out 463 words long when the model fell back (29.10)."""
+    plan = gemini.ask(OUTLINE.format(title=topic["title"], focus=topic["focus"], words=WORDS,
+                                     minutes=CFG["length_min"], sources=block), temperature=0.5)
+    chapters = plan["chapters"]
+    total = sum(int(c.get("words") or 0) for c in chapters) or WORDS
+    out, before, section = [], "(Anfang der Folge)", None
+    for c in chapters:
+        want = max(50, int(int(c.get("words") or 0) * WORDS / total))
+        lines = []
+        for _ in range(3):
+            ans = gemini.ask(PART.format(title=topic["title"], section=c["section"], heading=c["heading"],
+                                         points="; ".join(c.get("points", [])), words=want,
+                                         before=before, sources=block), temperature=0.6)
+            lines = [l.strip() for l in ans.get("lines", []) if l.strip()]
+            if len(" ".join(lines).split()) >= 0.8 * want:
+                break
+        if c["section"] != section:
+            out.append(f"[section {c['section']}]")
+            section = c["section"]
+        out += lines
+        before = "\n".join(lines[-3:])
+        log.info("chapter %s/%s: %d words (wanted %d)", c["section"], c["heading"][:40],
+                 len(" ".join(lines).split()), want)
+    return plan, "\n".join(out)
+
+
 def main(slug):
     q = json.loads((ROOT / "topics" / "queue.json").read_text(encoding="utf-8"))
     topic = next(t for t in q["topics"] if t["slug"] == slug)
@@ -251,9 +307,8 @@ def main(slug):
     ep.mkdir(parents=True, exist_ok=True)
     src = sources(topic)
     block = _src_block(src)
-    ans = gemini.ask(WRITE.format(title=topic["title"], focus=topic["focus"], words=WORDS,
-                                  minutes=CFG["length_min"], sources=block), temperature=0.6)
-    script = normalise(ans["script"].replace("\\n", "\n"))
+    ans, script = write_by_chapters(topic, block)
+    script = normalise(script)
     (ep / "script_draft.txt").write_text(script, encoding="utf-8")
     script = normalise(fit_length(script, block))
     script, checks = fact_check(script, block)
