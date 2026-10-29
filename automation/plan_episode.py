@@ -70,6 +70,21 @@ ZEILEN:
 {lines}"""
 
 
+EXTINCT = """Diese deutsche Urzeit-Doku braucht mindestens {need} weitere Bilder der VERGANGENEN Welt (ausgestorbene
+Tiere und verlorene Landschaften), die animiert werden. Wähle {need} Zeilen, die von der Vergangenheit erzählen
+(Fossilien, frühere Erdzeitalter, Vorfahren und ausgestorbene Verwandte der heutigen Tiere, das Massenaussterben),
+und schlage für jede ein FLUX-Bild vor: ein AUSGESTORBENES Tier (z. B. ausgestorbene Verwandte der Quastenflosser
+wie Mawsonia oder Axelrodichthys, Ammoniten, Placodermen wie Dunkleosteus, Mosasaurier, Ichthyosaurier, Trilobiten,
+Seeskorpione, frühe Pfeilschwanzkrebs-Verwandte, Dinosaurier) oder eine Urzeit-Landschaft, mit genauer Anatomie.
+NIEMALS ein heute lebendes Tier ({living}), keine Diagramme, keine Schrift, keine Menschen.
+Antworte als JSON: {{"frames": [{{"n": <Zeilennummer>, "id": "<snake_case, eindeutig>", "species": "<ausgestorbene Art, englisch>",
+"prompt": "<englisch: Art, Anatomie, Umgebung, Licht, Kamerablick>", "motion": "<englisch, eine Bewegung>"}}]}}
+
+SCHON GEPLANT: {have}
+
+ZEILEN:
+{lines}"""
+
 THUMBS = """Plane drei YouTube-Vorschaubilder für die deutsche Urzeit-Doku "{title}". Vorbild sind die
 erfolgreichsten Kanäle der Nische: KNALLIGE Farben, ein Tier groß im Bild (Kopf/Auge), sofort als urzeitlich
 erkennbar, und ein Bild-Trick als Haken:
@@ -88,7 +103,7 @@ TIERE:
 {animals}"""
 
 
-PLAN_VERSION = 3          # 29.10: no abstract frames, no living animal drawn even when the planner named no species; a plan of an older version is made again
+PLAN_VERSION = 4          # 29.10: no abstract frames, no living animal drawn even when the planner named no species; a plan of an older version is made again
 # FLUX draws animals and landscapes; a diagram, a DNA strand or a "visualisation" comes out as
 # mush, and the species check turns it down. Such beats become stock footage instead.
 ABSTRACT = re.compile(r"chart|diagram|graph|infograph|visuali[sz]ation|dna|helix|genetic|molecul|abstract|"
@@ -202,6 +217,28 @@ def main(slug):
                           "amb": row.get("amb") if row.get("amb") in AMB else "wind",
                           **({"cut": True} if i == 0 or l.section != lines[i - 1].section else {}), "beats": beats})
 
+    # 8-10 animated frames an episode (config motion.animated_per_episode): an episode about
+    # living animals plans few FLUX frames of its own (29.10: three), so the past is added -
+    # extinct relatives, earlier seas and coasts - on the lines that tell of it
+    lo_anim = CFG["motion"]["animated_per_episode"][0]
+    if len(order) < lo_anim + 2:
+        numbered = "\n".join(f"{i} [{l.section}]: {l.text}" for i, l in enumerate(lines))
+        extra = gemini.ask(EXTINCT.format(need=lo_anim + 2 - len(order), living=", ".join(sorted(living)),
+                                          have=", ".join(order) or "nichts", lines=numbered[:60000]),
+                           temperature=0.5).get("frames", [])
+        by_n = {r["n"]: r for r in out_lines}
+        for f in extra:
+            fid = re.sub(r"[^a-z0-9_]", "_", str(f.get("id") or "").lower())[:40]
+            n = int(f.get("n", -1)) if str(f.get("n", "")).lstrip("-").isdigit() else -1
+            if not fid or fid in flux or n not in by_n or abstract(fid, f.get("prompt", "")) \
+                    or living_named(fid, f.get("prompt", ""), species):
+                continue
+            flux[fid] = {"prompt": f["prompt"], "species": None, "motion": f.get("motion"),
+                         "section": lines[n].section, "first": n, "extinct": f.get("species")}
+            order.append(fid)
+            by_n[n]["beats"].append({"kind": "recon", "id": fid, "species": None})
+        log.info("extinct frames of the past added; now %d FLUX prompts", len(order))
+
     # at most flux_frames_max frames: the prompts that come first in the hook and climax win
     meta = json.loads((ep / "meta.json").read_text(encoding="utf-8")) if (ep / "meta.json").exists() else {}
     thumbs = gemini.ask(THUMBS.format(title=meta.get("title", slug), animals=alist), temperature=0.7)["thumbs"][:3]
@@ -214,7 +251,7 @@ def main(slug):
         row["beats"] = [b for b in row["beats"] if b["kind"] != "recon" or b["id"] in keep]
     lo, hi = CFG["motion"]["animated_per_episode"]
     animate = [f for f in sorted(keep, key=lambda f: (prio.get(flux[f]["section"], 2), flux[f]["first"]))
-               if flux[f]["species"]][:hi]
+               if flux[f]["species"] or flux[f].get("extinct")][:hi]
     if len(animate) < lo:
         animate += [f for f in keep if f not in animate][:lo - len(animate)]
     recon = {"_note": "FLUX prompts of this episode, written by automation/plan_episode.py; extinct animals and lost "
