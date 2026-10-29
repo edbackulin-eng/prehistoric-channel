@@ -1,0 +1,26 @@
+{
+ "version": 2,
+ "lines": 133,
+ "species": 5,
+ "living": [
+  "coelacanth",
+  "horseshoe_crab",
+  "lungfish",
+  "nautilus",
+  "tuatara"
+ ],
+ "flux_prompts": 8,
+ "flux_frames": 16,
+ "animate": [
+  "ancient_ocean_diversity",
+  "ordovician_seabed",
+  "mesozoic_ammonites",
+  "nautilus_cutaway_phragmocone",
+  "nautilus_pinhole_eye",
+  "ghostly_mesozoic_ocean",
+  "mesozoic_fern_forest",
+  "mesozoic_fern_swamp"
+ ],
+ "video_beats": 125,
+ "lines_without_picture": []
+}

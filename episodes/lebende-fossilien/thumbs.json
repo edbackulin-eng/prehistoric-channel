@@ -4,25 +4,25 @@
   "hook": "scale",
   "animal": "coelacanth",
   "base": "photo",
-  "query": "Coelacanth underwater extreme close up eye and head royal blue scales",
+  "query": "Latimeria chalumnae coelacanth underwater portrait extreme close up",
   "words": [
-   "Unsterbliches",
-   "Urzeit",
-   "Wunder"
+   "Seit",
+   "Millionen",
+   "Jahren"
   ],
-  "accent": 0
+  "accent": 1
  },
  {
   "id": "thumb_b",
   "hook": "split",
   "animal": "horseshoe_crab",
   "base": "photo",
-  "query": "Horseshoe crab live animal underwater macro close up head carapace",
-  "fossil_query": "horseshoe crab fossil ancient stone imprint",
+  "query": "Limulus polyphemus horseshoe crab underwater live macro",
+  "fossil_query": "Mesolimulus fossil specimen paleontology",
   "words": [
-   "Älterer",
-   "als",
-   "Dinos"
+   "Lebendes",
+   "Fossil",
+   "perfekt"
   ],
   "accent": 0
  },
@@ -31,12 +31,12 @@
   "hook": "silhouette",
   "animal": "tuatara",
   "base": "photo",
-  "query": "Tuatara lizard head close up spiky crest parietal eye sharp focus",
+  "query": "Sphenodon punctatus tuatara close up head portrait",
   "words": [
-   "Das",
-   "dritte",
-   "Auge"
+   "Überlebte",
+   "jeden",
+   "Dino"
   ],
-  "accent": 2
+  "accent": 0
  }
 ]
