@@ -1,0 +1,10 @@
+{
+ "gemini-flash-lite-latest": {
+  "requests": 1,
+  "in_tokens": 2183,
+  "out_tokens": 620,
+  "steps": {
+   "probe": 1
+  }
+ }
+}
