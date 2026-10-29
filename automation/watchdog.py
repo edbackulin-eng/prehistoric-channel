@@ -95,12 +95,16 @@ def check_runs(mem, actions):
                 age = now() - ts(r["run_started_at"] or r["created_at"])
                 if age > timedelta(hours=hung_h):
                     gh("run", "cancel", str(r["id"]), "-R", REPO, parse=False)
+                    mem.setdefault("cancelled", []).append(r["id"])
                     actions.append(f"cancelled hung {wf} run {r['id']} ({age})")
                 elif wf != "upload.yml":
                     busy = True
-        latest = next((r for r in rs if r["status"] == "completed"), None)
-        if not latest or latest["conclusion"] not in ("failure", "cancelled", "timed_out"):
-            continue
+        # only the newest run of a workflow is recovered: an older failed or
+        # cancelled one that a newer run has replaced is history, not work
+        latest = rs[0] if rs else None
+        if not latest or latest["status"] != "completed" or                 (latest["conclusion"] not in ("failure", "timed_out")
+                 and not (latest["conclusion"] == "cancelled" and latest["id"] in mem.get("cancelled", []))):
+            continue                       # a run cancelled by hand is left alone
         if now() - ts(latest["updated_at"]) < timedelta(minutes=SETTLE_MIN):
             busy = True
             continue
