@@ -103,7 +103,7 @@ TIERE:
 {animals}"""
 
 
-PLAN_VERSION = 4          # 29.10: no abstract frames, no living animal drawn even when the planner named no species; a plan of an older version is made again
+PLAN_VERSION = 5          # 29.10: no abstract frames, no living animal drawn even when the planner named no species; a plan of an older version is made again
 # FLUX draws animals and landscapes; a diagram, a DNA strand or a "visualisation" comes out as
 # mush, and the species check turns it down. Such beats become stock footage instead.
 ABSTRACT = re.compile(r"chart|diagram|graph|infograph|visuali[sz]ation|dna|helix|genetic|molecul|abstract|"
@@ -224,21 +224,28 @@ def main(slug):
     # living animals plans few FLUX frames of its own (29.10: three), so the past is added -
     # extinct relatives, earlier seas and coasts - on the lines that tell of it
     lo_anim = CFG["motion"]["animated_per_episode"][0]
-    if len(order) < lo_anim + 2:
-        numbered = "\n".join(f"{i} [{l.section}]: {l.text}" for i, l in enumerate(lines))
-        extra = gemini.ask(EXTINCT.format(need=lo_anim + 2 - len(order), living=", ".join(sorted(living)),
-                                          have=", ".join(order) or "nichts", lines=numbered[:60000]),
-                           temperature=0.5)
-        extra = gemini.pick(extra, "frames")
-        by_n = {r["n"]: r for r in out_lines}
+    numbered = "\n".join(f"{i} [{l.section}]: {l.text}" for i, l in enumerate(lines))
+    by_n = {r["n"]: r for r in out_lines}
+    for _ in range(3):                         # rounds, until there are enough
+        if len(order) >= lo_anim + 2:
+            break
+        extra = gemini.pick(gemini.ask(EXTINCT.format(need=lo_anim + 2 - len(order), living=", ".join(sorted(living)),
+                                                      have=", ".join(order) or "nichts", lines=numbered[:60000]),
+                                       temperature=0.6), "frames")
         for f in extra:
+            if not isinstance(f, dict):
+                continue
             fid = re.sub(r"[^a-z0-9_]", "_", str(f.get("id") or "").lower())[:40]
             n = int(f.get("n", -1)) if str(f.get("n", "")).lstrip("-").isdigit() else -1
-            if not fid or fid in flux or n not in by_n or abstract(fid, f.get("prompt", "")) \
-                    or living_named(fid, f.get("prompt", ""), species):
+            prompt, extinct = f.get("prompt", ""), str(f.get("species") or "")
+            if not fid or fid in flux or n not in by_n or abstract(fid, prompt):
                 continue
-            flux[fid] = {"prompt": f["prompt"], "species": None, "motion": f.get("motion"),
-                         "section": lines[n].section, "first": n, "extinct": f.get("species")}
+            # an extinct relative may name its group ("an extinct coelacanth, Mawsonia");
+            # what may not be drawn is a living species itself
+            if living_named(extinct, "", species) if extinct else living_named(fid, prompt, species):
+                continue
+            flux[fid] = {"prompt": prompt, "species": None, "motion": f.get("motion"),
+                         "section": lines[n].section, "first": n, "extinct": extinct or None}
             order.append(fid)
             by_n[n]["beats"].append({"kind": "recon", "id": fid, "species": None})
         log.info("extinct frames of the past added; now %d FLUX prompts", len(order))
