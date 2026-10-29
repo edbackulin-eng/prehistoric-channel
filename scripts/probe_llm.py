@@ -52,7 +52,7 @@ def biggest_gemma(ms):
     return g[0]["name"] if g else None
 
 
-def raw(model, text, max_tokens=8):
+def raw(model, text, max_tokens=256):
     body = json.dumps({"contents": [{"parts": [{"text": text}]}],
                        "generationConfig": {"maxOutputTokens": max_tokens, "temperature": 0}}).encode()
     req = urllib.request.Request(gemini.URL.format(m=model), data=body,
@@ -121,9 +121,20 @@ def main():
     global GEMMA
     OUT.mkdir(parents=True, exist_ok=True)
     ms = models()
-    GEMMA = biggest_gemma(ms) or GEMMA
+    # which Gemma answers at all (29.10: gemma-4-31b-it gave only 500s); the first that does is probed
+    tries = {}
+    for m in [x["name"] for x in ms if x["name"].startswith("gemma")]:
+        code, um, body = raw(m, "Antworte nur mit: OK")
+        if code >= 500:
+            time.sleep(20)
+            code, um, body = raw(m, "Antworte nur mit: OK")
+        tries[m] = {"http": code, "body": body[:200]}
+    (OUT / "gemma_tries.json").write_text(json.dumps(tries, indent=1), encoding="utf-8")
+    print("gemma tries:", tries, flush=True)
+    ok = [m for m, v in tries.items() if v["http"] == 200]
+    GEMMA = (sorted(ok, key=lambda n: n != biggest_gemma(ms))[0] if ok else biggest_gemma(ms)) or GEMMA
     print("models:", [m["name"] for m in ms], "| Gemma used:", GEMMA, flush=True)
-    rep = {"models": ms, "gemma": GEMMA, "minute": minute()}
+    rep = {"models": ms, "gemma": GEMMA, "gemma_tries": tries, "minute": minute()}
     rep.update({"chapter": chapter(), "used_today": {m: llm_usage.used(m) for m in (GEMMA, "gemini-flash-lite-latest")}})
     (OUT / "probe_report.json").write_text(json.dumps(rep, indent=1, ensure_ascii=False), encoding="utf-8")
     print(json.dumps(rep, indent=1, ensure_ascii=False))
