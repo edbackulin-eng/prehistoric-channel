@@ -30,7 +30,11 @@ from core.logger import get_logger  # noqa: E402
 log = get_logger("write")
 CFG = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))
 WPM = CFG["voice"]["target_wpm"]
-WORDS = int(CFG["length_min"] * WPM * 0.93)            # pauses take the rest of the 25 minutes
+# The narration is calibrated to WPM over the whole programme, pauses included
+# (core/narrate_de.py), so minutes are words / WPM: 25 min is 3200 words, and the
+# script must land within 22-27 min - longer costs GPU frames and render time.
+WORDS = int(CFG["length_min"] * WPM)
+MIN_WORDS, MAX_WORDS = int(22 * WPM), int(27 * WPM)
 UA = {"User-Agent": "prehistoric-channel/1.0 (documentary research; vladgula557@gmail.com)"}
 
 WRITE = """Du schreibst den Sprechertext für eine deutsche Natur- und Urzeit-Dokumentation auf YouTube
@@ -82,6 +86,40 @@ im selben Stil und Markup. Hook und Finale bleiben, wie sie sind. Antworte als J
 
 TEXT:
 {script}
+
+QUELLEN:
+{sources}"""
+
+
+SHORTEN = """Der folgende deutsche Doku-Text ist {have} Wörter lang (etwa {minutes:.0f} Minuten), er darf höchstens
+{want} Wörter haben (25 Minuten). Kürze ihn auf etwa {want} Wörter: verdichte [section story] und
+[section climax], streiche Wiederholungen und Nebensächliches, behalte alle Schlüsselfakten, den roten Faden,
+Hook und Finale. Nur Fakten aus den Quellen, selbes Markup. Antworte als JSON {{"script": "..."}}.
+
+TEXT:
+{script}
+
+QUELLEN:
+{sources}"""
+
+HOOK = """Schreibe den Hook (die ersten 30 Sekunden, 55-70 Wörter) für diese deutsche Urzeit-Doku. Regel:
+1. der stärkste Moment oder das größte Rätsel der ganzen Folge, konkret und bildhaft,
+2. eine Frage, die den Zuschauer nicht loslässt,
+3. ein Versprechen, was er in dieser Folge erfahren wird.
+Nur Fakten aus den Quellen. 2-4 Zeilen im Markup (> schnell, < langsam mit Pause davor, sonst normal).
+Antworte als JSON {{"hook": ["<Zeile>", "..."]}}
+
+DER TEXT DER FOLGE:
+{script}
+
+QUELLEN:
+{sources}"""
+
+HOOK_CHECK = """Prüfe diesen Hook einer deutschen Urzeit-Doku (die ersten 30 Sekunden):
+{hook}
+Antworte als JSON {{"strongest_moment": true|false, "question": true|false, "promise": true|false,
+"facts_supported": true|false, "words": <Anzahl>, "note": "<kurz>"}}
+"facts_supported": jede Behauptung ist von den Quellen gedeckt.
 
 QUELLEN:
 {sources}"""
@@ -152,8 +190,7 @@ NAMES = {"hook": "hook", "einstieg": "hook", "story": "story", "geschichte": "st
 
 
 def normalise(script):
-    """Section markers as the delivery markup reads them; a script that does not
-    open with its hook gets one: its first lines, up to about 30 seconds."""
+    """Section markers as the delivery markup reads them ([section hook] ...)."""
     out = []
     for raw in script.splitlines():
         m = re.match(r"^\s*\[\s*(?:section|abschnitt)?\s*[:=]?\s*([A-Za-zÄÖÜäöü]+)\s*\]\s*$", raw, re.I)
@@ -161,25 +198,50 @@ def normalise(script):
             out.append(f"[section {NAMES[m.group(1).lower()]}]")
         else:
             out.append(raw)
-    text = "\n".join(out)
-    first = next((l for l in text.splitlines() if l.strip()), "")
-    if first != "[section hook]":
-        body = [l for l in text.splitlines() if l.strip() != "[section hook]"]
-        n, cut = 0, 0
-        for i, l in enumerate(body):
-            if l.startswith("["):
-                if i:
-                    break
-                continue
-            n += len(l.split())
-            cut = i + 1
-            if n >= 55:
-                break
-        rest = body[cut:]
-        if not rest or not rest[0].startswith("[section"):
-            rest = ["[section story]"] + rest
-        text = "\n".join(["[section hook]"] + body[:cut] + rest)
-    return text
+    return "\n".join(out)
+
+
+def has_hook(script):
+    lines = delivery.parse(script)
+    return bool(lines) and lines[0].section == "hook"
+
+
+def write_hook(script, block, tries=3):
+    """A hook by the rule, written on its own and checked before it opens the episode."""
+    body = "\n".join(l for l in script.splitlines() if l.strip() != "[section hook]")
+    last = None
+    for _ in range(tries):
+        hook = [l.strip() for l in gemini.ask(HOOK.format(script=body[:40000], sources=block),
+                                              temperature=0.7)["hook"] if l.strip()]
+        v = gemini.ask(HOOK_CHECK.format(hook="\n".join(hook), sources=block), temperature=0.1)
+        n = len(" ".join(hook).split())
+        last = {"hook": hook, "check": v, "words": n}
+        if all(v.get(k) for k in ("strongest_moment", "question", "promise", "facts_supported")) and 40 <= n <= 85:
+            first = next((l for l in body.splitlines() if l.strip()), "")
+            rest = body if first.startswith("[section") else "[section story]\n" + body
+            log.info("hook written and checked: %s", v)
+            return "[section hook]\n" + "\n".join(hook) + "\n" + rest, last
+        log.info("hook rejected: %s", v)
+    raise RuntimeError(f"no hook passed its check: {last}")
+
+
+def fit_length(script, block):
+    """22-27 minutes: a long script is condensed, a short one extended from the sources."""
+    for _ in range(3):
+        n = words(script)
+        if MIN_WORDS <= n <= MAX_WORDS:
+            return script
+        if n > MAX_WORDS:
+            script = gemini.ask(SHORTEN.format(have=n, minutes=n / WPM, want=WORDS, script=script, sources=block),
+                                temperature=0.4)["script"].replace("\\n", "\n")
+        else:
+            script = gemini.ask(EXTEND.format(have=n, want=WORDS, script=script, sources=block),
+                                temperature=0.5)["script"].replace("\\n", "\n")
+        log.info("length: %d -> %d words", n, words(script))
+    n = words(script)
+    if not MIN_WORDS <= n <= MAX_WORDS:
+        raise RuntimeError(f"script is {n} words ({n / WPM:.1f} min); it must be {MIN_WORDS}-{MAX_WORDS}")
+    return script
 
 
 def main(slug):
@@ -191,15 +253,15 @@ def main(slug):
     block = _src_block(src)
     ans = gemini.ask(WRITE.format(title=topic["title"], focus=topic["focus"], words=WORDS,
                                   minutes=CFG["length_min"], sources=block), temperature=0.6)
-    script = ans["script"].replace("\\n", "\n")
-    for _ in range(2):
-        if words(script) >= WORDS * 0.9:
-            break
-        script = gemini.ask(EXTEND.format(have=words(script), want=WORDS, script=script, sources=block),
-                            temperature=0.5)["script"].replace("\\n", "\n")
+    script = normalise(ans["script"].replace("\\n", "\n"))
     (ep / "script_draft.txt").write_text(script, encoding="utf-8")
+    script = normalise(fit_length(script, block))
     script, checks = fact_check(script, block)
     script = normalise(script)
+    hook_check = None
+    if not has_hook(script):
+        script, hook_check = write_hook(script, block)
+    script = fit_length(script, block)                # the fact check may have shortened it
     lines = delivery.parse(script)
     if not lines or lines[0].section != "hook":
         raise RuntimeError("the script has no hook section at its start")
@@ -209,7 +271,8 @@ def main(slug):
     quellen = "\n".join(f"- {s['title']} (Wikipedia, {s['lang']}): {s['url']}" for s in src)
     meta = {"slug": slug, "title": ans["title_de"][:100], "tags": ans.get("tags", [])[:15],
             "description": f"{ans['description_de'].strip()}\n\nQuellen:\n{quellen}",
-            "words": words(script), "fact_check": checks}
+            "words": words(script), "minutes_est": round(words(script) / WPM, 1), "fact_check": checks,
+            "hook_written_separately": hook_check}
     (ep / "meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False), encoding="utf-8")
     log.info("%s: %d words, %d lines, %d fact-check changes", slug, meta["words"], len(lines), len(checks))
     return 0

@@ -2,6 +2,7 @@
  "_note": "The rules every episode of the German prehistoric channel is built to. Code reads them from here (core/channel.py); changing a rule is a reviewed change to this file, through dev -> smoke -> main.",
  "language": "de-DE",
  "length_min": 25,
+ "length_min_range": [22, 27],
  "voice": {"engine": "piper", "model": "de_DE-thorsten-high", "device": "cpu", "target_wpm": 128},
  "structure": {
   "sections": ["hook", "story", "climax", "finale"],

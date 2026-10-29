@@ -162,6 +162,10 @@ def main():
     from core import delivery
     secs = [l.section for l in delivery.parse("[section hook]\n> A.\n[section story]\nB.\n[section finale]\nC.")]
     check("sections", secs == ["hook", "story", "finale"], str(secs))
+    from automation import write_episode as we
+    check("script rules", we.MIN_WORDS == 22 * 128 and we.MAX_WORDS == 27 * 128
+          and we.has_hook(we.normalise("[Hook]\n> A.\n[Geschichte]\nB."))
+          and not we.has_hook(we.normalise("> A.\n[section story]\nB.")))
     from pipeline import docsound
     sc = docsound.score({"total_s": 90, "sections": [{"name": "hook", "start": 0, "end": 30},
                                                       {"name": "climax", "start": 30, "end": 60},
