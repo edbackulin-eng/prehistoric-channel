@@ -26,6 +26,32 @@ GEMMA = "gemma-3-27b-it"
 OUT = ROOT / "work" / "probe"
 
 
+def models():
+    """The models this key may call (generateContent), Gemma first."""
+    out, token = [], ""
+    while True:
+        url = "https://generativelanguage.googleapis.com/v1beta/models?pageSize=200" + (f"&pageToken={token}" if token else "")
+        d = json.loads(urllib.request.urlopen(urllib.request.Request(url, headers={"x-goog-api-key": gemini.key()}),
+                                              timeout=60).read())
+        for m in d.get("models", []):
+            if "generateContent" in m.get("supportedGenerationMethods", []):
+                out.append({"name": m["name"].split("/", 1)[1], "in": m.get("inputTokenLimit"),
+                            "out": m.get("outputTokenLimit")})
+        token = d.get("nextPageToken")
+        if not token:
+            return out
+
+
+def biggest_gemma(ms):
+    import re
+    g = [m for m in ms if m["name"].startswith("gemma") and "-it" in m["name"] and "e2b" not in m["name"]
+         and "e4b" not in m["name"]]
+    size = lambda n: float((re.search(r"(\d+(?:\.\d+)?)b", n) or [0, 0])[1])
+    ver = lambda n: float((re.search(r"gemma-(\d+(?:\.\d+)?)", n) or [0, 0])[1])
+    g.sort(key=lambda m: (-ver(m["name"]), -size(m["name"])))
+    return g[0]["name"] if g else None
+
+
 def raw(model, text, max_tokens=8):
     body = json.dumps({"contents": [{"parts": [{"text": text}]}],
                        "generationConfig": {"maxOutputTokens": max_tokens, "temperature": 0}}).encode()
@@ -80,7 +106,7 @@ def chapter():
                             points="; ".join(c["points"]), words=300, before="(Anfang des Kapitels)",
                             sources=textllm.relevant(src, q_, 7500))
     out = {}
-    for m in (GEMMA, "gemini-flash-lite-latest"):
+    for m in (GEMMA,):                            # flash-lite's chapter is in the first probe's report
         t0 = time.time()
         try:
             ans = gemini.ask(prompt, models=(m,), temperature=0.6, max_tokens=1700, step="probe")
@@ -92,9 +118,13 @@ def chapter():
 
 
 def main():
+    global GEMMA
     OUT.mkdir(parents=True, exist_ok=True)
-    rep = {"minute": minute(), "chapter": chapter(), "used_today": {m: llm_usage.used(m) for m in
-                                                                     (GEMMA, "gemini-flash-lite-latest")}}
+    ms = models()
+    GEMMA = biggest_gemma(ms) or GEMMA
+    print("models:", [m["name"] for m in ms], "| Gemma used:", GEMMA, flush=True)
+    rep = {"models": ms, "gemma": GEMMA, "minute": minute()}
+    rep.update({"chapter": chapter(), "used_today": {m: llm_usage.used(m) for m in (GEMMA, "gemini-flash-lite-latest")}})
     (OUT / "probe_report.json").write_text(json.dumps(rep, indent=1, ensure_ascii=False), encoding="utf-8")
     print(json.dumps(rep, indent=1, ensure_ascii=False))
     return 0
