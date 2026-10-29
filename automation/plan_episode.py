@@ -88,11 +88,25 @@ TIERE:
 {animals}"""
 
 
-PLAN_VERSION = 2          # 29.10: no abstract frames; a plan of an older version is made again
+PLAN_VERSION = 3          # 29.10: no abstract frames, no living animal drawn even when the planner named no species; a plan of an older version is made again
 # FLUX draws animals and landscapes; a diagram, a DNA strand or a "visualisation" comes out as
 # mush, and the species check turns it down. Such beats become stock footage instead.
 ABSTRACT = re.compile(r"chart|diagram|graph|infograph|visuali[sz]ation|dna|helix|genetic|molecul|abstract|"
                       r"phylogen|schematic|screen|display|data|text|label|logo|map of", re.I)
+
+
+def living_named(fid, prompt, species):
+    """The living species a FLUX prompt or id names (by its English key words, Latin
+    genus or German name), even when the planner gave the beat no species."""
+    text = f"{fid} {prompt}".lower().replace("_", " ")
+    for k, v in species.items():
+        if not v.get("living"):
+            continue
+        toks = {t for t in k.lower().split("_") if len(t) > 3}
+        toks |= {w for w in re.findall(r"[a-zäöüß]{5,}", v.get("name", "").lower())}
+        if any(t in text for t in toks):
+            return k
+    return None
 
 
 def abstract(fid, prompt):
@@ -151,6 +165,9 @@ def main(slug):
             kind = b.get("kind")
             sp = b.get("species") if b.get("species") in species else None
             if kind == "flux" and sp in living:                  # a living animal is never drawn
+                kind, b = "video", {"kind": "video", "species": sp, "query": species[sp]["video_query"] or sp}
+            elif kind == "flux" and living_named(b.get("id") or "", b.get("prompt") or "", species):
+                sp = living_named(b.get("id") or "", b.get("prompt") or "", species)
                 kind, b = "video", {"kind": "video", "species": sp, "query": species[sp]["video_query"] or sp}
             elif kind == "flux" and abstract(b.get("id") or "", b.get("prompt") or ""):
                 kind, b = "video", {"kind": "video", "species": None, "dark": True,
