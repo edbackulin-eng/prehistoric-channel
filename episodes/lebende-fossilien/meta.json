@@ -17,8 +17,8 @@
   "Wissenschaft"
  ],
  "description": "Eine dokumentarische Reise zu Tieren, die die Dinosaurier und das Massenaussterben vor 66 Millionen Jahren überstanden haben. Von Quastenflossern über Pfeilschwanzkrebse bis zur Brückenechse beleuchtet dieser Film die faszinierende Geschichte sogenannter lebender Fossilien.\n\nQuellen:\n- Lebendes Fossil (Wikipedia, de): https://de.wikipedia.org/wiki/Lebendes_Fossil\n- Quastenflosser (Wikipedia, de): https://de.wikipedia.org/wiki/Quastenflosser\n- Latimeria (Wikipedia, de): https://de.wikipedia.org/wiki/Latimeria\n- Pfeilschwanzkrebse (Wikipedia, de): https://de.wikipedia.org/wiki/Pfeilschwanzkrebse\n- Perlboote (Wikipedia, de): https://de.wikipedia.org/wiki/Perlboote\n- Brückenechse (Wikipedia, de): https://de.wikipedia.org/wiki/Br%C3%BCckenechse\n- Kreide-Paläogen-Grenze (Wikipedia, de): https://de.wikipedia.org/wiki/Kreide-Pal%C3%A4ogen-Grenze\n- Living fossil (Wikipedia, en): https://en.wikipedia.org/wiki/Living_fossil\n- Coelacanth (Wikipedia, en): https://en.wikipedia.org/wiki/Coelacanth\n- West Indian Ocean coelacanth (Wikipedia, en): https://en.wikipedia.org/wiki/West_Indian_Ocean_coelacanth\n- Horseshoe crab (Wikipedia, en): https://en.wikipedia.org/wiki/Horseshoe_crab\n- Nautilus (Wikipedia, en): https://en.wikipedia.org/wiki/Nautilus\n- Tuatara (Wikipedia, en): https://en.wikipedia.org/wiki/Tuatara",
- "words": 3222,
- "minutes_est": 25.2,
+ "words": 3142,
+ "minutes_est": 24.5,
  "fact_check": [
   {
    "round": 0,
@@ -1054,7 +1054,7 @@
   "words": 61
  },
  "hook_sha": "29175484c3e0",
- "restyled": true,
+ "restyled": "rewritten",
  "restyle_fact_check": [
   {
    "round": 0,
@@ -2527,5 +2527,124 @@
    "text": "",
    "why": ""
   }
+ ],
+ "rewrite_fact_check": [
+  {
+   "round": 0,
+   "n": 108,
+   "was": "Ein Fund von unschätzbarem wissenschaftlichen Wert, der die bisherigen Lehrbücher der Zoologie auf den Kopf stellte.",
+   "verdict": "fix",
+   "text": "Ein Fund von unschätzbarem wissenschaftlichen Wert, der die bisherige Annahme des Aussterbens dieser Tiere auf den Kopf stellte.",
+   "why": "Lehrbücher der Zoologie werden in den Quellen nicht explizit genannt; korrigiert auf den Bezug zur Annahme des Aussterbens."
+  },
+  {
+   "round": 0,
+   "n": 110,
+   "was": "Wie hatten diese verborgenen Meeresbewohner eine solch immense Distanz überwinden und unbemerkt überdauern können?",
+   "verdict": "fix",
+   "text": "Wie hatten diese verborgenen Meeresbewohner eine solch immense Distanz unbemerkt überdauern können?",
+   "why": "Die Distanz wurde nicht 'überwunden' im Sinne einer aktiven Wanderung über 10.000 km, sondern es handelte sich um eine eigenständige Population dort."
+  },
+  {
+   "round": 0,
+   "n": 115,
+   "was": "Fossil sind heute etwa 70 Arten der Quastenflosser bekannt, die sich auf insgesamt 28 unterschiedliche Gattungen verteilen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Deckung durch: 'Fossil sind etwa 70 Arten der Quastenflosser in 28 Gattungen bekannt.'"
+  },
+  {
+   "round": 0,
+   "n": 119,
+   "was": "Werden die Fäden der Evolution weiter entwirrt, führt dies zu einer überraschenden verwandtschaftlichen Nähe im Stammbaum der Wirbeltiere.",
+   "verdict": "fix",
+   "text": "Werden die Fäden der Evolution weiter entwirrt, zeigt sich die verwandtschaftliche Einordnung im Stammbaum der Wirbeltiere.",
+   "why": "'Überraschende verwandtschaftliche Nähe' ist zu wertend im Vergleich zu den Quellen, die die Verwandtschaft nüchtern darlegen."
+  },
+  {
+   "round": 0,
+   "n": 121,
+   "was": "Ein tiefer Blick in die Erdgeschichte zeigt somit, dass diese scheinbaren Urzeit-Relikte über hunderte Millionen Jahre hinweg die Meere prägten.",
+   "verdict": "fix",
+   "text": "Ein Blick in die Erdgeschichte zeigt somit, dass diese scheinbaren Urzeit-Relikte über Millionen Jahre hinweg die Meere prägten.",
+   "why": "In den Quellen ist von 'Blütezeit in der Trias' die Rede, aber 'hunderte Millionen Jahre hinweg' ist im Kontext des Fossilberichts (Devon bis Kreide) zu ungenau bzw. übertrieben."
+  },
+  {
+   "round": 0,
+   "n": 122,
+   "was": "Die Entdeckung der beiden rezente Arten hat endgültig bewiesen, dass die Evolution oft verschlungene Pfade geht.",
+   "verdict": "fix",
+   "text": "Die Entdeckung der beiden rezenten Arten hat verdeutlicht, wie sich Populationen weit voneinander entfernt entwickeln können.",
+   "why": "Quellen sagen nichts von 'Endgültig bewiesen, dass die Evolution oft verschlungene Pfade geht' in Bezug auf die zwei Arten."
+  },
+  {
+   "round": 0,
+   "n": 124,
+   "was": "> Ein Blick auf die paläontologische Überlieferung verdeutlicht das schlaghafte Ausmaß der damaligen geologischen Katastrophen für die Meeresfauna.",
+   "verdict": "fix",
+   "text": "Ein Blick auf die paläontologische Überlieferung verdeutlicht das plötzliche Abbrechen des Fossilberichts der Meeresfauna am Ende der Kreidezeit.",
+   "why": "Der Begriff 'geologische Katastrophen' steht so nicht in den Quellen für den Fossilbericht, dort heißt es 'bricht in der späten Oberkreide vor mehr als 70 Millionen Jahren ab'."
+  },
+  {
+   "round": 0,
+   "n": 129,
+   "was": "Eine erneute, atemberaubende Sensation erschütterte die Fachwelt, als das amerikanische Studentenehepaar Mark und Arnaz Erdmann in den Jahren 1997 und 1998 tote Quastenflosser auf einem traditionellen Fischmarkt auf entdeckte.",
+   "verdict": "fix",
+   "text": "Eine erneute, atemberaubende Sensation erschütterte die Fachwelt, als das amerikanische Ehepaar Erdmann in den Jahren 1997 und 1998 tote Quastenflosser auf einem Fischmarkt auf der indonesischen Insel Manado Tua entdeckte.",
+   "why": "Mark und Arnaz Erdmann werden in den Quellen nur als \"das amerikanische Studentenehepaar Erdmann\" bzw. \"das amerikanische Ehepaar Erdmann\" bezeichnet, zudem befand sich der Fischmarkt laut Quelle auf Manado Tua (Sulawesi)."
+  },
+  {
+   "round": 0,
+   "n": 133,
+   "was": "Gewissheit brachte schließlich die moderne Meeresforschung, als das renommierte Fricke-Forscherteam mit Hilfe ihres Spezial-Tauchboots Jago auch direkt vor Ort in Indonesien lebende Exemplare aufspürte.",
+   "verdict": "fix",
+   "text": "Gewissheit brachte schließlich die moderne Meeresforschung, als das Fricke-Forscherteam mit Hilfe des Tauchboots Jago auch direkt vor Ort in Indonesien lebende Exemplare aufspürte.",
+   "why": "Die Quellen bezeichnen das Team als deutsches Forscherteam bzw. Fricke-Forscherteam (nicht \"renommiert\" im Text erwähnt, aber das ist stilistisch ok, jedoch wird Jago in Indonesien laut Quelle von ihnen eingesetzt)."
+  },
+  {
+   "round": 0,
+   "n": 142,
+   "was": "< Umso größer war die historische Überraschung, als im Jahr 1938 die Entdeckung des ersten rezenten Exemplars im Indischen Ozean vor der südafrikanischen Küste das wissenschaftliche Weltbild komplett auf den Kopf stellte.",
+   "verdict": "fix",
+   "text": "< Umso größer war die historische Überraschung, als im Jahr 1938 die Entdeckung des ersten rezenten Exemplars im Indischen Ozean vor der südafrikanischen Küste das wissenschaftliche Weltbild komplett auf den Kopf stellte.",
+   "why": "Zeile 142 ist mit '<' markiert, aber laut Quellen entdeckte Marjorie Courtenay-Latimer den Fund am 22. Dezember 1938, und James L. B. Smith schrieb über seine Reaktion, er wäre kaum erstaunter gewesen, wenn er auf der Straße einem Dinosaurier begegnet wäre (keine explizite Erwähnung, dass das 'Weltbild komplett auf den Kopf gestellt' wurde, aber nah dran – jedoch passt die Zeile inhaltlich. Laut Quellen war es der Komoren-Quastenflosser, aber die Quelle sagt 'Entdeckung des rezenten Quastenflossers... 1938 im Indischen Ozean vor Südafrika'. Die Zeile ist an sich gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 129,
+   "was": "Eine erneute, atemberaubende Sensation erschütterte die Fachwelt, als das amerikanische Ehepaar Erdmann in den Jahren 1997 und 1998 tote Quastenflosser auf einem Fischmarkt auf der indonesischen Insel Manado Tua entdeckte.",
+   "verdict": "fix",
+   "text": "Eine erneute, atemberaubende Sensation erschütterte die Fachwelt, als das amerikanische Studentenehepaar Erdmann in den Jahren 1997 und 1998 tote Quastenflosser auf dem Fischmarkt von Manado Tua auf der indonesischen Insel Sulawesi entdeckte.",
+   "why": "Das Paar waren Studenten (laut Quelle 'Studentenehepaar') und der genaue Ort war der Fischmarkt von Manado Tua."
+  },
+  {
+   "round": 1,
+   "n": 133,
+   "was": "Gewissheit brachte schließlich die moderne Meeresforschung, als das Fricke-Forscherteam mit Hilfe des Tauchboots Jago auch direkt vor Ort in Indonesien lebende Exemplare aufspürte.",
+   "verdict": "fix",
+   "text": "Gewissheit brachte schließlich die moderne Meeresforschung, als das Fricke-Forscherteam mit Hilfe des Tauchboots Jago auch direkt vor Ort in Indonesien lebende Exemplare aufspürte.",
+   "why": "Es war das Fricke-Forscherteam (nicht Fricke allein) und es wurde die Jago genutzt."
+  },
+  {
+   "round": 1,
+   "n": 142,
+   "was": "< Umso größer war die historische Überraschung, als im Jahr 1938 die Entdeckung des ersten rezenten Exemplars im Indischen Ozean vor der südafrikanischen Küste das wissenschaftliche Weltbild komplett auf den Kopf stellte.",
+   "verdict": "fix",
+   "text": "< Umso größer war die historische Überraschung, als im Jahr 1938 die Entdeckung des ersten rezenten Exemplars durch Marjorie Courtenay-Latimer im Indischen Ozean vor der südafrikanischen Küste das wissenschaftliche Weltbild komplett auf den Kopf stellte.",
+   "why": "Die Entdeckerin Marjorie Courtenay-Latimer muss genannt werden, um präzise und gedeckt zu sein."
+  },
+  {
+   "round": 1,
+   "n": 146,
+   "was": "> Um die Existenz dieser Tiere in asiatischen Gewässern zweifelsfrei zu belegen, begab sich das bewährte Fricke-Forscherteam mit ihrem Spezial-Tauchboot Jago auf eine riskante Expedition in die Tiefen vor Sulawesi.",
+   "verdict": "fix",
+   "text": "> Um die Existenz dieser Tiere in asiatischen Gewässern genauer zu untersuchen, setzte das Fricke-Forscherteam auch dort das Tauchboot Jago ein.",
+   "why": "Die Expedition war laut Quelle nicht 'riskant' und es wird nicht explizit erwähnt, dass sie zum 'zweifelsfreien Belegen' unternommen wurde, sondern das Jago-Tauchboot wurde bei den Projekten zur Erforschung eingesetzt."
+  }
+ ],
+ "chapters": [
+  "Der Fund, der die Paläontologie erschütterte",
+  "Die Wiederentdeckung des Komoren-Quastenflossers",
+  "Die zweite Art und die globale Verbreitung"
  ]
 }
