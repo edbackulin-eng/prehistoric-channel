@@ -117,9 +117,15 @@ def chapter():
     return out
 
 
+DONE = ROOT / "state" / "llm_probe.json"
+
+
 def main():
     global GEMMA
     OUT.mkdir(parents=True, exist_ok=True)
+    if DONE.exists() and "--again" not in sys.argv:
+        print("probe already done:", DONE.read_text(encoding="utf-8")[:300])
+        return 0
     ms = models()
     # which Gemma answers at all (29.10: gemma-4-31b-it gave only 500s); the first that does is probed
     tries = {}
@@ -137,6 +143,9 @@ def main():
     rep = {"models": ms, "gemma": GEMMA, "gemma_tries": tries, "minute": minute()}
     rep.update({"chapter": chapter(), "used_today": {m: llm_usage.used(m) for m in (GEMMA, "gemini-flash-lite-latest")}})
     (OUT / "probe_report.json").write_text(json.dumps(rep, indent=1, ensure_ascii=False), encoding="utf-8")
+    if (rep["chapter"].get(GEMMA) or {}).get("words"):        # Gemma answered: kept, and no more probing
+        DONE.write_text(json.dumps({k: rep[k] for k in ("gemma", "gemma_tries", "minute", "chapter")}, indent=1,
+                                   ensure_ascii=False), encoding="utf-8")
     print(json.dumps(rep, indent=1, ensure_ascii=False))
     return 0
 

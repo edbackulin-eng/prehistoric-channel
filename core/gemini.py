@@ -19,6 +19,7 @@ log = get_logger("gemini")
 URL = "https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent"
 TEXT_MODELS = ("gemini-flash-latest", "gemini-flash-lite-latest")
 _SPENT = set()
+_FAILS = {}                            # model -> 5xx answers in a row
 _WINDOW = {}                           # model -> [(time, tokens)] of the last minute
 
 
@@ -108,7 +109,11 @@ def ask(prompt, images=(), models=TEXT_MODELS, json_out=True, temperature=0.4, m
                                              headers={"Content-Type": "application/json", "x-goog-api-key": key()})
                 with urllib.request.urlopen(req, timeout=timeout) as r:
                     d = json.loads(r.read())
-                text = "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"])
+                text = "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"]
+                               if not p.get("thought"))
+                if not text.strip():
+                    raise ValueError("empty answer")
+                _FAILS[m] = 0
                 um = d.get("usageMetadata", {})
                 from core import llm_usage
                 llm_usage.record(m, um.get("promptTokenCount"), um.get("candidatesTokenCount"), step)
@@ -132,8 +137,17 @@ def ask(prompt, images=(), models=TEXT_MODELS, json_out=True, temperature=0.4, m
                     _SPENT.add(m)
                     log.warning("%s set aside for this run: %s", m, body[:160])
                     break
-                # 5xx ("high demand", 29.10 a 503) passes in a minute or two: wait it out
-                time.sleep(20 * (attempt + 1) if e.code >= 500 else 5 * (attempt + 1))
+                if e.code >= 500:
+                    # a model that keeps failing is set aside for the run (29.10: Gemma 4
+                    # answered only 500 and 503 for an afternoon); a single 5xx is waited out
+                    _FAILS[m] = _FAILS.get(m, 0) + 1
+                    if _FAILS[m] >= 2:
+                        _SPENT.add(m)
+                        log.warning("%s set aside after %d server errors in a row", m, _FAILS[m])
+                        break
+                    time.sleep(20)
+                    continue
+                time.sleep(5 * (attempt + 1))
             except Exception as e:                                   # noqa: BLE001
                 last = f"{m}: {type(e).__name__}: {str(e)[:200]}"
                 time.sleep(5 * (attempt + 1))

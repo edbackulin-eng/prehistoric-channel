@@ -17,6 +17,7 @@ log = get_logger("textllm")
 SOURCE_CHARS = 11000          # what one request can carry beside its prompt and answer
 _C = llm_usage.CFG["text_llm"]
 PRIMARY, FALLBACK = _C["primary"], _C["fallback"]
+PRIMARIES = tuple(_C.get("primaries") or [PRIMARY])
 
 
 def ask(prompt, step, json_out=True, temperature=0.4, max_tokens=2200, big=False):
@@ -27,7 +28,7 @@ def ask(prompt, step, json_out=True, temperature=0.4, max_tokens=2200, big=False
             return groq.ask(prompt, json_out=json_out, temperature=temperature, max_tokens=max_tokens, step=step)
         except Exception as e:                                           # noqa: BLE001
             log.warning("groq could not answer (%s)", str(e)[:160])
-    order = (FALLBACK,) if big or not llm_usage.enough(PRIMARY, 1) else (PRIMARY, FALLBACK)
+    order = tuple(m for m in PRIMARIES if not big and llm_usage.enough(m, 1)) + (FALLBACK,)
     return gemini.ask(prompt, models=order, json_out=json_out, temperature=temperature, max_tokens=max_tokens,
                       step=step)
 

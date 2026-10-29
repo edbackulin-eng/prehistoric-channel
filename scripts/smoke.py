@@ -171,7 +171,7 @@ def main():
     check("Gemma's JSON read from its text", gm._json_from(fence + 'json' + chr(10) + '{"lines": ["a"]}' + chr(10) + fence)
           == {"lines": ["a"]} and gm._json_from('Hier: {"a": 1} fertig') == {"a": 1})
     from core import textllm as tlm
-    check("text steps on Gemma, Groq off", tlm.PRIMARY == "gemma-3-27b-it" and tlm.FALLBACK == "gemini-flash-lite-latest"
+    check("text steps on Gemma, Groq off", tlm.PRIMARY.startswith("gemma") and tlm.FALLBACK == "gemini-flash-lite-latest"
           and not tlm._C["groq_enabled"])
     check("answers read as object or bare list", gm.pick([1, 2], "animals") == [1, 2]
           and gm.pick({"animals": [3]}, "animals") == [3] and gm.pick({"tiere": [4]}, "animals") == [4]
