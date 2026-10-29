@@ -48,6 +48,8 @@ BEATS = """Du planst die Bilder einer deutschen Urzeit-Doku (4K, ruhige BBC-Äst
 Zeile: was gezeigt wird. Regeln:
 - Lebende Tiere (living=true in der Liste) NUR als echtes Video: {{"kind": "video", "species": "<key>",
   "query": "<englische Stock-Suche, 2-5 Wörter>", "dark": true|false}}.
+- NIEMALS als FLUX-Bild: Diagramme, Infografiken, Stammbäume, DNA, Moleküle, Bildschirme, Schrift, Karten,
+  abstrakte Visualisierungen - dafür echtes Stock-Video (kind "video").
 - Ausgestorbene Tiere und verlorene Urzeit-Landschaften als FLUX-Bild: {{"kind": "flux", "species": "<key oder null>",
   "id": "<snake_case, eindeutig>", "prompt": "<englisch: das Tier mit genauer Anatomie aus der Merkmalliste, in seiner
   Umgebung, Kamerablick - niemals ein modernes Tier daneben, keine Menschen>", "motion": "<englisch, eine Bewegung für die
@@ -84,6 +86,17 @@ Antworte als JSON: {{"thumbs": [{{"id": "thumb_a|thumb_b|thumb_c", "hook": "scal
 
 TIERE:
 {animals}"""
+
+
+PLAN_VERSION = 2          # 29.10: no abstract frames; a plan of an older version is made again
+# FLUX draws animals and landscapes; a diagram, a DNA strand or a "visualisation" comes out as
+# mush, and the species check turns it down. Such beats become stock footage instead.
+ABSTRACT = re.compile(r"chart|diagram|graph|infograph|visuali[sz]ation|dna|helix|genetic|molecul|abstract|"
+                      r"phylogen|schematic|screen|display|data|text|label|logo|map of", re.I)
+
+
+def abstract(fid, prompt):
+    return bool(ABSTRACT.search(f"{fid} {prompt}"))
 
 
 def chunks(seq, n):
@@ -139,6 +152,9 @@ def main(slug):
             sp = b.get("species") if b.get("species") in species else None
             if kind == "flux" and sp in living:                  # a living animal is never drawn
                 kind, b = "video", {"kind": "video", "species": sp, "query": species[sp]["video_query"] or sp}
+            elif kind == "flux" and abstract(b.get("id") or "", b.get("prompt") or ""):
+                kind, b = "video", {"kind": "video", "species": None, "dark": True,
+                                    "query": (b.get("id") or "deep sea").replace("_", " ")[:40]}
             if kind == "flux":
                 fid = re.sub(r"[^a-z0-9_]", "_", (b.get("id") or f"f{i}_{k}").lower())[:40]
                 if fid not in flux:
@@ -195,7 +211,7 @@ def main(slug):
     (ep / "footage.json").write_text(json.dumps(footage_json, indent=1, ensure_ascii=False), encoding="utf-8")
     (ep / "shots.json").write_text(json.dumps({"_note": "Planned by automation/plan_episode.py from script.txt.",
                                                "lines": out_lines}, indent=1, ensure_ascii=False), encoding="utf-8")
-    rep = {"lines": len(lines), "species": len(species), "living": sorted(living), "flux_prompts": len(keep),
+    rep = {"version": PLAN_VERSION, "lines": len(lines), "species": len(species), "living": sorted(living), "flux_prompts": len(keep),
            "flux_frames": len(keep) * CFG["motion"]["flux_seeds"], "animate": animate,
            "video_beats": len(footage_json), "lines_without_picture": [r["n"] for r in out_lines if not r["beats"]]}
     (ep / "plan_report.json").write_text(json.dumps(rep, indent=1), encoding="utf-8")
@@ -203,5 +219,12 @@ def main(slug):
     return 0
 
 
+def stale(slug):
+    rp = ROOT / "episodes" / slug / "plan_report.json"
+    return not rp.exists() or json.loads(rp.read_text(encoding="utf-8")).get("version") != PLAN_VERSION
+
+
 if __name__ == "__main__":
+    if sys.argv[1] == "--if-stale":
+        sys.exit(main(sys.argv[2]) if stale(sys.argv[2]) else 0)
     sys.exit(main(sys.argv[1]))

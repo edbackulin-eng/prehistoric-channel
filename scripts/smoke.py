@@ -166,6 +166,13 @@ def main():
     check("script rules", we.MIN_WORDS == 22 * 128 and we.MAX_WORDS == 27 * 128
           and we.has_hook(we.normalise("[Hook]\n> A.\n[Geschichte]\nB."))
           and not we.has_hook(we.normalise("> A.\n[section story]\nB.")))
+    from automation import plan_episode as pe
+    check("abstract frames are not drawn", pe.abstract("dna_helix_abstract", "glowing DNA strands")
+          and pe.abstract("molecular_evolution_chart", "x") and not pe.abstract("ancient_lungfish_swamp",
+                                                                              "a prehistoric lungfish swimming"))
+    sh = "[section hook]\n> Ein Rätsel.\n< Wer überlebte?\n[section story]\nEin Rätsel.\nDie Geschichte beginnt.\n"
+    check("hook is stripped, and its copies with it", we.strip_hook(sh).strip() ==
+          "[section story]\nDie Geschichte beginnt.", repr(we.strip_hook(sh)))
     from pipeline import docsound
     sc = docsound.score({"total_s": 90, "sections": [{"name": "hook", "start": 0, "end": 30},
                                                       {"name": "climax", "start": 30, "end": 60},

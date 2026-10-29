@@ -244,9 +244,48 @@ def has_hook(script):
     return bool(lines) and lines[0].section == "hook"
 
 
-def write_hook(script, block, tries=3):
+def hook_text(script):
+    return [l.text for l in delivery.parse(script) if l.section == "hook"]
+
+
+def hook_ok(script, block):
+    """The hook the script has, judged by the rule: strongest moment, a question,
+    a promise, facts the sources carry, 40-85 words. (A marker alone proves
+    nothing: 29.10 a hook with no question and a copy of itself in the story
+    passed.)"""
+    h = hook_text(script)
+    if not h:
+        return False, None
+    v = gemini.ask(HOOK_CHECK.format(hook="\n".join(h), sources=block), temperature=0.1)
+    n = len(" ".join(h).split())
+    ok = all(v.get(k) for k in ("strongest_moment", "question", "promise", "facts_supported")) and 40 <= n <= 85
+    return ok, {"hook": h, "check": v, "words": n}
+
+
+def strip_hook(script):
+    """The script without its hook section - and without the hook's lines wherever
+    else the model repeated them."""
+    rows, out, section = script.splitlines(), [], None
+    gone = {t.strip() for t in hook_text(script)}
+    for l in rows:
+        m = re.match(r"^\[section (\w+)\]$", l.strip())
+        if m:
+            section = m.group(1)
+            if section != "hook":
+                out.append(l)
+            continue
+        if section == "hook":
+            continue
+        t = re.sub(r"^[<>]\s*", "", l.strip())
+        if t in gone:
+            continue
+        out.append(l)
+    return "\n".join(out)
+
+
+def write_hook(script, block, tries=4):
     """A hook by the rule, written on its own and checked before it opens the episode."""
-    body = "\n".join(l for l in script.splitlines() if l.strip() != "[section hook]")
+    body = strip_hook(script)
     last = None
     for _ in range(tries):
         hook = [l.strip() for l in gemini.ask(HOOK.format(script=body[:40000], sources=block),
@@ -261,6 +300,30 @@ def write_hook(script, block, tries=3):
             return "[section hook]\n" + "\n".join(hook) + "\n" + rest, last
         log.info("hook rejected: %s", v)
     raise RuntimeError(f"no hook passed its check: {last}")
+
+
+def ensure_hook(slug):
+    """For a script already in the repository: judge its hook, replace it if it fails."""
+    q = json.loads((ROOT / "topics" / "queue.json").read_text(encoding="utf-8"))
+    topic = next(t for t in q["topics"] if t["slug"] == slug)
+    ep = ROOT / "episodes" / slug
+    script = (ep / "script.txt").read_text(encoding="utf-8")
+    block = _src_block(sources(topic))
+    ok, rep = hook_ok(script, block)
+    if ok:
+        log.info("%s: hook passes (%s)", slug, rep["check"])
+        return 0
+    script, rep = write_hook(script, block)
+    (ep / "script.txt").write_text(script.strip() + "\n", encoding="utf-8")
+    meta = json.loads((ep / "meta.json").read_text(encoding="utf-8"))
+    meta["hook_written_separately"] = rep
+    meta["words"] = words(script)
+    meta["minutes_est"] = round(words(script) / WPM, 1)
+    (ep / "meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False), encoding="utf-8")
+    # the plan was made for the old script: it is made again
+    (ep / "plan_report.json").unlink(missing_ok=True)
+    log.info("%s: hook replaced; %d words", slug, meta["words"])
+    return 0
 
 
 def _section_at(rows, i):
@@ -349,8 +412,8 @@ def main(slug):
     script = normalise(fit_length(script, block))
     script, checks = fact_check(script, block)
     script = normalise(script)
-    hook_check = None
-    if not has_hook(script):
+    ok, hook_check = hook_ok(script, block)
+    if not ok:
         script, hook_check = write_hook(script, block)
     script = fit_length(script, block)                # the fact check may have shortened it
     lines = delivery.parse(script)
@@ -370,4 +433,4 @@ def main(slug):
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv[1]))
+    sys.exit(ensure_hook(sys.argv[2]) if sys.argv[1] == "--hook-only" else main(sys.argv[1]))

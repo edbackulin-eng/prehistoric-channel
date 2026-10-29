@@ -72,16 +72,14 @@ jobs:
         env:
           SLUG: ${{ steps.pick.outputs.slug }}
         run: |
-          [ -f "episodes/$SLUG/script.txt" ] && exit 0
-          python automation/write_episode.py "$SLUG"
+          if [ -f "episodes/$SLUG/script.txt" ]; then python automation/write_episode.py --hook-only "$SLUG"; else python automation/write_episode.py "$SLUG"; fi
           git add "episodes/$SLUG" && bash "$RUNNER_TEMP/push.sh" "Script for $SLUG"
       - name: Plan, species checklists, footage candidates
         if: steps.pick.outputs.slug != ''
         env:
           SLUG: ${{ steps.pick.outputs.slug }}
         run: |
-          [ -f "episodes/$SLUG/shots.json" ] && exit 0
-          python automation/plan_episode.py "$SLUG"
+          python automation/plan_episode.py --if-stale "$SLUG"
           git add "episodes/$SLUG" && bash "$RUNNER_TEMP/push.sh" "Plan for $SLUG"
       - name: FLUX on Kaggle
         id: flux
