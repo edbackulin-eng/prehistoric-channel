@@ -4825,5 +4825,712 @@
   "museum_display": false,
   "note": "coastal aerial shot, not foggy",
   "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-137316": {
+  "subject": "harbour with fishing boats and seagulls at sunset",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "not visible",
+   "large, thick scales": "not visible",
+   "fleshy, lobe-like paired fins": "not visible",
+   "powerful lower jaw": "not visible",
+   "deep-sea habitat": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a harbour at sunset instead of the required dead fish on a boat deck.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-121499": {
+  "subject": "abstract gold particles background",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract background, does not show scientist or sketch",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-127432": {
+  "subject": "aerial view of a desert landscape with mountains",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a desert landscape instead of a scientist examining a sketch",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-291398": {
+  "subject": "the Moon",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows the moon, not a historical fossil illustration.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-291400": {
+  "subject": "The Moon in the night sky",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows the moon instead of a historical fossil illustration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-312999": {
+  "subject": "the moon",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows the moon, not a historical fossil illustration.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-313001": {
+  "subject": "the moon",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "moon"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows the moon instead of a historical fossil illustration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-133547": {
+  "subject": "sunset over the sea",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows sunset over water instead of fishing net.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-186196": {
+  "subject": "coastal sunset landscape",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows sunset over water instead of a deep sea fishing net hauling surface.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-201766": {
+  "subject": "ocean waves crashing on a beach near buildings",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "not visible",
+   "large, thick scales": "not visible",
+   "fleshy, lobe-like paired fins": "not visible",
+   "powerful lower jaw": "not visible",
+   "deep-sea habitat": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Coastal scene with buildings visible in the distance, not a deep-sea abyss.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-217712": {
+  "subject": "green leaves in rain",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows green leaves, not sandpaper texture or scales.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-306700": {
+  "subject": "wasp eating meat",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a wasp on food, not sandpaper texture.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-318885": {
+  "subject": "mountain valley landscape",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "not visible",
+   "large, thick scales": "not visible",
+   "fleshy, lobe-like paired fins": "not visible",
+   "powerful lower jaw": "not visible",
+   "deep-sea habitat": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a mountain landscape instead of underwater coelacanth footage.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-323513": {
+  "subject": "aerial view of a harbour with boats and buildings",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "no",
+   "large, thick scales": "no",
+   "fleshy, lobe-like paired fins": "no",
+   "powerful lower jaw": "no",
+   "deep-sea habitat": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a harbour instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-103801": {
+  "subject": "snowy forest landscape at night with bridge",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "not visible",
+   "large, thick scales": "not visible",
+   "fleshy, lobe-like paired fins": "not visible",
+   "powerful lower jaw": "not visible",
+   "deep-sea habitat": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "bridge",
+   "snowy forest"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "does not show a deep ocean trench or coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-192066": {
+  "subject": "coastal seascape in monochrome",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "no",
+   "large, thick scales": "not visible",
+   "fleshy, lobe-like paired fins": "not visible",
+   "powerful lower jaw": "not visible",
+   "deep-sea habitat": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a calm sea scene, serving as a transitional shot",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-25903": {
+  "subject": "surface water waves",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "not visible",
+   "large, thick scales": "not visible",
+   "fleshy, lobe-like paired fins": "not visible",
+   "powerful lower jaw": "not visible",
+   "deep-sea habitat": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows shallow water surface, not a submersible view of a deep-sea fish.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-184069": {
+  "subject": "coastal aerial view with rocky shore and waves",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "not visible",
+   "large, thick scales": "not visible",
+   "fleshy, lobe-like paired fins": "not visible",
+   "powerful lower jaw": "not visible",
+   "deep-sea habitat": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an aerial view of a rocky coastline instead of a deep sea fish or submersible view.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-104679": {
+  "subject": "forest path in sunlight",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "no",
+   "large, thick scales": "no",
+   "fleshy, lobe-like paired fins": "no",
+   "powerful lower jaw": "no",
+   "deep-sea habitat": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a forest path, not historical underwater coelacanth footage",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-349087": {
+  "subject": "hand browsing through archive records",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "fits archival research context",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-142044": {
+  "subject": "cranes in a field",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows cranes in a field, not a research vessel",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-199375": {
+  "subject": "overhead view of construction site",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles",
+   "buildings",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a construction site instead of a research ship.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-177298": {
+  "subject": "red-crowned crane in grass",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a crane instead of a research submersible or ship deck",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-219862": {
+  "subject": "two cranes in a forest",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows cranes instead of a research ship",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-30902": {
+  "subject": "person sitting by the water playing a handpan instrument",
+  "species_match": null,
+  "features": {
+   "steel-blue coloration": "not visible",
+   "large, thick scales": "not visible",
+   "fleshy, lobe-like paired fins": "not visible",
+   "powerful lower jaw": "not visible",
+   "deep-sea habitat": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "vehicles"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a person sitting by the shore, does not match the requested submersible cockpit.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-304019": {
+  "subject": "ocean surface waves",
+  "species_match": null,
+  "features": {
+   "steel-blue coloration": "not visible",
+   "large, thick scales": "not visible",
+   "fleshy, lobe-like paired fins": "not visible",
+   "powerful lower jaw": "not visible",
+   "deep-sea habitat": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Establishing shot of the ocean surface.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-283533": {
+  "subject": "ocean waves",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "not visible",
+   "large, thick scales": "not visible",
+   "fleshy, lobe-like paired fins": "not visible",
+   "powerful lower jaw": "not visible",
+   "deep-sea habitat": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows ocean surface waves instead of an underwater coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-168572": {
+  "subject": "White snowball flowers (Viburnum opulus 'Roseum')",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "no",
+   "large, thick scales": "no",
+   "fleshy, lobe-like paired fins": "no",
+   "powerful lower jaw": "no",
+   "deep-sea habitat": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows white flowers instead of a coelacanth fish.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-165065": {
+  "subject": "red flower with a bee",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "no",
+   "large, thick scales": "no",
+   "fleshy, lobe-like paired fins": "no",
+   "powerful lower jaw": "no",
+   "deep-sea habitat": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a red flower and a bee, completely unrelated to the coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-216402": {
+  "subject": "aerial view of a river landscape with clouds and settlement",
+  "species_match": null,
+  "features": {
+   "river": "yes",
+   "mouth_estuary": "yes",
+   "aerial_view": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of river landscape fitting the description",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-363571": {
+  "subject": "a butterfly on a flower",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "no",
+   "large, thick scales": "no",
+   "fleshy, lobe-like paired fins": "no",
+   "powerful lower jaw": "no",
+   "deep-sea habitat": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a butterfly on a flower, not a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-58475": {
+  "subject": "mountain landscape with low clouds",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "not visible",
+   "large, thick scales": "not visible",
+   "fleshy, lobe-like paired fins": "not visible",
+   "powerful lower jaw": "not visible",
+   "deep-sea habitat": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape view showing mountains and clouds instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-156111": {
+  "subject": "aquarium tank with fish",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "not visible",
+   "large, thick scales": "no",
+   "fleshy, lobe-like paired fins": "no",
+   "powerful lower jaw": "no",
+   "deep-sea habitat": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows regular aquarium fish instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-218792": {
+  "subject": "fish pens in a river",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows fish pens/aquaculture in a river rather than deep sea net hauling.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-59304": {
+  "subject": "coastal sunrise landscape",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a sunrise over water, not deep sea fishing net hauling.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-155123": {
+  "subject": "large tropical fish in an aquarium",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows fish in an aquarium instead of a submersible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-265188": {
+  "subject": "rock cave opening overlooking the sea",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "not visible",
+   "large, thick scales": "not visible",
+   "fleshy, lobe-like paired fins": "not visible",
+   "powerful lower jaw": "not visible",
+   "deep-sea habitat": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a rock cave opening facing the sea, matching the transition in the narration about diving.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-156473": {
+  "subject": "cozy living room with a fireplace",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a living room instead of historic scientific archives",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-182592": {
+  "subject": "cozy hobbit-style room with large round window",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "books",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Fantasy room, not a historic scientific archive.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-190661": {
+  "subject": "cozy interior with armchair and autumn forest view",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "furniture",
+   "lamp",
+   "candles",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows an indoor armchair looking out at an autumn forest instead of historic archives",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-275415": {
+  "subject": "yellow rapeseed field",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a yellow field instead of historic scientific archives room.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-128887": {
+  "subject": "ocean at sunset",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Calm ocean waves under a dramatic sunset sky.",
+  "model": "gemini-flash-lite-latest"
  }
 }
