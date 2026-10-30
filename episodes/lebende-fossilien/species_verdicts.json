@@ -8772,5 +8772,1345 @@
   "museum_display": false,
   "note": "Clear shallow water scene with a modern fish, acceptable stand-in",
   "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-27801": {
+  "subject": "yellow and blue ink in water",
+  "species_match": false,
+  "features": {
+   "elongated eel-like body": "not visible",
+   "small pectoral fins": "not visible",
+   "distinctive mouth structure": "not visible",
+   "mottled brown or grey skin": "not visible",
+   "freshwater habitat": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract ink patterns in water, no lungfish",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-150344": {
+  "subject": "freezing soap bubble on moss",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a freezing soap bubble on moss, not deep ocean pressure bubbles",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-326483": {
+  "subject": "frozen soap bubble on snow",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a frozen soap bubble, not deep ocean pressure bubbles.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-135658": {
+  "subject": "water surface at sunset",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Atmospheric shot of sea surface, suitable documentary stand-in.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-110877": {
+  "subject": "jellyfish swimming",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows jellyfish instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-130588": {
+  "subject": "animated blue octopus wearing a santa hat",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "no",
+   "fleshy, lobe-like paired fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or slate-grey coloration": "no",
+   "single dorsal fin positioned far back on the body": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "santa hat",
+   "animated character"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows an animated blue octopus instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-26640": {
+  "subject": "clear shallow water with rocks",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows shallow water instead of deep ocean water surface.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-65148": {
+  "subject": "open ocean water surface",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows ocean water surface matching the narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-309815": {
+  "subject": "ocean waves rolling onto a sandy beach",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "ocean waves rolling",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-233245": {
+  "subject": "ocean horizon and sandy beach",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows an ocean horizon matching the narration requirement",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-86091": {
+  "subject": "boats on water at sunset",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "boats"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows boats on the water/sea rather than on the shore",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-dc602d74bd": {
+  "subject": "coastal resort with boats",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "watermarks",
+   "modern objects",
+   "buildings",
+   "text"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "watermarks",
+   "buildings",
+   "modern objects",
+   "text",
+   "vehicles"
+  ],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Coastal resort scene with boats and beach umbrellas.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-24216": {
+  "subject": "aerial view of waves crashing on shore",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows beach and sea, but no fishing boats.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-328741": {
+  "subject": "swan swimming on a lake with mountains",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "boats"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a lake and swan instead of a research ship",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-345244": {
+  "subject": "a kingfisher sitting on a branch",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a kingfisher on a branch, not a research ship at sea",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-6973": {
+  "subject": "DNA strand animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows DNA instead of a research ship at sea.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-2172": {
+  "subject": "animated sun or star",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a star instead of a research ship",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-159627": {
+  "subject": "small stream with mossy rocks",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a forest stream instead of a coelacanth in deep water.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-214928": {
+  "subject": "aerial night view of swimming pools",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "pools"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Night aerial footage of pools, completely unrelated to coelacanths.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-330898": {
+  "subject": "snow-covered stream with rocks",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a snowy mountain stream instead of a coelacanth in deep water.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-156141": {
+  "subject": "goldfish in an aquarium",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "no",
+   "fleshy, lobe-like paired fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or slate-grey coloration": "no",
+   "single dorsal fin positioned far back on the body": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows goldfish instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-236261": {
+  "subject": "ocean waves near a coast with buildings",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows coastal waves with urban development instead of deep ocean abyss.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-43275": {
+  "subject": "abstract glowing network or bioluminescent particles",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract animation fitting deep ocean or abyss backdrop",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-28835": {
+  "subject": "coastal landscape with sea stacks and ocean waves",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "water"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows coastal rocks and sea instead of academic research papers.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-28837": {
+  "subject": "coastal sea landscape with rocks",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows coastal landscape instead of academic research papers stack",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-28834": {
+  "subject": "ocean landscape with rocky stacks",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows coastal landscape instead of academic papers stack",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-28838": {
+  "subject": "ocean waves breaking near rocky coast",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows coastal waves instead of academic research papers",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-14662": {
+  "subject": "swirling colorful space nebula",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows space/nebula instead of an evolutionary tree.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-26097": {
+  "subject": "abstract glowing digital tunnel",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "does not show an evolutionary tree",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-113367": {
+  "subject": "abstract network or evolutionary tree concept",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract graphic fits the evolutionary concept",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-17723": {
+  "subject": "blue sky with white clouds",
+  "species_match": false,
+  "features": {
+   "elongated eel-like body": "not visible",
+   "small pectoral fins": "not visible",
+   "distinctive mouth structure": "not visible",
+   "mottled brown or grey skin": "not visible",
+   "freshwater habitat": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The video shows only clouds in the sky, completely unrelated to lungfish.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-28247": {
+  "subject": "frog on lily pad",
+  "species_match": true,
+  "features": {
+   "four limbs": "yes",
+   "terrestrial habitat": "yes",
+   "vertebrate anatomy": "yes",
+   "diverse body shapes": "yes",
+   "air breathing": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Frog sitting on vegetation in a wetland.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-123399": {
+  "subject": "ocean waves at sunset",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "ocean surface fits the narration well",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-277231": {
+  "subject": "flamboyant cuttlefish on sandy seabed",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a cuttlefish on sand instead of an underwater rocky reef.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-277227": {
+  "subject": "flamboyant cuttlefish on sandy seabed",
+  "species_match": null,
+  "features": {
+   "underwater": "yes",
+   "rocky_reef": "no",
+   "shallow": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows sandy seabed rather than rocky reef",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-344389": {
+  "subject": "aerial view of arid coastal landscape",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of mountains meeting the sea, suitable establishing shot",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-71457": {
+  "subject": "blossoming branch timelapse",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows blossoming flowers instead of a geological time scale chart.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-23263": {
+  "subject": "dandelion seed heads opening timelapse",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows timelapse of dandelions, not a geological time scale chart.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-163333": {
+  "subject": "dandelion seed heads opening",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows dandelions opening, not a geological time scale chart",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-261473": {
+  "subject": "ocean waves at sunset",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows ocean surface waves at sunset instead of deep ocean current.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-255499": {
+  "subject": "frozen branches over water with an ice drop",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "no",
+   "fleshy, lobe-like paired fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or slate-grey coloration": "no",
+   "single dorsal fin positioned far back on the body": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows frost-covered branches and water, not a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-255498": {
+  "subject": "flowing icy water stream",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows flowing river water and ice instead of coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-91545": {
+  "subject": "snow-capped mountains above clouds",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows mountains instead of coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-275417": {
+  "subject": "yellow rapeseed field under blue sky",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a landscape field instead of a submersible with a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-143581": {
+  "subject": "green screen film border template",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Placeholder green screen video frames.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-133175": {
+  "subject": "green screen animation with film strip border",
+  "species_match": null,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "green screen",
+   "film strip graphic"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Placeholder or green screen clip, does not show coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-17681": {
+  "subject": "abstract digital tunnel or vortex animation",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "abstract digital animation"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows an abstract tunnel effect instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-63959": {
+  "subject": "a fish swimming in shallow water",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "no",
+   "fleshy, lobe-like paired fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or slate-grey coloration": "no",
+   "single dorsal fin positioned far back on the body": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a common fish (like a carp) in shallow fresh water, not a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-27057": {
+  "subject": "lit-up ferris wheels at night",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows amusement park ferris wheels at night, completely off-topic for a coelacanth document",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-176798": {
+  "subject": "sunlight shimmering on water surface",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Only water surface shown, no coelacanth or fish visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-191855": {
+  "subject": "snowy forest landscape",
+  "species_match": false,
+  "features": {
+   "elongated eel-like body": "not visible",
+   "small pectoral fins": "not visible",
+   "distinctive mouth structure": "not visible",
+   "mottled brown or grey skin": "not visible",
+   "freshwater habitat": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a snowy forest, completely unrelated to lungfish.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-283588": {
+  "subject": "sunset over beach and ocean",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a beach landscape at sunset instead of coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-342821": {
+  "subject": "sunset over ocean beach",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a sunset instead of a coelacanth in dark water.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-205301": {
+  "subject": "sunset over the sea with boats",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "sunset scene with boats, missing coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-28975": {
+  "subject": "sunset over sea of clouds with electricity pylons",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "electricity pylons",
+   "buildings",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape view with clouds and electricity pylons, completely unrelated to a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-315858": {
+  "subject": "calm ocean surface waves",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Calm ocean waves matching the narration request.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-288051": {
+  "subject": "aerial view of a coastal fish market and moored boats",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view matching the expected location",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-3109": {
+  "subject": "mute swan swimming in a river",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [
+   "bird-like head or beak",
+   "long, slender neck",
+   "feathers or fur"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a swan instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-78059": {
+  "subject": "swimmers in a large swimming pool from above",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "no",
+   "fleshy, lobe-like paired fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or slate-grey coloration": "no",
+   "single dorsal fin positioned far back on the body": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "swimming pool",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows people swimming in a pool, completely unrelated to the coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-1287": {
+  "subject": "swans and geese on water",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [
+   "bird-like head or beak",
+   "long, slender neck",
+   "feathers or fur"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows swans and geese instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-110248": {
+  "subject": "aerial view of coastline and city",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "modern objects",
+   "buildings",
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a coastal city, not submersible deep sea exploration.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-234140": {
+  "subject": "aerial view of karst islands and turquoise water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicle"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows scenic islands with a small boat, not submersible deep sea exploration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-370958": {
+  "subject": "church tower with Dutch flag",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a church tower instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-15138": {
+  "subject": "snow-covered mountain peak",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a mountain instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-117293": {
+  "subject": "European hare running along a dirt path",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "no",
+   "fleshy, lobe-like paired fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or slate-grey coloration": "no",
+   "single dorsal fin positioned far back on the body": "no"
+  },
+  "forbidden_seen": [
+   "fur"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a hare instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-88186": {
+  "subject": "blue water surface with caustics",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Only water surface shown, no coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-13022": {
+  "subject": "crocodile in shallow water",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "no",
+   "fleshy, lobe-like paired fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or slate-grey coloration": "no",
+   "single dorsal fin positioned far back on the body": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a crocodile, not a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-20070": {
+  "subject": "pink and green ink in water",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "ink"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract ink footage, completely unrelated to coelacanths",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-46924": {
+  "subject": "looking through a magnifying glass at a US dollar bill",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "no",
+   "fleshy, lobe-like paired fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or slate-grey coloration": "no",
+   "single dorsal fin positioned far back on the body": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "text",
+   "money"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "shows a magnifying glass over a dollar bill instead of coelacanth fins",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-383282": {
+  "subject": "butterfly on a purple flower",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a butterfly instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-360719": {
+  "subject": "aerial view over forested hills and distant coastline under dark clouds",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows hills and coastal landscape, not a wide ocean horizon aerial.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-81303": {
+  "subject": "wide sandy beach and ocean horizon aerial",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of beach and sea",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-9220": {
+  "subject": "freshwater turtle swimming",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "no",
+   "fleshy, lobe-like paired fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or slate-grey coloration": "no",
+   "single dorsal fin positioned far back on the body": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a turtle instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-269913": {
+  "subject": "colony of penguins on a rocky shore",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "no",
+   "fleshy, lobe-like paired fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or slate-grey coloration": "no",
+   "single dorsal fin positioned far back on the body": "no"
+  },
+  "forbidden_seen": [
+   "bird-like head or beak",
+   "feathers",
+   "bipedal stance or upright posture"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows penguins instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-379022": {
+  "subject": "a swan swimming in water",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [
+   "bird-like head or beak",
+   "long, slender neck",
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a swan instead of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-267885": {
+  "subject": "frog in water",
+  "species_match": true,
+  "features": {
+   "four limbs": "yes",
+   "terrestrial habitat": "no",
+   "vertebrate anatomy": "yes",
+   "diverse body shapes": "not visible",
+   "air breathing": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "frog in shallow water rather than jumping on land",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-39985": {
+  "subject": "close up of a frog",
+  "species_match": true,
+  "features": {
+   "four limbs": "not visible",
+   "terrestrial habitat": "yes",
+   "vertebrate anatomy": "yes",
+   "diverse body shapes": "not visible",
+   "air breathing": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "close up shot of a frog",
+  "model": "gemini-flash-lite-latest"
  }
 }
