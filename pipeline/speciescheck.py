@@ -208,7 +208,10 @@ def passes(v, species=None, archive=False, allow=()):
         return None, v["error"]
     why = []
     if species:
-        if v.get("species_match") is not True:
+        # a prehistoric scene asks for no animal: Gemini answers null there, and the
+        # forbidden list decides (30.10: all 20 FLUX frames failed on that null, 0 LTX clips)
+        scene = species == "prehistoric_scene"
+        if v.get("species_match") is not True and not (scene and v.get("species_match") is None):
             why.append("not the species")
         if not archive:
             feats = v.get("features") or {}

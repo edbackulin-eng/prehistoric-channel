@@ -167,6 +167,11 @@ def main():
     import smoke_upload
     for name, ok, detail in smoke_upload.run(W):
         check(name, ok, detail)
+    # the QA gate before every upload, and the hook rule (the owner's review of 31.10)
+    sys.path.insert(0, str(ROOT / "automation"))
+    import smoke_qa
+    for name, ok, detail in smoke_qa.run():
+        check(name, ok, detail)
     # sections: the markup carries them, the music follows them by mood
     from core import delivery
     secs = [l.section for l in delivery.parse("[section hook]\n> A.\n[section story]\nB.\n[section finale]\nC.")]

@@ -17,8 +17,8 @@
   "Wissenschaft"
  ],
  "description": "Eine dokumentarische Reise zu Tieren, die die Dinosaurier und das Massenaussterben vor 66 Millionen Jahren überstanden haben. Von Quastenflossern über Pfeilschwanzkrebse bis zur Brückenechse beleuchtet dieser Film die faszinierende Geschichte sogenannter lebender Fossilien.\n\nQuellen:\n- Lebendes Fossil (Wikipedia, de): https://de.wikipedia.org/wiki/Lebendes_Fossil\n- Quastenflosser (Wikipedia, de): https://de.wikipedia.org/wiki/Quastenflosser\n- Latimeria (Wikipedia, de): https://de.wikipedia.org/wiki/Latimeria\n- Pfeilschwanzkrebse (Wikipedia, de): https://de.wikipedia.org/wiki/Pfeilschwanzkrebse\n- Perlboote (Wikipedia, de): https://de.wikipedia.org/wiki/Perlboote\n- Brückenechse (Wikipedia, de): https://de.wikipedia.org/wiki/Br%C3%BCckenechse\n- Kreide-Paläogen-Grenze (Wikipedia, de): https://de.wikipedia.org/wiki/Kreide-Pal%C3%A4ogen-Grenze\n- Living fossil (Wikipedia, en): https://en.wikipedia.org/wiki/Living_fossil\n- Coelacanth (Wikipedia, en): https://en.wikipedia.org/wiki/Coelacanth\n- West Indian Ocean coelacanth (Wikipedia, en): https://en.wikipedia.org/wiki/West_Indian_Ocean_coelacanth\n- Horseshoe crab (Wikipedia, en): https://en.wikipedia.org/wiki/Horseshoe_crab\n- Nautilus (Wikipedia, en): https://en.wikipedia.org/wiki/Nautilus\n- Tuatara (Wikipedia, en): https://en.wikipedia.org/wiki/Tuatara",
- "words": 3142,
- "minutes_est": 24.5,
+ "words": 3120,
+ "minutes_est": 24.4,
  "fact_check": [
   {
    "round": 0,
@@ -1053,7 +1053,6 @@
   },
   "words": 61
  },
- "hook_sha": "29175484c3e0",
  "restyled": "rewritten",
  "restyle_fact_check": [
   {
@@ -2646,5 +2645,6 @@
   "Der Fund, der die Paläontologie erschütterte",
   "Die Wiederentdeckung des Komoren-Quastenflossers",
   "Die zweite Art und die globale Verbreitung"
- ]
+ ],
+ "hook_by_owner": "e18947c04170"
 }

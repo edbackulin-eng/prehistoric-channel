@@ -169,7 +169,9 @@ def make_variant(t, work, out_dir, raw):
     """One variant: base (photo or FLUX), species check, hook, words. Returns a report."""
     tried = []
     base_img, src = None, None
-    if t.get("base") == "flux":
+    if t.get("base") == "file":
+        base_img, src = Image.open(t["file"]).convert("RGB"), {"source": "FLUX.1-schnell", "title": Path(t["file"]).stem}
+    elif t.get("base") == "flux":
         for s in (0, 1):
             p = raw / f"{t['id']}__s{s}.jpg"
             if not p.exists():
@@ -216,11 +218,51 @@ def make_variant(t, work, out_dir, raw):
     # the words go where the head is not
     cx = (head[0] + head[2]) / 2
     side = "left" if cx > SIZE[0] / 2 else "right"
-    out = out_dir / f"thumbnail_{t['id'][-1]}.jpg"
+    out = out_dir / f"thumbnail_{t['id'].split('_', 1)[1]}.jpg"
     rep = compose(base_path, t["words"], t.get("accent", 1), side, out, head)
     rep.update({"id": t["id"], "hook": t["hook"], "words": t["words"], "side": side, "source": src,
                 "tried": tried, "ok": rep["readable"]})
     return rep
+
+
+JUDGE = """Du bist der strenge Bildredakteur eines deutschen Urzeit-Kanals. Prüfe dieses YouTube-Vorschaubild
+(Titel der Folge: "{title}") in der kleinen Ansicht. Vorbild sind die meistgesehenen Vorschaubilder der Nische:
+EIN Tier riesig im Bild (Kopf, Auge, offenes Maul - es füllt die Hälfte des Bildes oder mehr), sofort als
+urzeitliches Tier oder lebendes Fossil zu erkennen, knallige gesättigte Farben (Türkis/Tiefblau oder warmes
+Orange gegen dunklen Grund), starker Kontrast, oft ein Größenvergleich (winziger Taucher, Boot, gelber Kreis)
+oder ein roter Pfeil/Kreis, und 2-3 große Wörter, in einer Sekunde lesbar.
+VERBOTEN (dann sofort "pass": false): DNA, Moleküle, Diagramme, Schemata, Karten, abstrakte Muster,
+Texturen, eine Landschaft/ein Meer ohne großes Tier, ein Tier winzig oder angeschnitten bis zur
+Unkenntlichkeit, Menschen im Vordergrund, mehr als drei Wörter.
+Antworte als JSON: {{"animal": "<welches Tier>", "animal_big_and_recognisable": true|false,
+"prehistoric_or_living_fossil": true|false, "bright": true|false, "words_readable": true|false,
+"forbidden_seen": ["..."], "pass": true|false, "why": "<kurz>"}}"""
+
+
+def judge(path, title):
+    """The Gemini judge: True/False and why. Without a key nothing passes (the QA needs a judged one)."""
+    try:
+        from core import gemini
+        a = gemini.ask(JUDGE.format(title=title), images=[str(path)])
+    except Exception as e:                                               # noqa: BLE001
+        return False, f"judge unavailable: {str(e)[:120]}"
+    ok = bool(a.get("pass")) and a.get("animal_big_and_recognisable") and a.get("prehistoric_or_living_fossil") \
+        and a.get("words_readable") and not a.get("forbidden_seen")
+    return bool(ok), a
+
+
+def extra_variants(plan, raw, n_have):
+    """More bases when no thumbnail passed: the episode's own FLUX animals (no landscapes), each
+    with the next trick and the words of the planned variants."""
+    tricks = ["scale", "silhouette", "split"]
+    out = []
+    frames = [f for f in sorted(raw.parent.glob("*.jpg")) if "__s" in f.name and not f.name.startswith("thumb_")
+              and not any(w in f.name for w in ("landscape", "ocean", "sea_", "extinction", "impact"))]
+    for i, f in enumerate(frames[:6]):
+        t = dict(plan[i % len(plan)])
+        t.update({"id": f"thumb_x{n_have + i}", "hook": tricks[i % 3], "base": "file", "file": str(f)})
+        out.append(t)
+    return out
 
 
 CHOOSE = """Drei Vorschaubilder für dieselbe deutsche Urzeit-Doku (Titel: "{title}"). Welches würde in der
@@ -239,23 +281,40 @@ def main(slug):
     out_dir.mkdir(parents=True, exist_ok=True)
     raw = ROOT / "work" / slug / "inputs" / "thumb_bases"
     reps = [make_variant(t, work, out_dir, raw) for t in plan]
-    good = [r for r in reps if r.get("ok")]
-    choice = {"best": None}
+    for r in reps:
+        if r.get("ok"):
+            r["judge_pass"], r["judge"] = judge(out_dir / f"thumbnail_{r['id'].split('_', 1)[1]}_336.jpg",
+                                                meta["title"])
+    good = [r for r in reps if r.get("ok") and r.get("judge_pass")]
+    if not good:                       # none passed the judge: new ones from the episode's own animals
+        more = [make_variant(t, work, out_dir, raw / "x") for t in
+                extra_variants(plan, ROOT / "gpu" / "results_recon" / "raw" / "x", len(reps))]
+        for r in more:
+            if r.get("ok"):
+                r["judge_pass"], r["judge"] = judge(out_dir / f"thumbnail_{r['id'].split('_', 1)[1]}_336.jpg",
+                                                    meta["title"])
+        reps += more
+        good = [r for r in reps if r.get("ok") and r.get("judge_pass")][:3]
+    choice = {"best": None, "judge_pass": False}
     if good:
-        files = [out_dir / f"thumbnail_{r['id'][-1]}.jpg" for r in good]
+        files = [out_dir / f"thumbnail_{r['id'].split('_', 1)[1]}.jpg" for r in good]
         try:
             from core import gemini
             ans = gemini.ask(CHOOSE.format(title=meta["title"]), images=[str(f).replace(".jpg", "_336.jpg")
                                                                        for f in files])
             k = max(1, min(len(files), int(ans.get("best", 1))))
-            choice = {"best": files[k - 1].name, "why": ans.get("why")}
+            choice = {"best": files[k - 1].name, "why": ans.get("why"), "judge_pass": True,
+                      "judge": good[k - 1].get("judge")}
         except Exception as e:                                           # noqa: BLE001
-            choice = {"best": files[0].name, "why": f"chooser unavailable ({e}); first readable"}
+            choice = {"best": files[0].name, "why": f"chooser unavailable ({e}); first judged",
+                      "judge_pass": True, "judge": good[0].get("judge")}
         import shutil
         shutil.copy(out_dir / choice["best"], out_dir / "thumbnail.jpg")
     (out_dir / "thumbnails_report.json").write_text(json.dumps({"variants": reps, "choice": choice}, indent=1,
                                                                ensure_ascii=False, default=str), encoding="utf-8")
-    log.info("thumbnails: %s, chosen %s", [(r["id"], r.get("ok")) for r in reps], choice)
+    log.info("thumbnails: %s, chosen %s", [(r["id"], r.get("ok"), r.get("judge_pass"),
+                                             (r.get("judge") or {}).get("why") if isinstance(r.get("judge"), dict)
+                                             else r.get("judge") or r.get("why")) for r in reps], choice)
     return 0 if good else 1
 
 

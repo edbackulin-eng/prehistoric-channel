@@ -180,11 +180,14 @@ TEXT:
 QUELLEN:
 {sources}"""
 
-HOOK = """Schreibe den Hook (die ersten 30 Sekunden, 55-70 Wörter) für diese deutsche Urzeit-Doku. Regel:
-1. der stärkste Moment oder das größte Rätsel der ganzen Folge, konkret und bildhaft,
+HOOK = """Schreibe den Hook (die ersten 30 Sekunden, 25-60 Wörter) für diese deutsche Urzeit-Doku. Regel:
+1. eine KONKRETE SZENE: Datum oder Ort, wer, was geschieht - der stärkste Moment der Folge, in kurzen Sätzen,
 2. eine Frage, die den Zuschauer nicht loslässt,
-3. ein Versprechen, was er in dieser Folge erfahren wird.
-Nur Fakten aus den Quellen. 2-4 Zeilen im Markup (> schnell, < langsam mit Pause davor, sonst normal).
+3. "und das ist nicht alles": ein kurzer Satz, dass noch mehr kommt (z. B. "Und er ist nicht der Einzige.").
+NIEMALS den Zuschauer ansprechen: kein "Sie", "Ihnen", "Erfahren Sie", "Stellen Sie sich vor", kein Versprechen
+im Werbeton. Nur Fakten aus den Quellen. 3-5 Zeilen im Markup (> schnell, < langsam mit Pause davor, sonst normal).
+Beispiel: 22. Dezember 1938. / Ein Fischer zieht etwas aus dem Indischen Ozean, das es seit 66 Millionen Jahren
+nicht mehr geben dürfte. / Wie konnte dieser Fisch überleben, als die Dinosaurier starben? / Und er ist nicht der Einzige.
 Antworte als JSON {{"hook": ["<Zeile>", "..."]}}
 
 DER TEXT DER FOLGE:
@@ -195,12 +198,30 @@ QUELLEN:
 
 HOOK_CHECK = """Prüfe diesen Hook einer deutschen Urzeit-Doku (die ersten 30 Sekunden):
 {hook}
-Antworte als JSON {{"strongest_moment": true|false, "question": true|false, "promise": true|false,
-"facts_supported": true|false, "words": <Anzahl>, "note": "<kurz>"}}
+Antworte als JSON {{"concrete_scene": true|false, "question": true|false, "not_all": true|false,
+"facts_supported": true|false, "unsupported": ["<jede Behauptung, die die Quellen nicht decken>"], "note": "<kurz>"}}
+"concrete_scene": eine bestimmte Szene (Datum/Ort, wer, was geschieht), nicht allgemein.
+"not_all": ein Satz kündigt an, dass es noch mehr gibt ("und das ist nicht alles", "er ist nicht der Einzige").
 "facts_supported": jede Behauptung ist von den Quellen gedeckt.
 
 QUELLEN:
 {sources}"""
+
+# the viewer is never addressed (owner, 31.10): "Erfahren Sie ...", "Stellen Sie sich vor", "Ihnen"
+ADDRESS = re.compile(r"\b(Ihnen|Euch|euch)\b|\b[A-ZÄÖÜ][a-zäöüß]+(?:en|t) Sie\b|\bSie (?:werden|sehen|erfahren)\b")
+HOOK_WORDS = (25, 70)
+
+
+def hook_rule(hook, v):
+    """(ok, why): the owner's rule - a concrete scene, a question, "and that's not all", no "Sie", facts."""
+    text = " ".join(hook)
+    n = len(text.split())
+    why = [k for k in ("concrete_scene", "question", "not_all", "facts_supported") if not v.get(k)]
+    if ADDRESS.search(text):
+        why.append("addresses the viewer: " + ADDRESS.search(text).group(0))
+    if not HOOK_WORDS[0] <= n <= HOOK_WORDS[1]:
+        why.append(f"{n} words")
+    return not why, why
 
 
 def wiki(lang, title, limit=14000):
@@ -316,8 +337,8 @@ def hook_sha(script):
 
 
 def hook_ok(script, block):
-    """The hook the script has, judged by the rule: strongest moment, a question,
-    a promise, facts the sources carry, 40-85 words. (A marker alone proves
+    """The hook the script has, judged by the rule (hook_rule): a concrete scene, a
+    question, "and that's not all", no "Sie", facts the sources carry, 25-70 words. (A marker alone proves
     nothing: 29.10 a hook with no question and a copy of itself in the story
     passed.)"""
     h = hook_text(script)
@@ -325,9 +346,8 @@ def hook_ok(script, block):
         return False, None
     v = textllm.ask(HOOK_CHECK.format(hook="\n".join(h), sources=textllm.relevant(block, " ".join(h), 8000)),
                     step="hook", temperature=0.1, max_tokens=600)
-    n = len(" ".join(h).split())
-    ok = all(v.get(k) for k in ("strongest_moment", "question", "promise", "facts_supported")) and 40 <= n <= 85
-    return ok, {"hook": h, "check": v, "words": n}
+    ok, why = hook_rule(h, v)
+    return ok, {"hook": h, "check": v, "words": len(" ".join(h).split()), "why": why}
 
 
 def strip_hook(script):
@@ -361,9 +381,9 @@ def write_hook(script, block, tries=4):
             block, gist, 6000)), step="hook", temperature=0.7, max_tokens=800), "hook") if l.strip()]
         v = textllm.ask(HOOK_CHECK.format(hook="\n".join(hook), sources=textllm.relevant(block, " ".join(hook), 8000)),
                         step="hook", temperature=0.1, max_tokens=600)
-        n = len(" ".join(hook).split())
-        last = {"hook": hook, "check": v, "words": n}
-        if all(v.get(k) for k in ("strongest_moment", "question", "promise", "facts_supported")) and 40 <= n <= 85:
+        ok, why = hook_rule(hook, v)
+        last = {"hook": hook, "check": v, "words": len(" ".join(hook).split()), "why": why}
+        if ok:
             first = next((l for l in body.splitlines() if l.strip()), "")
             rest = body if first.startswith("[section") else "[section story]\n" + body
             log.info("hook written and checked: %s", v)
@@ -383,6 +403,16 @@ def ensure_hook(slug):
         log.info("%s: hook already checked", slug)
         return 0
     block = sources(topic)
+    if meta.get("hook_by_owner") == hook_sha(script):     # the owner's own words: checked, never rewritten
+        ok, rep = hook_ok(script, block)
+        meta["hook_owner_check"] = rep
+        (ep / "meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False), encoding="utf-8")
+        if not rep["check"].get("facts_supported"):
+            raise RuntimeError(f"the owner's hook has a claim the sources do not carry: {rep['check']}")
+        meta["hook_sha"] = hook_sha(script)
+        (ep / "meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False), encoding="utf-8")
+        log.info("%s: the owner's hook, facts checked: %s", slug, rep["check"])
+        return 0
     ok, rep = hook_ok(script, block)
     if ok:
         log.info("%s: hook passes (%s)", slug, rep["check"])

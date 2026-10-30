@@ -121,7 +121,12 @@ jobs:
           python -u gpu/kaggle_once.py animate "${{ steps.pick.outputs.slug }}"; rc=$?
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
           [ $rc -eq 3 ] && exit 0
-          [ $rc -eq 0 ] || echo "::warning::animation failed (rc $rc); the episode goes on with stills there"
+          # no render without its LTX clips (config qa.ltx_min): a failed animation fails the run, and the
+          # watchdog's rerun asks Kaggle again in the next free GPU hour
+          n=$(ls gpu/results_animate/clips/*.mp4 2>/dev/null | wc -l)
+          need=$(python -c "import json;print(json.load(open('config/channel.json'))['qa']['ltx_min'])")
+          echo "LTX clips: $n (need $need)"
+          [ $rc -eq 0 ] && [ "$n" -ge "$need" ] || { echo "::error::only $n LTX clips (need $need); no render"; exit 1; }
       - uses: actions/upload-artifact@v5
         if: steps.flux.outputs.rc == '0' && steps.ltx.outputs.rc != '3' && env.deferred != '1'
         with:

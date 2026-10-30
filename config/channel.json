@@ -113,6 +113,10 @@
                  "Pro7", "Sat.1", "Kabel Eins", "DMAX", "YouTube"]
  },
  "buffer": 2,
+ "qa": {
+  "_note": "automation/qa.py: the gate before every upload (owner review 31.10); ltx_min: the render waits for so many LTX-Video clips",
+  "ltx_min": 8
+ },
  "release": {
   "_note": "manual_left: so many next uploads go up private WITHOUT a date and wait for approve.yml (approve <slug>); then scheduling is automatic again",
   "manual_left": 2

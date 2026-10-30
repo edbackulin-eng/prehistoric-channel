@@ -196,6 +196,64 @@ def _score_audio(music, n, offset_s):
     return bed
 
 
+def _minutes(n):
+    return [(a, min(n, a + 60 * SR)) for a in range(0, n, 60 * SR) if min(n, a + 60 * SR) - a >= 10 * SR]
+
+
+def _lufs_or_none(x, meter):
+    if len(x) < SR * 3:
+        return None
+    v = lufs(x, meter)
+    return None if not np.isfinite(v) or v < -70 else v
+
+
+def _per_minute(voice, mus, speech, meter, max_db=6.0):
+    """Every minute on its own: the music under the speech of that minute set
+    MUSIC_UNDER_VOICE below it (a smooth gain curve between the minutes' centres,
+    at most +-max_db), so no stretch of music comes up to the voice (QA of 31.10)."""
+    n = len(mus)
+    centres, gains = [], []
+    for a, b in _minutes(n):
+        sp = speech[a:b]
+        v = _lufs_or_none(voice[a:b][sp], meter)
+        m = _lufs_or_none(mus[a:b][sp], meter)
+        if v is None or m is None:
+            continue
+        centres.append((a + b) / 2)
+        gains.append(float(np.clip((v - MUSIC_UNDER_VOICE) - m, -max_db, max_db)))
+    if not gains:
+        return mus
+    curve = np.interp(np.arange(n), centres, gains).astype(np.float32)
+    return mus * (10 ** (curve / 20))[:, None]
+
+
+def levels(voice, mus, amb, speech, meter):
+    """What the QA measures: per minute the speech and the music under it (LUFS),
+    per second the RMS of voice, music and atmosphere (dBFS), and where the music
+    falls silent."""
+    n = len(mus)
+    per_min = []
+    for a, b in _minutes(n):
+        sp = speech[a:b]
+        v = _lufs_or_none(voice[a:b][sp], meter)
+        m_sp = _lufs_or_none(mus[a:b][sp], meter)
+        m_all = _lufs_or_none(mus[a:b], meter)
+        per_min.append({"minute": a // (60 * SR), "voice_lufs": None if v is None else round(v, 2),
+                        "music_lufs_under_voice": None if m_sp is None else round(m_sp, 2),
+                        "music_lufs": None if m_all is None else round(m_all, 2),
+                        "under_db": None if v is None or m_sp is None else round(v - m_sp, 2)})
+
+    def rms_db(x):
+        k = len(x) // SR
+        r = np.sqrt((x[: k * SR].mean(1).reshape(k, SR) ** 2).mean(1)) + 1e-9
+        return [round(float(d), 1) for d in 20 * np.log10(r)]
+    curve = {"voice": rms_db(voice), "music": rms_db(mus), "amb": rms_db(amb)}
+    m = curve["music"]
+    gaps = [t for t in range(3, len(m) - 3) if m[t] < -60]
+    return {"per_minute": per_min, "curve_dbfs": curve, "music_silent_s": len(gaps),
+            "music_silent_at": gaps[:20]}
+
+
 def build(plan, narration_wav, music_path, amb_lib, out_wav, offset_s=0.0, length_s=None):
     """Mix the film's sound into out_wav (48 kHz stereo float). Returns a report.
     offset_s/length_s cut a stretch (for the 30-second voice samples)."""
@@ -219,6 +277,7 @@ def build(plan, narration_wav, music_path, amb_lib, out_wav, offset_s=0.0, lengt
     m_speech = lufs(mus[speech], meter) if speech.any() else lufs(mus, meter)
     g = (v_l - MUSIC_UNDER_VOICE + DUCK_DB) - m_speech
     mus = gain_db(mus, g) * np.pad(duck, (0, max(0, n - len(duck))), constant_values=1)[:n, None]
+    mus = _per_minute(voice, mus, speech, meter)
 
     # atmosphere per scene, crossfaded
     amb = np.zeros((n, 2), np.float32)
@@ -292,8 +351,12 @@ def build(plan, narration_wav, music_path, amb_lib, out_wav, offset_s=0.0, lengt
            "duck_db_set": DUCK_DB,
            "duck_db_measured": round(float(20 * np.log10(duck[: n][~speech[: len(duck)]].max() /
                                                          duck[: n][speech[: len(duck)]].min())), 2),
+           "hook_hit": any(sec["name"] == "hook" for sec in plan.get("sections") or []),
            **measure(out_wav)}
-    log.info("mix: %s", rep)
+    lv = levels(voice, mus, amb, speech, meter)
+    log.info("mix: %s; per minute under the voice: %s dB; music silent %d s", rep,
+             [m["under_db"] for m in lv["per_minute"]], lv["music_silent_s"])
+    rep["levels"] = lv
     return rep
 
 

@@ -58,7 +58,15 @@ Zeile: was gezeigt wird. Regeln:
   "query": "<englisch>", "dark": true|false}}.
 - Orte, die genannt werden: {{"kind": "map", "places": [{{"name": "<GROSS, deutsch>", "sub": "<Land/Region, deutsch>",
   "lat": <Zahl>, "lon": <Zahl>}}]}} - höchstens zwei Orte.
-- Zeilen im Hook (section hook): 2-3 Einstellungen, nur Bewegtes (video oder flux), die stärksten Bilder der Folge.
+- DAS TIER IM BILD: erzählt eine Zeile von einem Tier (auch von seinem Fund, seinem Verhalten, seinen Verwandten),
+  zeigen ALLE ihre Einstellungen dieses Tier (lebend: echtes Video; ausgestorben oder seine ausgestorbenen
+  Verwandten: FLUX). Ein Kapitel über ein Tier zeigt es mindestens 60 % der Zeit.
+- Meer, Himmel, Küste, Landschaft OHNE Tier: höchstens jede siebte Einstellung der ganzen Folge (<= 15 %).
+- NIEMALS: DNA, Moleküle, Texturen (Sand, Schuppen-Makro, Papier), Büros, Archive, Menschen am Schreibtisch,
+  Bildschirme, Schrift - statt dessen das Tier, um das es geht.
+- In jeder Folge Urzeit-Tiere in Bewegung: mindestens 10 FLUX-Bilder ausgestorbener Tiere mit "motion".
+- Zeilen im Hook (section hook): 3 Einstellungen, nur Bewegtes MIT Tier (video eines Tiers des Themas oder flux
+  eines ausgestorbenen Tiers mit "motion"), die stärksten Bilder der Folge.
 - Sonst 1-2 Einstellungen pro Zeile. Abwechslung; kein Bild zweimal in Folge.
 Dazu je Zeile "amb": eine von {amb}.
 Antworte als JSON: {{"lines": [{{"n": <Nummer>, "amb": "...", "beats": [...]}}]}}
@@ -103,7 +111,7 @@ TIERE:
 {animals}"""
 
 
-PLAN_VERSION = 5          # 29.10: no abstract frames, no living animal drawn even when the planner named no species; a plan of an older version is made again
+PLAN_VERSION = 6          # 31.10: the animal on screen (>= 60 % of its chapter), <= 15 % landscapes, a moving hook with animals; older plans are made again
 # FLUX draws animals and landscapes; a diagram, a DNA strand or a "visualisation" comes out as
 # mush, and the species check turns it down. Such beats become stock footage instead.
 ABSTRACT = re.compile(r"chart|diagram|graph|infograph|visuali[sz]ation|dna|helix|genetic|molecul|abstract|"

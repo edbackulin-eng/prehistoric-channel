@@ -1,7 +1,8 @@
 [section hook]
-< Am 22. Dezember 1938 tauchte im Indischen Ozean vor Südafrika ein stahlblauer, 1,50 Meter langer und 52 Kilogramm schwerer Fisch auf, den man für ausgestorben hielt.
-> Welches Geheimnis verbirgt sich im Erbgut dieser lebenden Fossilien, das die Wissenschaft bis heute vor neue Rätsel stellt?
-< Erfahren Sie, wie diese einzigartigen Urzeit-Überlebenden Jahrmillionen der Erdgeschichte und katastrophale Umbrüche trotzen konnten.
+22. Dezember 1938.
+> Ein Fischer zieht etwas aus dem Indischen Ozean, das es seit 66 Millionen Jahren nicht mehr geben dürfte.
+< Wie konnte dieser Fisch überleben, als die Dinosaurier starben?
+< Und er ist nicht der Einzige.
 [section story]
 Ein stahlblauer, 1,50 Meter langer und 52 Kilogramm schwerer Fisch lag auf den Planken des Dampfers.
 James L. B. Smith untersuchte die Skizze des Fisches und war überzeugt.
@@ -53,7 +54,7 @@ Damals entstanden auch die weltweit ersten authentischen Fotos und Filmaufnahmen
 > Ein entscheidender und tragischer Umstand des allerersten Fundes war allerdings, dass das Tier den Fangvorgang nicht überlebt hatte, da es beim raschen Einholen des schweren Netzes durch die drastische Druckverringerung der Dekompression sofort verendet war.
 < Eine präzise Skizze des Fisches gelangte schließlich zu dem südafrikanischen Chemiker und Amateur-Fischkundler James L. B. Smith, der die Tragweite des Fundes sofort erkannte.
 > In seiner ersten überwältigten Reaktion hielt Smith fest, dass er sich auf der Straße kaum mehr gewundert hätte, wenn er dort plötzlich einem lebendigen Dinosaurier begegnet wäre.
-< Nach eingehender wissenschaftlicher Untersuchung identifizierte Smith den mysteriösen Meeresbewohner zweifelsfrei als einen direkten Nachfahren der jahrtausendelang für längst ausgestorben gehaltenen fossilen Quastenflosser.
+< Nach eingehender wissenschaftlicher Untersuchung identifizierte Smith den mysteriösen Meeresbewohner zweifelsfrei als einen direkten Nachfahren der seit Jahrmillionen für ausgestorben gehaltenen fossilen Quastenflosser.
 > Zu Ehren der engagierten Finderin sowie des Entdeckungsortes an der südafrikanischen Küste verlieh er der Art schließlich ihren bis heute weltberühmten wissenschaftlichen Namen: Latimeria chalumnae.
 < Nach dieser weltweiten Sensation dauerte es allerdings noch einmal vierzehn lange Jahre, bis im Jahr 1952 ein weiterer Meeresbewohner dieser Art in der Region zwischen den Komoreninseln und Madagaskar gefangen wurde.
 > Dieser entscheidende zweite Fundort lag rund 3000 Kilometer von der ursprünglichen südafrikanischen Entdeckungsstelle entfernt in tropischen Gewässern.

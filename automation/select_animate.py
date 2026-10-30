@@ -37,6 +37,12 @@ def main(slug):
     job = {"slug": slug, "frames": frames, "steps": 30}
     (ROOT / "gpu" / "animate_job.json").write_text(json.dumps(job, indent=1), encoding="utf-8")
     log.info("animate %d of %d planned frames", len(frames), len(recon.get("animate") or {}))
+    need = int(json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))["qa"]["ltx_min"])
+    if len(frames) < need:
+        # the render needs that many clips (QA): without enough frames no GPU hour is spent on it
+        log.error("only %d frames to animate, the render needs %d LTX clips: the plan needs more FLUX animals",
+                  len(frames), need)
+        return 1
     return 0
 
 

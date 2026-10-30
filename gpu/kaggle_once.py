@@ -278,10 +278,12 @@ def validate(task, out, want):
     r = json.loads(rp.read_text(encoding="utf-8"))
     errors = r.get("errors") or []
     if task == "animate":
-        # animation is a bonus: what came out is used, a frame that failed stays a still
+        # the render waits for config qa.ltx_min clips (31.10: a film of stills was rejected)
         clips = [c for c in r.get("clips", []) if c.get("ok")]
-        ok = "frames_found" in r and (r["frames_found"] > 0 or not want)
-        return ok, f"{len(clips)}/{len(want)} clips, errors: {(r.get('errors') or [])[:3]}"
+        need = min(len(want), int(json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))
+                                  ["qa"]["ltx_min"]))
+        ok = "frames_found" in r and len(clips) >= need
+        return ok, f"{len(clips)}/{len(want)} clips (need {need}), errors: {(r.get('errors') or [])[:3]}"
     if task == "recon":
         ids = set(want) if isinstance(want, (list, tuple, set)) else None
         n_want = len(ids) if ids is not None else want
