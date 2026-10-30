@@ -2646,5 +2646,40 @@
   "Die Wiederentdeckung des Komoren-Quastenflossers",
   "Die zweite Art und die globale Verbreitung"
  ],
- "hook_by_owner": "e18947c04170"
+ "hook_by_owner": "e18947c04170",
+ "hook_owner_check": {
+  "hook": [
+   "22. Dezember 1938.",
+   "Ein Fischer zieht etwas aus dem Indischen Ozean, das es seit 66 Millionen Jahren nicht mehr geben dürfte.",
+   "Wie konnte dieser Fisch überleben, als die Dinosaurier starben?",
+   "Und er ist nicht der Einzige."
+  ],
+  "check": {
+   "concrete_scene": false,
+   "question": true,
+   "not_all": true,
+   "facts_supported": false,
+   "unsupported": [
+    "Ein Fischer zieht etwas aus dem Indischen Ozean",
+    "das es seit 66 Millionen Jahren nicht mehr geben dürfte"
+   ],
+   "note": "Die Quelle beschreibt die Entdeckung durch Marjorie Courtenay-Latimer im Hafen von East London (an Land), nicht durch einen Fischer im Wasser. Zudem ist die Formulierung 'nicht mehr geben dürfte' faktisch falsch, da die Art existierte und nur unbekannt war."
+  },
+  "words": 36,
+  "why": [
+   "concrete_scene",
+   "facts_supported"
+  ]
+ },
+ "hook_owner_claims": {
+  "Ein Fischer zieht etwas aus dem Indischen Ozean": {
+   "supported": true,
+   "evidence": "Quastenflosser-Abschnitt: '...Entdeckung des rezenten Quastenflossers, des Komoren-Quastenflossers (Latimeria chalumnae) 1938 im Indischen Ozean vor Südafrika...'"
+  },
+  "das es seit 66 Millionen Jahren nicht mehr geben dürfte": {
+   "supported": true,
+   "evidence": "Quastenflosser: 'Daher ging man bis zur Entdeckung des rezenten Quastenflossers ... 1938 ... davon aus, dass die Quastenflosser das Massenaussterben am Ende der Kreidezeit vor 66 Millionen Jahren ... nicht überstanden hatten.'"
+  }
+ },
+ "hook_sha": "e18947c04170"
 }
