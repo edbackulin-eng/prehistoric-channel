@@ -113,6 +113,10 @@
                  "Pro7", "Sat.1", "Kabel Eins", "DMAX", "YouTube"]
  },
  "buffer": 2,
+ "release": {
+  "_note": "manual_left: so many next uploads go up private WITHOUT a date and wait for approve.yml (approve <slug>); then scheduling is automatic again",
+  "manual_left": 2
+ },
  "render": {
   "res": "2160p",
   "parts": 24,

@@ -277,6 +277,29 @@ jobs:
           ffprobe -v error -show_entries stream=codec_name,width,height,r_frame_rate:format=duration,size,bit_rate -of compact "$f"
           ffmpeg -hide_banner -nostats -i "$f" -af ebur128=peak=true -f null - 2>&1 | tail -12
           ffmpeg -hide_banner -loglevel error -y -i "$f" -vf "fps=1/30,scale=480:-2,tile=8x7" -frames:v 1 "work/$SLUG/release/contact.jpg"
+      - name: QA gate (hook, subject, pace, music, ambience, thumbnail) and its report in qa/<slug>/
+        id: qa
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python automation/qa.py "$SLUG" --res "$RES" && echo "pass=true" >> "$GITHUB_OUTPUT" || echo "pass=false" >> "$GITHUB_OUTPUT"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "qa/$SLUG" 2>/dev/null || exit 0
+          git diff --cached --quiet && exit 0
+          git commit -q -m "QA report of $SLUG (render ${{ github.run_id }})"
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
+      - name: QA failed - a letter in the run log, the episode is kept back
+        if: steps.qa.outputs.pass != 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          why=$(python -c "import json;q=json.load(open('work/$SLUG/release/qa.json'));print(chr(10).join('- **'+c['name']+'**: '+c.get('detail','') for c in q['checks'] if not c['ok']))" 2>/dev/null || echo "- no QA report")
+          n=$(gh issue list -R ${{ github.repository }} --label run-log --state open --json number --jq '.[0].number // empty')
+          [ -n "$n" ] && gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} **QA failed, not uploaded** ($SLUG, render ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}):
+          $why
+
+          Report: ${{ github.server_url }}/${{ github.repository }}/tree/main/qa/$SLUG"
       - uses: actions/upload-artifact@v5
         with:
           name: release-${{ inputs.slug }}
@@ -310,13 +333,15 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           pip install -q google-api-python-client google-auth
-          python automation/release.py record "$SLUG" "${{ github.run_id }}"
-          python automation/topics.py --done "$SLUG"
+          rc=0; python automation/release.py record "$SLUG" "${{ github.run_id }}" || rc=$?
+          if [ $rc = 2 ]; then python automation/topics.py --done "$SLUG" qa-failed
+          elif [ $rc = 0 ]; then python automation/topics.py --done "$SLUG"
+          else exit $rc; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add state/episodes.json topics/queue.json episodes/$SLUG/uploaded.json state/llm_usage 2>/dev/null || true
           git diff --cached --quiet && exit 0
-          git commit -q -m "Released $SLUG (render ${{ github.run_id }})"
+          git commit -q -m "Released $SLUG (render ${{ github.run_id }}): $(python -c "import json;print(next(x['status'] for x in json.load(open('state/episodes.json')) if x['slug']=='$SLUG'))")"
           for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
           exit 1
       - name: Email on failure

@@ -1,0 +1,16 @@
+[
+ {
+  "slug": "lebende-fossilien",
+  "status": "rejected-rebuild",
+  "rejected_videos": [
+   "0lDoysa2Hok",
+   "TMe4TpeSBtc"
+  ],
+  "kept_private": "0lDoysa2Hok",
+  "duplicate": "TMe4TpeSBtc",
+  "publish_at": null,
+  "rejected_why": "owner review 31.10: hook, subject on screen, pace, music, ambience, thumbnail; uploaded twice (30.10)",
+  "rejected_at": "2026-10-30T22:40:00Z",
+  "run_id": "41106622316"
+ }
+]

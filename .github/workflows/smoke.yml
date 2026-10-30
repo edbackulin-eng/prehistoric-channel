@@ -33,7 +33,7 @@ jobs:
         with:
           python-version: "3.11"
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
-      - run: pip install -q -r requirements.txt
+      - run: pip install -q -r requirements.txt google-api-python-client google-auth
       - name: Models, music, atmosphere, maps
         run: python automation/fetch_assets.py
       - name: Smoke test

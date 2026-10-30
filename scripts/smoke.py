@@ -29,6 +29,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 sys.path.insert(0, str(ROOT / "gpu" / "kernels"))
 sys.path.insert(0, str(ROOT / "gpu"))
+sys.path.insert(0, str(ROOT / "scripts"))
 W = ROOT / "work" / "smoke"
 failures = []
 
@@ -162,6 +163,10 @@ def main():
                              "Brückenechse", "Arterien", "Welten der Urzeit"])
     check("tags without other brands", kept == ["Urzeit", "Quastenflosser", "Brückenechse", "Arterien",
                                                 "Welten der Urzeit"], str(kept))
+    # one episode, one video (the duplicate of 30.10), against a fake YouTube
+    import smoke_upload
+    for name, ok, detail in smoke_upload.run(W):
+        check(name, ok, detail)
     # sections: the markup carries them, the music follows them by mood
     from core import delivery
     secs = [l.section for l in delivery.parse("[section hook]\n> A.\n[section story]\nB.\n[section finale]\nC.")]

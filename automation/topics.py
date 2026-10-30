@@ -114,6 +114,7 @@ if __name__ == "__main__":
                 f.write(f"slug={s or ''}\n")
         print(f"slug={s or ''}")
     elif "--done" in sys.argv:
-        done(sys.argv[sys.argv.index("--done") + 1])
+        i = sys.argv.index("--done")
+        done(sys.argv[i + 1], *sys.argv[i + 2:i + 3])
     elif "--refill" in sys.argv:
         sys.exit(refill())
