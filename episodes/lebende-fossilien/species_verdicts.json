@@ -5608,5 +5608,24 @@
   "museum_display": false,
   "note": "Coastal aerial view, buildings visible on land",
   "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-290688": {
+  "subject": "aerial view of waves crashing on a beach",
+  "species_match": false,
+  "features": {
+   "steel-blue coloration": "not visible",
+   "large, thick scales": "not visible",
+   "fleshy, lobe-like paired fins": "not visible",
+   "powerful lower jaw": "not visible",
+   "deep-sea habitat": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial footage of a beach, no coelacanth or underwater footage present.",
+  "model": "gemini-flash-lite-latest"
  }
 }
