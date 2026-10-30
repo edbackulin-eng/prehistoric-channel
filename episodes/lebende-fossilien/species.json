@@ -2,58 +2,58 @@
  "coelacanth": {
   "name": "Quastenflosser (Latimeria chalumnae)",
   "features": [
-   "steel-blue coloration",
-   "large, thick scales",
-   "fleshy, lobe-like paired fins",
-   "powerful lower jaw",
-   "deep-sea habitat"
+   "large, thick rhombic scales",
+   "fleshy, lobe-like paired fins resembling limbs",
+   "massive, heavy lower jaw",
+   "steel-blue or slate-grey coloration",
+   "single dorsal fin positioned far back on the body"
   ],
   "forbidden": [
-   "bird-like head",
-   "long neck",
-   "bony external skeleton",
+   "bird-like head or beak",
+   "long, slender neck",
    "feathers or fur",
+   "bipedal stance or upright posture",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "coelacanth swimming deep sea"
+  "video_query": "coelacanth swimming deep ocean"
  },
  "lungfish": {
-  "name": "Lungenfische (Dipnoi)",
+  "name": "Lungenfische (Dipneusti)",
   "features": [
-   "external gills",
-   "lobed fins",
-   "ability to breathe air",
-   "elongated body",
-   "distinctive mouth structure"
+   "elongated eel-like body",
+   "small pectoral fins",
+   "distinctive mouth structure",
+   "mottled brown or grey skin",
+   "freshwater habitat"
   ],
   "forbidden": [
-   "feathers or bird-like head",
-   "long neck like a sauropod",
-   "smooth skin without scales",
-   "external gills missing",
+   "lobed fleshy fins like coelacanth",
+   "large heavy scales",
+   "steel-blue coloration",
+   "deep-sea habitat",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "lungfish swimming in water"
+  "video_query": "lungfish swimming freshwater"
  },
- "tetrapods": {
+ "tetrapod": {
   "name": "Landwirbeltiere (Tetrapoda)",
   "features": [
    "four limbs",
-   "vertebral column",
-   "jaws",
-   "internal ears",
-   "diverse body shapes"
+   "terrestrial habitat",
+   "vertebrate anatomy",
+   "diverse body shapes",
+   "air breathing"
   ],
   "forbidden": [
-   "feathers or bird-like head",
-   "long neck like a sauropod",
-   "smooth skin without scales",
-   "external gills missing",
+   "fins instead of limbs",
+   "gills instead of lungs",
+   "aquatic only habitat",
+   "scales covering entire body like fish",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "tetrapod animals walking on land"
+  "video_query": "tetrapod land animal walking"
  }
 }

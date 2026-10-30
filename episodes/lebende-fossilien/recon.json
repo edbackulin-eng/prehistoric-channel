@@ -3,42 +3,39 @@
  "style": "photorealistic wildlife documentary frame, BBC natural history cinematography, natural vivid colours, soft natural light, high dynamic range, sharp detail, 35mm film look, no text, no people",
  "seeds_per_prompt": 2,
  "prompts": {
-  "devonian_mawsonia_swim": "A massive prehistoric Mawsonia fish swimming in a murky, greenish Devonian sea, featuring robust lobe-fins with bony rays, thick scales, and a heavy tail, surrounded by ancient seaweed and dim underwater light",
-  "early_devonian_coelacanth_swimming": "An ancient coelacanth fish of the genus Axelrodichthys swimming through a shallow Early Devonian primeval sea, detailed scales, lobed fins moving gracefully, surrounded by early primitive sea plants and rocky seabed, soft underwater sunlight filtering down, highly detailed paleontology illustration, 8k resolution",
-  "cretaceous_ichthyosaur_glide": "A sleek Ichthyosaurus gliding through clear Cretaceous ocean water, showing its streamlined body, large eye, pointed snout, and flippers, with sunlight filtering down from the surface",
-  "carboniferous_eurypterid_crawl": "A large Eurypterid (sea scorpion) crawling on a shallow, muddy Carboniferous seabed, featuring a segmented body, distinct tail spine, and swimming legs, under dappled sunlight",
-  "late_cretaceous_mosasaurs_play": "Two large Mosasaurs swimming near the surface of a Late Cretaceous ocean, showing their powerful tail flukes, long jaws with conical teeth, and scaly skin, with waves breaking around them",
-  "kpg_impact_megafauna": "A T-Rex standing on a barren, ash-covered landscape during the end-Cretaceous extinction event, with a dark, smoke-filled sky in the background and fallen trees, dramatic red and grey lighting",
-  "triassic_ichthyosaur_breath": "A Stenopterygius ichthyosaur breaching the surface of a Triassic ocean, water droplets falling from its snout, showing its small body and large eyes, with bright blue water and sky",
-  "devonian_ammonite_shell": "A close-up of a large coiled Ammonite shell resting on a sandy Devonian seabed, showing intricate suture lines and spiral structure, illuminated by soft underwater light",
-  "cretaceous_extinction_ocean": "Dark prehistoric ocean during a massive extinction event, falling marine debris, murky water, cinematic lighting, 4k",
-  "early_devonian_sea_landscape": "A wide shot of an Early Devonian shallow sea with a small Trematous fish swimming near the bottom, surrounded by ancient coral reefs and stromatolites, with clear, turquoise water"
+  "devonian_early_coelacanth_swim": "Cinematic underwater shot of a Mawsonia, an extinct Devonian coelacanth relative, swimming through a murky, oxygen-poor ancient sea. The fish has a robust, armored body with thick bony plates, a heavy tail, and small, beady eyes. The water is dark green-grey with floating organic matter. Low-key lighting, creating a mysterious and oppressive atmosphere. Camera tracks laterally with the fish.",
+  "cretaceous_deep_sea_abyss": "Vast, dark deep-sea environment in the Late Cretaceous, 70 million years ago, murky water with faint bioluminescent particles, no visible animals, ancient geological strata visible in the distance, cinematic 4k, BBC documentary style",
+  "kpg_ichthyosaur_death": "A Stenopterygius ichthyosaur drifting lifelessly in the dark, chaotic waters during the K-Pg extinction event. The animal has a streamlined body, a long snout, and large eyes. The water is tinted with red and brown sediment from the impact aftermath. Dim, reddish lighting from above, creating a somber and tragic mood. Close-up on the face and dorsal fin.",
+  "kpg_impact_wasteland": "Post-impact landscape at the Cretaceous-Paleogene boundary, scorched earth, ash falling like snow, dark red sky, no animals, no humans, dramatic lighting, cinematic 4k",
+  "devonian_ancient_sea": "Ancient Devonian sea floor, 409 million years ago, shallow warm water, early marine life silhouettes in distance, no modern animals, no humans, cinematic 4k",
+  "devonian_sea_scorpion_patrol": "A giant Eurypterus (sea scorpion) patrolling the sandy bottom of a Devonian shallow sea. The arthropod has a segmented exoskeleton, powerful front claws, and a long tail. The water is clear with visible sand particles. Dappled sunlight creates patterns on the sand. The creature moves with precision. Wide shot showing the vast, empty ancient shoreline in the background.",
+  "ancient_ocean_landscape": "A vast, dimly lit ancient ocean landscape with towering coral reefs and distant silhouettes of prehistoric marine life, no modern animals, cinematic 4k",
+  "cretaceous_marine_fauna": "A diverse group of late Cretaceous marine reptiles and fish swimming in clear turquoise water, including ichthyosaurs and plesiosaurs, no modern animals, no humans",
+  "kpg_extinction_event": "A dramatic underwater scene showing the aftermath of a mass extinction, with floating debris and dead marine life sinking into the dark depths, no modern animals"
  },
  "species": {
-  "devonian_mawsonia_swim": null,
-  "early_devonian_coelacanth_swimming": null,
-  "cretaceous_ichthyosaur_glide": null,
-  "carboniferous_eurypterid_crawl": null,
-  "late_cretaceous_mosasaurs_play": null,
-  "kpg_impact_megafauna": null,
-  "triassic_ichthyosaur_breath": null,
-  "devonian_ammonite_shell": null,
-  "cretaceous_extinction_ocean": null,
-  "early_devonian_sea_landscape": null
+  "devonian_early_coelacanth_swim": null,
+  "cretaceous_deep_sea_abyss": null,
+  "kpg_ichthyosaur_death": null,
+  "kpg_impact_wasteland": null,
+  "devonian_ancient_sea": null,
+  "devonian_sea_scorpion_patrol": null,
+  "ancient_ocean_landscape": null,
+  "cretaceous_marine_fauna": null,
+  "kpg_extinction_event": null
  },
  "animate": {
-  "devonian_mawsonia_swim": "slow powerful tail undulation",
-  "early_devonian_coelacanth_swimming": "The coelacanth glides smoothly forward, its lobe-fins pulsing rhythmically to maintain balance in the ancient current.",
-  "cretaceous_ichthyosaur_glide": "fluid forward glide",
-  "carboniferous_eurypterid_crawl": "walking legs moving across sediment",
-  "late_cretaceous_mosasaurs_play": "tail flukes propelling through water",
-  "kpg_impact_megafauna": "slow head tilt looking up at the sky",
-  "triassic_ichthyosaur_breath": "body arcing out of the water",
-  "devonian_ammonite_shell": "gentle drift of sediment particles around the shell",
-  "early_devonian_sea_landscape": "fish swimming in a circular path"
+  "devonian_early_coelacanth_swim": "Slow, heavy lateral swimming motion with rhythmic tail undulation",
+  "kpg_ichthyosaur_death": "Passive, slow drifting and sinking through the turbulent water",
+  "devonian_sea_scorpion_patrol": "Slow, deliberate walking along the seabed with swiping claw movements",
+  "cretaceous_deep_sea_abyss": "slow drift of suspended particles",
+  "kpg_impact_wasteland": "ash falling slowly",
+  "devonian_ancient_sea": "gentle water movement",
+  "ancient_ocean_landscape": "slowly pans across the reef",
+  "cretaceous_marine_fauna": "swims gracefully through the water"
  },
  "thumbs": {
-  "thumb_c": "Extreme close-up of a prehistoric tetrapod eye, large reptilian pupil, dramatic red rim light, dark murky swamp background, hyper-realistic, 8k, no text, negative space on left"
+  "thumb_c": "Hyper-realistic close-up of a giant prehistoric tetrapod amphibian head, intense glowing eyes, wet skin texture, dramatic red and orange rim lighting, dark background with faint silhouette of a T-Rex in the distance, vibrant colors, cinematic composition, empty space on the left for text"
  },
  "photos": {},
  "two_seeds": []

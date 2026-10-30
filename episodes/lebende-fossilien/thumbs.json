@@ -4,40 +4,40 @@
   "hook": "scale",
   "animal": "coelacanth",
   "base": "photo",
-  "query": "close up coelacanth face deep sea steel blue scales",
-  "prompt": "",
-  "fossil_query": "",
+  "query": "close up face of a living coelacanth in deep ocean water",
+  "prompt": null,
+  "fossil_query": null,
   "words": [
-   "LIVE",
-   "URZEIT"
+   "LEBEND",
+   "FOSSIL"
   ],
-  "accent": 1
+  "accent": 0
  },
  {
   "id": "thumb_b",
   "hook": "split",
   "animal": "lungfish",
   "base": "photo",
-  "query": "close up lungfish eye and gills dark water",
-  "prompt": "",
-  "fossil_query": "fossilized lungfish jaw skeleton",
+  "query": "close up eye and head of a living lungfish in murky water",
+  "prompt": null,
+  "fossil_query": "fossilized ancient lungfish bone structure",
   "words": [
-   "ATMEN",
-   "LUFT"
+   "URALT",
+   "HEUTE"
   ],
   "accent": 0
  },
  {
   "id": "thumb_c",
   "hook": "silhouette",
-  "animal": "tetrapods",
+  "animal": "tetrapod",
   "base": "flux",
-  "query": "",
-  "prompt": "Extreme close-up of a prehistoric tetrapod eye, large reptilian pupil, dramatic red rim light, dark murky swamp background, hyper-realistic, 8k, no text, negative space on left",
-  "fossil_query": "",
+  "query": null,
+  "prompt": "Hyper-realistic close-up of a giant prehistoric tetrapod amphibian head, intense glowing eyes, wet skin texture, dramatic red and orange rim lighting, dark background with faint silhouette of a T-Rex in the distance, vibrant colors, cinematic composition, empty space on the left for text",
+  "fossil_query": null,
   "words": [
-   "QUER",
-   "LAND"
+   "DINO",
+   "ÜBERLEBT"
   ],
   "accent": 1
  }
