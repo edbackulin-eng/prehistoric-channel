@@ -207,6 +207,16 @@ Antworte als JSON {{"concrete_scene": true|false, "question": true|false, "not_a
 QUELLEN:
 {sources}"""
 
+CLAIM = """Ist diese Aussage aus dem Hook einer deutschen Urzeit-Doku von den Quellen gedeckt? Erzählerische
+Zuspitzung ist erlaubt ("ein Fischer" für die Fischer eines Fischdampfers, "dürfte es nicht mehr geben" für "galt als
+ausgestorben"), solange die Tatsache stimmt.
+AUSSAGE: {claim}
+DER GANZE HOOK: {hook}
+Antworte als JSON {{"supported": true|false, "evidence": "<die Stelle in den Quellen, kurz>"}}
+
+QUELLEN:
+{sources}"""
+
 # the viewer is never addressed (owner, 31.10): "Erfahren Sie ...", "Stellen Sie sich vor", "Ihnen"
 ADDRESS = re.compile(r"\b(Ihnen|Euch|euch)\b|\b[A-ZÄÖÜ][a-zäöüß]+(?:en|t) Sie\b|\bSie (?:werden|sehen|erfahren)\b")
 HOOK_WORDS = (25, 70)
@@ -408,7 +418,17 @@ def ensure_hook(slug):
         meta["hook_owner_check"] = rep
         (ep / "meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False), encoding="utf-8")
         if not rep["check"].get("facts_supported"):
-            raise RuntimeError(f"the owner's hook has a claim the sources do not carry: {rep['check']}")
+            # one look at the whole hook can miss a source (31.10: "von Fischern gefangen ... 1938",
+            # "am Ende der Kreidezeit vor 66 Millionen Jahren" were there): every doubted claim again,
+            # on its own, with the passages about it
+            doubted = rep["check"].get("unsupported") or [" ".join(rep["hook"])]
+            claims = {c: textllm.ask(CLAIM.format(claim=c, hook=" ".join(rep["hook"]),
+                                                  sources=textllm.relevant(block, c, 9000)),
+                                     step="hook", temperature=0.0, max_tokens=300) for c in doubted}
+            meta["hook_owner_claims"] = claims
+            (ep / "meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False), encoding="utf-8")
+            if not all(v.get("supported") for v in claims.values()):
+                raise RuntimeError(f"the owner's hook has a claim the sources do not carry: {claims}")
         meta["hook_sha"] = hook_sha(script)
         (ep / "meta.json").write_text(json.dumps(meta, indent=1, ensure_ascii=False), encoding="utf-8")
         log.info("%s: the owner's hook, facts checked: %s", slug, rep["check"])
