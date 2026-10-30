@@ -5532,5 +5532,81 @@
   "museum_display": false,
   "note": "Calm ocean waves under a dramatic sunset sky.",
   "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-49658": {
+  "subject": "aerial view of a coastal river mouth and estuary",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles",
+   "breakwater"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial drone shot reveals a river mouth and coastal settlement entering the ocean.",
+  "model": "gemini-flash-latest"
+ },
+ "pixabay-208744": {
+  "subject": "aerial view of river and landscape with buildings",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings",
+   "vehicles",
+   "modern objects"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles",
+   "houses",
+   "roads"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a river and human settlement from the air, but contains many modern buildings and vehicles, contradicting the nature documentary context.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-103316": {
+  "subject": "aerial view of coastal dunes and water channel",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings",
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows coastal dunes and resort buildings rather than open ocean",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-103308": {
+  "subject": "aerial drone shot of coastline and ocean",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Coastal aerial view, buildings visible on land",
+  "model": "gemini-flash-lite-latest"
  }
 }
