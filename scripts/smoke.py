@@ -262,6 +262,32 @@ def main():
     hs = [x for x in hp["shots"] if x.get("section") == "hook"]
     check("hook shots 1.5-3 s, moving", hs and all(1.5 <= x["end"] - x["start"] <= 3.05 and x["kind"] == "real"
                                                    for x in hs), str([(x["start"], x["end"]) for x in hs]))
+    # a living animal real video cannot fill: its stand-ins (FLUX/LTX of the same species) where
+    # real video has run out, real first, none more than twice; a line without beats goes on
+    lat = lambda need: {"kind": "real", "need": need, "species": "latimeria"}    # noqa: E731
+    sb_spec = {"lines": [
+        {"at": "Eins", "n": 0, "beats": [lat("r1"), {"kind": "recon", "id": "sa", "species": "latimeria",
+                                                   "standby": True}]},
+        {"at": "Zwei", "n": 1, "beats": [lat("r2")]}, {"at": "Drei", "n": 2, "beats": []},
+        {"at": "Vier", "n": 3, "beats": [lat("r3")]}]}
+    sb_tl = [{"text": t, "kind": "base", "section": "story", "start": 8.4 * i, "end": 8.4 * (i + 1)}
+             for i, t in enumerate(("Eins.", "Zwei.", "Drei.", "Vier."))]
+    sb_foot = {"r1": clip("x1"), "r2": clip("x2"), "r3": clip("x3")}
+    (tmp_ep / "episodes" / "standby").mkdir(parents=True)
+    (tmp_ep / "episodes" / "standby" / "shots.json").write_text(json.dumps(sb_spec), encoding="utf-8")
+    (tmp_ep / "episodes" / "standby" / "footage.json").write_text(json.dumps(sb_foot), encoding="utf-8")
+    saved_dp = (docplan.ROOT, docplan.HOOK_WINDOW_S, docplan.REPEAT_GAP_S)
+    docplan.ROOT, docplan.HOOK_WINDOW_S, docplan.REPEAT_GAP_S = tmp_ep, 0.0, 5.0
+    try:
+        sp = docplan.build("standby", sb_tl, 33.6, parts=1,
+                           picks={"r1": ["x1"], "r2": [], "r3": [], "sa": ["sa__s0", "sa__s1"]})
+    finally:
+        docplan.ROOT, docplan.HOOK_WINDOW_S, docplan.REPEAT_GAP_S = saved_dp
+    ids = [(x.get("clip") or {}).get("id") or x.get("image") for x in sp["shots"]]
+    check("living animal: real first, then its stand-ins, none more than twice",
+          ids[0] == "x1" and {"sa__s0", "sa__s1"} <= set(ids) and all(ids.count(i) <= 2 for i in ids)
+          and all(x.get("species") == "latimeria" for x in sp["shots"]) and any(x["line"] == 2 for x in sp["shots"]),
+          str([(x["line"], i, x["start"], x["end"]) for x, i in zip(sp["shots"], ids)]))
     # the watchdog hands a built episode in the buffer to upload.yml once a token exists
     from automation import release, watchdog
     calls = []

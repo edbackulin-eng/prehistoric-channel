@@ -154,7 +154,9 @@ def build(slug, timeline, narration_s, parts=6, picks=None, animated=None):
         return beat["kind"] == "real" or cid in animated
 
     def take_subject(at, need_moving=False, species=None):
-        """(beat, cid) from the subject pool, the same animal first; None if all are used."""
+        """(beat, cid) from the subject pool, the same animal first; None if all are used.
+        A stand-in of a living animal (a FLUX/LTX one, beats marked "standby") may come
+        back once, REPEAT_GAP_S later, when nothing new is left (REPEAT_MAX)."""
         pool = sorted(subject_pool, key=lambda bt: 0 if species and bt.get("species") == species else 1)
         for bt in pool:
             for cid in (picks.get(speciescheck.beat_key(bt)) or []):
@@ -162,14 +164,29 @@ def build(slug, timeline, narration_s, parts=6, picks=None, animated=None):
                     continue
                 used.add(cid)
                 return bt, cid
+        for bt in pool:
+            if not bt.get("standby") or (species and bt.get("species") != species):
+                continue
+            for cid in (picks.get(speciescheck.beat_key(bt)) or []):
+                times = shown_at.get(cid, [])
+                if (need_moving and not moving(bt, cid)) or len(times) >= REPEAT_MAX or \
+                        any(abs(at - t) < REPEAT_GAP_S for t in times):
+                    continue
+                return bt, cid
         return None
 
     landscape_s = [0.0]
     shots = []
+    prev_beats = []
     for entry, li, a, b in segs:
         hook = (entry.get("section") or timeline[li].get("section")) == "hook" or a < HOOK_WINDOW_S
         span = b - a
-        beats = list(entry["beats"])
+        # stand-ins of living animals only where real video has run out (take_subject); a line
+        # the plan gave no picture goes on with the line before it rather than holding one shot
+        beats = [bt for bt in entry["beats"] if not bt.get("standby")] or \
+            [bt for bt in entry["beats"] if bt.get("standby")] or list(prev_beats)
+        if entry["beats"]:
+            prev_beats = [bt for bt in entry["beats"] if not bt.get("standby")] or prev_beats
         # a line about an animal shows the animal: the beats with a species first
         with_species = [bt for bt in beats if bt.get("species")]
         if with_species and len(with_species) < len(beats):

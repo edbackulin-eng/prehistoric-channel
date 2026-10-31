@@ -5,7 +5,8 @@ stays unscheduled until approved (approve.yml), after that it gets a publishAt
 on the nearest free slot of the channel's week - Wednesday and Saturday, 17:00 Europe/Berlin (config/channel.json
 "schedule"; summer and winter time follow the zone) - at least MIN_LEAD away.
 Every video declares containsSyntheticMedia=true and madeForKids=false, German
-as its language, and carries German subtitles.
+as its language; subtitles are YouTube's own automatic ones (config
+"schedule.upload_subtitles": false, owner 31.10).
 
 A video is never uploaded twice: before an upload the channel itself is asked
 whether it has the episode (its title or its urzeit-<slug> tag); the moment
@@ -14,8 +15,8 @@ committed (automation/gitsave.py); an episode with that file is never uploaded.
 On 30.10 one episode went up twice: the subtitles failed after the upload, the
 step failed before the record was committed, and a rerun uploaded it again.
 
-Scopes: youtube.upload to upload, youtube (full) for the thumbnail, captions and
-schedule. The token comes from the YT_TOKEN_JSON secret.
+Scopes: youtube.upload to upload, youtube (full) for the thumbnail and the
+schedule (captions.insert would need youtube.force-ssl too; subtitles are off). The token comes from the YT_TOKEN_JSON secret.
 """
 import json
 import os
@@ -29,9 +30,7 @@ log = get_logger("youtube")
 
 ROOT = Path(__file__).resolve().parent.parent
 CFG = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))["schedule"]
-# captions.insert needs youtube.force-ssl: without it the upload works but the subtitles fail (30.10)
-SCOPES = ["https://www.googleapis.com/auth/youtube.upload", "https://www.googleapis.com/auth/youtube",
-          "https://www.googleapis.com/auth/youtube.force-ssl"]
+SCOPES = ["https://www.googleapis.com/auth/youtube.upload", "https://www.googleapis.com/auth/youtube"]
 CATEGORY_EDUCATION = "27"
 DAYS = {"Mon": 0, "Tue": 1, "Wed": 2, "Thu": 3, "Fri": 4, "Sat": 5, "Sun": 6}
 SLOT_WEEKDAYS = tuple(DAYS[d] for d in CFG["weekdays"])
@@ -217,7 +216,9 @@ def upload(slug, release_dir, title, description, tags, publish_at, yt=None, ign
         except Exception as e:                                       # noqa: BLE001
             extras["thumbnail"] = f"failed: {str(e)[:200]}"
     srt = release_dir / "subtitles_de.srt"
-    if srt.exists():
+    if not CFG.get("upload_subtitles"):
+        extras["subtitles"] = "off: YouTube's automatic captions (config schedule.upload_subtitles)"
+    elif srt.exists():
         try:
             yt.captions().insert(part="snippet", body={"snippet": {"videoId": vid, "language": "de",
                                                                    "name": "Deutsch", "isDraft": False}},
@@ -225,7 +226,7 @@ def upload(slug, release_dir, title, description, tags, publish_at, yt=None, ign
             extras["subtitles"] = "set"
         except Exception as e:                                       # noqa: BLE001
             extras["subtitles"] = f"failed: {str(e)[:200]}"
-    bad = {k: v for k, v in extras.items() if v != "set"}
+    bad = {k: v for k, v in extras.items() if v != "set" and not v.startswith("off")}
     if bad:
         log.warning("%s uploaded as %s, but: %s", slug, vid, bad)
     saved = json.loads(marker.read_text(encoding="utf-8"))

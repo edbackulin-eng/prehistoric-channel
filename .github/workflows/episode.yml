@@ -97,6 +97,14 @@ jobs:
           python automation/llm_budget.py need footage_check "$SLUG" || { echo "deferred=1" >> "$GITHUB_ENV"; exit 0; }
           python -c "import sys; sys.path.insert(0, '.'); from pipeline import speciescheck; speciescheck.check('$SLUG', 'work/none', 'work/$SLUG/footage_check', kinds=('real',))"
           git add "episodes/$SLUG/species_verdicts.json" && bash "$RUNNER_TEMP/push.sh" "Footage species check for $SLUG" || true
+      - name: Living animals the footage cannot show - FLUX/LTX stand-ins of the same species
+        if: steps.pick.outputs.slug != '' && env.deferred != '1'
+        env:
+          SLUG: ${{ steps.pick.outputs.slug }}
+        run: |
+          # real video first; where its passing clips fall short of 60 % of the time told (owner 31.10)
+          python automation/plan_episode.py --standby "$SLUG"
+          git add "episodes/$SLUG" && bash "$RUNNER_TEMP/push.sh" "Stand-ins of living animals for $SLUG" || true
       - name: FLUX on Kaggle
         id: flux
         if: steps.pick.outputs.slug != '' && env.deferred != '1'

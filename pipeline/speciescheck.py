@@ -306,8 +306,10 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
             row = {"beat": bk, "kind": beat["kind"], "line": line, "species": species, "candidates": []}
             passing = []
             tried = set()
+            # a stand-in of a living animal: both seeds, each a picture of its own (docplan)
+            want = 2 if beat.get("standby") else WANT_PASSING
             for cid, kind, src in candidates(beat, footage, layers):
-                if len(passing) >= WANT_PASSING:
+                if len(passing) >= want:
                     break
                 if cid in tried:                     # an alternate listed twice
                     continue

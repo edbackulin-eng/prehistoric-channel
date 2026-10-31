@@ -29,7 +29,8 @@
   "hook_sound_hit": true
  },
  "motion": {
-  "living_species": "real video only (Wikimedia Commons, NOAA, Pixabay video; PD, CC0 or CC BY; credited in the description)",
+  "living_species": "real video first (Wikimedia Commons, NOAA, Pixabay video; PD, CC0 or CC BY; credited in the description); where it cannot fill 60 % of the time told, FLUX/LTX reconstructions of the same species, checked against its checklist (owner 31.10)",
+  "standby_frames_max": 60,
   "extinct_species": "FLUX frames; the best of them animated with LTX-Video image-to-video on Kaggle",
   "flux_frames_max": 60,
   "flux_seeds": 2,
@@ -104,6 +105,8 @@
   "privacy": "private",
   "contains_synthetic_media": true,
   "subtitles": "de",
+  "upload_subtitles": false,
+  "_upload_subtitles_note": "owner 31.10: no subtitle upload, YouTube makes its own automatic German captions; true sends release/subtitles_de.srt (needs a token with the youtube.force-ssl scope)",
   "tag_brands": ["Terra X", "TerraX", "ZDF", "ARD", "Arte", "3sat", "WDR", "NDR", "SWR", "BR", "MDR", "Phoenix",
                  "Planet Wissen", "Quarks", "Galileo", "Universum", "Leschs Kosmos", "Kurzgesagt", "Doc Planet",
                  "BBC", "Discovery", "National Geographic", "Nat Geo", "NatGeo", "History Channel", "Animal Planet",
@@ -182,7 +185,7 @@
     "text_tokens": 80000
    },
    "flux_check": {
-    "image_requests": 25
+    "image_requests": 70
    },
    "render": {
     "image_per_picture_beat": 1.3,

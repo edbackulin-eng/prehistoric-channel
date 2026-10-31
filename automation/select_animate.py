@@ -34,10 +34,21 @@ def main(slug):
             log.info("%s: no seed passed the species check; not animated", fid)
             continue
         frames.append({"id": ok[0], "prompt": recon["prompts"][fid], "motion": motion})
+    # a planned frame that failed gives its clip to another passing animal of the episode
+    # (the living animals' stand-ins first), never past the plan's count
+    cfg = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))
+    from pipeline import docplan
+    spare = sorted((f for f in recon.get("prompts", {}) if f not in (recon.get("animate") or {}) and picks.get(f)
+                    and not docplan.is_landscape({"kind": "recon", "id": f, "topic": recon["prompts"][f]})),
+                   key=lambda f: 0 if f in (recon.get("standby") or {}) else 1)
+    for fid in spare[:max(0, len(recon.get("animate") or {}) - len(frames))]:
+        frames.append({"id": picks[fid][0], "prompt": recon["prompts"][fid],
+                       "motion": "moves slowly and naturally, gentle camera push in"})
+        log.info("%s animated in place of a planned frame that failed", fid)
     job = {"slug": slug, "frames": frames, "steps": 30}
     (ROOT / "gpu" / "animate_job.json").write_text(json.dumps(job, indent=1), encoding="utf-8")
     log.info("animate %d of %d planned frames", len(frames), len(recon.get("animate") or {}))
-    need = int(json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))["qa"]["ltx_min"])
+    need = int(cfg["qa"]["ltx_min"])
     if len(frames) < need:
         # the render needs that many clips (QA): without enough frames no GPU hour is spent on it
         log.error("only %d frames to animate, the render needs %d LTX clips: the plan needs more FLUX animals",

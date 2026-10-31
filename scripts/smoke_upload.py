@@ -26,10 +26,10 @@ class _Exec:
 
 
 class FakeYT:
-    def __init__(self, videos=None, fail_captions=True):
+    def __init__(self, videos=None, fail_captions=True, fail_thumb=True):
         self.videos_ = list(videos or [])
         self.inserts = []
-        self.fail_captions = fail_captions
+        self.fail_captions, self.fail_thumb = fail_captions, fail_thumb
         self.order = []
 
     def channels(self):
@@ -65,7 +65,11 @@ class FakeYT:
 
     def thumbnails(self):
         yt = self
-        return type("T", (), {"set": lambda s, **k: _Exec(lambda: yt.order.append("thumb"))})()
+        def thumb():
+            yt.order.append("thumb")
+            if yt.fail_thumb:
+                raise RuntimeError("HttpError 403 thumbnail")
+        return type("T", (), {"set": lambda s, **k: _Exec(thumb)})()
 
     def captions(self):
         yt = self
@@ -88,6 +92,7 @@ def run(work):
     ep.mkdir(parents=True)
     try:
         (rel / "video.mp4").write_bytes(b"\0" * 1024)
+        (rel / "thumbnail.jpg").write_bytes(bytes([255, 216]))
         (rel / "subtitles_de.srt").write_text("1\n00:00:00,000 --> 00:00:01,000\nHallo\n", encoding="utf-8")
         yt, got = FakeYT(), []
 
@@ -95,8 +100,10 @@ def run(work):
             got.append((vid, list(yt.order)))
         vid = youtube.upload(slug, rel, "Smoke Titel", "d", ["Urzeit"], None, yt=yt, on_id=on_id)
         marker = json.loads((ep / "uploaded.json").read_text(encoding="utf-8"))
-        out.append(("upload: id kept before the subtitles fail", vid == "fake0" and got == [("fake0", ["insert"])]
-                    and "failed" in marker["extras"]["subtitles"], str((got, marker.get("extras")))))
+        out.append(("upload: id kept before the thumbnail fails", vid == "fake0" and got == [("fake0", ["insert"])]
+                    and "failed" in marker["extras"]["thumbnail"], str((got, marker.get("extras")))))
+        out.append(("upload: no subtitles sent (YouTube's own), no error", "captions" not in yt.order
+                    and marker["extras"]["subtitles"].startswith("off"), str((yt.order, marker.get("extras")))))
         out.append(("upload: no date while approval is pending", "publishAt" not in yt.inserts[0]["status"]
                     and marker["publish_at"] is None, str(yt.inserts[0]["status"])))
         youtube.upload(slug, rel, "Smoke Titel", "d", [], None, yt=yt)
