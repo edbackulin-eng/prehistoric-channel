@@ -11371,5 +11371,71 @@
   "museum_display": false,
   "note": "Shows grass instead of a frog walking on land.",
   "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-74702": {
+  "subject": "coastal town with fishing harbor and tropical scenery",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of a tropical fishing harbor and coastal town",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-65560": {
+  "subject": "aerial view of waves on a tropical beach",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial beach scene fitting the island region narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-214083": {
+  "subject": "modern building and historic stone fortress",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows modern and historic architecture instead of rock strata",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-271135": {
+  "subject": "toads in a swamp or pond",
+  "species_match": true,
+  "features": {
+   "four limbs with digits": "not visible",
+   "vertebral column": "not visible",
+   "internal ears": "not visible",
+   "amniotic egg (in most species)": "not visible",
+   "diverse body plans (mammals, birds, reptiles, amphibians)": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "toads visible in water/mud",
+  "model": "gemini-flash-lite-latest"
  }
 }
