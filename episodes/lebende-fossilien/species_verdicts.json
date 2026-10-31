@@ -11476,5 +11476,31 @@
   "museum_display": false,
   "note": "Shows riverbank, not a submersible on deck.",
   "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-368688": {
+  "subject": "underwater pebble sea floor",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows shallow rocky sea floor instead of deep ocean surface waves.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-368692": {
+  "subject": "ocean waves crashing on a pebble beach",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Coastal scene fitting ocean/sea narration context",
+  "model": "gemini-flash-lite-latest"
  }
 }
