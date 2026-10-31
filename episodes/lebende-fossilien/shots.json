@@ -13,7 +13,7 @@
      "need": "v000_0",
      "species": null,
      "dark": true,
-     "topic": "dark ocean surface night",
+     "topic": "dark ocean waves night",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -33,9 +33,23 @@
     {
      "kind": "real",
      "need": "v001_0",
+     "species": null,
+     "dark": false,
+     "topic": "fishing boat pulling heavy net",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v001_1",
      "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth swimming deep ocean",
+     "dark": false,
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -57,7 +71,7 @@
      "need": "v002_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -79,7 +93,7 @@
      "need": "v003_0",
      "species": "lungfish",
      "dark": false,
-     "topic": "lungfish in murky water",
+     "topic": "lungfish swimming in water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -102,7 +116,7 @@
      "need": "v004_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -122,9 +136,9 @@
     {
      "kind": "real",
      "need": "v005_0",
-     "species": "coelacanth",
+     "species": null,
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "old scientific sketch paper",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -144,9 +158,9 @@
     {
      "kind": "real",
      "need": "v006_0",
-     "species": "coelacanth",
+     "species": null,
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "vintage microscope glass lens",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -161,14 +175,28 @@
    "at": "Auffällig an dem Tier",
    "n": 7,
    "section": "story",
-   "amb": "room",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "v007_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "live coelacanth swimming deep ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v007_1",
+     "species": "coelacanth",
+     "dark": false,
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -189,8 +217,8 @@
      "kind": "real",
      "need": "v008_0",
      "species": null,
-     "dark": true,
-     "topic": "deep ocean pressure bubbles",
+     "dark": false,
+     "topic": "fishing net rising from water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -212,7 +240,7 @@
      "need": "v009_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -227,7 +255,7 @@
    "at": "Erst 14 Jahre später,",
    "n": 10,
    "section": "story",
-   "amb": "wind",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "anim",
@@ -258,9 +286,9 @@
     {
      "kind": "real",
      "need": "v011_0",
-     "species": "coelacanth",
+     "species": null,
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "tropical island coastline waves",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -280,9 +308,9 @@
     {
      "kind": "real",
      "need": "v012_0",
-     "species": "coelacanth",
+     "species": null,
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "rough sandpaper texture close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -303,8 +331,8 @@
      "kind": "real",
      "need": "v013_0",
      "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth swimming deep ocean",
+     "dark": false,
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -324,9 +352,9 @@
     {
      "kind": "real",
      "need": "v014_0",
-     "species": "coelacanth",
-     "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "species": null,
+     "dark": true,
+     "topic": "deep ocean trench dark water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -346,9 +374,9 @@
     {
      "kind": "real",
      "need": "v015_0",
-     "species": "coelacanth",
-     "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "species": null,
+     "dark": true,
+     "topic": "submersible diving into deep sea",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -370,7 +398,7 @@
      "need": "v016_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -391,8 +419,8 @@
      "kind": "real",
      "need": "v017_0",
      "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth swimming deep ocean",
+     "dark": false,
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -407,14 +435,14 @@
    "at": "Von 1989 an wurde",
    "n": 18,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v018_0",
-     "species": "coelacanth",
+     "species": null,
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "research ship at sea horizon",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -429,14 +457,14 @@
    "at": "Bei diesem und weiteren",
    "n": 19,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v019_0",
-     "species": "coelacanth",
+     "species": null,
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "modern submersible on deck",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -458,7 +486,7 @@
      "need": "v020_0",
      "species": null,
      "dark": true,
-     "topic": "deep sea submersible descending",
+     "topic": "submersible deep ocean descent",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -472,7 +500,7 @@
      "need": "v020_1",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -494,7 +522,7 @@
      "need": "v021_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -516,7 +544,7 @@
      "need": "v022_0",
      "species": null,
      "dark": false,
-     "topic": "south african coast rocky cliffs",
+     "topic": "south african coast fishing boat",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -531,14 +559,14 @@
    "at": "Er identifizierte ihn unzweifelhaft",
    "n": 23,
    "section": "story",
-   "amb": "underwater",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v023_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -561,10 +589,24 @@
      "places": [
       {
        "name": "SÜDAFRIKA",
-       "sub": "Ostkap",
+       "sub": "Küste",
        "lat": -34.0,
-       "lon": 20.0
+       "lon": 22.0
       }
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v024_1",
+     "species": "coelacanth",
+     "dark": false,
+     "topic": "live coelacanth swimming deep ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
      ]
     }
    ]
@@ -580,7 +622,7 @@
      "need": "v025_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -602,7 +644,7 @@
      "need": "v026_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -617,14 +659,14 @@
    "at": "Allerdings war dieses historische",
    "n": 27,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v027_0",
-     "species": "coelacanth",
+     "species": null,
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "fishing net rising from water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -646,7 +688,7 @@
      "need": "v028_0",
      "species": null,
      "dark": false,
-     "topic": "research submersible on deck",
+     "topic": "research submersible docked",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -668,7 +710,7 @@
      "need": "v029_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -688,9 +730,9 @@
     {
      "kind": "real",
      "need": "v030_0",
-     "species": null,
-     "dark": true,
-     "topic": "deep ocean water surface",
+     "species": "coelacanth",
+     "dark": false,
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -712,7 +754,7 @@
      "need": "v031_0",
      "species": null,
      "dark": false,
-     "topic": "ocean waves rolling",
+     "topic": "ocean waves crashing rocks",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -727,14 +769,14 @@
    "at": "Lange Zeit blieb der",
    "n": 32,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v032_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -758,8 +800,8 @@
       {
        "name": "KOMOREN",
        "sub": "Indischer Ozean",
-       "lat": -11.5,
-       "lon": 43.0
+       "lat": -12.0,
+       "lon": 44.0
       },
       {
        "name": "MADAGASKAR",
@@ -782,7 +824,7 @@
      "need": "v034_0",
      "species": null,
      "dark": false,
-     "topic": "tropical ocean horizon",
+     "topic": "open ocean horizon",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -804,7 +846,7 @@
      "need": "v035_0",
      "species": null,
      "dark": false,
-     "topic": "fishing boats on shore",
+     "topic": "local fishermen on boat",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -824,9 +866,9 @@
     {
      "kind": "real",
      "need": "v036_0",
-     "species": null,
+     "species": "coelacanth",
      "dark": false,
-     "topic": "fish market local",
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -841,14 +883,14 @@
    "at": "Wegen seiner besonderen Beschaffenheit",
    "n": 37,
    "section": "story",
-   "amb": "room",
+   "amb": "beach",
    "beats": [
     {
      "kind": "real",
      "need": "v037_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -870,7 +912,7 @@
      "need": "v038_0",
      "species": "coelacanth",
      "dark": false,
-     "topic": "coelacanth swimming deep ocean",
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -885,14 +927,14 @@
    "at": "Den endgültigen Durchbruch in",
    "n": 39,
    "section": "story",
-   "amb": "ocean",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v039_0",
-     "species": null,
+     "species": "coelacanth",
      "dark": false,
-     "topic": "research ship at sea",
+     "topic": "live coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -908,97 +950,373 @@
    "n": 40,
    "section": "story",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v040_0",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth swimming deep ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v040_1",
+     "species": null,
+     "dark": true,
+     "topic": "deep ocean water particles",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Am 17. Januar dieses",
    "n": 41,
    "section": "story",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v041_0",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth close up face",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v041_1",
+     "species": null,
+     "dark": true,
+     "topic": "submersible light beam deep sea",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Damals entstanden auch die",
    "n": 42,
    "section": "story",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v042_0",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth swimming slow motion",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Um dieses Verhalten und",
    "n": 43,
    "section": "story",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v043_0",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth resting on rock",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v043_1",
+     "species": null,
+     "dark": true,
+     "topic": "deep sea rock formation",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Bei diesem und zahlreichen",
    "n": 44,
    "section": "story",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v044_0",
+     "species": null,
+     "dark": true,
+     "topic": "submersible descending deep ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v044_1",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth turning head",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Dieses innovative Gefährt erreicht",
    "n": 45,
    "section": "story",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v045_0",
+     "species": null,
+     "dark": true,
+     "topic": "deep ocean abyss darkness",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v045_1",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth swimming away",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Der Blick zurück in",
    "n": 46,
    "section": "story",
-   "amb": "underwater",
-   "beats": []
+   "amb": "wind",
+   "beats": [
+    {
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "EAST LONDON",
+       "sub": "Südafrika",
+       "lat": -33.0153,
+       "lon": 27.9116
+      }
+     ]
+    }
+   ]
   },
   {
    "at": "Damals war es die",
    "n": 47,
    "section": "story",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v047_0",
+     "species": "coelacanth",
+     "dark": false,
+     "topic": "live coelacanth swimming deep ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Gefangen wurde das Tier",
    "n": 48,
    "section": "story",
-   "amb": "underwater",
-   "beats": []
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v048_0",
+     "species": null,
+     "dark": false,
+     "topic": "fishing trawler deep sea",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v048_1",
+     "species": null,
+     "dark": false,
+     "topic": "ocean waves rough sea",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Schon äußerlich sorgte das",
    "n": 49,
    "section": "story",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v049_0",
+     "species": "coelacanth",
+     "dark": false,
+     "topic": "live coelacanth swimming deep ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Neben einer auffällig robusten",
    "n": 50,
    "section": "story",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v050_0",
+     "species": "coelacanth",
+     "dark": false,
+     "topic": "live coelacanth swimming deep ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v050_1",
+     "species": "coelacanth",
+     "dark": false,
+     "topic": "live coelacanth swimming deep ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Ein entscheidender und tragischer",
    "n": 51,
    "section": "story",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v051_0",
+     "species": "coelacanth",
+     "dark": false,
+     "topic": "live coelacanth swimming deep ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Eine präzise Skizze des",
    "n": 52,
    "section": "story",
-   "amb": "underwater",
+   "amb": "room",
    "beats": []
   },
   {
    "at": "In seiner ersten überwältigten",
    "n": 53,
    "section": "story",
-   "amb": "underwater",
+   "amb": "room",
    "beats": []
   },
   {
@@ -1006,42 +1324,182 @@
    "n": 54,
    "section": "story",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v054_0",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth swimming deep sea",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v054_1",
+     "species": null,
+     "dark": true,
+     "topic": "deep ocean water",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Zu Ehren der engagierten",
    "n": 55,
    "section": "story",
-   "amb": "underwater",
-   "beats": []
+   "amb": "wind",
+   "beats": [
+    {
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "EAST LONDON",
+       "sub": "Südafrika",
+       "lat": -33.0153,
+       "lon": 27.9116
+      },
+      {
+       "name": "CHALUMNA MÜNDUNG",
+       "sub": "Südafrika",
+       "lat": -33.05,
+       "lon": 27.95
+      }
+     ]
+    }
+   ]
   },
   {
    "at": "Nach dieser weltweiten Sensation",
    "n": 56,
    "section": "story",
-   "amb": "underwater",
-   "beats": []
+   "amb": "wind",
+   "beats": [
+    {
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "KOMOREN",
+       "sub": "Indischer Ozean",
+       "lat": -11.7,
+       "lon": 43.3
+      },
+      {
+       "name": "MADAGASKAR",
+       "sub": "Indischer Ozean",
+       "lat": -18.7,
+       "lon": 46.8
+      }
+     ]
+    }
+   ]
   },
   {
    "at": "Dieser entscheidende zweite Fundort",
    "n": 57,
    "section": "story",
-   "amb": "underwater",
-   "beats": []
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v057_0",
+     "species": null,
+     "dark": false,
+     "topic": "tropical ocean waves",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "In jener Inselregion waren",
    "n": 58,
    "section": "story",
-   "amb": "underwater",
-   "beats": []
+   "amb": "beach",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v058_0",
+     "species": null,
+     "dark": false,
+     "topic": "fishing boat tropical coast",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v058_1",
+     "species": null,
+     "dark": false,
+     "topic": "coconut palm beach",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Allerdings galt der urtümliche",
    "n": 59,
    "section": "story",
-   "amb": "underwater",
-   "beats": []
+   "amb": "beach",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v059_0",
+     "species": null,
+     "dark": false,
+     "topic": "fish market tropical",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v059_1",
+     "species": null,
+     "dark": false,
+     "topic": "cooking fish fire",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Eine besonders pragmatische Verwendung",
@@ -1077,13 +1535,20 @@
    "n": 62,
    "section": "story",
    "amb": "underwater",
+   "beats": []
+  },
+  {
+   "at": "Damals war es einer",
+   "n": 63,
+   "section": "story",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
-     "need": "v062_0",
-     "species": "coelacanth",
+     "need": "v063_0",
+     "species": null,
      "dark": true,
-     "topic": "coelacanth deep water",
+     "topic": "deep sea submersible lights",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1095,13 +1560,6 @@
    ]
   },
   {
-   "at": "Damals war es einer",
-   "n": 63,
-   "section": "story",
-   "amb": "underwater",
-   "beats": []
-  },
-  {
    "at": "Am siebzehnten Tag jenes",
    "n": 64,
    "section": "story",
@@ -1110,9 +1568,9 @@
     {
      "kind": "real",
      "need": "v064_0",
-     "species": "coelacanth",
+     "species": null,
      "dark": true,
-     "topic": "coelacanth swimming",
+     "topic": "submersible descending dark ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1135,71 +1593,49 @@
    "n": 66,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v066_0",
-     "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth close up",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Binnen kürzester Zeit gingen",
    "n": 67,
    "section": "story",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v067_0",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth close up face",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Um das Geheimnis dieser",
    "n": 68,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v068_0",
-     "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth deep sea",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Bei diesem bedeutenden Vorhaben",
    "n": 69,
    "section": "story",
    "amb": "underwater",
-   "beats": []
-  },
-  {
-   "at": "Dieses hochmoderne Gefährt war",
-   "n": 70,
-   "section": "story",
-   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
-     "need": "v070_0",
-     "species": "coelacanth",
+     "need": "v069_0",
+     "species": null,
      "dark": true,
-     "topic": "coelacanth swimming",
+     "topic": "modern research submersible exterior",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1211,24 +1647,44 @@
    ]
   },
   {
-   "at": "Blickt man weiter zurück",
-   "n": 71,
+   "at": "Dieses hochmoderne Gefährt war",
+   "n": 70,
    "section": "story",
    "amb": "underwater",
    "beats": []
   },
   {
+   "at": "Blickt man weiter zurück",
+   "n": 71,
+   "section": "story",
+   "amb": "beach",
+   "beats": [
+    {
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "EAST LONDON",
+       "sub": "Südafrika",
+       "lat": -33.0153,
+       "lon": 27.9116
+      }
+     ]
+    }
+   ]
+  },
+  {
    "at": "Der Fischdampfer unter Kapitän",
    "n": 72,
    "section": "story",
-   "amb": "underwater",
+   "amb": "beach",
    "beats": [
     {
      "kind": "real",
      "need": "v072_0",
-     "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth deep water",
+     "species": null,
+     "dark": false,
+     "topic": "fishing boat indian ocean waves",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1243,50 +1699,28 @@
    "at": "Schon damals fielen dem",
    "n": 73,
    "section": "story",
-   "amb": "underwater",
+   "amb": "room",
    "beats": []
   },
   {
    "at": "Der Fisch was äußerst",
    "n": 74,
    "section": "story",
-   "amb": "underwater",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v074_0",
-     "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth fins",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    }
-   ]
+   "amb": "room",
+   "beats": []
   },
   {
    "at": "Historischen Aufzeichnungen zufolge war",
    "n": 75,
    "section": "story",
-   "amb": "underwater",
-   "beats": []
-  },
-  {
-   "at": "Der renommierte Wissenschaftler Smith",
-   "n": 76,
-   "section": "story",
-   "amb": "underwater",
+   "amb": "beach",
    "beats": [
     {
      "kind": "real",
-     "need": "v076_0",
-     "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth swimming",
+     "need": "v075_0",
+     "species": null,
+     "dark": false,
+     "topic": "heavy fishing net being hauled",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1296,26 +1730,48 @@
      ]
     }
    ]
+  },
+  {
+   "at": "Der renommierte Wissenschaftler Smith",
+   "n": 76,
+   "section": "story",
+   "amb": "room",
+   "beats": []
   },
   {
    "at": "Plötzlich waren sie da",
    "n": 77,
    "section": "story",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v077_0",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth swimming freely",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Wer in den alten",
    "n": 78,
    "section": "story",
-   "amb": "underwater",
+   "amb": "forest",
    "beats": [
     {
      "kind": "real",
      "need": "v078_0",
-     "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth deep sea",
+     "species": null,
+     "dark": false,
+     "topic": "ancient rock strata layers",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1334,7 +1790,7 @@
    "beats": [
     {
      "kind": "recon",
-     "id": "devonian_early_coelacanth_swim",
+     "id": "devonian_axelrodichthys",
      "species": null
     }
    ]
@@ -1346,18 +1802,9 @@
    "amb": "underwater",
    "beats": [
     {
-     "kind": "real",
-     "need": "v080_1",
-     "species": null,
-     "dark": true,
-     "topic": "deep ocean abyss darkness",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
+     "kind": "recon",
+     "id": "cretaceous_mawsonia",
+     "species": null
     }
    ]
   },
@@ -1370,9 +1817,9 @@
     {
      "kind": "real",
      "need": "v081_0",
-     "species": null,
-     "dark": false,
-     "topic": "dusty old library books",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth swimming deep sea",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1388,7 +1835,13 @@
    "n": 82,
    "section": "story",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "kpg_ammonite_extinction",
+     "species": null
+    }
+   ]
   },
   {
    "at": "Umso tiefer sitzt die",
@@ -1399,9 +1852,9 @@
     {
      "kind": "real",
      "need": "v083_0",
-     "species": null,
-     "dark": false,
-     "topic": "academic research papers stack",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth close up face",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1417,44 +1870,14 @@
    "n": 84,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v084_0",
-     "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth swimming deep sea",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Ihr Weg führt direkt",
    "n": 85,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v085_0",
-     "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth close up fins",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Doch wer sind eigentlich",
@@ -1465,9 +1888,9 @@
     {
      "kind": "real",
      "need": "v086_0",
-     "species": null,
+     "species": "lungfish",
      "dark": false,
-     "topic": "abstract evolutionary tree concept",
+     "topic": "lungfish breathing air mud",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1482,28 +1905,14 @@
    "at": "Die Antwort führt direkt",
    "n": 87,
    "section": "story",
-   "amb": "swamp",
+   "amb": "forest",
    "beats": [
     {
      "kind": "real",
      "need": "v087_0",
-     "species": "lungfish",
-     "dark": false,
-     "topic": "lungfish breathing air swamp",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v087_1",
      "species": "tetrapod",
      "dark": false,
-     "topic": "frog jumping wetland",
+     "topic": "amphibian walking on land",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1524,8 +1933,8 @@
      "kind": "real",
      "need": "v088_0",
      "species": null,
-     "dark": false,
-     "topic": "tropical ocean waves surface",
+     "dark": true,
+     "topic": "deep ocean surface waves",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1549,23 +1958,9 @@
       {
        "name": "MANADO TUA",
        "sub": "Sulawesi, Indonesien",
-       "lat": 1.85,
-       "lon": 124.85
+       "lat": 1.45,
+       "lon": 125.05
       }
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v089_1",
-     "species": null,
-     "dark": false,
-     "topic": "indonesian fish market stall",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
      ]
     }
    ]
@@ -1587,10 +1982,10 @@
        "lon": 43.3
       },
       {
-       "name": "SULAWESI",
-       "sub": "Indonesien",
-       "lat": 1.0,
-       "lon": 120.0
+       "name": "MANADO TUA",
+       "sub": "Sulawesi, Indonesien",
+       "lat": 1.45,
+       "lon": 125.05
       }
      ]
     }
@@ -1601,22 +1996,7 @@
    "n": 91,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v091_0",
-     "species": null,
-     "dark": false,
-     "topic": "underwater rocky reef shallow",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Die Antwort lag in",
@@ -1637,22 +2017,7 @@
    "n": 94,
    "section": "story",
    "amb": "ocean",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v094_0",
-     "species": null,
-     "dark": false,
-     "topic": "aerial view tropical islands",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Was mochte die dunkle",
@@ -1665,14 +2030,14 @@
    "at": "Wer tiefer in die",
    "n": 96,
    "section": "story",
-   "amb": "underwater",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v096_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth swimming graceful",
+     "topic": "coelacanth museum specimen",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1687,23 +2052,8 @@
    "at": "Wie weit reicht ihre",
    "n": 97,
    "section": "story",
-   "amb": "room",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v097_0",
-     "species": null,
-     "dark": false,
-     "topic": "geological time scale chart",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    }
-   ]
+   "amb": "underwater",
+   "beats": []
   },
   {
    "at": "Fossil sind heute etwa",
@@ -1714,9 +2064,9 @@
     {
      "kind": "real",
      "need": "v098_0",
-     "species": null,
-     "dark": false,
-     "topic": "fossil collection museum display",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth fossil collection",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1739,20 +2089,29 @@
    "n": 100,
    "section": "story",
    "amb": "ocean",
-   "beats": []
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v100_0",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth swimming deep ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
   },
   {
    "at": "Doch dann brach der",
    "n": 101,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "cretaceous_deep_sea_abyss",
-     "species": null
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Lange Zeit ging die",
@@ -1762,7 +2121,7 @@
    "beats": [
     {
      "kind": "recon",
-     "id": "kpg_ichthyosaur_death",
+     "id": "kpg_ichthyosaur_swim",
      "species": null
     }
    ]
@@ -1771,11 +2130,11 @@
    "at": "Die Katastrophe, die auch",
    "n": 103,
    "section": "story",
-   "amb": "fire",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "recon",
-     "id": "kpg_impact_wasteland",
+     "id": "kpg_dinosaur_death",
      "species": null
     }
    ]
@@ -1791,7 +2150,7 @@
      "need": "v104_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth deep sea discovery",
+     "topic": "coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1811,9 +2170,9 @@
     {
      "kind": "real",
      "need": "v105_0",
-     "species": null,
+     "species": "coelacanth",
      "dark": true,
-     "topic": "deep ocean current slow motion",
+     "topic": "coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1834,8 +2193,8 @@
      "kind": "real",
      "need": "v106_0",
      "species": "coelacanth",
-     "dark": false,
-     "topic": "coelacanth fish market indonesia",
+     "dark": true,
+     "topic": "coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1850,14 +2209,14 @@
    "at": "Ein Fund von unschätzbarem",
    "n": 107,
    "section": "story",
-   "amb": "harbour",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v107_0",
      "species": "coelacanth",
-     "dark": false,
-     "topic": "coelacanth on ice market",
+     "dark": true,
+     "topic": "coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1903,9 +2262,9 @@
     {
      "kind": "real",
      "need": "v109_0",
-     "species": null,
-     "dark": false,
-     "topic": "open ocean horizon wide shot",
+     "species": "coelacanth",
+     "dark": true,
+     "topic": "coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1927,7 +2286,7 @@
      "need": "v110_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "submersible filming coelacanth",
+     "topic": "coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1949,7 +2308,7 @@
      "need": "v111_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth swimming close up",
+     "topic": "coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1971,7 +2330,7 @@
      "need": "v112_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth resting on rock",
+     "topic": "coelacanth swimming deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2001,62 +2360,21 @@
    "n": 115,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "devonian_ancient_sea",
-     "species": null
-    },
-    {
-     "kind": "recon",
-     "id": "devonian_sea_scorpion_patrol",
-     "species": null
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Die wissenschaftliche Systematik ordnet",
    "n": 116,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v116_0",
-     "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth swimming sideways",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Sie bilden eine hoch",
    "n": 117,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v117_0",
-     "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth dorsal fin movement",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Werden die Fäden der",
@@ -2069,14 +2387,14 @@
    "at": "Die nächsten lebenden Verwandten",
    "n": 119,
    "section": "story",
-   "amb": "forest",
+   "amb": "swamp",
    "beats": [
     {
      "kind": "real",
      "need": "v119_0",
      "species": "lungfish",
      "dark": false,
-     "topic": "lungfish in freshwater",
+     "topic": "lungfish breathing air mud",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2090,7 +2408,7 @@
      "need": "v119_1",
      "species": "tetrapod",
      "dark": false,
-     "topic": "frog on land close up",
+     "topic": "frog walking on land",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2106,13 +2424,7 @@
    "n": 120,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "ancient_ocean_landscape",
-     "species": null
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Die Entdeckung der beiden",
@@ -2121,17 +2433,21 @@
    "amb": "ocean",
    "beats": [
     {
-     "kind": "real",
-     "need": "v121_0",
-     "species": null,
-     "dark": false,
-     "topic": "aerial view deep blue ocean",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "KOMOREN",
+       "sub": "Indischer Ozean",
+       "lat": -12.1696,
+       "lon": 44.2425
+      },
+      {
+       "name": "SULAWESI",
+       "sub": "Indonesien",
+       "lat": -1.4146,
+       "lon": 124.8464
+      }
      ]
     }
    ]
@@ -2147,21 +2463,7 @@
      "need": "v122_0",
      "species": null,
      "dark": true,
-     "topic": "deep sea darkness abyss",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v122_1",
-     "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth silhouette dark water",
+     "topic": "deep ocean abyss darkness",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2176,11 +2478,11 @@
    "at": "Ein Blick auf die",
    "n": 123,
    "section": "story",
-   "amb": "underwater",
+   "amb": "room",
    "beats": [
     {
      "kind": "recon",
-     "id": "cretaceous_marine_fauna",
+     "id": "cretaceous_mosasaurl_hunt",
      "species": null
     }
    ]
@@ -2192,15 +2494,17 @@
    "amb": "ocean",
    "beats": [
     {
-     "kind": "anim",
-     "anim": "map",
-     "places": [
-      {
-       "name": "SÜDAFRIKA",
-       "sub": "Indischer Ozean",
-       "lat": -34.0,
-       "lon": 20.0
-      }
+     "kind": "real",
+     "need": "v124_0",
+     "species": null,
+     "dark": false,
+     "topic": "south africa coast aerial view",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
      ]
     }
    ]
@@ -2209,11 +2513,16 @@
    "at": "Dieses dramatische Artensterben, das",
    "n": 125,
    "section": "story",
-   "amb": "underwater",
+   "amb": "fire",
    "beats": [
     {
      "kind": "recon",
-     "id": "kpg_extinction_event",
+     "id": "asteroid_impact_scene",
+     "species": null
+    },
+    {
+     "kind": "recon",
+     "id": "permian_trilobite",
      "species": null
     }
    ]
@@ -2222,21 +2531,21 @@
    "at": "Dabei bricht der dokumentierte",
    "n": 126,
    "section": "story",
-   "amb": "underwater",
+   "amb": "room",
    "beats": []
   },
   {
    "at": "Dass die Natur jedoch",
    "n": 127,
    "section": "story",
-   "amb": "ocean",
+   "amb": "forest",
    "beats": [
     {
      "kind": "real",
      "need": "v127_0",
      "species": null,
      "dark": false,
-     "topic": "calm ocean surface waves",
+     "topic": "lush tropical rainforest canopy",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2258,7 +2567,7 @@
      "need": "v128_0",
      "species": null,
      "dark": false,
-     "topic": "indonesian fish market boats",
+     "topic": "indonesian fish market morning",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2280,10 +2589,10 @@
      "anim": "map",
      "places": [
       {
-       "name": "SULAWESI",
-       "sub": "Indonesien",
-       "lat": -1.0,
-       "lon": 120.0
+       "name": "MANADO TUA",
+       "sub": "Sulawesi, Indonesien",
+       "lat": -1.6833,
+       "lon": 125.0833
       }
      ]
     }
@@ -2302,14 +2611,14 @@
       {
        "name": "KOMOREN",
        "sub": "Indischer Ozean",
-       "lat": -11.5,
-       "lon": 43.0
+       "lat": -12.1696,
+       "lon": 44.2425
       },
       {
-       "name": "SULAWESI",
-       "sub": "Indonesien",
-       "lat": -1.0,
-       "lon": 120.0
+       "name": "MANADO TUA",
+       "sub": "Sulawesi, Indonesien",
+       "lat": -1.6833,
+       "lon": 125.0833
       }
      ]
     }
@@ -2326,7 +2635,7 @@
      "need": "v131_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth swimming alone deep",
+     "topic": "coelacanth swimming deep sea",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2348,21 +2657,7 @@
      "need": "v132_0",
      "species": null,
      "dark": true,
-     "topic": "submersible deep sea exploration",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v132_1",
-     "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth near submersible light",
+     "topic": "submersible underwater exploration",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2408,14 +2703,14 @@
       {
        "name": "KOMOREN",
        "sub": "Indischer Ozean",
-       "lat": -11.5,
-       "lon": 43.0
+       "lat": -12.1696,
+       "lon": 44.2425
       },
       {
        "name": "SULAWESI",
        "sub": "Indonesien",
-       "lat": -1.0,
-       "lon": 120.0
+       "lat": -1.4146,
+       "lon": 124.8464
       }
      ]
     }
@@ -2425,14 +2720,14 @@
    "at": "Die Erforschung dieser lebenden",
    "n": 135,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v135_0",
-     "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth swimming away dark",
+     "species": null,
+     "dark": false,
+     "topic": "ocean horizon sunset",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2454,7 +2749,7 @@
      "need": "v136_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth majestic swim",
+     "topic": "coelacanth swimming slow motion",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2491,15 +2786,27 @@
    "at": "Blickt man tief in",
    "n": 138,
    "section": "story",
-   "amb": "underwater",
-   "beats": []
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "silurian_sea_scorpion",
+     "species": null
+    }
+   ]
   },
   {
    "at": "Der imposante Fossilbericht dieser",
    "n": 139,
    "section": "story",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "devonian_dunkleosteus",
+     "species": null
+    }
+   ]
   },
   {
    "at": "Dass ihre Spuren im",
@@ -2512,7 +2819,7 @@
      "need": "v140_0",
      "species": null,
      "dark": true,
-     "topic": "deep ocean sediment layers",
+     "topic": "dark deep ocean sediment",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2526,7 +2833,7 @@
      "need": "v140_1",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth swimming deep water",
+     "topic": "coelacanth swimming deep sea",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2551,7 +2858,7 @@
        "name": "SÜDAFRIKA",
        "sub": "Indischer Ozean",
        "lat": -34.0,
-       "lon": 32.0
+       "lon": 22.0
       }
      ]
     },
@@ -2560,7 +2867,7 @@
      "need": "v141_1",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth close up face",
+     "topic": "coelacanth emerging from darkness",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2575,14 +2882,14 @@
    "at": "Doch das Schicksal dieser",
    "n": 142,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v142_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth swimming slow motion",
+     "topic": "coelacanth gliding underwater",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2607,7 +2914,7 @@
        "name": "SULAWESI",
        "sub": "Indonesien",
        "lat": -1.0,
-       "lon": 120.0
+       "lon": 124.0
       }
      ]
     },
@@ -2615,8 +2922,8 @@
      "kind": "real",
      "need": "v143_1",
      "species": "coelacanth",
-     "dark": true,
-     "topic": "coelacanth swimming dark water",
+     "dark": false,
+     "topic": "coelacanth floating in water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2636,23 +2943,9 @@
     {
      "kind": "real",
      "need": "v144_0",
-     "species": null,
-     "dark": false,
-     "topic": "wide ocean horizon aerial",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v144_1",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth swimming profile",
+     "topic": "coelacanth wide shot ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2671,10 +2964,24 @@
    "beats": [
     {
      "kind": "real",
+     "need": "v145_0",
+     "species": null,
+     "dark": true,
+     "topic": "submersible diving deep sea",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
      "need": "v145_1",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth swimming near rock",
+     "topic": "coelacanth near submersible lights",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2696,7 +3003,7 @@
      "need": "v146_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth swimming forward",
+     "topic": "coelacanth detailed fins movement",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2711,14 +3018,14 @@
    "at": "Bis heute zählen diese",
    "n": 147,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v147_0",
      "species": "coelacanth",
      "dark": true,
-     "topic": "coelacanth swimming elegant",
+     "topic": "coelacanth majestic swimming",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2733,14 +3040,14 @@
    "at": "Wer den evolutionären Stammbaum",
    "n": 148,
    "section": "story",
-   "amb": "underwater",
+   "amb": "swamp",
    "beats": [
     {
      "kind": "real",
      "need": "v148_0",
      "species": "lungfish",
      "dark": false,
-     "topic": "lungfish swimming freshwater",
+     "topic": "lungfish breathing air mud",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2754,7 +3061,7 @@
      "need": "v148_1",
      "species": "tetrapod",
      "dark": false,
-     "topic": "frog jumping land",
+     "topic": "frog walking on land",
      "allow": [
       "scientific equipment",
       "research camera",

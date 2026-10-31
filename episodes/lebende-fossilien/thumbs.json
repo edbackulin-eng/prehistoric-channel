@@ -4,12 +4,12 @@
   "hook": "scale",
   "animal": "coelacanth",
   "base": "photo",
-  "query": "close up face of a living coelacanth in deep ocean water",
-  "prompt": null,
-  "fossil_query": null,
+  "query": "giant coelacanth fish swimming deep ocean",
+  "prompt": "",
+  "fossil_query": "",
   "words": [
-   "LEBEND",
-   "FOSSIL"
+   "RIESIG",
+   "URZEIT"
   ],
   "accent": 0
  },
@@ -17,13 +17,13 @@
   "id": "thumb_b",
   "hook": "split",
   "animal": "lungfish",
-  "base": "photo",
-  "query": "close up eye and head of a living lungfish in murky water",
-  "prompt": null,
-  "fossil_query": "fossilized ancient lungfish bone structure",
+  "base": "flux",
+  "query": "",
+  "prompt": "Extreme close-up of a living lungfish head and eye, sharp teeth visible, muddy water background, vibrant neon green and orange dramatic lighting, high contrast, photorealistic, 8k, empty space on left side for text, no humans, no text",
+  "fossil_query": "lungfish fossil imprint in rock",
   "words": [
-   "URALT",
-   "HEUTE"
+   "NOCH",
+   "LEBEND"
   ],
   "accent": 0
  },
@@ -32,12 +32,12 @@
   "hook": "silhouette",
   "animal": "tetrapod",
   "base": "flux",
-  "query": null,
-  "prompt": "Hyper-realistic close-up of a giant prehistoric tetrapod amphibian head, intense glowing eyes, wet skin texture, dramatic red and orange rim lighting, dark background with faint silhouette of a T-Rex in the distance, vibrant colors, cinematic composition, empty space on the left for text",
-  "fossil_query": null,
+  "query": "",
+  "prompt": "Majestic crocodile head in sharp focus, bright red eye, vivid green scales, dramatic side lighting, background features a dark silhouette of a T-Rex, high contrast, cinematic style, empty space on right side for text, no humans, no text",
+  "fossil_query": "",
   "words": [
-   "DINO",
-   "ÜBERLEBT"
+   "DER",
+   "KÖNIG"
   ],
   "accent": 1
  }

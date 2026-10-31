@@ -2,58 +2,58 @@
  "coelacanth": {
   "name": "Quastenflosser (Latimeria chalumnae)",
   "features": [
-   "large, thick rhombic scales",
-   "fleshy, lobe-like paired fins resembling limbs",
+   "large, thick, rhomboid scales",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs",
    "massive, heavy lower jaw",
-   "steel-blue or slate-grey coloration",
-   "single dorsal fin positioned far back on the body"
+   "steel-blue or dark grey coloration",
+   "single dorsal fin and caudal fin with lobes"
   ],
   "forbidden": [
    "bird-like head or beak",
    "long, slender neck",
    "feathers or fur",
-   "bipedal stance or upright posture",
+   "bipedal stance or walking on two legs",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "coelacanth swimming deep ocean"
+  "video_query": "live coelacanth swimming deep ocean"
  },
  "lungfish": {
   "name": "Lungenfische (Dipneusti)",
   "features": [
    "elongated eel-like body",
-   "small pectoral fins",
-   "distinctive mouth structure",
-   "mottled brown or grey skin",
-   "freshwater habitat"
+   "small pectoral and pelvic fins",
+   "distinctive mouth with sharp teeth",
+   "ability to breathe air (lung-like swim bladder)",
+   "often found in muddy or stagnant waters"
   ],
   "forbidden": [
-   "lobed fleshy fins like coelacanth",
-   "large heavy scales",
-   "steel-blue coloration",
-   "deep-sea habitat",
+   "large dorsal fin",
+   "cartilaginous skeleton (shark-like)",
+   "absence of paired fins",
+   "bright colorful patterns typical of tropical freshwater fish",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "lungfish swimming freshwater"
+  "video_query": "lungfish swimming in water"
  },
  "tetrapod": {
   "name": "Landwirbeltiere (Tetrapoda)",
   "features": [
-   "four limbs",
-   "terrestrial habitat",
-   "vertebrate anatomy",
-   "diverse body shapes",
-   "air breathing"
+   "four limbs with digits",
+   "vertebral column",
+   "internal ears",
+   "amniotic egg (in most species)",
+   "diverse body plans (mammals, birds, reptiles, amphibians)"
   ],
   "forbidden": [
    "fins instead of limbs",
-   "gills instead of lungs",
-   "aquatic only habitat",
-   "scales covering entire body like fish",
+   "gills as primary respiratory organ in adults",
+   "lack of a vertebral column",
+   "aquatic-only lifestyle without terrestrial adaptation",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "tetrapod land animal walking"
+  "video_query": "tetrapod animal walking on land"
  }
 }
