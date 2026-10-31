@@ -10112,5 +10112,88 @@
   "museum_display": false,
   "note": "close up shot of a frog",
   "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-227460": {
+  "subject": "Canada geese swimming in a shallow river",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "no",
+   "fleshy, lobe-like paired fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or slate-grey coloration": "no",
+   "single dorsal fin positioned far back on the body": "no"
+  },
+  "forbidden_seen": [
+   "bird-like head or beak",
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows geese in a river instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-255501": {
+  "subject": "icicles over a stream",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "not visible",
+   "fleshy, lobe-like paired fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "not visible",
+   "steel-blue or slate-grey coloration": "not visible",
+   "single dorsal fin positioned far back on the body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows ice and a stream instead of a coelacanth on an ice market.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-295210": {
+  "subject": "white flowers in the rain",
+  "species_match": false,
+  "features": {
+   "elongated eel-like body": "not visible",
+   "small pectoral fins": "not visible",
+   "distinctive mouth structure": "not visible",
+   "mottled brown or grey skin": "not visible",
+   "freshwater habitat": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows flowers in the rain instead of lungfish",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-285708": {
+  "subject": "black swan swimming in water",
+  "species_match": false,
+  "features": {
+   "large, thick rhombic scales": "no",
+   "fleshy, lobe-like paired fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or slate-grey coloration": "no",
+   "single dorsal fin positioned far back on the body": "no"
+  },
+  "forbidden_seen": [
+   "bird-like head or beak",
+   "long, slender neck",
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a black swan instead of a coelacanth.",
+  "model": "gemini-flash-lite-latest"
  }
 }
