@@ -11437,5 +11437,31 @@
   "museum_display": false,
   "note": "toads visible in water/mud",
   "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-243153": {
+  "subject": "ocean waves crashing on rocks",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "matches narration well",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-370334": {
+  "subject": "underwater pebbles and stones",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows underwater pebbles instead of ocean surface waves.",
+  "model": "gemini-flash-lite-latest"
  }
 }
