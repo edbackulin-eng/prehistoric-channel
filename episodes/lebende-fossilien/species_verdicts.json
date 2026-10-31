@@ -11463,5 +11463,18 @@
   "museum_display": false,
   "note": "Shows underwater pebbles instead of ocean surface waves.",
   "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-276645": {
+  "subject": "grassy river bank",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows riverbank, not a submersible on deck.",
+  "model": "gemini-flash-lite-latest"
  }
 }
