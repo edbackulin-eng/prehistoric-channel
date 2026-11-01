@@ -1,8 +1,8 @@
 {
  "date": "2026-11-01",
- "checked_at": "2026-11-01T04:18:42Z",
+ "checked_at": "2026-11-01T05:03:50Z",
  "ahead": [],
  "actions": [
-  "only 0 ahead; next episode started"
+  "reran episode.yml 41272594394 (attempt 2)"
  ]
 }
