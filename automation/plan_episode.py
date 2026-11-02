@@ -74,7 +74,9 @@ Zeile: was gezeigt wird. Regeln:
 - Meer, Himmel, Küste, Landschaft OHNE Tier: höchstens jede siebte Einstellung der ganzen Folge (<= 15 %).
 - NIEMALS: DNA, Moleküle, Texturen (Sand, Schuppen-Makro, Papier), Büros, Archive, Menschen am Schreibtisch,
   Bildschirme, Schrift - statt dessen das Tier, um das es geht.
-- In jeder Folge Urzeit-Tiere in Bewegung: mindestens 10 FLUX-Bilder ausgestorbener Tiere mit "motion".
+- In jeder Folge Urzeit-Tiere in Bewegung: mindestens 10 FLUX-Bilder ausgestorbener Tiere mit "motion", darunter
+  mindestens 2 Dinosaurier; Bewegung geht vor Standbild. Etwa jedes dritte FLUX-Bild ein Wow-Moment: Jagd, Angriff,
+  offenes Maul, das Tier frontal auf die Kamera zu, dramatisches Licht.
 - Zeilen im Hook (section hook): 3 Einstellungen, nur Bewegtes MIT Tier (video eines Tiers des Themas oder flux
   eines ausgestorbenen Tiers mit "motion"), die stärksten Bilder der Folge.
 - Sonst 1-2 Einstellungen pro Zeile. Abwechslung; kein Bild zweimal in Folge.
@@ -411,7 +413,8 @@ def standby(slug):
     # animated extinct animals stay (the hook and the moving prehistory need them)
     replaced = []
     if sum(want.values()) * seeds > cap - frames_of():
-        land = lambda f: docplan.is_landscape({"kind": "recon", "id": f, "topic": recon["prompts"][f]})  # noqa: E731
+        land = lambda f: docplan.is_landscape({"kind": "recon", "id": f, "topic": recon["prompts"][f],
+                                                    "species": recon["species"].get(f)})  # noqa: E731
         anim = recon.get("animate") or {}
         order = ([f for f in recon["prompts"] if land(f) and f not in anim] +
                  [f for f in recon["prompts"] if land(f) and f in anim] +
@@ -463,7 +466,8 @@ def standby(slug):
     # LTX: the animals first - extinct ones and the stand-ins share the clips; landscapes last
     hi = CFG["motion"]["animated_per_episode"][1]
     old = list((recon.get("animate") or {}).items())
-    land = [(f, m) for f, m in old if docplan.is_landscape({"kind": "recon", "id": f, "topic": recon["prompts"].get(f)})]
+    land = [(f, m) for f, m in old if docplan.is_landscape({"kind": "recon", "id": f, "topic": recon["prompts"].get(f),
+                                                                    "species": recon["species"].get(f)})]
     animals = [x for x in old if x not in land]
     take_std = min(len(std), max(hi // 2, hi - len(animals)))
     recon["animate"] = dict((animals[:hi - take_std] + std[:take_std] + land)[:hi])
@@ -471,6 +475,103 @@ def standby(slug):
     (ep / "recon.json").write_text(json.dumps(recon, indent=1, ensure_ascii=False), encoding="utf-8")
     (ep / "shots.json").write_text(json.dumps(spec, indent=1, ensure_ascii=False), encoding="utf-8")
     log.info("%s: %d stand-in prompts of living animals; animated: %s", slug, len(std), list(recon["animate"]))
+    return 0
+
+
+DINO = re.compile(r"dinosaur|tyrannosaur|t\.? ?rex\b|triceratops|edmontosaur|hadrosaur|sauropod|brachiosaur|"
+                  r"diplodoc|stegosaur|ankylosaur|raptor|spinosaur|allosaur|iguanodon|parasaurolophus|theropod|"
+                  r"ceratops|titanosaur|carnotaur|giganotosaur|argentinosaur|apatosaur", re.I)
+NOT_DINO = re.compile(r"(ichthyo|mosa|plesio|ptero|plio|nothosaur)saur\w*", re.I)
+# a tense picture - one kind of wow moment besides the moving ones (owner 02.11)
+TENSE = re.compile(r"hunt|attack|strik|\bbit(e|es|ing)\b|jaws|teeth|chas|lung(e|es|ing)|roar|charg|predator|ambush|"
+                   r"collaps|dying|fight|clash|stampede|flee|toward the camera|facing .{0,24}camera|close-up of the head|"
+                   r"spotlight|lamp|dramatic|tense|menac", re.I)
+DINO_LINE = re.compile(r"Dinosaur|Kreide|Asteroid|66 Millionen|Massenausster|Einschlag", re.I)
+DINO_FRAMES = [
+    ("cretaceous_trex_stride", "A Tyrannosaurus rex striding through a misty Late Cretaceous conifer forest, massive head "
+     "with forward-facing eyes, short two-fingered arms, heavy tail held straight out behind, pebbly grey-brown skin, "
+     "low camera angle", "strides forward and turns its head toward the camera, jaws slightly open"),
+    ("cretaceous_triceratops_herd", "A small herd of Triceratops at the edge of a Late Cretaceous river, three facial "
+     "horns, a broad solid bony frill, bulky four-legged bodies, morning haze, eye-level wildlife shot",
+     "the herd walks slowly forward, heads lowered, dust rising"),
+    ("cretaceous_edmontosaurus_flee", "A group of Edmontosaurus, duck-billed hadrosaurs without crests, running across "
+     "a Late Cretaceous floodplain under a darkening sky, long heavy tails held straight out",
+     "the animals run across the frame, tails swinging"),
+]
+DINO_MIN = 2
+
+
+def is_dino(fid, prompt):
+    return bool(DINO.search(NOT_DINO.sub("", f"{fid} {prompt}".replace("_", " "))))
+
+
+def motion(slug):
+    """Motion first inside the 60 FLUX frames and 10 LTX clips (owner 02.11): at least
+    DINO_MIN dinosaurs among the animated frames - a dinosaur frame the plan has, or a new
+    one on a line about the dinosaurs' time, in the place of a still stand-in, its LTX slot
+    from a landscape or a non-dinosaur extinct animal - and the wow pictures marked
+    (recon.json "wow": every animated frame, every tense FLUX animal). Once a plan."""
+    from pipeline import docplan
+    ep = ROOT / "episodes" / slug
+    recon = json.loads((ep / "recon.json").read_text(encoding="utf-8"))
+    spec = json.loads((ep / "shots.json").read_text(encoding="utf-8"))
+    lines = delivery.parse((ep / "script.txt").read_text(encoding="utf-8"))
+    seeds, cap = CFG["motion"]["flux_seeds"], CFG["motion"]["flux_frames_max"]
+    hi = CFG["motion"]["animated_per_episode"][1]
+    anim = recon.setdefault("animate", {})
+    prompts = recon["prompts"]
+    land = lambda f: docplan.is_landscape({"kind": "recon", "id": f, "topic": prompts.get(f),
+                                                  "species": recon["species"].get(f)})   # noqa: E731
+
+    def frames_of():
+        return len(prompts) * seeds + 2 * len(recon.get("thumbs") or {})
+    have = [f for f in anim if is_dino(f, prompts.get(f, ""))]
+    added = []
+    if len(have) < DINO_MIN:
+        spare = [f for f in prompts if f not in anim and is_dino(f, prompts[f])]
+        used_lines = {b.get("id"): e.get("n") for e in spec["lines"] for b in e["beats"]}
+        dino_lines = [i for i, l in enumerate(lines) if DINO_LINE.search(l.text)] or list(range(len(lines)))
+        for fid, prompt, mot in DINO_FRAMES:
+            if len(have) + len(spare) >= DINO_MIN:
+                break
+            if fid in prompts:
+                continue
+            if frames_of() + seeds > cap:            # room: a still stand-in first, then a still extinct frame
+                victims = [f for f in reversed(list(prompts)) if f not in anim and f in (recon.get("standby") or {})] + \
+                          [f for f in reversed(list(prompts)) if f not in anim and not is_dino(f, prompts[f])]
+                if not victims:
+                    break
+                v = victims[0]
+                for k in ("prompts", "species", "standby"):
+                    (recon.get(k) or {}).pop(v, None)
+                for e in spec["lines"]:
+                    e["beats"] = [b for b in e["beats"] if not (b["kind"] == "recon" and b.get("id") == v)]
+            prompts[fid] = prompt
+            recon["species"][fid] = None
+            n = dino_lines[len(added) % len(dino_lines)]
+            row = next(e for e in spec["lines"] if e.get("n") == n)
+            row["beats"].append({"kind": "recon", "id": fid, "species": None})
+            spare.append(fid)
+            added.append(fid)
+            recon.setdefault("motions", {})[fid] = mot
+        for fid in spare[:DINO_MIN - len(have)]:
+            if len(anim) >= hi:                       # its LTX slot: a landscape, then a non-dinosaur extinct animal
+                give = [f for f in reversed(list(anim)) if land(f)] + \
+                       [f for f in reversed(list(anim)) if not is_dino(f, prompts.get(f, ""))
+                        and f not in (recon.get("standby") or {})] + \
+                       [f for f in reversed(list(anim)) if not is_dino(f, prompts.get(f, ""))]
+                if not give:
+                    break
+                anim.pop(give[0])
+            anim[fid] = (recon.get("motions") or {}).get(fid) or "moves slowly and naturally, gentle camera push in"
+    recon["wow"] = sorted(set(anim) | {f for f in prompts if not land(f) and TENSE.search(
+        f"{prompts[f]} {anim.get(f, '')} {f.replace('_', ' ')}")})
+    recon["motion_report"] = {"dinosaurs_animated": [f for f in anim if is_dino(f, prompts.get(f, ""))],
+                              "dinosaur_frames_added": added, "wow_pictures": len(recon["wow"]),
+                              "frames": frames_of(), "animated": len(anim)}
+    (ep / "recon.json").write_text(json.dumps(recon, indent=1, ensure_ascii=False), encoding="utf-8")
+    (ep / "shots.json").write_text(json.dumps(spec, indent=1, ensure_ascii=False), encoding="utf-8")
+    log.info("%s: motion pass %s", slug, recon["motion_report"])
     return 0
 
 
@@ -490,5 +591,5 @@ if __name__ == "__main__":
     if sys.argv[1] == "--if-stale":
         sys.exit(main(sys.argv[2]) if stale(sys.argv[2]) else 0)
     if sys.argv[1] == "--standby":
-        sys.exit(standby(sys.argv[2]))
+        sys.exit(standby(sys.argv[2]) or motion(sys.argv[2]))
     sys.exit(main(sys.argv[1]))

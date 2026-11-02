@@ -18,7 +18,7 @@ def _shot(t0, t1, kind="real", species="coelacanth", need=None, clip=None, amb="
 def good_plan():
     shots, t, i = [], 0.0, 0
     while t < 30:                                   # the hook: 2.5 s cuts, moving animals, LTX first
-        need = f"ltx-f{i}" if i < 8 else None
+        need = (f"ltx-tyrannosaurus_{i}__s0" if i < 2 else f"ltx-f{i}") if i < 8 else None
         shots.append(_shot(t, t + 2.5, need=need, clip=need or f"h{i}"))
         t, i = t + 2.5, i + 1
     while t < 300:                                  # the body: 4 s shots of the animal, every clip once
@@ -38,6 +38,8 @@ def run(slug="lebende-fossilien"):
     out = []
     spec = {0: {"coelacanth"}, 1: {"coelacanth"}}
     qa.line_species = lambda s: spec                        # no shots.json needed
+    qa.recon_prompts = lambda s: {}
+    qa.recon_wow = lambda s: ["tense_mawsonia"]
     thumbs = {"choice": {"best": "thumbnail_a.jpg", "judge_pass": True}}
 
     def run_checks(plan, sound=None, th=thumbs):
@@ -70,6 +72,29 @@ def run(slug="lebende-fossilien"):
     p["shots"][50].update({"species": None, "topic": "historic scientific archives room", "amb": "ocean"})
     out.append(("QA: sea sound under an archive picture fails", not run_checks(p)["ambience"]["ok"],
                 run_checks(p)["ambience"]["detail"]))
+    p = good_plan()
+    for s in p["shots"]:
+        if str(s.get("need", "")).startswith("ltx-tyrannosaurus"):
+            s["need"] = "ltx-ammonite__s0"
+    out.append(("QA: fewer than 2 dinosaur LTX clips fail", not run_checks(p)["dinosaurs"]["ok"],
+                run_checks(p)["dinosaurs"]["detail"]))
+    p = good_plan()                     # the body as FLUX stills: moving only where the render moved them
+    for s in p["shots"][12:]:
+        s.update({"kind": "recon", "image": "mawsonia__s0", "id": "mawsonia", "species": None, "topic": "mawsonia"})
+        s.pop("clip", None)
+    r = qa.checks_of(p, good_sound(), thumbs, slug)
+    still_fail = not next(c for c in r if c["name"] == "motion")["ok"]
+    parts = [{"clips": [{"i": i, "kind": "recon", "layered": True, "amplitude": 0.04} for i in range(len(p["shots"]))]}]
+    r2 = qa.checks_of(p, good_sound(), thumbs, slug, parts)
+    out.append(("QA: animals in motion - stills count only with their 2.5D move", still_fail and
+                next(c for c in r2 if c["name"] == "motion")["ok"], next(c for c in r2 if c["name"] == "motion")["detail"]))
+    out.append(("QA: no wow moment for over 45 s fails", not next(c for c in r if c["name"] == "wow")["ok"]
+                and next(c for c in r2 if c["name"] == "wow")["ok"] is False, next(c for c in r if c["name"] == "wow")["detail"]))
+    for s in p["shots"][12::9]:
+        s["id"] = "tense_mawsonia"
+    r3 = qa.checks_of(p, good_sound(), thumbs, slug, parts)
+    out.append(("QA: a tense picture the plan marked every ~36 s passes the wow check",
+                next(c for c in r3 if c["name"] == "wow")["ok"], next(c for c in r3 if c["name"] == "wow")["detail"]))
     out.append(("QA: no judged thumbnail fails", not run_checks(good_plan(), th={"choice": {"best": None}})["thumbnail"]["ok"], ""))
     # the hook rule for every episode
     import write_episode as we
