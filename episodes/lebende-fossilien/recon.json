@@ -158,9 +158,7 @@
    "kpg_dinosaur_death",
    "cretaceous_trex_stride"
   ],
-  "dinosaur_frames_added": [
-   "cretaceous_trex_stride"
-  ],
+  "dinosaur_frames_added": [],
   "wow_pictures": 17,
   "frames": 60,
   "animated": 10
