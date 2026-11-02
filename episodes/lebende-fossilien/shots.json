@@ -63,6 +63,11 @@
      "id": "standby_coelacanth_00",
      "species": "coelacanth",
      "standby": true
+    },
+    {
+     "kind": "recon",
+     "id": "cretaceous_trex_stride",
+     "species": null
     }
    ]
   },
@@ -107,12 +112,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "standby_lungfish_00",
-     "species": "lungfish",
-     "standby": true
     }
    ]
   },

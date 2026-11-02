@@ -30,7 +30,7 @@
   "standby_coelacanth_19": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, seen from below against faint light, in its natural habitat",
   "standby_coelacanth_20": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, lit by a submersible's lamp in the dark, in its natural habitat",
   "standby_coelacanth_21": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, beside a rocky wall, in its natural habitat",
-  "standby_lungfish_00": "Lungenfische (Dipneusti), a living animal today, elongated eel-like body, small pectoral and pelvic fins, distinctive mouth with sharp teeth, ability to breathe air (lung-like swim bladder), often found in muddy or stagnant waters, close-up of the head and eye, in its natural habitat"
+  "cretaceous_trex_stride": "A Tyrannosaurus rex striding through a misty Late Cretaceous conifer forest, massive head with forward-facing eyes, short two-fingered arms, heavy tail held straight out behind, pebbly grey-brown skin, low camera angle"
  },
  "species": {
   "devonian_axelrodichthys": null,
@@ -60,19 +60,19 @@
   "standby_coelacanth_19": "coelacanth",
   "standby_coelacanth_20": "coelacanth",
   "standby_coelacanth_21": "coelacanth",
-  "standby_lungfish_00": "lungfish"
+  "cretaceous_trex_stride": null
  },
  "animate": {
   "devonian_axelrodichthys": "The fish propels itself forward using its powerful pectoral fins, while its tail fin undulates rhythmically.",
   "cretaceous_mawsonia": "The Mawsonia swims slowly and majestically, its large lobed fins moving with slow, powerful strokes.",
   "kpg_ammonite_extinction": "Sediment particles swirl around the ammonite as the water currents shift, while the shell remains stationary on the seabed.",
-  "kpg_ichthyosaur_swim": "The ichthyosaur propels itself forward with a powerful vertical stroke of its tail fluke, its flippers adjusting for balance.",
   "kpg_dinosaur_death": "The T. rex's body sinks further into the mud, its tail dragging slightly, while smoke and dust continue to swirl in the background.",
   "standby_coelacanth_00": "Blinks slowly, head turns slightly to the left, water currents gently push the gill covers",
   "standby_coelacanth_01": "Moves slowly forward toward the lens, mouth slightly open, fins spread wide for stability",
   "standby_coelacanth_02": "Turns its body to investigate the light source, lobed pectoral fins fanning out",
   "standby_coelacanth_03": "moves slowly and naturally, gentle camera push in",
-  "standby_coelacanth_04": "moves slowly and naturally, gentle camera push in"
+  "standby_coelacanth_04": "moves slowly and naturally, gentle camera push in",
+  "cretaceous_trex_stride": "strides forward and turns its head toward the camera, jaws slightly open"
  },
  "thumbs": {
   "thumb_b": "Extreme close-up of a living lungfish head and eye, sharp teeth visible, muddy water background, vibrant neon green and orange dramatic lighting, high contrast, photorealistic, 8k, empty space on left side for text, no humans, no text",
@@ -129,7 +129,40 @@
   "standby_coelacanth_18": "coelacanth",
   "standby_coelacanth_19": "coelacanth",
   "standby_coelacanth_20": "coelacanth",
-  "standby_coelacanth_21": "coelacanth",
-  "standby_lungfish_00": "lungfish"
+  "standby_coelacanth_21": "coelacanth"
+ },
+ "motions": {
+  "cretaceous_trex_stride": "strides forward and turns its head toward the camera, jaws slightly open"
+ },
+ "wow": [
+  "cretaceous_mawsonia",
+  "cretaceous_trex_stride",
+  "devonian_axelrodichthys",
+  "kpg_ammonite_extinction",
+  "kpg_dinosaur_death",
+  "kpg_ichthyosaur_swim",
+  "standby_coelacanth_00",
+  "standby_coelacanth_01",
+  "standby_coelacanth_02",
+  "standby_coelacanth_03",
+  "standby_coelacanth_04",
+  "standby_coelacanth_08",
+  "standby_coelacanth_10",
+  "standby_coelacanth_12",
+  "standby_coelacanth_16",
+  "standby_coelacanth_18",
+  "standby_coelacanth_20"
+ ],
+ "motion_report": {
+  "dinosaurs_animated": [
+   "kpg_dinosaur_death",
+   "cretaceous_trex_stride"
+  ],
+  "dinosaur_frames_added": [
+   "cretaceous_trex_stride"
+  ],
+  "wow_pictures": 17,
+  "frames": 60,
+  "animated": 10
  }
 }
