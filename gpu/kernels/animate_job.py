@@ -3,7 +3,9 @@
 The frames come from this channel's FLUX kernel (prehistoric-recon), attached
 as a kernel source; JOB names which ones (those the species check passed, the
 8-10 strongest: automation/build_doc.py) and a motion for each. Every clip is
-97 frames at 768x448 (4 s at 24 fps); the runners upscale it afterwards
+JOB num_frames at 768x448 - 161 (6.7 s at 24 fps, owner 02.11: >= 40 % of the film
+prehistoric animals in motion), 97 (4 s) again for a clip the GPU has no memory
+for; the runners upscale it afterwards
 (pipeline/layers_cpu.py). A clip that comes out black or broken is dropped -
 its shot stays a still with a 2.5D move.
 
@@ -42,7 +44,15 @@ pipe.enable_model_cpu_offload()
 pipe.vae.enable_tiling()
 report["load_s"] = round(time.time() - t0, 1)
 NEG = "worst quality, inconsistent motion, blurry, jittery, distorted, deformed anatomy, extra limbs, text, watermark"
-W, H, N = 768, 448, 97
+W, H, N = 768, 448, int(JOB.get("num_frames", 97))
+
+
+def _gen(img, prompt, n, i):
+    return pipe(image=img, prompt=prompt, negative_prompt=NEG, width=W, height=H, num_frames=n,
+                num_inference_steps=JOB.get("steps", 30), guidance_scale=3.0,
+                generator=torch.Generator("cpu").manual_seed(4000 + i)).frames[0]
+
+
 for i, f in enumerate(JOB["frames"]):
     fid = f["id"]
     if fid not in raw:
@@ -52,9 +62,12 @@ for i, f in enumerate(JOB["frames"]):
     try:
         img = Image.open(raw[fid]).convert("RGB").resize((W, H), Image.LANCZOS)
         prompt = f"{f['motion']}. {f['prompt']}. Cinematic wildlife documentary shot, natural movement, steady camera"
-        frames = pipe(image=img, prompt=prompt, negative_prompt=NEG, width=W, height=H, num_frames=N,
-                      num_inference_steps=JOB.get("steps", 30), guidance_scale=3.0,
-                      generator=torch.Generator("cpu").manual_seed(4000 + i)).frames[0]
+        try:
+            frames = _gen(img, prompt, N, i)
+        except torch.cuda.OutOfMemoryError:
+            torch.cuda.empty_cache()
+            report["errors"].append(f"{fid}: no memory for {N} frames; made with 97")
+            frames = _gen(img, prompt, 97, i)
         arr = np.stack([np.asarray(x, np.float32) for x in frames])
         bad = (not np.isfinite(arr).all()) or arr.mean() < 3 or arr.std() < 2
         if bad:

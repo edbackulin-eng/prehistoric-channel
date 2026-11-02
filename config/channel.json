@@ -117,7 +117,12 @@
  "buffer": 2,
  "qa": {
   "_note": "automation/qa.py: the gate before every upload (owner review 31.10); ltx_min: the render waits for so many LTX-Video clips",
-  "ltx_min": 8
+  "ltx_min": 8,
+  "_motion_note": "owner 02.11: prehistoric animals (living fossils included) in motion - LTX clips, real footage of the episode's animals, FLUX animals with a 2.5D parallax move - >= prehistoric_motion_min of the film; >= dino_ltx_min LTX clips of dinosaurs; a wow moment (an animated creature, real footage of one, a tense FLUX shot) at least every wow_max_s; LTX clips of ltx_frames frames (161 = 6.7 s)",
+  "prehistoric_motion_min": 0.40,
+  "dino_ltx_min": 2,
+  "wow_max_s": 45,
+  "ltx_frames": 161
  },
  "release": {
   "_note": "manual_left: so many next uploads go up private WITHOUT a date and wait for approve.yml (approve <slug>); then scheduling is automatic again",

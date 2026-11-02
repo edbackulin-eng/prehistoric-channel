@@ -288,6 +288,35 @@ def main():
           ids[0] == "x1" and {"sa__s0", "sa__s1"} <= set(ids) and all(ids.count(i) <= 2 for i in ids)
           and all(x.get("species") == "latimeria" for x in sp["shots"]) and any(x["line"] == 2 for x in sp["shots"]),
           str([(x["line"], i, x["start"], x["end"]) for x, i in zip(sp["shots"], ids)]))
+    # a wow moment every 30-45 s: where the film runs long without one, a tense picture or an LTX
+    # creature takes the shot there; an LTX clip stays on screen as long as it runs (owner 02.11)
+    w_spec = {"lines": [{"at": f"L{i}", "n": i, "beats": [{"kind": "real", "need": f"n{i}"}] +
+                         ([{"kind": "recon", "id": "trex", "species": None}] if i == 1 else []) +
+                         ([{"kind": "recon", "id": f"roar{t}", "species": None} for t in "abcd"] if i == 5 else [])}
+                        for i in range(6)]}
+    w_tl = [{"text": f"L{i}.", "kind": "base", "section": "story", "start": 60.0 * i, "end": 60.0 * (i + 1)}
+            for i in range(6)]
+    w_foot = {f"n{i}": {**clip(f"c{i}_0"), "alternates": [clip(f"c{i}_{k}") for k in range(1, 20)]} for i in range(6)}
+    (tmp_ep / "episodes" / "wow").mkdir(parents=True)
+    (tmp_ep / "episodes" / "wow" / "shots.json").write_text(json.dumps(w_spec), encoding="utf-8")
+    (tmp_ep / "episodes" / "wow" / "footage.json").write_text(json.dumps(w_foot), encoding="utf-8")
+    (tmp_ep / "episodes" / "wow" / "recon.json").write_text(json.dumps({"wow": [f"roar{t}" for t in "abcd"]}), encoding="utf-8")
+    w_picks = {**{f"n{i}": [f"c{i}_{k}" for k in range(20)] for i in range(6)}, "trex": ["trex__s0"],
+               **{f"roar{t}": [f"roar{t}__s0", f"roar{t}__s1"] for t in "abcd"}}
+    saved_dp = (docplan.ROOT, docplan.HOOK_WINDOW_S)
+    docplan.ROOT, docplan.HOOK_WINDOW_S = tmp_ep, 0.0
+    try:
+        wp = docplan.build("wow", w_tl, 360.0, parts=1, picks=w_picks,
+                           animated={"trex__s0": {"path": "t.mp4", "w": 768, "h": 448, "duration": 6.7}})
+    finally:
+        docplan.ROOT, docplan.HOOK_WINDOW_S = saved_dp
+    wows = [(round(x["start"]), x.get("image") or (x.get("clip") or {}).get("id")) for x in wp["shots"] if x.get("wow")]
+    trex = [x for x in wp["shots"] if x.get("need") == "ltx-trex__s0"]
+    early = [i for t, i in wows if t < 150 and str(i).startswith("roar")]
+    check("wow moments put in where the film ran long without one; the LTX clip runs its length",
+          len(early) >= 2 and trex and trex[0]["end"] - trex[0]["start"] >= 6.0
+          and max(t for t, _ in wows if t < 150) > 100 and wows[0][0] <= 45,
+          str((wows, [(x["start"], x["end"]) for x in trex], wp["checks"].get("wow_max_gap_s"))))
     # the watchdog hands a built episode in the buffer to upload.yml once a token exists
     from automation import release, watchdog
     calls = []

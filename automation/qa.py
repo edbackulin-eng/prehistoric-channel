@@ -23,6 +23,12 @@ Checks (config/channel.json "qa"):
   ambience    the sea only under sea pictures
   first_min   >= 70 % moving pictures in the first minute
   thumbnail   one thumbnail chosen that the Gemini judge passed (make_thumbs.py)
+  motion      prehistoric animals (living fossils too) in motion >= 40 % of the film:
+              LTX clips, real footage of the episode's animals, FLUX animals whose
+              2.5D parallax move the render made (owner 02.11)
+  dinosaurs   at least 2 LTX clips of dinosaurs
+  wow         a wow moment (an LTX creature, real footage of an animal, a tense
+              picture the plan marked) at least every 45 s
 """
 import argparse
 import json
@@ -52,6 +58,9 @@ REPEAT_MAX, REPEAT_GAP_S = 2, 180.0
 UNDER = (20.0, 24.0)
 FIRST_MINUTE_MOVING = 0.70
 TOL = 0.05
+MOTION_MIN = float(CFG.get("prehistoric_motion_min", 0.40))
+DINO_LTX_MIN = int(CFG.get("dino_ltx_min", 2))
+WOW_MAX_S = float(CFG.get("wow_max_s", 45))
 
 
 def moving(s):
@@ -80,7 +89,26 @@ def line_species(slug):
     return out
 
 
-def checks_of(plan, sound, thumbs, slug):
+def recon_prompts(slug):
+    p = ROOT / "episodes" / slug / "recon.json"
+    return json.loads(p.read_text(encoding="utf-8")).get("prompts", {}) if p.exists() else {}
+
+
+def recon_wow(slug):
+    p = ROOT / "episodes" / slug / "recon.json"
+    return json.loads(p.read_text(encoding="utf-8")).get("wow", []) if p.exists() else []
+
+
+def parallax_by_shot(parts):
+    """Shot index -> the render's 2.5D report of that still (report_<res>.json "parts")."""
+    out = {}
+    for part in parts or []:
+        for c in (part or {}).get("clips", []):
+            out[c.get("i")] = c
+    return out
+
+
+def checks_of(plan, sound, thumbs, slug, parts=None):
     shots = [s for s in plan["shots"] if not s.get("drop")]
     total = plan["total_s"]
     dur = lambda s: s["end"] - s["start"]                                  # noqa: E731
@@ -160,6 +188,38 @@ def checks_of(plan, sound, thumbs, slug):
     fm = plan.get("checks", {}).get("first_minute_moving_share", 0)
     add("first_min", fm >= FIRST_MINUTE_MOVING, f"{fm:.0%} moving in the first minute (need 70 %)")
 
+    # prehistoric animals in motion (owner 02.11): LTX clips, real footage of the episode's
+    # animals, FLUX animals the render moved with a 2.5D parallax (its report per shot)
+    px = parallax_by_shot(parts)
+    idx = {id(s): i for i, s in enumerate(plan["shots"])}
+
+    def in_motion(s):
+        if ltx(s) or (moving(s) and s.get("species")):
+            return True
+        if s.get("kind") != "recon" or docplan.is_landscape(s):
+            return False
+        r = px.get(idx[id(s)]) or {}
+        return bool(r.get("layered")) and (r.get("amplitude") or 0) > 0
+    mov = sum(dur(s) for s in shots if in_motion(s)) / max(1e-6, total)
+    add("motion", mov >= MOTION_MIN - TOL / 10,
+        f"prehistoric animals in motion {mov:.0%} of the film (need {MOTION_MIN:.0%}): LTX "
+        f"{sum(dur(s) for s in shots if ltx(s)):.0f} s, real footage of the animals "
+        f"{sum(dur(s) for s in shots if moving(s) and s.get('species') and not ltx(s)):.0f} s, 2.5D parallax "
+        f"{sum(dur(s) for s in shots if s.get('kind') == 'recon' and in_motion(s)):.0f} s" +
+        ("" if px else " - NO render report of the parallax moves"), motion_share=round(mov, 3))
+    from automation import plan_episode
+    prompts = recon_prompts(slug)
+    dinos = sorted({s["need"] for s in shots if ltx(s) and plan_episode.is_dino(
+        s["need"], prompts.get(str(s.get("id") or s["need"][4:].split("__s")[0]), ""))})
+    add("dinosaurs", len(dinos) >= DINO_LTX_MIN, f"{len(dinos)} LTX clips of dinosaurs (need {DINO_LTX_MIN}): "
+        f"{dinos or 'none'}")
+    wow_ids = set(recon_wow(slug))
+    gaps = docplan.wow_gaps(shots, total, wow_ids)
+    long_ = [round(sum(gaps[:i])) for i, g in enumerate(gaps) if g > WOW_MAX_S + TOL]
+    add("wow", not long_, f"{sum(1 for s in shots if docplan.is_wow(s, wow_ids))} wow moments, the longest gap "
+        f"{max(gaps or [0]):.0f} s (max {WOW_MAX_S:.0f}); longer gaps after {long_[:10] or 'none'} s",
+        wow_max_gap_s=round(max(gaps or [0]), 1))
+
     ch = (thumbs or {}).get("choice") or {}
     add("thumbnail", bool(ch.get("best")) and ch.get("judge_pass", False),
         f"chosen: {ch.get('best')}; judge: {ch.get('judge') or ch.get('why')}")
@@ -229,7 +289,7 @@ def main(slug, res):
     rep = json.loads((w / f"report_{res}.json").read_text(encoding="utf-8")) if (w / f"report_{res}.json").exists() else {}
     thumbs = json.loads((rel / "thumbnails_report.json").read_text(encoding="utf-8")) \
         if (rel / "thumbnails_report.json").exists() else {}
-    checks = checks_of(plan, rep.get("sound"), thumbs, slug)
+    checks = checks_of(plan, rep.get("sound"), thumbs, slug, rep.get("parts"))
     ok = all(c["ok"] for c in checks)
     q = {"slug": slug, "pass": ok, "checks": checks, "duration_s": rep.get("duration_s"),
          "first_minute_moving": plan.get("checks", {}).get("first_minute_moving_share")}

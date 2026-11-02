@@ -52,7 +52,7 @@ FLUX_OVERHEAD_H = 0.12                        # install, weights, warm-up
 MAX_FLUX_FRAMES = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))["motion"]["flux_frames_max"]
 LEDGER = ROOT / "state" / "gpu_ledger.json"
 SLUGS = {"recon": "prehistoric-recon", "animate": "prehistoric-animate"}
-LTX_H_PER_CLIP = 0.10                         # LTX-Video 97 frames on a T4, estimated; measured per run
+LTX_H_PER_CLIP = 0.17                         # LTX-Video 161 frames on a T4 (97: 0.10), estimated; measured per run
 IDLE_S = 15 * 60
 MAX_WAIT_S = float(os.environ.get("GPU_MAX_WAIT_S", 5 * 3600))
 WHATIF_DAYS = {0, 1, 3, 4, 5}          # Mon Tue Thu Fri Sat

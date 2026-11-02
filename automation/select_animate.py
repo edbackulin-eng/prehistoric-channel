@@ -39,13 +39,20 @@ def main(slug):
     cfg = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))
     from pipeline import docplan
     spare = sorted((f for f in recon.get("prompts", {}) if f not in (recon.get("animate") or {}) and picks.get(f)
-                    and not docplan.is_landscape({"kind": "recon", "id": f, "topic": recon["prompts"][f]})),
+                    and not docplan.is_landscape({"kind": "recon", "id": f, "topic": recon["prompts"][f],
+                                                           "species": (recon.get("species") or {}).get(f)})),
                    key=lambda f: 0 if f in (recon.get("standby") or {}) else 1)
-    for fid in spare[:max(0, len(recon.get("animate") or {}) - len(frames))]:
+    # every LTX slot is used: motion before stills (owner 02.11)
+    hi = max(len(recon.get("animate") or {}), cfg["motion"]["animated_per_episode"][1])
+    for fid in spare[:max(0, hi - len(frames))]:
         frames.append({"id": picks[fid][0], "prompt": recon["prompts"][fid],
                        "motion": "moves slowly and naturally, gentle camera push in"})
         log.info("%s animated in place of a planned frame that failed", fid)
-    job = {"slug": slug, "frames": frames, "steps": 30}
+    n_frames = int(cfg["qa"].get("ltx_frames", 97))
+    # the kernel's own deadline is twice budget_s (gpu/kernels/watchdog.py); without it 900 s, and
+    # ten clips would have been cut off after 30 minutes
+    job = {"slug": slug, "frames": frames, "steps": 30, "num_frames": n_frames,
+           "budget_s": 300 + (400 if n_frames > 97 else 240) * len(frames)}
     (ROOT / "gpu" / "animate_job.json").write_text(json.dumps(job, indent=1), encoding="utf-8")
     log.info("animate %d of %d planned frames", len(frames), len(recon.get("animate") or {}))
     need = int(cfg["qa"]["ltx_min"])

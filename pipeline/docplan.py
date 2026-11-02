@@ -47,6 +47,9 @@ MUSEUM_MAX = 3
 REPEAT_MAX = 2             # a clip on screen at most twice ...
 REPEAT_GAP_S = 180.0       # ... and never again within 3 minutes
 LANDSCAPE_MAX = 0.15
+WOW_MAX_S = 45.0           # a wow moment at least every 45 s (owner 02.11) ...
+WOW_AIM_S = 36.0           # ... aimed at 30-40 s, so a shot that cannot change still leaves room
+LTX_SHOT_S = 6.5           # an LTX clip on screen as long as it runs (161 frames = 6.7 s)
 LANDSCAPE = re.compile(r"\b(ocean|sea|seas|waves?|sky|skies|clouds?|horizon|sunset|sunrise|landscape|coast|coastal|"
                        r"beach|shore|island|aerial|drone|mountains?|desert|river|estuary|forest|jungle|abyss|"
                        r"underwater|reef|deep blue|water surface|storm|volcan\w*|lava|meer|himmel|landschaft)\b", re.I)
@@ -280,6 +283,11 @@ def build(slug, timeline, narration_s, parts=6, picks=None, animated=None):
     if shots and shots[0].get("drop") and merged:          # a dropped opening: the next shot starts at 0
         merged[0]["start"] = 0.0
     shots = merged
+    recon_p = ep / "recon.json"
+    wow_ids = set(json.loads(recon_p.read_text(encoding="utf-8")).get("wow") or []) if recon_p.exists() else set()
+    long_ltx(shots)
+    # every FLUX beat of the plan, the extinct ones without a species too
+    wow_pass(shots, wow_ids, [bt for e in spec for bt in e["beats"] if bt["kind"] == "recon"], picks, animated)
 
     for s in shots:
         s["amb_line"] = s.get("amb")
@@ -306,10 +314,103 @@ def build(slug, timeline, narration_s, parts=6, picks=None, animated=None):
               "museum_shots": len(shown_museum), "animated_clips_used": len({x["need"] for x in shots
                                                                             if str(x.get("need", "")).startswith("ltx-")}),
               "landscape_share": round(sum(x["end"] - x["start"] for x in shots if is_landscape(x))
-                                       / max(1e-6, end_all), 3)}
+                                       / max(1e-6, end_all), 3),
+              "wow_max_gap_s": round(max(wow_gaps(shots, end_all) or [0.0]), 1)}
     return {"slug": slug, "narration_s": round(narration_s, 3), "total_s": round(end_all, 3),
             "xfade_s": XFADE_S, "shots": shots, "sections": sections, "checks": checks,
             "parts": split(shots, parts)}
+
+
+def is_ltx(shot):
+    return str(shot.get("need", "")).startswith("ltx-")
+
+
+def is_wow(shot, wow_ids=()):
+    """A wow moment (owner 02.11): a creature brought to life (an LTX clip), real footage of
+    one of the episode's animals, or a tense FLUX picture the plan marked (recon.json "wow")."""
+    if shot.get("wow") or is_ltx(shot):
+        return True
+    if shot.get("kind") == "real" and shot.get("species") and shot.get("clip"):
+        return True
+    return shot.get("kind") == "recon" and shot.get("id") in wow_ids
+
+
+def wow_gaps(shots, end, wow_ids=()):
+    """Seconds between one wow moment and the next, from the start to the end of the film."""
+    t = [0.0] + [s["start"] for s in shots if is_wow(s, wow_ids)] + [end]
+    return [b - a for a, b in zip(t, t[1:])]
+
+
+def long_ltx(shots):
+    """An LTX clip (161 frames, 6.7 s) stays on screen as long as it runs, up to LTX_SHOT_S,
+    out of the next shot of its line - outside the hook, whose cuts stay 1.5-3 s."""
+    for n, s in enumerate(shots[:-1]):
+        nxt = shots[n + 1]
+        if not is_ltx(s) or s["start"] < HOOK_WINDOW_S or s.get("section") == "hook" or nxt["line"] != s["line"]:
+            continue
+        want = min(LTX_SHOT_S, float((s.get("clip") or {}).get("duration") or 0) - 0.2)
+        grow = want - (s["end"] - s["start"])
+        if grow <= 0 or nxt.get("label") or nxt.get("title"):
+            continue
+        grow = min(grow, nxt["end"] - nxt["start"] - MIN_S)
+        if grow > 0.2:
+            s["end"] = round(s["end"] + grow, 3)
+            nxt["start"] = s["end"]
+
+
+def wow_pass(shots, wow_ids, pool, picks, animated):
+    """A wow moment at least every WOW_MAX_S (aimed at WOW_AIM_S): where the film has gone that
+    long without one, the shot there becomes one - an LTX clip or a tense picture of the same
+    animal (another one only where the shot shows none), within the repeat rule."""
+    from pipeline import speciescheck
+    key = lambda s: (s.get("clip") or {}).get("id") or s.get("image")      # noqa: E731
+    shown = {}
+    for s in shots:
+        if key(s):
+            shown.setdefault(key(s), []).append(s["start"])
+    cands = []                                     # (beat, cid, is_ltx)
+    for bt in pool:
+        if bt["kind"] != "recon":
+            continue
+        for cid in picks.get(speciescheck.beat_key(bt)) or []:
+            if cid in animated:
+                cands.append((bt, cid, True))
+            elif bt.get("id") in wow_ids:
+                cands.append((bt, cid, False))
+    cands.sort(key=lambda c: 0 if c[2] else 1)
+    last = 0.0
+    for s in shots:
+        if is_wow(s, wow_ids):
+            s["wow"], last = True, s["start"]
+            continue
+        if s["start"] - last < WOW_AIM_S or s["start"] < HOOK_WINDOW_S or s.get("label") or s.get("title"):
+            continue
+        for bt, cid, ltx in cands:
+            sp = bt.get("species")
+            if s.get("species") and sp != s.get("species"):
+                continue                           # the animal of the line stays on screen (the 60 % rule)
+            k = f"ltx-{cid}" if ltx else cid
+            times = shown.get(k, [])
+            if len(times) >= REPEAT_MAX or any(abs(s["start"] - t) < REPEAT_GAP_S for t in times):
+                continue
+            old = key(s)
+            if old and s["start"] in shown.get(old, []):
+                shown[old].remove(s["start"])
+            for kk in ("clip", "need", "image", "topic", "dark"):
+                s.pop(kk, None)
+            s.update({"id": bt.get("id"), "species": sp, "image": cid, "wow": True})
+            if ltx:
+                c = animated[cid]
+                s.update({"kind": "real", "need": f"ltx-{cid}",
+                          "clip": {"id": f"ltx-{cid}", "url": "file:" + c["path"], "width": c["w"], "height": c["h"],
+                                   "duration": c["duration"], "source": "LTX-Video", "at": 0.0, "speed": None}})
+            else:
+                s["kind"] = "recon"
+            shown.setdefault(k, []).append(s["start"])
+            last = s["start"]
+            break
+    for s in shots:
+        s["wow"] = is_wow(s, wow_ids)
 
 
 def split(shots, parts):
