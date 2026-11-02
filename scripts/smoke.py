@@ -359,8 +359,58 @@ def main():
     # the GPU: the stand-ins fit the frame cap, and a job must end before Closed Tabs' 20:00
     sys.path.insert(0, str(ROOT / "gpu"))
     import kaggle_once
-    check("Kaggle: 82 frames (plan + stand-ins) are within the cap", kaggle_once.MAX_FLUX_FRAMES >= 82,
+    check("Kaggle: the cap is the episode's 60 frames", kaggle_once.MAX_FLUX_FRAMES == 60,
           str(kaggle_once.MAX_FLUX_FRAMES))
+    # the stand-ins of a living animal come out of the 60 frames: in place of landscapes first, the
+    # animated extinct animals stay (owner 02.11); a plan over the cap (82 frames) is planned again
+    import plan_episode as pe2
+    sb = tmp_ep / "episodes" / "sbcap"
+    sb.mkdir(parents=True)
+    lines_txt = ["Der Quastenflosser schwimmt langsam durch die dunkle Tiefe vor den Komoren und sucht "
+                 "zwischen den Felsen nach Beute, so wie seine Vorfahren es schon vor Jahrmillionen taten, "
+                 f"Nummer {i}." for i in range(20)]
+    (sb / "script.txt").write_text("[section story]\n" + "\n".join(lines_txt) + "\n", encoding="utf-8")
+    (sb / "meta.json").write_text(json.dumps({"minutes_est": 6.0}), encoding="utf-8")
+    (sb / "species.json").write_text(json.dumps({"latimeria": {"name": "Quastenflosser", "living": True,
+                                                               "features": ["a"], "forbidden": ["b"]}}), encoding="utf-8")
+    land_ids = [f"ocean_sky_{k}" for k in range(4)]
+    ext_ids = [f"mawsonia_swim_{k}" for k in range(8)]
+    prompts = {**{f: "a calm ocean under a stormy sky" for f in land_ids},
+               **{f: "an extinct Mawsonia fish swimming" for f in ext_ids}}
+    (sb / "recon.json").write_text(json.dumps({
+        "prompts": prompts, "species": {f: None for f in prompts}, "thumbs": {"thumb_a": "x", "thumb_b": "x",
+                                                                              "thumb_c": "x"},
+        "animate": {**{f: "m" for f in ext_ids}, land_ids[0]: "m"}}), encoding="utf-8")
+    (sb / "shots.json").write_text(json.dumps({"lines": [
+        {"at": "Der", "n": i, "beats": [{"kind": "real", "need": f"v{i}", "species": "latimeria"}] +
+         ([{"kind": "recon", "id": (land_ids + ext_ids)[i], "species": None}] if i < 12 else [])}
+        for i in range(20)]}), encoding="utf-8")
+    (sb / "footage.json").write_text(json.dumps({f"v{i}": clip(f"q{i}") for i in range(20)}), encoding="utf-8")
+    saved = (pe2.ROOT, pe2.textllm.ask)
+    pe2.ROOT = tmp_ep
+
+    def no_llm(*a, **k):
+        raise RuntimeError("no LLM in the smoke test")
+    pe2.textllm.ask = no_llm
+    try:
+        pe2.standby("sbcap")
+        r1 = json.loads((sb / "recon.json").read_text(encoding="utf-8"))
+        over = dict(r1)                        # the plan of 31.10: stand-ins on top, 82 frames
+        over["prompts"] = {**r1["prompts"], **{f"standby_latimeria_x{k}": "p" for k in range(25)}}
+        over["standby"] = {**r1["standby"], **{f"standby_latimeria_x{k}": "latimeria" for k in range(25)}}
+        (sb / "recon.json").write_text(json.dumps(over), encoding="utf-8")
+        pe2.standby("sbcap")
+        r2 = json.loads((sb / "recon.json").read_text(encoding="utf-8"))
+    finally:
+        pe2.ROOT, pe2.textllm.ask = saved
+    n_frames = lambda r: 2 * len(r["prompts"]) + 2 * len(r["thumbs"])            # noqa: E731
+    shots_after = json.loads((sb / "shots.json").read_text(encoding="utf-8"))["lines"]
+    beat_ids = {b.get("id") for e in shots_after for b in e["beats"] if b["kind"] == "recon"}
+    check("stand-ins inside the 60 FLUX frames: landscapes give way, animated extinct animals stay",
+          n_frames(r1) <= 60 and n_frames(r2) <= 60 and r1["standby"] and all(f in r1["prompts"] for f in ext_ids)
+          and not any(f in r1["prompts"] for f in land_ids[1:]) and set(r2["prompts"]) <= beat_ids | set(r2["thumbs"])
+          | set(r2["prompts"]) and not any(f.startswith("standby_latimeria_x") for f in r2["prompts"]),
+          str((n_frames(r1), n_frames(r2), len(r1["standby"]), r1.get("standby_report"))))
     mon = datetime(2026, 11, 2, 18, 0, tzinfo=timezone.utc)
     check("Kaggle: a job that would run past 20:00 UTC waits, a short one starts",
           kaggle_once.in_their_hours(mon, 2.5) and not kaggle_once.in_their_hours(mon, 0.9)

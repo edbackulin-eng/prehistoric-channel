@@ -47,10 +47,9 @@ JOB_HOURS = {"recon": 0.75, "animate": 1.2}     # recon is re-estimated from its
 ACCOUNT_LIMIT_H = 27.5                        # the whole Kaggle week this channel may run into
 FLUX_S_PER_FRAME = 33.0                       # measured on a T4, 28.10 (4-bit, 4 steps, 1360x768)
 FLUX_OVERHEAD_H = 0.12                        # install, weights, warm-up
-# per episode: the plan's frames plus the living animals' stand-ins (config motion; 01.11: the cap
-# of 60 alone refused the 82 frames of lebende-fossilien on every run, 21 times)
-_MOTION = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))["motion"]
-MAX_FLUX_FRAMES = _MOTION["flux_frames_max"] + _MOTION.get("standby_frames_max", 0) + 6
+# per episode, the living animals' stand-ins and the thumbnails' bases included (config
+# motion.flux_frames_max, owner 02.11): the plan keeps inside it (plan_episode.standby)
+MAX_FLUX_FRAMES = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))["motion"]["flux_frames_max"]
 LEDGER = ROOT / "state" / "gpu_ledger.json"
 SLUGS = {"recon": "prehistoric-recon", "animate": "prehistoric-animate"}
 LTX_H_PER_CLIP = 0.10                         # LTX-Video 97 frames on a T4, estimated; measured per run

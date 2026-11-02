@@ -23,7 +23,9 @@
    cannot fill 60 % of the time the narration tells of it gets FLUX/LTX
    reconstructions of that very species (owner 31.10), checked against its own
    checklist like every frame; the render shows them only where real video has
-   run out (beats marked "standby"). Real video stays first.
+   run out (beats marked "standby"). Real video stays first. They come out of
+   the episode's flux_frames_max (owner 02.11), in place of FLUX landscapes and
+   extinct frames that are not animated - never on top of it.
 """
 import json
 import re
@@ -349,17 +351,34 @@ STANDBY_PASS = 0.75            # the share of seeds expected to pass it
 def standby(slug):
     """Living animals the footage cannot show (owner 31.10): FLUX/LTX reconstructions of
     the species where its passing real clips fall short of the QA's 60 % - see the module
-    docstring, step 5. Runs after the footage species check, before FLUX; once a plan."""
+    docstring, step 5. Runs after the footage species check, before FLUX; once a plan
+    (again when a plan of the stand-ins is over the frame cap)."""
     from collections import defaultdict
     import math
     from pipeline import docplan, speciescheck
     ep = ROOT / "episodes" / slug
     recon = json.loads((ep / "recon.json").read_text(encoding="utf-8"))
-    if "standby" in recon:
-        log.info("%s: stand-ins already planned (%d)", slug, len(recon["standby"]))
-        return 0
-    species = json.loads((ep / "species.json").read_text(encoding="utf-8"))
     spec = json.loads((ep / "shots.json").read_text(encoding="utf-8"))
+    seeds = CFG["motion"]["flux_seeds"]
+    cap = CFG["motion"]["flux_frames_max"]
+
+    def frames_of():
+        return len(recon["prompts"]) * seeds + 2 * len(recon.get("thumbs") or {})
+
+    def drop(fid):
+        for k in ("prompts", "species", "animate"):
+            (recon.get(k) or {}).pop(fid, None)
+        for e in spec["lines"]:
+            e["beats"] = [b for b in e["beats"] if not (b["kind"] == "recon" and b.get("id") == fid)]
+    if "standby" in recon:
+        if frames_of() <= cap:
+            log.info("%s: stand-ins already planned (%d)", slug, len(recon["standby"]))
+            return 0
+        # 02.11: stand-ins planned on top of the 60 frames (82); they are planned again inside them
+        log.warning("%s: %d FLUX frames, over the %d an episode: stand-ins planned again", slug, frames_of(), cap)
+        for fid in list(recon.pop("standby")):
+            drop(fid)
+    species = json.loads((ep / "species.json").read_text(encoding="utf-8"))
     footage = json.loads((ep / "footage.json").read_text(encoding="utf-8"))
     vpath = ep / "species_verdicts.json"
     known = json.loads(vpath.read_text(encoding="utf-8")) if vpath.exists() else {}
@@ -381,19 +400,38 @@ def standby(slug):
             for c in [main] + list(main.get("alternates") or []):
                 if c["id"] in known and speciescheck.passes(known[c["id"]], b["species"], allow=b.get("allow") or ())[0]:
                     real[b["species"]].add(c["id"])
-    seeds = CFG["motion"]["flux_seeds"]
     per_prompt = seeds * docplan.REPEAT_MAX * docplan.TARGET_S * STANDBY_PASS
     want = {}
     for sp, t in told.items():
         short = STANDBY_MARGIN * t - len(real[sp]) * docplan.REPEAT_MAX * docplan.TARGET_S
         if t >= 30 and short > 0:
             want[sp] = math.ceil(short / per_prompt)
-    budget = CFG["motion"]["standby_frames_max"] // seeds
-    if sum(want.values()) > budget:
-        k = budget / sum(want.values())
-        want = {sp: max(1, int(n * k)) for sp, n in want.items()}
+    # the stand-ins come out of the episode's flux_frames_max, not on top of them (owner 02.11): they
+    # take the places of FLUX landscapes first, then of extinct frames LTX does not animate; the
+    # animated extinct animals stay (the hook and the moving prehistory need them)
+    replaced = []
+    if sum(want.values()) * seeds > cap - frames_of():
+        land = lambda f: docplan.is_landscape({"kind": "recon", "id": f, "topic": recon["prompts"][f]})  # noqa: E731
+        anim = recon.get("animate") or {}
+        order = ([f for f in recon["prompts"] if land(f) and f not in anim] +
+                 [f for f in recon["prompts"] if land(f) and f in anim] +
+                 [f for f in reversed(list(recon["prompts"])) if not land(f) and f not in anim])
+        for f in order:
+            if sum(want.values()) * seeds <= cap - frames_of():
+                break
+            drop(f)
+            replaced.append(f)
+    room = max(0, cap - frames_of()) // seeds
+    if sum(want.values()) > room:
+        k = room / sum(want.values())
+        want = {sp: int(n * k) for sp, n in want.items()}
+        for sp in sorted(want, key=lambda s: -told[s]):           # what is left over: the most told first
+            if sum(want.values()) < room:
+                want[sp] += 1
+        want = {sp: n for sp, n in want.items() if n}
     report = {sp: {"told_s": round(told[sp]), "real_clips_passing": len(real[sp]), "prompts": want.get(sp, 0)}
               for sp in told}
+    report["_frames"] = {"cap": cap, "replaced": replaced}
     log.info("%s: living animals, real video against the time told: %s", slug, report)
     recon["standby"] = {}
     rows = {e.get("n"): e for e in spec["lines"]}

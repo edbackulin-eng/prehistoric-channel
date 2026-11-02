@@ -29,8 +29,7 @@
   "hook_sound_hit": true
  },
  "motion": {
-  "living_species": "real video first (Wikimedia Commons, NOAA, Pixabay video; PD, CC0 or CC BY; credited in the description); where it cannot fill 60 % of the time told, FLUX/LTX reconstructions of the same species, checked against its checklist (owner 31.10)",
-  "standby_frames_max": 60,
+  "living_species": "real video first (Wikimedia Commons, NOAA, Pixabay video; PD, CC0 or CC BY; credited in the description); where it cannot fill 60 % of the time told, FLUX/LTX reconstructions of the same species, checked against its checklist (owner 31.10); they take places inside flux_frames_max, never on top (owner 02.11)",
   "extinct_species": "FLUX frames; the best of them animated with LTX-Video image-to-video on Kaggle",
   "flux_frames_max": 60,
   "flux_seeds": 2,
