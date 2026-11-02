@@ -68,6 +68,8 @@ jobs:
           if [ -n "${{ inputs.slug }}" ]; then echo "slug=${{ inputs.slug }}" >> "$GITHUB_OUTPUT"; exit 0; fi
           python automation/topics.py --pick
           git add topics/queue.json && bash "$RUNNER_TEMP/push.sh" "Building next topic"
+      - name: The episode, for every later step and its log
+        run: echo "SLUG=${{ steps.pick.outputs.slug }}" >> "$GITHUB_ENV"
       - name: Today's free quotas
         run: python automation/llm_budget.py report
       - name: Script (German, from Wikipedia, fact-checked)
@@ -166,8 +168,3 @@ jobs:
             git add -A state/deferred.json && bash "$RUNNER_TEMP/push.sh" "Render of ${{ steps.pick.outputs.slug }} waits for the quota day"; exit 0; }
           gh workflow run render.yml -R "${{ github.repository }}" -f slug="${{ steps.pick.outputs.slug }}" \
             -f gpu_run="${{ github.run_id }}" -f release=true
-      - name: Email on failure
-        if: failure()
-        run: |
-          n=$(gh issue list -R ${{ github.repository }} --label run-log --state open --json number --jq '.[0].number // empty')
-          [ -n "$n" ] && gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} **episode build failed** (${{ steps.pick.outputs.slug }}): ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

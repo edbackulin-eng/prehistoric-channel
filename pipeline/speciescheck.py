@@ -288,6 +288,7 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
     picks, logrows, seen, museum = {}, [], {}, []
     vpath = ep / "species_verdicts.json"
     known = json.loads(vpath.read_text(encoding="utf-8")) if vpath.exists() else {}
+    asked = [0]
     for entry in spec:
         line = entry["at"]
         if timeline:
@@ -314,8 +315,19 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
                 if cid in tried:                     # an alternate listed twice
                     continue
                 tried.add(cid)
-                fr = _frames(cid, src, out_dir)
                 label = source_label(kind, src)
+                if cid in known and key:
+                    # judged before (an earlier run, a rerun): no download, no request, no wait
+                    v = known[cid]
+                    ok, why = passes(v, species, archive, beat.get("allow", ()))
+                    if ok and v.get("museum_display"):
+                        museum.append(cid)
+                    row["candidates"].append({"id": cid, "pass": ok, "why": why, "answer": v, "source": label,
+                                              "cached": True})
+                    if ok:
+                        passing.append(cid)
+                    continue
+                fr = _frames(cid, src, out_dir)
                 if not fr:
                     row["candidates"].append({"id": cid, "verdict": "missing"})
                     continue
@@ -326,9 +338,12 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
                     continue
                 what = "three frames from the start, middle and end of one video clip" if kind == "real" \
                     else "one still image"
-                v = known[cid] if cid in known else ask(key, fr, line, species, beat.get("topic"), archive, what)
+                v = ask(key, fr, line, species, beat.get("topic"), archive, what)
                 if "error" not in v:
                     known[cid] = v
+                    asked[0] += 1
+                    if asked[0] % 10 == 0:       # kept as it goes: a run that dies later loses nothing
+                        vpath.write_text(json.dumps(known, indent=1, ensure_ascii=False), encoding="utf-8")
                 ok, why = passes(v, species, archive, beat.get("allow", ()))
                 if ok is None:                       # the checker failed, not the picture: keep it
                     ok, why = True, f"unchecked ({why})"
@@ -360,8 +375,8 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
         grid(summary, out_dir / "species_grid.jpg")
     except Exception as e:                                       # noqa: BLE001
         log.warning("species grid failed: %s", e)
-    log.info("species check: %d beats, %d kept, %d alternates, dropped %s", summary["beats"], summary["kept"],
-             summary["alternate"], summary["dropped"])
+    log.info("species check: %d beats, %d kept, %d alternates, dropped %s; %d new requests", summary["beats"],
+             summary["kept"], summary["alternate"], summary["dropped"], asked[0])
     return picks
 
 

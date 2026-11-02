@@ -304,6 +304,69 @@ def main():
     check("watchdog starts the upload of a buffered episode",
           len(calls) == 1 and "upload.yml" in calls[0] and "slug=smoke-ep" in calls[0] and "run_id=123" in calls[0],
           str(calls))
+    # 01.11-02.11: one step failed 21 runs in a row, rerun forever, a letter each time. Now: 3 reruns of
+    # the same step a day, then the episode waits for the next day and ONE letter goes out
+    from automation import llm_budget
+    t0 = datetime(2026, 11, 2, 9, 0, tzinfo=timezone.utc)
+    fails = [{"id": 900 + k, "run_attempt": 1, "status": "completed", "conclusion": "failure",
+              "created_at": "2026-11-02T08:00:00Z", "run_started_at": "2026-11-02T08:00:00Z",
+              "updated_at": "2026-11-02T08:00:00Z"} for k in range(6)]
+    calls, deferred, letters = [], [], []
+    saved = (watchdog.runs, watchdog.gh, watchdog.failed_step, watchdog.failed_log, watchdog.email, watchdog.now,
+             llm_budget.defer, llm_budget.deferred_now)
+    cur = {}
+    watchdog.runs = lambda wf, n=15: [cur["run"]] if wf == "episode.yml" else []
+    watchdog.gh = lambda *a, **k: calls.append(a)
+    watchdog.failed_step = lambda rid: "build / FLUX on Kaggle"
+    watchdog.failed_log = lambda rid: "  SLUG: lebende-fossilien\n82 FLUX frames asked for\n##[error]exit code 1"
+    watchdog.email = lambda key, subject, body, mem: letters.append((key, subject))
+    watchdog.now = lambda: t0
+    llm_budget.defer = lambda slug, why: deferred.append((slug, why))
+    llm_budget.deferred_now = lambda: deferred[-1] if deferred else None
+    try:
+        mem, acts = {"emailed": []}, []
+        for r in fails:                                   # every new failure of the same step that day
+            cur["run"] = r
+            watchdog.check_runs(mem, acts)
+            watchdog.check_runs(mem, acts)                # the next pass sees the same failure: nothing new
+        reruns = [c for c in calls if c[:2] == ("run", "rerun")]
+    finally:
+        (watchdog.runs, watchdog.gh, watchdog.failed_step, watchdog.failed_log, watchdog.email, watchdog.now,
+         llm_budget.defer, llm_budget.deferred_now) = saved
+    check("watchdog: 3 reruns of one step a day, then deferred to tomorrow and one letter",
+          len(reruns) == 3 and deferred and deferred[0][0] == "lebende-fossilien" and len({k for k, _ in letters}) == 1,
+          str((len(reruns), deferred[:1], letters)))
+    # a verdict once given is never asked again, nor its clip fetched (the reruns ate Gemini's quota)
+    from pipeline import speciescheck as scq
+    ep_v = tmp_ep / "episodes" / "verdicts"
+    ep_v.mkdir(parents=True)
+    (ep_v / "shots.json").write_text(json.dumps({"lines": [{"at": "Eins", "n": 0, "beats": [
+        {"kind": "real", "need": "r1", "species": "latimeria"}]}]}), encoding="utf-8")
+    (ep_v / "footage.json").write_text(json.dumps({"r1": {**clip("k1"), "alternates": [clip("k2")]}}), encoding="utf-8")
+    (ep_v / "species_verdicts.json").write_text(json.dumps({"k1": {**good, "species_match": False},
+                                                            "k2": good}), encoding="utf-8")
+    saved = (scq.ROOT, scq.ask, scq._frames, scq._key)
+    asked = []
+    scq.ROOT, scq._key = tmp_ep, lambda: "k"
+    scq.ask = lambda *a, **k: asked.append(a) or good
+    scq._frames = lambda *a, **k: asked.append("download") or []
+    try:
+        pk = scq.check("verdicts", W / "none", W / "vcheck", kinds=("real",))
+    finally:
+        scq.ROOT, scq.ask, scq._frames, scq._key = saved
+    check("species check: cached verdicts, no request and no download", pk.get("r1") == ["k2"] and not asked,
+          str((pk, asked)))
+    # the GPU: the stand-ins fit the frame cap, and a job must end before Closed Tabs' 20:00
+    sys.path.insert(0, str(ROOT / "gpu"))
+    import kaggle_once
+    check("Kaggle: 82 frames (plan + stand-ins) are within the cap", kaggle_once.MAX_FLUX_FRAMES >= 82,
+          str(kaggle_once.MAX_FLUX_FRAMES))
+    mon = datetime(2026, 11, 2, 18, 0, tzinfo=timezone.utc)
+    check("Kaggle: a job that would run past 20:00 UTC waits, a short one starts",
+          kaggle_once.in_their_hours(mon, 2.5) and not kaggle_once.in_their_hours(mon, 0.9)
+          and kaggle_once.in_their_hours(datetime(2026, 11, 2, 17, 0, tzinfo=timezone.utc), 0.5)
+          and not kaggle_once.in_their_hours(datetime(2026, 11, 4, 9, 0, tzinfo=timezone.utc), 3.0),
+          str([kaggle_once.in_their_hours(mon, 2.5), kaggle_once.in_their_hours(mon, 0.9)]))
     from automation import build_doc
     (W / "inputs").mkdir(exist_ok=True)
     build_doc.W = lambda slug: W

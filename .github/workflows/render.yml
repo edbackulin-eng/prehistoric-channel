@@ -344,10 +344,3 @@ jobs:
           git commit -q -m "Released $SLUG (render ${{ github.run_id }}): $(python -c "import json;print(next(x['status'] for x in json.load(open('state/episodes.json')) if x['slug']=='$SLUG'))")"
           for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
           exit 1
-      - name: Email on failure
-        if: failure()
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: |
-          n=$(gh issue list -R ${{ github.repository }} --label run-log --state open --json number --jq '.[0].number // empty')
-          [ -n "$n" ] && gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} **render failed** ($SLUG): ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

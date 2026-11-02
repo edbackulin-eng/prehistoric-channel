@@ -47,7 +47,10 @@ JOB_HOURS = {"recon": 0.75, "animate": 1.2}     # recon is re-estimated from its
 ACCOUNT_LIMIT_H = 27.5                        # the whole Kaggle week this channel may run into
 FLUX_S_PER_FRAME = 33.0                       # measured on a T4, 28.10 (4-bit, 4 steps, 1360x768)
 FLUX_OVERHEAD_H = 0.12                        # install, weights, warm-up
-MAX_FLUX_FRAMES = 60                          # per episode: the GPU budget is planned on this
+# per episode: the plan's frames plus the living animals' stand-ins (config motion; 01.11: the cap
+# of 60 alone refused the 82 frames of lebende-fossilien on every run, 21 times)
+_MOTION = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))["motion"]
+MAX_FLUX_FRAMES = _MOTION["flux_frames_max"] + _MOTION.get("standby_frames_max", 0) + 6
 LEDGER = ROOT / "state" / "gpu_ledger.json"
 SLUGS = {"recon": "prehistoric-recon", "animate": "prehistoric-animate"}
 LTX_H_PER_CLIP = 0.10                         # LTX-Video 97 frames on a T4, estimated; measured per run
@@ -129,10 +132,13 @@ def whatif_building():
     return any(r["status"] in ("in_progress", "queued", "waiting") for r in runs)
 
 
-def in_their_hours(now=None):
+def in_their_hours(now=None, job_h=0.0):
+    """Why this job may not start now, or None. job_h: it must also be done before 20:00 UTC."""
     now = now or datetime.now(timezone.utc)
     if now.hour >= 20 or now.hour < 4:
         return "Closed Tabs' window (20:00-04:00 UTC)"
+    if now + timedelta(hours=job_h) > now.replace(hour=20, minute=0, second=0, microsecond=0):
+        return f"a {job_h:.1f} h job would run into Closed Tabs' window at 20:00 UTC"
     if now.weekday() in WHATIF_DAYS and now.hour < 17 or (now.weekday() in WHATIF_DAYS and now.hour == 17
                                                           and now.minute < 30):
         return "a What If build day, before 17:30 UTC"
@@ -338,7 +344,7 @@ def main(task, slug):
             if time.time() - t0 > MAX_WAIT_S:
                 say("no free slot in this run; the workflow will try again")
                 return 3
-            why = in_their_hours()
+            why = in_their_hours(job_h=job_h)
             if why:
                 idle_since = None
                 say(f"waiting: {why}")

@@ -5,8 +5,11 @@
 Acts only through GitHub Actions and the YouTube API. Each pass:
   1. an episode or render run that hangs far longer than any build is cancelled;
   2. a failed or cancelled run has its failed jobs rerun (the jobs that passed
-     keep their artifacts), up to MAX_ATTEMPTS; after that the owner gets an
-     email - a comment on the open "run-log" issue that mentions them;
+     keep their artifacts) - the same failing step at most DAILY_RERUNS times a
+     UTC day, whatever run it is in; then the episode is deferred to the next
+     day (state/deferred.json) and the owner gets ONE email with the step and
+     its log - a comment on the open "run-log" issue that mentions them
+     (01.11-02.11: one step failed 21 runs in a row, a letter on every one);
   3. if fewer than `buffer` (config/channel.json) episodes are ahead - built
      and waiting, or scheduled - and nothing is being built, the next episode
      is started (episode.yml; the GPU rules are kept inside it);
@@ -33,7 +36,7 @@ OWNER = REPO.split("/")[0]
 CFG = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))
 WATCHED = {"episode.yml": 7, "render.yml": 10, "upload.yml": 3,      # hours before a run counts as hung
            "restyle.yml": 3}       # a script being retold: no build of it may start meanwhile
-MAX_ATTEMPTS = 3
+DAILY_RERUNS = 3          # reruns of one failing step a UTC day; then it waits for the next day
 SETTLE_MIN = 12
 STATE = ROOT / "state" / "watchdog.json"
 HEARTBEAT = ROOT / "state" / "heartbeat.json"
@@ -78,12 +81,54 @@ def email(key, subject, body, mem):
     log.warning("emailed: %s", subject)
 
 
-def failed_tail(run_id):
+def failed_log(run_id):
     try:
-        tail = gh("run", "view", str(run_id), "-R", REPO, "--log-failed", parse=False)
-        return "\n".join(l.split("Z ", 1)[-1] for l in tail.strip().splitlines()[-25:])
+        return gh("run", "view", str(run_id), "-R", REPO, "--log-failed", parse=False)
     except Exception as e:                                           # noqa: BLE001
         return f"(log unavailable: {e})"
+
+
+def failed_tail(run_id, log_text=None):
+    """The failed step's own last 40 lines: its output, not the cleanup steps after it."""
+    lines = (log_text if log_text is not None else failed_log(run_id)).strip().splitlines()
+    end = next((i for i, l in enumerate(lines) if "##[error]" in l), len(lines) - 1)
+    return "\n".join(l.split("Z ", 1)[-1] for l in lines[max(0, end - 39):end + 1])
+
+
+def failed_step(run_id):
+    """'job / step' of the run's first failed step ('' if none is named)."""
+    try:
+        jobs = gh("api", f"repos/{REPO}/actions/runs/{run_id}/jobs")["jobs"]
+    except Exception:                                            # noqa: BLE001
+        return ""
+    for j in jobs:
+        if j.get("conclusion") == "failure":
+            st = next((s["name"] for s in j.get("steps", []) if s.get("conclusion") == "failure"), "?")
+            return f"{j['name']} / {st}"
+    return ""
+
+
+def run_slug(run_id, log_text):
+    """The episode a run worked on: the SLUG every step's env shows in the log."""
+    import re
+    m = re.search(r"\bSLUG: ([a-z0-9-]+)", log_text or "")
+    return m.group(1) if m else None
+
+
+def give_up_today(wf, rid, sig, mem, actions):
+    """The step has had its reruns today: the episode waits for the next day, one email."""
+    from automation import llm_budget
+    text = failed_log(rid)
+    tail = failed_tail(rid, text)
+    slug = run_slug(rid, text) or "?"
+    why = f"{wf}: '{sig}' failed {DAILY_RERUNS + 1} times today"
+    if not llm_budget.deferred_now():
+        llm_budget.defer(slug, why)
+        actions.append(f"{slug} deferred to the next day: {why}")
+    email(f"stop-{wf}-{sig}-{now():%Y%m%d}", f"Urzeit-Kanal: {slug} stopped until tomorrow - {sig}",
+          f"The same step failed {DAILY_RERUNS + 1} times today ({DAILY_RERUNS} reruns); no more reruns today, "
+          f"the build goes on by itself tomorrow.\n\nLast run: https://github.com/{REPO}/actions/runs/{rid}"
+          f"\n\n```\n{tail}\n```", mem)
 
 
 def check_runs(mem, actions):
@@ -110,16 +155,25 @@ def check_runs(mem, actions):
             busy = True
             continue
         rid, attempt = latest["id"], latest.get("run_attempt", 1)
-        if attempt < MAX_ATTEMPTS:
+        sig = failed_step(rid) or latest["conclusion"]
+        day = f"{now():%Y-%m-%d}"
+        reruns = mem.setdefault("reruns", [])
+        if f"{rid}/{attempt}" in {r["run"] for r in reruns}:
+            continue                       # this failure has had its answer (a rerun or the stop)
+        done_today = sum(1 for r in reruns if r["day"] == day and r["wf"] == wf and r["sig"] == sig
+                         and r.get("rerun"))
+        if done_today < DAILY_RERUNS:
             try:
                 gh("run", "rerun", str(rid), "-R", REPO, "--failed", parse=False)
             except RuntimeError:
                 gh("run", "rerun", str(rid), "-R", REPO, parse=False)
-            actions.append(f"reran {wf} {rid} (attempt {attempt + 1})")
+            reruns.append({"run": f"{rid}/{attempt}", "wf": wf, "sig": sig, "day": day, "rerun": True})
+            actions.append(f"reran {wf} {rid} (attempt {attempt + 1}; '{sig}' {done_today + 1}/{DAILY_RERUNS} today)")
             busy = busy or wf != "upload.yml"
         else:
-            email(f"{wf}-{rid}", f"Urzeit-Kanal: {wf} run {rid} failed {attempt} times",
-                  f"Run: https://github.com/{REPO}/actions/runs/{rid}\n\n```\n{failed_tail(rid)}\n```", mem)
+            reruns.append({"run": f"{rid}/{attempt}", "wf": wf, "sig": sig, "day": day, "rerun": False})
+            give_up_today(wf, rid, sig, mem, actions)
+        mem["reruns"] = reruns[-300:]
     return busy
 
 
