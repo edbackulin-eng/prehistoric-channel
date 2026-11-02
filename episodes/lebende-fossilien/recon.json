@@ -8,22 +8,17 @@
   "kpg_ammonite_extinction": "A close-up of a large, extinct ammonite, Pachydiscus, with an intricate spiral shell and complex suture lines, resting on a dark, muddy seafloor. The water is murky and filled with sediment, suggesting a chaotic environment. Other smaller, extinct marine reptiles and fish are faintly visible in the background, drifting lifelessly. The lighting is dim and gloomy, emphasizing the end of an era. Photorealistic, high contrast.",
   "kpg_ichthyosaur_swim": "A Stenopterygius, an extinct ichthyosaur, gliding through the open ocean during the Late Cretaceous. The animal has a streamlined, dolphin-like body, a long snout with needle-like teeth, and four large flippers. The water is clear and blue, with schools of small, extinct fish swimming around it. The ichthyosaur is captured in mid-stroke, its tail fluke powerful and curved. Photorealistic, dynamic composition.",
   "kpg_dinosaur_death": "A dramatic scene of a dying Tyrannosaurus rex collapsing into a swampy, prehistoric forest. The dinosaur's massive body is slumped, its head low to the ground, with visible wounds and blood. The surrounding vegetation is lush and green, with ferns and conifers. The sky is filled with dark, ominous clouds, and the air is thick with smoke and dust from a recent impact. The lighting is dramatic, with shafts of light breaking through the smoke. Photorealistic, epic scale.",
-  "cretaceous_mosasaurl_hunt": "A Mosasaurus, a large, aquatic lizard from the Late Cretaceous, hunting in the open ocean. The creature has a long, powerful body, a large head with sharp teeth, and four strong flippers. It is chasing a school of small, extinct fish. The water is deep blue, with sunlight filtering down from the surface. The Mosasaurus is captured in mid-pounce, its jaws wide open. Photorealistic, action-packed.",
-  "asteroid_impact_scene": "A massive asteroid impact on Earth 66 million years ago, fiery explosion, dust clouds rising into the sky, apocalyptic atmosphere, cinematic wide shot",
-  "permian_trilobite": "A Paradoxides, a large trilobite from the Cambrian period, crawling across a rocky, shallow seabed. The arthropod has a segmented body and a distinct head and tail. The water is clear and shallow, with small algae and other invertebrates visible. The lighting is bright, with sunlight illuminating the scene. Photorealistic, macro shot.",
-  "silurian_sea_scorpion": "A Pterygotus, a large, predatory sea scorpion from the Silurian period, swimming in a murky, shallow sea. The arthropod has a long, segmented body, large claws, and a spiky tail. The water is brownish-green, with suspended sediment. In the background, early jawless fish and other invertebrates are visible. The lighting is dim, with a greenish tint. Photorealistic, ominous atmosphere.",
-  "devonian_dunkleosteus": "A Dunkleosteus, a giant, armored placoderm from the Late Devonian, patrolling a deep, dark ocean. The fish has a massive, bony head with sharp, blade-like teeth, and a heavily armored body. The water is dark and cold, with bioluminescent organisms providing the only light. The Dunkleosteus is captured in a side profile, its powerful jaws slightly open. Photorealistic, intimidating presence.",
-  "standby_coelacanth_00": "Full body side view of a living Latimeria chalumnae, 1.5 meters long, fleshy lobed pectoral and pelvic fins resembling limbs, large thick rhomboid scales, dark grey coloration, single dorsal fin and lobed caudal fin, swimming in deep blue water, photorealistic, no prehistoric elements, no other animals",
-  "standby_coelacanth_01": "Low angle shot from below looking up at a Latimeria chalumnae, massive heavy lower jaw, fleshy lobed pectoral fins, large thick rhomboid scales, dark grey coloration, deep ocean water, photorealistic, no feathers, no bipedal stance, no humans",
-  "standby_coelacanth_02": "Latimeria chalumnae near a dark rock wall, fleshy lobed pectoral and pelvic fins resembling limbs, large thick rhomboid scales, steel-blue coloration, single dorsal fin, deep ocean habitat, photorealistic, no beak, no feathers, no humans",
-  "standby_coelacanth_03": "Side profile of a Latimeria chalumnae, massive heavy lower jaw, large thick rhomboid scales, dark grey coloration, single dorsal fin and lobed caudal fin, deep blue water, photorealistic, no bird-like head, no slender neck, no humans",
-  "standby_coelacanth_04": "Latimeria chalumnae near the ocean floor, fleshy lobed pectoral fins pushing against the water, large thick rhomboid scales, steel-blue coloration, massive lower jaw, deep sea lighting, photorealistic, no prehistoric scene, no other animals",
-  "standby_coelacanth_05": "Top-down view of a Latimeria chalumnae, single dorsal fin prominent, large thick rhomboid scales, steel-blue coloration, fleshy lobed fins, deep ocean water, photorealistic, no beak, no feathers, no humans",
-  "standby_coelacanth_06": "Close-up of the caudal fin of a Latimeria chalumnae, lobed structure, large thick rhomboid scales on the body, steel-blue coloration, deep ocean water, photorealistic, no feathers, no fur, no humans",
-  "standby_coelacanth_07": "Latimeria chalumnae swimming in a school of plankton, fleshy lobed fins, large thick rhomboid scales, dark grey coloration, single dorsal fin, deep ocean water, photorealistic, no prehistoric elements, no other large animals",
-  "standby_coelacanth_08": "Side view of a Latimeria chalumnae, fleshy lobed pectoral and pelvic fins, large thick rhomboid scales, steel-blue coloration, massive lower jaw, deep blue water, photorealistic, no bird-like head, no slender neck, no humans",
-  "standby_coelacanth_09": "Latimeria chalumnae in a dark cave, illuminated by a submersible light, fleshy lobed fins, large thick rhomboid scales, dark grey coloration, massive lower jaw, deep sea habitat, photorealistic, no prehistoric scene, no other animals",
-  "standby_coelacanth_10": "Side profile of a Latimeria chalumnae, fleshy lobed pectoral fins, large thick rhomboid scales, steel-blue coloration, single dorsal fin, deep ocean water, photorealistic, no bird-like head, no slender neck, no humans",
+  "standby_coelacanth_00": "Photorealistic BBC wildlife documentary style, close-up of the head and eye of a living Latimeria chalumnae coelacanth. The fish has large, thick, rhomboid scales and a massive, heavy lower jaw. Steel-blue coloration. No beak, no bird-like features, no feathers. Deep ocean environment, 198 meters depth, dim blue ambient light. High resolution, 8k, cinematic lighting.",
+  "standby_coelacanth_01": "Frontal view of a living Latimeria chalumnae coelacanth facing directly toward the camera. Massive, heavy lower jaw is prominent. Large, thick, rhomboid scales cover the face. Steel-blue coloration. Deep dark background. No beak, no neck, no bird features. Photorealistic, hyper-detailed, dramatic underwater lighting.",
+  "standby_coelacanth_02": "Living Latimeria chalumnae coelacanth illuminated by the bright spotlight of a submersible. The steel-blue skin glows under the artificial light. Large, thick, rhomboid scales and fleshy, lobed fins are clearly defined. The fish is in its natural habitat, deep ocean. No humans visible in the frame, only the light beam and the fish. Photorealistic, high contrast.",
+  "standby_coelacanth_03": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, seen from below against faint light, in its natural habitat",
+  "standby_coelacanth_04": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, lit by a submersible's lamp in the dark, in its natural habitat",
+  "standby_coelacanth_05": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, beside a rocky wall, in its natural habitat",
+  "standby_coelacanth_06": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, its paired fins moving, in its natural habitat",
+  "standby_coelacanth_07": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, three-quarter view, gliding, in its natural habitat",
+  "standby_coelacanth_08": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, close-up of the head and eye, in its natural habitat",
+  "standby_coelacanth_09": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, the whole body seen from the side, in its natural habitat",
+  "standby_coelacanth_10": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, swimming toward the camera, in its natural habitat",
   "standby_coelacanth_11": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, seen from below against faint light, in its natural habitat",
   "standby_coelacanth_12": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, lit by a submersible's lamp in the dark, in its natural habitat",
   "standby_coelacanth_13": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, beside a rocky wall, in its natural habitat",
@@ -35,12 +30,6 @@
   "standby_coelacanth_19": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, seen from below against faint light, in its natural habitat",
   "standby_coelacanth_20": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, lit by a submersible's lamp in the dark, in its natural habitat",
   "standby_coelacanth_21": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, beside a rocky wall, in its natural habitat",
-  "standby_coelacanth_22": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, its paired fins moving, in its natural habitat",
-  "standby_coelacanth_23": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, three-quarter view, gliding, in its natural habitat",
-  "standby_coelacanth_24": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, close-up of the head and eye, in its natural habitat",
-  "standby_coelacanth_25": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, the whole body seen from the side, in its natural habitat",
-  "standby_coelacanth_26": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, swimming toward the camera, in its natural habitat",
-  "standby_coelacanth_27": "Quastenflosser (Latimeria chalumnae), a living animal today, large, thick, rhomboid scales, fleshy, lobed pectoral and pelvic fins resembling limbs, massive, heavy lower jaw, steel-blue or dark grey coloration, single dorsal fin and caudal fin with lobes, seen from below against faint light, in its natural habitat",
   "standby_lungfish_00": "Lungenfische (Dipneusti), a living animal today, elongated eel-like body, small pectoral and pelvic fins, distinctive mouth with sharp teeth, ability to breathe air (lung-like swim bladder), often found in muddy or stagnant waters, close-up of the head and eye, in its natural habitat"
  },
  "species": {
@@ -49,11 +38,6 @@
   "kpg_ammonite_extinction": null,
   "kpg_ichthyosaur_swim": null,
   "kpg_dinosaur_death": null,
-  "cretaceous_mosasaurl_hunt": null,
-  "asteroid_impact_scene": null,
-  "permian_trilobite": null,
-  "silurian_sea_scorpion": null,
-  "devonian_dunkleosteus": null,
   "standby_coelacanth_00": "coelacanth",
   "standby_coelacanth_01": "coelacanth",
   "standby_coelacanth_02": "coelacanth",
@@ -76,12 +60,6 @@
   "standby_coelacanth_19": "coelacanth",
   "standby_coelacanth_20": "coelacanth",
   "standby_coelacanth_21": "coelacanth",
-  "standby_coelacanth_22": "coelacanth",
-  "standby_coelacanth_23": "coelacanth",
-  "standby_coelacanth_24": "coelacanth",
-  "standby_coelacanth_25": "coelacanth",
-  "standby_coelacanth_26": "coelacanth",
-  "standby_coelacanth_27": "coelacanth",
   "standby_lungfish_00": "lungfish"
  },
  "animate": {
@@ -90,11 +68,11 @@
   "kpg_ammonite_extinction": "Sediment particles swirl around the ammonite as the water currents shift, while the shell remains stationary on the seabed.",
   "kpg_ichthyosaur_swim": "The ichthyosaur propels itself forward with a powerful vertical stroke of its tail fluke, its flippers adjusting for balance.",
   "kpg_dinosaur_death": "The T. rex's body sinks further into the mud, its tail dragging slightly, while smoke and dust continue to swirl in the background.",
-  "standby_coelacanth_00": "Glides slowly forward, pectoral fins paddling rhythmically",
-  "standby_coelacanth_01": "Hovers in place, tail fin flicking gently for balance",
-  "standby_coelacanth_02": "Uses its limb-like fins to push off the rock, gliding forward",
-  "standby_coelacanth_03": "Swims with a slow, graceful undulation of the body",
-  "standby_coelacanth_04": "Moves forward with a paddling motion, fins acting like oars"
+  "standby_coelacanth_00": "Blinks slowly, head turns slightly to the left, water currents gently push the gill covers",
+  "standby_coelacanth_01": "Moves slowly forward toward the lens, mouth slightly open, fins spread wide for stability",
+  "standby_coelacanth_02": "Turns its body to investigate the light source, lobed pectoral fins fanning out",
+  "standby_coelacanth_03": "moves slowly and naturally, gentle camera push in",
+  "standby_coelacanth_04": "moves slowly and naturally, gentle camera push in"
  },
  "thumbs": {
   "thumb_b": "Extreme close-up of a living lungfish head and eye, sharp teeth visible, muddy water background, vibrant neon green and orange dramatic lighting, high contrast, photorealistic, 8k, empty space on left side for text, no humans, no text",
@@ -102,6 +80,33 @@
  },
  "photos": {},
  "two_seeds": [],
+ "standby_report": {
+  "coelacanth": {
+   "told_s": 598,
+   "real_clips_passing": 0,
+   "prompts": 22
+  },
+  "lungfish": {
+   "told_s": 32,
+   "real_clips_passing": 0,
+   "prompts": 1
+  },
+  "tetrapod": {
+   "told_s": 33,
+   "real_clips_passing": 3,
+   "prompts": 0
+  },
+  "_frames": {
+   "cap": 60,
+   "replaced": [
+    "asteroid_impact_scene",
+    "devonian_dunkleosteus",
+    "silurian_sea_scorpion",
+    "permian_trilobite",
+    "cretaceous_mosasaurl_hunt"
+   ]
+  }
+ },
  "standby": {
   "standby_coelacanth_00": "coelacanth",
   "standby_coelacanth_01": "coelacanth",
@@ -125,29 +130,6 @@
   "standby_coelacanth_19": "coelacanth",
   "standby_coelacanth_20": "coelacanth",
   "standby_coelacanth_21": "coelacanth",
-  "standby_coelacanth_22": "coelacanth",
-  "standby_coelacanth_23": "coelacanth",
-  "standby_coelacanth_24": "coelacanth",
-  "standby_coelacanth_25": "coelacanth",
-  "standby_coelacanth_26": "coelacanth",
-  "standby_coelacanth_27": "coelacanth",
   "standby_lungfish_00": "lungfish"
- },
- "standby_report": {
-  "coelacanth": {
-   "told_s": 598,
-   "real_clips_passing": 0,
-   "prompts": 28
-  },
-  "lungfish": {
-   "told_s": 32,
-   "real_clips_passing": 0,
-   "prompts": 1
-  },
-  "tetrapod": {
-   "told_s": 33,
-   "real_clips_passing": 3,
-   "prompts": 0
-  }
  }
 }

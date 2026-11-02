@@ -266,12 +266,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "standby_coelacanth_02",
-     "species": "coelacanth",
-     "standby": true
     }
    ]
   },
@@ -364,6 +358,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_coelacanth_02",
+     "species": "coelacanth",
+     "standby": true
     }
    ]
   },
@@ -430,12 +430,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "standby_coelacanth_03",
-     "species": "coelacanth",
-     "standby": true
     }
    ]
   },
@@ -541,7 +535,7 @@
     },
     {
      "kind": "recon",
-     "id": "standby_coelacanth_04",
+     "id": "standby_coelacanth_03",
      "species": "coelacanth",
      "standby": true
     }
@@ -613,7 +607,7 @@
     },
     {
      "kind": "recon",
-     "id": "standby_coelacanth_05",
+     "id": "standby_coelacanth_04",
      "species": "coelacanth",
      "standby": true
     }
@@ -672,12 +666,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "standby_coelacanth_06",
-     "species": "coelacanth",
-     "standby": true
     }
    ]
   },
@@ -700,6 +688,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_coelacanth_05",
+     "species": "coelacanth",
+     "standby": true
     }
    ]
   },
@@ -788,12 +782,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "standby_coelacanth_07",
-     "species": "coelacanth",
-     "standby": true
     }
    ]
   },
@@ -838,6 +826,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_coelacanth_06",
+     "species": "coelacanth",
+     "standby": true
     }
    ]
   },
@@ -930,12 +924,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "standby_coelacanth_08",
-     "species": "coelacanth",
-     "standby": true
     }
    ]
   },
@@ -983,7 +971,7 @@
     },
     {
      "kind": "recon",
-     "id": "standby_coelacanth_09",
+     "id": "standby_coelacanth_07",
      "species": "coelacanth",
      "standby": true
     }
@@ -1047,7 +1035,7 @@
     },
     {
      "kind": "recon",
-     "id": "standby_coelacanth_10",
+     "id": "standby_coelacanth_08",
      "species": "coelacanth",
      "standby": true
     }
@@ -1108,12 +1096,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "standby_coelacanth_11",
-     "species": "coelacanth",
-     "standby": true
     }
    ]
   },
@@ -1150,6 +1132,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_coelacanth_09",
+     "species": "coelacanth",
+     "standby": true
     }
    ]
   },
@@ -1186,12 +1174,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "standby_coelacanth_12",
-     "species": "coelacanth",
-     "standby": true
     }
    ]
   },
@@ -1273,7 +1255,7 @@
     },
     {
      "kind": "recon",
-     "id": "standby_coelacanth_13",
+     "id": "standby_coelacanth_10",
      "species": "coelacanth",
      "standby": true
     }
@@ -1395,7 +1377,7 @@
     },
     {
      "kind": "recon",
-     "id": "standby_coelacanth_14",
+     "id": "standby_coelacanth_11",
      "species": "coelacanth",
      "standby": true
     }
@@ -1626,7 +1608,7 @@
     },
     {
      "kind": "recon",
-     "id": "standby_coelacanth_15",
+     "id": "standby_coelacanth_12",
      "species": "coelacanth",
      "standby": true
     }
@@ -1859,12 +1841,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "standby_coelacanth_16",
-     "species": "coelacanth",
-     "standby": true
     }
    ]
   },
@@ -1935,6 +1911,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_coelacanth_13",
+     "species": "coelacanth",
+     "standby": true
     }
    ]
   },
@@ -1970,12 +1952,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "standby_coelacanth_17",
-     "species": "coelacanth",
-     "standby": true
     }
    ]
   },
@@ -2191,7 +2167,7 @@
     },
     {
      "kind": "recon",
-     "id": "standby_coelacanth_18",
+     "id": "standby_coelacanth_14",
      "species": "coelacanth",
      "standby": true
     }
@@ -2281,7 +2257,7 @@
     },
     {
      "kind": "recon",
-     "id": "standby_coelacanth_19",
+     "id": "standby_coelacanth_15",
      "species": "coelacanth",
      "standby": true
     }
@@ -2328,12 +2304,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "standby_coelacanth_20",
-     "species": "coelacanth",
-     "standby": true
     }
    ]
   },
@@ -2356,6 +2326,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_coelacanth_16",
+     "species": "coelacanth",
+     "standby": true
     }
    ]
   },
@@ -2426,12 +2402,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "standby_coelacanth_21",
-     "species": "coelacanth",
-     "standby": true
     }
    ]
   },
@@ -2454,6 +2424,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_coelacanth_17",
+     "species": "coelacanth",
+     "standby": true
     }
    ]
   },
@@ -2476,12 +2452,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "standby_coelacanth_22",
-     "species": "coelacanth",
-     "standby": true
     }
    ]
   },
@@ -2623,13 +2593,7 @@
    "n": 123,
    "section": "story",
    "amb": "room",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "cretaceous_mosasaurl_hunt",
-     "species": null
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Vor der bahnbrechenden Entdeckung",
@@ -2658,18 +2622,7 @@
    "n": 125,
    "section": "story",
    "amb": "fire",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "asteroid_impact_scene",
-     "species": null
-    },
-    {
-     "kind": "recon",
-     "id": "permian_trilobite",
-     "species": null
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Dabei bricht der dokumentierte",
@@ -2834,7 +2787,7 @@
     },
     {
      "kind": "recon",
-     "id": "standby_coelacanth_23",
+     "id": "standby_coelacanth_18",
      "species": "coelacanth",
      "standby": true
     }
@@ -2932,7 +2885,7 @@
     },
     {
      "kind": "recon",
-     "id": "standby_coelacanth_24",
+     "id": "standby_coelacanth_19",
      "species": "coelacanth",
      "standby": true
     }
@@ -2943,26 +2896,14 @@
    "n": 138,
    "section": "story",
    "amb": "room",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "silurian_sea_scorpion",
-     "species": null
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Der imposante Fossilbericht dieser",
    "n": 139,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "devonian_dunkleosteus",
-     "species": null
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Dass ihre Spuren im",
@@ -3031,12 +2972,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "standby_coelacanth_25",
-     "species": "coelacanth",
-     "standby": true
     }
    ]
   },
@@ -3059,6 +2994,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_coelacanth_20",
+     "species": "coelacanth",
+     "standby": true
     }
    ]
   },
@@ -3093,12 +3034,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "standby_coelacanth_26",
-     "species": "coelacanth",
-     "standby": true
     }
    ]
   },
@@ -3160,7 +3095,7 @@
     },
     {
      "kind": "recon",
-     "id": "standby_coelacanth_27",
+     "id": "standby_coelacanth_21",
      "species": "coelacanth",
      "standby": true
     }
