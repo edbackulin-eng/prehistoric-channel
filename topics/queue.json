@@ -351,6 +351,23 @@
     ]
    },
    "status": "queued"
+  },
+  {
+   "slug": "hochschreckliche-unterwasser-krieger",
+   "title": "Die unbekannten Unterwasserkrieger: Placodermen",
+   "focus": "Eine Reise in das Silur zur Entdeckung der gepanzerter Knochenfische, die als Vorläufer aller heutigen Knochenfische gelten.",
+   "articles": {
+    "de": [
+     "Placodermi",
+     "Dunkleosteus"
+    ],
+    "en": [
+     "Placodermi",
+     "Dunkleosteus",
+     "Actinopterygii"
+    ]
+   },
+   "status": "queued"
   }
  ]
 }
