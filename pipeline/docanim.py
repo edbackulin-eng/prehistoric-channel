@@ -23,6 +23,10 @@ FONTS = ROOT / "assets" / "fonts"
 BLUE_MARBLE = ROOT / "cache" / "maps" / "bluemarble_21600.jpg"
 BLUE_MARBLE_URL = ("https://eoimages.gsfc.nasa.gov/images/imagerecords/73000/73909/"
                    "world.topo.bathy.200412.3x21600x10800.jpg")
+# the same file (byte for byte, checked 03.11) on NASA's science.nasa.gov asset
+# server, for when eoimages.gsfc.nasa.gov is down (03.11 it was, and the smoke test failed)
+BLUE_MARBLE_MIRROR = ("https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/"
+                      "bmng-topography-bathymetry/december/world.topo.bathy.200412.3x21600x10800.jpg")
 Image.MAX_IMAGE_PIXELS = None
 
 PLACES = {
@@ -72,9 +76,15 @@ def _blue_marble():
     if "img" not in _base:
         if not BLUE_MARBLE.exists():
             BLUE_MARBLE.parent.mkdir(parents=True, exist_ok=True)
-            req = urllib.request.Request(BLUE_MARBLE_URL, headers={"User-Agent": "Mozilla/5.0"})
-            with urllib.request.urlopen(req, timeout=600) as r:
-                BLUE_MARBLE.write_bytes(r.read())
+            for url in (BLUE_MARBLE_URL, BLUE_MARBLE_MIRROR):
+                try:
+                    req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+                    with urllib.request.urlopen(req, timeout=600) as r:
+                        BLUE_MARBLE.write_bytes(r.read())
+                    break
+                except OSError:
+                    if url == BLUE_MARBLE_MIRROR:
+                        raise
         im = cv2.imread(str(BLUE_MARBLE), cv2.IMREAD_COLOR)[:, :, ::-1]
         _base["img"] = np.ascontiguousarray(im)
     return _base["img"]

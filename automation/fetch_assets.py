@@ -24,7 +24,11 @@ def main():
     for b in beds.values():
         if "file" in b:
             fetch(b["url"], ROOT / "assets" / "ambience" / b["file"], 50_000)
-    fetch(docanim.BLUE_MARBLE_URL, docanim.BLUE_MARBLE, 20_000_000)
+    try:
+        fetch(docanim.BLUE_MARBLE_URL, docanim.BLUE_MARBLE, 20_000_000)
+    except Exception as e:                                       # noqa: BLE001
+        print(f"  {docanim.BLUE_MARBLE_URL.split('/')[2]} failed ({e}); the science.nasa.gov copy")
+        fetch(docanim.BLUE_MARBLE_MIRROR, docanim.BLUE_MARBLE, 20_000_000)
     return 0
 
 
