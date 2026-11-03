@@ -1,0 +1,58 @@
+{
+ "gemma": "gemma-4-31b-it",
+ "gemma_tries": {
+  "gemma-4-26b-a4b-it": {
+   "http": 200,
+   "body": ""
+  },
+  "gemma-4-31b-it": {
+   "http": 200,
+   "body": ""
+  }
+ },
+ "minute": {
+  "requests_before_429": null,
+  "429": null,
+  "error": "HTTP 500: {\n  \"error\": {\n    \"code\": 500,\n    \"message\": \"Internal error encountered.\",\n    \"status\": \"INTERNAL\"\n  }\n}\n",
+  "big_request": {
+   "approx_tokens": 22125,
+   "http": 429,
+   "answer": "GenerateContentInputTokensPerModelPerMinute-FreeTier=16000"
+  }
+ },
+ "chapter": {
+  "gemma-4-31b-it": {
+   "seconds": 66.1,
+   "words": 307,
+   "lines": [
+    "> 22. Dezember 1938.",
+    "East London, Südafrika. Im Hafen liegt der Fischkutter von Kapitän Hendrik Goosen.",
+    "Unter den Tonnen des Beifangs ruht etwas, das dort nicht sein dürfte.",
+    "< Ein stahlblauer Fisch. 1,50 Meter lang und 52 Kilogramm schwer.",
+    "Marjorie Courtenay-Latimer, die Kuratorin des örtlichen Museums, betrachtet das Tier mit einer Mischung aus Neugier und Ratlosigkeit.",
+    "Sie sieht die massiven Schuppen und den mächtigen Unterkiefer.",
+    "Doch es sind die Flossen, die sie stutzig machen.",
+    "> Sie wirken nicht wie Flossen.",
+    "Sie stehen fleischig vom Körper ab, fast wie Gliedmaßen, fast wie Beine.",
+    "In ihren Fachbüchern findet Marjorie keine einzige Beschreibung, die auf diesen Fund passt.",
+    "Was sie in diesem Moment nicht weiß: Sie hält ein Tier in den Händen, das die gesamte Biologie auf den Kopf stellen wird.",
+    "Verzweifelt wendet sie sich an einen Freund, den Amateur-Ichthyologen James L. B. Smith.",
+    "Smith ist im Weihnachtsurlaub, doch als er die Skizzen des Fisches erhält, stockt ihm der Atem.",
+    "< „Ich wäre kaum erstaunter gewesen, wenn ich auf der Straße einem Dinosaurier begegnet wäre“, schreibt er.",
+    "Die Erschütterung ist real. [pause 0.8]",
+    "Denn laut allen wissenschaftlichen Erkenntnissen war dieser Fisch längst Geschichte.",
+    "Die Quastenflosser waren im Devon entstanden, doch man glaubte, sie seien am Ende der Kreidezeit ausgestorben.",
+    "> Vor über 65 Millionen Jahren.",
+    "Ein ganzer Zweig des Lebens war aus den Ozeanen verschwunden – oder so dachte man zumindest.",
+    "Smith identifiziert das Tier als Latimeria chalumnae.",
+    "Ein lebendes Fossil, das die Zeit überlistet hatte.",
+    "Doch der Triumph ist unvollständig.",
+    "Da Marjorie den Fisch nicht konservieren konnte, wurde er von einem Präparator ausgestopft.",
+    "< Die inneren Organe, die Kiemen und das Skelett sind verloren.",
+    "Damit bleibt eine quälende Frage im Raum: War dieser Fund wirklich die Rückkehr einer ausgestorbenen Gattung?",
+    "Um das zu beweisen, braucht Smith ein zweites Exemplar.",
+    "Eine Suche, die ihn in eine jahrzehntelange Obsession stürzen wird."
+   ]
+  }
+ }
+}
