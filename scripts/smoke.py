@@ -18,6 +18,7 @@ import importlib
 import json
 import pkgutil
 import shutil
+import subprocess
 import sys
 from pathlib import Path
 
@@ -390,6 +391,12 @@ def main():
     import kaggle_once
     check("Kaggle: the cap is the episode's 60 frames", kaggle_once.MAX_FLUX_FRAMES == 60,
           str(kaggle_once.MAX_FLUX_FRAMES))
+    # the CLI itself starts (03.11: kaggle 2.2.5 died on import without six and every run waited 4 h)
+    cli = subprocess.run([sys.executable, "-c", "import kaggle.api.kaggle_api_extended"], capture_output=True, text=True)
+    check("Kaggle: the CLI imports", cli.returncode == 0, (cli.stderr.strip().splitlines() or [""])[-1][:200])
+    check("Kaggle: a CLI crash is told from a busy Kaggle",
+          kaggle_once.cli_broken("Traceback (most recent call last):\n  File x\nModuleNotFoundError: No module named 'six'")
+          and not kaggle_once.cli_broken("ref,title,author,lastRunTime\n"))
     # the stand-ins of a living animal come out of the 60 frames: in place of landscapes first, the
     # animated extinct animals stay (owner 02.11); a plan over the cap (82 frames) is planned again
     import plan_episode as pe2

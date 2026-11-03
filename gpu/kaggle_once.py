@@ -84,11 +84,19 @@ def status(ref):
     return s.rsplit("kernelworkerstatus.", 1)[1].split('"')[0].strip()
 
 
+def cli_broken(out):
+    """The CLI's own crash (03.11: ModuleNotFoundError: six), not a busy or slow Kaggle."""
+    return "Traceback (most recent call last)" in out and ("Error" in out.splitlines()[-1] if out.strip() else False)
+
+
 def kernels():
     out = kaggle("kernels", "list", "--mine", "--page-size", "60", "--sort-by", "dateRun", "--csv")
     lines = out.splitlines()
     head = next((i for i, l in enumerate(lines) if l.startswith("ref,")), None)
     if head is None:
+        if cli_broken(out):
+            # waiting would never end: fail the run, so the watchdog reruns it and writes
+            raise SystemExit(f"the kaggle CLI does not start: {lines[-1].strip()[:200]}")
         return None
     hdr = lines[head].split(",")
     it = hdr.index("lastRunTime")
