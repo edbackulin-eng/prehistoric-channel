@@ -20,6 +20,9 @@ on:
       relay:
         description: restarts while waiting for the GPU
         default: "0"
+      render:
+        description: then render (and release) the episode with this run's clips
+        default: "true"
 
 permissions:
   contents: write
@@ -99,4 +102,9 @@ jobs:
         if: steps.ltx.outputs.rc == '3' && fromJSON(inputs.relay) < 12
         run: |
           gh workflow run ltx-extra.yml -R "${{ github.repository }}" -f slug="${{ inputs.slug }}" \
-            -f gpu_run="${{ inputs.gpu_run }}" -f frames="${{ inputs.frames }}" -f relay="$(( ${{ inputs.relay }} + 1 ))"
+            -f gpu_run="${{ inputs.gpu_run }}" -f frames="${{ inputs.frames }}" -f relay="$(( ${{ inputs.relay }} + 1 ))"             -f render="${{ inputs.render }}"
+      - name: Render with the clips old and new, then release
+        if: steps.ltx.outputs.rc == '0' && inputs.render == 'true'
+        run: |
+          gh workflow run render.yml -R "${{ github.repository }}" -f slug="${{ inputs.slug }}"             -f gpu_run="${{ github.run_id }}" -f release=true
+
