@@ -1,0 +1,47 @@
+[
+ {
+  "id": "thumb_a",
+  "hook": "scale",
+  "animal": "megalodon",
+  "base": "flux",
+  "query": null,
+  "prompt": "Hyper-realistic cinematic shot of a Megalodon shark head emerging from dark, murky green water, massive size, sharp serrated triangular teeth visible, dramatic underwater lighting, vibrant neon orange and deep blue color palette, 8k resolution, wide angle to show scale, negative space on the left for text, no humans, no text",
+  "fossil_query": null,
+  "words": [
+   "RISSE?",
+   "JECK?",
+   "HAI"
+  ],
+  "accent": 2
+ },
+ {
+  "id": "thumb_b",
+  "hook": "split",
+  "animal": "megalodon",
+  "base": "photo",
+  "query": "close up megasized megalodon tooth fossil on dark background",
+  "prompt": null,
+  "fossil_query": "megalodon tooth fossil",
+  "words": [
+   "FOSSIL",
+   "LÜGE?",
+   "Wahrheit"
+  ],
+  "accent": 1
+ },
+ {
+  "id": "thumb_c",
+  "hook": "silhouette",
+  "animal": "megalodon",
+  "base": "flux",
+  "query": null,
+  "prompt": "Dramatic prehistoric ocean scene, huge silhouette of a Megalodon shark in the foreground, terrifying scale, dark background with faint silhouette of a T-Rex standing on a distant rocky island, bright yellow moonlight, high contrast, vibrant colors, cinematic lighting, negative space on the right for text, no humans, no text",
+  "fossil_query": null,
+  "words": [
+   "HATTE",
+   "ER",
+   "GEWINN?"
+  ],
+  "accent": 0
+ }
+]

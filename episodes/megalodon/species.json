@@ -1,0 +1,111 @@
+{
+ "megalodon": {
+  "name": "Megalodon (Otodus megalodon)",
+  "features": [
+   "massive body size",
+   "triangular teeth",
+   "serrated cutting edges",
+   "V-shaped notched tooth root",
+   "extremely wide jaw"
+  ],
+  "forbidden": [
+   "blowhole",
+   "mammalian ears",
+   "long neck",
+   "feathers",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": false,
+  "video_query": null
+ },
+ "prehistoric_whale": {
+  "name": "Urzeitlicher Wal (Cetacea)",
+  "features": [
+   "large streamlined body",
+   "blowhole on top",
+   "flipper limbs",
+   "horizontal tail fluke"
+  ],
+  "forbidden": [
+   "gills",
+   "fish scales",
+   "legs",
+   "feathers",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "whale swimming underwater"
+ },
+ "prehistoric_human": {
+  "name": "Urzeitlicher Mensch (Homo sapiens)",
+  "features": [
+   "upright posture",
+   "use of stone tools",
+   "human skin texture",
+   "facial features"
+  ],
+  "forbidden": [
+   "scales",
+   "gills",
+   "tail",
+   "wings",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "prehistoric human using tools"
+ },
+ "great_white_shark": {
+  "name": "Weiße Hai (Carcharodon carcharias)",
+  "features": [
+   "white underbelly",
+   "torpedo-shaped body",
+   "large dorsal fin",
+   "pointed snout"
+  ],
+  "forbidden": [
+   "blowhole",
+   "mammalian ears",
+   "long neck",
+   "feathers",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "great white shark swimming"
+ },
+ "mackerel_shark": {
+  "name": "Makrelenhai (Lamnidae)",
+  "features": [
+   "torpedo-shaped body",
+   "conical snout",
+   "large gill slits",
+   "homocercal caudal fin"
+  ],
+  "forbidden": [
+   "flattened body",
+   "tentacles",
+   "dorsal sail",
+   "shell",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "mackerel shark lamnid swimming underwater"
+ },
+ "whale": {
+  "name": "Wal (Cetacea)",
+  "features": [
+   "large marine mammal body",
+   "flukes as tail fin",
+   "blowhole on top of the head",
+   "smooth streamlined skin without scales"
+  ],
+  "forbidden": [
+   "gills",
+   "scales",
+   "vertically oriented tail fin like a fish",
+   "pointed reptile snout",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "whale swimming ocean wildlife footage"
+ }
+}

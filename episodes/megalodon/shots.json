@@ -1,0 +1,3159 @@
+{
+ "_note": "Planned by automation/plan_episode.py from script.txt.",
+ "lines": [
+  {
+   "at": "In der dänischen Gram-Formation",
+   "n": 0,
+   "section": "hook",
+   "amb": "ocean",
+   "cut": true,
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v000_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Wie schwer war ein",
+   "n": 1,
+   "section": "hook",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_massive_attack",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Und er ist nicht",
+   "n": 2,
+   "section": "hook",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v002_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming underwater ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Es war im Jahr",
+   "n": 3,
+   "section": "story",
+   "amb": "room",
+   "cut": true,
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v003_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Er leitete ihn aus",
+   "n": 4,
+   "section": "story",
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v004_0",
+     "species": "megalodon",
+     "dark": true,
+     "topic": "megalodon jaw display",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Otodus megalodon.",
+   "n": 5,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v005_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Doch was verborgen blieb",
+   "n": 6,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_shadow_hunt",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Der Fossilbericht dieses Kolosses",
+   "n": 7,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v007_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Wie konnte ein Wesen",
+   "n": 8,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v008_0",
+     "species": "whale",
+     "dark": false,
+     "topic": "blue whale swimming open ocean aerial view",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Ob unter der sengenden",
+   "n": 9,
+   "section": "story",
+   "amb": "beach",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v009_0",
+     "species": null,
+     "dark": false,
+     "topic": "tropical coastline waves crashing sunny beach",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Sie zeugen von einem",
+   "n": 10,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_sunlit_waters",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Manchmal reichten die Wege",
+   "n": 11,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_deep_waters",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Wer diesen Ozean bewohnte,",
+   "n": 12,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v012_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Doch die Natur hinterließ",
+   "n": 13,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_massive_attack",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Da Knorpelfische nach ihrem",
+   "n": 14,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v014_0",
+     "species": "mackerel_shark",
+     "dark": true,
+     "topic": "shark swimming dark blue ocean water underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Nur das Harte bleibt.",
+   "n": 15,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v015_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Zähne, bis zu achtzehn",
+   "n": 16,
+   "section": "story",
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v016_0",
+     "species": "megalodon",
+     "dark": true,
+     "topic": "megalodon jaw display",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Hinzu kommen seltene Wirbelfunde",
+   "n": 17,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v017_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Erst Jahre später begriffen",
+   "n": 18,
+   "section": "story",
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "GRAM",
+       "sub": "Dänemark",
+       "lat": 55.305,
+       "lon": 9.052
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Menschen in urgeschichtlicher Zeit",
+   "n": 19,
+   "section": "story",
+   "amb": "forest",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v019_0",
+     "species": "prehistoric_human",
+     "dark": true,
+     "topic": "primitive human holding stone tool cave painting style prehistoric",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Sie nutzten die riesigen",
+   "n": 20,
+   "section": "story",
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v020_0",
+     "species": "prehistoric_human",
+     "dark": false,
+     "topic": "early human hand making stone tool",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Schwere Speerspitzen entstanden aus",
+   "n": 21,
+   "section": "story",
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v021_0",
+     "species": "megalodon",
+     "dark": true,
+     "topic": "megalodon tooth close",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Was trieb diese Menschen",
+   "n": 22,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v022_0",
+     "species": "great_white_shark",
+     "dark": true,
+     "topic": "great white shark swimming in deep blue ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Die Antwort liegt in",
+   "n": 23,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v023_0",
+     "species": "mackerel_shark",
+     "dark": true,
+     "topic": "shark swimming into dark deep water",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Schon im Jahr 1835",
+   "n": 24,
+   "section": "story",
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v024_0",
+     "species": "prehistoric_human",
+     "dark": true,
+     "topic": "ancient cave paintings archaeology hand touch",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Der Name selbst leitet",
+   "n": 25,
+   "section": "story",
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_jaw_open",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Er spiegelt die monumentale",
+   "n": 26,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v026_0",
+     "species": "great_white_shark",
+     "dark": true,
+     "topic": "shark hunting burst speed ocean water",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Der Fossilbericht dieses Haies",
+   "n": 27,
+   "section": "story",
+   "amb": "beach",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v027_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Über den gesamten Globus",
+   "n": 28,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v028_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "ocean waves aerial view vast blue sea",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Fossilfunde belegen eine weltweite",
+   "n": 29,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "AUSTRALIEN",
+       "sub": "Australien",
+       "lat": -25.2744,
+       "lon": 133.7751
+      },
+      {
+       "name": "JAPAN",
+       "sub": "Japan",
+       "lat": 36.2048,
+       "lon": 138.2529
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Einst patrouillierte der Gigant",
+   "n": 30,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v030_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Da das knorpelige Innere",
+   "n": 31,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_tooth_close",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Nur in extremen Ausnahmefällen",
+   "n": 32,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v032_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Die Ewigkeit hielt diese",
+   "n": 33,
+   "section": "story",
+   "amb": "beach",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v033_0",
+     "species": null,
+     "dark": true,
+     "topic": "ancient rock formations beach waves crashing",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Doch was diese Zähne",
+   "n": 34,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_jaw_open",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Sie bilden kein simples",
+   "n": 35,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_tooth_close",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Jeder einzelne Zahn zeigt",
+   "n": 36,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_jaw_open",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "An der Basis greift",
+   "n": 37,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_tooth_close",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Was jedoch beim Blick",
+   "n": 38,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_coastal_waters",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Während die vorderen Zähne",
+   "n": 39,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_jaw_open",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Die hinteren Positionen zeigen",
+   "n": 40,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v040_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Im Oberkiefer finden sich",
+   "n": 41,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_upper_jaw",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Der Unterkiefer spiegelt diese",
+   "n": 42,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_lower_jaw",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Seitliche Zacken an der",
+   "n": 43,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_juvenile_teeth",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Die Zähne sind zwar",
+   "n": 44,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v044_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Aus tausenden dieser Relikte",
+   "n": 45,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v045_0",
+     "species": null,
+     "dark": true,
+     "topic": "deep blue ocean abyss waves surface from below",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "recon",
+     "id": "megalodon_reconstruction",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Das Gebiss übertrifft das",
+   "n": 46,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v046_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming underwater ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "recon",
+     "id": "megalodon_vs_modern",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Eine Breite von über",
+   "n": 47,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v047_0",
+     "species": "prehistoric_human",
+     "dark": false,
+     "topic": "prehistoric human using tools",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Doch die bloße Größe",
+   "n": 48,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v048_0",
+     "species": null,
+     "dark": true,
+     "topic": "stormy dark ocean waves dramatic sky",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Vergleichende Analysen der Kieferknochen",
+   "n": 49,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_robust_jaw",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Massive Muskelpakete spannten sich",
+   "n": 50,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_muscles",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Sie erzeugten eine Beißkraft,",
+   "n": 51,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_attack_strike",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Wie konnte ein Jäger",
+   "n": 52,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v052_0",
+     "species": null,
+     "dark": true,
+     "topic": "sunlight rays shining through deep dark ocean water",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Ein genauer Blick auf",
+   "n": 53,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_jaw_architecture",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Die Zähne selbst zeigen",
+   "n": 54,
+   "section": "story",
+   "amb": "underwater",
+   "beats": []
+  },
+  {
+   "at": "An der Basis greift",
+   "n": 55,
+   "section": "story",
+   "amb": "underwater",
+   "beats": []
+  },
+  {
+   "at": "Dabei offenbart sich beim",
+   "n": 56,
+   "section": "story",
+   "amb": "underwater",
+   "beats": []
+  },
+  {
+   "at": "Während die Zähne an",
+   "n": 57,
+   "section": "story",
+   "amb": "underwater",
+   "beats": []
+  },
+  {
+   "at": "Die seitlichen Positionen reihen",
+   "n": 58,
+   "section": "story",
+   "amb": "underwater",
+   "beats": []
+  },
+  {
+   "at": "Diese feinen Abstufungen im",
+   "n": 59,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v059_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Welches Geheimnis bargen die",
+   "n": 60,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v060_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Eine exakte Bestandsaufnahme des",
+   "n": 61,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v061_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Flankiert wurde diese vordere",
+   "n": 62,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v062_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Zwar präsentierten sich sämtliche",
+   "n": 63,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v063_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Zudem fehlten den Zähnen",
+   "n": 64,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v064_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Eingebettet in diesen massiven",
+   "n": 65,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v065_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming powerful jaw",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v065_1",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Berechnungen zur Dimension dieses",
+   "n": 66,
+   "section": "story",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Welche titanischen Kräfte mussten",
+   "n": 67,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v067_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Frühe Berechnungen zeichneten plötzlich",
+   "n": 68,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v068_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Von gigantischen neun bis",
+   "n": 69,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v069_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Doch im Jahr 1994",
+   "n": 70,
+   "section": "story",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Was blieb, war die",
+   "n": 71,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v071_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Wie groß war dieser",
+   "n": 72,
+   "section": "story",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Im Jahr 1996 betrat",
+   "n": 73,
+   "section": "story",
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "MIAMI",
+       "sub": "Florida, USA",
+       "lat": 25.7617,
+       "lon": -80.1918
+      }
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v073_1",
+     "species": null,
+     "dark": false,
+     "topic": "paleontologist examining shark tooth fossil museum",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Als Basis diente ihm",
+   "n": 74,
+   "section": "story",
+   "amb": "room",
+   "beats": []
+  },
+  {
+   "at": "Im direkten Vergleich mit",
+   "n": 75,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v075_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark underwater profile cinematic",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v075_1",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Da der Megalodon proportional",
+   "n": 76,
+   "section": "story",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Gottfried präsentierte drei Szenarien,",
+   "n": 77,
+   "section": "story",
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v077_0",
+     "species": null,
+     "dark": false,
+     "topic": "scientific research fossils bones laboratory",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Eine konservative Rechnung ergab",
+   "n": 78,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v078_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Die mittlere Angabe verortete",
+   "n": 79,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v079_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Selbst eine großzügige Schätzung",
+   "n": 80,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v080_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Doch jede Methode fordert",
+   "n": 81,
+   "section": "story",
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v081_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming underwater ocean blue",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Gestützt auf vergleichbare Berechnungen",
+   "n": 82,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v082_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Nach seinen Analysen bewegte",
+   "n": 83,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v083_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Nach Shimadas Auffassung wurden",
+   "n": 84,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v084_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Eine alternative Methode wandte",
+   "n": 85,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v085_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Ein oberer vorderer Zahn",
+   "n": 86,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v086_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Der zugrundeliegende Kieferumfang verhielt",
+   "n": 87,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v087_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark jaw profile underwater ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Welche Geheimnisse verbargen sich",
+   "n": 88,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v088_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Die Auswertung enthüllte tiefe",
+   "n": 89,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v089_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Exemplare mit einer Körperlänge",
+   "n": 90,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v090_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Winzige Neugeborene maßen sogar",
+   "n": 91,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v091_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Gleichzeitig zeigte sich eine",
+   "n": 92,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v092_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Während ausgewachsene Männchen schätzungsweise",
+   "n": 93,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v093_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Ein Blick zurück in",
+   "n": 94,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v094_0",
+     "species": "mackerel_shark",
+     "dark": false,
+     "topic": "mackerel shark swimming fast ocean blue water",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Frühe Schätzungen reichten einst",
+   "n": 95,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v095_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Im Jahr 1994 wurden",
+   "n": 96,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v096_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark cruising open ocean clear water",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Den entscheidenden Schritt zu",
+   "n": 97,
+   "section": "story",
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v097_0",
+     "species": "mackerel_shark",
+     "dark": false,
+     "topic": "shark swimming underwater cinematic lighting",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Seine Methode stützte sich",
+   "n": 98,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v098_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Da der Megalodon proportional",
+   "n": 99,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v099_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Gottfried gab damals drei",
+   "n": 100,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v100_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Eine konservative Rechnung ergab",
+   "n": 101,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v101_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Die mittlere Angabe bezifferte",
+   "n": 102,
+   "section": "story",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Die großzügigste Berechnung schließlich",
+   "n": 103,
+   "section": "story",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Spätere Untersuchungen brachten jedoch",
+   "n": 104,
+   "section": "story",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "So ging Shimada davon",
+   "n": 105,
+   "section": "story",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Für das von Gottfried",
+   "n": 106,
+   "section": "story",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Einen alternativen rechnerischen Ansatz",
+   "n": 107,
+   "section": "story",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Wird hierbei eine Breite",
+   "n": 108,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v108_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Auch für die Entwicklungsstadien",
+   "n": 109,
+   "section": "story",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "So gelten Exemplare unterhalb",
+   "n": 110,
+   "section": "story",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Doch wie massiv war",
+   "n": 111,
+   "section": "climax",
+   "amb": "ocean",
+   "cut": true,
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_111_1",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Die Antwort lag tief",
+   "n": 112,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "BRÜSSEL",
+       "sub": "Belgien",
+       "lat": 50.8503,
+       "lon": 4.3517
+      }
+     ]
+    },
+    {
+     "kind": "recon",
+     "id": "megalodon_112_1",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Ihre Durchmesser reichten von",
+   "n": 113,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v113_0",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "whale swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Frühe Rechnungen, die sich",
+   "n": 114,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_114_1",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Was diese frühen Schätzungen",
+   "n": 115,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_115_1",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Jüngste Rekonstruktionen aus dem",
+   "n": 116,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_116_1",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Wie aber ließ sich",
+   "n": 117,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_117_1",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Die Antwort verbarg sich",
+   "n": 118,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v118_0",
+     "species": "mackerel_shark",
+     "dark": false,
+     "topic": "mackerel shark swimming underwater ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Zieht man deren Verhältnisse",
+   "n": 119,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v119_0",
+     "species": "mackerel_shark",
+     "dark": false,
+     "topic": "lamnid shark cruising blue ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Wendet man diese Maße",
+   "n": 120,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v120_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v120_1",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming underwater ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Das Ergebnis enthüllt eine",
+   "n": 121,
+   "section": "climax",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v121_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Doch die Natur kannte",
+   "n": 122,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "In der dänischen Gram-Formation",
+   "n": 123,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "GRAM",
+       "sub": "Dänemark",
+       "lat": 55.3,
+       "lon": 9.05
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Was bedeutete diese titanische",
+   "n": 124,
+   "section": "climax",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v124_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Legt man dieselben anatomischen",
+   "n": 125,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v125_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Zahlen, die die Dimensionen",
+   "n": 126,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v126_0",
+     "species": "whale",
+     "dark": false,
+     "topic": "blue whale underwater giant marine mammal",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v126_1",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Doch mit der Länge",
+   "n": 127,
+   "section": "climax",
+   "amb": "underwater",
+   "beats": []
+  },
+  {
+   "at": "Wie schwer war ein",
+   "n": 128,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Die Antwort variiert je",
+   "n": 129,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v129_0",
+     "species": "mackerel_shark",
+     "dark": false,
+     "topic": "mackerel shark swimming fast underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v129_1",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark body shape ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Unter Berücksichtigung dieser anatomischen",
+   "n": 130,
+   "section": "climax",
+   "amb": "underwater",
+   "beats": []
+  },
+  {
+   "at": "Ganz anders die Verhältnisse",
+   "n": 131,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Für den dänischen Giganten",
+   "n": 132,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Zwar existieren in der",
+   "n": 133,
+   "section": "climax",
+   "amb": "underwater",
+   "beats": []
+  },
+  {
+   "at": "Doch diese extremen Ausreißer",
+   "n": 134,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Was bleibt, ist die",
+   "n": 135,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Wir blicken auf ein",
+   "n": 136,
+   "section": "climax",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v136_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "shark swimming deep blue ocean water",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Bemerkenswert ist hierbei das",
+   "n": 137,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "BRÜSSEL",
+       "sub": "Belgien",
+       "lat": 50.85,
+       "lon": 4.35
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Die Wirbelkörper selbst präsentieren",
+   "n": 138,
+   "section": "climax",
+   "amb": "underwater",
+   "beats": []
+  },
+  {
+   "at": "Frühe wissenschaftliche Schätzungen gingen",
+   "n": 139,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Doch modernste Rekonstruktionen aus",
+   "n": 140,
+   "section": "climax",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_head_close",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Allein die reine Wirbelsäule",
+   "n": 141,
+   "section": "climax",
+   "amb": "underwater",
+   "beats": []
+  },
+  {
+   "at": "Um die tatsächliche Gesamtlänge",
+   "n": 142,
+   "section": "climax",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v142_1",
+     "species": "mackerel_shark",
+     "dark": false,
+     "topic": "fast shark swimming blue water",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Bei diesen rezenten Verwandten",
+   "n": 143,
+   "section": "climax",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v143_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark head close up underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Wendet man diese mathematischen",
+   "n": 144,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "BELGIEN",
+       "sub": "Belgien",
+       "lat": 50.8503,
+       "lon": 4.3517
+      }
+     ]
+    },
+    {
+     "kind": "recon",
+     "id": "megalodon_swimming_wide",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Noch gigantischer liest sich",
+   "n": 145,
+   "section": "climax",
+   "amb": "beach",
+   "beats": [
+    {
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "GRAM-FORMATION",
+       "sub": "Dänemark",
+       "lat": 55.3094,
+       "lon": 9.0494
+      }
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v145_1",
+     "species": null,
+     "dark": true,
+     "topic": "danish coastline rocky beach waves",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Dort misst der größte",
+   "n": 146,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_tooth_detail",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Durch exakt dieselbe skelettale",
+   "n": 147,
+   "section": "climax",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_colossal_attack",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Trotz dieser unvorstellbaren Ausdehnung",
+   "n": 148,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v148_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "shark body shape variation swimming ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "recon",
+     "id": "megalodon_slender_morph",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Unter Einbezug dieser unterschiedlichen",
+   "n": 149,
+   "section": "climax",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_swimming_wide",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Ganz andere Sphären erreicht",
+   "n": 150,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Die dazugehörige rechnerische Spanne",
+   "n": 151,
+   "section": "climax",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_hunting_prey",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Zwar existieren in theoretischen",
+   "n": 152,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v152_0",
+     "species": null,
+     "dark": true,
+     "topic": "deep blue ocean abyss dark water",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Doch diese Extremwerte stufen",
+   "n": 153,
+   "section": "climax",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_head_close",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Was bleibt, ist das",
+   "n": 154,
+   "section": "climax",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_swimming_wide",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Dass diese Giganten im",
+   "n": 155,
+   "section": "finale",
+   "amb": "ocean",
+   "cut": true,
+   "beats": []
+  },
+  {
+   "at": "Doch eine umfassende Studie",
+   "n": 156,
+   "section": "finale",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_tooth_detail",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Was die Forscher damals",
+   "n": 157,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_colossal_attack",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Plötzlich reichte die Spanne",
+   "n": 158,
+   "section": "finale",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_head_close",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Ein dominanter Meeresräuber gewiss,",
+   "n": 159,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "megalodon_swimming_wide",
+     "species": "megalodon"
+    }
+   ]
+  },
+  {
+   "at": "Seine Beute suchte er",
+   "n": 160,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v160_1",
+     "species": "prehistoric_whale",
+     "dark": false,
+     "topic": "prehistoric whale swimming ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Bissspuren an alten Knochen",
+   "n": 161,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Wie aber endete die",
+   "n": 162,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Die Ursachen für sein",
+   "n": 163,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Welche Dynamiken genau das",
+   "n": 164,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Sicher ist nur: Mit",
+   "n": 165,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Was zurückblieb, waren versteinerte",
+   "n": 166,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Die Fossilien sprechen von",
+   "n": 167,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Niemals lebte ein größerer",
+   "n": 168,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Doch am Ende reichte",
+   "n": 169,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Eine umfassende Studie aus",
+   "n": 170,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Entgegen früherer Annahmen gab",
+   "n": 171,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "180: Eine Untersuchung verdeutlicht",
+   "n": 172,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Sie reichte von handlichen",
+   "n": 173,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "182: Der durchschnittliche Wert",
+   "n": 174,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "183: Einst war dieser",
+   "n": 175,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "184: Seine großen, dreieckigen",
+   "n": 176,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Zahlreiche Bissspuren an Walknochen",
+   "n": 177,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Doch selbst ein so",
+   "n": 178,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Das Verschwinden der Art",
+   "n": 179,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Mit dem Ende dieses",
+   "n": 180,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Was von ihm blieb,",
+   "n": 181,
+   "section": "finale",
+   "amb": "underwater",
+   "beats": []
+  },
+  {
+   "at": "190: Frühere 30-Meter-Schätzungen wurden",
+   "n": 182,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v182_0",
+     "species": null,
+     "dark": true,
+     "topic": "deep ocean dark blue water abyss",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Dennoch bleibt der Megalodon,",
+   "n": 183,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "So zeugen die spärlichen",
+   "n": 184,
+   "section": "finale",
+   "amb": "underwater",
+   "beats": []
+  },
+  {
+   "at": "Eine wissenschaftliche Untersuchung aus",
+   "n": 185,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v185_0",
+     "species": "mackerel_shark",
+     "dark": false,
+     "topic": "mackerel shark swimming in deep blue ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "194: Diese Studie konnte",
+   "n": 186,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Stattdessen verdeutlichen die Analysen",
+   "n": 187,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Die durchschnittliche Körperlänge erwies",
+   "n": 188,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Ernährungsbiologisch stand der Makrelenhai",
+   "n": 189,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v189_1",
+     "species": "prehistoric_whale",
+     "dark": true,
+     "topic": "ancient whale underwater swimming deep sea",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Das plötzliche Aussterben an",
+   "n": 190,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": []
+  },
+  {
+   "at": "Komplexe Faktoren wie Klimawandel",
+   "n": 191,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v191_0",
+     "species": null,
+     "dark": true,
+     "topic": "dark turbulent deep sea currents",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Zurück bleibt eine bleibende",
+   "n": 192,
+   "section": "finale",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v192_0",
+     "species": "great_white_shark",
+     "dark": true,
+     "topic": "great white shark swimming alone in deep blue sea",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  }
+ ]
+}
