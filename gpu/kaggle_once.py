@@ -292,7 +292,10 @@ def validate(task, out, want):
     errors = r.get("errors") or []
     if task == "animate":
         # the render waits for config qa.ltx_min clips (31.10: a film of stills was rejected)
-        clips = [c for c in r.get("clips", []) if c.get("ok")]
+        # only the clips this job asks for: an earlier run's ten clips once passed for a job
+        # of one other frame, and the T. rex was never made (04.11, ltx-extra)
+        ids = {w if isinstance(w, str) else w.get("id") for w in want} if isinstance(want, (list, tuple, set)) else None
+        clips = [c for c in r.get("clips", []) if c.get("ok") and (ids is None or c.get("id") in ids)]
         need = min(len(want), int(json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))
                                   ["qa"]["ltx_min"]))
         ok = "frames_found" in r and len(clips) >= need
