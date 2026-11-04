@@ -20,6 +20,7 @@ Acts only through GitHub Actions and the YouTube API. Each pass:
 Every email is recorded in state/watchdog.json so one failure is reported once.
 """
 import json
+import re
 import os
 import subprocess
 import sys
@@ -155,7 +156,9 @@ def check_runs(mem, actions):
             busy = True
             continue
         rid, attempt = latest["id"], latest.get("run_attempt", 1)
-        sig = failed_step(rid) or latest["conclusion"]
+        # one step, whichever matrix shard failed: "layers (3) / ... shard 3 of 12" and "layers (9)"
+        # are the same step (04.11: counted apart, the render was rerun ten times on one bug)
+        sig = re.sub(r" \(\d+\)|,? shard \d+ of \d+", "", failed_step(rid) or latest["conclusion"])
         day = f"{now():%Y-%m-%d}"
         reruns = mem.setdefault("reruns", [])
         if f"{rid}/{attempt}" in {r["run"] for r in reruns}:
