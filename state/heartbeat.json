@@ -1,8 +1,8 @@
 {
  "date": "2026-11-04",
- "checked_at": "2026-11-04T18:11:38Z",
+ "checked_at": "2026-11-04T18:41:47Z",
  "ahead": [],
  "actions": [
-  "reran episode.yml 41844872100 (attempt 5; 'build / Species check of the FLUX frames, and which to animate' 1/3 today)"
+  "reran episode.yml 41844872100 (attempt 6; 'build / Species check of the FLUX frames, and which to animate' 2/3 today)"
  ]
 }
