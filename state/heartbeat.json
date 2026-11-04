@@ -1,8 +1,8 @@
 {
  "date": "2026-11-04",
- "checked_at": "2026-11-04T16:40:47Z",
+ "checked_at": "2026-11-04T17:10:58Z",
  "ahead": [],
  "actions": [
-  "reran episode.yml 41844872100 (attempt 3; 'build / Script (German, from Wikipedia, fact-checked)' 2/3 today)"
+  "reran episode.yml 41844872100 (attempt 4; 'build / Script (German, from Wikipedia, fact-checked)' 3/3 today)"
  ]
 }
