@@ -99,6 +99,11 @@ def frames(img, bg, alpha, move, seconds, fps=30, out_w=3840, out_h=2160, fx=Non
     amp, layered, report = check(move, fg_area, out_w=out_w, out_h=out_h)
     if bg is None:
         layered = False
+        report = {**report, "layered": False, "note": "no background layer: one plane"}
+    # set before the first frame: the render takes exactly n frames and stops, so a
+    # line after the loop never runs (04.11: every still was reported without its
+    # move, and QA counted 0 s of parallax)
+    frames.last_report = report
     n = max(1, int(round(seconds * fps)))
     a3 = None
     layer = None
@@ -121,7 +126,6 @@ def frames(img, bg, alpha, move, seconds, fps=30, out_w=3840, out_h=2160, fx=Non
         if layer is not None:
             out = layer.apply(out, k / fps)
         yield out
-    frames.last_report = report
 
 
 frames.last_report = None

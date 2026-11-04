@@ -76,7 +76,9 @@ def animal(s):
 
 
 def clip_key(s):
-    return (s.get("clip") or {}).get("id") or s.get("image")
+    """The fragment on screen: a stretch of a clip or a framing of a still (pipeline/fragments.py)."""
+    from pipeline import fragments
+    return fragments.key(s)
 
 
 def line_species(slug):

@@ -172,6 +172,74 @@ def score(plan, slug):
     return {"tracks": out}
 
 
+TRACK_LUFS = -20.0
+
+
+def _no_silence(tr, floor_db=-48.0, min_s=0.5, below_median_db=14.0):
+    """The track without its near-silent stretches (a quiet intro, a pause between movements):
+    looped under a film they left the music silent for seconds (04.11: 19 s, then 60 s), which
+    QA refuses. Stretches under floor_db for min_s or longer are cut out, the joins crossfaded."""
+    hop = SR // 10
+    k = len(tr) // hop
+    if k < 10:
+        return tr
+    r = np.sqrt((tr[: k * hop].mean(1).reshape(k, hop) ** 2).mean(1)) + 1e-9
+    db = 20 * np.log10(r)
+    # absolute, and against the track's own level: an ambient track is quiet throughout, and
+    # its near-silent stretches go under -60 dBFS once it sits 22 dB under the voice
+    quiet = db < max(floor_db, float(np.median(db)) - below_median_db)
+    # the track's own fade-in and fade-out go too: a loop put one against the other
+    smooth = np.convolve(db, np.ones(10) / 10, mode="same")          # one second: a click is not the music
+    soft = smooth < float(np.median(db)) - 12.0
+    head = int(np.argmax(~soft)) if (~soft).any() else 0
+    tail = k - int(np.argmax(~soft[::-1])) if (~soft).any() else k
+    quiet[:head] = True
+    quiet[tail:] = True
+    keep, run = np.ones(k, bool), 0
+    for i in range(k + 1):
+        if i < k and quiet[i]:
+            run += 1
+            continue
+        if run * hop >= min_s * SR or (run and (i - run == 0 or i == k)):
+            keep[i - run:i] = False
+        run = 0
+    if keep.all():
+        return tr
+    pieces, x = [], int(0.05 * SR)
+    i = 0
+    while i < k:
+        if not keep[i]:
+            i += 1
+            continue
+        j = i
+        while j < k and keep[j]:
+            j += 1
+        pieces.append(tr[i * hop: j * hop].copy())
+        i = j
+    out = pieces[0]
+    for pc in pieces[1:]:
+        if len(out) > x and len(pc) > x:
+            fade = np.linspace(0, 1, x, dtype=np.float32)[:, None]
+            out[-x:] = out[-x:] * (1 - fade) + pc[:x] * fade
+            pc = pc[x:]
+        out = np.concatenate([out, pc])
+    return out if len(out) > SR else tr
+
+
+def _loop(tr, n, x_s=1.5):
+    """tr repeated to n samples, each repeat crossfaded over x_s into the next: a plain join
+    put the track's fade-out against its fade-in, a second under -60 dBFS at every seam."""
+    x = int(x_s * SR)
+    if len(tr) >= n or len(tr) <= 2 * x:
+        return np.concatenate([tr] * (int(np.ceil(n / max(1, len(tr)))) + 1))[:n]
+    out = tr.copy()
+    fade = np.linspace(0, 1, x, dtype=np.float32)[:, None]
+    while len(out) < n:
+        out[-x:] = out[-x:] * (1 - fade) + tr[:x] * fade
+        out = np.concatenate([out, tr[x:]])
+    return out[:n]
+
+
 def _score_audio(music, n, offset_s):
     """One bed from the section tracks, each looped over its section and
     crossfaded into the next."""
@@ -186,8 +254,11 @@ def _score_audio(music, n, offset_s):
         b = min(n, int((t["end"] - offset_s) * SR) + x // 2)
         if b <= a:
             continue
-        tr = load(ROOT / "assets" / "music" / t["file"])
-        tr = np.concatenate([tr] * (int(np.ceil((b - a) / len(tr))) + 1))[: b - a]
+        tr = _no_silence(load(ROOT / "assets" / "music" / t["file"]))
+        # every section's track at one loudness first: the hook's track sat 30 dB over the
+        # story's (04.11), and one gain for the bed left the quiet one under -60 dBFS
+        tr = gain_db(tr, TRACK_LUFS - lufs(tr, pyln.Meter(SR)))
+        tr = _loop(tr, b - a)
         env = np.ones(b - a, np.float32)
         r = min(x, (b - a) // 2)
         env[:r] = np.linspace(0, 1, r)
@@ -207,7 +278,7 @@ def _lufs_or_none(x, meter):
     return None if not np.isfinite(v) or v < -70 else v
 
 
-def _per_minute(voice, mus, speech, meter, max_db=6.0):
+def _per_minute(voice, mus, speech, meter, max_db=10.0):
     """Every minute on its own: the music under the speech of that minute set
     MUSIC_UNDER_VOICE below it (a smooth gain curve between the minutes' centres,
     at most +-max_db), so no stretch of music comes up to the voice (QA of 31.10)."""
@@ -277,7 +348,9 @@ def build(plan, narration_wav, music_path, amb_lib, out_wav, offset_s=0.0, lengt
     m_speech = lufs(mus[speech], meter) if speech.any() else lufs(mus, meter)
     g = (v_l - MUSIC_UNDER_VOICE + DUCK_DB) - m_speech
     mus = gain_db(mus, g) * np.pad(duck, (0, max(0, n - len(duck))), constant_values=1)[:n, None]
-    mus = _per_minute(voice, mus, speech, meter)
+    # twice: a minute's gain is a curve between the minutes' centres, so one pass can leave
+    # a minute outside 20-24 (04.11: minute 0 at 15.3 dB, the correction held at 6 dB)
+    mus = _per_minute(voice, _per_minute(voice, mus, speech, meter), speech, meter)
 
     # atmosphere per scene, crossfaded
     amb = np.zeros((n, 2), np.float32)

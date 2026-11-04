@@ -11541,32 +11541,6 @@
   "note": "Close-up shot of a coelacanth, but narration says 'Ein Fischer zieht etwas'",
   "model": "gemini-flash-lite-latest"
  },
- "cretaceous_trex_stride__s0": {
-  "subject": "a large dinosaur in a foggy forest",
-  "species_match": null,
-  "features": {},
-  "forbidden_seen": [],
-  "fits_narration": false,
-  "off_topic_objects": [],
-  "people": false,
-  "text_or_logo": false,
-  "museum_display": false,
-  "note": "Narration mentions a fisherman pulling something, but image shows a dinosaur.",
-  "model": "gemini-flash-lite-latest"
- },
- "cretaceous_trex_stride__s1": {
-  "subject": "dinosaur in a misty forest",
-  "species_match": null,
-  "features": {},
-  "forbidden_seen": [],
-  "fits_narration": false,
-  "off_topic_objects": [],
-  "people": false,
-  "text_or_logo": false,
-  "museum_display": false,
-  "note": "narration says fisherman pulls something, but image shows a dinosaur",
-  "model": "gemini-flash-lite-latest"
- },
  "standby_coelacanth_01__s0": {
   "subject": "coelacanth front view",
   "species_match": true,

@@ -148,8 +148,11 @@ def main():
         pl = docplan.build("smoke", tl, 20.0, parts=2, picks=picks)
     finally:
         docplan.ROOT = real
+    from pipeline import fragments
     imgs = [x.get("image") for x in pl["shots"] if x.get("image")]
-    check("plan: dropped scene covered", "impact_forest__s0" not in imgs and len(imgs) == len(set(imgs))
+    frags = [fragments.key(x) for x in pl["shots"] if x.get("image")]
+    # no fragment twice: a still may come back in another framing (pipeline/fragments.py, owner 04.11)
+    check("plan: dropped scene covered", "impact_forest__s0" not in imgs and len(frags) == len(set(frags))
           and abs(pl["shots"][-1]["end"] - pl["total_s"]) < 0.01, str([(x["kind"], x.get("image"), x["start"], x["end"])
                                                                        for x in pl["shots"]]))
     # the schedule: Wednesday and Saturday, 17:00 in Berlin (15:00 or 16:00 UTC)
@@ -273,7 +276,8 @@ def main():
         {"at": "Vier", "n": 3, "beats": [lat("r3")]}]}
     sb_tl = [{"text": t, "kind": "base", "section": "story", "start": 8.4 * i, "end": 8.4 * (i + 1)}
              for i, t in enumerate(("Eins.", "Zwei.", "Drei.", "Vier."))]
-    sb_foot = {"r1": clip("x1"), "r2": clip("x2"), "r3": clip("x3")}
+    # short clips (8 s): their fragments run out, and the stand-ins have to come in
+    sb_foot = {k: {**clip(v), "duration": 8} for k, v in (("r1", "x1"), ("r2", "x2"), ("r3", "x3"))}
     (tmp_ep / "episodes" / "standby").mkdir(parents=True)
     (tmp_ep / "episodes" / "standby" / "shots.json").write_text(json.dumps(sb_spec), encoding="utf-8")
     (tmp_ep / "episodes" / "standby" / "footage.json").write_text(json.dumps(sb_foot), encoding="utf-8")
@@ -285,8 +289,9 @@ def main():
     finally:
         docplan.ROOT, docplan.HOOK_WINDOW_S, docplan.REPEAT_GAP_S = saved_dp
     ids = [(x.get("clip") or {}).get("id") or x.get("image") for x in sp["shots"]]
-    check("living animal: real first, then its stand-ins, none more than twice",
-          ids[0] == "x1" and {"sa__s0", "sa__s1"} <= set(ids) and all(ids.count(i) <= 2 for i in ids)
+    frags = [fragments.key(x) for x in sp["shots"]]
+    check("living animal: real first, then its stand-ins, no fragment more than twice",
+          ids[0] == "x1" and {"sa__s0", "sa__s1"} <= set(ids) and all(frags.count(i) <= 2 for i in frags)
           and all(x.get("species") == "latimeria" for x in sp["shots"]) and any(x["line"] == 2 for x in sp["shots"]),
           str([(x["line"], i, x["start"], x["end"]) for x, i in zip(sp["shots"], ids)]))
     # a wow moment every 30-45 s: where the film runs long without one, a tense picture or an LTX
@@ -503,6 +508,20 @@ def main():
     s = docsound.build(plan, wav, music, amb, W / "mix.wav")
     check("loudness", abs(s["integrated_lufs"] + 14) <= 0.5, str(s["integrated_lufs"]))
     check("true peak", s["true_peak_dbtp"] <= -1.0, str(s["true_peak_dbtp"]))
+    # 04.11: the render takes n frames and stops; the parallax report must be there all the same
+    from pipeline import parallax
+    pimg = np.zeros((360, 640, 3), np.uint8)
+    pa = np.zeros((360, 640), np.uint8)
+    pa[100:250, 200:400] = 255
+    parallax.frames.last_report = None
+    for _, _f in zip(range(3), parallax.frames(pimg, pimg.copy(), pa, "push_in", 1.0, 10, 320, 180)):
+        pass
+    check("parallax: its report comes with the first frame", (parallax.frames.last_report or {}).get("layered") is True,
+          str(parallax.frames.last_report))
+    # a scene the checker could not judge (quota, frame missing) is unknown, never "dropped"
+    from pipeline import speciescheck
+    v = speciescheck.passes({"error": "HTTP 429"}, "prehistoric_scene")
+    check("species check: a 429 is no verdict", v[0] is None, str(v))
     print("\nFAILED:\n  " + "\n  ".join(failures) if failures else "\nsmoke test passed")
     return 1 if failures else 0
 

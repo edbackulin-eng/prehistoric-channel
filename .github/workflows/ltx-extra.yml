@@ -1,0 +1,102 @@
+name: ltx-extra
+run-name: ltx-extra ${{ inputs.slug }} ${{ inputs.frames }}
+# One or more LTX clips more for an episode whose GPU run is done (automation/ltx_extra.py):
+# the frames are checked again on their lines, animated on Kaggle in the next free GPU
+# window (gpu/kaggle_once.py waits for it and this workflow restarts itself while it
+# waits), and the clips old and new go into this run's gpu-<slug> artifact, which the
+# render then takes as its gpu_run.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: episode
+        required: true
+      gpu_run:
+        description: the episode.yml (or earlier ltx-extra) run whose gpu-<slug> artifact to start from
+        required: true
+      frames:
+        description: FLUX frame ids, comma separated (e.g. cretaceous_trex_stride__s0)
+        required: true
+      relay:
+        description: restarts while waiting for the GPU
+        default: "0"
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: episode
+  cancel-in-progress: false
+
+env:
+  PYTHONUTF8: 1
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  animate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    env:
+      GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      GPU_MAX_WAIT_S: "15000"
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - uses: actions/download-artifact@v5
+        with:
+          name: gpu-${{ inputs.slug }}
+          path: gpu/
+          run-id: ${{ inputs.gpu_run }}
+          github-token: ${{ github.token }}
+      - name: Check the frames on their lines, and the job
+        id: prep
+        run: |
+          set +e
+          python automation/ltx_extra.py prepare "${{ inputs.slug }}" "${{ inputs.frames }}"; rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          [ $rc -eq 0 ] || [ $rc -eq 3 ] || exit $rc
+      - name: LTX-Video on Kaggle
+        id: ltx
+        if: steps.prep.outputs.rc == '0'
+        run: |
+          set +e
+          python -u gpu/kaggle_once.py animate "${{ inputs.slug }}"; rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          [ $rc -eq 0 ] || [ $rc -eq 3 ] || exit $rc
+      - name: The clips old and new together
+        if: steps.ltx.outputs.rc == '0'
+        run: python automation/ltx_extra.py merge "${{ inputs.slug }}"
+      - uses: actions/upload-artifact@v5
+        if: steps.ltx.outputs.rc == '0'
+        with:
+          name: gpu-${{ inputs.slug }}
+          retention-days: 14
+          compression-level: 0
+          path: |
+            gpu/results_recon/raw/
+            gpu/results_recon/report.json
+            gpu/results_animate/clips/
+            gpu/results_animate/report.json
+            gpu/animate_job.json
+      - name: Keep the GPU records
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for f in state/kaggle_once.json state/gpu_ledger.json; do [ -e "$f" ] && git add -A "$f"; done
+          git diff --cached --quiet && exit 0
+          git commit -q -m "GPU usage after ltx-extra run ${{ github.run_id }}"
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
+      - name: Relay (still waiting for a free GPU slot)
+        if: steps.ltx.outputs.rc == '3' && fromJSON(inputs.relay) < 12
+        run: |
+          gh workflow run ltx-extra.yml -R "${{ github.repository }}" -f slug="${{ inputs.slug }}" \
+            -f gpu_run="${{ inputs.gpu_run }}" -f frames="${{ inputs.frames }}" -f relay="$(( ${{ inputs.relay }} + 1 ))"
