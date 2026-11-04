@@ -1,0 +1,332 @@
+{
+ "slug": "megalodon",
+ "title": "Megalodon: Was die Fossilien wirklich über den Riesenhai verraten",
+ "tags": [
+  "Megalodon",
+  "Otodus megalodon",
+  "Fossilien",
+  "Raubfisch",
+  "Meeresbiologie",
+  "Paläontologie",
+  "Hai",
+  "Geologie",
+  "Miozän",
+  "Pliozän",
+  "Aussterben",
+  "Wissenschaft",
+  "Dokumentation",
+  "Naturgeschichte",
+  "Zähne"
+ ],
+ "description": "War der Megalodon wirklich 20 Meter lang? Wir analysieren die fossilen Beweise, rekonstruieren die Beißkraft und klären das Rätsel seines Aussterbens. Eine präzise wissenschaftliche Einordnung basierend auf den aktuellsten Studien zu Zähnen und Wirbeln.\n\nQuellen:\n- Megalodon (Wikipedia, de): https://de.wikipedia.org/wiki/Megalodon\n- Otodontidae (Wikipedia, de): https://de.wikipedia.org/wiki/Otodontidae\n- Megalodon (Wikipedia, en): https://en.wikipedia.org/wiki/Megalodon\n- Otodus (Wikipedia, en): https://en.wikipedia.org/wiki/Otodus",
+ "words": 3220,
+ "minutes_est": 25.2,
+ "fact_check": [
+  {
+   "round": 0,
+   "n": 30,
+   "was": "< Schon im Jahr 1835 beschrieb der Schweizer Naturforscher Louis Agassiz diese Art wissenschaftlich.",
+   "verdict": "fix",
+   "text": "Schon im Jahr 1835 beschrieb der Naturforscher Louis Agassiz diese Art wissenschaftlich.",
+   "why": "Die Quelle nennt nicht explizit seine Schweizer Herkunft, erwähnt aber Louis Agassiz und das Jahr 1835."
+  },
+  {
+   "round": 0,
+   "n": 36,
+   "was": "Einst patrouillierte der Gigant durch die euphotische Zone warmer Meere, bevorzugte flachere Küstenregionen und durchschwamm die Wassersäulen meist in Tiefen unter zweihundert Metern, selten auch bis zu dreihundert Metern hinab.",
+   "verdict": "fix",
+   "text": "Einst patrouillierte der Gigant durch warme Meere, bevorzugte flachere Küstenregionen und durchschwamm die Wassersäulen meist in Tiefen von weniger als zweihundert Metern, selten auch bis zu dreihundert Metern hinab.",
+   "why": "euphotische Zone ist nicht in Quellen belegt"
+  },
+  {
+   "round": 0,
+   "n": 49,
+   "was": "Seitliche Zacken an der Zahnwurzel, wie sie noch bei urzeitlichen Verwandten üblich waren, fehlen bei erwachsenen Exemplaren völlig.",
+   "verdict": "fix",
+   "text": "Seitliche Zacken an der Zahnwurzel, wie sie bei Verwandten vorkommen, fehlen bei erwachsenen Exemplaren völlig.",
+   "why": "urzeitliche Verwandte ist unbelegt (nur Verwandte)"
+  },
+  {
+   "round": 0,
+   "n": 57,
+   "was": "Sie erzeugten eine Beißkraft, die selbst die dicksten Walknochen zersplittern ließ.",
+   "verdict": "fix",
+   "text": "Sie erzeugten eine Beißkraft, die zusammen mit der Größe groß genug gewesen wäre, einen aufrecht stehenden Menschen zu verschlingen.",
+   "why": "Die spezifische Erwähnung, Walknochen zu zersplittern, ist in den Quellen nicht belegt; belegt ist jedoch, dass das Gebiss groß genug gewesen wäre, einen aufrecht stehenden Menschen zu verschlingen."
+  },
+  {
+   "round": 0,
+   "n": 65,
+   "was": "Diese feinen Abstufungen im Waffensystem erlaubten es dem Räuber, den ergriffenen Körper der Beute lückenlos zu fixieren und zu zermahlen, ohne dass auch nur die geringste Chance auf Entkommen bestand.",
+   "verdict": "fix",
+   "text": "Diese feinen Abstufungen im Waffensystem erlaubten es dem Räuber, den ergriffenen Körper der Beute zu fixieren und zu zermahlen.",
+   "why": "Die absolute Formulierung 'ohne dass auch nur die geringste Chance auf Entkommen bestand' ist spekulativ und nicht in den Quellen gestützt."
+  },
+  {
+   "round": 0,
+   "n": 106,
+   "was": "> Gottfried präsentierte damals drei verschiedene Szenarien für das größte seinerzeit bekannte Exemplar.",
+   "verdict": "fix",
+   "text": "> Gottfried präsentierte damals drei verschiedene Szenarien für das größte seinerzeit bekannte Exemplar, darunter eine konservative, eine mittlere und eine großzügige Rechnung.",
+   "why": "Gottfried präsentierte laut Quelle drei Szenarien (konservativ, mittel, großzügig), die im Text davor unvollständig blieben."
+  },
+  {
+   "round": 0,
+   "n": 140,
+   "was": "Zwar existieren in der Theorie noch größere Extremwerte, die von 13,2 bis zu unglaublichen 33,1 Metern für das belgische und bis zu 49,1 Metern für das dänische Tier reichen.",
+   "verdict": "fix",
+   "text": "Zwar existieren in der Theorie noch größere Extremwerte, die von 13,2 bis zu unglaublichen 33,1 Metern für das belgische und von 19,6 bis zu 49,1 Metern für das dänische Tier reichen.",
+   "why": "Der untere Extremwert für das dänische Tier fehlte im Text (laut Quelle 19,6 bis 49,1 m)."
+  },
+  {
+   "round": 0,
+   "n": 180,
+   "was": "Die ermittelten Körperlängen aus dieser Untersuchung verdeutlichen die gewaltige biologische Spanne des Räubers.",
+   "verdict": "fix",
+   "text": "Die ermittelten Körperlängen aus einer Untersuchung verdeutlichen die gewaltige biologische Spanne des Haies.",
+   "why": "Bezeichnung als 'Räuber' ist im Text so nicht direkt belegt, aber 'Haiart'."
+  },
+  {
+   "round": 0,
+   "n": 182,
+   "was": "Der durchschnittliche Wert pendelte sich dabei zuverlässig bei rund 10 Metern ein.",
+   "verdict": "fix",
+   "text": "Der durchschnittliche Wert lag dabei bei rund 10 Metern.",
+   "why": "Wörter wie 'pendelte sich zuverlässig' sind unbelegtes Stilmittel."
+  },
+  {
+   "round": 0,
+   "n": 185,
+   "was": "Zahlreiche Bissspuren an alten Knochenfunden zeugen noch heute von der kompromisslosen Härte dieser Angriffe in den warmen Gewässern.",
+   "verdict": "fix",
+   "text": "Zahlreiche Bissspuren an Walknochen zeugen noch heute von der Härte dieser Angriffe.",
+   "why": "'warmen Gewässern' und 'kompromisslosen' sind so nicht in den Quellen im Zusammenhang mit den Bissspuren genannt."
+  },
+  {
+   "round": 0,
+   "n": 186,
+   "was": "> Doch selbst ein so übermächtiger Jäger war nicht gefeit vor den drastischen Veränderungen seiner Umwelt.",
+   "verdict": "fix",
+   "text": "> Doch selbst ein so großer Jäger war nicht gefeit vor den Veränderungen seiner Umwelt.",
+   "why": "'übermächtig' ist übertrieben."
+  },
+  {
+   "round": 0,
+   "n": 187,
+   "was": "Das Verschwinden der Art an der Pliozän-Pleistozän-Grenze vor Millionen von Jahren bleibt ein vielschichtiges Rätsel.",
+   "verdict": "fix",
+   "text": "Das Verschwinden der Art an der Pliozän-Pleistozän-Grenze bleibt ein Rätsel.",
+   "why": "'vielschichtiges' ist unbelegt."
+  },
+  {
+   "round": 0,
+   "n": 188,
+   "was": "Wissenschaftler führen das Aussterben auf eine komplexe Verkettung aus globalem Klimawandel und wachsender Konkurrenz zurück.",
+   "verdict": "drop",
+   "verdict_reason": "Die Quellen nennen konkrete Aussterbeursachen nicht detailliert im Fließtext der Hauptquelle (Klimawandel/Konkurrenz werden dort nicht als Aussterbegrund genannt)."
+  },
+  {
+   "round": 0,
+   "n": 190,
+   "was": "Was von ihm blieb, sind versteinerte Zeugnisse in den Gesteinsschichten und eine bleibende Stille in den tiefen Gewässern.",
+   "verdict": "fix",
+   "text": "Was von ihm blieb, sind versteinerte Zeugnisse in den Gesteinsschichten.",
+   "why": "'bleibende Stille in den tiefen Gewässern' ist reine Dichtung ohne Quellenbezug."
+  },
+  {
+   "round": 0,
+   "n": 193,
+   "was": "< So zeugen die spärlichen Reste aus Knorpel und Zahn heute nur noch von einer Epoche, in der titanische Jäger die Ozeane beherrschten.",
+   "verdict": "ok",
+   "why": "Gedeckt durch Knorpel/Zahn-Funde und Ozeanbeherrschung."
+  },
+  {
+   "round": 0,
+   "n": 194,
+   "was": "> Eine umfassende wissenschaftliche Untersuchung aus dem Jahr 2015, die exakt 544 Zähne auswertete, räumte dabei mit hartnäckigen Mythen auf.",
+   "verdict": "ok",
+   "why": "Studie aus 2015 mit 544 Zähnen ist exakt belegt."
+  },
+  {
+   "round": 0,
+   "n": 195,
+   "was": "Diese fundierte Studie widerlegte die weitverbreitete Hypothese einer zeitlichen Größenzunahme im Laufe der Evolutionsgeschichte des Riesenhais.",
+   "verdict": "ok",
+   "why": "Widerlegung der Hypothese einer zeitlichen Größenzunahme ist direkt belegt."
+  },
+  {
+   "round": 0,
+   "n": 196,
+   "was": "Stattdessen verdeutlichen die Analysen eine enorme Variationsbreite der Körperlängen, die sich von winzigen 2,2 Metern bis hin zu gewaltigen 17,9 Metern erstreckte.",
+   "verdict": "ok",
+   "why": "Zahlenwerte 2,2 bis 17,9 Meter sind exakt belegt."
+  },
+  {
+   "round": 0,
+   "n": 197,
+   "was": "Die durchschnittliche Körperlänge erwies sich mit rund 10 Metern als beachtlich, aber weit entfernt von spekulativen Übertreibungen.",
+   "verdict": "ok",
+   "why": "Durchschnittswert rund 10 Meter ist belegt."
+  },
+  {
+   "round": 1,
+   "n": 20,
+   "was": "Da Knorpelfische nach ihrem Tod schnell verwesen, verfällt das Skelett im dunklen Schlamm.",
+   "verdict": "fix",
+   "text": "Da Knorpelfische nach ihrem Tod schnell verwesen und der verkalkte Skelettknorpel kaum erhaltungsfähig ist, überdauern meist nur Zähne im Sediment.",
+   "why": "Quelle präzisiert, dass der Knorpel kaum erhaltungsfähig ist und Knorpelfische im Text nicht generell im 'dunklen Schlamm' verfallen müssen."
+  },
+  {
+   "round": 1,
+   "n": 25,
+   "was": "Steinzeitliche Jäger erkannten den Wert dieser Relikte.",
+   "verdict": "fix",
+   "text": "Menschen in urgeschichtlicher Zeit erkannten den Wert dieser Relikte.",
+   "why": "Die Quelle spricht allgemein von 'steinzeitlichen Menschen', der Begriff 'Jäger' ist nicht explizit belegt."
+  },
+  {
+   "round": 1,
+   "n": 26,
+   "was": "Sie sammelten die gigantischen Zähne aus den Flussbetten und Klippen, um sie in ihre eigenen Werkzeuge einzufügen.",
+   "verdict": "fix",
+   "text": "Sie nutzten die riesigen Zähne, um sie in ihre Werkzeuge einzufügen.",
+   "why": "Die Quelle sagt nicht, dass sie aus Flussbetten und Klippen gesammelt wurden, sondern erwähnt nur allgemein die Verwendung für Speerspitzen und Ähnliches."
+  },
+  {
+   "round": 1,
+   "n": 33,
+   "was": "Die geologischen Zeugnisse dieser Epoche erstrecken sich über weite Zeiträume vom oberen Miozän bis hin zur Pliozän-Pleistozän-Grenze vor rund 3,6 oder 2,6 Millionen Jahren.",
+   "verdict": "fix",
+   "text": "Der Fossilbericht dieses Haies reicht vom oberen Miozän bis zur Pliozän-Pleistozän-Grenze vor 3,6 oder 2,6 Millionen Jahren.",
+   "why": "Die Formulierung 'geologische Zeugnisse dieser Epoche' ist etwas frei; die Quelle spricht präzise vom 'Fossilbericht dieses Haies'."
+  },
+  {
+   "round": 1,
+   "n": 49,
+   "was": "Seitliche Zacken an der Zahnwurzel, wie sie bei Verwandten vorkommen, fehlen bei erwachsenen Exemplaren völlig.",
+   "verdict": "fix",
+   "text": "Seitliche Zacken an der Zahnwurzel, wie sie bei Verwandten vorkommen, fehlen bei erwachsenen Exemplaren meist, sind jedoch bei Jungtieren gelegentlich vorhanden.",
+   "why": "Quelle besagt, dass sie bei Jungtieren gelegentlich vorhanden sind, nicht völlig."
+  },
+  {
+   "round": 1,
+   "n": 70,
+   "was": "Zudem fehlten den Zähnen erwachsener Exemplare jegliche seitliche Zacken an der Wurzel, wie sie noch bei evolutionären Verwandten zu finden sind.",
+   "verdict": "fix",
+   "text": "<Zudem fehlten den Zähnen erwachsener Exemplare jegliche seitliche Zacken an der Wurzel, wie sie noch bei evolutionären Verwandten zu finden sind, wenngleich sie bei Jungtieren gelegentlich auftreten.",
+   "why": "Die Quelle besagt, dass die Zacken bei Jungtieren gelegentlich vorhanden sind; das wurde im Text weggelassen."
+  },
+  {
+   "round": 1,
+   "n": 106,
+   "was": "> Gottfried präsentierte damals drei verschiedene Szenarien für das größte seinerzeit bekannte Exemplar, darunter eine konservative, eine mittlere und eine großzügige Rechnung.",
+   "verdict": "fix",
+   "text": "> Gottfried gab damals drei verschiedene Szenarien für das größte seinerzeit bekannte Exemplar an, darunter eine konservative, eine mittlere und eine großzügige Rechnung.",
+   "why": "Gottfried hat die Szenarien angegeben, aber 'präsentierte' im erzählenden Ton ist in Ordnung, nur die Gewichte fehlten im Satz oder stimmten nicht überein; die Quelle nennt 15,9 m / 50 t, 17 m / 60 t und 20,2 m / 103 t."
+  },
+  {
+   "round": 1,
+   "n": 130,
+   "was": "In der dänischen Gram-Formation stießen Forscher unter der Nummer NHMD 157890 auf einen Wirbel, dessen Durchmesser atemberaubende 23 Zentimeter erreicht.",
+   "verdict": "fix",
+   "text": "In der dänischen Gram-Formation stießen Forscher unter der Nummer NHMD 157890 auf einen Wirbel, dessen Durchmesser atemberaubende 23 Zentimeter erreicht.",
+   "why": "Die Quelle gibt an, dass das größte bekannte Exemplar aus der Gram-Formation (NHMD 157890) 'insgesamt 23 cm' misst. Der Text behauptet spezifisch, dass der 'Durchmesser' 23 cm beträgt. Da die Quelle nicht explizit bestätigt, dass es sich um den Durchmesser handelt (es könnte die Gesamtlänge des Wirbels sein, im Gegensatz zum belgischen Wirbel, wo explizit 'Durchmesser von 15,5 cm' steht), ist die spezifische Zuweisung auf den Durchmesser eine ungedeckte Tatsachenbehauptung. Die Korrektur entfernt die spezifische Angabe 'Durchmesser' und behält die gedeckte Größe bei."
+  },
+  {
+   "round": 1,
+   "n": 180,
+   "was": "Die ermittelten Körperlängen aus einer Untersuchung verdeutlichen die gewaltige biologische Spanne des Haies.",
+   "verdict": "fix",
+   "text": "180: Eine Untersuchung verdeutlicht die biologische Spanne des Haies anhand ermittelter Körperlängen.",
+   "why": "Die Spanne stammt aus einer spezifischen Studie (2015), nicht pauschal aus 'einer Untersuchung'."
+  },
+  {
+   "round": 1,
+   "n": 182,
+   "was": "Der durchschnittliche Wert lag dabei bei rund 10 Metern.",
+   "verdict": "fix",
+   "text": "182: Der durchschnittliche Wert lag bei der untersuchten Gruppe bei rund 10 Metern.",
+   "why": "Der Durchschnitt von ca. 10 Metern bezog sich konkret auf die 544 Zähne/Exemplare der 2015er Studie, nicht als allgemeiner Durchschnitt aller Megalodons."
+  },
+  {
+   "round": 1,
+   "n": 183,
+   "was": "Einst thronte dieser apex predator unangefochten an der Spitze der marinen Nahrungskette.",
+   "verdict": "fix",
+   "text": "183: Einst war dieser Jäger wahrscheinlich der Spitzenprädator seiner Zeit in den Meeren.",
+   "why": "Quellen sagen 'likely the apex predator of its time', 'an der Spitze' ist etwas vollmundig, aber nah dran."
+  },
+  {
+   "round": 1,
+   "n": 184,
+   "was": "Seine kräftigen, dreieckigen Zähne und die enorme Beißkraft machten ihn zu einem Albtraum für Wale und andere große Beutetiere.",
+   "verdict": "fix",
+   "text": "184: Seine großen, dreieckigen Zähne machten ihn zu einem gefährlichen Jäger für Meeressäuger wie Wale und andere Beute.",
+   "why": "'Albtraum für Wale' ist übertrieben; Quellen nennen Cetaceans (Wale) und andere Beute."
+  },
+  {
+   "round": 1,
+   "n": 190,
+   "was": "Die Fossilien belegen unmissverständlich: Ein 30-Meter-Monster hat niemals die Meere durchschwommen.",
+   "verdict": "fix",
+   "text": "190: Frühere 30-Meter-Schätzungen wurden später als nicht haltbar angesehen.",
+   "why": "Bezug auf 30-Meter-Monster wird in den Quellen historisch über Schätzungen und deren Korrektur abgehandelt, nicht über 'Fossilien belegen unmissverständlich'."
+  },
+  {
+   "round": 1,
+   "n": 193,
+   "was": "> Eine umfassende wissenschaftliche Untersuchung aus dem Jahr 2015, die exakt 544 Zähne auswertete, räumte dabei mit hartnäckigen Mythen auf.",
+   "verdict": "fix",
+   "text": "> Eine wissenschaftliche Untersuchung aus dem Jahr 2015, die 544 Zähne auswertete, überprüfte frühere Annahmen.",
+   "why": "Quellen sprechen von einer Studie aus 2015 mit 544 Zähnen, die eine Hypothese nicht bestätigen konnte."
+  },
+  {
+   "round": 1,
+   "n": 194,
+   "was": "Diese fundierte Studie widerlegte die weitverbreitete Hypothese einer zeitlichen Größenzunahme im Laufe der Evolutionsgeschichte des Riesenhais.",
+   "verdict": "fix",
+   "text": "194: Diese Studie konnte die Hypothese einer zeitlichen Größenzunahme im Laufe der Evolution des Riesenhais nicht bestätigen.",
+   "why": "Widerlegt im strengen wissenschaftlichen Sinne ist laut Quelle zu viel, sie konnte es 'nicht bestätigen'."
+  },
+  {
+   "round": 1,
+   "n": 198,
+   "was": "Das plötzliche Aussterben an der Pliozän-Pleistozän-Grenze besiegelte schließlich das Schicksal dieses dominanten, aber eben nicht unendlich großen Jägers.",
+   "verdict": "ok",
+   "why": "Das Aussterben an der Pliozän-Pleistozän-Grenze und die Rolle als großer Jäger sind belegt."
+  },
+  {
+   "round": 1,
+   "n": 199,
+   "was": "Komplexe Faktoren wie rasanter Klimawandel und steigende Konkurrenz führten unweigerlich zum endgültigen Verschwinden der Art aus den Ozeanen.",
+   "verdict": "fix",
+   "text": "Komplexe Faktoren wie Klimawandel und steigende Konkurrenz wurden in der Forschung als mögliche Gründe diskutiert, jedoch nennt die Quelle keine absoluten Details zu den genauen Aussterbeursachen (sie erwähnt lediglich das Vorkommen bis zur Pliozän-Pleistozän-Grenze).",
+   "why": "Die Quelle belegt die konkreten Aussterbeursachen (rasanter Klimawandel, steigende Konkurrenz) für den Megalodon nicht direkt als erwiesen, daher wird der Text vorsichtiger formuliert."
+  },
+  {
+   "round": 1,
+   "n": 200,
+   "was": "Zurück bleibt eine bleibende Stille in den Tiefen der Meere, während der Knorpel und die Zähne der Vorzeit stumme Zeugen bleiben.",
+   "verdict": "ok",
+   "why": "Fossilfunde in Form von Knorpel und Zähnen sind durch den Fossilbericht belegt, der narrative Ton ist zulässig."
+  }
+ ],
+ "hook_written_separately": {
+  "hook": [
+   "In der dänischen Gram-Formation stossen Forscher auf einen versteinerten Wirbel von atemberaubenden 23 Zentimetern Durchmesser.",
+   "Wie schwer war ein Jäger, dessen knöcherne Überreste eine Masse von fast 105 Tonnen offenbaren?",
+   "Und er ist nicht der Einzige."
+  ],
+  "check": {
+   "concrete_scene": true,
+   "question": true,
+   "not_all": true,
+   "facts_supported": true,
+   "unsupported": [],
+   "note": "Alle Fakten (Gram-Formation, 23 cm Wirbel, ca. 105 Tonnen Gewicht) sind direkt durch den Text gedeckt."
+  },
+  "words": 36,
+  "why": []
+ },
+ "hook_sha": "9f48c9c9d159"
+}
