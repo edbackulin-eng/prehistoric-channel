@@ -49,7 +49,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state/episodes.json "episodes/${{ inputs.slug }}/uploaded.json" 2>/dev/null || true
+          for f in state/episodes.json "episodes/${{ inputs.slug }}/uploaded.json"; do
+            [ -e "$f" ] && git add -A "$f"
+          done
           git diff --cached --quiet && exit 0
           git commit -q -m "Uploaded ${{ inputs.slug }}"
           for i in 1 2 3 4 5; do git pull -q --rebase origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done

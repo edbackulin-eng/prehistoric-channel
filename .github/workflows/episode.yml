@@ -152,8 +152,11 @@ jobs:
       - name: Keep the GPU and quota records
         if: always()
         run: |
-          git add state/kaggle_once.json state/gpu_ledger.json state/llm_usage state/deferred.json 2>/dev/null || true
-          git add -A state/deferred.json 2>/dev/null || true
+          # each path on its own: one missing path (deferred.json exists only while a step is deferred)
+          # made the whole `git add` add nothing, and no GPU hour reached main from 28.10 to 04.11
+          for f in state/kaggle_once.json state/gpu_ledger.json state/llm_usage state/deferred.json; do
+            [ -e "$f" ] || git ls-files --error-unmatch "$f" >/dev/null 2>&1 && git add -A "$f"
+          done
           bash "$RUNNER_TEMP/push.sh" "GPU and quota usage after episode run ${{ github.run_id }}"
       - name: Relay (still waiting for a free GPU slot)
         if: (steps.flux.outputs.rc == '3' || steps.ltx.outputs.rc == '3') && fromJSON(inputs.relay) < 30

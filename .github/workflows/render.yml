@@ -75,11 +75,13 @@ jobs:
           python-version: "3.11"
           cache: pip
       # transformers 5 needs torch >= 2.6 and, without it, fails as "name 'torch' is not defined" (28.10)
+      # the LTX clips are taken apart into frames here (04.11: every job with a clip died on "no ffmpeg")
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - name: CPU models (torch for the CPU, the 2.5D models' libraries)
         run: |
           pip install -q torch==2.8.0 torchvision==0.23.0 --index-url https://download.pytorch.org/whl/cpu
           pip install -q transformers==4.56.2 timm kornia einops spandrel==0.4.1 rembg onnxruntime \
-            opencv-python-headless pillow "numpy<2.2" kaggle
+            opencv-python-headless pillow "numpy<2.2" kaggle==2.2.5 six
       - uses: actions/cache@v4
         with:
           path: |
@@ -339,7 +341,10 @@ jobs:
           else exit $rc; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add state/episodes.json topics/queue.json episodes/$SLUG/uploaded.json state/llm_usage 2>/dev/null || true
+          # path by path: uploaded.json is there only after an upload, and one missing path adds nothing
+          for f in state/episodes.json topics/queue.json "episodes/$SLUG/uploaded.json" state/llm_usage; do
+            [ -e "$f" ] && git add -A "$f"
+          done
           git diff --cached --quiet && exit 0
           git commit -q -m "Released $SLUG (render ${{ github.run_id }}): $(python -c "import json;print(next(x['status'] for x in json.load(open('state/episodes.json')) if x['slug']=='$SLUG'))")"
           for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
