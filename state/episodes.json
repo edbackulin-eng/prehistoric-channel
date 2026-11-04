@@ -1,7 +1,7 @@
 [
  {
   "slug": "lebende-fossilien",
-  "status": "rejected-rebuild",
+  "status": "qa-failed",
   "rejected_videos": [
    "0lDoysa2Hok",
    "TMe4TpeSBtc"
@@ -11,6 +11,18 @@
   "publish_at": null,
   "rejected_why": "owner review 31.10: hook, subject on screen, pace, music, ambience, thumbnail; uploaded twice (30.10)",
   "rejected_at": "2026-10-30T22:40:00Z",
-  "run_id": "41106622316"
+  "run_id": "41820706582",
+  "artifact": "release-lebende-fossilien",
+  "built_at": "2026-11-04T13:55:14Z",
+  "qa_failed": [
+   "hook: 9 shots in 30 s, 9 moving animal clips (need 3), not moving or no animal at none, cuts outside 1.5-3 s: [16.4], sound hit: yes",
+   "subject: animal on screen where told: {'coelacanth': 0.98} (need >= 60%); landscapes 28% (max 15%); prehistoric animals in motion: 20 shots",
+   "pace: average shot 11.1 s (3-5), hook 3.6 s (1.5-3); shown more than twice: none; again within 3 min: none",
+   "music: under the voice per minute: [15.33, 22.34, 21.81, 22.6, 21.53, 22.66, 21.09, 22.76, 21.74, 22.28, 22.05, 21.74, 22.24, 21.81, 22.52, 21.3, 22.84, 21.1, 22.87, 21.28, 22.39, 22.3, 21.59, 22.04] dB (20-24); minutes outside: [0]; music as loud as the voice in minute(s): none; music silent 19 s",
+   "first_min: 55% moving in the first minute (need 70 %)",
+   "motion: prehistoric animals in motion 23% of the film (need 40%): LTX 317 s, real footage of the animals 21 s, 2.5D parallax 0 s",
+   "dinosaurs: 1 LTX clips of dinosaurs (need 2): ['ltx-kpg_dinosaur_death__s0']",
+   "wow: 45 wow moments, the longest gap 484 s (max 45); longer gaps after [330, 395, 541, 609, 695, 807, 964] s"
+  ]
  }
 ]
