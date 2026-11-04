@@ -28,10 +28,17 @@ KEEP = GPU / "_clips_before"
 
 
 def line_of(slug, beat_id):
+    """The whole narration line the beat sits on (shots.json keeps only its first words,
+    which the check cannot judge a picture by: "Wie konnte dieser Fisch")."""
     spec = json.loads((ROOT / "episodes" / slug / "shots.json").read_text(encoding="utf-8"))["lines"]
+    script = (ROOT / "episodes" / slug / "script.txt").read_text(encoding="utf-8")
     for e in spec:
         if any(b.get("id") == beat_id for b in e["beats"]):
-            return e["at"], e.get("topic") or ""
+            i = script.find(e["at"])
+            if i < 0:
+                return e["at"], e.get("topic") or ""
+            end = min([j for j in (script.find(c, i) for c in ".?!\n") if j >= 0] or [len(script)])
+            return script[i:end + 1].strip(), e.get("topic") or ""
     raise SystemExit(f"{beat_id} is on no line of {slug}'s shots.json")
 
 
