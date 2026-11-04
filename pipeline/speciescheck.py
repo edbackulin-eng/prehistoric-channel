@@ -345,8 +345,11 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
                     if asked[0] % 10 == 0:       # kept as it goes: a run that dies later loses nothing
                         vpath.write_text(json.dumps(known, indent=1, ensure_ascii=False), encoding="utf-8")
                 ok, why = passes(v, species, archive, beat.get("allow", ()))
-                if ok is None:                       # the checker failed, not the picture: keep it
-                    ok, why = True, f"unchecked ({why})"
+                if ok is None:
+                    # the checker failed (429, quota, a timeout), not the picture: no verdict,
+                    # and nothing kept or dropped on it - the beat is asked again later
+                    row["candidates"].append({"id": cid, "verdict": "unknown", "why": why, "source": label})
+                    continue
                 if ok and v.get("museum_display"):
                     museum.append(cid)
                 row["candidates"].append({"id": cid, "pass": ok, "why": why, "answer": v, "source": label,
@@ -355,6 +358,14 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
                 if ok:
                     passing.append(cid)
                 time.sleep(1.5)
+            judged = [c for c in row["candidates"] if "pass" in c]
+            if not passing and not judged and row["candidates"]:
+                # 04.11 (megalodon): every frame missing on the runner, or the checker out of
+                # quota, read as "scene dropped" for all 28 beats. Unknown is not rejected:
+                # no pick is written, so the next run asks again
+                row["action"] = "unknown"
+                logrows.append(row)
+                continue
             picks[bk] = passing
             row["picks"] = passing
             row["action"] = ("kept" if passing and passing[0] == candidates(beat, footage, layers)[0][0]
@@ -369,14 +380,15 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
                "beats": len(logrows), "kept": sum(r["action"] == "kept" for r in logrows),
                "alternate": sum(r["action"] == "replaced by an alternate" for r in logrows),
                "dropped": [r["beat"] for r in logrows if r["action"] == "scene dropped"],
+               "unknown": [r["beat"] for r in logrows if r["action"] == "unknown"],
                "rows": logrows}
     (out_dir / "species_check.json").write_text(json.dumps(summary, indent=1, ensure_ascii=False), encoding="utf-8")
     try:
         grid(summary, out_dir / "species_grid.jpg")
     except Exception as e:                                       # noqa: BLE001
         log.warning("species grid failed: %s", e)
-    log.info("species check: %d beats, %d kept, %d alternates, dropped %s; %d new requests", summary["beats"],
-             summary["kept"], summary["alternate"], summary["dropped"], asked[0])
+    log.info("species check: %d beats, %d kept, %d alternates, dropped %s, unknown %s; %d new requests",
+             summary["beats"], summary["kept"], summary["alternate"], summary["dropped"], summary["unknown"], asked[0])
     return picks
 
 

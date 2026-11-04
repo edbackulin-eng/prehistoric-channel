@@ -116,12 +116,15 @@ jobs:
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
           [ $rc -eq 0 ] || [ $rc -eq 3 ] || exit $rc
       - name: Species check of the FLUX frames, and which to animate
-        if: steps.flux.outputs.rc == '0'
+        if: steps.flux.outputs.rc == '0' && env.deferred != '1'
         env:
           SLUG: ${{ steps.pick.outputs.slug }}
         run: |
           python automation/llm_budget.py need flux_check "$SLUG" || { echo "deferred=1" >> "$GITHUB_ENV"; exit 0; }
-          python automation/select_animate.py "$SLUG"
+          # 3: scenes not judged (quota, frames missing) - the episode waits, nothing is rejected
+          rc=0; python automation/select_animate.py "$SLUG" || rc=$?
+          [ $rc -eq 3 ] && { echo "deferred=1" >> "$GITHUB_ENV"; echo "::warning::species check incomplete; retried later"; }
+          [ $rc -eq 0 ] || [ $rc -eq 3 ] || exit $rc
           git add "episodes/$SLUG/species_verdicts.json" && bash "$RUNNER_TEMP/push.sh" "FLUX species check for $SLUG" || true
       - name: LTX-Video on Kaggle
         id: ltx

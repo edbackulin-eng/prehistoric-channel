@@ -26,7 +26,12 @@ def main(slug):
     recon = json.loads((ep / "recon.json").read_text(encoding="utf-8"))
     raw = ROOT / "gpu" / "results_recon" / "raw"
     out = ROOT / "work" / slug / "flux_check"
+    if not raw.exists() or not any(raw.iterdir()):
+        # 04.11: a rerun reached this step without the FLUX frames and "dropped" all 28 scenes
+        log.error("the FLUX frames are not on this runner (%s); species check deferred, nothing rejected", raw)
+        return 3
     picks = speciescheck.check(slug, raw, out, kinds=("recon",))
+    unknown = json.loads((out / "species_check.json").read_text(encoding="utf-8")).get("unknown") or []
     frames = []
     for fid, motion in (recon.get("animate") or {}).items():
         ok = [c for c in picks.get(fid, [])]
@@ -56,6 +61,10 @@ def main(slug):
     (ROOT / "gpu" / "animate_job.json").write_text(json.dumps(job, indent=1), encoding="utf-8")
     log.info("animate %d of %d planned frames", len(frames), len(recon.get("animate") or {}))
     need = int(cfg["qa"]["ltx_min"])
+    if len(frames) < need and unknown:
+        # not judged (quota, a checker down, frames missing): ask again later, reject nothing
+        log.error("%d scenes could not be checked (%s); retry when the quota is back", len(unknown), unknown[:6])
+        return 3
     if len(frames) < need:
         # the render needs that many clips (QA): without enough frames no GPU hour is spent on it
         log.error("only %d frames to animate, the render needs %d LTX clips: the plan needs more FLUX animals",

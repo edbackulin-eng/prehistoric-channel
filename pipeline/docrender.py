@@ -152,6 +152,18 @@ def still_clip(shot, layers_dir, need_s, out, size):
     alpha = cv2.imread(str(ap), cv2.IMREAD_GRAYSCALE) if ap.exists() else None
     if alpha is None:
         bg = None
+    crop = shot.get("crop")
+    if crop:
+        # another framing of the same still (pipeline/fragments.py CROPS), back at full size
+        from pipeline import fragments
+        x0, y0, x1, y1 = fragments.CROPS[int(crop)]
+        h, w = img.shape[:2]
+        box = (slice(int(y0 * h), int(y1 * h)), slice(int(x0 * w), int(x1 * w)))
+        img = cv2.resize(img[box], (w, h), interpolation=cv2.INTER_CUBIC)
+        if bg is not None:
+            bg = cv2.resize(bg[box], (w, h), interpolation=cv2.INTER_CUBIC)
+        if alpha is not None:
+            alpha = cv2.resize(alpha[box], (w, h), interpolation=cv2.INTER_LINEAR)
     img, bg = np.ascontiguousarray(img), (np.ascontiguousarray(bg) if bg is not None else None)
     lum = float(cv2.resize(img, (320, 180)).mean() / 255)
     n = int(round(need_s * FPS))

@@ -14,7 +14,8 @@ Rules (the owner's QA of 31.10; automation/qa.py measures every one of them)
     come first, and a beat without one is only used when those have run out;
   - sea, sky and landscape without an animal stay under 15 % of the film: past
     that, such a beat gives way to the episode's animals (SUBJECT pool);
-  - a clip is shown at most twice, and never again within 3 minutes;
+  - a fragment (a stretch of a clip, a framing of a still) is shown at most twice, and
+    never again within 3 minutes; long shots are cut into fragments (pipeline/fragments.py);
   - the atmosphere follows the picture: sea only under a sea picture; a sky, a
     map, a fossil or an archive gets wind or a neutral room tone;
   - a line too long for one shot gets a second one from the beat's next passing
@@ -286,8 +287,15 @@ def build(slug, timeline, narration_s, parts=6, picks=None, animated=None):
     recon_p = ep / "recon.json"
     wow_ids = set(json.loads(recon_p.read_text(encoding="utf-8")).get("wow") or []) if recon_p.exists() else set()
     long_ltx(shots)
-    # every FLUX beat of the plan, the extinct ones without a species too
-    wow_pass(shots, wow_ids, [bt for e in spec for bt in e["beats"] if bt["kind"] == "recon"], picks, animated)
+    # more cuts from the same material, never the same fragment twice; landscapes, the first
+    # minute and the wow moments put right (pipeline/fragments.py, owner 04.11)
+    from pipeline import fragments
+    recon_beats = [bt for e in spec for bt in e["beats"] if bt["kind"] == "recon"
+                   and not is_landscape({**bt, "kind": "recon"})]
+    fpool = fragments.Pool(shots, animated, clips, subject_pool + [b for b in recon_beats if b not in subject_pool],
+                           picks, speciescheck.beat_key, REPEAT_MAX, REPEAT_GAP_S)
+    shots = fragments.refine(shots, end_all, fpool, is_landscape, is_wow, wow_ids, HOOK_WINDOW_S, WOW_AIM_S,
+                             LANDSCAPE_MAX, FIRST_MINUTE_MOVING)
 
     for s in shots:
         s["amb_line"] = s.get("amb")
