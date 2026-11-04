@@ -1,0 +1,241 @@
+{
+ "slug": "lebende-fossilien",
+ "pass": false,
+ "checks": [
+  {
+   "name": "hook",
+   "ok": false,
+   "detail": "9 shots in 30 s, 9 moving animal clips (need 3), not moving or no animal at none, cuts outside 1.5-3 s: [16.4], sound hit: yes"
+  },
+  {
+   "name": "ltx",
+   "ok": true,
+   "detail": "10 LTX-Video clips (need 8)"
+  },
+  {
+   "name": "subject",
+   "ok": false,
+   "detail": "animal on screen where told: {'coelacanth': 0.98} (need >= 60%); landscapes 28% (max 15%); prehistoric animals in motion: 20 shots",
+   "subject_share": {
+    "coelacanth": 0.98
+   },
+   "landscape_share": 0.285
+  },
+  {
+   "name": "pace",
+   "ok": false,
+   "detail": "average shot 11.1 s (3-5), hook 3.6 s (1.5-3); shown more than twice: none; again within 3 min: none",
+   "mean_shot_s": 11.14,
+   "repeats": {}
+  },
+  {
+   "name": "music",
+   "ok": false,
+   "detail": "under the voice per minute: [15.33, 22.34, 21.81, 22.6, 21.53, 22.66, 21.09, 22.76, 21.74, 22.28, 22.05, 21.74, 22.24, 21.81, 22.52, 21.3, 22.84, 21.1, 22.87, 21.28, 22.39, 22.3, 21.59, 22.04] dB (20-24); minutes outside: [0]; music as loud as the voice in minute(s): none; music silent 19 s"
+  },
+  {
+   "name": "ambience",
+   "ok": true,
+   "detail": "sea atmosphere under a picture without sea at none s"
+  },
+  {
+   "name": "first_min",
+   "ok": false,
+   "detail": "55% moving in the first minute (need 70 %)"
+  },
+  {
+   "name": "motion",
+   "ok": false,
+   "detail": "prehistoric animals in motion 23% of the film (need 40%): LTX 317 s, real footage of the animals 21 s, 2.5D parallax 0 s",
+   "motion_share": 0.234
+  },
+  {
+   "name": "dinosaurs",
+   "ok": false,
+   "detail": "1 LTX clips of dinosaurs (need 2): ['ltx-kpg_dinosaur_death__s0']"
+  },
+  {
+   "name": "wow",
+   "ok": false,
+   "detail": "45 wow moments, the longest gap 484 s (max 45); longer gaps after [330, 395, 541, 609, 695, 807, 964] s",
+   "wow_max_gap_s": 483.7
+  },
+  {
+   "name": "thumbnail",
+   "ok": true,
+   "detail": "chosen: thumbnail_c.jpg; judge: {'animal': 'Krokodil', 'animal_big_and_recognisable': True, 'prehistoric_or_living_fossil': True, 'bright': True, 'words_readable': True, 'forbidden_seen': [], 'pass': True, 'why': 'Das Krokodil ist riesig und gut erkennbar, Farben und Kontrast stimmen, genau zwei gut lesbare Wörter und kein verbotenes Element.'}"
+  }
+ ],
+ "duration_s": 1447.57,
+ "first_minute_moving": 0.55,
+ "levels_per_minute": [
+  {
+   "minute": 0,
+   "voice_lufs": -17.38,
+   "music_lufs_under_voice": -32.71,
+   "music_lufs": -31.32,
+   "under_db": 15.33
+  },
+  {
+   "minute": 1,
+   "voice_lufs": -18.05,
+   "music_lufs_under_voice": -40.39,
+   "music_lufs": -40.33,
+   "under_db": 22.34
+  },
+  {
+   "minute": 2,
+   "voice_lufs": -17.74,
+   "music_lufs_under_voice": -39.55,
+   "music_lufs": -38.91,
+   "under_db": 21.81
+  },
+  {
+   "minute": 3,
+   "voice_lufs": -18.04,
+   "music_lufs_under_voice": -40.64,
+   "music_lufs": -40.25,
+   "under_db": 22.6
+  },
+  {
+   "minute": 4,
+   "voice_lufs": -17.48,
+   "music_lufs_under_voice": -39.01,
+   "music_lufs": -38.7,
+   "under_db": 21.53
+  },
+  {
+   "minute": 5,
+   "voice_lufs": -18.06,
+   "music_lufs_under_voice": -40.72,
+   "music_lufs": -40.6,
+   "under_db": 22.66
+  },
+  {
+   "minute": 6,
+   "voice_lufs": -18.37,
+   "music_lufs_under_voice": -39.46,
+   "music_lufs": -38.88,
+   "under_db": 21.09
+  },
+  {
+   "minute": 7,
+   "voice_lufs": -17.7,
+   "music_lufs_under_voice": -40.46,
+   "music_lufs": -40.11,
+   "under_db": 22.76
+  },
+  {
+   "minute": 8,
+   "voice_lufs": -17.62,
+   "music_lufs_under_voice": -39.36,
+   "music_lufs": -38.73,
+   "under_db": 21.74
+  },
+  {
+   "minute": 9,
+   "voice_lufs": -17.69,
+   "music_lufs_under_voice": -39.97,
+   "music_lufs": -39.76,
+   "under_db": 22.28
+  },
+  {
+   "minute": 10,
+   "voice_lufs": -16.97,
+   "music_lufs_under_voice": -39.01,
+   "music_lufs": -38.45,
+   "under_db": 22.05
+  },
+  {
+   "minute": 11,
+   "voice_lufs": -17.91,
+   "music_lufs_under_voice": -39.65,
+   "music_lufs": -39.26,
+   "under_db": 21.74
+  },
+  {
+   "minute": 12,
+   "voice_lufs": -18.26,
+   "music_lufs_under_voice": -40.5,
+   "music_lufs": -39.86,
+   "under_db": 22.24
+  },
+  {
+   "minute": 13,
+   "voice_lufs": -17.84,
+   "music_lufs_under_voice": -39.65,
+   "music_lufs": -39.22,
+   "under_db": 21.81
+  },
+  {
+   "minute": 14,
+   "voice_lufs": -17.46,
+   "music_lufs_under_voice": -39.97,
+   "music_lufs": -39.82,
+   "under_db": 22.52
+  },
+  {
+   "minute": 15,
+   "voice_lufs": -17.71,
+   "music_lufs_under_voice": -39.01,
+   "music_lufs": -38.87,
+   "under_db": 21.3
+  },
+  {
+   "minute": 16,
+   "voice_lufs": -18.11,
+   "music_lufs_under_voice": -40.95,
+   "music_lufs": -40.51,
+   "under_db": 22.84
+  },
+  {
+   "minute": 17,
+   "voice_lufs": -17.77,
+   "music_lufs_under_voice": -38.86,
+   "music_lufs": -38.78,
+   "under_db": 21.1
+  },
+  {
+   "minute": 18,
+   "voice_lufs": -17.71,
+   "music_lufs_under_voice": -40.59,
+   "music_lufs": -40.35,
+   "under_db": 22.87
+  },
+  {
+   "minute": 19,
+   "voice_lufs": -18.03,
+   "music_lufs_under_voice": -39.31,
+   "music_lufs": -39.1,
+   "under_db": 21.28
+  },
+  {
+   "minute": 20,
+   "voice_lufs": -17.33,
+   "music_lufs_under_voice": -39.72,
+   "music_lufs": -39.63,
+   "under_db": 22.39
+  },
+  {
+   "minute": 21,
+   "voice_lufs": -17.37,
+   "music_lufs_under_voice": -39.66,
+   "music_lufs": -39.57,
+   "under_db": 22.3
+  },
+  {
+   "minute": 22,
+   "voice_lufs": -18.93,
+   "music_lufs_under_voice": -40.52,
+   "music_lufs": -39.97,
+   "under_db": 21.59
+  },
+  {
+   "minute": 23,
+   "voice_lufs": -18.09,
+   "music_lufs_under_voice": -40.12,
+   "music_lufs": -40.05,
+   "under_db": 22.04
+  }
+ ]
+}
