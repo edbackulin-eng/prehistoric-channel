@@ -21,5 +21,14 @@
   "episode.yml-41385570149",
   "episode.yml-41398232335",
   "episode.yml-41413024325"
+ ],
+ "reruns": [
+  {
+   "run": "41784634582/1",
+   "wf": "render.yml",
+   "sig": "layers (3) / 2.5D layers, shard 3 of 12",
+   "day": "2026-11-04",
+   "rerun": true
+  }
  ]
 }
