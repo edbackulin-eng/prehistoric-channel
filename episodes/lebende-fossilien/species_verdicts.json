@@ -11502,5 +11502,934 @@
   "museum_display": false,
   "note": "Coastal scene fitting ocean/sea narration context",
   "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_00__s0": {
+  "subject": "coelacanth head close-up",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows coelacanth head, but narration says fisherman pulls something",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_00__s1": {
+  "subject": "Close-up of a coelacanth head",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Close-up shot of a coelacanth, but narration says 'Ein Fischer zieht etwas'",
+  "model": "gemini-flash-lite-latest"
+ },
+ "cretaceous_trex_stride__s0": {
+  "subject": "a large dinosaur in a foggy forest",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Narration mentions a fisherman pulling something, but image shows a dinosaur.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "cretaceous_trex_stride__s1": {
+  "subject": "dinosaur in a misty forest",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "narration says fisherman pulls something, but image shows a dinosaur",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_01__s0": {
+  "subject": "coelacanth front view",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "not visible",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Frontal close-up of a coelacanth matching narration.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_01__s1": {
+  "subject": "coelacanth head-on view",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear close-up of a coelacanth matching the narration.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_02__s0": {
+  "subject": "coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a coelacanth matching the narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_02__s1": {
+  "subject": "blue fish underwater",
+  "species_match": false,
+  "features": {
+   "large, thick, rhomboid scales": "no",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "not a coelacanth, standard teleost fish anatomy",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_03__s0": {
+  "subject": "coelacanth swimming in deep water",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Narration mentions a boat, but the image shows a coelacanth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_03__s1": {
+  "subject": "Coelacanth swimming in the deep ocean",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear image of a coelacanth, but does not fit the narration about a boat.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_04__s0": {
+  "subject": "coelacanth swimming in dark water",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "not visible",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "digital rendering of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_04__s1": {
+  "subject": "coelacanth underwater with light",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "clear coelacanth illustration or photo matching narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_05__s0": {
+  "subject": "Coelacanth swimming near rocks underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear image of a coelacanth matching all requested features.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_05__s1": {
+  "subject": "blue fish with scales and lobed fins",
+  "species_match": false,
+  "features": {
+   "large, thick, rhomboid scales": "no",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "illustration of a standard teleost fish, not a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_06__s0": {
+  "subject": "Coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a coelacanth matching all key features.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_06__s1": {
+  "subject": "Coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "A clear depiction of a coelacanth matching all features.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_07__s0": {
+  "subject": "AI-generated prehistoric-looking fish",
+  "species_match": false,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "AI depiction does not have anatomical features of a real coelacanth, especially lacking the characteristic three-lobed tail and true lobed fins.",
+  "model": "gemini-flash-latest"
+ },
+ "standby_coelacanth_07__s1": {
+  "subject": "AI-generated generic fish",
+  "species_match": false,
+  "features": {
+   "large, thick, rhomboid scales": "no",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Lacks the characteristic anatomical features of a coelacanth, especially the trilobed caudal fin and limb-like lobed fins.",
+  "model": "gemini-flash-latest"
+ },
+ "standby_coelacanth_08__s0": {
+  "subject": "coelacanth underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "digital render of a coelacanth",
+  "model": "gemini-flash-latest"
+ },
+ "standby_coelacanth_08__s1": {
+  "subject": "AI-generated fish resembling a coelacanth or grouper",
+  "species_match": false,
+  "features": {
+   "large, thick, rhomboid scales": "no",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "AI-generated rendering of a fish that superficially mimics a coelacanth but lacks authentic anatomical features like lobed fins and proper scale morphology.",
+  "model": "gemini-flash-latest"
+ },
+ "standby_coelacanth_09__s0": {
+  "subject": "AI-generated fantasy fish",
+  "species_match": false,
+  "features": {
+   "large, thick, rhomboid scales": "no",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "no",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Anatomically incorrect AI-generated fish with a bizarre fin protruding from its head/snout and incorrect fin structure for a coelacanth.",
+  "model": "gemini-flash-latest"
+ },
+ "standby_coelacanth_09__s1": {
+  "subject": "coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a coelacanth matching all features.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_10__s0": {
+  "subject": "coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a coelacanth swimming.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_10__s1": {
+  "subject": "coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "clear coelacanth illustration fitting the narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_11__s0": {
+  "subject": "coelacanth underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "clear coelacanth illustration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_11__s1": {
+  "subject": "coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a coelacanth matching all features.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_12__s0": {
+  "subject": "coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a coelacanth under deep water.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_12__s1": {
+  "subject": "coelacanth underwater with spotlight",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Coelacanth illuminated by a submersible light",
+  "model": "gemini-flash-lite-latest"
+ },
+ "devonian_axelrodichthys__s0": {
+  "subject": "Prehistoric fish underwater",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Prehistoric scene fitting the narration introduction.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "cretaceous_mawsonia__s0": {
+  "subject": "prehistoric fish swimming in deep water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "prehistoric scene fitting narration context",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_13__s0": {
+  "subject": "fish with lobed fins",
+  "species_match": false,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or dark grey coloration": "no",
+   "single dorsal fin and caudal fin with lobes": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "AI generated image resembling a coelacanth mix with a perch.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_13__s1": {
+  "subject": "Coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "A coelacanth swimming in a rocky underwater habitat.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "kpg_ammonite_extinction__s0": {
+  "subject": "prehistoric ammonite shell on seabed",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Prehistoric scene depicting an ammonite",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_14__s0": {
+  "subject": "coelacanth (Quastenflosser)",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a coelacanth matching all features.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_14__s1": {
+  "subject": "coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a coelacanth matching all features.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "kpg_ichthyosaur_swim__s0": {
+  "subject": "prehistoric marine reptile swimming in the ocean",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "prehistoric scene suitable for the documentary",
+  "model": "gemini-flash-lite-latest"
+ },
+ "kpg_dinosaur_death__s0": {
+  "subject": "a large theropod dinosaur in a prehistoric forest under stormy skies",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "prehistoric scene fitting the narration about a catastrophe",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_15__s0": {
+  "subject": "coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a coelacanth matching all features.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_15__s1": {
+  "subject": "coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Generated image of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_16__s0": {
+  "subject": "coelacanth fish head and body",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear close-up of a coelacanth showing characteristic scales and head shape.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_16__s1": {
+  "subject": "coelacanth underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Coelacanth illustrating the find",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_17__s0": {
+  "subject": "coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear coelacanth illustration showing typical anatomical features.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_17__s1": {
+  "subject": "coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a coelacanth matching the narration.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_18__s0": {
+  "subject": "coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "clear coelacanth illustration matching narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_18__s1": {
+  "subject": "coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "depicts a coelacanth matching the narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_19__s0": {
+  "subject": "coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a coelacanth matching all features.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_19__s1": {
+  "subject": "Coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_20__s0": {
+  "subject": "Coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a coelacanth matching all required features.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_20__s1": {
+  "subject": "coelacanth model illuminated by light source",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "no",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "light source"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Stylized model or 3D rendering of a coelacanth with a spotlight.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_21__s0": {
+  "subject": "coelacanth model in a rocky underwater setting",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "yes",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": true,
+  "note": "model of a coelacanth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_coelacanth_21__s1": {
+  "subject": "coelacanth swimming underwater",
+  "species_match": true,
+  "features": {
+   "large, thick, rhomboid scales": "not visible",
+   "fleshy, lobed pectoral and pelvic fins resembling limbs": "yes",
+   "massive, heavy lower jaw": "yes",
+   "steel-blue or dark grey coloration": "yes",
+   "single dorsal fin and caudal fin with lobes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Coelacanth in an underwater environment",
+  "model": "gemini-flash-lite-latest"
  }
 }
