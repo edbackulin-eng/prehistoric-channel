@@ -1,0 +1,26 @@
+{
+ "gemma-4-26b-a4b-it": {
+  "requests": 1,
+  "in_tokens": 2424,
+  "out_tokens": 535,
+  "steps": {
+   "plan": 1
+  }
+ },
+ "gemini-flash-lite-latest": {
+  "requests": 12,
+  "in_tokens": 21211,
+  "out_tokens": 24387,
+  "steps": {
+   "plan": 12
+  }
+ },
+ "groq:qwen/qwen3.8-27b": {
+  "requests": 1,
+  "in_tokens": 632,
+  "out_tokens": 465,
+  "steps": {
+   "plan": 1
+  }
+ }
+}
