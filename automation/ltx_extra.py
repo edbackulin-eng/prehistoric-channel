@@ -42,7 +42,10 @@ def line_of(slug, beat_id):
     raise SystemExit(f"{beat_id} is on no line of {slug}'s shots.json")
 
 
-def prepare(slug, frames):
+def prepare(slug, frames, checked=()):
+    """checked: frames that passed in an earlier run of this chain - not asked again (the
+    check is not deterministic: on 05.11 the same T. rex frame passed at 22:16 and failed
+    at 06:50, and the relay died on it)."""
     from pipeline import speciescheck
     recon = json.loads((ROOT / "episodes" / slug / "recon.json").read_text(encoding="utf-8"))
     key = speciescheck._key()
@@ -54,6 +57,10 @@ def prepare(slug, frames):
         if img is None:
             raise SystemExit(f"{fid}: no FLUX frame in {raw}")
         line, topic = line_of(slug, base)
+        if fid in checked:
+            job.append({"id": fid, "prompt": recon["prompts"][base],
+                        "motion": (recon.get("animate") or {}).get(base) or "moves slowly and naturally, gentle camera push in"})
+            continue
         if not key:
             raise SystemExit("no Gemini key: the frame cannot be checked, and no GPU hour goes on an unchecked one")
         v = speciescheck.ask(key, [img], line, "prehistoric_scene", topic or recon["prompts"][base])
@@ -63,9 +70,12 @@ def prepare(slug, frames):
             log.error("%s could not be checked (%s); try again later", fid, why)
             return 3
         if not ok:
-            raise SystemExit(f"{fid} fails the species check on its line: {why}")
+            log.warning("%s fails the species check on its line (%s); not animated", fid, why)
+            continue
         job.append({"id": fid, "prompt": recon["prompts"][base],
                     "motion": (recon.get("animate") or {}).get(base) or "moves slowly and naturally, gentle camera push in"})
+    if not job:
+        raise SystemExit("no frame passed the species check on its line")
     cfg = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))
     n_frames = int(cfg["qa"].get("ltx_frames", 97))
     (GPU / "animate_job.json").write_text(json.dumps(
@@ -93,4 +103,7 @@ def merge(slug):
 
 if __name__ == "__main__":
     cmd, slug = sys.argv[1], sys.argv[2]
-    sys.exit(prepare(slug, sys.argv[3].split(",")) if cmd == "prepare" else merge(slug))
+    if cmd == "prepare":
+        checked = [x for x in (sys.argv[4] if len(sys.argv) > 4 else "").split(",") if x]
+        sys.exit(prepare(slug, sys.argv[3].split(","), checked))
+    sys.exit(merge(slug))
