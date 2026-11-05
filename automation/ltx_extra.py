@@ -72,6 +72,11 @@ def prepare(slug, frames, checked=()):
         if not ok:
             log.warning("%s fails the species check on its line (%s); not animated", fid, why)
             continue
+        # the render's check reuses this verdict instead of asking again (it is not deterministic)
+        vp = ROOT / "episodes" / slug / "species_verdicts.json"
+        known = json.loads(vp.read_text(encoding="utf-8")) if vp.exists() else {}
+        known[fid] = v
+        vp.write_text(json.dumps(known, indent=1, ensure_ascii=False), encoding="utf-8")
         job.append({"id": fid, "prompt": recon["prompts"][base],
                     "motion": (recon.get("animate") or {}).get(base) or "moves slowly and naturally, gentle camera push in"})
     if not job:

@@ -97,7 +97,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for f in state/kaggle_once.json state/gpu_ledger.json; do [ -e "$f" ] && git add -A "$f"; done
+          for f in state/kaggle_once.json state/gpu_ledger.json "episodes/${{ inputs.slug }}/species_verdicts.json"; do
+            [ -e "$f" ] && git add -A "$f"
+          done
           git diff --cached --quiet && exit 0
           git commit -q -m "GPU usage after ltx-extra run ${{ github.run_id }}"
           for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
