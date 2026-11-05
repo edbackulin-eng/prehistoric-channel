@@ -323,6 +323,9 @@ def main():
           len(early) >= 2 and trex and trex[0]["end"] - trex[0]["start"] >= 6.0
           and max(t for t, _ in wows if t < 150) > 100 and wows[0][0] <= 45,
           str((wows, [(x["start"], x["end"]) for x in trex], wp["checks"].get("wow_max_gap_s"))))
+    check("fragments: a piece of real footage keeps its need (the render names it)",
+          all(x.get("need") for x in wp["shots"] if x["kind"] == "real"),
+          str([(x["start"], (x.get("clip") or {}).get("id")) for x in wp["shots"] if x["kind"] == "real" and not x.get("need")][:5]))
     # the watchdog hands a built episode in the buffer to upload.yml once a token exists
     from automation import release, watchdog
     calls = []
