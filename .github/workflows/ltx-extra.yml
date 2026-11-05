@@ -23,6 +23,9 @@ on:
       render:
         description: then render (and release) the episode with this run's clips
         default: "true"
+      checked:
+        description: frames already passed the check in an earlier run of this chain (a relay)
+        default: ""
 
 permissions:
   contents: write
@@ -63,7 +66,7 @@ jobs:
         id: prep
         run: |
           set +e
-          python automation/ltx_extra.py prepare "${{ inputs.slug }}" "${{ inputs.frames }}"; rc=$?
+          python automation/ltx_extra.py prepare "${{ inputs.slug }}" "${{ inputs.frames }}" "${{ inputs.checked }}"; rc=$?
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
           [ $rc -eq 0 ] || [ $rc -eq 3 ] || exit $rc
       - name: LTX-Video on Kaggle
@@ -94,16 +97,20 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          for f in state/kaggle_once.json state/gpu_ledger.json; do [ -e "$f" ] && git add -A "$f"; done
+          for f in state/kaggle_once.json state/gpu_ledger.json "episodes/${{ inputs.slug }}/species_verdicts.json"; do
+            [ -e "$f" ] && git add -A "$f"
+          done
           git diff --cached --quiet && exit 0
           git commit -q -m "GPU usage after ltx-extra run ${{ github.run_id }}"
           for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
       - name: Relay (still waiting for a free GPU slot)
         if: steps.ltx.outputs.rc == '3' && fromJSON(inputs.relay) < 12
         run: |
+          # the frames that passed: the next run does not ask the check again
+          ok=$(python -c "import json;print(','.join(f['id'] for f in json.load(open('gpu/animate_job.json'))['frames']))")
           gh workflow run ltx-extra.yml -R "${{ github.repository }}" -f slug="${{ inputs.slug }}" \
             -f gpu_run="${{ inputs.gpu_run }}" -f frames="${{ inputs.frames }}" \
-            -f relay="$(( ${{ inputs.relay }} + 1 ))" -f render="${{ inputs.render }}"
+            -f relay="$(( ${{ inputs.relay }} + 1 ))" -f render="${{ inputs.render }}" -f checked="$ok"
       - name: Render with the clips old and new, then release
         if: steps.ltx.outputs.rc == '0' && inputs.render == 'true'
         run: |
