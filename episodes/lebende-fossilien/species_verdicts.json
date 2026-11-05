@@ -12405,5 +12405,45 @@
   "museum_display": false,
   "note": "Coelacanth in an underwater environment",
   "model": "gemini-flash-lite-latest"
+ },
+ "cretaceous_trex_stride__s0": {
+  "subject": "Tyrannosaurus rex in misty forest",
+  "species_match": null,
+  "features": {
+   "striding through misty forest": "yes",
+   "massive head": "yes",
+   "short two-fingered arms": "yes",
+   "heavy tail": "yes",
+   "pebbly skin": "yes",
+   "low camera angle": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Fits the narration about dinosaur extinction well.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "cretaceous_trex_stride__s1": {
+  "subject": "Tyrannosaurus rex in misty forest",
+  "species_match": null,
+  "features": {
+   "misty forest": "yes",
+   "massive head": "yes",
+   "short arms": "yes",
+   "heavy tail": "yes",
+   "grey-brown skin": "yes",
+   "low camera angle": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Matches the dinosaur extinction reference well.",
+  "model": "gemini-flash-lite-latest"
  }
 }
