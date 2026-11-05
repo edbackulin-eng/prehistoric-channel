@@ -1,4 +1,5 @@
 name: smoke
+run-name: smoke ${{ inputs.ref || github.ref_name }}
 
 # Code reaches main only through here. Work is pushed to dev; this runs the
 # whole chain on ten seconds of a real script (scripts/smoke.py) and, if it
@@ -8,6 +9,10 @@ on:
   push:
     branches: [dev]
   workflow_dispatch:
+    inputs:
+      ref:
+        description: the branch to test (an autofix branch is tested, never promoted)
+        default: dev
 
 permissions:
   contents: write
@@ -27,7 +32,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          ref: dev
+          ref: ${{ inputs.ref || 'dev' }}
           fetch-depth: 0
       - uses: actions/setup-python@v6
         with:
@@ -39,6 +44,7 @@ jobs:
       - name: Smoke test
         run: python scripts/smoke.py
       - name: Promote dev to main
+        if: (inputs.ref || 'dev') == 'dev'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -51,7 +57,7 @@ jobs:
           done
           git push origin main:dev || echo "dev moved on meanwhile; it is merged next time"
       - name: Email on failure
-        if: failure()
+        if: failure() && (inputs.ref || 'dev') == 'dev'
         run: |
           n=$(gh issue list -R ${{ github.repository }} --label run-log --state open --json number --jq '.[0].number // empty')
           [ -n "$n" ] && gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} **smoke test failed - the change was NOT moved to main**: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
