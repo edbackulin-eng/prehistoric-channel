@@ -21,7 +21,8 @@
   "episode.yml-41385570149",
   "episode.yml-41398232335",
   "episode.yml-41413024325",
-  "stop-episode.yml-build / Species check of the FLUX frames, and which to animate-20261104"
+  "stop-episode.yml-build / Species check of the FLUX frames, and which to animate-20261104",
+  "stop-render.yml-part / Render part 7-20261105"
  ],
  "reruns": [
   {
@@ -233,6 +234,13 @@
    "sig": "part / Render part 12",
    "day": "2026-11-05",
    "rerun": true
+  },
+  {
+   "run": "41922911782/14",
+   "wf": "render.yml",
+   "sig": "part / Render part 7",
+   "day": "2026-11-05",
+   "rerun": false
   }
  ]
 }
