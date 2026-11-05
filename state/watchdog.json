@@ -149,6 +149,13 @@
    "sig": "part / Render part 5",
    "day": "2026-11-04",
    "rerun": true
+  },
+  {
+   "run": "41922911782/2",
+   "wf": "render.yml",
+   "sig": "part / Render part 8",
+   "day": "2026-11-05",
+   "rerun": true
   }
  ]
 }
