@@ -117,7 +117,7 @@ def real_clip(shot, src, need_s, out, size):
           f"scale={w}:{h}:force_original_aspect_ratio=increase:flags=lanczos,crop={w}:{h},"
           f"{GRADE.format(gamma=g)},format=yuv420p")
     _ff("-ss", f"{start:.3f}", "-t", f"{src_len:.3f}", "-i", src, "-vf", vf, "-t", f"{need_s:.3f}",
-        "-an", *INTER, out, label=f"real {shot['need']}")
+        "-an", *INTER, out, label=f"real {shot.get('need') or clip.get('id')}")
     return {"speed": speed, "in": round(start, 2), "gamma": round(g, 3), "src_fps": info["fps"],
             "src": f"{info['w']}x{info['h']}"}
 

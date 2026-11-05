@@ -222,8 +222,12 @@ def refine(shots, end_all, pool, is_landscape, is_wow, wow_ids, hook_window, wow
             if k:
                 p.pop("label", None)
                 p.pop("title", None)
-                got = pool.same_source(s, a, step) or pool.subject(a, step, species=s.get("species"),
-                                                                   moving=hook, still_first=not hook)
+                same = pool.same_source(s, a, step)
+                if same is not None:
+                    # another fragment of the same source: everything else of the shot stays
+                    # (04.11: a real clip's piece lost its "need", and the render failed on it)
+                    same = {**{kk: s[kk] for kk in CLIP_KEYS if kk in s and kk not in ("clip", "crop")}, **same}
+                got = same or pool.subject(a, step, species=s.get("species"), moving=hook, still_first=not hook)
                 if got is None:                       # nothing left anywhere: the piece stays with its shot
                     out[-1]["end"] = p["end"]
                     continue
