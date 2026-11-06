@@ -85,11 +85,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "cretaceous_trex_stride",
-     "species": null
     }
    ]
   },
@@ -1394,7 +1389,13 @@
    "n": 53,
    "section": "story",
    "amb": "room",
-   "beats": []
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "cretaceous_trex_stride",
+     "species": null
+    }
+   ]
   },
   {
    "at": "Nach eingehender wissenschaftlicher Untersuchung",
