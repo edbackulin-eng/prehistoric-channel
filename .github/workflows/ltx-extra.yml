@@ -31,8 +31,20 @@ permissions:
   contents: write
   actions: write
 
+# Its own group, not "episode". Almost all of this run is WAITING for a free GPU
+# window - on a What If build day the dinosaurs may only have the GPU between 17:30
+# and 20:00 UTC - and the wait runs to GPU_MAX_WAIT_S (4 h 10) before the run relays
+# itself. Sharing the "episode" group meant that wait held the build's slot around the
+# clock: from 5 November 11:43 the relays ran back to back, 11:43, 15:58, 20:13, 00:29,
+# 04:44, 09:00, and no episode could start at all between them. The channel went two
+# days without a build for that reason alone.
+#
+# The GPU itself is not protected by this group and never was: gpu/kaggle_once.py asks
+# others_busy() about every channel's kernels and whatif_building() about What If, and
+# waits for them. That is the lock. This group only kept two of OUR runs apart, and the
+# price was the build.
 concurrency:
-  group: episode
+  group: ltx-extra
   cancel-in-progress: false
 
 env:
