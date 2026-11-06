@@ -21,6 +21,17 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_prehistoric_whale_00",
+     "species": "prehistoric_whale",
+     "standby": true
+    },
+    {
+     "kind": "recon",
+     "id": "cretaceous_trex_stride",
+     "species": null
     }
    ]
   },
@@ -34,6 +45,11 @@
      "kind": "recon",
      "id": "megalodon_massive_attack",
      "species": "megalodon"
+    },
+    {
+     "kind": "recon",
+     "id": "cretaceous_triceratops_herd",
+     "species": null
     }
    ]
   },
@@ -56,6 +72,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_00",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -131,13 +153,7 @@
    "n": 6,
    "section": "story",
    "amb": "ocean",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_shadow_hunt",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Der Fossilbericht dieses Kolosses",
@@ -210,26 +226,14 @@
    "n": 10,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_sunlit_waters",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Manchmal reichten die Wege",
    "n": 11,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_deep_waters",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Wer diesen Ozean bewohnte,",
@@ -351,6 +355,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_prehistoric_whale_01",
+     "species": "prehistoric_whale",
+     "standby": true
     }
    ]
   },
@@ -459,6 +469,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_01",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -511,13 +527,7 @@
    "n": 25,
    "section": "story",
    "amb": "room",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_jaw_open",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Er spiegelt die monumentale",
@@ -638,13 +648,7 @@
    "n": 31,
    "section": "story",
    "amb": "ocean",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_tooth_close",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Nur in extremen Ausnahmefällen",
@@ -695,78 +699,42 @@
    "n": 34,
    "section": "story",
    "amb": "ocean",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_jaw_open",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Sie bilden kein simples",
    "n": 35,
    "section": "story",
    "amb": "ocean",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_tooth_close",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Jeder einzelne Zahn zeigt",
    "n": 36,
    "section": "story",
    "amb": "ocean",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_jaw_open",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "An der Basis greift",
    "n": 37,
    "section": "story",
    "amb": "ocean",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_tooth_close",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Was jedoch beim Blick",
    "n": 38,
    "section": "story",
    "amb": "ocean",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_coastal_waters",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Während die vorderen Zähne",
    "n": 39,
    "section": "story",
    "amb": "ocean",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_jaw_open",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Die hinteren Positionen zeigen",
@@ -795,39 +763,21 @@
    "n": 41,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_upper_jaw",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Der Unterkiefer spiegelt diese",
    "n": 42,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_lower_jaw",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Seitliche Zacken an der",
    "n": 43,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_juvenile_teeth",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Die Zähne sind zwar",
@@ -848,6 +798,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_02",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -870,11 +826,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "megalodon_reconstruction",
-     "species": "megalodon"
     }
    ]
   },
@@ -897,11 +848,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "megalodon_vs_modern",
-     "species": "megalodon"
     }
    ]
   },
@@ -954,39 +900,21 @@
    "n": 49,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_robust_jaw",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Massive Muskelpakete spannten sich",
    "n": 50,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_muscles",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Sie erzeugten eine Beißkraft,",
    "n": 51,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_attack_strike",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Wie konnte ein Jäger",
@@ -1015,13 +943,7 @@
    "n": 53,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_jaw_architecture",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Die Zähne selbst zeigen",
@@ -1099,6 +1021,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_prehistoric_whale_02",
+     "species": "prehistoric_whale",
+     "standby": true
     }
    ]
   },
@@ -1165,6 +1093,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_03",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -1296,6 +1230,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_04",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -1482,6 +1422,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_prehistoric_whale_03",
+     "species": "prehistoric_whale",
+     "standby": true
     }
    ]
   },
@@ -1570,6 +1516,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_05",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -1636,6 +1588,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_06",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -1746,6 +1704,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_07",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -1856,6 +1820,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_08",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -1966,6 +1936,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_prehistoric_whale_04",
+     "species": "prehistoric_whale",
+     "standby": true
     }
    ]
   },
@@ -2308,6 +2284,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_09",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -2480,6 +2462,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_10",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -2658,13 +2646,7 @@
    "n": 147,
    "section": "climax",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_colossal_attack",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Trotz dieser unvorstellbaren Ausdehnung",
@@ -2685,11 +2667,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "megalodon_slender_morph",
-     "species": "megalodon"
     }
    ]
   },
@@ -2718,13 +2695,7 @@
    "n": 151,
    "section": "climax",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_hunting_prey",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Zwar existieren in theoretischen",
@@ -2800,13 +2771,7 @@
    "n": 157,
    "section": "finale",
    "amb": "ocean",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "megalodon_colossal_attack",
-     "species": "megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Plötzlich reichte die Spanne",
