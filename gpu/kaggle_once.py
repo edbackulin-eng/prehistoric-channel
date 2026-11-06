@@ -152,6 +152,18 @@ def in_their_hours(now=None, job_h=0.0):
     return None
 
 
+def next_open(now=None, job_h=0.0, days=8):
+    """The first minute from now when in_their_hours lets this job start (None: not within
+    `days`): Wed and Sun 04:00 UTC, What If's build days 17:30 UTC, the job done by 20:00."""
+    t = (now or datetime.now(timezone.utc)).replace(second=0, microsecond=0)
+    for _ in range(days * 24 * 60):
+        if in_their_hours(t, job_h) is None:
+            return t
+        t += timedelta(minutes=1)
+    return None
+
+
+NEXT_OPEN = ROOT / "gpu" / "next_open.txt"
 _CT = {}
 
 
@@ -335,6 +347,7 @@ def main(task, slug):
             say("nothing to animate")
             return 0
         job_h = round(0.2 + len(want) * LTX_H_PER_CLIP, 2)
+    NEXT_OPEN.unlink(missing_ok=True)
     st = status(ref)
     started = None
     if st == "complete":
@@ -357,8 +370,21 @@ def main(task, slug):
             why = in_their_hours(job_h=job_h)
             if why:
                 idle_since = None
-                say(f"waiting: {why}")
-                time.sleep(15 * 60)
+                # owner 06.11: to the minute the window opens, not a blind wait that may end
+                # just before it; if it opens after this run's wait, the run hands over
+                # (automation/gpu_pending.py: the watchdog starts the next one in time)
+                now_ = datetime.now(timezone.utc)
+                opens = next_open(now_, job_h)
+                left = MAX_WAIT_S - (time.time() - t0)
+                if opens is None or (opens - now_).total_seconds() > left:
+                    if opens is not None:
+                        NEXT_OPEN.write_text(opens.strftime("%Y-%m-%dT%H:%M:%SZ"), encoding="utf-8")
+                    say(f"waiting: {why}; the window opens "
+                        f"{opens:%a %d.%m %H:%M} UTC" if opens else f"waiting: {why}; no window within 8 days")
+                    say("that is after this run's wait: handed over, started again just before it opens")
+                    return 3
+                say(f"waiting: {why}; the window opens at {opens:%H:%M} UTC, sleeping until then")
+                time.sleep(max(30.0, (opens - now_).total_seconds()))
                 continue
             ok, line = budget(job_h)
             if not ok:

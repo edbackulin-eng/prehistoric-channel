@@ -164,8 +164,14 @@ jobs:
       - name: Relay (still waiting for a free GPU slot)
         if: (steps.flux.outputs.rc == '3' || steps.ltx.outputs.rc == '3') && fromJSON(inputs.relay) < 30
         run: |
-          gh workflow run episode.yml -R "${{ github.repository }}" -f slug="${{ steps.pick.outputs.slug }}" \
-            -f relay="$(( ${{ inputs.relay }} + 1 ))"
+          # at once, or - the window opens after this run's wait - just before it opens, by the
+          # watchdog (automation/gpu_pending.py, owner 06.11)
+          python automation/gpu_pending.py relay episode.yml slug="${{ steps.pick.outputs.slug }}" \
+            relay="$(( ${{ inputs.relay }} + 1 ))"
+          if [ -e state/gpu_pending.json ]; then
+            git add state/gpu_pending.json
+            bash "$RUNNER_TEMP/push.sh" "episode ${{ steps.pick.outputs.slug }}: waits for the GPU window (run ${{ github.run_id }})" || true
+          fi
       - name: Render (2160p, parallel on Actions), then upload or buffer
         if: steps.flux.outputs.rc == '0' && steps.ltx.outputs.rc != '3' && env.deferred != '1'
         run: |

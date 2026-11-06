@@ -15,7 +15,9 @@ Acts only through GitHub Actions and the YouTube API. Each pass:
      is started (episode.yml; the GPU rules are kept inside it);
   4. an episode waiting in the buffer is uploaded as soon as YT_TOKEN_JSON
      exists (upload.yml), on the nearest free slot;
-  5. once a day the state is committed (state/heartbeat.json), so GitHub never
+  5. GPU work handed over until the free Kaggle window opens (state/gpu_pending.json,
+     automation/gpu_pending.py) is started when due, just before the window;
+  6. once a day the state is committed (state/heartbeat.json), so GitHub never
      switches the schedules off for a quiet repository.
 Every email is recorded in state/watchdog.json so one failure is reported once.
 """
@@ -180,6 +182,17 @@ def check_runs(mem, actions):
     return busy
 
 
+def check_gpu_pending(actions):
+    """GPU work handed over until the free window opens (automation/gpu_pending.py): started
+    when due. True while a build waits there, so no second build is started meanwhile."""
+    from automation import gpu_pending
+    for r in gpu_pending.take_due(now()):
+        gh("workflow", "run", r["workflow"], "-R", REPO, *sum((["-f", f"{k}={v}"] for k, v in r["inputs"].items()), []),
+           parse=False)
+        actions.append(f"started {r['workflow']} {r['inputs'].get('slug', '')} for the GPU window at {r['opens']}")
+    return bool(gpu_pending.waiting_for("episode.yml"))
+
+
 def check_buffer(busy, actions):
     from automation import release
     from automation import llm_budget
@@ -220,6 +233,10 @@ def main():
     except Exception as e:                                           # noqa: BLE001
         log.error("run check failed: %s", e)
         busy = True
+    try:
+        busy = check_gpu_pending(actions) or busy
+    except Exception as e:                                           # noqa: BLE001
+        log.error("pending GPU starts failed: %s", e)
     try:
         have = check_buffer(busy, actions)
     except Exception as e:                                           # noqa: BLE001

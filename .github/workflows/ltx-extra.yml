@@ -120,9 +120,18 @@ jobs:
         run: |
           # the frames that passed: the next run does not ask the check again
           ok=$(python -c "import json;print(','.join(f['id'] for f in json.load(open('gpu/animate_job.json'))['frames']))")
-          gh workflow run ltx-extra.yml -R "${{ github.repository }}" -f slug="${{ inputs.slug }}" \
-            -f gpu_run="${{ inputs.gpu_run }}" -f frames="${{ inputs.frames }}" \
-            -f relay="$(( ${{ inputs.relay }} + 1 ))" -f render="${{ inputs.render }}" -f checked="$ok"
+          # at once, or - the window opens after this run's wait - just before it opens, by the
+          # watchdog (automation/gpu_pending.py, owner 06.11)
+          python automation/gpu_pending.py relay ltx-extra.yml slug="${{ inputs.slug }}" \
+            gpu_run="${{ inputs.gpu_run }}" frames="${{ inputs.frames }}" \
+            relay="$(( ${{ inputs.relay }} + 1 ))" render="${{ inputs.render }}" checked="$ok"
+          if [ -e state/gpu_pending.json ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add state/gpu_pending.json
+            git diff --cached --quiet || git commit -q -m "ltx-extra ${{ inputs.slug }}: waits for the GPU window (run ${{ github.run_id }})"
+            for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && break; sleep $((i * 10)); done
+          fi
       - name: Render with the clips old and new, then release
         if: steps.ltx.outputs.rc == '0' && inputs.render == 'true'
         run: |

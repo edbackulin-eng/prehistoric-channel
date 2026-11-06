@@ -73,6 +73,36 @@ def main():
         ok, why = kaggle_once.validate("recon", d, want)
         check(f"kernel output check: {label}", ok == expect, why)
 
+    # owner 06.11: the GPU work starts as the free window opens, not after a blind 4 h 10 wait
+    from datetime import datetime, timezone
+    U = timezone.utc
+    opens = {label: kaggle_once.next_open(t, 0.6) for label, t in (
+        ("Fri 13:10", datetime(2026, 11, 6, 13, 10, tzinfo=U)), ("Fri 19:50", datetime(2026, 11, 6, 19, 50, tzinfo=U)),
+        ("Sat 23:00", datetime(2026, 11, 7, 23, 0, tzinfo=U)), ("Wed 01:00", datetime(2026, 11, 11, 1, 0, tzinfo=U)))}
+    check("GPU window opens: What If days 17:30, Wed and Sun 04:00, never into 20:00",
+          opens["Fri 13:10"] == datetime(2026, 11, 6, 17, 30, tzinfo=U)
+          and opens["Fri 19:50"] == datetime(2026, 11, 7, 17, 30, tzinfo=U)
+          and opens["Sat 23:00"] == datetime(2026, 11, 8, 4, 0, tzinfo=U)
+          and opens["Wed 01:00"] == datetime(2026, 11, 11, 4, 0, tzinfo=U), str(opens))
+    from automation import gpu_pending
+    saved_gp = (gpu_pending.PENDING, gpu_pending.NEXT_OPEN, gpu_pending.dispatch)
+    gpu_pending.PENDING, gpu_pending.NEXT_OPEN = W / "gpu_pending.json", W / "next_open.txt"
+    sent = []
+    gpu_pending.dispatch = lambda repo, wf, inputs: sent.append((wf, inputs))
+    try:
+        now_r = gpu_pending.relay("r", "ltx-extra.yml", {"slug": "x", "relay": "1"})
+        gpu_pending.NEXT_OPEN.write_text("2026-11-06T17:30:00Z", encoding="utf-8")
+        later = gpu_pending.relay("r", "ltx-extra.yml", {"slug": "x", "relay": "2"})
+        gpu_pending.relay("r", "ltx-extra.yml", {"slug": "x", "relay": "3"})          # replaces, not adds
+        early = gpu_pending.take_due(datetime(2026, 11, 6, 17, 0, tzinfo=U))
+        due = gpu_pending.take_due(datetime(2026, 11, 6, 17, 12, tzinfo=U))
+        check("GPU relay: at once when busy; when the window opens later, 20 min before it, once",
+              now_r == "relayed now" and len(sent) == 1 and later.startswith("pending") and not early
+              and len(due) == 1 and due[0]["inputs"]["relay"] == "3" and due[0]["at"] == "2026-11-06T17:10:00Z"
+              and gpu_pending.load() == [], f"{now_r} | {later} | {early} | {due}")
+    finally:
+        gpu_pending.PENDING, gpu_pending.NEXT_OPEN, gpu_pending.dispatch = saved_gp
+
     # the 2.5D mask rules: one clear subject passes, scraps and empty fail
     import recon_job
     src = recon_job.SOURCE
@@ -342,6 +372,24 @@ def main():
     check("watchdog starts the upload of a buffered episode",
           len(calls) == 1 and "upload.yml" in calls[0] and "slug=smoke-ep" in calls[0] and "run_id=123" in calls[0],
           str(calls))
+    from automation import gpu_pending
+    saved_w = (gpu_pending.PENDING, watchdog.gh, watchdog.now)
+    gpu_pending.PENDING = W / "gpu_pending_w.json"
+    calls = []
+    watchdog.gh = lambda *a, **k: calls.append(a)
+    try:
+        gpu_pending.add("episode.yml", {"slug": "megalodon", "relay": "4"},
+                        datetime(2026, 11, 8, 4, 0, tzinfo=timezone.utc))
+        watchdog.now = lambda: datetime(2026, 11, 8, 3, 20, tzinfo=timezone.utc)
+        acts = []
+        waits = watchdog.check_gpu_pending(acts)
+        watchdog.now = lambda: datetime(2026, 11, 8, 3, 41, tzinfo=timezone.utc)
+        started = watchdog.check_gpu_pending(acts)
+    finally:
+        gpu_pending.PENDING, watchdog.gh, watchdog.now = saved_w
+    check("watchdog: a build waiting for the GPU window is busy, and is started 20 min before it opens",
+          waits is True and started is False and len(calls) == 1 and "episode.yml" in calls[0]
+          and "slug=megalodon" in calls[0] and "relay=4" in calls[0], str(calls))
     # 01.11-02.11: one step failed 21 runs in a row, rerun forever, a letter each time. Now: 3 reruns of
     # the same step a day, then the episode waits for the next day and ONE letter goes out
     from automation import llm_budget
