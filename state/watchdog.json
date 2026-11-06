@@ -290,6 +290,13 @@
    "sig": "part / Render part 8",
    "day": "2026-11-06",
    "rerun": true
+  },
+  {
+   "run": "42191900223/4",
+   "wf": "episode.yml",
+   "sig": "build / Species check of the FLUX frames, and which to animate",
+   "day": "2026-11-06",
+   "rerun": true
   }
  ],
  "cancelled": [
