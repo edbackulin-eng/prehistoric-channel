@@ -78,6 +78,26 @@ def run(slug="lebende-fossilien"):
             s["need"] = "ltx-ammonite__s0"
     out.append(("QA: fewer than 2 dinosaur LTX clips fail", not run_checks(p)["dinosaurs"]["ok"],
                 run_checks(p)["dinosaurs"]["detail"]))
+    # owner 06.11: one LTX dinosaur and one FLUX dinosaur the render moved with its 2.5D parallax pass;
+    # the same FLUX still without the render's move does not count
+    p = good_plan()
+    p["shots"][1]["need"] = "ltx-ammonite__s0"
+    for s in p["shots"][40:43]:
+        s.update({"kind": "recon", "image": "cretaceous_trex_stride__s0", "id": "cretaceous_trex_stride", "species": None})
+        s.pop("clip", None)
+    unmoved = qa.checks_of(p, good_sound(), thumbs, slug)
+    moved_parts = [{"clips": [{"i": i, "kind": "recon", "layered": True, "amplitude": 0.04} for i in range(40, 43)]}]
+    moved = qa.checks_of(p, good_sound(), thumbs, slug, moved_parts)
+    d_un = next(c for c in unmoved if c["name"] == "dinosaurs")
+    d_mv = next(c for c in moved if c["name"] == "dinosaurs")
+    out.append(("QA: a FLUX dinosaur counts only when the 2.5D parallax moved it", not d_un["ok"] and d_mv["ok"],
+                d_mv["detail"]))
+    for s in p["shots"][40:43]:                     # the LTX dinosaur's own still is not a second dinosaur
+        s.update({"image": "tyrannosaurus_0__s0", "id": "tyrannosaurus_0"})
+    p["shots"][1]["need"] = "ltx-ammonite__s0"
+    p["shots"][0]["need"] = "ltx-tyrannosaurus_0__s0"
+    again = next(c for c in qa.checks_of(p, good_sound(), thumbs, slug, moved_parts) if c["name"] == "dinosaurs")
+    out.append(("QA: an LTX dinosaur's still is not counted twice", not again["ok"], again["detail"]))
     p = good_plan()                     # the body as FLUX stills: moving only where the render moved them
     for s in p["shots"][12:]:
         s.update({"kind": "recon", "image": "mawsonia__s0", "id": "mawsonia", "species": None, "topic": "mawsonia"})

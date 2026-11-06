@@ -26,7 +26,8 @@ Checks (config/channel.json "qa"):
   motion      prehistoric animals (living fossils too) in motion >= 40 % of the film:
               LTX clips, real footage of the episode's animals, FLUX animals whose
               2.5D parallax move the render made (owner 02.11)
-  dinosaurs   at least 2 LTX clips of dinosaurs
+  dinosaurs   at least 2 dinosaurs in motion: LTX clips of dinosaurs, or FLUX dinosaurs the
+              render moved with its 2.5D parallax (owner 06.11)
   wow         a wow moment (an LTX creature, real footage of an animal, a tense
               picture the plan marked) at least every 45 s
 """
@@ -213,8 +214,17 @@ def checks_of(plan, sound, thumbs, slug, parts=None):
     prompts = recon_prompts(slug)
     dinos = sorted({s["need"] for s in shots if ltx(s) and plan_episode.is_dino(
         s["need"], prompts.get(str(s.get("id") or s["need"][4:].split("__s")[0]), ""))})
-    add("dinosaurs", len(dinos) >= DINO_LTX_MIN, f"{len(dinos)} LTX clips of dinosaurs (need {DINO_LTX_MIN}): "
-        f"{dinos or 'none'}")
+    # owner 06.11: a FLUX dinosaur the render really moved with its 2.5D parallax (the render's
+    # report says layered, amplitude > 0) counts as a dinosaur in motion too, while the GPU is
+    # not free for an LTX one. A dinosaur already counted by its LTX clip is not counted again.
+    animated_ids = {d[4:].split("__s")[0] for d in dinos}
+    moved = sorted({str(s.get("id")) for s in shots if not ltx(s) and s.get("kind") == "recon" and s.get("id")
+                    and str(s.get("id")) not in animated_ids and in_motion(s)
+                    and plan_episode.is_dino(str(s.get("id")), prompts.get(str(s.get("id")), ""))})
+    n_dino = len(dinos) + len(moved)
+    add("dinosaurs", n_dino >= DINO_LTX_MIN, f"{n_dino} dinosaurs in motion (need {DINO_LTX_MIN}): LTX clips "
+        f"{dinos or 'none'}, FLUX dinosaurs moved by the 2.5D parallax {moved or 'none'}"
+        + ("" if px else " - NO render report of the parallax moves"))
     wow_ids = set(recon_wow(slug))
     gaps = docplan.wow_gaps(shots, total, wow_ids)
     long_ = [round(sum(gaps[:i])) for i, g in enumerate(gaps) if g > WOW_MAX_S + TOL]
