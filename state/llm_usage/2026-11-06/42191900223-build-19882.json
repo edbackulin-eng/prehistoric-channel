@@ -1,0 +1,10 @@
+{
+ "groq:qwen/qwen3.8-27b": {
+  "requests": 3,
+  "in_tokens": 2402,
+  "out_tokens": 2421,
+  "steps": {
+   "plan": 3
+  }
+ }
+}
