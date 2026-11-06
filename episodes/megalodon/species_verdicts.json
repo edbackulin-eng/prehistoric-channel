@@ -1,0 +1,2697 @@
+{
+ "pixabay-10844": {
+  "subject": "a figure with pink cloth against black background",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "no",
+   "blowhole on top": "not visible",
+   "flipper limbs": "no",
+   "horizontal tail fluke": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Does not show a whale or aquatic environment.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-372587": {
+  "subject": "Humpback whale swimming underwater",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "blowhole on top": "not visible",
+   "flipper limbs": "yes",
+   "horizontal tail fluke": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Modern whale used to illustrate cetaceans in general",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-208492": {
+  "subject": "aquarium tank with sharks and rays",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "aquarium interior features",
+   "artificial rock structure"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an aquarium tank with small sharks and rays, not a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-63559": {
+  "subject": "underwater view with sun rays",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Underwater scene without animals.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-27784": {
+  "subject": "freshwater aquarium with small fish and driftwood",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a freshwater aquarium, not a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-26818": {
+  "subject": "blue jellyfish swimming",
+  "species_match": false,
+  "features": {
+   "white underbelly": "no",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows jellyfish instead of great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-199127": {
+  "subject": "The Great Wall of China",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows the Great Wall of China instead of a great white shark, but fits the neutral introductory narration.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-20072": {
+  "subject": "blue ink in water",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract ink footage, completely unrelated to a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-364463": {
+  "subject": "diver in deep blue water",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a diver instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-156143": {
+  "subject": "school of fish swimming in an aquarium",
+  "species_match": false,
+  "features": {
+   "massive body size": "no",
+   "triangular teeth": "not visible",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows fish in an aquarium, not a megalodon jaw display.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-175579": {
+  "subject": "fireworks over a waterfront city at night",
+  "species_match": false,
+  "features": {
+   "massive body size": "not visible",
+   "triangular teeth": "not visible",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows fireworks over a city instead of a megalodon jaw.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-154511": {
+  "subject": "living room interior with green screen TV",
+  "species_match": false,
+  "features": {
+   "massive body size": "not visible",
+   "triangular teeth": "not visible",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "furniture",
+   "plants",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "irrelevant stock interior image with green screen",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-154509": {
+  "subject": "living room interior with green screen TV",
+  "species_match": false,
+  "features": {
+   "massive body size": "not visible",
+   "triangular teeth": "not visible",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings",
+   "books"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Image shows a modern living room interior mockup with a green screen television instead of a megalodon display.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-130231": {
+  "subject": "jellyfish swimming",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "no",
+   "blowhole on top": "no",
+   "flipper limbs": "no",
+   "horizontal tail fluke": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a jellyfish instead of a prehistoric whale",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-244188": {
+  "subject": "Humpback whale swimming underwater",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "blowhole on top": "not visible",
+   "flipper limbs": "yes",
+   "horizontal tail fluke": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Modern whale used to illustrate a whale-related narration line",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-216058": {
+  "subject": "aerial view of a river and forest with fog",
+  "species_match": false,
+  "features": {
+   "large marine mammal body": "not visible",
+   "flukes as tail fin": "not visible",
+   "blowhole on top of the head": "not visible",
+   "smooth streamlined skin without scales": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of landscape, no whale shown",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-186115": {
+  "subject": "ocean waves washing onto a sandy beach aerial view",
+  "species_match": false,
+  "features": {
+   "large marine mammal body": "not visible",
+   "flukes as tail fin": "not visible",
+   "blowhole on top of the head": "not visible",
+   "smooth streamlined skin without scales": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows beach waves instead of a whale",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-134822": {
+  "subject": "open ocean water surface waves",
+  "species_match": false,
+  "features": {
+   "large marine mammal body": "not visible",
+   "flukes as tail fin": "not visible",
+   "blowhole on top of the head": "not visible",
+   "smooth streamlined skin without scales": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows only open water, no whale visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-192649": {
+  "subject": "snow-covered winter forest landscape",
+  "species_match": false,
+  "features": {
+   "large marine mammal body": "no",
+   "flukes as tail fin": "no",
+   "blowhole on top of the head": "no",
+   "smooth streamlined skin without scales": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a snowy landscape instead of a blue whale",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-348904": {
+  "subject": "rocky coastline with waves at sunset",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Coastal scenery matching the narration.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-345424": {
+  "subject": "blue jellyfish swimming",
+  "species_match": false,
+  "features": {
+   "torpedo-shaped body": "no",
+   "conical snout": "no",
+   "large gill slits": "no",
+   "homocercal caudal fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows jellyfish instead of a makrelenhai",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-276449": {
+  "subject": "small bird on branches",
+  "species_match": false,
+  "features": {
+   "white underbelly": "no",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a small bird instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-114154": {
+  "subject": "white egrets by a stream",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows white birds instead of a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-154510": {
+  "subject": "interior living room with green screen TV",
+  "species_match": false,
+  "features": {
+   "massive body size": "not visible",
+   "triangular teeth": "not visible",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings",
+   "furniture",
+   "plants"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Video shows an interior living room with a green screen television, completely off-topic.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-276646": {
+  "subject": "grassy field and small house",
+  "species_match": false,
+  "features": {
+   "upright posture": "not visible",
+   "use of stone tools": "not visible",
+   "human skin texture": "not visible",
+   "facial features": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a modern landscape and building instead of prehistoric humans.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-169757": {
+  "subject": "View of the starry night sky and Milky Way from inside a cave opening",
+  "species_match": false,
+  "features": {
+   "upright posture": "not visible",
+   "use of stone tools": "not visible",
+   "human skin texture": "not visible",
+   "facial features": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Illustrates prehistoric perspective/cave environment matching the narration context.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-21536": {
+  "subject": "colored ink in water",
+  "species_match": false,
+  "features": {
+   "upright posture": "not visible",
+   "use of stone tools": "not visible",
+   "human skin texture": "not visible",
+   "facial features": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract ink footage completely unrelated to prehistoric humans",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-181583": {
+  "subject": "empty prehistoric cave interior with fire",
+  "species_match": false,
+  "features": {
+   "upright posture": "not visible",
+   "use of stone tools": "not visible",
+   "human skin texture": "not visible",
+   "facial features": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "cave setting fits prehistoric humans context but no people are visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-340838": {
+  "subject": "pink flowering branch blossoming against a black background",
+  "species_match": false,
+  "features": {
+   "upright posture": "not visible",
+   "use of stone tools": "not visible",
+   "human skin texture": "not visible",
+   "facial features": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The image shows blossoming pink flowers on a branch, completely unrelated to early humans or stone tools.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-112389": {
+  "subject": "flowers blooming time-lapse",
+  "species_match": false,
+  "features": {
+   "upright posture": "not visible",
+   "use of stone tools": "not visible",
+   "human skin texture": "not visible",
+   "facial features": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows flowers blooming, completely unrelated to early humans.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-145826": {
+  "subject": "blossoming branch with white flowers",
+  "species_match": false,
+  "features": {
+   "upright posture": "not visible",
+   "use of stone tools": "not visible",
+   "human skin texture": "not visible",
+   "facial features": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows plant blossoms instead of early humans making stone tools",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-197946": {
+  "subject": "reeds or grass stalks",
+  "species_match": false,
+  "features": {
+   "massive body size": "not visible",
+   "triangular teeth": "not visible",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows plants, not a megalodon tooth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-26637": {
+  "subject": "tall grass",
+  "species_match": false,
+  "features": {
+   "massive body size": "not visible",
+   "triangular teeth": "not visible",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows grass instead of a megalodon tooth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-19368": {
+  "subject": "coastal cliffs and lighthouse with crashing waves",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a rocky coast instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-192066": {
+  "subject": "ocean landscape with rocks",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The clip shows a calm sea with rocks, serving as a general atmospheric ocean shot.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-158411": {
+  "subject": "waterfall with people swimming in pool",
+  "species_match": false,
+  "features": {
+   "torpedo-shaped body": "not visible",
+   "conical snout": "not visible",
+   "large gill slits": "not visible",
+   "homocercal caudal fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "vehicles"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a waterfall and people swimming, not a shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-224821": {
+  "subject": "waterfall in a lush green forest",
+  "species_match": false,
+  "features": {
+   "torpedo-shaped body": "not visible",
+   "conical snout": "not visible",
+   "large gill slits": "not visible",
+   "homocercal caudal fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a waterfall instead of a shark swimming into deep water.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-84618": {
+  "subject": "Moai statues against a cloudy blue sky",
+  "species_match": false,
+  "features": {
+   "upright posture": "not visible",
+   "use of stone tools": "not visible",
+   "human skin texture": "no",
+   "facial features": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "statues"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows stone statues (Moai) instead of ancient cave paintings or humans.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-14297": {
+  "subject": "aerial view of ocean waves breaking on a sandy beach",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial footage of a beach without any sharks.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-338904": {
+  "subject": "ocean waves and coast aerial view",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial view of ocean water and coast, no shark is visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-263305": {
+  "subject": "aerial view of a crowded beach and ocean waves",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial shot of a beach and sea fitting the general narration line about the globe.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-184069": {
+  "subject": "ocean waves crashing on a rocky coast",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of rocky coastline and sea, fits general narration about the globe/seas",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-275007": {
+  "subject": "whale swimming underwater",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "blowhole on top": "not visible",
+   "flipper limbs": "yes",
+   "horizontal tail fluke": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "A whale swimming near a coral reef with jellyfish.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-376846": {
+  "subject": "whale swimming underwater",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "blowhole on top": "not visible",
+   "flipper limbs": "yes",
+   "horizontal tail fluke": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "whale swimming underwater facing camera",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-19987": {
+  "subject": "rocky coastline with sea and waves",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Rocky coast matches ancient rock formations and waves description",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-30486": {
+  "subject": "Great tit",
+  "species_match": false,
+  "features": {
+   "white underbelly": "no",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a bird instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-145921": {
+  "subject": "Great spotted woodpecker on a tree trunk",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a woodpecker instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-241320": {
+  "subject": "blue ocean water surface with gentle waves",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows ocean water surface matching the required description.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-360198": {
+  "subject": "great white shark swimming underwater",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Great white shark matching all requested features.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-82471": {
+  "subject": "sauropod dinosaur on green screen",
+  "species_match": false,
+  "features": {
+   "upright posture": "no",
+   "use of stone tools": "no",
+   "human skin texture": "no",
+   "facial features": "no"
+  },
+  "forbidden_seen": [
+   "tail"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "green screen"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a dinosaur instead of a prehistoric human.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-114658": {
+  "subject": "flying pterosaur against green screen",
+  "species_match": false,
+  "features": {
+   "upright posture": "no",
+   "use of stone tools": "no",
+   "human skin texture": "no",
+   "facial features": "no"
+  },
+  "forbidden_seen": [
+   "wings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "green screen"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a pterosaur on a green screen, not a prehistoric human.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-94444": {
+  "subject": "woodturning on a lathe",
+  "species_match": false,
+  "features": {
+   "upright posture": "not visible",
+   "use of stone tools": "no",
+   "human skin texture": "yes",
+   "facial features": "not visible"
+  },
+  "forbidden_seen": [
+   "modern object"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "lathe",
+   "machinery"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows modern woodworking instead of prehistoric humans with stone tools.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-83036": {
+  "subject": "a triceratops dinosaur on a green screen",
+  "species_match": false,
+  "features": {
+   "upright posture": "no",
+   "use of stone tools": "no",
+   "human skin texture": "no",
+   "facial features": "no"
+  },
+  "forbidden_seen": [
+   "scales"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a triceratops on green screen, not a human using tools.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-74888": {
+  "subject": "calm ocean with coastline",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Calm coastal water instead of stormy dark ocean waves.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-201308": {
+  "subject": "calm sea at sunset with colorful clouds",
+  "species_match": null,
+  "features": {
+   "stormy dark ocean waves": "no",
+   "dramatic sky": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Calm sunset instead of stormy dark ocean waves.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-121472": {
+  "subject": "abstract digital wave animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract CGI animation, not ocean water",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-331030": {
+  "subject": "sunset landscape with old tree",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a mountain landscape instead of ocean water",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-176303": {
+  "subject": "waves crashing on a sandy beach from above",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows beach and shallow water instead of deep ocean water with sun rays",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-201766": {
+  "subject": "ocean waves near a coastline with buildings",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows breaking ocean waves near a coast with buildings, does not show sunlight rays in deep water.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-10480": {
+  "subject": "jellyfish swimming in water",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "no",
+   "blowhole on top": "no",
+   "flipper limbs": "no",
+   "horizontal tail fluke": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The clip shows jellyfish instead of a prehistoric whale.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-1198": {
+  "subject": "small octopus on the seabed",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "no",
+   "blowhole on top": "no",
+   "flipper limbs": "no",
+   "horizontal tail fluke": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an octopus, not a prehistoric whale.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-c606ec9325": {
+  "subject": "whales swimming underwater and a person on a boat",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "blowhole on top": "not visible",
+   "flipper limbs": "yes",
+   "horizontal tail fluke": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "people",
+   "boat",
+   "text"
+  ],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Video clip shows whales swimming underwater followed by a shot of a person on a research boat.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-117702": {
+  "subject": "whale swimming underwater",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "blowhole on top": "not visible",
+   "flipper limbs": "yes",
+   "horizontal tail fluke": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Humpback whale swimming in clear blue water.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-246671": {
+  "subject": "great spotted woodpecker on tree",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a woodpecker instead of a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-306602": {
+  "subject": "great spotted woodpecker on a branch",
+  "species_match": false,
+  "features": {
+   "white underbelly": "no",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a woodpecker instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-24515": {
+  "subject": "waterfall flowing over rocky cliffs",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows waterfall instead of a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-110879": {
+  "subject": "school of small fish",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "no",
+   "blowhole on top": "no",
+   "flipper limbs": "no",
+   "horizontal tail fluke": "no"
+  },
+  "forbidden_seen": [
+   "gills",
+   "fish scales"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The clip shows a school of small fish instead of a whale.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-207990": {
+  "subject": "tropical fish in an aquarium",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "no",
+   "blowhole on top": "no",
+   "flipper limbs": "no",
+   "horizontal tail fluke": "no"
+  },
+  "forbidden_seen": [
+   "gills",
+   "fish scales"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an aquarium with reef fish instead of a prehistoric whale.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-15063": {
+  "subject": "jellyfish swimming",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "no",
+   "blowhole on top": "no",
+   "flipper limbs": "no",
+   "horizontal tail fluke": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The video shows a jellyfish instead of an ancient whale.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-110877": {
+  "subject": "jellyfish swimming underwater",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "no",
+   "blowhole on top": "no",
+   "flipper limbs": "no",
+   "horizontal tail fluke": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows jellyfish instead of a whale.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-218411": {
+  "subject": "aerial view of a harbor with boats",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles",
+   "buildings",
+   "water"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a harbor instead of a paleontologist with a fossil.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-218410": {
+  "subject": "harbor aerial view",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a harbor instead of a paleontologist examining shark tooth fossil",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-121455": {
+  "subject": "abstract digital particle wave",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows abstract motion graphics instead of paleontology or museum scene",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-141918": {
+  "subject": "snow-covered turf houses and church",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows historic turf houses in winter, not a paleontologist with a fossil.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-67358": {
+  "subject": "abstract colored smoke or ink in water",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows abstract smoke or ink instead of a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-3285": {
+  "subject": "great spotted woodpecker on a tree trunk",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Wrong animal: shows a woodpecker instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-300857": {
+  "subject": "white peacock",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows white peacocks, completely unrelated to a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-136997": {
+  "subject": "coral reef with small fish",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a coral reef instead of a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-5338": {
+  "subject": "two swans swimming in water",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows swans instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-113631": {
+  "subject": "toucan perched on a tree branch",
+  "species_match": false,
+  "features": {
+   "white underbelly": "no",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a toucan instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-262189": {
+  "subject": "scientific research microscope laboratory",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows scientific research in a laboratory setting",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-197488": {
+  "subject": "scientists working in a laboratory",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "people",
+   "notebook"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows researchers in a lab setting",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-197931": {
+  "subject": "digital DNA strand animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows digital DNA instead of scientific research/fossils.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-13833": {
+  "subject": "stingray swimming",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "no",
+   "blowhole on top": "no",
+   "flipper limbs": "no",
+   "horizontal tail fluke": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a stingray instead of a whale.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-13823": {
+  "subject": "jellyfish swimming",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "no",
+   "blowhole on top": "no",
+   "flipper limbs": "no",
+   "horizontal tail fluke": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows jellyfish, not a whale",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-16166": {
+  "subject": "school of small fish",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "no",
+   "blowhole on top": "no",
+   "flipper limbs": "no",
+   "horizontal tail fluke": "no"
+  },
+  "forbidden_seen": [
+   "gills",
+   "fish scales"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows fish instead of a whale.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-347595": {
+  "subject": "jellyfish swimming in blue water",
+  "species_match": false,
+  "features": {
+   "white underbelly": "no",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows jellyfish instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-21528": {
+  "subject": "wake of a ship in the open ocean",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows the open ocean and a ship wake, acting as a fair stand-in for the narration.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-105377": {
+  "subject": "Great white shark on green screen",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "green screen"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Great white shark isolated on a green screen background.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-63959": {
+  "subject": "carp swimming in shallow water",
+  "species_match": false,
+  "features": {
+   "white underbelly": "no",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a carp, not a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-31985": {
+  "subject": "woodpecker in a tree",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a woodpecker instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-212502": {
+  "subject": "small bird perching on reeds",
+  "species_match": false,
+  "features": {
+   "white underbelly": "no",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a bird instead of a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-108051": {
+  "subject": "great tit bird",
+  "species_match": false,
+  "features": {
+   "white underbelly": "no",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a small songbird instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-3109": {
+  "subject": "swan and goose on water",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a swan, not a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-172148": {
+  "subject": "ocean buoy in rough sea at night",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buoy"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a buoy in the sea, not a shark jaw underwater.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-63427": {
+  "subject": "underwater ocean view with sun rays",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows underwater ocean surface without any shark or jaw",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-259359": {
+  "subject": "underwater coral reef",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows soft coral on a reef instead of a shark jaw",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-85674": {
+  "subject": "freshwater aquarium with small fish",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows freshwater aquarium fish instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-130588": {
+  "subject": "cartoon octopus wearing a santa hat",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "no",
+   "blowhole on top": "no",
+   "flipper limbs": "no",
+   "horizontal tail fluke": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "santa hat",
+   "cartoon character"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a blue cartoon octopus with a Santa hat instead of a prehistoric whale.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-6681": {
+  "subject": "Sand tiger shark close-up",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "not visible",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a sand tiger shark instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-1287": {
+  "subject": "swans and geese swimming in water",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "feathers"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows swans and geese on water, completely unrelated to a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-78059": {
+  "subject": "swimmers in a large outdoor pool",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "swimming pool"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial shot of people swimming in a pool, completely unrelated to sharks.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-108640": {
+  "subject": "two women looking at a tablet",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "tablet",
+   "people",
+   "logo",
+   "glasses"
+  ],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "completely off-topic stock footage of people with a tablet",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-293788": {
+  "subject": "ocean landscape at sunset with boats",
+  "species_match": false,
+  "features": {
+   "torpedo-shaped body": "not visible",
+   "conical snout": "not visible",
+   "large gill slits": "not visible",
+   "homocercal caudal fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "boats",
+   "modern objects",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows a scenic seascape at sunset, not a mackerel shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-203315": {
+  "subject": "birds flying over water",
+  "species_match": false,
+  "features": {
+   "torpedo-shaped body": "not visible",
+   "conical snout": "not visible",
+   "large gill slits": "not visible",
+   "homocercal caudal fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows birds flying over water instead of a mackerel shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-207042": {
+  "subject": "blue-spotted ribbontail ray on sandy seabed",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a stingray instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-138960": {
+  "subject": "aerial view of clear ocean water and sandy bottom",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows clear ocean water from above, no shark clearly visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-229153": {
+  "subject": "coastal cove and rocky shore",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Coastal landscape instead of a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-203336": {
+  "subject": "underwater background with light rays",
+  "species_match": false,
+  "features": {
+   "torpedo-shaped body": "not visible",
+   "conical snout": "not visible",
+   "large gill slits": "not visible",
+   "homocercal caudal fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows underwater lighting background without any shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-111179": {
+  "subject": "clouds in the sky",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows clouds instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-931": {
+  "subject": "fish swimming in a shallow stream",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "no",
+   "blowhole on top": "no",
+   "flipper limbs": "no",
+   "horizontal tail fluke": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a fish swimming in a river, not a whale.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-1080": {
+  "subject": "underwater scene with plants",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "not visible",
+   "blowhole on top": "not visible",
+   "flipper limbs": "not visible",
+   "horizontal tail fluke": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Underwater scene with no whale visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-204565": {
+  "subject": "aerial view of ocean waves breaking on a beach",
+  "species_match": false,
+  "features": {
+   "torpedo-shaped body": "not visible",
+   "conical snout": "not visible",
+   "large gill slits": "not visible",
+   "homocercal caudal fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows waves breaking on a shore, no shark visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-31884": {
+  "subject": "open ocean and sky",
+  "species_match": false,
+  "features": {
+   "torpedo-shaped body": "not visible",
+   "conical snout": "not visible",
+   "large gill slits": "not visible",
+   "homocercal caudal fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "ocean view, no shark visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-91998": {
+  "subject": "wooden letters spelling text on yellow background",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows text 'CREATE YOUR FUTURE' instead of a shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-1343": {
+  "subject": "indoor swimming pool",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "modern objects"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an indoor swimming pool instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-2180": {
+  "subject": "train running along the coast",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "train",
+   "railway",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows a train by the coast, completely off-topic for a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-259361": {
+  "subject": "cuttlefish underwater",
+  "species_match": false,
+  "features": {
+   "large marine mammal body": "no",
+   "flukes as tail fin": "no",
+   "blowhole on top of the head": "no",
+   "smooth streamlined skin without scales": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a cuttlefish instead of a whale.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-259362": {
+  "subject": "school of fish underwater",
+  "species_match": false,
+  "features": {
+   "large marine mammal body": "no",
+   "flukes as tail fin": "no",
+   "blowhole on top of the head": "no",
+   "smooth streamlined skin without scales": "no"
+  },
+  "forbidden_seen": [
+   "scales",
+   "vertically oriented tail fin like a fish"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows fish, not whales.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-122175": {
+  "subject": "tabby cat lying down",
+  "species_match": false,
+  "features": {
+   "torpedo-shaped body": "no",
+   "conical snout": "no",
+   "large gill slits": "no",
+   "homocercal caudal fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a domestic cat instead of a mackerel shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-122499": {
+  "subject": "ocean waves on a sandy beach",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "waves rolling onto a beach with a rope visible across the water",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-217115": {
+  "subject": "ocean waves crashing against rocky shore",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "No shark is visible, only ocean waves and rocks.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-123068": {
+  "subject": "ocean sunset landscape",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "ocean view at sunset, no shark visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-24216": {
+  "subject": "waves hitting a sandy beach from above",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial view of coastal waves, no shark present.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-120522": {
+  "subject": "dog running in water",
+  "species_match": false,
+  "features": {
+   "torpedo-shaped body": "no",
+   "conical snout": "no",
+   "large gill slits": "no",
+   "homocercal caudal fin": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a dog running through shallow water instead of a shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-15872": {
+  "subject": "white flowering plant blooming (time-lapse)",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows blooming flowers, completely unrelated to a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-120010": {
+  "subject": "a butterfly on pink flowers in a meadow",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a butterfly on flowers instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-20277": {
+  "subject": "human skull with smoke underwater",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a human skull surrounded by ink/smoke, completely unrelated to a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-20278": {
+  "subject": "human skull with colored smoke",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a human skull underwater with yellow and blue ink instead of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-257664": {
+  "subject": "rocky coastline and sea",
+  "species_match": null,
+  "features": {
+   "danish coastline": "no",
+   "rocky beach": "yes",
+   "waves": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows rocky cliffs and sea waves, acting as a suitable coastal landscape stand-in",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-289882": {
+  "subject": "seal on rock by water",
+  "species_match": false,
+  "features": {
+   "white underbelly": "no",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "mammalian ears"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a seal instead of a shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-121509": {
+  "subject": "abstract light animation",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract graphic, not a shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-206772": {
+  "subject": "Giant gourami fish in an aquarium",
+  "species_match": false,
+  "features": {
+   "white underbelly": "no",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a freshwater fish in an aquarium, not a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-372241": {
+  "subject": "pod of dolphins swimming in the ocean",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "no",
+   "large dorsal fin": "no",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [
+   "blowhole"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows dolphins instead of Great White sharks.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-216102": {
+  "subject": "ocean sunset and swimming pool",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "not visible",
+   "blowhole on top": "not visible",
+   "flipper limbs": "not visible",
+   "horizontal tail fluke": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a pool and sunset, no prehistoric whale",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-279814": {
+  "subject": "coastal landscape with mountains and sea",
+  "species_match": false,
+  "features": {
+   "torpedo-shaped body": "not visible",
+   "conical snout": "not visible",
+   "large gill slits": "not visible",
+   "homocercal caudal fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape shot showing mountains and sea, no shark visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-135360": {
+  "subject": "ocean waves breaking on a sandy beach from above",
+  "species_match": false,
+  "features": {
+   "torpedo-shaped body": "not visible",
+   "conical snout": "not visible",
+   "large gill slits": "not visible",
+   "homocercal caudal fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial view of a beach and waves, no shark present.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-31611": {
+  "subject": "bubbles in dark water",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "not visible",
+   "blowhole on top": "not visible",
+   "flipper limbs": "not visible",
+   "horizontal tail fluke": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "only bubbles visible, no animal",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-247497": {
+  "subject": "many small jellyfish swimming in dark water",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "no",
+   "blowhole on top": "no",
+   "flipper limbs": "no",
+   "horizontal tail fluke": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows jellyfish instead of an ancient whale.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-304019": {
+  "subject": "surface of the water with gentle waves",
+  "species_match": false,
+  "features": {
+   "large streamlined body": "not visible",
+   "blowhole on top": "not visible",
+   "flipper limbs": "not visible",
+   "horizontal tail fluke": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "water surface establishing shot",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-217000": {
+  "subject": "sea landscape at sunset with cargo ship",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows sunset over sea with a ship, not dark turbulent deep sea currents",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-204165": {
+  "subject": "aquarium tunnel walkthrough",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an artificial aquarium tunnel, not deep sea currents.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-233356": {
+  "subject": "turbulent river flowing through rocky canyon",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows rushing water in a rocky gorge, fitting general nature/environmental context",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-90544": {
+  "subject": "aerial view of rocky coast and lighthouse with waves",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "lighthouse",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial footage showing a rocky coastline and a lighthouse, does not show a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-2142": {
+  "subject": "blue sky with white clouds",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows clouds instead of a shark",
+  "model": "gemini-flash-lite-latest"
+ }
+}
