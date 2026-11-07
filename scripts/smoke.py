@@ -573,6 +573,33 @@ def main():
     from pipeline import speciescheck
     v = speciescheck.passes({"error": "HTTP 429"}, "prehistoric_scene")
     check("species check: a 429 is no verdict", v[0] is None, str(v))
+    # owner 07.11: a long part is joined a few shots at a time (the runner's memory), same picture
+    import tempfile
+    from pipeline import docrender
+    ct = Path(tempfile.mkdtemp())
+    cl, du, sh = [], [], []
+    for i in range(11):
+        need = 0.8 + (0.4 if i < 10 and (i + 1) % 4 else 0)
+        c = ct / f"s{i}.mp4"
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i",
+                        f"color=c=0x{i * 20:02x}{255 - i * 20:02x}40:s=64x36:r=30:d={need:.3f}",
+                        "-c:v", "libx264", "-crf", "1", "-pix_fmt", "yuv420p", str(c)], check=True)
+        cl.append(c), du.append(need), sh.append({"transition": "cut" if i % 4 == 0 else "fade"})
+    g, lab, L = docrender._chain_graph(len(cl), du, [s["transition"] for s in sh], 0.4)
+    one = ct / "one.mp4"
+    docrender._ff(*[a for c in cl for a in ("-i", c)], "-filter_complex", ";".join(g), "-map", lab, "-an",
+                  "-c:v", "libx264", "-crf", "1", "-pix_fmt", "yuv420p", "-r", "30", one)
+    joined, jd = docrender._prechain(list(cl), list(du), sh, 0.4, ct, (64, 36), 0, max_n=4)
+
+    def fr(p):
+        raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(p), "-vf", "scale=8:4", "-f", "rawvideo",
+                              "-pix_fmt", "rgb24", "-"], capture_output=True).stdout
+        return np.frombuffer(raw, np.uint8).reshape(-1, 4, 8, 3).astype(int)
+    fa, fb = fr(one), fr(joined[0])
+    check("render: a long part joined 4 shots at a time is the same picture as one graph",
+          len(joined) == 1 and len(fa) == len(fb) and abs(L - jd[0]) < 1e-6 and np.abs(fa - fb).mean() < 3,
+          f"{len(fa)} vs {len(fb)} frames")
+    shutil.rmtree(ct, ignore_errors=True)
     print("\nFAILED:\n  " + "\n  ".join(failures) if failures else "\nsmoke test passed")
     return 1 if failures else 0
 
