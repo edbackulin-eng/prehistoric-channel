@@ -1,0 +1,19 @@
+{
+ "gemini-flash-latest": {
+  "requests": 2,
+  "in_tokens": 2882,
+  "out_tokens": 258,
+  "steps": {
+   "thumb-judge": 2
+  }
+ },
+ "gemini-flash-lite-latest": {
+  "requests": 4,
+  "in_tokens": 6650,
+  "out_tokens": 419,
+  "steps": {
+   "thumb-judge": 3,
+   "thumb-choose": 1
+  }
+ }
+}
