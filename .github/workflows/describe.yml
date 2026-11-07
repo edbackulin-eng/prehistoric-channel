@@ -1,0 +1,47 @@
+name: describe
+run-name: describe ${{ inputs.slug }}
+# Lines added to the description of an episode already on YouTube (automation/set_description.py):
+# nothing else of the video changes.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: the episode
+      text:
+        description: the lines to add (\n between lines)
+
+permissions:
+  contents: write
+
+concurrency:
+  group: upload
+  cancel-in-progress: false
+
+jobs:
+  describe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      PYTHONUTF8: 1
+      YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: pip install -q google-api-python-client google-auth
+      - env:
+          SLUG: ${{ inputs.slug }}
+          TEXT: ${{ inputs.text }}
+        run: python automation/set_description.py "$SLUG" "$TEXT"
+      - name: Keep the lines with the episode
+        env:
+          SLUG: ${{ inputs.slug }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "episodes/$SLUG/meta.json"
+          git diff --cached --quiet && exit 0
+          git commit -q -m "Description of $SLUG: lines added"
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
+          exit 1
