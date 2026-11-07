@@ -1,7 +1,7 @@
 [
  {
   "slug": "lebende-fossilien",
-  "status": "awaiting_approval",
+  "status": "scheduled",
   "rejected_videos": [
    "0lDoysa2Hok",
    "TMe4TpeSBtc"
@@ -23,6 +23,7 @@
   "extras": {
    "thumbnail": "set",
    "subtitles": "off: YouTube's automatic captions (config schedule.upload_subtitles)"
-  }
+  },
+  "approved_at": "2026-11-07T19:01:12Z"
  }
 ]
