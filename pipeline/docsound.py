@@ -11,6 +11,16 @@ depth exact and measurable.
 
 Effects are synthesised, low and short - a sub boom, a distant rumble, a soft
 air movement - never a cartoon swish or a stinger.
+
+Owner 07.11 (lebende-fossilien): the sea was heard under pictures without sea, and the
+music and the sea together came up to the voice. Now
+  - an atmosphere plays only inside a shot whose picture carries it
+    (docplan.amb_for), faded inside that shot, never a second into the next one; shots
+    of one atmosphere in a row are one stretch;
+  - the background - music and atmosphere together - is set per minute MUSIC_UNDER_VOICE
+    (22 LU) under the speech, and that sum is what levels() reports and the QA measures
+    (at least 20 dB under the voice in every minute); within it the atmosphere sits
+    AMB_UNDER_MUSIC under the music.
 """
 import json
 import subprocess
@@ -32,8 +42,9 @@ MUSIC_UNDER_VOICE = float(_CFG["music"]["under_voice_db"])   # LU under speech: 
 DUCK_DB = 8.0                     # between sentences the score comes up to ~14 LU under the voice
 CROSSFADE_S = float(_CFG["music"]["crossfade_s"])
 MOODS = _CFG["music"]["moods"]
-AMB_BELOW_VOICE = {"ocean": 20, "beach": 20, "harbour": 21, "underwater": 21, "forest": 22,
-                   "swamp": 22, "wind": 22, "fire": 21, "room": 26}
+AMB_BELOW_VOICE = {"ocean": 26, "beach": 26, "harbour": 27, "underwater": 27, "forest": 28,
+                   "swamp": 28, "wind": 28, "fire": 27, "room": 32}   # before the joint per-minute set
+AMB_FADE_S = 0.4
 
 
 def load(path, sr=SR):
@@ -298,21 +309,48 @@ def _per_minute(voice, mus, speech, meter, max_db=10.0):
     return mus * (10 ** (curve / 20))[:, None]
 
 
+def _bg_curve(voice, bg, speech, meter, max_db=10.0, passes=2):
+    """A gain curve that sets the background (music + atmosphere) of every minute
+    MUSIC_UNDER_VOICE under that minute's speech, never up by more than 0 dB beyond the
+    music's own setting and never more than max_db down."""
+    n = len(bg)
+    total = np.ones(n, np.float32)
+    for _ in range(passes):
+        centres, gains = [], []
+        cur = bg * total[:, None]
+        for a, b in _minutes(n):
+            sp = speech[a:b]
+            v = _lufs_or_none(voice[a:b][sp], meter)
+            m = _lufs_or_none(cur[a:b][sp], meter)
+            if v is None or m is None:
+                continue
+            centres.append((a + b) / 2)
+            gains.append(float(np.clip((v - MUSIC_UNDER_VOICE) - m, -max_db, 0.0)))
+        if not gains:
+            break
+        total = total * (10 ** (np.interp(np.arange(n), centres, gains) / 20)).astype(np.float32)
+    return total
+
+
 def levels(voice, mus, amb, speech, meter):
-    """What the QA measures: per minute the speech and the music under it (LUFS),
-    per second the RMS of voice, music and atmosphere (dBFS), and where the music
-    falls silent."""
+    """What the QA measures: per minute the speech and, under it, the music and the whole
+    background (music + atmosphere) (LUFS); per second the RMS of voice, music and atmosphere
+    (dBFS); and where the music falls silent."""
     n = len(mus)
     per_min = []
+    bg = mus + amb
     for a, b in _minutes(n):
         sp = speech[a:b]
         v = _lufs_or_none(voice[a:b][sp], meter)
         m_sp = _lufs_or_none(mus[a:b][sp], meter)
         m_all = _lufs_or_none(mus[a:b], meter)
+        g_sp = _lufs_or_none(bg[a:b][sp], meter)
         per_min.append({"minute": a // (60 * SR), "voice_lufs": None if v is None else round(v, 2),
                         "music_lufs_under_voice": None if m_sp is None else round(m_sp, 2),
                         "music_lufs": None if m_all is None else round(m_all, 2),
-                        "under_db": None if v is None or m_sp is None else round(v - m_sp, 2)})
+                        "under_db": None if v is None or m_sp is None else round(v - m_sp, 2),
+                        "background_lufs_under_voice": None if g_sp is None else round(g_sp, 2),
+                        "background_under_db": None if v is None or g_sp is None else round(v - g_sp, 2)})
 
     def rms_db(x):
         k = len(x) // SR
@@ -352,15 +390,25 @@ def build(plan, narration_wav, music_path, amb_lib, out_wav, offset_s=0.0, lengt
     # a minute outside 20-24 (04.11: minute 0 at 15.3 dB, the correction held at 6 dB)
     mus = _per_minute(voice, _per_minute(voice, mus, speech, meter), speech, meter)
 
-    # atmosphere per scene, crossfaded
+    # atmosphere: only under the pictures that carry it (owner 07.11), a run of shots of one
+    # atmosphere as one stretch, faded in and out inside it - never into the next picture
+    from pipeline import docplan
     amb = np.zeros((n, 2), np.float32)
-    cache = {}
-    for s in plan["shots"]:
+    cache, spans = {}, []
+    for i, s in enumerate(plan["shots"]):
         kind = s.get("amb")
+        if kind:
+            kind = docplan.amb_for(s, kind)
+        if spans and spans[-1][2] == kind and abs(spans[-1][1] - s["start"]) < 0.05:
+            spans[-1][1] = s["end"]
+            spans[-1][3].append(i)
+        else:
+            spans.append([s["start"], s["end"], kind, [i]])
+    used = []
+    for s0, s1, kind, idx in spans:
         if not kind:
             continue
-        a, b = int((s["start"] - offset_s) * SR), int((s["end"] - offset_s) * SR)
-        a, b = max(0, a - SR), min(n, b + SR)          # one second of overlap each side
+        a, b = max(0, int((s0 - offset_s) * SR)), min(n, int((s1 - offset_s) * SR))
         if b <= a:
             continue
         if kind not in cache:
@@ -371,15 +419,21 @@ def build(plan, narration_wav, music_path, amb_lib, out_wav, offset_s=0.0, lengt
                 bed = synth_bed(entry["synth"], 60, seed=len(cache))
             else:
                 bed = load(ROOT / "assets" / "ambience" / entry["file"])
-            bed = gain_db(bed, (v_l - AMB_BELOW_VOICE.get(kind, 22)) - lufs(bed, meter))
+            bed = gain_db(bed, (v_l - AMB_BELOW_VOICE.get(kind, 28)) - lufs(bed, meter))
             cache[kind] = bed
         bed = cache[kind]
         seg = np.resize(bed[(a * 7) % max(1, len(bed) - 1):], (b - a, 2)) if len(bed) else np.zeros((b - a, 2))
         ramp = np.ones(b - a, np.float32)
-        r = min(SR * 2, (b - a) // 2)
-        ramp[:r] = np.linspace(0, 1, r)
-        ramp[-r:] = np.linspace(1, 0, r)
+        r = min(int(SR * AMB_FADE_S), (b - a) // 2)
+        if r > 0:
+            ramp[:r] = np.linspace(0, 1, r)
+            ramp[-r:] = np.linspace(1, 0, r)
         amb[a:b] += seg * ramp[:, None]
+        used.append({"start": round(s0, 2), "end": round(s1, 2), "amb": kind, "shots": idx})
+
+    # the whole background, music and atmosphere, per minute MUSIC_UNDER_VOICE under the speech
+    bg_gain = _bg_curve(voice, mus + amb, speech, meter)
+    mus, amb = mus * bg_gain[:, None], amb * bg_gain[:, None]
 
     # effects, from the plan
     fx = np.zeros((n, 2), np.float32)
@@ -427,6 +481,7 @@ def build(plan, narration_wav, music_path, amb_lib, out_wav, offset_s=0.0, lengt
            "hook_hit": any(sec["name"] == "hook" for sec in plan.get("sections") or []),
            **measure(out_wav)}
     lv = levels(voice, mus, amb, speech, meter)
+    lv["amb_spans"] = used
     log.info("mix: %s; per minute under the voice: %s dB; music silent %d s", rep,
              [m["under_db"] for m in lv["per_minute"]], lv["music_silent_s"])
     rep["levels"] = lv
