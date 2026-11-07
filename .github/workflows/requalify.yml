@@ -115,6 +115,19 @@ jobs:
           git commit -q -m "Released $SLUG (requalify of render ${{ inputs.run_id }}): $(python -c "import json;print(next(x['status'] for x in json.load(open('state/episodes.json')) if x['slug']=='$SLUG'))")"
           for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
           exit 1
+      - name: Already uploaded - the new judged thumbnail on it (nothing else changes)
+        if: steps.qa.outputs.pass == 'true' && inputs.thumbs == 'true'
+        env:
+          YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
+        run: |
+          [ -e "episodes/$SLUG/uploaded.json" ] || exit 0
+          python automation/set_thumbnail.py "$SLUG" || { echo "::warning::thumbnail not set"; exit 0; }
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "episodes/$SLUG/uploaded.json"
+          git diff --cached --quiet && exit 0
+          git commit -q -m "New thumbnail on $SLUG (requalify ${{ github.run_id }})"
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
       - name: Keep the quota record
         if: always() && steps.qa.outputs.pass != 'true'
         run: |

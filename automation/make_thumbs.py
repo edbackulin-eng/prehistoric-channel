@@ -47,10 +47,12 @@ log = get_logger("thumbs")
 # flash first; its day spent, the lighter models with their own quotas (config llm_quota)
 JUDGE_MODELS = ("gemini-flash-latest", "gemini-flash-lite-latest", "gemma-4-31b-it", "gemma-4-26b-a4b-it")
 # the hook words for an animal of the episode: two or three German words, honest to the film
+# owner 07.11: correct German, never two loose words ("RIESIG URZEIT", "NOCH LEBEND", "URZEIT
+# MONSTER" were turned down); a compound broken over two lines keeps its hyphen
 ANIMAL_WORDS = [("trex", (["DER", "KÖNIG"], 1)), ("tyrannosaur", (["DER", "KÖNIG"], 1)),
-                ("mawsonia", (["RIESIG", "URZEIT"], 0)), ("axelrodichthys", (["URZEIT", "RIESE"], 1)),
-                ("coelacanth", (["NOCH", "LEBEND"], 1)), ("quastenflosser", (["NOCH", "LEBEND"], 1)),
-                ("lungfish", (["NOCH", "LEBEND"], 1)), ("ichthyosaur", (["URZEIT", "MONSTER"], 1))]
+                ("mawsonia", (["ÜBERLEBT!"], 0)), ("axelrodichthys", (["URZEIT-", "RIESE"], 1)),
+                ("coelacanth", (["LEBT", "NOCH!"], 1)), ("quastenflosser", (["LEBT", "NOCH!"], 1)),
+                ("lungfish", (["LEBT", "NOCH!"], 1)), ("ichthyosaur", (["URZEIT-", "MONSTER"], 1))]
 NOT_ANIMAL = ("landscape", "ocean", "sea_", "extinction", "impact", "death", "map", "reef", "forest", "coast")
 CFG = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))["thumbnail"]
 SIZE = (1280, 720)
@@ -255,8 +257,12 @@ oder ein roter Pfeil/Kreis, und 2-3 große Wörter, in einer Sekunde lesbar.
 VERBOTEN (dann sofort "pass": false): DNA, Moleküle, Diagramme, Schemata, Karten, abstrakte Muster,
 Texturen, eine Landschaft/ein Meer ohne großes Tier, ein Tier winzig oder angeschnitten bis zur
 Unkenntlichkeit, Menschen im Vordergrund, mehr als drei Wörter.
+Der Text muss korrektes Deutsch sein: richtige Rechtschreibung und Grammatik, ein zusammengesetztes Wort
+zusammen oder mit Bindestrich (am Zeilenende getrennt: "URZEIT-" / "MONSTER"), keine zwei losen Wörter
+ohne Satzbau wie "RIESIG URZEIT" oder "NOCH LEBEND"; sonst "pass": false.
 Antworte als JSON: {{"animal": "<welches Tier>", "animal_big_and_recognisable": true|false,
 "prehistoric_or_living_fossil": true|false, "bright": true|false, "words_readable": true|false,
+"text": "<der Text, wie er dasteht>", "german_correct": true|false,
 "forbidden_seen": ["..."], "pass": true|false, "why": "<kurz>"}}"""
 
 
@@ -268,7 +274,7 @@ def judge(path, title):
     except Exception as e:                                               # noqa: BLE001
         return False, f"judge unavailable: {str(e)[:120]}"
     ok = bool(a.get("pass")) and a.get("animal_big_and_recognisable") and a.get("prehistoric_or_living_fossil") \
-        and a.get("words_readable") and not a.get("forbidden_seen")
+        and a.get("words_readable") and a.get("german_correct") is True and not a.get("forbidden_seen")
     return bool(ok), a
 
 

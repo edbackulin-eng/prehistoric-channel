@@ -111,7 +111,9 @@ erkennbar, und ein Bild-Trick als Haken:
   "scale"      - ein winziger Taucher neben dem riesigen Tier, gelb eingekreist (Größenvergleich)
   "split"      - links das Fossil, rechts das lebende/rekonstruierte Tier
   "silhouette" - im Hintergrund die dunkle Silhouette eines T-Rex, das Tier groß davor
-Jede Variante einen anderen Trick. Text: 2-3 deutsche Wörter, eines davon als Akzent (rot), wahr, neugierig.
+Jede Variante einen anderen Trick. Text: 1-3 deutsche Wörter, eines davon als Akzent (rot), wahr, neugierig,
+und korrektes Deutsch: ein kurzer Satz oder Ausruf ("LEBT NOCH!", "ÜBERLEBT!", "DER KÖNIG") oder ein
+zusammengesetztes Wort mit Bindestrich ("URZEIT-MONSTER"), nie zwei lose Wörter wie "RIESIG URZEIT".
 Lebende Tiere (living=true) nur als echtes Foto ("base": "photo" mit englischer Bildsuche), ausgestorbene als
 FLUX-Bild ("base": "flux" mit englischem Prompt: Kopf/Auge groß, knallige Farben, dramatisches Licht,
 viel Raum für Text links oder rechts, keine Menschen, keine Schrift).
