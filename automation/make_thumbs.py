@@ -18,6 +18,15 @@ line readable at 336x189 (pipeline/doc_thumb.py measures it). Living animals
 are real photographs, extinct ones FLUX frames. Each base goes through the
 species check; Gemini-flash then picks the variant that works best at small
 size, and that one becomes thumbnail.jpg - the one that goes to YouTube.
+
+When the planned bases do not pass (07.11, lebende-fossilien: none of the three did, and
+the fallback looked for FLUX frames in a folder the merge job does not have), the bases are
+the episode's own FLUX animals that already passed the species check in prepare
+(work/<slug>/inputs/species_picks.json, frames in inputs/layers): cropped close on the
+animal, made vivid, each a different animal and trick, until three are judged. The judge
+and the chooser go on to gemini-flash-lite and the Gemma models when flash's day is spent.
+
+    python automation/make_thumbs.py <slug> --episode-bases     # only those (a re-check of a render)
 """
 import json
 import os
@@ -35,6 +44,14 @@ from core.logger import get_logger  # noqa: E402
 from pipeline import doc_thumb, speciescheck  # noqa: E402
 
 log = get_logger("thumbs")
+# flash first; its day spent, the lighter models with their own quotas (config llm_quota)
+JUDGE_MODELS = ("gemini-flash-latest", "gemini-flash-lite-latest", "gemma-4-31b-it", "gemma-4-26b-a4b-it")
+# the hook words for an animal of the episode: two or three German words, honest to the film
+ANIMAL_WORDS = [("trex", (["DER", "KÖNIG"], 1)), ("tyrannosaur", (["DER", "KÖNIG"], 1)),
+                ("mawsonia", (["RIESIG", "URZEIT"], 0)), ("axelrodichthys", (["URZEIT", "RIESE"], 1)),
+                ("coelacanth", (["NOCH", "LEBEND"], 1)), ("quastenflosser", (["NOCH", "LEBEND"], 1)),
+                ("lungfish", (["NOCH", "LEBEND"], 1)), ("ichthyosaur", (["URZEIT", "MONSTER"], 1))]
+NOT_ANIMAL = ("landscape", "ocean", "sea_", "extinction", "impact", "death", "map", "reef", "forest", "coast")
 CFG = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))["thumbnail"]
 SIZE = (1280, 720)
 UA = {"User-Agent": "prehistoric-channel/1.0 (thumbnails)"}
@@ -171,6 +188,10 @@ def make_variant(t, work, out_dir, raw):
     base_img, src = None, None
     if t.get("base") == "file":
         base_img, src = Image.open(t["file"]).convert("RGB"), {"source": "FLUX.1-schnell", "title": Path(t["file"]).stem}
+    elif t.get("base") == "episode":
+        # passed the species check in prepare (species_picks.json): not asked again
+        base_img = close_up(Image.open(t["file"]).convert("RGB"), text_side=t.get("text_side", "right"))
+        src = {"source": "FLUX.1-schnell (episode frame)", "title": Path(t["file"]).stem}
     elif t.get("base") == "flux":
         for s in (0, 1):
             p = raw / f"{t['id']}__s{s}.jpg"
@@ -217,7 +238,7 @@ def make_variant(t, work, out_dir, raw):
     im.save(base_path, quality=95)
     # the words go where the head is not
     cx = (head[0] + head[2]) / 2
-    side = "left" if cx > SIZE[0] / 2 else "right"
+    side = t.get("text_side") or ("left" if cx > SIZE[0] / 2 else "right")
     out = out_dir / f"thumbnail_{t['id'].split('_', 1)[1]}.jpg"
     rep = compose(base_path, t["words"], t.get("accent", 1), side, out, head)
     rep.update({"id": t["id"], "hook": t["hook"], "words": t["words"], "side": side, "source": src,
@@ -243,7 +264,7 @@ def judge(path, title):
     """The Gemini judge: True/False and why. Without a key nothing passes (the QA needs a judged one)."""
     try:
         from core import gemini
-        a = gemini.ask(JUDGE.format(title=title), images=[str(path)])
+        a = gemini.ask(JUDGE.format(title=title), images=[str(path)], models=JUDGE_MODELS, step="thumb-judge")
     except Exception as e:                                               # noqa: BLE001
         return False, f"judge unavailable: {str(e)[:120]}"
     ok = bool(a.get("pass")) and a.get("animal_big_and_recognisable") and a.get("prehistoric_or_living_fossil") \
@@ -265,13 +286,89 @@ def extra_variants(plan, raw, n_have):
     return out
 
 
+def close_up(im, size=SIZE, fill=0.62, text_side="right"):
+    """The animal big: cropped to 16:9 around its mask so it fills about `fill` of the height,
+    set off-centre away from the words (its middle at 36 % or 64 % of the width), and a dark
+    frame brightened (the niche's top 30: one animal, huge, bright)."""
+    (x0, y0, x1, y1), _ = subject_box(im)
+    bw, bh = max(1, x1 - x0), max(1, y1 - y0)
+    h = min(im.height, max(bh / fill, bw / fill * size[1] / size[0]))
+    w = h * size[0] / size[1]
+    if w > im.width:
+        w, h = im.width, im.width * size[1] / size[0]
+    cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+    at = 0.36 if text_side == "right" else 0.64
+    left = min(max(0, cx - w * at), im.width - w)
+    top = min(max(0, cy - h / 2), im.height - h)
+    out = im.crop((int(left), int(top), int(left + w), int(top + h))).resize(size, Image.LANCZOS)
+    lum = float(np.asarray(out.convert("L")).mean())
+    if lum < 95:                                   # a dark frame lifted towards the niche's brightness
+        out = ImageEnhance.Brightness(out).enhance(min(1.6, 105 / max(lum, 30)))
+    return out
+
+
+def _mask(im):
+    try:
+        from rembg import new_session, remove
+        return np.asarray(remove(im, session=new_session("isnet-general-use"), only_mask=True)) > 128
+    except Exception as e:                                               # noqa: BLE001
+        log.warning("subject mask failed: %s", e)
+        return None
+
+
+def frame_score(im):
+    """(score, text side, animal share): a big animal with one side free for the words."""
+    m = _mask(im)
+    if m is None or m.mean() < 0.03:
+        return -1.0, "right", 0.0
+    h, w = m.shape
+    top = m[: int(h * 0.78)]
+    cov = {"left": top[:, : int(w * 0.46)].mean(), "right": top[:, int(w * 0.54):].mean()}
+    side = min(cov, key=cov.get)
+    share = float(m.mean())
+    # the animal big (a third of the frame or more) and the words' box nearly empty
+    return min(share, 0.45) - 1.5 * cov[side], side, share
+
+
+def episode_bases(slug, plan, n_have):
+    """Variants from the episode's FLUX animals that passed the species check in prepare: for
+    each animal its best frame (big, one side free for the words), the best animals first."""
+    inp = ROOT / "work" / slug / "inputs"
+    picks = json.loads((inp / "species_picks.json").read_text(encoding="utf-8"))         if (inp / "species_picks.json").exists() else {}
+    names = [n for v in picks.values() for n in (v or []) if not str(n).startswith("pixabay")]
+    best = {}
+    for n in dict.fromkeys(names):
+        f = inp / "layers" / f"{n}.jpg"
+        low = n.lower()
+        if not f.exists() or any(w in low for w in NOT_ANIMAL):
+            continue
+        kind = next((k for k, _ in ANIMAL_WORDS if k in low), None)
+        animal = kind or low.split("__")[0]
+        try:
+            score, side, share = frame_score(cover(Image.open(f).convert("RGB")))
+        except Exception:                                                # noqa: BLE001
+            continue
+        if score > best.get(animal, (-9,))[0]:
+            best[animal] = (score, f, kind, side, share)
+    rows = sorted(best.values(), key=lambda r: -r[0])
+    log.info("episode bases: %s", [(r[1].stem, round(r[0], 2), r[3]) for r in rows])
+    out = []
+    for i, (score, f, kind, side, share) in enumerate(rows[:6]):
+        words, accent = dict(ANIMAL_WORDS).get(kind, (plan[i % len(plan)]["words"], plan[i % len(plan)].get("accent", 1)))
+        # no trick: the animal alone, huge, the words on the side it leaves free (owner 07.11)
+        out.append({"id": f"thumb_e{n_have + i}", "hook": "none", "base": "episode", "file": str(f),
+                    "text_side": side, "animal": kind or f.stem.split("__")[0], "words": words,
+                    "accent": accent, "subject_share": round(share, 2), "score": round(score, 2)})
+    return out
+
+
 CHOOSE = """Drei Vorschaubilder für dieselbe deutsche Urzeit-Doku (Titel: "{title}"). Welches würde in der
 kleinen Ansicht (336x189) die meisten Klicks bekommen und ist trotzdem ehrlich? Kriterien: knallig, ein Tier
 groß und sofort als urzeitlich erkennbar, der Bild-Trick funktioniert, Text in 1 Sekunde lesbar.
 Antworte als JSON {{"best": <1|2|3>, "why": "<kurz>"}}"""
 
 
-def main(slug):
+def main(slug, episode_only=False):
     ep = ROOT / "episodes" / slug
     plan = json.loads((ep / "thumbs.json").read_text(encoding="utf-8"))
     meta = json.loads((ep / "meta.json").read_text(encoding="utf-8"))
@@ -280,7 +377,7 @@ def main(slug):
     out_dir = ROOT / "work" / slug / "release"
     out_dir.mkdir(parents=True, exist_ok=True)
     raw = ROOT / "work" / slug / "inputs" / "thumb_bases"
-    reps = [make_variant(t, work, out_dir, raw) for t in plan]
+    reps = [] if episode_only else [make_variant(t, work, out_dir, raw) for t in plan]
     for r in reps:
         if r.get("ok"):
             r["judge_pass"], r["judge"] = judge(out_dir / f"thumbnail_{r['id'].split('_', 1)[1]}_336.jpg",
@@ -295,13 +392,24 @@ def main(slug):
                                                     meta["title"])
         reps += more
         good = [r for r in reps if r.get("ok") and r.get("judge_pass")][:3]
+    if len(good) < 3:                  # the episode's own species-checked animals, close up
+        for t in episode_bases(slug, plan, len(reps)):
+            if len(good) >= 3:
+                break
+            r = make_variant(t, work, out_dir, raw)
+            if r.get("ok"):
+                r["judge_pass"], r["judge"] = judge(out_dir / f"thumbnail_{r['id'].split('_', 1)[1]}_336.jpg",
+                                                    meta["title"])
+            reps.append(r)
+            good = [x for x in reps if x.get("ok") and x.get("judge_pass")][:3]
     choice = {"best": None, "judge_pass": False}
     if good:
         files = [out_dir / f"thumbnail_{r['id'].split('_', 1)[1]}.jpg" for r in good]
         try:
             from core import gemini
             ans = gemini.ask(CHOOSE.format(title=meta["title"]), images=[str(f).replace(".jpg", "_336.jpg")
-                                                                       for f in files])
+                                                                       for f in files], models=JUDGE_MODELS,
+                             step="thumb-choose")
             k = max(1, min(len(files), int(ans.get("best", 1))))
             choice = {"best": files[k - 1].name, "why": ans.get("why"), "judge_pass": True,
                       "judge": good[k - 1].get("judge")}
@@ -319,4 +427,4 @@ def main(slug):
 
 
 if __name__ == "__main__":
-    sys.exit(main(sys.argv[1]))
+    sys.exit(main(sys.argv[1], episode_only="--episode-bases" in sys.argv[2:]))
