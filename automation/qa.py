@@ -123,8 +123,9 @@ def checks_of(plan, sound, thumbs, slug, parts=None):
     # the hook: the first 30 s
     hook = [s for s in shots if s["start"] < HOOK_S - TOL]
     still = [round(s["start"], 1) for s in hook if not (moving(s) and animal(s))]
-    long_ = [round(dur(s), 2) for s in hook if not (HOOK_CUT[0] - TOL <= min(dur(s), HOOK_S - s["start"])
-                                                       and dur(s) <= HOOK_CUT[1] + TOL)]
+    # a cut is the shot's own length: the last hook shot may run past 30 s, and what is left of
+    # it before 30 s is no cut (07.11: a 2.22 s shot from 29.32 s was failed as 0.68 s)
+    long_ = [round(dur(s), 2) for s in hook if not (HOOK_CUT[0] - TOL <= dur(s) <= HOOK_CUT[1] + TOL)]
     n_mov = len({clip_key(s) for s in hook if moving(s) and animal(s)})
     hit = bool((sound or {}).get("hook_hit"))
     add("hook", not still and not long_ and n_mov >= HOOK_MOVING_MIN and hit,

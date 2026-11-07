@@ -50,6 +50,23 @@ def run(slug="lebende-fossilien"):
     p = good_plan()
     p["shots"][2]["kind"], p["shots"][2]["clip"] = "photo", None
     out.append(("QA: a still in the hook fails", not run_checks(p)["hook"]["ok"], run_checks(p)["hook"]["detail"]))
+    # owner 07.11: the last hook shot running past 30 s is judged by its own length (2.22 s from 29.32 s)
+    p = good_plan()
+    shots, t, i = [], 0.0, 0
+    while t < 29.0:                                 # 2.22 s cuts: the 14th runs from 28.86 s to 31.08 s
+        need = (f"ltx-tyrannosaurus_{i}__s0" if i < 2 else f"ltx-f{i}") if i < 8 else None
+        shots.append(_shot(t, t + 2.22, need=need, clip=need or f"h{i}"))
+        t, i = t + 2.22, i + 1
+    body = [s for s in p["shots"] if s["start"] >= 30]
+    shift = t - body[0]["start"]
+    for s in body:
+        s["start"], s["end"] = s["start"] + shift, s["end"] + shift
+    p["shots"] = shots + body
+    out.append(("QA: a 2.22 s shot across 30 s is no bad cut", "cuts outside 1.5-3 s: none" in run_checks(p)["hook"]["detail"],
+                run_checks(p)["hook"]["detail"]))
+    p = good_plan()
+    p["shots"][3]["end"] = p["shots"][3]["start"] + 1.0
+    out.append(("QA: a 1.0 s cut in the hook still fails", not run_checks(p)["hook"]["ok"], run_checks(p)["hook"]["detail"]))
     p = good_plan()
     for s in p["shots"]:
         s["need"] = None
