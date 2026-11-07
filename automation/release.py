@@ -73,6 +73,8 @@ def description(slug, release_dir):
     meta = json.loads((ROOT / "episodes" / slug / "meta.json").read_text(encoding="utf-8"))
     credits = Path(release_dir) / "description_credits.txt"
     text = meta["description"]
+    if meta.get("description_extra"):           # lines the owner had added (set_description.py)
+        text += "\n\n" + meta["description_extra"]
     if credits.exists():
         text += "\n\n" + credits.read_text(encoding="utf-8")
     return meta["title"], text, meta.get("tags", [])
