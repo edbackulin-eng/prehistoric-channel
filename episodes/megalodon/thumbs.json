@@ -4,44 +4,40 @@
   "hook": "scale",
   "animal": "megalodon",
   "base": "flux",
-  "query": null,
-  "prompt": "Hyper-realistic cinematic shot of a Megalodon shark head emerging from dark, murky green water, massive size, sharp serrated triangular teeth visible, dramatic underwater lighting, vibrant neon orange and deep blue color palette, 8k resolution, wide angle to show scale, negative space on the left for text, no humans, no text",
-  "fossil_query": null,
+  "query": "",
+  "prompt": "Hyper-realistic 3D render of a massive Megalodon shark, dark grey-brown skin, small dark eyes, robust broad head, open mouth showing massive triangular serrated teeth, aggressive pose facing camera, dramatic underwater lighting, vibrant orange and teal color grading, high contrast, 8k resolution, no text, no humans, left side negative space for text",
+  "fossil_query": "",
   "words": [
-   "RISSE?",
-   "JECK?",
-   "HAI"
+   "LEBT",
+   "NOCH!"
   ],
-  "accent": 2
+  "accent": 1
  },
  {
   "id": "thumb_b",
   "hook": "split",
   "animal": "megalodon",
-  "base": "photo",
-  "query": "close up megasized megalodon tooth fossil on dark background",
-  "prompt": null,
-  "fossil_query": "megalodon tooth fossil",
+  "base": "flux",
+  "query": "",
+  "prompt": "Split screen composition. Right side: A massive, stocky Megalodon shark with dark grey-brown skin and large triangular serrated teeth, aggressive expression, dramatic lighting, vibrant colors. Left side: A close-up of a fossilized Megalodon tooth, amber and brown tones, detailed texture. High contrast, cinematic style, no text, no humans, space for text overlay",
+  "fossil_query": "megalodon fossil tooth close up",
   "words": [
-   "FOSSIL",
-   "LÜGE?",
-   "Wahrheit"
+   "Fossil-Beweis"
   ],
-  "accent": 1
+  "accent": 0
  },
  {
   "id": "thumb_c",
   "hook": "silhouette",
   "animal": "megalodon",
   "base": "flux",
-  "query": null,
-  "prompt": "Dramatic prehistoric ocean scene, huge silhouette of a Megalodon shark in the foreground, terrifying scale, dark background with faint silhouette of a T-Rex standing on a distant rocky island, bright yellow moonlight, high contrast, vibrant colors, cinematic lighting, negative space on the right for text, no humans, no text",
-  "fossil_query": null,
+  "query": "",
+  "prompt": "A colossal Megalodon shark in the foreground, dark grey-brown skin, massive open mouth with serrated teeth, intense stare, vibrant orange and blue dramatic lighting. In the deep dark background, the faint silhouette of a T-Rex is visible, creating a sense of scale and prehistoric danger. Cinematic, high contrast, 8k, no text, no humans, left side space for text",
+  "fossil_query": "",
   "words": [
-   "HATTE",
-   "ER",
-   "GEWINN?"
+   "DER",
+   "KÖNIG"
   ],
-  "accent": 0
+  "accent": 1
  }
 ]

@@ -3,187 +3,25 @@
  "style": "photorealistic wildlife documentary frame, BBC natural history cinematography, natural vivid colours, soft natural light, high dynamic range, sharp detail, 35mm film look, no text, no people",
  "seeds_per_prompt": 2,
  "prompts": {
-  "megalodon_massive_attack": "Otodus megalodon with massive body size, triangular teeth, serrated cutting edges, V-shaped notched tooth root, and extremely wide jaw, opening its immense mouth in a dramatic hunting lunge, volumetric rays of sunlight from above, photorealistic 4K",
-  "megalodon_111_1": "Megalodon bursting out of the depths toward the surface, massive body size, extremely wide jaw open wide, serrated teeth, dramatic splash and lighting, wow-moment",
-  "megalodon_112_1": "Megalodon swimming slowly through dark deep waters, massive body size, triangular teeth, extremely wide jaw, museum specimen inspiration",
-  "megalodon_114_1": "Megalodon turning sharply in the open ocean, massive body size, extremely wide jaw, dramatic backlighting",
-  "megalodon_115_1": "Megalodon cruising through deep blue waters, massive body size, triangular teeth, extremely wide jaw, cinematic BBC style",
-  "megalodon_116_1": "An exceptionally long and massive megalodon stretching across the frame, massive body size, extremely wide jaw, serrated cutting edges, dramatic underwater atmosphere",
-  "megalodon_117_1": "Megalodon moving through deep blue ocean currents, massive body size, triangular teeth, extremely wide jaw",
-  "megalodon_head_close": "Close-up of Megalodon (Otodus megalodon) showing its massive body size, triangular teeth, serrated cutting edges, V-shaped notched tooth root, extremely wide jaw, dark abyssal background, photorealistic",
-  "megalodon_swimming_wide": "Megalodon (Otodus megalodon) with massive body size, triangular teeth, serrated cutting edges, V-shaped notched tooth root, extremely wide jaw, cruising through ancient European seas, open ocean",
-  "megalodon_tooth_detail": "A massive fossilized Megalodon tooth showing serrated cutting edges and V-shaped notched root resting on dark seabed, dramatic side lighting, underwater macro view",
-  "standby_prehistoric_whale_00": "Urzeitlicher Wal (Cetacea), a living animal today, large streamlined body, blowhole on top, flipper limbs, horizontal tail fluke, close-up of the head and eye, in its natural habitat",
-  "standby_prehistoric_whale_01": "Urzeitlicher Wal (Cetacea), a living animal today, large streamlined body, blowhole on top, flipper limbs, horizontal tail fluke, the whole body seen from the side, in its natural habitat",
-  "standby_prehistoric_whale_02": "Urzeitlicher Wal (Cetacea), a living animal today, large streamlined body, blowhole on top, flipper limbs, horizontal tail fluke, swimming toward the camera, in its natural habitat",
-  "standby_prehistoric_whale_03": "Urzeitlicher Wal (Cetacea), a living animal today, large streamlined body, blowhole on top, flipper limbs, horizontal tail fluke, seen from below against faint light, in its natural habitat",
-  "standby_prehistoric_whale_04": "Urzeitlicher Wal (Cetacea), a living animal today, large streamlined body, blowhole on top, flipper limbs, horizontal tail fluke, lit by a submersible's lamp in the dark, in its natural habitat",
-  "standby_great_white_shark_00": "Weiße Hai (Carcharodon carcharias), a living animal today, white underbelly, torpedo-shaped body, large dorsal fin, pointed snout, close-up of the head and eye, in its natural habitat",
-  "standby_great_white_shark_01": "Weiße Hai (Carcharodon carcharias), a living animal today, white underbelly, torpedo-shaped body, large dorsal fin, pointed snout, the whole body seen from the side, in its natural habitat",
-  "standby_great_white_shark_02": "Weiße Hai (Carcharodon carcharias), a living animal today, white underbelly, torpedo-shaped body, large dorsal fin, pointed snout, swimming toward the camera, in its natural habitat",
-  "standby_great_white_shark_03": "Weiße Hai (Carcharodon carcharias), a living animal today, white underbelly, torpedo-shaped body, large dorsal fin, pointed snout, seen from below against faint light, in its natural habitat",
-  "standby_great_white_shark_04": "Weiße Hai (Carcharodon carcharias), a living animal today, white underbelly, torpedo-shaped body, large dorsal fin, pointed snout, lit by a submersible's lamp in the dark, in its natural habitat",
-  "standby_great_white_shark_05": "Weiße Hai (Carcharodon carcharias), a living animal today, white underbelly, torpedo-shaped body, large dorsal fin, pointed snout, beside a rocky wall, in its natural habitat",
-  "standby_great_white_shark_06": "Weiße Hai (Carcharodon carcharias), a living animal today, white underbelly, torpedo-shaped body, large dorsal fin, pointed snout, its paired fins moving, in its natural habitat",
-  "standby_great_white_shark_07": "Weiße Hai (Carcharodon carcharias), a living animal today, white underbelly, torpedo-shaped body, large dorsal fin, pointed snout, three-quarter view, gliding, in its natural habitat",
-  "standby_great_white_shark_08": "Weiße Hai (Carcharodon carcharias), a living animal today, white underbelly, torpedo-shaped body, large dorsal fin, pointed snout, close-up of the head and eye, in its natural habitat",
-  "standby_great_white_shark_09": "Weiße Hai (Carcharodon carcharias), a living animal today, white underbelly, torpedo-shaped body, large dorsal fin, pointed snout, the whole body seen from the side, in its natural habitat",
-  "standby_great_white_shark_10": "Weiße Hai (Carcharodon carcharias), a living animal today, white underbelly, torpedo-shaped body, large dorsal fin, pointed snout, swimming toward the camera, in its natural habitat",
-  "cretaceous_trex_stride": "A Tyrannosaurus rex striding through a misty Late Cretaceous conifer forest, massive head with forward-facing eyes, short two-fingered arms, heavy tail held straight out behind, pebbly grey-brown skin, low camera angle",
-  "cretaceous_triceratops_herd": "A small herd of Triceratops at the edge of a Late Cretaceous river, three facial horns, a broad solid bony frill, bulky four-legged bodies, morning haze, eye-level wildlife shot"
+  "miocene_pliocene_shoreline": "Ancient coastal landscape from the upper Miocene to Pliocene boundary, shallow tropical waters, lush prehistoric vegetation on the shore, warm golden hour light, calm sea, no humans, no modern objects",
+  "australian_european_coast": "Split view of ancient coastlines in Australia and Europe, similar Miocene vegetation, warm sunlight, calm seas, no humans, no modern structures",
+  "ancient_ocean_waves": "Wide shot of an ancient ocean, large waves rolling in, warm sunset light, no land visible, no humans, no modern objects"
  },
  "species": {
-  "megalodon_massive_attack": "megalodon",
-  "megalodon_111_1": "megalodon",
-  "megalodon_112_1": "megalodon",
-  "megalodon_114_1": "megalodon",
-  "megalodon_115_1": "megalodon",
-  "megalodon_116_1": "megalodon",
-  "megalodon_117_1": "megalodon",
-  "megalodon_head_close": "megalodon",
-  "megalodon_swimming_wide": "megalodon",
-  "megalodon_tooth_detail": "megalodon",
-  "standby_prehistoric_whale_00": "prehistoric_whale",
-  "standby_prehistoric_whale_01": "prehistoric_whale",
-  "standby_prehistoric_whale_02": "prehistoric_whale",
-  "standby_prehistoric_whale_03": "prehistoric_whale",
-  "standby_prehistoric_whale_04": "prehistoric_whale",
-  "standby_great_white_shark_00": "great_white_shark",
-  "standby_great_white_shark_01": "great_white_shark",
-  "standby_great_white_shark_02": "great_white_shark",
-  "standby_great_white_shark_03": "great_white_shark",
-  "standby_great_white_shark_04": "great_white_shark",
-  "standby_great_white_shark_05": "great_white_shark",
-  "standby_great_white_shark_06": "great_white_shark",
-  "standby_great_white_shark_07": "great_white_shark",
-  "standby_great_white_shark_08": "great_white_shark",
-  "standby_great_white_shark_09": "great_white_shark",
-  "standby_great_white_shark_10": "great_white_shark",
-  "cretaceous_trex_stride": null,
-  "cretaceous_triceratops_herd": null
+  "miocene_pliocene_shoreline": null,
+  "australian_european_coast": null,
+  "ancient_ocean_waves": null
  },
  "animate": {
-  "megalodon_massive_attack": "rushes forward with open jaw straight at the camera",
-  "megalodon_111_1": "charges upward toward the camera with incredible speed",
-  "megalodon_112_1": "swims steadily through the deep blue abyss",
-  "standby_prehistoric_whale_00": "moves slowly and naturally, gentle camera push in",
-  "standby_prehistoric_whale_01": "moves slowly and naturally, gentle camera push in",
-  "standby_prehistoric_whale_02": "moves slowly and naturally, gentle camera push in",
-  "standby_prehistoric_whale_03": "moves slowly and naturally, gentle camera push in",
-  "standby_prehistoric_whale_04": "moves slowly and naturally, gentle camera push in",
-  "cretaceous_trex_stride": "strides forward and turns its head toward the camera, jaws slightly open",
-  "cretaceous_triceratops_herd": "the herd walks slowly forward, heads lowered, dust rising"
+  "miocene_pliocene_shoreline": "Gentle waves lapping against the shore",
+  "australian_european_coast": "Slow horizontal pan across the landscape",
+  "ancient_ocean_waves": "Waves cresting and breaking"
  },
  "thumbs": {
-  "thumb_a": "Hyper-realistic cinematic shot of a Megalodon shark head emerging from dark, murky green water, massive size, sharp serrated triangular teeth visible, dramatic underwater lighting, vibrant neon orange and deep blue color palette, 8k resolution, wide angle to show scale, negative space on the left for text, no humans, no text",
-  "thumb_c": "Dramatic prehistoric ocean scene, huge silhouette of a Megalodon shark in the foreground, terrifying scale, dark background with faint silhouette of a T-Rex standing on a distant rocky island, bright yellow moonlight, high contrast, vibrant colors, cinematic lighting, negative space on the right for text, no humans, no text"
+  "thumb_a": "Hyper-realistic 3D render of a massive Megalodon shark, dark grey-brown skin, small dark eyes, robust broad head, open mouth showing massive triangular serrated teeth, aggressive pose facing camera, dramatic underwater lighting, vibrant orange and teal color grading, high contrast, 8k resolution, no text, no humans, left side negative space for text",
+  "thumb_b": "Split screen composition. Right side: A massive, stocky Megalodon shark with dark grey-brown skin and large triangular serrated teeth, aggressive expression, dramatic lighting, vibrant colors. Left side: A close-up of a fossilized Megalodon tooth, amber and brown tones, detailed texture. High contrast, cinematic style, no text, no humans, space for text overlay",
+  "thumb_c": "A colossal Megalodon shark in the foreground, dark grey-brown skin, massive open mouth with serrated teeth, intense stare, vibrant orange and blue dramatic lighting. In the deep dark background, the faint silhouette of a T-Rex is visible, creating a sense of scale and prehistoric danger. Cinematic, high contrast, 8k, no text, no humans, left side space for text"
  },
  "photos": {},
- "two_seeds": [],
- "standby": {
-  "standby_prehistoric_whale_00": "prehistoric_whale",
-  "standby_prehistoric_whale_01": "prehistoric_whale",
-  "standby_prehistoric_whale_02": "prehistoric_whale",
-  "standby_prehistoric_whale_03": "prehistoric_whale",
-  "standby_prehistoric_whale_04": "prehistoric_whale",
-  "standby_great_white_shark_00": "great_white_shark",
-  "standby_great_white_shark_01": "great_white_shark",
-  "standby_great_white_shark_02": "great_white_shark",
-  "standby_great_white_shark_03": "great_white_shark",
-  "standby_great_white_shark_04": "great_white_shark",
-  "standby_great_white_shark_05": "great_white_shark",
-  "standby_great_white_shark_06": "great_white_shark",
-  "standby_great_white_shark_07": "great_white_shark",
-  "standby_great_white_shark_08": "great_white_shark",
-  "standby_great_white_shark_09": "great_white_shark",
-  "standby_great_white_shark_10": "great_white_shark"
- },
- "standby_report": {
-  "prehistoric_whale": {
-   "told_s": 193,
-   "real_clips_passing": 5,
-   "prompts": 5
-  },
-  "great_white_shark": {
-   "told_s": 306,
-   "real_clips_passing": 1,
-   "prompts": 11
-  },
-  "whale": {
-   "told_s": 16,
-   "real_clips_passing": 0,
-   "prompts": 0
-  },
-  "mackerel_shark": {
-   "told_s": 67,
-   "real_clips_passing": 0,
-   "prompts": 2
-  },
-  "prehistoric_human": {
-   "told_s": 26,
-   "real_clips_passing": 0,
-   "prompts": 0
-  },
-  "_frames": {
-   "cap": 60,
-   "replaced": [
-    "megalodon_jaw_architecture",
-    "megalodon_attack_strike",
-    "megalodon_muscles",
-    "megalodon_robust_jaw",
-    "megalodon_vs_modern",
-    "megalodon_reconstruction",
-    "megalodon_juvenile_teeth",
-    "megalodon_lower_jaw",
-    "megalodon_upper_jaw",
-    "megalodon_coastal_waters",
-    "megalodon_tooth_close",
-    "megalodon_jaw_open",
-    "megalodon_deep_waters",
-    "megalodon_sunlit_waters",
-    "megalodon_shadow_hunt",
-    "megalodon_hunting_prey",
-    "megalodon_slender_morph",
-    "megalodon_colossal_attack"
-   ]
-  }
- },
- "motions": {
-  "cretaceous_trex_stride": "strides forward and turns its head toward the camera, jaws slightly open",
-  "cretaceous_triceratops_herd": "the herd walks slowly forward, heads lowered, dust rising"
- },
- "wow": [
-  "cretaceous_trex_stride",
-  "cretaceous_triceratops_herd",
-  "megalodon_111_1",
-  "megalodon_112_1",
-  "megalodon_114_1",
-  "megalodon_115_1",
-  "megalodon_116_1",
-  "megalodon_117_1",
-  "megalodon_head_close",
-  "megalodon_massive_attack",
-  "megalodon_swimming_wide",
-  "megalodon_tooth_detail",
-  "standby_great_white_shark_00",
-  "standby_great_white_shark_02",
-  "standby_great_white_shark_04",
-  "standby_great_white_shark_08",
-  "standby_great_white_shark_10",
-  "standby_prehistoric_whale_00",
-  "standby_prehistoric_whale_01",
-  "standby_prehistoric_whale_02",
-  "standby_prehistoric_whale_03",
-  "standby_prehistoric_whale_04"
- ],
- "motion_report": {
-  "dinosaurs_animated": [
-   "cretaceous_trex_stride",
-   "cretaceous_triceratops_herd"
-  ],
-  "dinosaur_frames_added": [],
-  "wow_pictures": 22,
-  "frames": 60,
-  "animated": 10
- }
+ "two_seeds": []
 }
