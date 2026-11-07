@@ -1,7 +1,7 @@
 [
  {
   "slug": "lebende-fossilien",
-  "status": "qa-failed",
+  "status": "awaiting_approval",
   "rejected_videos": [
    "0lDoysa2Hok",
    "TMe4TpeSBtc"
@@ -13,10 +13,12 @@
   "rejected_at": "2026-10-30T22:40:00Z",
   "run_id": "42364963756",
   "artifact": "release-lebende-fossilien",
-  "built_at": "2026-11-07T14:19:37Z",
+  "built_at": "2026-11-07T16:11:05Z",
   "qa_failed": [
    "hook: 15 shots in 30 s, 15 moving animal clips (need 3), not moving or no animal at none, cuts outside 1.5-3 s: [2.22], sound hit: yes",
    "thumbnail: chosen: None; judge: None"
-  ]
+  ],
+  "youtube_id": "FdVckiuzgUw",
+  "uploaded_at": "2026-11-07T16:14:17Z"
  }
 ]
