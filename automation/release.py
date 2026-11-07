@@ -141,14 +141,29 @@ def approve(slug):
     """An episode uploaded without a date gets the nearest free slot; one manual release fewer to go."""
     r = rows()
     row = next(x for x in r if x["slug"] == slug)
-    if row["status"] != "awaiting_approval":
+    # "scheduled" with no date (07.11: YouTube kept none) is approved again, not counted twice
+    again = row["status"] == "scheduled" and not row.get("publish_at")
+    if row["status"] != "awaiting_approval" and not again:
         raise SystemExit(f"{slug} is {row['status']}, not awaiting approval")
     slot = youtube.next_slot([x["publish_at"] for x in r if x.get("publish_at")])
-    st = youtube.set_schedule(row["youtube_id"], slot)
+    import time
+    for attempt in range(4):
+        st = youtube.set_schedule(row["youtube_id"], slot)
+        if st.get("publishAt"):
+            break
+        log.warning("%s: YouTube kept no date (status %s, answer %s, processing %s); again in 60 s", slug,
+                    st.get("privacyStatus"), st.get("_update_answer"), st.get("_processing"))
+        time.sleep(60)
+    if not st.get("publishAt"):
+        row.update({"status": "awaiting_approval", "publish_at": None, "approve_failed": now_s()})
+        save(r)
+        gitsave.save([STATE], f"Approve of {slug} not taken by YouTube")
+        raise SystemExit(f"{slug}: YouTube did not keep the date {slot:%Y-%m-%d %H:%M} UTC: "
+                         f"{st.get('_update_answer')}, processing {st.get('_processing')}")
     row.update({"status": "scheduled", "publish_at": st.get("publishAt"), "approved_at": now_s()})
     save(r)
     import re
-    left = max(0, manual_left() - 1)                  # the file keeps its layout: only the number changes
+    left = manual_left() if again else max(0, manual_left() - 1)   # the file keeps its layout: only the number changes
     text = CFG_PATH.read_text(encoding="utf-8")
     CFG_PATH.write_text(re.sub(r'("manual_left":\s*)\d+', rf"\g<1>{left}", text, count=1), encoding="utf-8")
     gitsave.save([STATE, CFG_PATH], f"Approved {slug}: {row['publish_at']}")

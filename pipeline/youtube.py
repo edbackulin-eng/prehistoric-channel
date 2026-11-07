@@ -162,8 +162,14 @@ def set_schedule(vid, publish_at, yt=None):
                               "containsSyntheticMedia") if k in st}
     new.update({"privacyStatus": "private",
                 "publishAt": publish_at.strftime("%Y-%m-%dT%H:%M:%SZ") if publish_at else None})
-    yt.videos().update(part="status", body={"id": vid, "status": new}).execute()
-    return yt.videos().list(part="status", id=vid).execute()["items"][0]["status"]
+    got = yt.videos().update(part="status", body={"id": vid, "status": new}).execute().get("status", {})
+    after = yt.videos().list(part="status,processingDetails", id=vid).execute()["items"][0]
+    st = after["status"]
+    # owner 07.11: lebende-fossilien was marked scheduled with no date - YouTube had kept none.
+    # What YouTube answered is kept with the status, so a missing date says why.
+    st["_update_answer"] = {k: got.get(k) for k in ("privacyStatus", "publishAt", "uploadStatus")}
+    st["_processing"] = (after.get("processingDetails") or {}).get("processingStatus")
+    return st
 
 
 def upload(slug, release_dir, title, description, tags, publish_at, yt=None, ignore=(), on_id=None):
