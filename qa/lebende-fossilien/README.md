@@ -1,10 +1,10 @@
 # QA: lebende-fossilien
 
-**FAILED**
+**PASSED**
 
 | check | ok | what was measured |
 |---|---|---|
-| hook | **no** | 15 shots in 30 s, 15 moving animal clips (need 3), not moving or no animal at none, cuts outside 1.5-3 s: [2.22], sound hit: yes |
+| hook | yes | 15 shots in 30 s, 15 moving animal clips (need 3), not moving or no animal at none, cuts outside 1.5-3 s: none, sound hit: yes |
 | ltx | yes | 10 LTX-Video clips (need 8) |
 | subject | yes | animal on screen where told: {'coelacanth': 0.98} (need >= 60%); landscapes 14% (max 15%); prehistoric animals in motion: 29 shots |
 | pace | yes | average shot 3.5 s (3-5), hook 2.1 s (1.5-3); shown more than twice: none; again within 3 min: none |
@@ -14,7 +14,7 @@
 | motion | yes | prehistoric animals in motion 60% of the film (need 40%): LTX 98 s, real footage of the animals 92 s, 2.5D parallax 679 s |
 | dinosaurs | yes | 2 dinosaurs in motion (need 2): LTX clips ['ltx-kpg_dinosaur_death__s0'], FLUX dinosaurs moved by the 2.5D parallax ['cretaceous_trex_stride'] |
 | wow | yes | 167 wow moments, the longest gap 39 s (max 45); longer gaps after none s |
-| thumbnail | **no** | chosen: None; judge: None |
+| thumbnail | yes | chosen: thumbnail_e4.jpg; judge: {'animal': 'Fisch (Quastenflosser-artig)', 'animal_big_and_recognisable': True, 'prehistoric_or_living_fossil': True, 'bright': True, 'words_readable': True, 'forbidden_seen': [], 'pass': True, 'why': 'Das Tier ist groß, gut erkennbar und urzeitlich, die Farben sind kräftig und kontrastreich, und der Text besteht aus nur zwei großen Wörtern.'} |
 
 - contact sheet: [contact.jpg](contact.jpg) (288 frames, one every 5 s)
 - voice and music: [sound.png](sound.png)

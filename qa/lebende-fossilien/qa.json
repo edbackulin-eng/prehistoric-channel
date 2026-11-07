@@ -1,11 +1,11 @@
 {
  "slug": "lebende-fossilien",
- "pass": false,
+ "pass": true,
  "checks": [
   {
    "name": "hook",
-   "ok": false,
-   "detail": "15 shots in 30 s, 15 moving animal clips (need 3), not moving or no animal at none, cuts outside 1.5-3 s: [2.22], sound hit: yes"
+   "ok": true,
+   "detail": "15 shots in 30 s, 15 moving animal clips (need 3), not moving or no animal at none, cuts outside 1.5-3 s: none, sound hit: yes"
   },
   {
    "name": "ltx",
@@ -62,8 +62,8 @@
   },
   {
    "name": "thumbnail",
-   "ok": false,
-   "detail": "chosen: None; judge: None"
+   "ok": true,
+   "detail": "chosen: thumbnail_e4.jpg; judge: {'animal': 'Fisch (Quastenflosser-artig)', 'animal_big_and_recognisable': True, 'prehistoric_or_living_fossil': True, 'bright': True, 'words_readable': True, 'forbidden_seen': [], 'pass': True, 'why': 'Das Tier ist groß, gut erkennbar und urzeitlich, die Farben sind kräftig und kontrastreich, und der Text besteht aus nur zwei großen Wörtern.'}"
   }
  ],
  "duration_s": 1442.05,
