@@ -349,10 +349,12 @@ def main():
     wows = [(round(x["start"]), x.get("image") or (x.get("clip") or {}).get("id")) for x in wp["shots"] if x.get("wow")]
     trex = [x for x in wp["shots"] if x.get("need") == "ltx-trex__s0"]
     early = [i for t, i in wows if t < 150 and str(i).startswith("roar")]
-    check("wow moments put in where the film ran long without one; the LTX clip runs its length",
-          len(early) >= 2 and trex and trex[0]["end"] - trex[0]["start"] >= 6.0
-          and max(t for t, _ in wows if t < 150) > 100 and wows[0][0] <= 45,
-          str((wows, [(x["start"], x["end"]) for x in trex], wp["checks"].get("wow_max_gap_s"))))
+    # owner 07.11: "wow" is a dramatic scene only - no picture of another line is forced in for one
+    # (it was: the roars of line 5 put into lines 1-2); an LTX clip still runs its length
+    roar_lines = {x["line"] for x in wp["shots"] if str(x.get("image") or "").startswith("roar")}
+    check("no picture of another line is forced in for a wow; the LTX clip runs its length",
+          not early and roar_lines <= {5} and trex and trex[0]["end"] - trex[0]["start"] >= 6.0,
+          str((wows, roar_lines, [(x["start"], x["end"]) for x in trex])))
     check("fragments: a piece of real footage keeps its need (the render names it)",
           all(x.get("need") for x in wp["shots"] if x["kind"] == "real"),
           str([(x["start"], (x.get("clip") or {}).get("id")) for x in wp["shots"] if x["kind"] == "real" and not x.get("need")][:5]))

@@ -53,6 +53,9 @@ ANIMAL_WORDS = [("trex", (["DER", "KÖNIG"], 1)), ("tyrannosaur", (["DER", "KÖN
                 ("mawsonia", (["ÜBERLEBT!"], 0)), ("axelrodichthys", (["URZEIT-", "RIESE"], 1)),
                 ("coelacanth", (["LEBT", "NOCH!"], 1)), ("quastenflosser", (["LEBT", "NOCH!"], 1)),
                 ("lungfish", (["LEBT", "NOCH!"], 1)), ("ichthyosaur", (["URZEIT-", "MONSTER"], 1))]
+import re as _re  # noqa: E402
+ACTION = _re.compile(r"attack|hunt|bite|jaws|open mouth|chase|lunge|strike|ambush|prey|diver|human|boat|scale|"
+                     r"breach|leap|roar|teeth", _re.I)
 NOT_ANIMAL = ("landscape", "ocean", "sea_", "extinction", "impact", "death", "map", "reef", "forest", "coast")
 CFG = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))["thumbnail"]
 SIZE = (1280, 720)
@@ -263,6 +266,7 @@ ohne Satzbau wie "RIESIG URZEIT" oder "NOCH LEBEND"; sonst "pass": false.
 Antworte als JSON: {{"animal": "<welches Tier>", "animal_big_and_recognisable": true|false,
 "prehistoric_or_living_fossil": true|false, "bright": true|false, "words_readable": true|false,
 "text": "<der Text, wie er dasteht>", "german_correct": true|false,
+"action_or_trick": true|false,   // Aktion (offenes Maul, Angriff, Jagd), Größenvergleich oder starke Emotion - kein ruhig daliegendes Tier
 "forbidden_seen": ["..."], "pass": true|false, "why": "<kurz>"}}"""
 
 
@@ -274,7 +278,7 @@ def judge(path, title):
     except Exception as e:                                               # noqa: BLE001
         return False, f"judge unavailable: {str(e)[:120]}"
     ok = bool(a.get("pass")) and a.get("animal_big_and_recognisable") and a.get("prehistoric_or_living_fossil") \
-        and a.get("words_readable") and a.get("german_correct") is True and not a.get("forbidden_seen")
+        and a.get("words_readable") and a.get("german_correct") is True and a.get("action_or_trick") is True         and not a.get("forbidden_seen")
     return bool(ok), a
 
 
@@ -340,6 +344,8 @@ def episode_bases(slug, plan, n_have):
     """Variants from the episode's FLUX animals that passed the species check in prepare: for
     each animal its best frame (big, one side free for the words), the best animals first."""
     inp = ROOT / "work" / slug / "inputs"
+    rp = ROOT / "episodes" / slug / "recon.json"
+    prompts = json.loads(rp.read_text(encoding="utf-8")).get("prompts", {}) if rp.exists() else {}
     picks = json.loads((inp / "species_picks.json").read_text(encoding="utf-8"))         if (inp / "species_picks.json").exists() else {}
     names = [n for v in picks.values() for n in (v or []) if not str(n).startswith("pixabay")]
     best = {}
@@ -354,6 +360,10 @@ def episode_bases(slug, plan, n_have):
             score, side, share = frame_score(cover(Image.open(f).convert("RGB")))
         except Exception:                                                # noqa: BLE001
             continue
+        # the top 30 show the animal in action (owner 07.11): a scene's frame - a hunt, an attack,
+        # open jaws, the animal beside a diver - goes before a resting one
+        if ACTION.search(f"{prompts.get(f.stem.split('__')[0], '')} {f.stem}".replace("_", " ")):
+            score += 0.25
         if score > best.get(animal, (-9,))[0]:
             best[animal] = (score, f, kind, side, share)
     rows = sorted(best.values(), key=lambda r: -r[0])

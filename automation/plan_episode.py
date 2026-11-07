@@ -49,38 +49,40 @@ das im Text vorkommt und gezeigt werden soll. Antworte als JSON:
   "living": true|false,          // lebt die Art (oder eine nahe Art der Gruppe) heute noch?
   "features": ["<4-5 sichtbare Merkmale, die die Art von ähnlichen unterscheiden, englisch>"],
   "forbidden": ["<4 Merkmale, die ein falsches Tier verraten - z. B. Vogelkopf beim Flugsaurier, langer Hals beim Hadrosaurier, englisch>"],
-  "video_query": "<englische Suchanfrage für echtes Stock-Video, nur wenn living>"}}]}}
+  "video_query": "<englische Suchanfrage für echtes Stock-Video, nur wenn living>",
+  "look": "<EINE feste englische Beschreibung des Aussehens (Körperform, Farbe, Zeichnung, Größe), die für JEDES Bild
+           dieses Tiers wörtlich gleich verwendet wird, damit es im ganzen Film gleich aussieht>"}}]}}
 
 TEXT:
 {script}"""
 
-BEATS = """Du planst die Bilder einer deutschen Urzeit-Doku (4K, ruhige BBC-Ästhetik). Für jede nummerierte
-Zeile: was gezeigt wird. Regeln:
-- Lebende Tiere (living=true in der Liste) NUR als echtes Video: {{"kind": "video", "species": "<key>",
-  "query": "<englische Stock-Suche, 2-5 Wörter>", "dark": true|false}}.
-- NIEMALS als FLUX-Bild: Diagramme, Infografiken, Stammbäume, DNA, Moleküle, Bildschirme, Schrift, Karten,
-  abstrakte Visualisierungen - dafür echtes Stock-Video (kind "video").
-- Ausgestorbene Tiere und verlorene Urzeit-Landschaften als FLUX-Bild: {{"kind": "flux", "species": "<key oder null>",
-  "id": "<snake_case, eindeutig>", "prompt": "<englisch: das Tier mit genauer Anatomie aus der Merkmalliste, in seiner
-  Umgebung, Kamerablick - niemals ein modernes Tier daneben, keine Menschen>", "motion": "<englisch, eine Bewegung für die
-  Animation, z. B. 'swims slowly toward the camera'>"}}. Dieselbe id darf für eine spätere Zeile wiederkommen.
-- Heutige Natur als Stellvertreter (Meer, Küste, Wald, Gestein, Tiefsee): {{"kind": "video", "species": null,
-  "query": "<englisch>", "dark": true|false}}.
-- Orte, die genannt werden: {{"kind": "map", "places": [{{"name": "<GROSS, deutsch>", "sub": "<Land/Region, deutsch>",
-  "lat": <Zahl>, "lon": <Zahl>}}]}} - höchstens zwei Orte.
-- DAS TIER IM BILD: erzählt eine Zeile von einem Tier (auch von seinem Fund, seinem Verhalten, seinen Verwandten),
-  zeigen ALLE ihre Einstellungen dieses Tier (lebend: echtes Video; ausgestorben oder seine ausgestorbenen
-  Verwandten: FLUX). Ein Kapitel über ein Tier zeigt es mindestens 60 % der Zeit.
-- Meer, Himmel, Küste, Landschaft OHNE Tier: höchstens jede siebte Einstellung der ganzen Folge (<= 15 %).
-- NIEMALS: DNA, Moleküle, Texturen (Sand, Schuppen-Makro, Papier), Büros, Archive, Menschen am Schreibtisch,
-  Bildschirme, Schrift - statt dessen das Tier, um das es geht.
-- In jeder Folge Urzeit-Tiere in Bewegung: mindestens 10 FLUX-Bilder ausgestorbener Tiere mit "motion", darunter
-  mindestens 2 Dinosaurier; Bewegung geht vor Standbild. Etwa jedes dritte FLUX-Bild ein Wow-Moment: Jagd, Angriff,
-  offenes Maul, das Tier frontal auf die Kamera zu, dramatisches Licht.
-- Zeilen im Hook (section hook): 3 Einstellungen, nur Bewegtes MIT Tier (video eines Tiers des Themas oder flux
-  eines ausgestorbenen Tiers mit "motion"), die stärksten Bilder der Folge.
-- Sonst 1-2 Einstellungen pro Zeile. Abwechslung; kein Bild zweimal in Folge.
-Dazu je Zeile "amb": eine von {amb}.
+BEATS = """Du planst die Bilder einer deutschen Urzeit-Doku (4K, BBC-Ästhetik). Für jede nummerierte Zeile:
+was gezeigt wird. Der Film ist die WELT um das Tier, nicht nur das Tier (Vorgabe des Kanals):
+- Bildarten, gut gemischt; in jedem Abschnitt von etwa drei Minuten mindestens drei davon:
+  TIER      das Tier, das die Zeile nennt (genau diese Art, nie "irgendein Fisch") -
+            lebend: echtes Video {{"kind": "video", "species": "<key>", "query": "<englisch, 2-5 Wörter>"}},
+            ausgestorben: FLUX {{"kind": "flux", "species": "<key>", "id": "<snake_case>", "prompt": "<englisch>",
+            "motion": "<englisch>"}};
+  UMWELT    sein Lebensraum heute oder damals - Tiefsee, Höhlen, Küste, Wald: {{"kind": "video", "species": null,
+            "query": "<englisch>"}};
+  MENSCHEN  Fischer, Forscher, Museen, Ausgrabungen, Fundstücke, historische Aufnahmen: {{"kind": "video",
+            "species": null, "people": true, "query": "<englisch, z. B. 'fishermen pulling net boat',
+            'museum fossil skeleton', 'scientist examining fossil'>"}};
+  KARTE     genannte Orte: {{"kind": "map", "places": [{{"name": "<GROSS, deutsch>", "sub": "<Region>",
+            "lat": <Zahl>, "lon": <Zahl>}}]}} (höchstens zwei Orte);
+  URZEIT    die Welt jener Epoche, andere Tiere, die der Text nennt: FLUX wie oben.
+- Das Haupttier des Films höchstens 40 % der Einstellungen; der Rest ist seine Welt.
+- NUR Tiere, die die Zeile nennt; nie ein anderes Tier (kein Frosch, kein moderner Fisch, kein beliebiger Hai).
+- SZENEN: im Hook und in jedem Abschnitt von etwa drei Minuten mindestens EINE dramatische, belebte Szene -
+  eine Jagd, ein Angriff, das offene Maul auf die Kamera zu, das Tier riesig neben einem Taucher, Boot oder
+  Menschen zum Größenvergleich: FLUX mit "motion" und "scene": true (wird mit LTX-Video animiert) oder echtes
+  Video eines lebenden Tiers in Aktion mit "scene": true.
+- FLUX-Prompts eines Tiers beginnen mit seiner festen Beschreibung ("look" in der Liste), damit es überall gleich aussieht.
+- NIEMALS als FLUX: Diagramme, Infografiken, DNA, Moleküle, Bildschirme, Schrift, Karten, abstrakte Bilder.
+- Meer, Himmel, Landschaft OHNE Tier und ohne Menschen höchstens jede siebte Einstellung (<= 15 %).
+- Hook-Zeilen (section hook): 3 Einstellungen, nur Bewegtes mit dem Tier, darunter eine Szene.
+- Sonst 2-3 Einstellungen pro Zeile, jede eine ANDERE Quelle (dasselbe Video oder Bild höchstens zweimal im Film).
+Dazu je Zeile "amb": eine von {amb} - "ocean"/"underwater"/"beach"/"harbour" NUR, wenn die Bilder der Zeile Meer zeigen.
 Antworte als JSON: {{"lines": [{{"n": <Nummer>, "amb": "...", "beats": [...]}}]}}
 
 TIERE:
@@ -106,8 +108,9 @@ ZEILEN:
 {lines}"""
 
 THUMBS = """Plane drei YouTube-Vorschaubilder für die deutsche Urzeit-Doku "{title}". Vorbild sind die
-erfolgreichsten Kanäle der Nische: KNALLIGE Farben, ein Tier groß im Bild (Kopf/Auge), sofort als urzeitlich
-erkennbar, und ein Bild-Trick als Haken:
+erfolgreichsten Kanäle der Nische: KNALLIGE Farben, ein Tier groß im Bild, sofort als urzeitlich erkennbar,
+in AKTION - offenes Maul auf die Kamera zu, Angriff, Jagd, Emotion (Gefahr, Staunen) - nie ein ruhig
+daliegendes Tier; dazu ein Bild-Trick als Haken:
   "scale"      - ein winziger Taucher neben dem riesigen Tier, gelb eingekreist (Größenvergleich)
   "split"      - links das Fossil, rechts das lebende/rekonstruierte Tier
   "silhouette" - im Hintergrund die dunkle Silhouette eines T-Rex, das Tier groß davor
@@ -125,7 +128,8 @@ TIERE:
 {animals}"""
 
 
-PLAN_VERSION = 7          # 31.10: the animal on screen (>= 60 % of its chapter), <= 15 % landscapes, a moving hook with animals; a lost chunk of lines asked again; older plans are made again
+PLAN_VERSION = 8          # 07.11: the world around the animal (main <= 40 %, 3 kinds a chapter), a scene a chapter, one look per animal, only the line's animals
+_PLAN_VERSION_7 = 7          # 31.10: the animal on screen (>= 60 % of its chapter), <= 15 % landscapes, a moving hook with animals; a lost chunk of lines asked again; older plans are made again
 # FLUX draws animals and landscapes; a diagram, a DNA strand or a "visualisation" comes out as
 # mush, and the species check turns it down. Such beats become stock footage instead.
 ABSTRACT = re.compile(r"chart|diagram|graph|infograph|visuali[sz]ation|dna|helix|genetic|molecul|abstract|"
@@ -187,11 +191,15 @@ def main(slug):
     animals = [a for a in animals if isinstance(a, dict) and a.get("key")]
     species = {a["key"]: {"name": f"{a.get('name_de')} ({a.get('latin')})", "features": (a.get("features") or [])[:5],
                           "forbidden": (a.get("forbidden") or [])[:5] + ["a modern animal in a prehistoric scene"],
-                          "living": bool(a.get("living")), "video_query": a.get("video_query")} for a in animals}
+                          "living": bool(a.get("living")), "video_query": a.get("video_query"),
+                          # one reference look per animal for every FLUX frame of it (owner 07.11)
+                          "look": str(a.get("look") or "").strip() or
+                          f"{a.get('name_de')} ({a.get('latin')}): " + ", ".join((a.get("features") or [])[:5])}
+               for a in animals}
     (ep / "species.json").write_text(json.dumps(species, indent=1, ensure_ascii=False), encoding="utf-8")
     living = {k for k, v in species.items() if v["living"]}
-    alist = "\n".join(f"- {k}: {v['name']}, living={v['living']}; features: {'; '.join(v['features'])}"
-                      for k, v in species.items())
+    alist = "\n".join(f"- {k}: {v['name']}, living={v['living']}; features: {'; '.join(v['features'])}; "
+                      f"look: {v['look']}" for k, v in species.items())
 
     planned = {}
     for i0, part in chunks(lines, 20):
@@ -238,10 +246,15 @@ def main(slug):
             if kind == "flux":
                 fid = re.sub(r"[^a-z0-9_]", "_", (b.get("id") or f"f{i}_{k}").lower())[:40]
                 if fid not in flux:
-                    flux[fid] = {"prompt": b.get("prompt", ""), "species": sp, "motion": b.get("motion"),
-                                 "section": l.section, "first": i}
+                    prompt = b.get("prompt", "")
+                    look = species.get(sp, {}).get("look") if sp else None
+                    if look and look[:40].lower() not in prompt.lower():
+                        prompt = f"{look}. {prompt}"           # one look for the animal through the film
+                    flux[fid] = {"prompt": prompt, "species": sp, "motion": b.get("motion"),
+                                 "section": l.section, "first": i, "scene": bool(b.get("scene"))}
                     order.append(fid)
-                beats.append({"kind": "recon", "id": fid, "species": sp})
+                beats.append({"kind": "recon", "id": fid, "species": sp,
+                              **({"scene": True} if b.get("scene") else {})})
             elif kind == "map" and b.get("places"):
                 beats.append({"kind": "anim", "anim": "map", "places": b["places"][:2]})
             else:
@@ -258,7 +271,9 @@ def main(slug):
                     "id", "url", "width", "height", "duration", "page", "author", "license", "license_url",
                     "source", "title", "tags")} for c in cands[1:]], "query": q}
                 beats.append({"kind": "real", "need": need, "species": sp, "dark": bool(b.get("dark")),
-                              "topic": q, "allow": CFG["species_check"]["allow"]})
+                              "topic": q, "allow": CFG["species_check"]["allow"],
+                              **({"scene": True} if b.get("scene") and sp else {}),
+                              **({"people": True} if b.get("people") else {})})
         if not beats:
             beats = [{"kind": "anim", "anim": "map", "places": []}] if False else []
         out_lines.append({"at": " ".join(l.text.split()[:4]), "n": i, "section": l.section,
@@ -310,7 +325,9 @@ def main(slug):
     for row in out_lines:
         row["beats"] = [b for b in row["beats"] if b["kind"] != "recon" or b["id"] in keep]
     lo, hi = CFG["motion"]["animated_per_episode"]
-    animate = [f for f in sorted(keep, key=lambda f: (prio.get(flux[f]["section"], 2), flux[f]["first"]))
+    # the dramatic scenes first (owner 07.11: one in the hook and in every chapter), then by section
+    animate = [f for f in sorted(keep, key=lambda f: (not flux[f].get("scene"), prio.get(flux[f]["section"], 2),
+                                                      flux[f]["first"]))
                if flux[f]["species"] or flux[f].get("extinct")][:hi]
     if len(animate) < lo:
         animate += [f for f in keep if f not in animate][:lo - len(animate)]

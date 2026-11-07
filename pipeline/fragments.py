@@ -22,6 +22,11 @@ still in one framing ("<image>#2"). The repeat rule (twice at most, never
 within 3 minutes) applies to fragments - a piece of film is never shown again
 inside 3 minutes and never three times; another stretch of the same clip is
 another piece. automation/qa.py reads the same keys.
+
+Owner 07.11: a fragment or a crop of a clip is that clip again. The repeat rule now counts
+the SOURCE (source_of: the clip, or the still whatever its framing): at most twice in the
+film, never twice within 3 minutes, whichever stretch or crop is shown. A piece the rule
+leaves nothing for takes another source of the pool; with none left, its shot runs on.
 """
 import math
 
@@ -47,6 +52,16 @@ def key(s):
     return None
 
 
+def source_of(s):
+    """The source a shot shows, whatever its crop or stretch (automation/qa_view.source_of)."""
+    c = s.get("clip") or {}
+    if isinstance(c, dict) and c.get("id"):
+        return "clip:" + str(c["id"])
+    if s.get("image"):
+        return "img:" + str(s["image"]).split("#")[0]
+    return None
+
+
 def interval(s):
     """(clip id, source from, source to) a shot shows, or None (for the repeat rule)."""
     c = s.get("clip") or {}
@@ -66,6 +81,7 @@ class Pool:
 
     def __init__(self, shots, animated, clips, subjects, picks, beat_key, repeat_max, repeat_gap):
         self.shown, self.spans = {}, {}
+        self.uses = {}                     # source -> times it went on screen (owner 07.11)
         self.repeat_max, self.repeat_gap = repeat_max, repeat_gap
         for s in shots:
             self.note(s)
@@ -77,7 +93,16 @@ class Pool:
                 self.subjects.append((bt, cid))
         self.subjects.sort(key=lambda r: 0 if r[1] in animated else 1 if r[0]["kind"] == "real" else 2)
 
+    def src_free(self, src, at):
+        t = self.uses.get(src, [])
+        return src is None or (len(t) < self.repeat_max and all(abs(at - x) >= self.repeat_gap for x in t))
+
+    def use(self, src, at):
+        if src:
+            self.uses.setdefault(src, []).append(at)
+
     def note(self, s):
+        self.use(source_of(s), s["start"])
         iv = interval(s)
         if iv:
             self.spans.setdefault(iv[0], []).append((iv[1], iv[2], s["start"]))
@@ -85,6 +110,9 @@ class Pool:
             self.shown.setdefault(key(s), []).append(s["start"])
 
     def forget(self, s):
+        src = source_of(s)
+        if src in self.uses:
+            self.uses[src] = [x for x in self.uses[src] if x != s["start"]]
         iv = interval(s)
         if iv:
             self.spans[iv[0]] = [x for x in self.spans.get(iv[0], []) if x[2] != s["start"]]
@@ -103,13 +131,14 @@ class Pool:
         """The `at` fraction of a stretch of `length` s of the clip free to show at `at`, or None:
         the first free one from `after` (a fraction) on, then from the start."""
         d = float(clip.get("duration") or 0)
-        if d <= 0 or length <= 0 or length > d:
+        if d <= 0 or length <= 0 or length > d or not self.src_free("clip:" + str(clip["id"]), at):
             return None
         starts = [round(x * 0.25, 2) for x in range(int((d - length) / 0.25) + 1)]
         starts = [x for x in starts if x >= after * d] + [x for x in starts if x < after * d]
         for x in starts:
             if self.span_free(clip["id"], x, x + length, at):
                 self.spans.setdefault(clip["id"], []).append((x, x + length, at))
+                self.use("clip:" + str(clip["id"]), at)
                 return round(x / d, 3)
         return None
 
@@ -120,20 +149,29 @@ class Pool:
             a = self.piece(c, length, at, float(c.get("at") or 0.0))
             return {"clip": {**c, "at": a}} if a is not None else None
         if s.get("image") and s.get("kind") == "recon":
+            # another framing of the same still is the same source (owner 07.11)
+            src = "img:" + str(s["image"]).split("#")[0]
+            if not self.src_free(src, at):
+                return None
             order = list(range(len(CROPS)))
             k0 = int(s.get("crop") or 0)
             for i in order[k0 + 1:] + order[:k0 + 1]:
                 k = f"{s['image']}#{i}" if i else s["image"]
                 if self.free(k, at):
                     self.shown.setdefault(k, []).append(at)
+                    self.use(src, at)
                     return {"image": s["image"], "crop": i or None}
         return None
 
-    def subject(self, at, length, species=None, moving=False, wow_ids=(), wow=False, still_first=False):
+    def subject(self, at, length, species=None, moving=False, wow_ids=(), wow=False, still_first=False,
+                any_animal=False):
         """A fragment of one of the episode's animals, as shot fields, or None: the line's species
-        while it has any piece left, then another animal. `moving`: an LTX clip or real footage
-        only; `wow`: a wow moment only (an LTX clip, real footage of an animal, a wow still)."""
-        for pass_species in ((species, None) if species else (None,)):
+        while it has any piece left; another animal only with any_animal (owner 07.11: an animal
+        the line does not name is never shown). `moving`: an LTX clip or real footage only;
+        `wow`: a wow moment only (an LTX clip, real footage of an animal, a wow still)."""
+        if not species and not any_animal:
+            return None
+        for pass_species in ((species,) if species else (None,)):
             got = self._subject(at, length, pass_species, moving, wow_ids, wow, still_first)
             if got:
                 return got
@@ -169,10 +207,14 @@ class Pool:
                 continue
             if moving or bt["kind"] != "recon" or (wow and bt.get("id") not in wow_ids):
                 continue
+            src = "img:" + str(cid).split("#")[0]
+            if not self.src_free(src, at):
+                continue
             for i in range(len(CROPS)):
                 k = f"{cid}#{i}" if i else cid
                 if self.free(k, at):
                     self.shown.setdefault(k, []).append(at)
+                    self.use(src, at)
                     return {**base, "kind": "recon", "image": cid, "crop": i or None}
         return None
 
@@ -190,7 +232,7 @@ def _set(s, fields):
 
 
 def refine(shots, end_all, pool, is_landscape, is_wow, wow_ids, hook_window, wow_aim, landscape_max,
-           first_minute_moving):
+           first_minute_moving, named=None):
     # 1. split the long shots into fragments
     out = []
     for s in shots:
@@ -267,7 +309,11 @@ def refine(shots, end_all, pool, is_landscape, is_wow, wow_ids, hook_window, wow
                     key=lambda x: -(x["end"] - x["start"])):
         if share(is_landscape) <= min(landscape_max, LANDSCAPE_AIM):
             break
-        got = pool.subject(s["start"], s["end"] - s["start"], species=None)
+        got = None
+        for sp in sorted((named or {}).get(s.get("line"), ())):      # only an animal the line names
+            got = pool.subject(s["start"], s["end"] - s["start"], species=sp)
+            if got:
+                break
         if got:
             pool.forget(s)
             _set(s, got)

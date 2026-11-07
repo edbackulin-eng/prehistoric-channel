@@ -44,7 +44,7 @@ MOVES = ["push_in", "truck_right", "pull_out", "truck_left", "crane_up", "push_i
 HOOK_S = (1.5, 3.0)        # the hook's shots: short, and only moving pictures
 HOOK_WINDOW_S = 30.0       # the first 30 s are cut like the hook, whatever the markup says
 FIRST_MINUTE_MOVING = 0.70
-MUSEUM_MAX = 3
+MUSEUM_MAX = 12          # people and history are part of the film now (owner 07.11; was 3)
 REPEAT_MAX = 2             # a clip on screen at most twice ...
 REPEAT_GAP_S = 180.0       # ... and never again within 3 minutes
 LANDSCAPE_MAX = 0.15
@@ -157,11 +157,15 @@ def build(slug, timeline, narration_s, parts=6, picks=None, animated=None):
     def moving(beat, cid):
         return beat["kind"] == "real" or cid in animated
 
-    def take_subject(at, need_moving=False, species=None):
+    def take_subject(at, need_moving=False, species=None, allowed=None):
         """(beat, cid) from the subject pool, the same animal first; None if all are used.
         A stand-in of a living animal (a FLUX/LTX one, beats marked "standby") may come
-        back once, REPEAT_GAP_S later, when nothing new is left (REPEAT_MAX)."""
+        back once, REPEAT_GAP_S later, when nothing new is left (REPEAT_MAX).
+        Owner 07.11: only an animal the line names (`allowed`); a line that names none
+        gets no animal from here."""
         pool = sorted(subject_pool, key=lambda bt: 0 if species and bt.get("species") == species else 1)
+        if allowed is not None:
+            pool = [bt for bt in pool if bt.get("species") in allowed]
         for bt in pool:
             for cid in (picks.get(speciescheck.beat_key(bt)) or []):
                 if cid in used or (need_moving and not moving(bt, cid)):
@@ -191,12 +195,12 @@ def build(slug, timeline, narration_s, parts=6, picks=None, animated=None):
             [bt for bt in entry["beats"] if bt.get("standby")] or list(prev_beats)
         if entry["beats"]:
             prev_beats = [bt for bt in entry["beats"] if not bt.get("standby")] or prev_beats
-        # a line about an animal shows the animal: the beats with a species first
+        # a line about an animal shows the animal first, and its world too (owner 07.11: the
+        # surroundings, people, maps of the line stay; they were dropped for the animal before)
         with_species = [bt for bt in beats if bt.get("species")]
         if with_species and len(with_species) < len(beats):
             beats = with_species + [bt for bt in beats if not bt.get("species")]
-            if not hook:
-                beats = with_species
+        named = {bt.get("species") for bt in beats if bt.get("species")}   # the line's, or those it goes on with
         base = {"line": li, "text": timeline[li]["text"], "amb": entry.get("amb"),
                 "cut_here": bool(entry.get("cut")), "section": timeline[li].get("section", "story")}
         if not beats:
@@ -218,7 +222,7 @@ def build(slug, timeline, narration_s, parts=6, picks=None, animated=None):
                 shot.pop("label", None)
                 shot.pop("title", None)
             if hook and beat["kind"] == "anim":       # no map in the hook: an animal that moves
-                got = take_subject(s0, need_moving=True)
+                got = take_subject(s0, need_moving=True, allowed=named)
                 if got:
                     beat = got[0]
                     used.discard(got[1])              # take() below picks it
@@ -233,7 +237,7 @@ def build(slug, timeline, narration_s, parts=6, picks=None, animated=None):
                 if (hook and (cid is None or not moving(beat, cid) or not animal)) or over or cid is None:
                     # the hook takes only moving animals; past 15 % landscapes give way; a beat that has
                     # run out takes another animal of the episode rather than a repeat
-                    got = take_subject(s0, need_moving=hook, species=beat.get("species"))
+                    got = take_subject(s0, need_moving=hook, species=beat.get("species"), allowed=named)
                     if got:
                         if cid is not None:
                             used.discard(cid)
@@ -295,7 +299,7 @@ def build(slug, timeline, narration_s, parts=6, picks=None, animated=None):
     fpool = fragments.Pool(shots, animated, clips, subject_pool + [b for b in recon_beats if b not in subject_pool],
                            picks, speciescheck.beat_key, REPEAT_MAX, REPEAT_GAP_S)
     shots = fragments.refine(shots, end_all, fpool, is_landscape, is_wow, wow_ids, HOOK_WINDOW_S, WOW_AIM_S,
-                             LANDSCAPE_MAX, FIRST_MINUTE_MOVING)
+                             LANDSCAPE_MAX, FIRST_MINUTE_MOVING, named={e.get('n', k): {b['species'] for b in e['beats'] if b.get('species')} for k, e in enumerate(spec)})
 
     for s in shots:
         s["amb_line"] = s.get("amb")
