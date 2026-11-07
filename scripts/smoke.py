@@ -358,6 +358,25 @@ def main():
     check("fragments: a piece of real footage keeps its need (the render names it)",
           all(x.get("need") for x in wp["shots"] if x["kind"] == "real"),
           str([(x["start"], (x.get("clip") or {}).get("id")) for x in wp["shots"] if x["kind"] == "real" and not x.get("need")][:5]))
+    # owner 07.11: the extinct animal shown where the text tells of it, a scene every ~3 minutes,
+    # people at most a quarter - in code, whatever the model planned
+    sys.path.insert(0, str(ROOT / "automation"))
+    import plan_episode as pe
+    from types import SimpleNamespace as NS
+    sp = {"megalodon": {"name": "Megalodon (Otodus megalodon)", "living": False, "look": "huge shark"},
+          "great_white_shark": {"name": "Weißer Hai (Carcharodon carcharias)", "living": True}}
+    ln = [NS(text=("Der Megalodon jagte Wale." if i % 4 == 0 else "Er war riesig und schnell im Meer."),
+             section="hook" if i < 3 else "story") for i in range(120)]
+    ol = [{"n": i, "beats": [{"kind": "real", "need": f"v{i}", "species": None, "people": i % 2 == 0}]} for i in range(120)]
+    fx, od = {}, []
+    m, add = pe.enforce_world(ln, ol, sp, fx, od, title="megalodon")
+    ppl = sum(1 for r in ol for b in r["beats"] if b.get("people"))
+    allb = sum(len(r["beats"]) for r in ol)
+    check("plan: the episode's extinct animal and its scenes are added in code; people <= 25 %",
+          m == "megalodon" and sum(1 for f in add if fx[f]["scene"]) >= 3
+          # people go where the line keeps another picture; a line with nothing else keeps its own
+          and (ppl <= 0.25 * allb + 1 or all(not b.get("people") for r in ol if len(r["beats"]) > 1 for b in r["beats"]))
+          and all(fx[f]["prompt"].startswith("huge shark") for f in add), f"{m} {len(add)} {ppl}/{allb}")
     # the watchdog hands a built episode in the buffer to upload.yml once a token exists
     from automation import release, watchdog
     calls = []
