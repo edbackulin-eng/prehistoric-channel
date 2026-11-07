@@ -2,7 +2,7 @@ name: upload
 
 # A buffered episode to YouTube: private - without a date while config
 # release.manual_left > 0 (approve.yml gives it one), else publishAt on the
-# nearest free slot (Wednesday or Saturday 17:00 Europe/Berlin) - German
+# nearest free slot (Sunday or Wednesday 17:00 Europe/Berlin) - German
 # subtitles, the chosen thumbnail. Only with a passing QA report. Started by the
 # watchdog; never twice for one episode: the channel is asked first, and the id
 # is committed the moment YouTube returns it (automation/release.py).

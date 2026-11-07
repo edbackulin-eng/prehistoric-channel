@@ -185,13 +185,13 @@ def main():
     check("plan: dropped scene covered", "impact_forest__s0" not in imgs and len(frags) == len(set(frags))
           and abs(pl["shots"][-1]["end"] - pl["total_s"]) < 0.01, str([(x["kind"], x.get("image"), x["start"], x["end"])
                                                                        for x in pl["shots"]]))
-    # the schedule: Wednesday and Saturday, 17:00 in Berlin (15:00 or 16:00 UTC)
+    # the schedule: Sunday and Wednesday, 17:00 in Berlin (owner 07.11; 15:00 or 16:00 UTC)
     from datetime import datetime, timezone
     from zoneinfo import ZoneInfo
     from pipeline import youtube
     sl = youtube.slots(4, now=datetime(2026, 10, 29, 12, 0, tzinfo=timezone.utc))
     berlin = [x.astimezone(ZoneInfo("Europe/Berlin")) for x in sl]
-    check("slots Wed/Sat 17:00 Berlin", all(b.weekday() in (2, 5) and b.hour == 17 for b in berlin)
+    check("slots Sun/Wed 17:00 Berlin", all(b.weekday() in (6, 2) and b.hour == 17 for b in berlin)
           and len({b.date() for b in berlin}) == 4, str([b.isoformat() for b in berlin]))
     kept = youtube.own_tags(["Terra X", "terra-x Doku", "ZDF", "BBC Earth", "Jurassic Park", "Urzeit", "Quastenflosser",
                              "Brückenechse", "Arterien", "Welten der Urzeit"])

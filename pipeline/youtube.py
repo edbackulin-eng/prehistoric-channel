@@ -2,7 +2,7 @@
 
 Every upload goes up private; until config "release.manual_left" is spent it
 stays unscheduled until approved (approve.yml), after that it gets a publishAt
-on the nearest free slot of the channel's week - Wednesday and Saturday, 17:00 Europe/Berlin (config/channel.json
+on the nearest free slot of the channel's week - Sunday and Wednesday, 17:00 Europe/Berlin (owner 07.11; was Wednesday and Saturday) (config/channel.json
 "schedule"; summer and winter time follow the zone) - at least MIN_LEAD away.
 Every video declares containsSyntheticMedia=true and madeForKids=false, German
 as its language; subtitles are YouTube's own automatic ones (config
@@ -70,7 +70,7 @@ def authorize(client_secret, token_out):
 
 
 def next_slot(taken=(), now=None):
-    """The nearest free slot (UTC), Wednesday or Saturday 17:00 in Berlin."""
+    """The nearest free slot (UTC), Sunday or Wednesday 17:00 in Berlin."""
     now = now or datetime.now(timezone.utc)
     taken_days = set()
     for t in taken:

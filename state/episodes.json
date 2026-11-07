@@ -8,7 +8,7 @@
   ],
   "kept_private": "0lDoysa2Hok",
   "duplicate": "TMe4TpeSBtc",
-  "publish_at": "2026-11-11T16:00:00Z",
+  "publish_at": "2026-11-08T16:00:00Z",
   "rejected_why": "owner review 31.10: hook, subject on screen, pace, music, ambience, thumbnail; uploaded twice (30.10)",
   "rejected_at": "2026-10-30T22:40:00Z",
   "run_id": "42364963756",
@@ -24,6 +24,7 @@
    "thumbnail": "set",
    "subtitles": "off: YouTube's automatic captions (config schedule.upload_subtitles)"
   },
-  "approved_at": "2026-11-07T19:11:34Z"
+  "approved_at": "2026-11-07T19:11:34Z",
+  "publish_set_by": "owner in YouTube Studio (07.11)"
  }
 ]

@@ -96,8 +96,8 @@
  },
  "schedule": {
   "weekdays": [
-   "Wed",
-   "Sat"
+   "Sun",
+   "Wed"
   ],
   "time": "17:00",
   "tz": "Europe/Berlin",

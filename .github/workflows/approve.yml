@@ -1,7 +1,7 @@
 name: approve
 
 # "approve <slug>": an episode uploaded private and without a date (while config
-# release.manual_left > 0) gets the nearest free slot - Wednesday or Saturday
+# release.manual_left > 0) gets the nearest free slot - Sunday or Wednesday
 # 17:00 Europe/Berlin - and one manual release fewer is left. Once none is left,
 # uploads are scheduled by themselves.
 run-name: approve ${{ inputs.slug }}
