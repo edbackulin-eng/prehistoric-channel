@@ -319,6 +319,14 @@ jobs:
             work/${{ inputs.slug }}/inputs/kaggle_recon_report.json
             work/${{ inputs.slug }}/inputs/mask_check.json
             work/${{ inputs.slug }}/inputs/species_picks.json
+      # the QA report with its pictures (contact sheet, sound graph, thumbnails): *.jpg and *.png
+      # are not committed, so the owner reviews them from here (owner 07.11)
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: qa-${{ inputs.slug }}
+          retention-days: 30
+          path: qa/${{ inputs.slug }}/
       - name: Keep the quota record (the species check in prepare, the masks and thumbnails here)
         if: always() && inputs.release != 'true'
         run: |
