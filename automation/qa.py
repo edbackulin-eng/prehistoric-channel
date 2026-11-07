@@ -30,6 +30,25 @@ Checks (config/channel.json "qa"):
               render moved with its 2.5D parallax (owner 06.11)
   wow         a wow moment (an LTX creature, real footage of an animal, a tense
               picture the plan marked) at least every 45 s
+
+Owner 07.11, after lebende-fossilien passed with real faults, for every episode from megalodon on:
+  background  music + atmosphere together >= 20 dB under the voice in every minute (the
+              render's per-minute measurement, docsound.levels); replaces the music-only rule
+  ambience    the sea only inside shots whose picture is sea (the render's atmosphere spans)
+  repeats     a source - clip or still, any crop or stretch of it, or a frame that looks the
+              same (perceptual hash) - at most twice and never within 3 minutes (qa_view)
+  match       every frame against its line: the line's animal (the species), no animal the
+              text does not name (Gemini, qa_view)
+  consistent  one look per animal through the film (Gemini, qa_view)
+  diversity   the world around the animal: the main animal <= 40 % of the time; every
+              chapter mixes at least 3 kinds (environment, people and history, maps and
+              time, the prehistoric world, other animals of the text, the main animal)
+  scenes      a dramatic animated scene (a hunt, an attack, the animal beside a human or a
+              diver; LTX or real film) in the hook and in every chapter; "wow" counts only
+              these
+  viewer      Gemini as a viewer on the contact sheet with the text: more than 3 boring,
+              repeated or out-of-place marks and the episode does not go up (qa_view)
+A chapter is a section of the script when it has more than hook and story, else 3 minutes.
 """
 import argparse
 import json
@@ -62,6 +81,19 @@ TOL = 0.05
 MOTION_MIN = float(CFG.get("prehistoric_motion_min", 0.40))
 DINO_LTX_MIN = int(CFG.get("dino_ltx_min", 2))
 WOW_MAX_S = float(CFG.get("wow_max_s", 45))
+BG_UNDER_MIN = 20.0           # music + atmosphere under the voice, every minute (owner 07.11)
+MAIN_MAX = 0.40               # the main animal on screen at most this share of the film
+KINDS_MIN = 3                 # kinds of picture in every chapter
+KIND_MIN_S = 8.0              # ... each at least this long there
+CHAPTER_S = 180.0
+import re as _re  # noqa: E402
+PEOPLE = _re.compile(r"fisher|fischer|scientist|forscher|wissenschaft|museum|archive|archiv|portrait|researcher|"
+                     r"diver|taucher|boat|boot|ship|schiff|trawler|expedition|laborator|labor\b|professor|"
+                     r"historic photo|old photo|newspaper|zeitung|people|menschen|human|mensch|fossil hunter|"
+                     r"excavat|grabung|specimen|präparat|skelet|tooth|zahn|fossil", _re.I)
+ACTION = _re.compile(r"attack|hunt|bite|biting|jaws open|open jaws|chase|charg|lunge|strike|ambush|fight|kill|"
+                     r"prey|feeding|devour|leap|breach|diver|human for scale|beside a (?:human|diver|boat)|"
+                     r"angriff|jagd|jagt|beißt|beute|maul|sprung", _re.I)
 
 
 def moving(s):
@@ -111,7 +143,73 @@ def parallax_by_shot(parts):
     return out
 
 
-def checks_of(plan, sound, thumbs, slug, parts=None):
+def main_species(plan, ls):
+    """The episode's animal: the one the narration names longest."""
+    told = defaultdict(float)
+    for s in plan["shots"]:
+        for sp in ls.get(s.get("line"), ()):
+            told[sp] += s["end"] - s["start"]
+    return max(told, key=told.get) if told else None
+
+
+def kind_of(s, main):
+    """What a picture is about (owner 07.11): main, other_animal, environment, people, map,
+    prehistoric_world or other."""
+    text = " ".join(str(s.get(k) or "") for k in ("topic", "id", "image", "need", "caption", "title")).replace("_", " ")
+    c = s.get("clip")
+    if isinstance(c, dict):
+        text += " " + str(c.get("title") or c.get("tags") or "")
+    if s.get("kind") == "anim":
+        return "map"
+    if s.get("species") and s["species"] == main:
+        return "main"
+    if PEOPLE.search(text) and s.get("kind") in ("photo", "real") and not s.get("species"):
+        return "people"
+    if s.get("species"):
+        return "other_animal"
+    if docplan.is_landscape(s):
+        return "environment"
+    if s.get("kind") == "recon":
+        return "prehistoric_world"
+    if PEOPLE.search(text):
+        return "people"
+    return "other"
+
+
+def is_scene(s, prompts):
+    """A dramatic animated scene: marked so by the plan, or an LTX clip / real film whose
+    prompt or topic tells of a hunt, an attack, the animal beside a human or a diver."""
+    if s.get("scene"):
+        return True
+    if not (ltx(s) or moving(s)):
+        return False
+    pid = str(s.get("id") or str(s.get("need", ""))[4:].split("__s")[0])
+    text = " ".join([prompts.get(pid, ""), str(s.get("topic") or ""), str(s.get("need") or "")])
+    c = s.get("clip")
+    if isinstance(c, dict):
+        text += " " + str(c.get("title") or "")
+    return bool(ACTION.search(text.replace("_", " ")))
+
+
+def chapters(plan, shots, total):
+    """[(name, start, end)]: the script's sections when it has more than hook and story,
+    else the hook and 3-minute chapters after it."""
+    secs = [s for s in plan.get("sections") or [] if s.get("name")]
+    hook_end = next((s["start"] for s in secs if s["name"] != "hook"), HOOK_S)
+    if len([s for s in secs if s["name"] not in ("hook", "story")]) >= 2:
+        out = []
+        for a, b in zip(secs, secs[1:] + [{"start": total}]):
+            out.append((a["name"], a["start"], b["start"]))
+        return out
+    out = [("hook", 0.0, hook_end)]
+    t, k = hook_end, 1
+    while t < total - 30:
+        out.append((f"chapter {k}", t, min(total, t + CHAPTER_S)))
+        t, k = t + CHAPTER_S, k + 1
+    return out
+
+
+def checks_of(plan, sound, thumbs, slug, parts=None, view=None):
     shots = [s for s in plan["shots"] if not s.get("drop")]
     total = plan["total_s"]
     dur = lambda s: s["end"] - s["start"]                                  # noqa: E731
@@ -145,12 +243,15 @@ def checks_of(plan, sound, thumbs, slug, parts=None):
             if s.get("species") == sp:
                 shown[sp] += dur(s)
     share = {sp: round(shown[sp] / told[sp], 2) for sp in told if told[sp] >= 30}
-    low = {sp: v for sp, v in share.items() if v < SUBJECT_MIN}
+    # owner 07.11: while a line tells of an animal the picture shows that animal or its world
+    # (surroundings, people, maps) - never another animal the line does not name
+    wrong_animal = [round(s["start"]) for s in shots if s.get("species") and ls.get(s.get("line"))
+                    and s["species"] not in ls.get(s.get("line"), ())]
     land = sum(dur(s) for s in shots if docplan.is_landscape(s)) / max(1e-6, total)
     prehistoric = sum(1 for s in shots if ltx(s))
-    add("subject", not low and land <= LANDSCAPE_MAX and prehistoric > 0,
-        f"animal on screen where told: {share or 'no animal told'} (need >= {SUBJECT_MIN:.0%}"
-        f"{', too low: ' + str(low) if low else ''}); landscapes {land:.0%} (max {LANDSCAPE_MAX:.0%}); "
+    add("subject", not wrong_animal and land <= LANDSCAPE_MAX and prehistoric > 0,
+        f"animal shown where told: {share or 'no animal told'}; another animal than the line names at "
+        f"{wrong_animal[:10] or 'none'} s; landscapes {land:.0%} (max {LANDSCAPE_MAX:.0%}); "
         f"prehistoric animals in motion: {prehistoric} shots",
         subject_share=share, landscape_share=round(land, 3))
 
@@ -179,15 +280,33 @@ def checks_of(plan, sound, thumbs, slug, parts=None):
     louder = [m["minute"] for m in pm if m["voice_lufs"] is not None and m["music_lufs"] is not None
               and m["music_lufs"] >= m["voice_lufs"]]
     silent = lv.get("music_silent_s")
-    add("music", bool(pm) and not bad and not louder and silent == 0,
-        f"under the voice per minute: {[m['under_db'] for m in pm]} dB (20-24); minutes outside: {bad or 'none'}; "
+    add("music", bool(pm) and not louder and silent == 0,
+        f"music under the voice per minute: {[m['under_db'] for m in pm]} dB; "
         f"music as loud as the voice in minute(s): {louder or 'none'}; music silent {silent} s"
         + ("" if pm else " - NO per-minute measurement"))
+    # owner 07.11: the whole background, music and atmosphere, >= 20 dB under the voice every minute
+    bgu = [m.get("background_under_db") for m in pm]
+    bg_bad = [m["minute"] for m in pm if m.get("background_under_db") is None
+              or m["background_under_db"] < BG_UNDER_MIN - TOL]
+    add("background", bool(pm) and all(v is not None for v in bgu) and not bg_bad,
+        f"music + atmosphere under the voice per minute: {bgu} dB (need >= {BG_UNDER_MIN:.0f}); "
+        f"minutes too loud: {bg_bad or 'none'}"
+        + ("" if pm and all(v is not None for v in bgu) else " - NO measurement of the whole background"))
 
     # ambience follows the picture
-    wrong = [round(s["start"]) for s in shots if s.get("amb") in docplan.SEA_AMB and
-             docplan.amb_for(s, s.get("amb")) != s.get("amb")]
-    add("ambience", not wrong, f"sea atmosphere under a picture without sea at {wrong[:10] or 'none'} s")
+    spans = lv.get("amb_spans")
+    if spans is None:
+        wrong = [round(s["start"]) for s in shots if s.get("amb") in docplan.SEA_AMB and
+                 docplan.amb_for(s, s.get("amb")) != s.get("amb")]
+        add("ambience", False, f"NO record of where the render put its atmosphere; by the plan: sea under no "
+            f"sea at {wrong[:10] or 'none'} s")
+    else:
+        allp = plan["shots"]
+        wrong = [round(allp[i]["start"]) for sp in spans if sp["amb"] in docplan.SEA_AMB for i in sp["shots"]
+                 if i < len(allp) and not docplan.MARINE.search(" ".join(
+                     str(allp[i].get(k) or "") for k in ("topic", "id", "image", "need", "species")).replace("_", " "))]
+        add("ambience", not wrong, f"{len(spans)} atmosphere stretches, only inside their shots; sea under a "
+            f"picture without sea at {wrong[:10] or 'none'} s")
 
     fm = plan.get("checks", {}).get("first_minute_moving_share", 0)
     add("first_min", fm >= FIRST_MINUTE_MOVING, f"{fm:.0%} moving in the first minute (need 70 %)")
@@ -226,12 +345,48 @@ def checks_of(plan, sound, thumbs, slug, parts=None):
     add("dinosaurs", n_dino >= DINO_LTX_MIN, f"{n_dino} dinosaurs in motion (need {DINO_LTX_MIN}): LTX clips "
         f"{dinos or 'none'}, FLUX dinosaurs moved by the 2.5D parallax {moved or 'none'}"
         + ("" if px else " - NO render report of the parallax moves"))
-    wow_ids = set(recon_wow(slug))
-    gaps = docplan.wow_gaps(shots, total, wow_ids)
-    long_ = [round(sum(gaps[:i])) for i, g in enumerate(gaps) if g > WOW_MAX_S + TOL]
-    add("wow", not long_, f"{sum(1 for s in shots if docplan.is_wow(s, wow_ids))} wow moments, the longest gap "
-        f"{max(gaps or [0]):.0f} s (max {WOW_MAX_S:.0f}); longer gaps after {long_[:10] or 'none'} s",
-        wow_max_gap_s=round(max(gaps or [0]), 1))
+    # owner 07.11: "wow" is a dramatic animated scene only, not the number of cuts
+    wow_t = sorted(s["start"] for s in shots if is_scene(s, prompts))
+    gaps = [b - a for a, b in zip([0.0] + wow_t, wow_t + [total])]
+    add("wow", bool(wow_t), f"{len(wow_t)} wow scenes; the longest stretch without one {max(gaps or [total]):.0f} s "
+        f"(reported; the rule is a scene in every chapter, see scenes)", wow_max_gap_s=round(max(gaps or [total]), 1))
+
+    # diversity: the world around the animal (owner 07.11)
+    main = main_species(plan, ls)
+    kinds = defaultdict(float)
+    for s in shots:
+        kinds[kind_of(s, main)] += dur(s)
+    main_share = kinds.get("main", 0.0) / max(1e-6, total)
+    poor = {}
+    chs = chapters(plan, shots, total)
+    for name, a, b in chs:
+        if name == "hook":
+            continue
+        k = defaultdict(float)
+        for s in shots:
+            o = max(0.0, min(b, s["end"]) - max(a, s["start"]))
+            if o > 0:
+                k[kind_of(s, main)] += o
+        have = [x for x, v in k.items() if v >= KIND_MIN_S and x != "other"]
+        if len(have) < KINDS_MIN:
+            poor[name] = sorted(have)
+    add("diversity", main_share <= MAIN_MAX + TOL / 10 and not poor,
+        f"main animal ({main}) {main_share:.0%} of the film (max {MAIN_MAX:.0%}); kinds: "
+        f"{ {x: f'{v / total:.0%}' for x, v in sorted(kinds.items(), key=lambda kv: -kv[1])} }; chapters with "
+        f"fewer than {KINDS_MIN} kinds: {poor or 'none'}", kind_shares={x: round(v / total, 3) for x, v in kinds.items()})
+    # scenes: a dramatic animated scene in the hook and in every chapter; these are the wow
+    scenes = [s for s in shots if is_scene(s, prompts)]
+    missing = [name for name, a, b in chs if not any(a <= s["start"] < b for s in scenes)]
+    add("scenes", not missing, f"{len(scenes)} dramatic animated scenes (LTX or real film); chapters without one: "
+        f"{missing or 'none'}", scenes=len(scenes))
+
+    if view is not None:
+        for name in ("repeats", "match", "consistent", "viewer"):
+            r = view.get(name)
+            if r is None:
+                add(name, False, "NOT measured (no video or no frames)")
+            else:
+                add(name, r[0], r[1])
 
     ch = (thumbs or {}).get("choice") or {}
     add("thumbnail", bool(ch.get("best")) and ch.get("judge_pass", False),
@@ -295,6 +450,35 @@ def sound_graph(sound, dest, w=1600, h=520):
     im.save(dest)
 
 
+def view_checks(plan, video, slug, rel):
+    """The checks that look at the finished picture (automation/qa_view.py)."""
+    from automation import qa_view
+    shots = [s for s in plan["shots"] if not s.get("drop")]
+    cache_f = rel / "qa_view_cache.json"
+    cache = json.loads(cache_f.read_text(encoding="utf-8")) if cache_f.exists() else {}
+    out = {}
+    try:
+        frames = qa_view.shot_frames(video, shots, rel / "_shot_frames")
+        out["repeats"] = qa_view.repeats(shots, frames)[:2]
+        out["match"] = qa_view.match(shots, frames, line_species(slug), cache)[:2]
+        out["consistent"] = qa_view.consistent(shots, frames, rel, cache)[:2]
+
+        seen_lines, segs = set(), []
+        for s in shots:
+            if s.get("line") not in seen_lines:
+                seen_lines.add(s.get("line"))
+                segs.append((s["start"], s.get("text") or ""))
+
+        def timeline_text(a, b):
+            return " ".join(tx for st, tx in segs if a <= st < b)
+        out["viewer"] = qa_view.viewer(video, timeline_text, plan["total_s"], rel, cache)[:2]
+    except Exception as e:                                               # noqa: BLE001
+        log.warning("view checks failed: %s", e)
+    finally:
+        cache_f.write_text(json.dumps(cache, ensure_ascii=False, indent=1), encoding="utf-8")
+    return out
+
+
 def main(slug, res):
     w = ROOT / "work" / slug
     rel = w / "release"
@@ -302,7 +486,11 @@ def main(slug, res):
     rep = json.loads((w / f"report_{res}.json").read_text(encoding="utf-8")) if (w / f"report_{res}.json").exists() else {}
     thumbs = json.loads((rel / "thumbnails_report.json").read_text(encoding="utf-8")) \
         if (rel / "thumbnails_report.json").exists() else {}
-    checks = checks_of(plan, rep.get("sound"), thumbs, slug, rep.get("parts"))
+    view = None
+    video = rel / "video.mp4"
+    if video.exists():
+        view = view_checks(plan, video, slug, rel)
+    checks = checks_of(plan, rep.get("sound"), thumbs, slug, rep.get("parts"), view=view)
     ok = all(c["ok"] for c in checks)
     q = {"slug": slug, "pass": ok, "checks": checks, "duration_s": rep.get("duration_s"),
          "first_minute_moving": plan.get("checks", {}).get("first_minute_moving_share")}
