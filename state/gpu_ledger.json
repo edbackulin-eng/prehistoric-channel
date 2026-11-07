@@ -60,5 +60,11 @@
   "end": "2026-11-04T06:18:17+00:00",
   "hours": 0.679,
   "note": "from the log of episode run 41768111173 (its record was never committed)"
+ },
+ {
+  "ref": "metberi/prehistoric-animate",
+  "start": "2026-11-07T17:46:18.013690+00:00",
+  "end": "2026-11-07T18:28:06.944289+00:00",
+  "hours": 0.697
  }
 ]

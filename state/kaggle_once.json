@@ -68,5 +68,14 @@
   "hours": 0.228,
   "ok": true,
   "check": "variants {'A': (9, 9), 'C': (9, 9)} of 9 lines, errors: []"
+ },
+ {
+  "task": "animate",
+  "ref": "metberi/prehistoric-animate",
+  "start": "2026-11-07T17:46:18.013690+00:00",
+  "end": "2026-11-07T18:28:06.944289+00:00",
+  "hours": 0.697,
+  "ok": true,
+  "check": "10/10 clips (need 8), errors: []"
  }
 ]
