@@ -116,7 +116,9 @@ jobs:
           echo "rc=$rc" >> "$GITHUB_OUTPUT"
           [ $rc -eq 0 ] || [ $rc -eq 3 ] || exit $rc
       - name: Species check of the FLUX frames, and which to animate
-        if: steps.flux.outputs.rc == '0' && env.deferred != '1'
+        # a skipped FLUX step (no topic, or a deferred one) has no rc, and null == '0' is true in
+        # GitHub's expressions (07.11: a run with no topic went on to the species check)
+        if: steps.flux.outcome == 'success' && steps.flux.outputs.rc == '0' && env.deferred != '1'
         env:
           SLUG: ${{ steps.pick.outputs.slug }}
         run: |
@@ -128,7 +130,7 @@ jobs:
           git add "episodes/$SLUG/species_verdicts.json" && bash "$RUNNER_TEMP/push.sh" "FLUX species check for $SLUG" || true
       - name: LTX-Video on Kaggle
         id: ltx
-        if: steps.flux.outputs.rc == '0' && env.deferred != '1'
+        if: steps.flux.outcome == 'success' && steps.flux.outputs.rc == '0' && env.deferred != '1'
         run: |
           set +e
           python -u gpu/kaggle_once.py animate "${{ steps.pick.outputs.slug }}"; rc=$?
@@ -141,7 +143,7 @@ jobs:
           echo "LTX clips: $n (need $need)"
           [ $rc -eq 0 ] && [ "$n" -ge "$need" ] || { echo "::error::only $n LTX clips (need $need); no render"; exit 1; }
       - uses: actions/upload-artifact@v5
-        if: steps.flux.outputs.rc == '0' && steps.ltx.outputs.rc != '3' && env.deferred != '1'
+        if: steps.flux.outcome == 'success' && steps.flux.outputs.rc == '0' && steps.ltx.outputs.rc != '3' && env.deferred != '1'
         with:
           name: gpu-${{ steps.pick.outputs.slug }}
           retention-days: 14
@@ -173,7 +175,7 @@ jobs:
             bash "$RUNNER_TEMP/push.sh" "episode ${{ steps.pick.outputs.slug }}: waits for the GPU window (run ${{ github.run_id }})" || true
           fi
       - name: Render (2160p, parallel on Actions), then upload or buffer
-        if: steps.flux.outputs.rc == '0' && steps.ltx.outputs.rc != '3' && env.deferred != '1'
+        if: steps.flux.outcome == 'success' && steps.flux.outputs.rc == '0' && steps.ltx.outputs.rc != '3' && env.deferred != '1'
         run: |
           # the render's image checks need their own share of the day: otherwise tomorrow
           python automation/llm_budget.py need render "${{ steps.pick.outputs.slug }}" || {
