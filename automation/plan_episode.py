@@ -128,7 +128,8 @@ TIERE:
 {animals}"""
 
 
-PLAN_VERSION = 8          # 07.11: the world around the animal (main <= 40 %, 3 kinds a chapter), a scene a chapter, one look per animal, only the line's animals
+PLAN_VERSION = 9          # 07.11: the extinct animal, a scene every 3 min and the people share enforced in code
+_PLAN_VERSION_8 = 8          # 07.11: the world around the animal (main <= 40 %, 3 kinds a chapter), a scene a chapter, one look per animal, only the line's animals
 _PLAN_VERSION_7 = 7          # 31.10: the animal on screen (>= 60 % of its chapter), <= 15 % landscapes, a moving hook with animals; a lost chunk of lines asked again; older plans are made again
 # FLUX draws animals and landscapes; a diagram, a DNA strand or a "visualisation" comes out as
 # mush, and the species check turns it down. Such beats become stock footage instead.
@@ -152,6 +153,124 @@ def living_named(fid, prompt, species):
 
 def abstract(fid, prompt):
     return bool(ABSTRACT.search(f"{fid} {prompt}"))
+
+
+# owner 07.11, enforced in code because the model left them out (megalodon's first plan of the new
+# kind: the megalodon in no shot, 179 people beats, no scene, three FLUX landscapes)
+ANIMAL_POSES = ["swimming slowly through deep blue water, side view, full body",
+                "head close-up, the eye and the teeth, dramatic side light",
+                "seen from below against the bright surface, silhouette, sun rays",
+                "gliding over the sea floor, a school of small fish scattering",
+                "turning toward the camera, mouth slightly open, deep water"]
+SCENE_POSES = ["attacking a prehistoric whale, jaws wide open, a cloud of blood in the water, dramatic light",
+               "enormous beside a tiny scuba diver for scale, deep blue water, the diver's torch on it",
+               "charging straight toward the camera, mouth wide open, rows of teeth, motion",
+               "hunting a pod of small whales, chasing, motion blur, cinematic",
+               "bursting out of the ocean surface, spray, dramatic sky",
+               "circling under a small wooden boat, seen from underwater, sun rays",
+               "biting into a whale's flipper, struggle, churning water",
+               "rising from the dark depths toward a lone diver, menace"]
+SETTINGS = ["open ocean at noon, bright blue", "murky green coastal water", "deep twilight zone, beams of light",
+            "over a coral reef of its era", "at dusk near the surface, orange light", "a kelp-like forest of its era"]
+PEOPLE_MAX = 0.25            # of an episode's beats
+CHAPTER_LINES_S = 180.0      # a scene every ~3 minutes
+
+
+GENERIC = {"urzeit", "riesen", "ancient", "similar", "species", "prehistoric", "giant", "early", "other",
+           "artig", "verwandte", "relative", "familie", "family", "gruppe", "group"}
+
+
+def _tokens(sp):
+    name = re.sub(r"[()]", " ", sp.get("name") or "")
+    return [w for w in re.findall(r"[A-Za-zÄÖÜäöüß]{5,}", name.replace("-", " ")) if w.lower() not in GENERIC]
+
+
+def _named_in(text, sp):
+    """True when the line names the animal (its German or Latin name, not a generic word)."""
+    toks = _tokens(sp)
+    return any(re.search(r"\b" + re.escape(w), text, re.I) for w in toks)
+
+
+def enforce_world(lines, out_lines, species, flux, order, secs_per_word=0.45, title=""):
+    """The rules the model may leave out, in code: a line that names an extinct animal shows it
+    (FLUX, its one look); a dramatic scene every ~3 minutes; people at most PEOPLE_MAX."""
+    extinct = {k: v for k, v in species.items() if not v.get("living")}
+    by_n = {r["n"]: r for r in out_lines}
+    counts = {k: 0 for k in extinct}
+    for i, l in enumerate(lines):
+        for k, v in extinct.items():
+            if _named_in(l.text, v):
+                counts[k] += 1
+    # the episode's animal: the one its title names, else the one named most
+    by_title = [k for k, v in extinct.items() if any(w.lower() in title.lower() for w in _tokens(v))]
+    main = by_title[0] if by_title else (max(counts, key=counts.get) if counts and max(counts.values()) else None)
+    others = {k for k in species if k != main}
+    added, pose_i = [], {k: 0 for k in extinct}
+
+    def new_frame(k, i, pose, scene):
+        fid = re.sub(r"[^a-z0-9_]", "_", f"{k}_{'scene' if scene else 'pose'}_{len(added)}")[:40]
+        look = extinct[k].get("look") or extinct[k]["name"]
+        flux[fid] = {"prompt": f"{look}. {pose}", "species": k, "motion": "the animal moves forward, powerful, "
+                     "natural motion" if not scene else pose, "section": lines[i].section, "first": i, "scene": scene}
+        order.append(fid)
+        added.append(fid)
+        return {"kind": "recon", "id": fid, "species": k, **({"scene": True} if scene else {})}
+    # 1. the extinct animals where the lines name them: a frame of its own every other such line;
+    # the main animal also where the text tells of it without its name (every third line that
+    # names no other animal - "er", "der Riesenhai")
+    for k in extinct:
+        seen = 0
+        for i, l in enumerate(lines):
+            row = by_n.get(i)
+            named = _named_in(l.text, extinct[k])
+            told = k == main and i % 3 == 0 and not any(_named_in(l.text, species[o]) for o in others)
+            if row is None or not (named or told):
+                continue
+            if any(b.get("species") == k for b in row["beats"]):
+                continue
+            seen += 1
+            if seen % 2 == 1:                              # every other line: the main animal <= 40 %
+                j = pose_i[k]                               # every frame another pose in another setting
+                pose = f"{ANIMAL_POSES[j % len(ANIMAL_POSES)]}, {SETTINGS[(j // len(ANIMAL_POSES) + j) % len(SETTINGS)]}"
+                pose_i[k] += 1
+                row["beats"].insert(0, new_frame(k, i, pose, False))
+    # 2. a dramatic scene every ~3 minutes, the main animal's first
+    t, chunk, scene_i = 0.0, [], 0
+    chunks_ = []
+    for i, l in enumerate(lines):
+        chunk.append(i)
+        t += len(l.text.split()) * secs_per_word
+        if t >= CHAPTER_LINES_S or l.section == "hook" and i + 1 < len(lines) and lines[i + 1].section != "hook":
+            chunks_.append(chunk)
+            chunk, t = [], 0.0
+    if chunk:
+        chunks_.append(chunk)
+    who = main or next(iter(extinct), None)
+    for ch in chunks_:
+        if who is None:
+            break
+        if any(b.get("scene") for i in ch for b in (by_n.get(i) or {}).get("beats", [])):
+            continue
+        at = next((i for i in ch if _named_in(lines[i].text, extinct[who])), ch[len(ch) // 2])
+        if at in by_n:
+            by_n[at]["beats"].insert(0, new_frame(who, at, SCENE_POSES[scene_i % len(SCENE_POSES)], True))
+            scene_i += 1
+    # 3. people at most PEOPLE_MAX of the beats: the extra ones go where the line has another picture
+    allb = [b for r in out_lines for b in r["beats"]]
+    ppl = [b for b in allb if b.get("people")]
+    # each one taken out leaves one beat fewer in all: (p - x) <= PEOPLE_MAX * (n - x)
+    extra = int(-(-(len(ppl) - PEOPLE_MAX * len(allb)) // (1 - PEOPLE_MAX)))
+    for r in out_lines:
+        if extra <= 0:
+            break
+        keep = [b for b in r["beats"] if not b.get("people")]
+        if keep and len(keep) < len(r["beats"]):
+            extra -= len(r["beats"]) - len(keep)
+            r["beats"] = keep
+    log.info("enforced: main animal %s; %d FLUX frames added (%d scenes); people beats %d -> %d", main,
+             len(added), sum(1 for f in added if flux[f]["scene"]), len(ppl),
+             sum(1 for r in out_lines for b in r["beats"] if b.get("people")))
+    return main, added
 
 
 def chunks(seq, n):
@@ -280,6 +399,9 @@ def main(slug):
                           "amb": row.get("amb") if row.get("amb") in AMB else "wind",
                           **({"cut": True} if i == 0 or l.section != lines[i - 1].section else {}), "beats": beats})
 
+    _meta = json.loads((ep / "meta.json").read_text(encoding="utf-8")) if (ep / "meta.json").exists() else {}
+    main_animal, _added = enforce_world(lines, out_lines, species, flux, order,
+                                        title=f"{slug} {_meta.get('title', '')}")
     # 8-10 animated frames an episode (config motion.animated_per_episode): an episode about
     # living animals plans few FLUX frames of its own (29.10: three), so the past is added -
     # extinct relatives, earlier seas and coasts - on the lines that tell of it
@@ -321,7 +443,9 @@ def main(slug):
     # the thumbnails' FLUX bases (two seeds each) come out of the same 60 frames
     max_prompts = (CFG["motion"]["flux_frames_max"] - 2 * len(flux_thumbs)) // CFG["motion"]["flux_seeds"]
     prio = {"hook": 0, "climax": 1, "story": 2, "finale": 3}
-    keep = sorted(order, key=lambda f: (prio.get(flux[f]["section"], 2), flux[f]["first"]))[:max_prompts]
+    # the scenes, then the animals, then landscapes (owner 07.11), each by section and order
+    keep = sorted(order, key=lambda f: (not flux[f].get("scene"), not flux[f].get("species"),
+                                        prio.get(flux[f]["section"], 2), flux[f]["first"]))[:max_prompts]
     for row in out_lines:
         row["beats"] = [b for b in row["beats"] if b["kind"] != "recon" or b["id"] in keep]
     lo, hi = CFG["motion"]["animated_per_episode"]
