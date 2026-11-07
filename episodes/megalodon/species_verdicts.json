@@ -2693,5 +2693,147 @@
   "museum_display": false,
   "note": "shows clouds instead of a shark",
   "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-33194": {
+  "subject": "ocean waves under a cloudy sky",
+  "species_match": false,
+  "features": {
+   "torpedo-shaped body": "not visible",
+   "conical snout": "not visible",
+   "large gill slits": "not visible",
+   "homocercal caudal fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of the open ocean, serving as a general documentary background shot",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-199001": {
+  "subject": "sunset over ocean beach",
+  "species_match": false,
+  "features": {
+   "upright posture": "not visible",
+   "use of stone tools": "not visible",
+   "human skin texture": "not visible",
+   "facial features": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a beach landscape instead of an early human making stone tools.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-183136": {
+  "subject": "colorful swirling liquid with glitter",
+  "species_match": false,
+  "features": {
+   "massive body size": "not visible",
+   "triangular teeth": "not visible",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "glitter"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract glitter background, completely unrelated to megalodon teeth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-361729": {
+  "subject": "coastal cliffs and ocean view",
+  "species_match": false,
+  "features": {
+   "white underbelly": "not visible",
+   "torpedo-shaped body": "not visible",
+   "large dorsal fin": "not visible",
+   "pointed snout": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Landscape shot of cliffs and sea, no shark visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-262464": {
+  "subject": "A female scientist in a chemical laboratory working with glassware",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Laboratory setting matches scientific research context.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-135658": {
+  "subject": "ocean waves at sunset",
+  "species_match": false,
+  "features": {
+   "torpedo-shaped body": "not visible",
+   "conical snout": "not visible",
+   "large gill slits": "not visible",
+   "homocercal caudal fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "General ocean shot, fits as background b-roll.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-385792": {
+  "subject": "upside-down jellyfish",
+  "species_match": false,
+  "features": {
+   "large marine mammal body": "no",
+   "flukes as tail fin": "no",
+   "blowhole on top of the head": "no",
+   "smooth streamlined skin without scales": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows jellyfish instead of a whale.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-258241": {
+  "subject": "clear shallow water with rocks",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shallow sunlit water instead of dark deep sea currents",
+  "model": "gemini-flash-lite-latest"
  }
 }
