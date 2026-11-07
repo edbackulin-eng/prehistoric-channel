@@ -19,6 +19,10 @@
    "thumbnail: chosen: None; judge: None"
   ],
   "youtube_id": "FdVckiuzgUw",
-  "uploaded_at": "2026-11-07T16:14:17Z"
+  "uploaded_at": "2026-11-07T16:14:17Z",
+  "extras": {
+   "thumbnail": "set",
+   "subtitles": "off: YouTube's automatic captions (config schedule.upload_subtitles)"
+  }
  }
 ]
