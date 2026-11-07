@@ -185,6 +185,57 @@ def anim_clip(shot, need_s, out, size, backdrop=None):
 
 
 # ------------------------------------------------------------------ parts
+# Shots one ffmpeg joins at once. A part may start only on a cut, and lebende-fossilien
+# (06.11) is nearly all dissolves, so six of its parts held 44-58 shots; joining 45+ 2160p
+# inputs in one filter graph took the runner's memory and GitHub shut the runner down
+# ("received a shutdown signal", exit 143) right after the last shot, fourteen times. Parts
+# of 18 shots passed. A longer part is now joined CHAIN_MAX shots at a time: each step
+# dissolves the next shots onto what is joined so far, the same filters, so the picture is
+# the same; only an intermediate encode (CRF 12) is added.
+CHAIN_MAX = 12
+
+
+def _chain_graph(n, durs, transitions, X):
+    """The dissolves and cuts of n inputs: (graph, last label, length)."""
+    graph = [f"[{i}:v]fps={FPS},settb=AVTB,setpts=PTS-STARTPTS[c{i}]" for i in range(n)]
+    label, length = "[c0]", durs[0]
+    for i in range(1, n):
+        if transitions[i] == "fade":
+            off = length - X
+            graph.append(f"{label}[c{i}]xfade=transition=fade:duration={X}:offset={off:.3f},settb=AVTB[v{i}]")
+            length = off + durs[i]
+        else:
+            graph.append(f"{label}[c{i}]concat=n=2:v=1:a=0,settb=AVTB[v{i}]")
+            length += durs[i]
+        label = f"[v{i}]"
+    return graph, label, length
+
+
+def _prechain(clips, durs, shots, X, work, size, k, max_n=None):
+    """(clips, durs) as before when short; else one clip, joined max_n shots at a time."""
+    max_n = max_n or CHAIN_MAX
+    if len(clips) <= max_n + 1:
+        return clips, durs
+    acc, acc_len, i = None, 0.0, 0
+    while i < len(clips):
+        grp = list(range(i, min(i + max_n, len(clips))))
+        ins = ([acc] if acc else []) + [clips[j] for j in grp]
+        ds = ([acc_len] if acc else []) + [durs[j] for j in grp]
+        tr = ([None] if acc else []) + [shots[j]["transition"] for j in grp]
+        tr[0] = None
+        graph, label, length = _chain_graph(len(ins), ds, tr, X)
+        out = Path(work) / f"chain_{k}_{i:03d}.mp4"
+        _ff(*[a for c in ins for a in ("-i", c)], "-filter_complex", ";".join(graph), "-map", label, "-an",
+            "-c:v", "libx264", "-preset", "veryfast", "-crf", "12", "-pix_fmt", "yuv420p", "-r", str(FPS), out,
+            label=f"part {k} chain {i}")
+        if acc:
+            Path(acc).unlink(missing_ok=True)
+        acc, acc_len = out, length
+        log.info("part %d: shots %d-%d joined (%.1f s so far)", k, grp[0], grp[-1], acc_len)
+        i += max_n
+    return [acc], [acc_len]
+
+
 def render_part(plan, k, inputs, work, out_dir, res="2160p"):
     """inputs: {"media": dir of real clips by id, "layers": dir of 2.5D layers}."""
     size = SIZES[res]
@@ -236,6 +287,7 @@ def render_part(plan, k, inputs, work, out_dir, res="2160p"):
             st = s["start"] - p0 + 0.5
             overlays.append((png, st, min(s.get("hold", 3.0) + 1.0, s["end"] - s["start"] - 0.9)))
 
+    clips, durs = _prechain(clips, durs, shots, X, work, size, k)
     args, graph = [], []
     for c in clips:
         args += ["-i", c]
