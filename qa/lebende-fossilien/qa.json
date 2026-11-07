@@ -63,7 +63,7 @@
   {
    "name": "thumbnail",
    "ok": true,
-   "detail": "chosen: thumbnail_e4.jpg; judge: {'animal': 'Fisch (Quastenflosser-artig)', 'animal_big_and_recognisable': True, 'prehistoric_or_living_fossil': True, 'bright': True, 'words_readable': True, 'forbidden_seen': [], 'pass': True, 'why': 'Das Tier ist groß, gut erkennbar und urzeitlich, die Farben sind kräftig und kontrastreich, und der Text besteht aus nur zwei großen Wörtern.'}"
+   "detail": "chosen: thumbnail_e4.jpg; judge: {'animal': 'Quastenflosser', 'animal_big_and_recognisable': True, 'prehistoric_or_living_fossil': True, 'bright': True, 'words_readable': True, 'text': 'URZEIT- RIESE', 'german_correct': True, 'forbidden_seen': [], 'pass': True, 'why': 'Das Tier ist groß, gut erkennbar und als lebendes Fossil einzuordnen. Die Farben sind kräftig, der Text ist kurz, fehlerfrei und korrekt getrennt.'}"
   }
  ],
  "duration_s": 1442.05,
