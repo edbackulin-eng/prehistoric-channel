@@ -18,6 +18,9 @@ on:
       thumbs:
         description: make the thumbnails again (episode bases)
         default: "true"
+      thumbs_run:
+        description: with thumbs false, the requalify run whose judged thumbnails to keep
+        default: ""
 
 permissions:
   contents: write
@@ -67,6 +70,13 @@ jobs:
           path: work/${{ inputs.slug }}/release/
           run-id: ${{ inputs.run_id }}
           github-token: ${{ github.token }}
+      - uses: actions/download-artifact@v5
+        if: inputs.thumbs != 'true' && inputs.thumbs_run != ''
+        with:
+          name: requalify-${{ inputs.slug }}
+          path: work/${{ inputs.slug }}/release/
+          run-id: ${{ inputs.thumbs_run }}
+          github-token: ${{ github.token }}
       - run: ls -la "work/$SLUG" "work/$SLUG/release" && df -h / | tail -1
       - name: Thumbnails from the episode's own animals (judge with fallback models)
         if: inputs.thumbs == 'true'
@@ -95,6 +105,12 @@ jobs:
             work/${{ inputs.slug }}/release/qa.json
             work/${{ inputs.slug }}/release/thumbnail*.jpg
             work/${{ inputs.slug }}/release/thumbnails_report.json
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: qa-${{ inputs.slug }}
+          retention-days: 30
+          path: qa/${{ inputs.slug }}/
       - name: Release - private without a date while the first episodes wait for approval
         if: steps.qa.outputs.pass == 'true'
         env:
