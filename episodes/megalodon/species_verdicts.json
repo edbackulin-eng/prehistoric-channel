@@ -2835,5 +2835,820 @@
   "museum_display": false,
   "note": "shallow sunlit water instead of dark deep sea currents",
   "model": "gemini-flash-lite-latest"
+ },
+ "standby_prehistoric_whale_00__s0": {
+  "subject": "prehistoric whale underwater",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "blowhole on top": "not visible",
+   "flipper limbs": "yes",
+   "horizontal tail fluke": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "prehistoric whale representation in water",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_prehistoric_whale_00__s1": {
+  "subject": "prehistoric whale underwater",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "blowhole on top": "not visible",
+   "flipper limbs": "yes",
+   "horizontal tail fluke": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "depicts an ancient whale fitting the Gram-Formation context",
+  "model": "gemini-flash-lite-latest"
+ },
+ "cretaceous_trex_stride__s0": {
+  "subject": "Large dinosaur in a forest",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Gram Formation is a marine Miocene deposit, not a dinosaur-inhabited forest.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "cretaceous_trex_stride__s1": {
+  "subject": "prehistoric dinosaur in forest",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Depicts a dinosaur in a forested environment.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "megalodon_massive_attack__s0": {
+  "subject": "prehistoric marine animal with wide jaw",
+  "species_match": false,
+  "features": {
+   "massive body size": "yes",
+   "triangular teeth": "yes",
+   "serrated cutting edges": "no",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "yes"
+  },
+  "forbidden_seen": [
+   "blowhole"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "depicts a fantasy sea creature rather than an actual shark or megalodon",
+  "model": "gemini-flash-lite-latest"
+ },
+ "megalodon_massive_attack__s1": {
+  "subject": "Megalodon shark underwater with open jaws",
+  "species_match": true,
+  "features": {
+   "massive body size": "yes",
+   "triangular teeth": "yes",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "AI-generated image showing a massive shark with wide jaws fitting the Megalodon theme.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "cretaceous_triceratops_herd__s0": {
+  "subject": "herd of triceratops near water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Prehistoric scene showing dinosaurs fitting the narration about weight",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_00__s0": {
+  "subject": "great white shark close-up",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Close-up of a great white shark swimming.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_00__s1": {
+  "subject": "Great white shark",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "AI-generated image of a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_prehistoric_whale_01__s0": {
+  "subject": "Prehistoric whale swimming underwater",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "blowhole on top": "not visible",
+   "flipper limbs": "yes",
+   "horizontal tail fluke": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Narration mentions rare vertebrae finds, but image shows a whole prehistoric whale.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_prehistoric_whale_01__s1": {
+  "subject": "prehistoric whale underwater",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "blowhole on top": "not visible",
+   "flipper limbs": "yes",
+   "horizontal tail fluke": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "illustration of an ancient whale",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_01__s0": {
+  "subject": "great white shark underwater",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a great white shark matching all features.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_01__s1": {
+  "subject": "great white shark underwater",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Narration mentions humans, but the image shows a shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_02__s0": {
+  "subject": "great white shark underwater",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Tehes are visible, matching the narration line 'Die Zähne sind zwar'.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_02__s1": {
+  "subject": "Great White Shark underwater",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The narration mentions teeth, and the shark's teeth are visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_prehistoric_whale_02__s0": {
+  "subject": "prehistoric whale swimming underwater",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "blowhole on top": "not visible",
+   "flipper limbs": "yes",
+   "horizontal tail fluke": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Illustration of an ancient whale",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_prehistoric_whale_02__s1": {
+  "subject": "prehistoric whale swimming underwater",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "blowhole on top": "not visible",
+   "flipper limbs": "yes",
+   "horizontal tail fluke": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Illustration of an ancient whale.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_03__s0": {
+  "subject": "great white shark underwater",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear view of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_03__s1": {
+  "subject": "Great white shark underwater",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear image of a great white shark swimming.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_04__s0": {
+  "subject": "Great white shark model or CGI",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Depicts a great white shark from below under dark lighting.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_04__s1": {
+  "subject": "Great white shark underwater",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear image of a great white shark fitting the narration context well.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_prehistoric_whale_03__s0": {
+  "subject": "ancient whale swimming underwater",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "blowhole on top": "yes",
+   "flipper limbs": "yes",
+   "horizontal tail fluke": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a prehistoric whale underwater",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_prehistoric_whale_03__s1": {
+  "subject": "prehistoric whale underwater",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "blowhole on top": "not visible",
+   "flipper limbs": "yes",
+   "horizontal tail fluke": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows an ancient whale-like cetacean underwater",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_05__s0": {
+  "subject": "great white shark underwater",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_05__s1": {
+  "subject": "great white shark model",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": true,
+  "note": "Shark model in front of a rock background",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_06__s0": {
+  "subject": "Great white shark",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "AI generated image of a shark, showing teeth in context of narration about teeth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_06__s1": {
+  "subject": "Great white shark underwater",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear image of a great white shark suitable for teeth context.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_07__s0": {
+  "subject": "Great white shark swimming",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear image of a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_07__s1": {
+  "subject": "Great white shark swimming",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_08__s0": {
+  "subject": "Animated shark",
+  "species_match": false,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Animated shark illustration, not a Great White.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_08__s1": {
+  "subject": "great white shark close-up",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Animated style great white shark underwater",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_prehistoric_whale_04__s0": {
+  "subject": "whale underwater in dark water",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "blowhole on top": "not visible",
+   "flipper limbs": "yes",
+   "horizontal tail fluke": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "whale swimming in dark water",
+  "model": "gemini-flash-lite-latest"
+ },
+ "megalodon_111_1__s0": {
+  "subject": "Giant shark breaching water with wide open jaws",
+  "species_match": true,
+  "features": {
+   "massive body size": "yes",
+   "triangular teeth": "yes",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Illustration of a massive shark fitting the narration about massiveness.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "megalodon_112_1__s0": {
+  "subject": "prehistoric shark",
+  "species_match": true,
+  "features": {
+   "massive body size": "yes",
+   "triangular teeth": "yes",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "depicts a large shark in deep water fitting the context",
+  "model": "gemini-flash-lite-latest"
+ },
+ "megalodon_114_1__s0": {
+  "subject": "Large prehistoric shark Megalodon",
+  "species_match": true,
+  "features": {
+   "massive body size": "yes",
+   "triangular teeth": "yes",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "text",
+   "logos"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Illustration of a Megalodon shark with BBC logo and watermark text.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "megalodon_114_1__s1": {
+  "subject": "Large shark in water",
+  "species_match": true,
+  "features": {
+   "massive body size": "yes",
+   "triangular teeth": "yes",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "AI generated shark illustration representing Megalodon",
+  "model": "gemini-flash-lite-latest"
+ },
+ "megalodon_115_1__s0": {
+  "subject": "Megalodon shark underwater",
+  "species_match": true,
+  "features": {
+   "massive body size": "yes",
+   "triangular teeth": "yes",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Digital illustration of a Megalodon shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "megalodon_116_1__s0": {
+  "subject": "Megalodon shark swimming underwater",
+  "species_match": true,
+  "features": {
+   "massive body size": "yes",
+   "triangular teeth": "yes",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Reconstruction fits narration context.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "megalodon_117_1__s0": {
+  "subject": "Megalodon shark swimming near the surface",
+  "species_match": true,
+  "features": {
+   "massive body size": "yes",
+   "triangular teeth": "yes",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "AI generated image depicting a massive prehistoric shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_09__s0": {
+  "subject": "Great white shark underwater",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a great white shark fitting the context.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "standby_great_white_shark_09__s1": {
+  "subject": "Great white shark underwater",
+  "species_match": true,
+  "features": {
+   "white underbelly": "yes",
+   "torpedo-shaped body": "yes",
+   "large dorsal fin": "yes",
+   "pointed snout": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear depiction of a great white shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "megalodon_head_close__s0": {
+  "subject": "Close-up of a shark with open jaws",
+  "species_match": false,
+  "features": {
+   "massive body size": "not visible",
+   "triangular teeth": "yes",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "text"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "AI generated shark image with nonsensical text",
+  "model": "gemini-flash-lite-latest"
+ },
+ "megalodon_head_close__s1": {
+  "subject": "close-up of shark head and open jaws",
+  "species_match": true,
+  "features": {
+   "massive body size": "not visible",
+   "triangular teeth": "yes",
+   "serrated cutting edges": "no",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "modern CGI reconstruction of shark head fitting the narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "megalodon_swimming_wide__s0": {
+  "subject": "Large shark in the ocean",
+  "species_match": true,
+  "features": {
+   "massive body size": "yes",
+   "triangular teeth": "yes",
+   "serrated cutting edges": "not visible",
+   "V-shaped notched tooth root": "not visible",
+   "extremely wide jaw": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Illustration of a Megalodon shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "megalodon_tooth_detail__s1": {
+  "subject": "Giant Megalodon tooth fossil",
+  "species_match": true,
+  "features": {
+   "massive body size": "no",
+   "triangular teeth": "yes",
+   "serrated cutting edges": "yes",
+   "V-shaped notched tooth root": "yes",
+   "extremely wide jaw": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "A fossilized Megalodon tooth on the ocean floor.",
+  "model": "gemini-flash-lite-latest"
  }
 }
