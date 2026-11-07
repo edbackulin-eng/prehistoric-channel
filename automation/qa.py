@@ -313,7 +313,14 @@ def main(slug, res):
     out.mkdir(parents=True)
     n = contact_sheet(rel / "video.mp4", out / "contact.jpg") if (rel / "video.mp4").exists() else 0
     sound_graph(rep.get("sound"), out / "sound.png")
-    for i, f in enumerate(sorted(rel.glob("thumbnail_*.jpg"))[:3], 1):
+    # the three the judge passed, the chosen one first; not the 336 px copies (07.11: thumb_1-3
+    # were the first files of the folder, small copies and turned-down ones among them)
+    judged = [f"thumbnail_{v['id'].split('_', 1)[1]}.jpg" for v in (thumbs.get("variants") or []) if v.get("judge_pass")]
+    best = (thumbs.get("choice") or {}).get("best")
+    names = ([best] if best else []) + [n for n in judged if n != best]
+    picks = [rel / n for n in names if (rel / n).exists()] or \
+        [f for f in sorted(rel.glob("thumbnail_*.jpg")) if not f.stem.endswith("_336")]
+    for i, f in enumerate(picks[:3], 1):
         Image.open(f).convert("RGB").resize((640, 360)).save(out / f"thumb_{i}.jpg", quality=85)
     (out / "qa.json").write_text(json.dumps({**q, "levels_per_minute": ((rep.get("sound") or {}).get("levels") or {})
                                              .get("per_minute")}, indent=1, ensure_ascii=False), encoding="utf-8")
