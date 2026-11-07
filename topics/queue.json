@@ -1,5 +1,5 @@
 {
- "_note": "Topic queue of the German channel. Built in order; automation/topics.py tops it up weekly (.github/workflows/topics.yml) so at least 20 are always waiting. Each topic names the Wikipedia articles (de and en) the script is written and fact-checked from.",
+ "_note": "Topic queue of the German channel. Built in order; automation/topics.py tops it up weekly (.github/workflows/topics.yml) so at least 20 are always waiting. Each topic names the Wikipedia articles (de and en) the script is written and fact-checked from. Owner 07.11: the spectacular animals first (Megalodon, Mosasaurus, T. rex, Spinosaurus ...).",
  "topics": [
   {
    "slug": "lebende-fossilien",
@@ -60,6 +60,140 @@
    "status": "queued"
   },
   {
+   "slug": "tyrannosaurus",
+   "title": "Tyrannosaurus rex",
+   "focus": "Der König der Echsen: Biss, Jagd und Größe des T. rex, die Funde von Barnum Brown 1902 und Sue",
+   "articles": {
+    "de": [
+     "Tyrannosaurus"
+    ],
+    "en": [
+     "Tyrannosaurus"
+    ]
+   },
+   "status": "queued"
+  },
+  {
+   "slug": "spinosaurus",
+   "title": "Spinosaurus",
+   "focus": "Der Raubsaurier am Fluss: Segel, Krokodilschnauze, Ernst Stromer und die verlorenen Fossilien von München",
+   "articles": {
+    "de": [
+     "Spinosaurus",
+     "Ernst Stromer"
+    ],
+    "en": [
+     "Spinosaurus",
+     "Ernst Stromer"
+    ]
+   },
+   "status": "queued"
+  },
+  {
+   "slug": "titanoboa",
+   "title": "Titanoboa",
+   "focus": "Die Riesenschlange nach den Dinosauriern: 13 Meter lang, aus der Kohlemine von Cerrejón",
+   "articles": {
+    "de": [
+     "Titanoboa"
+    ],
+    "en": [
+     "Titanoboa",
+     "Cerrejón Formation"
+    ]
+   },
+   "status": "queued"
+  },
+  {
+   "slug": "quetzalcoatlus",
+   "title": "Quetzalcoatlus",
+   "focus": "Der größte Flugsaurier: so groß wie eine Giraffe, wie er abhob und jagte",
+   "articles": {
+    "de": [
+     "Quetzalcoatlus",
+     "Flugsaurier",
+     "Azhdarchidae"
+    ],
+    "en": [
+     "Quetzalcoatlus",
+     "Pterosaur",
+     "Azhdarchidae"
+    ]
+   },
+   "status": "queued"
+  },
+  {
+   "slug": "saebelzahnkatzen",
+   "title": "Säbelzahnkatzen",
+   "focus": "Smilodon und seine Verwandten: wie man mit Säbelzähnen jagt, die Teergruben von La Brea",
+   "articles": {
+    "de": [
+     "Smilodon",
+     "Säbelzahnkatzen",
+     "La Brea Tar Pits"
+    ],
+    "en": [
+     "Smilodon",
+     "Machairodontinae",
+     "La Brea Tar Pits"
+    ]
+   },
+   "status": "queued"
+  },
+  {
+   "slug": "plesiosaurier",
+   "title": "Plesiosaurier",
+   "focus": "Langhälse der Meere: Elasmosaurus, wie sie schwammen, der Knochenkrieg",
+   "articles": {
+    "de": [
+     "Plesiosaurier",
+     "Elasmosaurus"
+    ],
+    "en": [
+     "Plesiosauria",
+     "Elasmosaurus",
+     "Bone Wars"
+    ]
+   },
+   "status": "queued"
+  },
+  {
+   "slug": "chicxulub",
+   "title": "Der Tag, an dem die Dinosaurier starben",
+   "focus": "Der Chicxulub-Einschlag: die ersten Minuten, Stunden und Jahre danach, die Iridium-Schicht",
+   "articles": {
+    "de": [
+     "Chicxulub-Krater",
+     "Kreide-Paläogen-Grenze",
+     "Alvarez-Hypothese"
+    ],
+    "en": [
+     "Chicxulub crater",
+     "Cretaceous–Paleogene extinction event",
+     "Alvarez hypothesis"
+    ]
+   },
+   "status": "queued"
+  },
+  {
+   "slug": "ichthyosaurier",
+   "title": "Ichthyosaurier",
+   "focus": "Fischechsen: Delfine der Urzeit, Augen so groß wie Teller, Mary Anning",
+   "articles": {
+    "de": [
+     "Ichthyosaurier",
+     "Mary Anning",
+     "Ophthalmosaurus"
+    ],
+    "en": [
+     "Ichthyosaur",
+     "Mary Anning",
+     "Ophthalmosaurus"
+    ]
+   },
+   "status": "queued"
+  },
+  {
    "slug": "panzerfische-devon",
    "title": "Panzerfische des Devon",
    "focus": "Dunkleosteus und die Placodermi: Kiefer aus Knochenklingen, das Zeitalter der Fische",
@@ -96,19 +230,39 @@
    "status": "queued"
   },
   {
-   "slug": "saebelzahnkatzen",
-   "title": "Säbelzahnkatzen",
-   "focus": "Smilodon und seine Verwandten: wie man mit Säbelzähnen jagt, die Teergruben von La Brea",
+   "slug": "eiszeit-megafauna",
+   "title": "Die Giganten der Eiszeit",
+   "focus": "Höhlenbär, Wollnashorn, Riesenhirsch: wer sie auslöschte - Klima oder Mensch",
    "articles": {
     "de": [
-     "Smilodon",
-     "Säbelzahnkatzen",
-     "La Brea Tar Pits"
+     "Pleistozäne Megafauna",
+     "Wollnashorn",
+     "Riesenhirsch",
+     "Höhlenbär"
     ],
     "en": [
-     "Smilodon",
-     "Machairodontinae",
-     "La Brea Tar Pits"
+     "Pleistocene megafauna",
+     "Woolly rhinoceros",
+     "Irish elk",
+     "Cave bear"
+    ]
+   },
+   "status": "queued"
+  },
+  {
+   "slug": "urzeit-tiefsee",
+   "title": "Urzeitliche Tiefseebewohner",
+   "focus": "Koboldhai, Kragenhai, Grönlandhai: Tiere aus der Tiefe, die seit Urzeiten fast gleich aussehen",
+   "articles": {
+    "de": [
+     "Koboldhai",
+     "Kragenhai",
+     "Grönlandhai"
+    ],
+    "en": [
+     "Goblin shark",
+     "Frilled shark",
+     "Greenland shark"
     ]
    },
    "status": "queued"
@@ -130,36 +284,17 @@
    "status": "queued"
   },
   {
-   "slug": "ichthyosaurier",
-   "title": "Ichthyosaurier",
-   "focus": "Fischechsen: Delfine der Urzeit, Augen so groß wie Teller, Mary Anning",
+   "slug": "riesenfaultier",
+   "title": "Das Riesenfaultier",
+   "focus": "Megatherium und Eremotherium: Faultiere so groß wie Elefanten, ihr Ende in Amerika",
    "articles": {
     "de": [
-     "Ichthyosaurier",
-     "Mary Anning",
-     "Ophthalmosaurus"
+     "Megatherium",
+     "Riesenfaultiere"
     ],
     "en": [
-     "Ichthyosaur",
-     "Mary Anning",
-     "Ophthalmosaurus"
-    ]
-   },
-   "status": "queued"
-  },
-  {
-   "slug": "plesiosaurier",
-   "title": "Plesiosaurier",
-   "focus": "Langhälse der Meere: Elasmosaurus, wie sie schwammen, der Knochenkrieg",
-   "articles": {
-    "de": [
-     "Plesiosaurier",
-     "Elasmosaurus"
-    ],
-    "en": [
-     "Plesiosauria",
-     "Elasmosaurus",
-     "Bone Wars"
+     "Megatherium",
+     "Ground sloth"
     ]
    },
    "status": "queued"
@@ -178,40 +313,6 @@
      "Meganeura",
      "Arthropleura",
      "Carboniferous"
-    ]
-   },
-   "status": "queued"
-  },
-  {
-   "slug": "quetzalcoatlus",
-   "title": "Quetzalcoatlus",
-   "focus": "Der größte Flugsaurier: so groß wie eine Giraffe, wie er abhob und jagte",
-   "articles": {
-    "de": [
-     "Quetzalcoatlus",
-     "Flugsaurier",
-     "Azhdarchidae"
-    ],
-    "en": [
-     "Quetzalcoatlus",
-     "Pterosaur",
-     "Azhdarchidae"
-    ]
-   },
-   "status": "queued"
-  },
-  {
-   "slug": "riesenfaultier",
-   "title": "Das Riesenfaultier",
-   "focus": "Megatherium und Eremotherium: Faultiere so groß wie Elefanten, ihr Ende in Amerika",
-   "articles": {
-    "de": [
-     "Megatherium",
-     "Riesenfaultiere"
-    ],
-    "en": [
-     "Megatherium",
-     "Ground sloth"
     ]
    },
    "status": "queued"
@@ -250,42 +351,6 @@
    "status": "queued"
   },
   {
-   "slug": "eiszeit-megafauna",
-   "title": "Die Giganten der Eiszeit",
-   "focus": "Höhlenbär, Wollnashorn, Riesenhirsch: wer sie auslöschte - Klima oder Mensch",
-   "articles": {
-    "de": [
-     "Pleistozäne Megafauna",
-     "Wollnashorn",
-     "Riesenhirsch",
-     "Höhlenbär"
-    ],
-    "en": [
-     "Pleistocene megafauna",
-     "Woolly rhinoceros",
-     "Irish elk",
-     "Cave bear"
-    ]
-   },
-   "status": "queued"
-  },
-  {
-   "slug": "spinosaurus",
-   "title": "Spinosaurus",
-   "focus": "Der Raubsaurier am Fluss: Segel, Krokodilschnauze, Ernst Stromer und die verlorenen Fossilien von München",
-   "articles": {
-    "de": [
-     "Spinosaurus",
-     "Ernst Stromer"
-    ],
-    "en": [
-     "Spinosaurus",
-     "Ernst Stromer"
-    ]
-   },
-   "status": "queued"
-  },
-  {
    "slug": "archaeopteryx",
    "title": "Archaeopteryx",
    "focus": "Der Urvogel aus Solnhofen: Federn und Zähne, das Bindeglied zwischen Dinosauriern und Vögeln",
@@ -297,57 +362,6 @@
     "en": [
      "Archaeopteryx",
      "Solnhofen Limestone"
-    ]
-   },
-   "status": "queued"
-  },
-  {
-   "slug": "chicxulub",
-   "title": "Der Tag, an dem die Dinosaurier starben",
-   "focus": "Der Chicxulub-Einschlag: die ersten Minuten, Stunden und Jahre danach, die Iridium-Schicht",
-   "articles": {
-    "de": [
-     "Chicxulub-Krater",
-     "Kreide-Paläogen-Grenze",
-     "Alvarez-Hypothese"
-    ],
-    "en": [
-     "Chicxulub crater",
-     "Cretaceous–Paleogene extinction event",
-     "Alvarez hypothesis"
-    ]
-   },
-   "status": "queued"
-  },
-  {
-   "slug": "urzeit-tiefsee",
-   "title": "Urzeitliche Tiefseebewohner",
-   "focus": "Koboldhai, Kragenhai, Grönlandhai: Tiere aus der Tiefe, die seit Urzeiten fast gleich aussehen",
-   "articles": {
-    "de": [
-     "Koboldhai",
-     "Kragenhai",
-     "Grönlandhai"
-    ],
-    "en": [
-     "Goblin shark",
-     "Frilled shark",
-     "Greenland shark"
-    ]
-   },
-   "status": "queued"
-  },
-  {
-   "slug": "titanoboa",
-   "title": "Titanoboa",
-   "focus": "Die Riesenschlange nach den Dinosauriern: 13 Meter lang, aus der Kohlemine von Cerrejón",
-   "articles": {
-    "de": [
-     "Titanoboa"
-    ],
-    "en": [
-     "Titanoboa",
-     "Cerrejón Formation"
     ]
    },
    "status": "queued"
