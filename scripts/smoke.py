@@ -610,7 +610,8 @@ def main():
     (_ep / "shots.json").write_text(json.dumps(_shots), encoding="utf-8")
     _score = {"c0a": 0.9, "c1a": 0.01, "c1b": 0.9, "c2a": 0.5, "c3a": 0.01, "c3b": 0.5}
     _img = _d / "p.jpg"
-    Image.new("RGB", (32, 32)).save(_img)
+    from PIL import Image as _Image
+    _Image.new("RGB", (32, 32)).save(_img)
     saved_pf = (_pf.thresholds, _pf.available, _pf.poster, _pf.scores, speciescheck.ROOT, _lb.ROOT)
     try:
         _pf.thresholds = lambda kind: (0.8, 0.1)
