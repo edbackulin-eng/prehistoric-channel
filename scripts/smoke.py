@@ -626,10 +626,10 @@ def main():
         _pf.thresholds, _pf.available, _pf.poster, _pf.scores, speciescheck.ROOT, _lb.ROOT = saved_pf
     p_ok = speciescheck.passes({"model": "siglip", "cpu": "accept", "score": 0.9}, "whales")
     p_no = speciescheck.passes({"model": "siglip", "cpu": "reject", "score": 0.01}, "whales")
-    check("prefilter: clear clips decided on the CPU (match taken, miss skipped to the alternate), "
-          "the doubtful left for Gemini and counted by the budget",
-          n_cpu == 4 and set(kn) == {"c0a", "c1a", "c1b", "c3a"} and kn["c1a"]["cpu"] == "reject"
-          and p_ok[0] is True and p_no[0] is False and need_after == int(2 * 1.3 + 0),
+    check("prefilter: the CPU only turns clear misses down (never takes a clip, an accept threshold is "
+          "ignored); everything else goes to Gemini and is counted by the budget",
+          n_cpu == 2 and set(kn) == {"c1a", "c3a"} and kn["c1a"]["cpu"] == "reject"
+          and p_ok[0] is False and p_no[0] is False and need_after == int(4 * 1.3 + 0),
           f"{n_cpu} decided, {sorted(kn)}, need {need_after}")
     # owner 07.11: a long part is joined a few shots at a time (the runner's memory), same picture
     import tempfile

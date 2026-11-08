@@ -6,9 +6,12 @@ SigLIP (open_clip ViT-B-16-SigLIP, webli; Apache-2.0) scores a stock clip's post
 against what the beat asks for - the species' name, or the footage search for a beat with no
 animal - on the runner's CPU:
 
-    score >= accept   taken without Gemini (a verdict "by siglip" in species_verdicts.json)
-    score <= reject   turned down without Gemini: the next alternate is tried
-    in between        doubtful: Gemini decides, as before
+    score <= reject   turned down without Gemini (a verdict "by siglip" in species_verdicts.json):
+                      the next alternate is tried
+    above it          Gemini decides, as before
+
+The CPU never takes a clip (owner 08.11): the species must be right, and Gemini confirms every
+clip that can be shown. An "accept" threshold in the config is ignored (speciescheck.cpu_verdict).
 
 The thresholds are set on Gemini's own answers kept in episodes/*/species_verdicts.json
 (scripts/calibrate_prefilter.py) and kept in config/channel.json "prefilter", per kind of beat

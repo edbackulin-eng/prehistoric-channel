@@ -206,9 +206,8 @@ def passes(v, species=None, archive=False, allow=()):
     allow = [a.lower() for a in allow]
     if "error" in v:
         return None, v["error"]
-    if v.get("model") == "siglip":                  # decided on the CPU (pipeline/prefilter.py)
-        return v.get("cpu") == "accept", (f"CPU: a clear match ({v.get('score')})" if v.get("cpu") == "accept"
-                                          else f"CPU: clearly not it ({v.get('score')})")
+    if v.get("model") == "siglip":                  # turned down on the CPU (pipeline/prefilter.py)
+        return False, f"CPU: clearly not it ({v.get('score')})"
     why = []
     if species:
         # a prehistoric scene asks for no animal: Gemini answers null there, and the
@@ -268,8 +267,10 @@ def cpu_verdict(cid, src, beat, footage):
         return None
     query = beat.get("topic") or (footage.get(beat.get("need")) or {}).get("query")
     x = prefilter.scores([(prefilter.text_for(query=query), pp)])[0]
-    d = prefilter.decide(x, th)
-    if d == "ask":
+    # owner 08.11: the CPU only turns clips down - a species is never taken without Gemini (the
+    # calibration had 8 passing clips), whatever accept threshold the config might hold
+    d = prefilter.decide(x, (None, th[1]))
+    if d != "reject":
         return None
     return {"model": "siglip", "cpu": d, "score": round(x, 4), "kind": beat_kind(beat), "poster": str(pp),
             "subject": query, "note": "decided on the CPU (pipeline/prefilter.py)"}
