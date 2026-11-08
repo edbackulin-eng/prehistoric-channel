@@ -4,9 +4,22 @@
   "hook": "scale",
   "animal": "megalodon",
   "base": "flux",
-  "query": "",
-  "prompt": "Hyper-realistic 3D render of a massive Megalodon shark, dark grey-brown skin, small dark eyes, robust broad head, open mouth showing massive triangular serrated teeth, aggressive pose facing camera, dramatic underwater lighting, vibrant orange and teal color grading, high contrast, 8k resolution, no text, no humans, left side negative space for text",
-  "fossil_query": "",
+  "query": null,
+  "prompt": "Hyper-realistic cinematic shot of a massive Megalodon shark, 16 meters long, dark blue-grey skin, swimming aggressively in deep blue prehistoric ocean water. The shark's mouth is wide open, revealing rows of huge triangular serrated teeth, facing directly towards the camera. Dramatic underwater lighting, caustics, high contrast, vibrant colors. In the bottom left corner, a very tiny scuba diver is visible, circled with a bright yellow digital outline to emphasize the massive size difference. No text, no people other than the tiny diver, leaving empty space on the right side for text overlay.",
+  "fossil_query": null,
+  "words": [
+   "URZEIT-MONSTER"
+  ],
+  "accent": 0
+ },
+ {
+  "id": "thumb_b",
+  "hook": "split",
+  "animal": "megalodon",
+  "base": "flux",
+  "query": null,
+  "prompt": "Split screen composition. Left half: A close-up, high-detail photograph of a fossilized Megalodon tooth embedded in rock, earthy tones, dramatic lighting. Right half: A hyper-realistic, vibrant 3D render of a living Megalodon shark, dark blue-grey skin, swimming in bright turquoise prehistoric water, mouth slightly open showing teeth, looking fierce. The transition between the two halves is sharp. High contrast, saturated colors, cinematic quality. Leave space at the top for text.",
+  "fossil_query": "Megalodon fossil tooth high resolution macro",
   "words": [
    "LEBT",
    "NOCH!"
@@ -14,26 +27,12 @@
   "accent": 1
  },
  {
-  "id": "thumb_b",
-  "hook": "split",
-  "animal": "megalodon",
-  "base": "flux",
-  "query": "",
-  "prompt": "Split screen composition. Right side: A massive, stocky Megalodon shark with dark grey-brown skin and large triangular serrated teeth, aggressive expression, dramatic lighting, vibrant colors. Left side: A close-up of a fossilized Megalodon tooth, amber and brown tones, detailed texture. High contrast, cinematic style, no text, no humans, space for text overlay",
-  "fossil_query": "megalodon fossil tooth close up",
-  "words": [
-   "Fossil-Beweis"
-  ],
-  "accent": 0
- },
- {
   "id": "thumb_c",
   "hook": "silhouette",
   "animal": "megalodon",
   "base": "flux",
-  "query": "",
-  "prompt": "A colossal Megalodon shark in the foreground, dark grey-brown skin, massive open mouth with serrated teeth, intense stare, vibrant orange and blue dramatic lighting. In the deep dark background, the faint silhouette of a T-Rex is visible, creating a sense of scale and prehistoric danger. Cinematic, high contrast, 8k, no text, no humans, left side space for text",
-  "fossil_query": "",
+  "prompt": "Dramatic prehistoric scene. In the foreground, a massive Megalodon shark, dark grey-blue, swims towards the viewer with its mouth wide open, revealing large serrated teeth, eyes glowing with predatory intensity. In the far background, slightly out of focus, is the dark, menacing silhouette of a T-Rex standing on a rocky shore, creating a sense of scale and danger. The water is deep blue with sun rays piercing through the surface. Vibrant, high-contrast colors, cinematic lighting. Leave space on the left side for text.",
+  "fossil_query": null,
   "words": [
    "DER",
    "KÖNIG"

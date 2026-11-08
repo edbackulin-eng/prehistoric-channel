@@ -2,121 +2,121 @@
  "otodus_megalodon": {
   "name": "Megalodon (Otodus megalodon)",
   "features": [
-   "massive triangular teeth with serrated edges",
+   "massive triangular teeth with finely serrated edges",
    "V-shaped notch at the base of the tooth root",
    "asymmetrical posterior teeth with slanted tips",
-   "robust and broad jaw structure",
-   "lack of lateral cusps on adult tooth roots"
+   "enormous body size estimated between 9 and 18 meters",
+   "robust and broad jaw structure compared to modern sharks"
   ],
   "forbidden": [
+   "presence of bony skeleton visible in water",
+   "small size comparable to a great white shark",
    "smooth non-serrated tooth edges",
-   "presence of lateral cusps on adult tooth roots",
-   "symmetrical posterior teeth",
-   "small body size relative to modern great white shark",
+   "presence of dorsal fins with spines (like in some primitive sharks)",
    "a modern animal in a prehistoric scene"
   ],
   "living": false,
   "video_query": null,
-  "look": "A colossal, streamlined shark with a robust, broad head and a massive jaw capable of opening over three meters wide. Its skin is a smooth, greyish-brown dorsal surface fading to a lighter ventral side, typical of deep-sea predators. The body is thick and muscular, suggesting immense power, with large pectoral fins for stability. The eyes are small and dark, set back on the head, while the gill slits are prominent. The overall appearance is that of a heavy, powerful apex predator, distinct from the more slender modern sharks."
+  "look": "A colossal, streamlined shark with a robust, broad head and a massive jaw capable of opening wide to reveal rows of large, triangular, serrated teeth; its skin is a uniform dark greyish-brown on the dorsal side fading to a lighter ventral side, with a powerful tail and large pectoral fins, appearing as a prehistoric apex predator in open ocean water."
  },
  "ancient_whale": {
-  "name": "Urzeit-Wale (Ancetis or similar ancient baleen whale species)",
+  "name": "Urzeit-Wale (Ancetis cetaceans (generic))",
   "features": [
-   "large streamlined body",
-   "thick blubber layer",
-   "baleen plates in mouth (if visible)",
-   "small dorsal fin",
-   "powerful tail flukes"
+   "large aquatic mammal body",
+   "presence of bite marks on fossilized bones",
+   "streamlined shape for swimming",
+   "blowhole on top of head",
+   "flippers and tail flukes"
   ],
   "forbidden": [
-   "sharp conical teeth (indicating toothed whale)",
-   "small body size",
+   "presence of legs or limbs",
+   "scales or fins instead of flippers",
+   "small size like a dolphin",
    "presence of external ears",
-   "lack of tail flukes",
    "a modern animal in a prehistoric scene"
   ],
-  "living": false,
-  "video_query": null,
-  "look": "A large, greyish-brown baleen whale with a streamlined, torpedo-shaped body. It has a small dorsal fin and large, powerful tail flukes. The skin appears smooth and thick, with a lighter underside. The head is broad and rounded, with a small eye and a blowhole on top. The overall appearance is that of a massive, slow-moving filter feeder, distinct from the sleeker, faster toothed whales."
+  "living": true,
+  "video_query": "ancient whale swimming in ocean",
+  "look": "A large, streamlined marine mammal with a smooth, dark grey skin, a prominent dorsal fin, and powerful tail flukes, swimming gracefully through the water with a calm and majestic demeanor."
  },
  "megalodon": {
   "name": "Megalodon (Otodus megalodon)",
   "features": [
    "massive triangular teeth with serrated edges",
-   "robust and stocky body shape",
-   "short and high dorsal vertebrae",
+   "robust and stocky body build",
+   "short, high dorsal vertebrae",
    "large head relative to body length",
    "powerful caudal fin for speed"
   ],
   "forbidden": [
-   "slender body like a modern mako shark",
-   "small teeth relative to head size",
-   "presence of a beak or bird-like features",
-   "long neck or quadrupedal stance",
+   "slender, elongated body like a modern mako shark",
+   "small, conical teeth without serrations",
+   "presence of a beak or bird-like head",
+   "long, thin neck structure",
    "a modern animal in a prehistoric scene"
   ],
   "living": false,
   "video_query": null,
-  "look": "A massive, stocky prehistoric shark with a robust body, large triangular serrated teeth, and a powerful tail, depicted in a dark grey-brown coloration with a lighter underbelly, measuring approximately 16 meters in length."
+  "look": "A massive, stocky prehistoric shark with a robust body, large triangular serrated teeth, and a powerful tail, depicted in a dark blue-grey coloration with a lighter underbelly, measuring approximately 16 meters in length."
  },
  "great_white_shark": {
   "name": "Weißer Hai (Carcharodon carcharias)",
   "features": [
-   "distinct white belly contrasting with grey back",
-   "triangular teeth with serrated edges",
+   "distinctive white belly and grey back",
+   "triangular serrated teeth",
    "large pectoral fins",
-   "slender, torpedo-shaped body",
-   "prominent dorsal fin"
+   "prominent dorsal fin",
+   "slender, streamlined body"
   ],
   "forbidden": [
-   "extremely stocky or short body",
-   "teeth significantly wider than modern proportions",
-   "presence of a beak or bird-like features",
-   "long neck or quadrupedal stance",
+   "extremely stocky or bulky body shape",
+   "teeth that are disproportionately wide compared to body size",
+   "presence of a beak or non-shark head structure",
+   "long, thin neck",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
   "video_query": "great white shark swimming in ocean",
-  "look": "A sleek, torpedo-shaped shark with a grey back and white belly, featuring large triangular serrated teeth and prominent fins, moving through clear blue water."
+  "look": "A sleek, streamlined shark with a grey dorsal side and white ventral side, featuring large pectoral fins and a prominent dorsal fin, moving through clear blue water."
  },
- "shortfin_mako_shark": {
+ "mako_shark": {
   "name": "Makrelenhai (Isurus oxyrinchus)",
   "features": [
-   "slender, streamlined body",
+   "slender, torpedo-shaped body",
    "long, pointed snout",
-   "large, crescent-shaped pectoral fins",
+   "large, triangular pectoral fins",
    "dark blue-grey coloration",
    "fast-swimming appearance"
   ],
   "forbidden": [
-   "stocky or bulky body shape",
+   "stocky or bulky body build",
    "short, blunt snout",
-   "presence of a beak or bird-like features",
-   "long neck or quadrupedal stance",
+   "presence of a beak or bird-like head",
+   "long, thin neck",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
-  "video_query": "shortfin mako shark swimming fast in ocean",
-  "look": "A slender, streamlined shark with a long pointed snout, dark blue-grey skin, and large crescent-shaped pectoral fins, captured in motion in deep blue water."
+  "video_query": "shortfin mako shark swimming fast",
+  "look": "A slender, torpedo-shaped shark with a long, pointed snout and large triangular pectoral fins, colored in dark blue-grey, swimming swiftly through the water."
  },
- "whale": {
-  "name": "Wale (Mysticeti)",
+ "whales": {
+  "name": "Wale (Mysticeti / Odontoceti)",
   "features": [
    "large streamlined body",
-   "baleen plates instead of teeth",
-   "single blowhole on top of head",
-   "thick layer of blubber",
-   "fluke tail for propulsion"
+   "horizontal tail flukes",
+   "blowhole on top of head",
+   "smooth skin without scales",
+   "large size relative to other marine animals"
   ],
   "forbidden": [
-   "presence of external ears",
-   "feathers or fur",
-   "legs or limbs with digits",
-   "gills instead of lungs",
+   "fins instead of flippers",
+   "gills instead of blowhole",
+   "scales on skin",
+   "legs instead of flippers",
    "a modern animal in a prehistoric scene"
   ],
   "living": true,
   "video_query": "large whale swimming in ocean",
-  "look": "A large, streamlined marine mammal with a thick layer of blubber, baleen plates for feeding, a single blowhole on top of its head, and a powerful fluke tail, typically grey or dark in color."
+  "look": "A large, streamlined marine mammal with smooth grey skin, horizontal tail flippers, and a blowhole on top of its head, swimming through the water."
  }
 }

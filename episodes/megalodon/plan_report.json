@@ -1,20 +1,35 @@
 {
- "version": 8,
+ "version": 9,
  "script_sha": "53b721ab4ddb",
  "lines": 193,
  "species": 6,
  "living": [
+  "ancient_whale",
   "great_white_shark",
-  "shortfin_mako_shark",
-  "whale"
+  "mako_shark",
+  "whales"
  ],
- "flux_prompts": 3,
- "flux_frames": 6,
+ "flux_prompts": 27,
+ "flux_frames": 54,
  "animate": [
-  "miocene_pliocene_shoreline",
-  "australian_european_coast",
-  "ancient_ocean_waves"
+  "otodus_megalodon_scene_34",
+  "otodus_megalodon_scene_39",
+  "otodus_megalodon_scene_40",
+  "otodus_megalodon_scene_35",
+  "otodus_megalodon_scene_36",
+  "otodus_megalodon_scene_37",
+  "otodus_megalodon_scene_38",
+  "otodus_megalodon_scene_41",
+  "otodus_megalodon_scene_42",
+  "otodus_megalodon_pose_0"
  ],
- "video_beats": 380,
- "lines_without_picture": []
+ "video_beats": 397,
+ "lines_without_picture": [
+  51,
+  124,
+  127,
+  133,
+  135,
+  173
+ ]
 }

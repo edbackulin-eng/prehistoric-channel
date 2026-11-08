@@ -9,19 +9,9 @@
    "cut": true,
    "beats": [
     {
-     "kind": "real",
-     "need": "v000_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist examining fossil vertebra",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
+     "kind": "recon",
+     "id": "otodus_megalodon_pose_0",
+     "species": "otodus_megalodon"
     },
     {
      "kind": "real",
@@ -36,21 +26,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "real",
-     "need": "v000_2",
-     "species": null,
-     "dark": false,
-     "topic": "paleontologist brushing dirt off bone",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
     }
    ]
   },
@@ -60,6 +35,12 @@
    "section": "hook",
    "amb": "underwater",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_scene_34",
+     "species": "otodus_megalodon",
+     "scene": true
+    },
     {
      "kind": "real",
      "need": "v001_0",
@@ -79,7 +60,7 @@
      "need": "v001_1",
      "species": null,
      "dark": false,
-     "topic": "deep ocean water currents",
+     "topic": "deep ocean water particles",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -129,7 +110,7 @@
      "need": "v002_1",
      "species": null,
      "dark": false,
-     "topic": "ocean horizon wide shot",
+     "topic": "sunlight rays underwater",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -152,7 +133,7 @@
      "need": "v003_0",
      "species": null,
      "dark": false,
-     "topic": "19th century scientist portrait",
+     "topic": "19th century scientist writing notes",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -205,14 +186,15 @@
      "need": "v004_1",
      "species": null,
      "dark": false,
-     "topic": "close up of a large tooth",
+     "topic": "close up quill pen on paper",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ]
+     ],
+     "people": true
     }
    ]
   },
@@ -223,33 +205,20 @@
    "amb": "room",
    "beats": [
     {
-     "kind": "real",
-     "need": "v005_0",
-     "species": null,
-     "dark": false,
-     "topic": "museum label otodus megalodon",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
+     "kind": "recon",
+     "id": "otodus_megalodon_scene_35",
+     "species": "otodus_megalodon",
+     "scene": true
     },
     {
-     "kind": "real",
-     "need": "v005_1",
-     "species": "great_white_shark",
-     "dark": false,
-     "topic": "great white shark swimming in ocean",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
+     "kind": "recon",
+     "id": "megalodon_pose_32",
+     "species": "megalodon"
+    },
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_pose_1",
+     "species": "otodus_megalodon"
     }
    ]
   },
@@ -278,7 +247,7 @@
      "need": "v006_1",
      "species": null,
      "dark": false,
-     "topic": "dark deep ocean water",
+     "topic": "open ocean horizon",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -296,29 +265,11 @@
    "amb": "underwater",
    "beats": [
     {
-     "kind": "anim",
-     "anim": "map",
-     "places": [
-      {
-       "name": "MIOZÄN",
-       "sub": "Epoche",
-       "lat": 0,
-       "lon": 0
-      },
-      {
-       "name": "PLIOZÄN",
-       "sub": "Epoche",
-       "lat": 0,
-       "lon": 0
-      }
-     ]
-    },
-    {
      "kind": "real",
-     "need": "v007_1",
+     "need": "v007_0",
      "species": null,
      "dark": false,
-     "topic": "geological time scale animation",
+     "topic": "deep sea sediment layers",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -326,11 +277,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "miocene_pliocene_shoreline",
-     "species": null
     }
    ]
   },
@@ -359,7 +305,7 @@
      "need": "v008_1",
      "species": null,
      "dark": false,
-     "topic": "ocean surface waves",
+     "topic": "ocean current underwater",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -377,50 +323,26 @@
    "amb": "beach",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_pose_2",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "anim",
      "anim": "map",
      "places": [
       {
        "name": "AFRIKA",
        "sub": "Küste",
-       "lat": 0,
-       "lon": 20
+       "lat": 0.0,
+       "lon": 20.0
       },
       {
        "name": "EUROPA",
-       "sub": "Küste",
-       "lat": 50,
-       "lon": 10
+       "sub": "Nordsee",
+       "lat": 55.0,
+       "lon": 5.0
       }
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v009_1",
-     "species": null,
-     "dark": false,
-     "topic": "fossil hunting on beach",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v009_2",
-     "species": null,
-     "dark": false,
-     "topic": "sunny tropical beach",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
      ]
     }
    ]
@@ -429,7 +351,7 @@
    "at": "Sie zeugen von einem",
    "n": 10,
    "section": "story",
-   "amb": "underwater",
+   "amb": "beach",
    "beats": [
     {
      "kind": "real",
@@ -437,20 +359,6 @@
      "species": null,
      "dark": false,
      "topic": "shallow coastal water sunlight",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v010_1",
-     "species": "great_white_shark",
-     "dark": false,
-     "topic": "great white shark swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -506,9 +414,9 @@
     {
      "kind": "real",
      "need": "v012_0",
-     "species": "great_white_shark",
+     "species": null,
      "dark": false,
-     "topic": "great white shark swimming in ocean",
+     "topic": "school of fish swimming",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -522,21 +430,7 @@
      "need": "v012_1",
      "species": null,
      "dark": false,
-     "topic": "deep ocean water particles floating",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v012_2",
-     "species": "great_white_shark",
-     "dark": false,
-     "topic": "great white shark swimming in ocean",
+     "topic": "underwater shadow passing",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -556,37 +450,9 @@
     {
      "kind": "real",
      "need": "v013_0",
-     "species": "great_white_shark",
-     "dark": false,
-     "topic": "great white shark swimming in ocean",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v013_1",
      "species": null,
      "dark": false,
-     "topic": "sunlight rays penetrating deep ocean water",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v013_2",
-     "species": "great_white_shark",
-     "dark": false,
-     "topic": "great white shark swimming in ocean",
+     "topic": "sediment particles floating",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -608,7 +474,7 @@
      "need": "v014_0",
      "species": null,
      "dark": false,
-     "topic": "scientist examining fossilized shark tooth",
+     "topic": "fossil teeth in box",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -623,21 +489,7 @@
      "need": "v014_1",
      "species": null,
      "dark": false,
-     "topic": "sediment layers in geological core sample",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v014_2",
-     "species": null,
-     "dark": false,
-     "topic": "paleontologist brushing dirt off bone fragment",
+     "topic": "scientist holding fossil tooth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -656,47 +508,9 @@
    "amb": "room",
    "beats": [
     {
-     "kind": "real",
-     "need": "v015_0",
-     "species": null,
-     "dark": false,
-     "topic": "single large fossilized shark tooth on dark background",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v015_1",
-     "species": null,
-     "dark": false,
-     "topic": "museum display case with fossilized teeth",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v015_2",
-     "species": null,
-     "dark": false,
-     "topic": "close up of hard mineralized tooth surface",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
+     "kind": "recon",
+     "id": "otodus_megalodon_pose_3",
+     "species": "otodus_megalodon"
     }
    ]
   },
@@ -711,21 +525,7 @@
      "need": "v016_0",
      "species": null,
      "dark": false,
-     "topic": "macro shot of serrated edge of fossilized tooth",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v016_1",
-     "species": null,
-     "dark": false,
-     "topic": "researcher measuring large fossil tooth with calipers",
+     "topic": "row of fossil shark teeth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -737,17 +537,18 @@
     },
     {
      "kind": "real",
-     "need": "v016_2",
+     "need": "v016_1",
      "species": null,
      "dark": false,
-     "topic": "fossilized teeth arranged in a row on table",
+     "topic": "scientist measuring tooth",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ]
+     ],
+     "people": true
     }
    ]
   },
@@ -762,21 +563,7 @@
      "need": "v017_0",
      "species": null,
      "dark": false,
-     "topic": "fossilized whale bone with bite marks",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v017_1",
-     "species": null,
-     "dark": false,
-     "topic": "scientist pointing at fossilized vertebra",
+     "topic": "fossil whale bone with bite mark",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -788,17 +575,18 @@
     },
     {
      "kind": "real",
-     "need": "v017_2",
+     "need": "v017_1",
      "species": null,
      "dark": false,
-     "topic": "close up of deep puncture marks in bone",
+     "topic": "paleontologist examining bone",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ]
+     ],
+     "people": true
     }
    ]
   },
@@ -813,7 +601,7 @@
      "need": "v018_0",
      "species": null,
      "dark": false,
-     "topic": "historical black and white photo of scientist with fossil",
+     "topic": "museum visitor looking at shark",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -828,7 +616,7 @@
      "need": "v018_1",
      "species": null,
      "dark": false,
-     "topic": "modern scientist looking at old research papers",
+     "topic": "historical drawing of shark",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -837,20 +625,6 @@
       "archival photograph"
      ],
      "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v018_2",
-     "species": null,
-     "dark": false,
-     "topic": "old library books on paleontology",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
     }
    ]
   },
@@ -858,43 +632,14 @@
    "at": "Menschen in urgeschichtlicher Zeit",
    "n": 19,
    "section": "story",
-   "amb": "beach",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v019_0",
      "species": null,
      "dark": false,
-     "topic": "ancient tribal people holding large fossilized tooth",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v019_1",
-     "species": null,
-     "dark": false,
-     "topic": "fossilized tooth used as tool or ornament",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v019_2",
-     "species": null,
-     "dark": false,
-     "topic": "archaeological excavation of prehistoric site",
+     "topic": "ancient artifact shark tooth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -914,37 +659,7 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v020_0",
-     "species": null,
-     "dark": false,
-     "topic": "prehistoric human crafting tool",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v020_1",
-     "species": null,
-     "dark": false,
-     "topic": "hands embedding fossil tooth",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v020_2",
      "species": "great_white_shark",
      "dark": false,
      "topic": "great white shark swimming in ocean",
@@ -965,23 +680,40 @@
    "amb": "room",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_pose_4",
+     "species": "otodus_megalodon"
+    },
+    {
+     "kind": "recon",
+     "id": "megalodon_spearhead",
+     "species": "megalodon"
+    },
+    {
      "kind": "real",
-     "need": "v021_0",
+     "need": "v021_2",
      "species": null,
      "dark": false,
-     "topic": "ancient spearhead close up",
+     "topic": "ancient hunting weapons display",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
-    },
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Was trieb diese Menschen",
+   "n": 22,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
     {
      "kind": "real",
-     "need": "v021_1",
+     "need": "v022_0",
      "species": "great_white_shark",
      "dark": false,
      "topic": "great white shark swimming in ocean",
@@ -995,63 +727,10 @@
     },
     {
      "kind": "real",
-     "need": "v021_2",
-     "species": null,
-     "dark": false,
-     "topic": "museum display prehistoric weapons",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    }
-   ]
-  },
-  {
-   "at": "Was trieb diese Menschen",
-   "n": 22,
-   "section": "story",
-   "amb": "room",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v022_0",
-     "species": null,
-     "dark": false,
-     "topic": "anthropologist examining fossil",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v022_1",
-     "species": null,
-     "dark": false,
-     "topic": "historical archive old photographs",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v022_2",
-     "species": "great_white_shark",
+     "species": null,
      "dark": false,
-     "topic": "great white shark swimming in ocean",
+     "topic": "waves crashing on rocky shore",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1066,26 +745,11 @@
    "at": "Die Antwort liegt in",
    "n": 23,
    "section": "story",
-   "amb": "room",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "v023_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist studying fossil record",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v023_1",
      "species": "great_white_shark",
      "dark": false,
      "topic": "great white shark swimming in ocean",
@@ -1099,18 +763,17 @@
     },
     {
      "kind": "real",
-     "need": "v023_2",
+     "need": "v023_1",
      "species": null,
      "dark": false,
-     "topic": "museum fossil skeleton display",
+     "topic": "deep ocean water particles",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -1122,40 +785,10 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v024_0",
-     "species": null,
-     "dark": false,
-     "topic": "Louis Agassiz portrait painting",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v024_1",
      "species": null,
      "dark": false,
-     "topic": "19th century naturalist sketching",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v024_2",
-     "species": "great_white_shark",
-     "dark": false,
-     "topic": "great white shark swimming in ocean",
+     "topic": "old scientific journal pages",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1184,12 +817,33 @@
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     },
     {
      "kind": "real",
-     "need": "v025_1",
+     "need": "v025_2",
+     "species": null,
+     "dark": false,
+     "topic": "dictionary definition close up",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Er spiegelt die monumentale",
+   "n": 26,
+   "section": "story",
+   "amb": "ocean",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v026_0",
      "species": "great_white_shark",
      "dark": false,
      "topic": "great white shark swimming in ocean",
@@ -1203,48 +857,10 @@
     },
     {
      "kind": "real",
-     "need": "v025_2",
-     "species": null,
-     "dark": false,
-     "topic": "linguist explaining etymology",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    }
-   ]
-  },
-  {
-   "at": "Er spiegelt die monumentale",
-   "n": 26,
-   "section": "story",
-   "amb": "room",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v026_0",
-     "species": null,
-     "dark": false,
-     "topic": "museum megalodon tooth collection",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v026_1",
-     "species": "great_white_shark",
+     "species": null,
      "dark": false,
-     "topic": "great white shark swimming in ocean",
+     "topic": "ocean waves breaking",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1258,15 +874,14 @@
      "need": "v026_2",
      "species": null,
      "dark": false,
-     "topic": "visitor admiring fossil exhibit",
+     "topic": "underwater current movement",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -1277,26 +892,16 @@
    "amb": "room",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_pose_5",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
      "need": "v027_0",
      "species": null,
      "dark": false,
-     "topic": "geological timeline chart",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v027_1",
-     "species": "great_white_shark",
-     "dark": false,
-     "topic": "great white shark swimming in ocean",
+     "topic": "geological time scale chart",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1310,15 +915,14 @@
      "need": "v027_2",
      "species": null,
      "dark": false,
-     "topic": "paleontologist dating rock sample",
+     "topic": "rock strata layers",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -1333,16 +937,16 @@
      "anim": "map",
      "places": [
       {
-       "name": "AUSTRALIEN",
-       "sub": "Südlicher Ozean",
-       "lat": -33.8688,
-       "lon": 151.2093
+       "name": "ATLANTIK",
+       "sub": "Weltmeer",
+       "lat": 25.0,
+       "lon": -40.0
       },
       {
-       "name": "EUROPA",
-       "sub": "Atlantischer Rand",
-       "lat": 48.8566,
-       "lon": 2.3522
+       "name": "PACIFIK",
+       "sub": "Weltmeer",
+       "lat": 0.0,
+       "lon": 150.0
       }
      ]
     },
@@ -1351,7 +955,7 @@
      "need": "v028_1",
      "species": null,
      "dark": false,
-     "topic": "aerial view global ocean currents",
+     "topic": "aerial view of ocean currents",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1363,9 +967,9 @@
     {
      "kind": "real",
      "need": "v028_2",
-     "species": "great_white_shark",
+     "species": null,
      "dark": false,
-     "topic": "great white shark swimming in ocean",
+     "topic": "global map animation",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1388,30 +992,16 @@
      "places": [
       {
        "name": "AUSTRALIEN",
-       "sub": "Südlicher Ozean",
-       "lat": -33.8688,
-       "lon": 151.2093
+       "sub": "Südhalbkugel",
+       "lat": -25.0,
+       "lon": 135.0
       },
       {
        "name": "EUROPA",
-       "sub": "Atlantik",
-       "lat": 48.8566,
-       "lon": 2.3522
+       "sub": "Nordhalbkugel",
+       "lat": 45.0,
+       "lon": 10.0
       }
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v029_1",
-     "species": null,
-     "dark": false,
-     "topic": "aerial view of diverse coastal landscapes",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
      ]
     },
     {
@@ -1419,7 +1009,7 @@
      "need": "v029_2",
      "species": null,
      "dark": false,
-     "topic": "ocean currents map animation",
+     "topic": "coastal landscape aerial",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1427,11 +1017,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "recon",
-     "id": "australian_european_coast",
-     "species": null
     }
    ]
   },
@@ -1439,7 +1024,7 @@
    "at": "Einst patrouillierte der Gigant",
    "n": 30,
    "section": "story",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
@@ -1460,7 +1045,21 @@
      "need": "v030_1",
      "species": null,
      "dark": false,
-     "topic": "shallow coastal waters with sandy bottom",
+     "topic": "shallow tropical sea water",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v030_2",
+     "species": null,
+     "dark": false,
+     "topic": "underwater depth gauge",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1475,14 +1074,14 @@
    "at": "Da das knorpelige Innere",
    "n": 31,
    "section": "story",
-   "amb": "underwater",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v031_0",
-     "species": "great_white_shark",
+     "species": null,
      "dark": false,
-     "topic": "great white shark swimming in ocean",
+     "topic": "fossilized shark tooth close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1493,25 +1092,10 @@
     },
     {
      "kind": "real",
-     "need": "v031_1",
-     "species": null,
-     "dark": false,
-     "topic": "paleontologist brushing sediment off fossilized shark tooth",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v031_2",
      "species": null,
      "dark": false,
-     "topic": "dark ocean floor sediment swirling in current",
+     "topic": "sediment rock layer",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1526,14 +1110,14 @@
    "at": "Nur in extremen Ausnahmefällen",
    "n": 32,
    "section": "story",
-   "amb": "underwater",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v032_0",
-     "species": "great_white_shark",
+     "species": null,
      "dark": false,
-     "topic": "great white shark swimming in ocean",
+     "topic": "fossilized whale bone with bite marks",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1544,25 +1128,10 @@
     },
     {
      "kind": "real",
-     "need": "v032_1",
+     "need": "v032_2",
      "species": null,
      "dark": false,
-     "topic": "scientist examining large fossilized whale bone",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v032_2",
-     "species": "great_white_shark",
-     "dark": false,
-     "topic": "great white shark swimming in ocean",
+     "topic": "museum skeleton display",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1580,11 +1149,16 @@
    "amb": "ocean",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_pose_6",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
      "need": "v033_0",
      "species": null,
      "dark": false,
-     "topic": "ancient ocean waves crashing against rocky cliffs",
+     "topic": "ocean waves time lapse",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1596,9 +1170,9 @@
     {
      "kind": "real",
      "need": "v033_1",
-     "species": "great_white_shark",
+     "species": null,
      "dark": false,
-     "topic": "great white shark swimming in ocean",
+     "topic": "underwater light rays",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1612,7 +1186,29 @@
      "need": "v033_2",
      "species": null,
      "dark": false,
-     "topic": "time lapse of ocean waves eroding coastline",
+     "topic": "ancient seabed sediment",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Doch was diese Zähne",
+   "n": 34,
+   "section": "story",
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v034_0",
+     "species": null,
+     "dark": false,
+     "topic": "dramatic lighting on fossil",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1622,32 +1218,18 @@
      ]
     },
     {
-     "kind": "recon",
-     "id": "ancient_ocean_waves",
-     "species": null
-    }
-   ]
-  },
-  {
-   "at": "Doch was diese Zähne",
-   "n": 34,
-   "section": "story",
-   "amb": "underwater",
-   "beats": [
-    {
      "kind": "real",
-     "need": "v034_1",
+     "need": "v034_2",
      "species": null,
      "dark": false,
-     "topic": "researcher looking at microscope with intense focus",
+     "topic": "close up of sharp edges",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -1655,22 +1237,35 @@
    "at": "Sie bilden kein simples",
    "n": 35,
    "section": "story",
-   "amb": "underwater",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
-     "need": "v035_1",
+     "need": "v035_0",
      "species": null,
      "dark": false,
-     "topic": "engineer examining complex mechanical gear system",
+     "topic": "macro shot of tooth serrations",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v035_2",
+     "species": null,
+     "dark": false,
+     "topic": "mechanical precision model",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -1678,22 +1273,21 @@
    "at": "Jeder einzelne Zahn zeigt",
    "n": 36,
    "section": "story",
-   "amb": "underwater",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
-     "need": "v036_1",
+     "need": "v036_0",
      "species": null,
      "dark": false,
-     "topic": "dentist examining sharp surgical blade under light",
+     "topic": "shark tooth cross section",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -1705,10 +1299,24 @@
    "beats": [
     {
      "kind": "real",
+     "need": "v037_0",
+     "species": "megalodon",
+     "dark": true,
+     "topic": "megalodon jaw closeup",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
      "need": "v037_1",
      "species": null,
      "dark": false,
-     "topic": "underwater slow motion water turbulence impact",
+     "topic": "underwater rocky reef structure",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1720,17 +1328,16 @@
     {
      "kind": "real",
      "need": "v037_2",
-     "species": null,
+     "species": "ancient_whale",
      "dark": false,
-     "topic": "paleontologist examining fossil jaw hinge",
+     "topic": "ancient whale swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -1742,10 +1349,10 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v038_1",
+     "need": "v038_0",
      "species": "great_white_shark",
      "dark": false,
-     "topic": "great white shark open mouth underwater",
+     "topic": "great white shark swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1756,18 +1363,22 @@
     },
     {
      "kind": "real",
-     "need": "v038_2",
+     "need": "v038_1",
      "species": null,
      "dark": false,
-     "topic": "scientist pointing at fossil teeth row",
+     "topic": "deep ocean blue water particles",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
+    },
+    {
+     "kind": "recon",
+     "id": "megalodon_teeth_variety",
+     "species": "megalodon"
     }
    ]
   },
@@ -1778,11 +1389,30 @@
    "amb": "underwater",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_pose_7",
+     "species": "otodus_megalodon"
+    },
+    {
+     "kind": "real",
+     "need": "v039_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming in ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
      "kind": "real",
      "need": "v039_1",
      "species": null,
      "dark": false,
-     "topic": "close up shark teeth row variation",
+     "topic": "shark swimming underwater side view",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1794,17 +1424,16 @@
     {
      "kind": "real",
      "need": "v039_2",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "museum display megalodon teeth comparison",
+     "topic": "great white shark swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -1812,29 +1441,42 @@
    "at": "Die hinteren Positionen zeigen",
    "n": 40,
    "section": "story",
-   "amb": "room",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "v040_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist examining fossil tooth root",
+     "species": "megalodon",
+     "dark": true,
+     "topic": "megalodon posterior teeth detail",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v040_1",
+     "species": null,
+     "dark": false,
+     "topic": "underwater rocky reef texture",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     },
     {
      "kind": "real",
      "need": "v040_2",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "macro shot of fossilized shark tooth texture",
+     "topic": "great white shark swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1853,25 +1495,24 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v041_0",
-     "species": null,
+     "need": "v041_1",
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "paleontologist pointing at jaw diagram",
+     "topic": "great white shark swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     },
     {
      "kind": "real",
      "need": "v041_2",
      "species": null,
      "dark": false,
-     "topic": "close up of fossilized shark jaw bone",
+     "topic": "museum fossil display case",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1889,26 +1530,31 @@
    "amb": "room",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_scene_36",
+     "species": "otodus_megalodon",
+     "scene": true
+    },
+    {
      "kind": "real",
      "need": "v042_0",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "museum exhibit of prehistoric shark jaw",
+     "topic": "great white shark swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     },
     {
      "kind": "real",
      "need": "v042_2",
      "species": null,
      "dark": false,
-     "topic": "hands cleaning fossilized shark teeth",
+     "topic": "close up fossilized bone texture",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1923,29 +1569,42 @@
    "at": "Seitliche Zacken an der",
    "n": 43,
    "section": "story",
-   "amb": "room",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "v043_0",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "scientist comparing juvenile and adult fossil teeth",
+     "topic": "great white shark swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v043_1",
+     "species": null,
+     "dark": false,
+     "topic": "deep ocean water particles",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     },
     {
      "kind": "real",
      "need": "v043_2",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "macro shot of fossil tooth root surface",
+     "topic": "great white shark swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -1964,25 +1623,24 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v044_0",
-     "species": null,
+     "need": "v044_1",
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "paleontologist measuring fossil tooth width",
+     "topic": "great white shark swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     },
     {
      "kind": "real",
      "need": "v044_2",
      "species": null,
      "dark": false,
-     "topic": "close up of fossilized shark tooth edge",
+     "topic": "laboratory microscope view",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2001,25 +1659,24 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v045_0",
-     "species": null,
+     "need": "v045_1",
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "researchers assembling fossilized shark jaw",
+     "topic": "great white shark swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     },
     {
      "kind": "real",
-     "need": "v045_1",
+     "need": "v045_2",
      "species": null,
      "dark": false,
-     "topic": "time lapse of fossil reconstruction process",
+     "topic": "fossil excavation site",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2034,14 +1691,28 @@
    "at": "Das Gebiss übertrifft das",
    "n": 46,
    "section": "story",
-   "amb": "ocean",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "v046_0",
      "species": "great_white_shark",
      "dark": false,
-     "topic": "great white shark swimming underwater",
+     "topic": "great white shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v046_1",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2055,7 +1726,7 @@
      "need": "v046_2",
      "species": null,
      "dark": false,
-     "topic": "underwater shot of great white shark fin",
+     "topic": "ocean surface waves",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2070,14 +1741,28 @@
    "at": "Eine Breite von über",
    "n": 47,
    "section": "story",
-   "amb": "ocean",
+   "amb": "underwater",
    "beats": [
+    {
+     "kind": "real",
+     "need": "v047_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming in ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
     {
      "kind": "real",
      "need": "v047_1",
      "species": null,
      "dark": false,
-     "topic": "diver swimming near large shark",
+     "topic": "deep ocean darkness",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2089,9 +1774,9 @@
     {
      "kind": "real",
      "need": "v047_2",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "underwater shot of large shark mouth",
+     "topic": "great white shark swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2113,7 +1798,21 @@
      "need": "v048_0",
      "species": null,
      "dark": false,
-     "topic": "deep ocean water surface waves",
+     "topic": "ocean horizon sunset",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v048_1",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2127,7 +1826,7 @@
      "need": "v048_2",
      "species": null,
      "dark": false,
-     "topic": "underwater shot of deep sea environment",
+     "topic": "waves crashing on rocks",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2146,18 +1845,31 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v049_0",
-     "species": null,
+     "need": "v049_1",
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "scientist analyzing jaw bone structure",
+     "topic": "great white shark swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v049_2",
+     "species": null,
+     "dark": false,
+     "topic": "fossil bone close up",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -2170,9 +1882,9 @@
     {
      "kind": "real",
      "need": "v050_1",
-     "species": "great_white_shark",
+     "species": null,
      "dark": false,
-     "topic": "great white shark swimming fast underwater",
+     "topic": "underwater light rays",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2180,21 +1892,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "real",
-     "need": "v050_2",
-     "species": null,
-     "dark": false,
-     "topic": "anatomist studying shark muscle structure",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
     }
    ]
   },
@@ -2203,22 +1900,7 @@
    "n": 51,
    "section": "story",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v051_2",
-     "species": "great_white_shark",
-     "dark": false,
-     "topic": "great white shark open mouth underwater",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Wie konnte ein Jäger",
@@ -2231,7 +1913,7 @@
      "need": "v052_0",
      "species": null,
      "dark": false,
-     "topic": "empty deep ocean water surface waves",
+     "topic": "vast empty ocean horizon waves",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2245,15 +1927,14 @@
      "need": "v052_2",
      "species": null,
      "dark": false,
-     "topic": "scientist looking at ocean horizon",
+     "topic": "sunlight rays underwater deep sea",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -2268,7 +1949,7 @@
      "need": "v053_0",
      "species": null,
      "dark": false,
-     "topic": "paleontologist examining fossil jaw",
+     "topic": "scientist examining fossil jaw museum",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2283,7 +1964,30 @@
      "need": "v053_2",
      "species": null,
      "dark": false,
-     "topic": "museum fossil skeleton display",
+     "topic": "paleontologist pointing at fossil diagram",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ],
+     "people": true
+    }
+   ]
+  },
+  {
+   "at": "Die Zähne selbst zeigen",
+   "n": 54,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v054_1",
+     "species": null,
+     "dark": false,
+     "topic": "shark tooth fossil close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2295,48 +1999,24 @@
    ]
   },
   {
-   "at": "Die Zähne selbst zeigen",
-   "n": 54,
-   "section": "story",
-   "amb": "room",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v054_1",
-     "species": null,
-     "dark": false,
-     "topic": "scientist holding large shark tooth",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    }
-   ]
-  },
-  {
    "at": "An der Basis greift",
    "n": 55,
    "section": "story",
-   "amb": "room",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "v055_1",
      "species": null,
      "dark": false,
-     "topic": "paleontologist pointing at fossil root",
+     "topic": "underwater rocky seabed texture",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -2344,22 +2024,21 @@
    "at": "Dabei offenbart sich beim",
    "n": 56,
    "section": "story",
-   "amb": "room",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
-     "need": "v056_1",
+     "need": "v056_2",
      "species": null,
      "dark": false,
-     "topic": "researcher analyzing jaw model",
+     "topic": "deep ocean water caustics light rays",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -2372,9 +2051,9 @@
     {
      "kind": "real",
      "need": "v057_1",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "macro shot shark teeth detail",
+     "topic": "great white shark swimming close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2382,21 +2061,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "real",
-     "need": "v057_2",
-     "species": null,
-     "dark": false,
-     "topic": "researcher measuring fossil tooth dimensions",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
     }
    ]
   },
@@ -2411,7 +2075,7 @@
      "need": "v058_1",
      "species": null,
      "dark": false,
-     "topic": "shark jaw side view underwater",
+     "topic": "underwater macro shot of shark teeth texture",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2419,21 +2083,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "real",
-     "need": "v058_2",
-     "species": null,
-     "dark": false,
-     "topic": "paleontologist comparing fossil tooth shapes",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
     }
    ]
   },
@@ -2462,15 +2111,14 @@
      "need": "v059_2",
      "species": null,
      "dark": false,
-     "topic": "documentary narrator explaining predation strategy",
+     "topic": "deep ocean dark water particles",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -2482,33 +2130,17 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v060_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist examining fossil",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v060_2",
      "species": null,
      "dark": false,
-     "topic": "museum fossil skeleton",
+     "topic": "ancient fossilized shark teeth collection museum display",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -2520,33 +2152,17 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v061_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist examining fossil",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v061_2",
      "species": null,
      "dark": false,
-     "topic": "museum fossil skeleton",
+     "topic": "detailed fossil shark tooth row close up",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -2558,33 +2174,17 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v062_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist examining fossil",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v062_2",
      "species": null,
      "dark": false,
-     "topic": "museum fossil skeleton",
+     "topic": "fossil shark jaw reconstruction model",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -2595,34 +2195,24 @@
    "amb": "room",
    "beats": [
     {
-     "kind": "real",
-     "need": "v063_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist examining fossil",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
+     "kind": "recon",
+     "id": "otodus_megalodon_scene_37",
+     "species": "otodus_megalodon",
+     "scene": true
     },
     {
      "kind": "real",
      "need": "v063_2",
      "species": null,
      "dark": false,
-     "topic": "museum fossil skeleton",
+     "topic": "fossil shark tooth cross section analysis",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -2634,33 +2224,17 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v064_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist examining fossil",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v064_2",
      "species": null,
      "dark": false,
-     "topic": "museum fossil skeleton",
+     "topic": "fossil shark tooth root macro shot",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -2675,7 +2249,7 @@
      "need": "v065_0",
      "species": "great_white_shark",
      "dark": false,
-     "topic": "great white shark swimming",
+     "topic": "great white shark swimming powerfully",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2689,7 +2263,7 @@
      "need": "v065_2",
      "species": "great_white_shark",
      "dark": false,
-     "topic": "great white shark hunting",
+     "topic": "great white shark hunting seal",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2708,33 +2282,17 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v066_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist examining fossil",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v066_2",
      "species": null,
      "dark": false,
-     "topic": "museum fossil skeleton",
+     "topic": "large fossil shark jaw skeleton museum",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -2746,10 +2304,38 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v067_1",
-     "species": "whale",
+     "need": "v067_0",
+     "species": "ancient_whale",
      "dark": false,
-     "topic": "whale swimming ocean",
+     "topic": "ancient whale swimming in ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v067_1",
+     "species": "whales",
+     "dark": false,
+     "topic": "ancient whale swimming in ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v067_2",
+     "species": "ancient_whale",
+     "dark": false,
+     "topic": "ancient whale swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2768,33 +2354,17 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v068_0",
+     "need": "v068_1",
      "species": null,
      "dark": false,
-     "topic": "scientist examining fossil",
+     "topic": "old scientific papers and diagrams",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v068_2",
-     "species": null,
-     "dark": false,
-     "topic": "museum fossil skeleton",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -2806,33 +2376,17 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v069_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist examining fossil",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v069_2",
      "species": null,
      "dark": false,
-     "topic": "museum fossil skeleton",
+     "topic": "fossil shark tooth size comparison",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -2844,63 +2398,10 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v070_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist discarding old measurement data",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v070_1",
      "species": null,
      "dark": false,
-     "topic": "historical archive footage 1990s paleontology",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v070_2",
-     "species": null,
-     "dark": false,
-     "topic": "modern researcher shaking head at old estimates",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    }
-   ]
-  },
-  {
-   "at": "Was blieb, war die",
-   "n": 71,
-   "section": "story",
-   "amb": "underwater",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v071_1",
-     "species": null,
-     "dark": false,
-     "topic": "deep ocean dark water light rays",
+     "topic": "1994 scientific conference footage",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2908,13 +2409,21 @@
       "submersible",
       "archival photograph"
      ]
-    },
+    }
+   ]
+  },
+  {
+   "at": "Was blieb, war die",
+   "n": 71,
+   "section": "story",
+   "amb": "room",
+   "beats": [
     {
      "kind": "real",
-     "need": "v071_2",
-     "species": "great_white_shark",
+     "need": "v071_1",
+     "species": null,
      "dark": false,
-     "topic": "great white shark swimming deep",
+     "topic": "fossil shark tooth under microscope",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -2933,43 +2442,16 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v072_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist measuring fossil tooth calipers",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v072_1",
      "species": null,
      "dark": false,
-     "topic": "close up ancient shark tooth texture",
+     "topic": "fossil shark tooth detailed measurement",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ]
-    },
-    {
-     "kind": "anim",
-     "anim": "map",
-     "places": [
-      {
-       "name": "MUSEUM",
-       "sub": "Wissenschaftliches Labor",
-       "lat": 52.52,
-       "lon": 13.405
-      }
      ]
     }
    ]
@@ -2982,25 +2464,10 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v073_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist walking into research lab",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v073_1",
      "species": null,
      "dark": false,
-     "topic": "stacks of scientific papers and notes",
+     "topic": "scientific research setup with fossils",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3008,21 +2475,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "real",
-     "need": "v073_2",
-     "species": null,
-     "dark": false,
-     "topic": "researcher looking at microscope",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
     }
    ]
   },
@@ -3037,21 +2489,7 @@
      "need": "v074_0",
      "species": null,
      "dark": false,
-     "topic": "large fossilized shark tooth on table",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v074_1",
-     "species": null,
-     "dark": false,
-     "topic": "hands holding large fossil tooth",
+     "topic": "scientist holding large fossil shark tooth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3063,10 +2501,10 @@
     },
     {
      "kind": "real",
-     "need": "v074_2",
+     "need": "v074_1",
      "species": null,
      "dark": false,
-     "topic": "fossil tooth close up detail",
+     "topic": "168mm fossil shark tooth close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3081,42 +2519,29 @@
    "at": "Im direkten Vergleich mit",
    "n": 75,
    "section": "story",
-   "amb": "underwater",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v075_0",
-     "species": "great_white_shark",
+     "species": null,
      "dark": false,
-     "topic": "great white shark swimming",
+     "topic": "scientist comparing shark skull models",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ]
+     ],
+     "people": true
     },
     {
      "kind": "real",
      "need": "v075_1",
-     "species": null,
-     "dark": false,
-     "topic": "underwater comparison scale ruler",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v075_2",
      "species": "great_white_shark",
      "dark": false,
-     "topic": "great white shark side profile",
+     "topic": "great white shark swimming profile",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3134,25 +2559,17 @@
    "amb": "room",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_scene_38",
+     "species": "otodus_megalodon",
+     "scene": true
+    },
+    {
      "kind": "real",
      "need": "v076_0",
      "species": null,
      "dark": false,
-     "topic": "close up shark tooth root structure",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v076_1",
-     "species": null,
-     "dark": false,
-     "topic": "scientist pointing at diagram",
+     "topic": "researcher measuring fossil tooth width",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3165,9 +2582,9 @@
     {
      "kind": "real",
      "need": "v076_2",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "fossil tooth cross section",
+     "topic": "great white shark jaw close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3189,36 +2606,7 @@
      "need": "v077_0",
      "species": null,
      "dark": false,
-     "topic": "scientist presenting data on screen",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v077_1",
-     "species": null,
-     "dark": false,
-     "topic": "three different size models",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v077_2",
-     "species": null,
-     "dark": false,
-     "topic": "audience listening to lecture",
+     "topic": "academic presentation shark size models",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3241,7 +2629,7 @@
      "need": "v078_1",
      "species": null,
      "dark": false,
-     "topic": "deep blue ocean water",
+     "topic": "deep ocean blue water light rays",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3255,7 +2643,7 @@
      "need": "v078_2",
      "species": null,
      "dark": false,
-     "topic": "diver looking up at large shadow",
+     "topic": "scientist calculating weight on whiteboard",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3276,9 +2664,9 @@
     {
      "kind": "real",
      "need": "v079_1",
-     "species": null,
+     "species": "whales",
      "dark": false,
-     "topic": "ocean surface from below",
+     "topic": "large whale swimming underwater",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3292,15 +2680,14 @@
      "need": "v079_2",
      "species": null,
      "dark": false,
-     "topic": "scientist writing notes",
+     "topic": "ocean surface from below",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -3327,17 +2714,16 @@
     {
      "kind": "real",
      "need": "v080_2",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "scientist analyzing large data chart",
+     "topic": "great white shark swimming",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -3352,7 +2738,7 @@
      "need": "v081_0",
      "species": null,
      "dark": false,
-     "topic": "researcher presenting fossil data",
+     "topic": "scientist working at desk",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3367,21 +2753,7 @@
      "need": "v081_1",
      "species": null,
      "dark": false,
-     "topic": "museum fossil display case",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v081_2",
-     "species": null,
-     "dark": false,
-     "topic": "historical archive footage scientist",
+     "topic": "academic lecture hall",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3390,6 +2762,20 @@
       "archival photograph"
      ],
      "people": true
+    },
+    {
+     "kind": "real",
+     "need": "v081_2",
+     "species": null,
+     "dark": false,
+     "topic": "old library books",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -3404,7 +2790,7 @@
      "need": "v082_0",
      "species": null,
      "dark": false,
-     "topic": "scientist writing on whiteboard",
+     "topic": "researcher analyzing data",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3419,7 +2805,7 @@
      "need": "v082_1",
      "species": null,
      "dark": false,
-     "topic": "close up fossil tooth measurement",
+     "topic": "computer screen data visualization",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3433,7 +2819,7 @@
      "need": "v082_2",
      "species": null,
      "dark": false,
-     "topic": "academic discussion laboratory",
+     "topic": "scientist pointing at chart",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3468,17 +2854,16 @@
     {
      "kind": "real",
      "need": "v083_2",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "diver observing shark from distance",
+     "topic": "shark dorsal fin surface",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -3490,10 +2875,24 @@
    "beats": [
     {
      "kind": "real",
+     "need": "v084_0",
+     "species": "ancient_whale",
+     "dark": false,
+     "topic": "ancient whale swimming in ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
      "need": "v084_1",
      "species": null,
      "dark": false,
-     "topic": "deep sea trench darkness",
+     "topic": "deep blue ocean water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3507,7 +2906,7 @@
      "need": "v084_2",
      "species": null,
      "dark": false,
-     "topic": "researcher pointing at map",
+     "topic": "scientist looking at microscope",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3530,7 +2929,7 @@
      "need": "v085_0",
      "species": null,
      "dark": false,
-     "topic": "scientist measuring tooth width",
+     "topic": "paleontologist examining fossil",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3545,7 +2944,7 @@
      "need": "v085_1",
      "species": null,
      "dark": false,
-     "topic": "close up shark tooth width",
+     "topic": "fossil shark tooth close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3559,7 +2958,7 @@
      "need": "v085_2",
      "species": null,
      "dark": false,
-     "topic": "lab technician using calipers",
+     "topic": "museum curator handling artifact",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3575,14 +2974,14 @@
    "at": "Ein oberer vorderer Zahn",
    "n": 86,
    "section": "story",
-   "amb": "underwater",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
-     "need": "v086_1",
+     "need": "v086_0",
      "species": null,
      "dark": false,
-     "topic": "underwater current particles",
+     "topic": "shark tooth fossil macro",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3593,33 +2992,10 @@
     },
     {
      "kind": "real",
-     "need": "v086_2",
+     "need": "v086_1",
      "species": null,
      "dark": false,
-     "topic": "paleontologist examining fossil jaw",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    }
-   ]
-  },
-  {
-   "at": "Der zugrundeliegende Kieferumfang verhielt",
-   "n": 87,
-   "section": "story",
-   "amb": "room",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v087_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist explaining proportionality",
+     "topic": "scientist measuring fossil",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3631,10 +3007,46 @@
     },
     {
      "kind": "real",
-     "need": "v087_1",
+     "need": "v086_2",
      "species": null,
      "dark": false,
-     "topic": "shark jaw bone structure",
+     "topic": "calipers measuring object",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Der zugrundeliegende Kieferumfang verhielt",
+   "n": 87,
+   "section": "story",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v087_0",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark jaw open",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v087_1",
+     "species": "mako_shark",
+     "dark": false,
+     "topic": "mako shark swimming fast",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3648,15 +3060,14 @@
      "need": "v087_2",
      "species": null,
      "dark": false,
-     "topic": "researcher comparing two skulls",
+     "topic": "underwater bubbles rising",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -3671,7 +3082,7 @@
      "need": "v088_1",
      "species": null,
      "dark": false,
-     "topic": "deep blue ocean water",
+     "topic": "dark underwater cave",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3685,7 +3096,7 @@
      "need": "v088_2",
      "species": null,
      "dark": false,
-     "topic": "scientist looking into microscope",
+     "topic": "diver with flashlight",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3708,7 +3119,7 @@
      "need": "v089_0",
      "species": null,
      "dark": false,
-     "topic": "biologist analyzing population data",
+     "topic": "team of scientists discussing",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3723,7 +3134,7 @@
      "need": "v089_1",
      "species": null,
      "dark": false,
-     "topic": "fossil collection display",
+     "topic": "whiteboard with diagrams",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3737,7 +3148,7 @@
      "need": "v089_2",
      "species": null,
      "dark": false,
-     "topic": "research team discussing findings",
+     "topic": "researcher writing notes",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3758,9 +3169,9 @@
     {
      "kind": "real",
      "need": "v090_1",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "school of small fish",
+     "topic": "young great white shark",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3774,15 +3185,14 @@
      "need": "v090_2",
      "species": null,
      "dark": false,
-     "topic": "diver measuring fish",
+     "topic": "shallow water sunlight",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -3797,7 +3207,7 @@
      "need": "v091_1",
      "species": null,
      "dark": false,
-     "topic": "ocean floor rocks",
+     "topic": "tiny fish swimming",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3811,7 +3221,7 @@
      "need": "v091_2",
      "species": null,
      "dark": false,
-     "topic": "scientist holding small fossil",
+     "topic": "scientist observing tank",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3827,29 +3237,14 @@
    "at": "Gleichzeitig zeigte sich eine",
    "n": 92,
    "section": "story",
-   "amb": "room",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
-     "need": "v092_0",
-     "species": null,
-     "dark": false,
-     "topic": "researcher comparing male female fossils",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v092_1",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "fossil jaw comparison",
+     "topic": "male great white shark",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3863,15 +3258,14 @@
      "need": "v092_2",
      "species": null,
      "dark": false,
-     "topic": "biologist pointing at chart",
+     "topic": "underwater current",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -3884,9 +3278,9 @@
     {
      "kind": "real",
      "need": "v093_1",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "open ocean horizon",
+     "topic": "female great white shark",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3900,15 +3294,14 @@
      "need": "v093_2",
      "species": null,
      "dark": false,
-     "topic": "scientist observing from boat",
+     "topic": "deep ocean blue",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -3923,7 +3316,7 @@
      "need": "v094_0",
      "species": null,
      "dark": false,
-     "topic": "historical archive footage research",
+     "topic": "historical archive photos",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3938,7 +3331,7 @@
      "need": "v094_1",
      "species": null,
      "dark": false,
-     "topic": "old scientific papers",
+     "topic": "old scientific journals",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3952,7 +3345,7 @@
      "need": "v094_2",
      "species": null,
      "dark": false,
-     "topic": "museum curator explaining history",
+     "topic": "historian researching",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -3968,29 +3361,14 @@
    "at": "Frühe Schätzungen reichten einst",
    "n": 95,
    "section": "story",
-   "amb": "room",
+   "amb": "underwater",
    "beats": [
-    {
-     "kind": "real",
-     "need": "v095_0",
-     "species": null,
-     "dark": false,
-     "topic": "historical black and white photo of scientists",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
     {
      "kind": "real",
      "need": "v095_1",
      "species": null,
      "dark": false,
-     "topic": "old scientific papers and sketches",
+     "topic": "stormy ocean waves",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4004,7 +3382,7 @@
      "need": "v095_2",
      "species": null,
      "dark": false,
-     "topic": "museum exhibit of large shark model",
+     "topic": "fisherman on boat",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4027,7 +3405,7 @@
      "need": "v096_0",
      "species": null,
      "dark": false,
-     "topic": "scientist shaking head at whiteboard",
+     "topic": "historical archive footage 1990s science",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4039,18 +3417,17 @@
     },
     {
      "kind": "real",
-     "need": "v096_1",
+     "need": "v096_2",
      "species": null,
      "dark": false,
-     "topic": "archival footage 1990s scientific debate",
+     "topic": "old scientific papers on desk",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -4065,7 +3442,7 @@
      "need": "v097_0",
      "species": null,
      "dark": false,
-     "topic": "scientist working on computer model",
+     "topic": "paleontologist working in lab 1996",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4080,30 +3457,14 @@
      "need": "v097_1",
      "species": null,
      "dark": false,
-     "topic": "researcher examining fossil data",
+     "topic": "microscope examining fossil",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v097_2",
-     "species": null,
-     "dark": false,
-     "topic": "close up hands typing on keyboard",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -4118,7 +3479,7 @@
      "need": "v098_0",
      "species": null,
      "dark": false,
-     "topic": "scientist holding large fossil tooth",
+     "topic": "scientist measuring 168mm fossil tooth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4133,7 +3494,7 @@
      "need": "v098_1",
      "species": "great_white_shark",
      "dark": false,
-     "topic": "great white shark swimming",
+     "topic": "great white shark tooth close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4155,7 +3516,7 @@
      "need": "v099_0",
      "species": "great_white_shark",
      "dark": false,
-     "topic": "great white shark close up face",
+     "topic": "great white shark swimming",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4166,10 +3527,10 @@
     },
     {
      "kind": "real",
-     "need": "v099_1",
+     "need": "v099_2",
      "species": null,
      "dark": false,
-     "topic": "scientist pointing at diagram",
+     "topic": "scientist comparing fossil teeth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4192,7 +3553,7 @@
      "need": "v100_0",
      "species": null,
      "dark": false,
-     "topic": "scientist analyzing data on computer screen",
+     "topic": "scientist analyzing fossil data",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4207,7 +3568,7 @@
      "need": "v100_2",
      "species": null,
      "dark": false,
-     "topic": "old scientific papers and sketches on desk",
+     "topic": "deep ocean water surface waves",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4229,7 +3590,7 @@
      "need": "v101_1",
      "species": null,
      "dark": false,
-     "topic": "deep ocean water surface from below",
+     "topic": "underwater sunlight rays deep sea",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4251,7 +3612,7 @@
      "need": "v102_1",
      "species": null,
      "dark": false,
-     "topic": "sunlight rays penetrating deep blue ocean",
+     "topic": "ocean horizon wide shot",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4273,7 +3634,7 @@
      "need": "v103_1",
      "species": null,
      "dark": false,
-     "topic": "diver looking up at large shadow in water",
+     "topic": "deep blue ocean water texture",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4295,7 +3656,7 @@
      "need": "v104_0",
      "species": null,
      "dark": false,
-     "topic": "scientist reading academic paper",
+     "topic": "paleontologist examining fossil",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4310,7 +3671,7 @@
      "need": "v104_1",
      "species": null,
      "dark": false,
-     "topic": "close up of scientific journal page with graphs",
+     "topic": "museum fossil display case",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4332,7 +3693,7 @@
      "need": "v105_1",
      "species": null,
      "dark": false,
-     "topic": "vast empty deep ocean abyss",
+     "topic": "open ocean surface waves",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4354,7 +3715,7 @@
      "need": "v106_0",
      "species": null,
      "dark": false,
-     "topic": "researcher measuring fossil model",
+     "topic": "scientist measuring fossil bone",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4363,6 +3724,20 @@
       "archival photograph"
      ],
      "people": true
+    },
+    {
+     "kind": "real",
+     "need": "v106_1",
+     "species": null,
+     "dark": false,
+     "topic": "fossilized shark tooth close up",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -4377,7 +3752,7 @@
      "need": "v107_0",
      "species": null,
      "dark": false,
-     "topic": "paleontologist examining shark tooth",
+     "topic": "researcher using calipers on tooth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4392,7 +3767,7 @@
      "need": "v107_1",
      "species": null,
      "dark": false,
-     "topic": "close up of serrated shark tooth edge",
+     "topic": "shark tooth fossil detail",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4414,7 +3789,7 @@
      "need": "v108_1",
      "species": null,
      "dark": false,
-     "topic": "underwater light rays through clear water",
+     "topic": "underwater light caustics",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4436,7 +3811,7 @@
      "need": "v109_0",
      "species": null,
      "dark": false,
-     "topic": "biologist discussing juvenile growth",
+     "topic": "paleontologist discussing findings",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4451,7 +3826,7 @@
      "need": "v109_1",
      "species": null,
      "dark": false,
-     "topic": "chart showing growth stages of shark",
+     "topic": "fossil collection on table",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4473,7 +3848,7 @@
      "need": "v110_1",
      "species": null,
      "dark": false,
-     "topic": "shallow coastal underwater rocks",
+     "topic": "shallow water sunlight",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4488,23 +3863,22 @@
    "at": "Doch wie massiv war",
    "n": 111,
    "section": "climax",
-   "amb": "room",
+   "amb": "underwater",
    "cut": true,
    "beats": [
     {
      "kind": "real",
-     "need": "v111_0",
+     "need": "v111_1",
      "species": null,
      "dark": false,
-     "topic": "scientist looking at x-ray of spine",
+     "topic": "dark underwater environment",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -4519,7 +3893,7 @@
      "need": "v112_0",
      "species": null,
      "dark": false,
-     "topic": "paleontologist excavating fossil in Belgium",
+     "topic": "excavation site fossil bones",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4534,7 +3908,7 @@
      "need": "v112_1",
      "species": null,
      "dark": false,
-     "topic": "close up of fossilized vertebrae in rock",
+     "topic": "fossilized vertebrae close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4556,7 +3930,7 @@
      "need": "v113_0",
      "species": null,
      "dark": false,
-     "topic": "measuring fossil vertebra with calipers",
+     "topic": "scientist measuring vertebra diameter",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4571,7 +3945,7 @@
      "need": "v113_1",
      "species": null,
      "dark": false,
-     "topic": "stack of fossil bones on table",
+     "topic": "fossil bone texture detail",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4586,37 +3960,25 @@
    "at": "Frühe Rechnungen, die sich",
    "n": 114,
    "section": "climax",
-   "amb": "room",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v114_0",
-     "species": null,
-     "dark": false,
-     "topic": "historical scientific diagram on paper",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    }
-   ]
-  },
-  {
-   "at": "Was diese frühen Schätzungen",
-   "n": 115,
-   "section": "climax",
    "amb": "underwater",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_scene_39",
+     "species": "otodus_megalodon",
+     "scene": true
+    },
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_pose_20",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
-     "need": "v115_1",
+     "need": "v114_1",
      "species": null,
      "dark": false,
-     "topic": "dark underwater cave",
+     "topic": "underwater rock formation",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4624,13 +3986,21 @@
       "submersible",
       "archival photograph"
      ]
-    },
+    }
+   ]
+  },
+  {
+   "at": "Was diese frühen Schätzungen",
+   "n": 115,
+   "section": "climax",
+   "amb": "room",
+   "beats": [
     {
      "kind": "real",
-     "need": "v115_2",
+     "need": "v115_0",
      "species": null,
      "dark": false,
-     "topic": "diver exploring underwater cave",
+     "topic": "paleontologist pointing at diagram",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4639,6 +4009,20 @@
       "archival photograph"
      ],
      "people": true
+    },
+    {
+     "kind": "real",
+     "need": "v115_1",
+     "species": null,
+     "dark": false,
+     "topic": "fossil spine arrangement",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -4653,7 +4037,7 @@
      "need": "v116_1",
      "species": null,
      "dark": false,
-     "topic": "underwater rocky seabed",
+     "topic": "deep ocean current",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4661,21 +4045,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "real",
-     "need": "v116_2",
-     "species": null,
-     "dark": false,
-     "topic": "scientist measuring fossil spine",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
     }
    ]
   },
@@ -4690,7 +4059,7 @@
      "need": "v117_0",
      "species": null,
      "dark": false,
-     "topic": "scientist thinking in lab",
+     "topic": "paleontologist examining fossil bone",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4702,18 +4071,17 @@
     },
     {
      "kind": "real",
-     "need": "v117_1",
+     "need": "v117_2",
      "species": null,
      "dark": false,
-     "topic": "close up fossil vertebrae",
+     "topic": "dark museum hall with large fossil",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -4726,9 +4094,9 @@
     {
      "kind": "real",
      "need": "v118_0",
-     "species": "shortfin_mako_shark",
+     "species": "mako_shark",
      "dark": false,
-     "topic": "shortfin mako shark swimming",
+     "topic": "mako shark swimming fast",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4740,17 +4108,30 @@
     {
      "kind": "real",
      "need": "v118_1",
-     "species": null,
+     "species": "mako_shark",
      "dark": false,
-     "topic": "scientist observing shark",
+     "topic": "mako shark close up face",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v118_2",
+     "species": null,
+     "dark": false,
+     "topic": "deep blue ocean water",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -4758,14 +4139,28 @@
    "at": "Zieht man deren Verhältnisse",
    "n": 119,
    "section": "climax",
-   "amb": "wind",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "v119_0",
-     "species": null,
+     "species": "mako_shark",
      "dark": false,
-     "topic": "ocean waves",
+     "topic": "mako shark full body side view",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v119_2",
+     "species": "mako_shark",
+     "dark": false,
+     "topic": "mako shark tail fin movement",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4783,6 +4178,11 @@
    "amb": "room",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_pose_21",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
      "need": "v120_0",
      "species": null,
@@ -4796,20 +4196,6 @@
       "archival photograph"
      ],
      "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v120_2",
-     "species": null,
-     "dark": false,
-     "topic": "deep ocean water currents",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
     }
    ]
   },
@@ -4822,9 +4208,9 @@
     {
      "kind": "real",
      "need": "v121_1",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "sunlight rays through deep ocean water",
+     "topic": "great white shark swimming",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4849,7 +4235,7 @@
        "name": "DÄNEMARK",
        "sub": "Gram-Formation",
        "lat": 55.6,
-       "lon": 12.1
+       "lon": 9.5
       }
      ]
     },
@@ -4858,22 +4244,7 @@
      "need": "v122_1",
      "species": null,
      "dark": false,
-     "topic": "archaeologists excavating coastal cliff",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v122_2",
-     "species": null,
-     "dark": false,
-     "topic": "nordic coastline cliffs waves",
+     "topic": "northern european coastline cliffs",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4895,7 +4266,7 @@
      "need": "v123_0",
      "species": null,
      "dark": false,
-     "topic": "paleontologist holding large fossil vertebra",
+     "topic": "paleontologist examining large fossil vertebra",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4910,7 +4281,7 @@
      "need": "v123_1",
      "species": null,
      "dark": false,
-     "topic": "close up fossil bone texture",
+     "topic": "museum fossil skeleton display",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4925,24 +4296,8 @@
    "at": "Was bedeutete diese titanische",
    "n": 124,
    "section": "climax",
-   "amb": "room",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v124_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist analyzing data on computer",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    }
-   ]
+   "amb": "underwater",
+   "beats": []
   },
   {
    "at": "Legt man dieselben anatomischen",
@@ -4953,9 +4308,9 @@
     {
      "kind": "real",
      "need": "v125_1",
-     "species": null,
+     "species": "mako_shark",
      "dark": false,
-     "topic": "deep ocean abyss darkness",
+     "topic": "mako shark swimming fast",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4970,14 +4325,33 @@
    "at": "Zahlen, die die Dimensionen",
    "n": 126,
    "section": "climax",
-   "amb": "ocean",
+   "amb": "underwater",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_pose_22",
+     "species": "otodus_megalodon"
+    },
     {
      "kind": "real",
      "need": "v126_0",
-     "species": "great_white_shark",
+     "species": "whales",
      "dark": false,
-     "topic": "great white shark swimming",
+     "topic": "blue whale swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v126_1",
+     "species": "ancient_whale",
+     "dark": false,
+     "topic": "ancient whale swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -4993,50 +4367,20 @@
    "n": 127,
    "section": "climax",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v127_1",
-     "species": null,
-     "dark": false,
-     "topic": "underwater pressure waves",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Wie schwer war ein",
    "n": 128,
    "section": "climax",
-   "amb": "room",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "v128_0",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "researcher calculating weight on whiteboard",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v128_1",
-     "species": null,
-     "dark": false,
-     "topic": "industrial scale weighing heavy object",
+     "topic": "great white shark close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5056,9 +4400,9 @@
     {
      "kind": "real",
      "need": "v129_0",
-     "species": "shortfin_mako_shark",
+     "species": "mako_shark",
      "dark": false,
-     "topic": "slender mako shark swimming fast",
+     "topic": "mako shark slender body",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5072,7 +4416,7 @@
      "need": "v129_1",
      "species": "great_white_shark",
      "dark": false,
-     "topic": "stocky great white shark swimming",
+     "topic": "great white shark stocky body",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5087,21 +4431,22 @@
    "at": "Unter Berücksichtigung dieser anatomischen",
    "n": 130,
    "section": "climax",
-   "amb": "underwater",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
-     "need": "v130_1",
+     "need": "v130_0",
      "species": null,
      "dark": false,
-     "topic": "deep sea water clarity",
+     "topic": "scientist writing calculation notes",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ]
+     ],
+     "people": true
     }
    ]
   },
@@ -5112,23 +4457,11 @@
    "amb": "ocean",
    "beats": [
     {
-     "kind": "anim",
-     "anim": "map",
-     "places": [
-      {
-       "name": "DÄNEMARK",
-       "sub": "Gram-Formation",
-       "lat": 55.6,
-       "lon": 12.1
-      }
-     ]
-    },
-    {
      "kind": "real",
-     "need": "v131_1",
+     "need": "v131_0",
      "species": null,
      "dark": false,
-     "topic": "nordic sea storms waves",
+     "topic": "cold northern ocean waves",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5146,11 +4479,16 @@
    "amb": "underwater",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_pose_23",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
      "need": "v132_1",
-     "species": null,
+     "species": "whales",
      "dark": false,
-     "topic": "dark cold ocean water",
+     "topic": "sperm whale swimming",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5165,24 +4503,8 @@
    "at": "Zwar existieren in der",
    "n": 133,
    "section": "climax",
-   "amb": "room",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v133_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist discussing theoretical models",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    }
-   ]
+   "amb": "underwater",
+   "beats": []
   },
   {
    "at": "Doch diese extremen Ausreißer",
@@ -5195,7 +4517,7 @@
      "need": "v134_0",
      "species": null,
      "dark": false,
-     "topic": "expert shaking head skeptically",
+     "topic": "scientists discussing in lab",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5204,20 +4526,6 @@
       "archival photograph"
      ],
      "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v134_1",
-     "species": null,
-     "dark": false,
-     "topic": "academic papers on desk",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
     }
    ]
   },
@@ -5226,22 +4534,7 @@
    "n": 135,
    "section": "climax",
    "amb": "underwater",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v135_1",
-     "species": null,
-     "dark": false,
-     "topic": "deep ocean darkness",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Wir blicken auf ein",
@@ -5254,22 +4547,7 @@
      "need": "v136_0",
      "species": null,
      "dark": false,
-     "topic": "museum fossil skeleton display",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v136_1",
-     "species": null,
-     "dark": false,
-     "topic": "ancient fossil rocks close up",
+     "topic": "fossilized vertebra close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5284,14 +4562,29 @@
    "at": "Bemerkenswert ist hierbei das",
    "n": 137,
    "section": "climax",
-   "amb": "wind",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v137_0",
      "species": null,
      "dark": false,
-     "topic": "ocean waves",
+     "topic": "museum fossil skeleton display",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ],
+     "people": true
+    },
+    {
+     "kind": "real",
+     "need": "v137_1",
+     "species": null,
+     "dark": false,
+     "topic": "row of fossil vertebrae",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5309,26 +4602,22 @@
    "amb": "room",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_scene_40",
+     "species": "otodus_megalodon",
+     "scene": true
+    },
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_pose_24",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
      "need": "v138_0",
      "species": null,
      "dark": false,
-     "topic": "scientist measuring fossil vertebra",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v138_2",
-     "species": null,
-     "dark": false,
-     "topic": "prehistoric ocean waves crashing",
+     "topic": "fossil vertebra measurement",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5350,7 +4639,7 @@
      "need": "v139_0",
      "species": null,
      "dark": false,
-     "topic": "historical scientist writing notes",
+     "topic": "scientist examining fossil",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5359,20 +4648,6 @@
       "archival photograph"
      ],
      "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v139_2",
-     "species": null,
-     "dark": false,
-     "topic": "old library books and maps",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
     }
    ]
   },
@@ -5384,10 +4659,10 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v140_0",
+     "need": "v140_1",
      "species": null,
      "dark": false,
-     "topic": "scientist examining fossil",
+     "topic": "scientist analyzing 3d hologram fossil data",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5396,6 +4671,20 @@
       "archival photograph"
      ],
      "people": true
+    },
+    {
+     "kind": "real",
+     "need": "v140_2",
+     "species": "mako_shark",
+     "dark": false,
+     "topic": "mako shark swimming fast",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -5410,7 +4699,7 @@
      "need": "v141_0",
      "species": null,
      "dark": false,
-     "topic": "museum fossil skeleton",
+     "topic": "paleontologist measuring large fossil spine",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5422,17 +4711,18 @@
     },
     {
      "kind": "real",
-     "need": "v141_1",
+     "need": "v141_2",
      "species": null,
      "dark": false,
-     "topic": "prehistoric shark vertebrae close up",
+     "topic": "museum exhibit large shark skeleton",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ]
+     ],
+     "people": true
     }
    ]
   },
@@ -5445,9 +4735,9 @@
     {
      "kind": "real",
      "need": "v142_0",
-     "species": "shortfin_mako_shark",
+     "species": "mako_shark",
      "dark": false,
-     "topic": "shortfin mako shark swimming",
+     "topic": "mako shark swimming",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5461,7 +4751,7 @@
      "need": "v142_1",
      "species": null,
      "dark": false,
-     "topic": "scientist measuring shark model",
+     "topic": "researcher comparing shark anatomy charts",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5470,6 +4760,20 @@
       "archival photograph"
      ],
      "people": true
+    },
+    {
+     "kind": "real",
+     "need": "v142_2",
+     "species": "mako_shark",
+     "dark": false,
+     "topic": "mako shark profile view",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -5482,9 +4786,9 @@
     {
      "kind": "real",
      "need": "v143_0",
-     "species": "shortfin_mako_shark",
+     "species": "mako_shark",
      "dark": false,
-     "topic": "mako shark head profile",
+     "topic": "mako shark head close up",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5496,9 +4800,9 @@
     {
      "kind": "real",
      "need": "v143_1",
-     "species": null,
+     "species": "mako_shark",
      "dark": false,
-     "topic": "shark tail fin movement",
+     "topic": "mako shark tail fin movement",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5506,21 +4810,13 @@
       "submersible",
       "archival photograph"
      ]
-    }
-   ]
-  },
-  {
-   "at": "Wendet man diese mathematischen",
-   "n": 144,
-   "section": "climax",
-   "amb": "underwater",
-   "beats": [
+    },
     {
      "kind": "real",
-     "need": "v144_1",
+     "need": "v143_2",
      "species": null,
      "dark": false,
-     "topic": "paleontologist pointing at diagram",
+     "topic": "scientist pointing at anatomical diagram",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5533,18 +4829,60 @@
    ]
   },
   {
+   "at": "Wendet man diese mathematischen",
+   "n": 144,
+   "section": "climax",
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_pose_25",
+     "species": "otodus_megalodon"
+    },
+    {
+     "kind": "real",
+     "need": "v144_1",
+     "species": null,
+     "dark": false,
+     "topic": "paleontologist presenting calculation results",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ],
+     "people": true
+    },
+    {
+     "kind": "real",
+     "need": "v144_2",
+     "species": "mako_shark",
+     "dark": false,
+     "topic": "mako shark swimming",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
    "at": "Noch gigantischer liest sich",
    "n": 145,
    "section": "climax",
-   "amb": "harbour",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "anim",
      "anim": "map",
      "places": [
       {
-       "name": "DÄNEMARK",
-       "sub": "Gram-Formation",
+       "name": "DÄNISCHE GRAM-FORMATION",
+       "sub": "Dänemark",
        "lat": 55.5,
        "lon": 10.0
       }
@@ -5555,7 +4893,7 @@
      "need": "v145_1",
      "species": null,
      "dark": false,
-     "topic": "fishermen pulling net boat",
+     "topic": "diver exploring underwater cave",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5564,6 +4902,20 @@
       "archival photograph"
      ],
      "people": true
+    },
+    {
+     "kind": "real",
+     "need": "v145_2",
+     "species": null,
+     "dark": false,
+     "topic": "norwegian fjord landscape aerial",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
     }
    ]
   },
@@ -5578,21 +4930,22 @@
      "need": "v146_0",
      "species": null,
      "dark": false,
-     "topic": "large fossil vertebra close up",
+     "topic": "close up fossil vertebra measurement",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ]
+     ],
+     "people": true
     },
     {
      "kind": "real",
-     "need": "v146_1",
+     "need": "v146_2",
      "species": null,
      "dark": false,
-     "topic": "scientist examining fossil",
+     "topic": "scientist examining bone sample",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5608,14 +4961,29 @@
    "at": "Durch exakt dieselbe skelettale",
    "n": 147,
    "section": "climax",
-   "amb": "underwater",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v147_1",
-     "species": "shortfin_mako_shark",
+     "species": null,
      "dark": false,
-     "topic": "mako shark swimming fast",
+     "topic": "expert discussing large fossil find",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ],
+     "people": true
+    },
+    {
+     "kind": "real",
+     "need": "v147_2",
+     "species": "mako_shark",
+     "dark": false,
+     "topic": "mako shark swimming",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5635,9 +5003,9 @@
     {
      "kind": "real",
      "need": "v148_0",
-     "species": "shortfin_mako_shark",
+     "species": "mako_shark",
      "dark": false,
-     "topic": "slender mako shark",
+     "topic": "slender mako shark swimming",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5659,21 +5027,13 @@
       "submersible",
       "archival photograph"
      ]
-    }
-   ]
-  },
-  {
-   "at": "Unter Einbezug dieser unterschiedlichen",
-   "n": 149,
-   "section": "climax",
-   "amb": "underwater",
-   "beats": [
+    },
     {
      "kind": "real",
-     "need": "v149_1",
+     "need": "v148_2",
      "species": null,
      "dark": false,
-     "topic": "scientist calculating data",
+     "topic": "biologist comparing shark body shapes",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5686,17 +5046,69 @@
    ]
   },
   {
+   "at": "Unter Einbezug dieser unterschiedlichen",
+   "n": 149,
+   "section": "climax",
+   "amb": "room",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v149_1",
+     "species": null,
+     "dark": false,
+     "topic": "scientist writing weight calculation",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ],
+     "people": true
+    },
+    {
+     "kind": "real",
+     "need": "v149_2",
+     "species": null,
+     "dark": false,
+     "topic": "heavy industrial crane lifting load",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
    "at": "Ganz andere Sphären erreicht",
    "n": 150,
    "section": "climax",
-   "amb": "underwater",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v150_1",
-     "species": "whale",
+     "species": null,
      "dark": false,
-     "topic": "large whale swimming",
+     "topic": "paleontologist presenting mass data",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ],
+     "people": true
+    },
+    {
+     "kind": "real",
+     "need": "v150_2",
+     "species": null,
+     "dark": false,
+     "topic": "large cargo ship at sea",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5711,28 +5123,29 @@
    "at": "Die dazugehörige rechnerische Spanne",
    "n": 151,
    "section": "climax",
-   "amb": "underwater",
+   "amb": "room",
    "beats": [
     {
      "kind": "real",
      "need": "v151_0",
-     "species": "whale",
+     "species": null,
      "dark": false,
-     "topic": "whale tail fluke",
+     "topic": "researcher analyzing statistical range",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ]
+     ],
+     "people": true
     },
     {
      "kind": "real",
-     "need": "v151_1",
+     "need": "v151_2",
      "species": null,
      "dark": false,
-     "topic": "museum fossil skeleton",
+     "topic": "scientist explaining data variance",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5748,14 +5161,28 @@
    "at": "Zwar existieren in theoretischen",
    "n": 152,
    "section": "climax",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v152_1",
      "species": null,
      "dark": false,
-     "topic": "scientist examining fossil",
+     "topic": "small research boat in rough sea",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v152_2",
+     "species": null,
+     "dark": false,
+     "topic": "scientists looking at computer model",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5774,11 +5201,16 @@
    "amb": "room",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_pose_26",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
      "need": "v153_0",
      "species": null,
      "dark": false,
-     "topic": "paleontologist discussing theory",
+     "topic": "expert discussing data in lab",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5790,10 +5222,10 @@
     },
     {
      "kind": "real",
-     "need": "v153_1",
-     "species": "shortfin_mako_shark",
+     "need": "v153_2",
+     "species": null,
      "dark": false,
-     "topic": "mako shark anatomy",
+     "topic": "close up of scientific graph on screen",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5808,14 +5240,14 @@
    "at": "Was bleibt, ist das",
    "n": 154,
    "section": "climax",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
      "need": "v154_1",
      "species": null,
      "dark": false,
-     "topic": "deep ocean water",
+     "topic": "sunlight filtering through deep ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5823,6 +5255,21 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "real",
+     "need": "v154_2",
+     "species": null,
+     "dark": false,
+     "topic": "museum visitor looking at shark skeleton",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ],
+     "people": true
     }
    ]
   },
@@ -5838,7 +5285,7 @@
      "need": "v155_0",
      "species": null,
      "dark": false,
-     "topic": "museum fossil skeleton",
+     "topic": "historical paleontology lecture",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5850,10 +5297,10 @@
     },
     {
      "kind": "real",
-     "need": "v155_1",
+     "need": "v155_2",
      "species": null,
      "dark": false,
-     "topic": "prehistoric shark vertebrae close up",
+     "topic": "old black and white fossil photos",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5875,30 +5322,7 @@
      "need": "v156_0",
      "species": null,
      "dark": false,
-     "topic": "scientist examining fossil",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    }
-   ]
-  },
-  {
-   "at": "Was die Forscher damals",
-   "n": 157,
-   "section": "finale",
-   "amb": "room",
-   "beats": [
-    {
-     "kind": "real",
-     "need": "v157_0",
-     "species": null,
-     "dark": false,
-     "topic": "scientist analyzing computer data",
+     "topic": "researchers sorting fossil teeth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5910,10 +5334,32 @@
     },
     {
      "kind": "real",
-     "need": "v157_2",
+     "need": "v156_1",
      "species": null,
      "dark": false,
-     "topic": "deep sea underwater current",
+     "topic": "pile of shark teeth on table",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    }
+   ]
+  },
+  {
+   "at": "Was die Forscher damals",
+   "n": 157,
+   "section": "finale",
+   "amb": "underwater",
+   "beats": [
+    {
+     "kind": "real",
+     "need": "v157_1",
+     "species": null,
+     "dark": false,
+     "topic": "dark underwater cave entrance",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5933,9 +5379,23 @@
     {
      "kind": "real",
      "need": "v158_1",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "great white shark swimming underwater",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v158_2",
      "species": null,
      "dark": false,
-     "topic": "underwater kelp forest",
+     "topic": "deep ocean water column sunlight rays",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5957,7 +5417,7 @@
      "need": "v159_1",
      "species": null,
      "dark": false,
-     "topic": "ocean horizon sunset",
+     "topic": "calm ocean surface waves aerial view",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -5969,17 +5429,16 @@
     {
      "kind": "real",
      "need": "v159_2",
-     "species": null,
+     "species": "whales",
      "dark": false,
-     "topic": "researcher looking at ocean",
+     "topic": "whale swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -5991,10 +5450,24 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v160_1",
-     "species": "whale",
+     "need": "v160_0",
+     "species": "ancient_whale",
      "dark": false,
-     "topic": "baleen whale swimming underwater",
+     "topic": "ancient whale swimming in ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v160_1",
+     "species": "whales",
+     "dark": false,
+     "topic": "whales swimming in warm clear water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6008,7 +5481,7 @@
      "need": "v160_2",
      "species": null,
      "dark": false,
-     "topic": "sunlight rays penetrating clear ocean water",
+     "topic": "sunlight rays underwater euphotic zone",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6025,6 +5498,12 @@
    "section": "finale",
    "amb": "room",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_scene_41",
+     "species": "otodus_megalodon",
+     "scene": true
+    },
     {
      "kind": "real",
      "need": "v161_0",
@@ -6045,7 +5524,21 @@
      "need": "v161_1",
      "species": null,
      "dark": false,
-     "topic": "close up fossilized bone with tooth marks",
+     "topic": "close up fossilized bone with bite marks",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v161_2",
+     "species": "ancient_whale",
+     "dark": false,
+     "topic": "ancient whale swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6064,10 +5557,38 @@
    "beats": [
     {
      "kind": "real",
+     "need": "v162_0",
+     "species": "ancient_whale",
+     "dark": false,
+     "topic": "ancient whale swimming in ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
      "need": "v162_1",
      "species": null,
      "dark": false,
-     "topic": "shifting ocean horizon clouds",
+     "topic": "deep ocean dark water surface",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v162_2",
+     "species": null,
+     "dark": false,
+     "topic": "stormy ocean waves crashing",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6082,14 +5603,14 @@
    "at": "Die Ursachen für sein",
    "n": 163,
    "section": "finale",
-   "amb": "ocean",
+   "amb": "wind",
    "beats": [
     {
      "kind": "real",
      "need": "v163_0",
      "species": null,
      "dark": false,
-     "topic": "icebergs floating in cold ocean water",
+     "topic": "glacier calving into cold sea",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6126,7 +5647,7 @@
      "need": "v164_0",
      "species": null,
      "dark": false,
-     "topic": "academic debate in lecture hall",
+     "topic": "scientists debating in university lecture hall",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6141,7 +5662,7 @@
      "need": "v164_1",
      "species": null,
      "dark": false,
-     "topic": "stacks of scientific journals and books",
+     "topic": "old academic books and papers",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6149,6 +5670,21 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "real",
+     "need": "v164_2",
+     "species": null,
+     "dark": false,
+     "topic": "researcher pointing at fossil diagram",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ],
+     "people": true
     }
    ]
   },
@@ -6163,7 +5699,7 @@
      "need": "v165_0",
      "species": null,
      "dark": false,
-     "topic": "empty deep blue ocean surface",
+     "topic": "calm empty ocean horizon",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6174,10 +5710,10 @@
     },
     {
      "kind": "real",
-     "need": "v165_1",
+     "need": "v165_2",
      "species": null,
      "dark": false,
-     "topic": "calm sea waves rolling",
+     "topic": "underwater silence dark depths",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6199,7 +5735,7 @@
      "need": "v166_0",
      "species": null,
      "dark": false,
-     "topic": "fossil shark teeth in museum display case",
+     "topic": "museum display of megalodon teeth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6213,7 +5749,22 @@
      "need": "v166_1",
      "species": null,
      "dark": false,
-     "topic": "rock layers in geological cross section",
+     "topic": "visitor looking at fossil exhibit",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ],
+     "people": true
+    },
+    {
+     "kind": "real",
+     "need": "v166_2",
+     "species": null,
+     "dark": false,
+     "topic": "rock layers in quarry",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6235,7 +5786,7 @@
      "need": "v167_0",
      "species": null,
      "dark": false,
-     "topic": "museum exhibit large shark skeleton",
+     "topic": "scientist measuring large fossil tooth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6250,7 +5801,7 @@
      "need": "v167_1",
      "species": null,
      "dark": false,
-     "topic": "close up of large fossilized shark tooth",
+     "topic": "close up of large triangular shark tooth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6270,9 +5821,23 @@
     {
      "kind": "real",
      "need": "v168_1",
-     "species": "great_white_shark",
+     "species": null,
      "dark": false,
-     "topic": "great white shark swimming",
+     "topic": "open ocean blue water",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v168_2",
+     "species": null,
+     "dark": false,
+     "topic": "shark fin breaking surface",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6294,7 +5859,7 @@
      "need": "v169_0",
      "species": null,
      "dark": false,
-     "topic": "stormy ocean waves crashing",
+     "topic": "changing seasons landscape time lapse",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6305,10 +5870,10 @@
     },
     {
      "kind": "real",
-     "need": "v169_1",
+     "need": "v169_2",
      "species": null,
      "dark": false,
-     "topic": "wind blowing across sea surface",
+     "topic": "iceberg melting in sea",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6330,7 +5895,7 @@
      "need": "v170_0",
      "species": null,
      "dark": false,
-     "topic": "scientist counting fossil teeth in lab",
+     "topic": "scientist holding stack of fossil teeth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6345,7 +5910,7 @@
      "need": "v170_1",
      "species": null,
      "dark": false,
-     "topic": "tray of sorted shark teeth",
+     "topic": "laboratory table with many shark teeth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6353,6 +5918,21 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "real",
+     "need": "v170_2",
+     "species": null,
+     "dark": false,
+     "topic": "researcher writing notes in lab",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ],
+     "people": true
     }
    ]
   },
@@ -6367,7 +5947,7 @@
      "need": "v171_0",
      "species": null,
      "dark": false,
-     "topic": "researcher pointing at graph on whiteboard",
+     "topic": "professor explaining graph on whiteboard",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6382,7 +5962,7 @@
      "need": "v171_1",
      "species": null,
      "dark": false,
-     "topic": "close up of scientific data chart",
+     "topic": "old scientific journal pages",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6390,6 +5970,21 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "real",
+     "need": "v171_2",
+     "species": null,
+     "dark": false,
+     "topic": "student taking notes in lecture",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ],
+     "people": true
     }
    ]
   },
@@ -6404,7 +5999,7 @@
      "need": "v172_0",
      "species": null,
      "dark": false,
-     "topic": "paleontologist measuring fossil bone",
+     "topic": "scientist measuring fossil jaw",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6419,7 +6014,7 @@
      "need": "v172_1",
      "species": null,
      "dark": false,
-     "topic": "fossilized vertebrae on table",
+     "topic": "fossil shark jaw in museum case",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6427,21 +6022,13 @@
       "submersible",
       "archival photograph"
      ]
-    }
-   ]
-  },
-  {
-   "at": "Sie reichte von handlichen",
-   "n": 173,
-   "section": "finale",
-   "amb": "room",
-   "beats": [
+    },
     {
      "kind": "real",
-     "need": "v173_0",
+     "need": "v172_2",
      "species": null,
      "dark": false,
-     "topic": "scientist comparing small and large fossils",
+     "topic": "researcher comparing two fossils",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6450,22 +6037,15 @@
       "archival photograph"
      ],
      "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v173_1",
-     "species": null,
-     "dark": false,
-     "topic": "scale model of small shark next to large one",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
     }
    ]
+  },
+  {
+   "at": "Sie reichte von handlichen",
+   "n": 173,
+   "section": "finale",
+   "amb": "underwater",
+   "beats": []
   },
   {
    "at": "182: Der durchschnittliche Wert",
@@ -6478,7 +6058,7 @@
      "need": "v174_0",
      "species": null,
      "dark": false,
-     "topic": "researcher writing notes in lab",
+     "topic": "scientist measuring fossilized shark tooth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6490,17 +6070,18 @@
     },
     {
      "kind": "real",
-     "need": "v174_1",
+     "need": "v174_2",
      "species": null,
      "dark": false,
-     "topic": "computer screen showing statistical data",
+     "topic": "museum fossil skeleton display",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ]
+     ],
+     "people": true
     }
    ]
   },
@@ -6515,7 +6096,21 @@
      "need": "v175_1",
      "species": null,
      "dark": false,
-     "topic": "open ocean horizon",
+     "topic": "open ocean horizon deep blue",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v175_2",
+     "species": "great_white_shark",
+     "dark": false,
+     "topic": "shark fin breaking water surface",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6534,10 +6129,38 @@
    "beats": [
     {
      "kind": "real",
+     "need": "v176_0",
+     "species": "ancient_whale",
+     "dark": false,
+     "topic": "ancient whale swimming in ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
      "need": "v176_1",
-     "species": "whale",
+     "species": "whales",
      "dark": false,
      "topic": "whale swimming in ocean",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v176_2",
+     "species": "mako_shark",
+     "dark": false,
+     "topic": "mako shark hunting fish",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6559,7 +6182,7 @@
      "need": "v177_0",
      "species": null,
      "dark": false,
-     "topic": "close up fossil whale rib with bite marks",
+     "topic": "scientist examining fossil whale bone",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6571,17 +6194,18 @@
     },
     {
      "kind": "real",
-     "need": "v177_1",
+     "need": "v177_2",
      "species": null,
      "dark": false,
-     "topic": "museum display of fossilized bones",
+     "topic": "paleontologist studying fossilized bone",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ]
+     ],
+     "people": true
     }
    ]
   },
@@ -6596,7 +6220,7 @@
      "need": "v178_0",
      "species": null,
      "dark": false,
-     "topic": "changing ocean currents",
+     "topic": "stormy ocean waves crashing",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6607,10 +6231,10 @@
     },
     {
      "kind": "real",
-     "need": "v178_1",
+     "need": "v178_2",
      "species": null,
      "dark": false,
-     "topic": "ice forming on water surface",
+     "topic": "changing climate landscape aerial",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6625,14 +6249,14 @@
    "at": "Das Verschwinden der Art",
    "n": 179,
    "section": "finale",
-   "amb": "ocean",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
-     "need": "v179_0",
+     "need": "v179_1",
      "species": null,
      "dark": false,
-     "topic": "empty dark ocean depths",
+     "topic": "deep sea darkness abyss",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6640,6 +6264,21 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "real",
+     "need": "v179_2",
+     "species": null,
+     "dark": false,
+     "topic": "archaeologist digging in sediment",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ],
+     "people": true
     }
    ]
   },
@@ -6654,21 +6293,7 @@
      "need": "v180_1",
      "species": null,
      "dark": false,
-     "topic": "deep ocean abyss dark water",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ]
-    },
-    {
-     "kind": "real",
-     "need": "v180_2",
-     "species": "great_white_shark",
-     "dark": false,
-     "topic": "great white shark swimming",
+     "topic": "deep ocean water particles floating",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6690,7 +6315,7 @@
      "need": "v181_0",
      "species": null,
      "dark": false,
-     "topic": "museum fossil skeleton exhibit",
+     "topic": "paleontologist brushing dust off fossilized shark tooth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6705,7 +6330,7 @@
      "need": "v181_1",
      "species": null,
      "dark": false,
-     "topic": "rock strata geological layers",
+     "topic": "close up of layered sedimentary rock strata",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6719,7 +6344,7 @@
      "need": "v181_2",
      "species": null,
      "dark": false,
-     "topic": "scientist examining fossil tooth",
+     "topic": "museum display case with ancient shark teeth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6742,7 +6367,7 @@
      "need": "v182_0",
      "species": null,
      "dark": false,
-     "topic": "historical archive documents research",
+     "topic": "scientist pointing at large fossilized vertebra",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6757,7 +6382,21 @@
      "need": "v182_1",
      "species": null,
      "dark": false,
-     "topic": "paleontologist measuring bone",
+     "topic": "black and white archival footage of early 20th century fossil excavation",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v182_2",
+     "species": null,
+     "dark": false,
+     "topic": "researcher measuring large bone fragment with tape",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6773,14 +6412,20 @@
    "at": "Dennoch bleibt der Megalodon,",
    "n": 183,
    "section": "finale",
-   "amb": "underwater",
+   "amb": "ocean",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_scene_42",
+     "species": "otodus_megalodon",
+     "scene": true
+    },
     {
      "kind": "real",
      "need": "v183_1",
-     "species": null,
+     "species": "great_white_shark",
      "dark": false,
-     "topic": "underwater diver looking up",
+     "topic": "great white shark swimming near boat",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6790,17 +6435,15 @@
      ]
     },
     {
-     "kind": "real",
-     "need": "v183_2",
-     "species": "great_white_shark",
-     "dark": false,
-     "topic": "great white shark close up",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
+     "kind": "anim",
+     "anim": "map",
+     "places": [
+      {
+       "name": "ATLANTIK",
+       "sub": "Ozean",
+       "lat": 40.0,
+       "lon": -40.0
+      }
      ]
     }
    ]
@@ -6809,29 +6452,14 @@
    "at": "So zeugen die spärlichen",
    "n": 184,
    "section": "finale",
-   "amb": "room",
+   "amb": "underwater",
    "beats": [
     {
      "kind": "real",
      "need": "v184_0",
      "species": null,
      "dark": false,
-     "topic": "museum fossil teeth display",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
-     "need": "v184_1",
-     "species": null,
-     "dark": false,
-     "topic": "ancient rock texture close up",
+     "topic": "sunlight rays penetrating deep ocean water",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6845,15 +6473,14 @@
      "need": "v184_2",
      "species": null,
      "dark": false,
-     "topic": "researcher studying ancient bones",
+     "topic": "deep sea floor sediment and rocks",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -6868,7 +6495,7 @@
      "need": "v185_0",
      "species": null,
      "dark": false,
-     "topic": "scientist analyzing data computer",
+     "topic": "scientist examining stack of fossilized shark teeth",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6883,7 +6510,21 @@
      "need": "v185_1",
      "species": null,
      "dark": false,
-     "topic": "collection of fossil teeth",
+     "topic": "close up of numerous shark teeth arranged in grid",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v185_2",
+     "species": null,
+     "dark": false,
+     "topic": "researcher using microscope on tooth sample",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6906,7 +6547,7 @@
      "need": "v186_0",
      "species": null,
      "dark": false,
-     "topic": "paleontologist discussing findings",
+     "topic": "scientist pointing at graph on whiteboard",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6921,7 +6562,7 @@
      "need": "v186_1",
      "species": null,
      "dark": false,
-     "topic": "geological timeline chart",
+     "topic": "computer screen showing data analysis charts",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6929,21 +6570,13 @@
       "submersible",
       "archival photograph"
      ]
-    }
-   ]
-  },
-  {
-   "at": "Stattdessen verdeutlichen die Analysen",
-   "n": 187,
-   "section": "finale",
-   "amb": "room",
-   "beats": [
+    },
     {
      "kind": "real",
-     "need": "v187_0",
+     "need": "v186_2",
      "species": null,
      "dark": false,
-     "topic": "measuring small and large fossils",
+     "topic": "two researchers discussing in lab",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6952,13 +6585,21 @@
       "archival photograph"
      ],
      "people": true
-    },
+    }
+   ]
+  },
+  {
+   "at": "Stattdessen verdeutlichen die Analysen",
+   "n": 187,
+   "section": "finale",
+   "amb": "ocean",
+   "beats": [
     {
      "kind": "real",
-     "need": "v187_1",
+     "need": "v187_2",
      "species": null,
      "dark": false,
-     "topic": "various sizes of shark teeth",
+     "topic": "underwater kelp forest swaying",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -6973,29 +6614,28 @@
    "at": "Die durchschnittliche Körperlänge erwies",
    "n": 188,
    "section": "finale",
-   "amb": "room",
+   "amb": "ocean",
    "beats": [
     {
      "kind": "real",
-     "need": "v188_0",
+     "need": "v188_1",
      "species": null,
      "dark": false,
-     "topic": "scientist pointing at graph",
+     "topic": "open ocean horizon from above",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     },
     {
      "kind": "real",
-     "need": "v188_1",
+     "need": "v188_2",
      "species": null,
      "dark": false,
-     "topic": "average size fossil model",
+     "topic": "underwater bubbles rising",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -7015,9 +6655,9 @@
     {
      "kind": "real",
      "need": "v189_1",
-     "species": null,
+     "species": "whales",
      "dark": false,
-     "topic": "whale skeleton fossil",
+     "topic": "large whale swimming in ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -7031,7 +6671,7 @@
      "need": "v189_2",
      "species": null,
      "dark": false,
-     "topic": "paleontologist examining bite marks",
+     "topic": "paleontologist showing fossilized whale bone with bite marks",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -7051,10 +6691,10 @@
    "beats": [
     {
      "kind": "real",
-     "need": "v190_0",
+     "need": "v190_1",
      "species": null,
      "dark": false,
-     "topic": "stormy ocean waves",
+     "topic": "icebergs floating in cold ocean",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -7065,25 +6705,10 @@
     },
     {
      "kind": "real",
-     "need": "v190_1",
-     "species": null,
-     "dark": false,
-     "topic": "fishermen on boat looking at sea",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
-    },
-    {
-     "kind": "real",
      "need": "v190_2",
      "species": null,
      "dark": false,
-     "topic": "empty ocean horizon",
+     "topic": "stormy ocean waves crashing",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -7098,14 +6723,28 @@
    "at": "Komplexe Faktoren wie Klimawandel",
    "n": 191,
    "section": "finale",
-   "amb": "room",
+   "amb": "wind",
    "beats": [
     {
      "kind": "real",
      "need": "v191_0",
      "species": null,
      "dark": false,
-     "topic": "climate change data visualization",
+     "topic": "wind blowing through dry grass",
+     "allow": [
+      "scientific equipment",
+      "research camera",
+      "bait",
+      "submersible",
+      "archival photograph"
+     ]
+    },
+    {
+     "kind": "real",
+     "need": "v191_1",
+     "species": null,
+     "dark": false,
+     "topic": "scientist looking at climate data on laptop",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -7117,18 +6756,17 @@
     },
     {
      "kind": "real",
-     "need": "v191_1",
+     "need": "v191_2",
      "species": null,
      "dark": false,
-     "topic": "scientist in lab coat",
+     "topic": "distant mountains under cloudy sky",
      "allow": [
       "scientific equipment",
       "research camera",
       "bait",
       "submersible",
       "archival photograph"
-     ],
-     "people": true
+     ]
     }
    ]
   },
@@ -7143,7 +6781,7 @@
      "need": "v192_0",
      "species": null,
      "dark": false,
-     "topic": "deep sea silence dark water",
+     "topic": "dark deep ocean water with minimal light",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -7157,7 +6795,7 @@
      "need": "v192_1",
      "species": null,
      "dark": false,
-     "topic": "fossilized teeth in rock",
+     "topic": "single shark tooth resting on sandy bottom",
      "allow": [
       "scientific equipment",
       "research camera",
@@ -7165,21 +6803,6 @@
       "submersible",
       "archival photograph"
      ]
-    },
-    {
-     "kind": "real",
-     "need": "v192_2",
-     "species": null,
-     "dark": false,
-     "topic": "museum visitor looking at fossil",
-     "allow": [
-      "scientific equipment",
-      "research camera",
-      "bait",
-      "submersible",
-      "archival photograph"
-     ],
-     "people": true
     }
    ]
   }
