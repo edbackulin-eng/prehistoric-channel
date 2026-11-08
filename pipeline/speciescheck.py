@@ -206,6 +206,9 @@ def passes(v, species=None, archive=False, allow=()):
     allow = [a.lower() for a in allow]
     if "error" in v:
         return None, v["error"]
+    if v.get("model") == "siglip":                  # decided on the CPU (pipeline/prefilter.py)
+        return v.get("cpu") == "accept", (f"CPU: a clear match ({v.get('score')})" if v.get("cpu") == "accept"
+                                          else f"CPU: clearly not it ({v.get('score')})")
     why = []
     if species:
         # a prehistoric scene asks for no animal: Gemini answers null there, and the
@@ -247,6 +250,63 @@ def candidates(beat, footage, layers):
     if k == "recon":
         return [(f"{beat['id']}__s{s}", "recon", layers / f"{beat['id']}__s{s}.jpg") for s in range(3)]
     return []
+
+
+def beat_kind(beat):
+    """The prefilter's kind of beat: an animal asked for, or a scene with none."""
+    return "species" if beat.get("species") and beat.get("species") != "prehistoric_scene" else "scene"
+
+
+def cpu_verdict(cid, src, beat, footage):
+    """A verdict from SigLIP on the clip's poster frame when it is clear; None when Gemini has to say."""
+    from pipeline import prefilter
+    th = prefilter.thresholds(beat_kind(beat))
+    if th is None or beat.get("archive") or not prefilter.available():
+        return None
+    pp = prefilter.poster(src, cid)
+    if pp is None:
+        return None
+    query = beat.get("topic") or (footage.get(beat.get("need")) or {}).get("query")
+    x = prefilter.scores([(prefilter.text_for(query=query), pp)])[0]
+    d = prefilter.decide(x, th)
+    if d == "ask":
+        return None
+    return {"model": "siglip", "cpu": d, "score": round(x, 4), "kind": beat_kind(beat), "poster": str(pp),
+            "subject": query, "note": "decided on the CPU (pipeline/prefilter.py)"}
+
+
+def prefilter_pass(slug):
+    """Before the budget is asked: every stock clip the CPU can decide is decided, so the
+    estimate (automation/llm_budget.py) counts only what Gemini still has to see. Returns the
+    number of clips decided."""
+    ep = ROOT / "episodes" / slug
+    shots = json.loads((ep / "shots.json").read_text(encoding="utf-8"))["lines"]
+    footage = json.loads((ep / "footage.json").read_text(encoding="utf-8"))
+    sp_path = ep / "species.json"
+    if sp_path.exists():
+        SPECIES.update({k: v for k, v in json.loads(sp_path.read_text(encoding="utf-8")).items() if k not in SPECIES})
+    vpath = ep / "species_verdicts.json"
+    known = json.loads(vpath.read_text(encoding="utf-8")) if vpath.exists() else {}
+    n, seen = 0, set()
+    for line in shots:
+        for beat in line["beats"]:
+            if beat["kind"] != "real" or beat["need"] in seen or beat["need"] not in footage:
+                continue
+            seen.add(beat["need"])
+            for cid, kind, src in candidates(beat, footage, None):
+                v = known.get(cid)
+                if v is None:
+                    v = cpu_verdict(cid, src, beat, footage)
+                    if v is None:
+                        break                          # doubtful: Gemini sees it (and what follows) in the check
+                    known[cid] = v
+                    n += 1
+                ok, _why = passes(v, beat.get("species"), bool(beat.get("archive")), beat.get("allow", ()))
+                if ok:
+                    break
+    vpath.write_text(json.dumps(known, indent=1, ensure_ascii=False), encoding="utf-8")
+    log.info("prefilter: %d stock clips of %s decided on the CPU", n, slug)
+    return n
 
 
 def beat_key(beat):
@@ -327,6 +387,18 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
                     if ok:
                         passing.append(cid)
                     continue
+                if key and kind == "real":
+                    # owner 08.11: SigLIP on the CPU first - a clear match or a clear miss needs no Gemini
+                    v = cpu_verdict(cid, src, beat, footage)
+                    if v:
+                        known[cid] = v
+                        ok, why = passes(v, species, archive, beat.get("allow", ()))
+                        row["candidates"].append({"id": cid, "pass": ok, "why": why, "answer": v, "source": label,
+                                                  "frame": v.get("poster")})
+                        log.info("%-22s %-34s %s %s", bk, cid, "PASS" if ok else "fail", why)
+                        if ok:
+                            passing.append(cid)
+                        continue
                 fr = _frames(cid, src, out_dir)
                 if not fr:
                     row["candidates"].append({"id": cid, "verdict": "missing"})

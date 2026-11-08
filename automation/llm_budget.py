@@ -20,6 +20,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from core import groq, llm_usage  # noqa: E402
+from pipeline import speciescheck  # noqa: E402
 from core.logger import get_logger  # noqa: E402
 
 log = get_logger("budget")
@@ -41,8 +42,20 @@ def image_need(slug, kinds=("real", "recon", "photo"), fixed=True):
     for b in {(b.get("id") or b.get("need")): b for l in shots for b in l["beats"] if b["kind"] in kinds}.values():
         if b["kind"] == "real":
             f = footage.get(b["need"], {})
-            ids = [f.get("id")] + [a.get("id") for a in f.get("alternates") or []]
-            done = any(i in known for i in ids if i)
+            ids = [i for i in [f.get("id")] + [a.get("id") for a in f.get("alternates") or []] if i]
+            # 08.11: the clips are tried in order - the beat is done at its first passing clip, and
+            # Gemini is needed only when an unjudged clip comes before one (the CPU prefilter has
+            # judged the clear ones by now: pipeline/speciescheck.prefilter_pass)
+            done = False
+            for i in ids:
+                if i not in known:
+                    break
+                ok, _why = speciescheck.passes(known[i], b.get("species"), bool(b.get("archive")), b.get("allow", ()))
+                if ok:
+                    done = True
+                    break
+            else:
+                done = bool(ids)                  # every clip judged and none passed: nothing to ask
         else:
             done = any(k.startswith(f"{b.get('id') or b.get('need')}__s") or k == b.get("need") for k in known)
         todo += 0 if done else 1

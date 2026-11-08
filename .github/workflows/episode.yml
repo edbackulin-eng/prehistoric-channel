@@ -52,6 +52,12 @@ jobs:
           cache: pip
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - run: pip install -q -r requirements.txt
+      # SigLIP on the CPU before Gemini in the species check (pipeline/prefilter.py, owner 08.11)
+      - uses: actions/cache@v4
+        with:
+          path: assets/models/open_clip
+          key: open-clip-ViT-B-16-SigLIP-webli-1
+      - run: pip install -q torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu && pip install -q -r requirements-prefilter.txt
       - name: Git identity
         run: |
           git config user.name "github-actions[bot]"
@@ -96,6 +102,9 @@ jobs:
         env:
           SLUG: ${{ steps.pick.outputs.slug }}
         run: |
+          # the clear clips decided on the CPU first, so the budget counts only what Gemini still has to see
+          python -c "import sys; sys.path.insert(0, '.'); from pipeline import speciescheck; speciescheck.prefilter_pass('$SLUG')" || true
+          git add "episodes/$SLUG/species_verdicts.json" && bash "$RUNNER_TEMP/push.sh" "Prefilter verdicts for $SLUG" || true
           python automation/llm_budget.py need footage_check "$SLUG" || { echo "deferred=1" >> "$GITHUB_ENV"; exit 0; }
           python -c "import sys; sys.path.insert(0, '.'); from pipeline import speciescheck; speciescheck.check('$SLUG', 'work/none', 'work/$SLUG/footage_check', kinds=('real',))"
           git add "episodes/$SLUG/species_verdicts.json" && bash "$RUNNER_TEMP/push.sh" "Footage species check for $SLUG" || true
