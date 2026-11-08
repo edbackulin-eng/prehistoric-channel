@@ -581,6 +581,10 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
                         if ok:
                             passing.append(cid)
                         continue
+                if key and all(m in _SPENT for m in MODELS):
+                    # the day's quota is spent: no download for an answer nobody can give today
+                    row["candidates"].append({"id": cid, "verdict": "unknown", "why": "quota spent", "source": label})
+                    break
                 fr = _frames(cid, src, out_dir)
                 if not fr:
                     row["candidates"].append({"id": cid, "verdict": "missing"})

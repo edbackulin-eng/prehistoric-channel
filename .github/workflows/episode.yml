@@ -108,6 +108,15 @@ jobs:
           python automation/llm_budget.py need footage_check "$SLUG" || { echo "deferred=1" >> "$GITHUB_ENV"; exit 0; }
           python -c "import sys; sys.path.insert(0, '.'); from pipeline import speciescheck; speciescheck.check('$SLUG', 'work/none', 'work/$SLUG/footage_check', kinds=('real',))"
           git add "episodes/$SLUG/species_verdicts.json" && bash "$RUNNER_TEMP/push.sh" "Footage species check for $SLUG" || true
+          # 08.11: a check the day's quota cut short leaves beats unjudged: the episode waits for the
+          # next reset (the verdicts are kept), it never goes on to the stand-ins and FLUX without them
+          # (only beats Gemini could not answer for: a clip that will not download is not waited for)
+          left=$(python -c "import json; s = json.load(open('work/$SLUG/footage_check/species_check.json')); print(sum(1 for r in s['rows'] if r.get('action') == 'unknown' and any(c.get('verdict') == 'unknown' for c in r['candidates'])))")
+          if [ "$left" != "0" ]; then
+            python automation/llm_budget.py defer "$SLUG" "footage_check: $left beats still unjudged (quota)"
+            echo "deferred=1" >> "$GITHUB_ENV"
+            echo "::warning::$left beats still unjudged; the footage check goes on after the next reset"
+          fi
       - name: Living animals the footage cannot show - FLUX/LTX stand-ins of the same species
         if: steps.pick.outputs.slug != '' && env.deferred != '1'
         env:

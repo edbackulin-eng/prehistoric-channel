@@ -88,6 +88,9 @@ def defer(slug, why):
     log.warning("%s deferred until %s: %s", slug, turn.isoformat(), why)
 
 
+PARTIAL_MIN = 40          # image requests left today worth a partial footage check
+
+
 def need(step, slug):
     pe = Q["per_episode"]
     if step in ("script", "hook_check", "plan"):
@@ -98,6 +101,11 @@ def need(step, slug):
         n = image_need(slug, kinds=("real",), fixed=False)
         ok, why = image_ok(n)
         why = f"needs ~{n}; {why}"
+        if not ok and image_ok(PARTIAL_MIN)[0]:
+            # 08.11: megalodon needs ~317, more than one day gives (~250): a day's share is checked,
+            # the verdicts kept, and the episode waits for the rest (the workflow defers it while any
+            # beat is still unjudged) - never a step on with clips nobody has judged
+            ok, why = True, why + f"; a partial check today (at least {PARTIAL_MIN}), the rest after the next reset"
     elif step == "render":
         n = image_need(slug)
         ok, why = image_ok(n)
@@ -133,4 +141,7 @@ def report():
 if __name__ == "__main__":
     if sys.argv[1] == "need":
         sys.exit(need(sys.argv[2], sys.argv[3]))
+    if sys.argv[1] == "defer":                     # defer <slug> <why>
+        defer(sys.argv[2], " ".join(sys.argv[3:]))
+        sys.exit(0)
     sys.exit(report())
