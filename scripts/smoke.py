@@ -594,6 +594,43 @@ def main():
     from pipeline import speciescheck
     v = speciescheck.passes({"error": "HTTP 429"}, "prehistoric_scene")
     check("species check: a 429 is no verdict", v[0] is None, str(v))
+    # owner 08.11: SigLIP on the CPU decides the clear clips before Gemini; the budget counts the rest
+    import tempfile as _tf
+    from pipeline import prefilter as _pf
+    sys.path.insert(0, str(ROOT / "automation"))
+    import llm_budget as _lb
+    _d = Path(_tf.mkdtemp())
+    _ep = _d / "episodes" / "pf"
+    _ep.mkdir(parents=True)
+    _foot = {f"n{i}": {"id": f"c{i}a", "url": "u", "query": "q", "alternates": [{"id": f"c{i}b", "url": "u"}]}
+             for i in range(4)}
+    _shots = {"lines": [{"at": "x", "beats": [{"kind": "real", "need": f"n{i}", "species": "whales" if i % 2 else None,
+                                               "topic": f"topic {i}"} for i in range(4)]}]}
+    (_ep / "footage.json").write_text(json.dumps(_foot), encoding="utf-8")
+    (_ep / "shots.json").write_text(json.dumps(_shots), encoding="utf-8")
+    _score = {"c0a": 0.9, "c1a": 0.01, "c1b": 0.9, "c2a": 0.5, "c3a": 0.01, "c3b": 0.5}
+    _img = _d / "p.jpg"
+    from PIL import Image as _Image
+    _Image.new("RGB", (32, 32)).save(_img)
+    saved_pf = (_pf.thresholds, _pf.available, _pf.poster, _pf.scores, speciescheck.ROOT, _lb.ROOT)
+    try:
+        _pf.thresholds = lambda kind: (0.8, 0.1)
+        _pf.available = lambda: True
+        _pf.poster = lambda src, cid: Path(str(_img).replace("p.jpg", f"{cid}.jpg"))
+        _pf.scores = lambda pairs: [_score[Path(p).stem] for _t, p in pairs]
+        speciescheck.ROOT = _lb.ROOT = _d
+        n_cpu = speciescheck.prefilter_pass("pf")
+        kn = json.loads((_ep / "species_verdicts.json").read_text(encoding="utf-8"))
+        need_after = _lb.image_need("pf", kinds=("real",), fixed=False)
+    finally:
+        _pf.thresholds, _pf.available, _pf.poster, _pf.scores, speciescheck.ROOT, _lb.ROOT = saved_pf
+    p_ok = speciescheck.passes({"model": "siglip", "cpu": "accept", "score": 0.9}, "whales")
+    p_no = speciescheck.passes({"model": "siglip", "cpu": "reject", "score": 0.01}, "whales")
+    check("prefilter: clear clips decided on the CPU (match taken, miss skipped to the alternate), "
+          "the doubtful left for Gemini and counted by the budget",
+          n_cpu == 4 and set(kn) == {"c0a", "c1a", "c1b", "c3a"} and kn["c1a"]["cpu"] == "reject"
+          and p_ok[0] is True and p_no[0] is False and need_after == int(2 * 1.3 + 0),
+          f"{n_cpu} decided, {sorted(kn)}, need {need_after}")
     # owner 07.11: a long part is joined a few shots at a time (the runner's memory), same picture
     import tempfile
     from pipeline import docrender
