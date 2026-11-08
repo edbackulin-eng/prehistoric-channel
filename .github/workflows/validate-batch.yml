@@ -1,0 +1,32 @@
+name: validate-batch
+# Owner 08.11: before the species check asks four clips a request, the saved single-clip verdicts
+# are asked again in batches (scripts/validate_batch.py); the bar is 95 % agreement. Run by hand.
+on:
+  workflow_dispatch:
+    inputs:
+      size:
+        description: clips a request
+        default: "4"
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    env:
+      GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
+      PYTHONUTF8: 1
+      SIZE: ${{ inputs.size }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0          # the beats of older plans, from the history of shots.json and footage.json
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install -q -r requirements.txt
+      - run: python scripts/validate_batch.py --size "$SIZE"
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with: {name: validate-batch, path: work/validate_batch/report.json, retention-days: 30, if-no-files-found: ignore}

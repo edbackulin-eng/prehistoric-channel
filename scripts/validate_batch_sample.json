@@ -1,0 +1,401 @@
+{
+ "_note": "08.11: the clips scripts/validate_batch.py asks again in batches of 4 - every species clip that passed Gemini, and a random sample of the others above the prefilter's reject thresholds (what Gemini still sees)",
+ "clips": [
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-372587"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-39985"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-117702"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-28247"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-244188"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-360198"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-272034"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-376846"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-233677"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-265482"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-13833"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-263104"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-134822"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-275400"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-156149"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-105377"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-156143"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-267885"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-271135"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-1080"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-6681"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-1198"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-111395"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-63959"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-206771"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-267739"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-206772"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-309815"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-217115"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-65560"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-184069"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-135860"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-217018"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-65148"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-216058"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-59118"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-128887"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-344389"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-243153"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-19987"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-201308"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-52866"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-348904"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-25903"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-189813"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-204172"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-63427"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-348057"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-288051"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-31884"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-67513"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-123399"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-61143"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-277227"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-160367"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-33194"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-63559"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "commons-e8d1f8c8e4"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-138960"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-116442"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-128885"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-84893"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-228699"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-243198"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-304019"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-141525"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-241320"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-25909"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-347595"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-152085"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-206783"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-23263"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-14297"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-290688"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-82471"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-150227"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-154511"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-57080"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-150344"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-370334"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-263305"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-103308"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-244334"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-247497"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-71457"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-184069"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-26640"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-345424"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-14297"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-326483"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-217000"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-80133"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-26085"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-155325"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-137572"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-204165"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-218792"
+  },
+  {
+   "slug": "lebende-fossilien",
+   "cid": "pixabay-275983"
+  },
+  {
+   "slug": "megalodon",
+   "cid": "pixabay-218411"
+  }
+ ]
+}

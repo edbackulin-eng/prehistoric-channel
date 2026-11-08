@@ -148,17 +148,7 @@ def _b64(path, side=768):
 
 
 def ask(key, images, line, species=None, topic=None, archive=False, what="one still image"):
-    sp = SPECIES.get(species) if species else None
-    if sp:
-        block = (f"Species asked for: {sp['name']}.\nFeatures to check: " + "; ".join(sp["features"]) +
-                 ".\nForbidden - any of these means it is the wrong animal or a bad picture: " +
-                 "; ".join(sp["forbidden"]) + ".")
-        if archive:
-            block += ("\nThis is a historical photograph (possibly black and white, with people): judge only "
-                      "whether the animal in it is this species; people and old print are fine here.")
-        feats = ", ".join(f'"{f}": "yes|no|not visible"' for f in sp["features"])
-    else:
-        block, feats = "No particular species is asked for: judge relevance only.", ""
+    block, feats = _species_block(species, archive)
     text = PROMPT.format(line=line, topic=f"The picture should show: {topic}." if topic else "",
                          species_block=block, what=what, features_json=feats)
     parts = [{"text": text}] + [{"inline_data": {"mime_type": "image/jpeg", "data": _b64(p)}} for p in images]
@@ -198,6 +188,108 @@ def ask(key, images, line, species=None, topic=None, archive=False, what="one st
                 last = f"{type(e).__name__}: {str(e)[:120]}"
                 time.sleep(5)
     return {"error": last}
+
+
+# owner 08.11: several clips a request (megalodon needed ~390 requests, ~250 a day). Off (1) until
+# scripts/validate_batch.py has shown >= 95 % agreement with the saved single-clip verdicts; then
+# config/channel.json "species_batch_clips" says how many
+BATCH_CLIPS = int(json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))
+                  .get("species_batch_clips", 1))
+BATCH_INTRO = """You check pictures for a German nature documentary about "living fossils".
+Below are {n} separate CLIPS, each with its own narration line, its own species (or none) and its
+own image(s). Judge every clip on its own, as if it were the only one: never let one clip's
+species, features or pictures influence the answer for another.
+Answer with JSON only: {{"results": [ {{"i": <clip number>, <the answer object for that clip>}}, ... ]}}
+with one entry for every clip, in order."""
+BATCH_CLIP = """CLIP {i}.
+The narration at this point says (German): "{line}"
+{topic}
+{species_block}
+Its image(s) follow - {what}. Its answer object:
+{{"subject": "<what is really shown, a few words>",
+ "species_match": true|false|null,
+ "features": {{{features_json}}},
+ "forbidden_seen": [<every item from this clip's forbidden list that you do see>],
+ "fits_narration": true|false,   // true if it shows what "The picture should show" describes, or is a fair documentary stand-in for the line; false only if it contradicts or distracts from it
+ "off_topic_objects": [<objects that do not belong under this line: candles, books (unless books are spoken of), people, text, logos, watermarks, modern objects, buildings, vehicles>],
+ "people": true|false, "text_or_logo": true|false,
+ "museum_display": true|false,   // a preserved specimen, taxidermy, a model or a museum display case
+ "note": "<a few words>"}}
+For every feature answer "yes" (clearly seen), "no" (seen to be different) or "not visible".
+species_match is null when no species is asked for."""
+
+
+def _species_block(species, archive):
+    sp = SPECIES.get(species) if species else None
+    if not sp:
+        return "No particular species is asked for: judge relevance only.", ""
+    block = (f"Species asked for: {sp['name']}.\nFeatures to check: " + "; ".join(sp["features"]) +
+             ".\nForbidden - any of these means it is the wrong animal or a bad picture: " +
+             "; ".join(sp["forbidden"]) + ".")
+    if archive:
+        block += ("\nThis is a historical photograph (possibly black and white, with people): judge only "
+                  "whether the animal in it is this species; people and old print are fine here.")
+    return block, ", ".join(f'"{f}": "yes|no|not visible"' for f in sp["features"])
+
+
+def ask_batch(key, items):
+    """items: [{"images", "line", "species", "topic", "archive", "what"}] (at most BATCH_CLIPS) ->
+    [verdict] in the same order, each as ask() gives it ({"error": ...} when it could not be had)."""
+    parts = [{"text": BATCH_INTRO.format(n=len(items))}]
+    n_img = 0
+    for i, it in enumerate(items):
+        block, feats = _species_block(it.get("species"), it.get("archive"))
+        parts.append({"text": BATCH_CLIP.format(
+            i=i, line=it["line"], topic=f"The picture should show: {it['topic']}." if it.get("topic") else "",
+            species_block=block, what=it.get("what", "one still image"), features_json=feats)})
+        parts += [{"inline_data": {"mime_type": "image/jpeg", "data": _b64(p)}} for p in it["images"]]
+        n_img += len(it["images"])
+    payload = {"contents": [{"parts": parts}],
+               "generationConfig": {"temperature": 0, "responseMimeType": "application/json"}}
+    last = None
+    for model in MODELS:
+        if model in _SPENT:
+            continue
+        for attempt in range(2):
+            try:
+                from core import gemini as _g
+                _g._pace(model, 1800 * n_img)
+                req = urllib.request.Request(URL.format(m=model), data=json.dumps(payload).encode(),
+                                             headers={"Content-Type": "application/json", "x-goog-api-key": key})
+                with urllib.request.urlopen(req, timeout=180) as r:
+                    d = json.loads(r.read())
+                _g._WINDOW.setdefault(model, []).append((time.time(), 1800 * n_img))
+                out = "".join(p.get("text", "") for p in d["candidates"][0]["content"]["parts"])
+                from core import llm_usage
+                um = d.get("usageMetadata", {})
+                llm_usage.record(model, um.get("promptTokenCount"), um.get("candidatesTokenCount"), "species_check")
+                res = json.loads(out[out.find("{"): out.rfind("}") + 1]).get("results", [])
+                by = {}
+                for r_ in res:
+                    if isinstance(r_, dict) and isinstance(r_.get("i"), int):
+                        by[r_["i"]] = r_
+                verdicts = []
+                for i in range(len(items)):
+                    v = by.get(i)
+                    if not isinstance(v, dict):
+                        verdicts.append({"error": "no answer for this clip in the batch"})
+                        continue
+                    v = {k: x for k, x in v.items() if k != "i"}
+                    v.update({"model": model, "batch": len(items)})
+                    verdicts.append(v)
+                return verdicts
+            except urllib.error.HTTPError as e:
+                last = f"HTTP {e.code}"
+                if e.code == 429 and attempt == 0:
+                    time.sleep(8)
+                    continue
+                if e.code == 429:
+                    _SPENT.add(model)
+                break
+            except Exception as e:                      # noqa: BLE001
+                last = f"{type(e).__name__}: {str(e)[:120]}"
+                time.sleep(5)
+    return [{"error": last} for _ in items]
 
 
 def passes(v, species=None, archive=False, allow=()):
@@ -310,6 +402,92 @@ def prefilter_pass(slug):
     return n
 
 
+def _beats_to_check(spec, timeline, kinds):
+    """[(beat, line text, species)] in the order check() walks them (each beat key once)."""
+    out, seen = [], set()
+    for entry in spec:
+        line = entry["at"]
+        if timeline:
+            n = entry.get("n")
+            line = (timeline[n]["text"] if n is not None and n < len(timeline) else
+                    next((l["text"] for l in timeline if l["text"].startswith(entry["at"])), line))
+        for beat in entry["beats"]:
+            if beat["kind"] == "anim" or (kinds and beat["kind"] not in kinds):
+                continue
+            bk = beat_key(beat)
+            if bk in seen:
+                continue
+            seen.add(bk)
+            species = beat.get("species")
+            if beat["kind"] == "recon" and species not in SPECIES:
+                species = "prehistoric_scene"
+            out.append((beat, line, species))
+    return out
+
+
+def batch_prefill(key, beats, footage, layers, out_dir, known, vpath):
+    """Gemini's verdicts for the clips check() will ask about, BATCH_CLIPS a request: every beat's
+    next undecided candidate (the CPU's clear misses skipped), until each beat has its passing
+    clips or none is left. check() then finds them all judged and asks nothing more."""
+    state = {beat_key(b): 0 for b, _l, _s in beats}
+    asked = 0
+    while True:
+        pending = []
+        for beat, line, species in beats:
+            bk = beat_key(beat)
+            want = 2 if beat.get("standby") else WANT_PASSING
+            n_pass, tried = 0, set()
+            for cid, kind, src in candidates(beat, footage, layers):
+                if cid in tried:
+                    continue
+                tried.add(cid)
+                v = known.get(cid)
+                if v is None and kind == "real":
+                    v = cpu_verdict(cid, src, beat, footage)
+                    if v:
+                        known[cid] = v
+                if v is None:
+                    if state[bk] >= 0:
+                        pending.append((beat, line, species, cid, kind, src))
+                    break
+                ok, _w = passes(v, species, bool(beat.get("archive")), beat.get("allow", ()))
+                if ok:
+                    n_pass += 1
+                    if n_pass >= want:
+                        break
+        if not pending:
+            break
+        progress = False
+        for k in range(0, len(pending), BATCH_CLIPS):
+            group = []
+            for beat, line, species, cid, kind, src in pending[k:k + BATCH_CLIPS]:
+                fr = _frames(cid, src, out_dir)
+                if not fr:
+                    state[beat_key(beat)] = -1          # check() records it as missing
+                    continue
+                group.append((beat, cid, {"images": fr, "line": line, "species": species,
+                                          "topic": beat.get("topic"), "archive": bool(beat.get("archive")),
+                                          "what": "three frames from the start, middle and end of one video clip"
+                                          if kind == "real" else "one still image"}))
+            if not group:
+                continue
+            vs = ask_batch(key, [g[2] for g in group])
+            asked += 1
+            for (beat, cid, _it), v in zip(group, vs):
+                if "error" in v:
+                    state[beat_key(beat)] = -1          # unknown: check() asks it on its own, or later
+                else:
+                    known[cid] = v
+                    progress = True
+            if asked % 5 == 0:
+                vpath.write_text(json.dumps(known, indent=1, ensure_ascii=False), encoding="utf-8")
+        if not progress:
+            break
+    vpath.write_text(json.dumps(known, indent=1, ensure_ascii=False), encoding="utf-8")
+    log.info("species check: %d requests of up to %d clips", asked, BATCH_CLIPS)
+    return asked
+
+
 def beat_key(beat):
     return beat.get("id") or beat["need"]
 
@@ -350,6 +528,9 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
     vpath = ep / "species_verdicts.json"
     known = json.loads(vpath.read_text(encoding="utf-8")) if vpath.exists() else {}
     asked = [0]
+    if key and BATCH_CLIPS > 1:
+        # owner 08.11: the clips asked BATCH_CLIPS a request first; the walk below then reads them
+        batch_prefill(key, _beats_to_check(spec, timeline, kinds), footage, layers, out_dir, known, vpath)
     for entry in spec:
         line = entry["at"]
         if timeline:

@@ -81,7 +81,7 @@ def rows_of():
                 continue
             rows.append({"slug": slug, "cid": cid, "src": src[cid], "kind": "species" if sp_key else "scene",
                          "text": prefilter.text_for(query=b.get("topic") or query), "ok": bool(ok),
-                         "v": v})
+                         "v": v, "beat": b, "line": _line, "species": sp_key})
     return rows
 
 

@@ -60,7 +60,9 @@ def image_need(slug, kinds=("real", "recon", "photo"), fixed=True):
             done = any(k.startswith(f"{b.get('id') or b.get('need')}__s") or k == b.get("need") for k in known)
         todo += 0 if done else 1
     r = Q["per_episode"]["render"]
-    return int(todo * r["image_per_picture_beat"] + (r["image_fixed"] if fixed else 0))
+    # several clips a request once validated (pipeline/speciescheck.BATCH_CLIPS); rounded up
+    per = r["image_per_picture_beat"] / max(1, speciescheck.BATCH_CLIPS)
+    return int(-(-todo * per // 1) + (r["image_fixed"] if fixed else 0)) if speciescheck.BATCH_CLIPS > 1         else int(todo * r["image_per_picture_beat"] + (r["image_fixed"] if fixed else 0))
 
 
 def text_ok(requests, tokens):

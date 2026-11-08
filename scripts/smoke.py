@@ -631,6 +631,24 @@ def main():
           n_cpu == 2 and set(kn) == {"c1a", "c3a"} and kn["c1a"]["cpu"] == "reject"
           and p_ok[0] is False and p_no[0] is False and need_after == int(4 * 1.3 + 0),
           f"{n_cpu} decided, {sorted(kn)}, need {need_after}")
+    # owner 08.11: four clips a request - each beat's next undecided clip, until each has a passing one
+    calls_b = []
+    saved_b = (speciescheck.ask_batch, speciescheck._frames, speciescheck.cpu_verdict, speciescheck.BATCH_CLIPS)
+    try:
+        speciescheck.BATCH_CLIPS = 4
+        speciescheck.ask_batch = lambda key, items: (calls_b.append(len(items)) or [
+            {"species_match": True, "features": {}, "fits_narration": it["line"] != "bad", "off_topic_objects": [],
+             "people": False, "text_or_logo": False} for it in items])
+        speciescheck._frames = lambda cid, src, work: [_img]
+        speciescheck.cpu_verdict = lambda *a: None
+        _beats = [({"kind": "real", "need": f"n{i}", "species": None}, "bad" if i == 2 else "ok", None) for i in range(6)]
+        _foot6 = {f"n{i}": {"id": f"d{i}a", "url": "u", "alternates": [{"id": f"d{i}b", "url": "u"}]} for i in range(6)}
+        _kn = {}
+        speciescheck.batch_prefill("k", _beats, _foot6, None, _d, _kn, _d / "v.json")
+    finally:
+        speciescheck.ask_batch, speciescheck._frames, speciescheck.cpu_verdict, speciescheck.BATCH_CLIPS = saved_b
+    check("species check: clips asked four a request, the alternate only where the first failed",
+          calls_b == [4, 2, 1] and set(_kn) == {f"d{i}a" for i in range(6)} | {"d2b"}, f"{calls_b} {sorted(_kn)}")
     # owner 07.11: a long part is joined a few shots at a time (the runner's memory), same picture
     import tempfile
     from pipeline import docrender
