@@ -1,14 +1,6 @@
 {
- "date": "2026-11-08",
- "checked_at": "2026-11-08T10:46:00Z",
- "ahead": [
-  [
-   "lebende-fossilien",
-   "scheduled",
-   "2026-11-08T16:00:00Z"
-  ]
- ],
- "actions": [
-  "megalodon waits for the quota day (until 2026-11-09T08:10:00Z)"
- ]
+ "date": "2026-11-09",
+ "checked_at": "2026-11-09T00:03:21Z",
+ "ahead": [],
+ "actions": []
 }
