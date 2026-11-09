@@ -5126,5 +5126,5755 @@
   "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-272166.jpg",
   "subject": "paleontologist showing fossilized whale bone with bite marks",
   "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-376588": {
+  "subject": "stingray in shallow tropical water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows underwater lighting and a stingray, fits documentary mood.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-107243": {
+  "subject": "inkwell and candles on desk",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "candles"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "candles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Setting the historical scene with desk accessories.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-111281": {
+  "subject": "historical book, map and candles on a table",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "hands interacting with old book by candlelight",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-140587": {
+  "subject": "two people reading books in a modern bookstore",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "books",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows modern bookstore with people, not old natural history library books",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-329307": {
+  "subject": "man in archive library",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows archive books and a person",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-140805": {
+  "subject": "young man reading in modern library",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "books",
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows modern library with books and a person, not old natural history library",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-140808": {
+  "subject": "Young man reading book in modern library",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "books"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "books",
+   "text",
+   "logos",
+   "buildings",
+   "modern objects"
+  ],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows a modern library and a person, not old natural history books.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-107240": {
+  "subject": "hand writing with a dip pen",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "candles",
+   "people",
+   "text"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "candles",
+   "people",
+   "text"
+  ],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "hand writing with a pen, candle and inkpot visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-277042": {
+  "subject": "open book and lilac flowers",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "books"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows books and flowers instead of writing ancient greek letters",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-34695": {
+  "subject": "marble statue in nature",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "statue"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a classical marble statue instead of writing ancient Greek letters",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-34697": {
+  "subject": "marble statue of Heracles",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a Greek statue instead of handwriting ancient Greek letters.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-367126": {
+  "subject": "blue hydrangea flower",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a blue flower instead of a quill pen.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-23748": {
+  "subject": "ocean landscape with rocky shore and a distant boat",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "vehicles"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a coastal ocean scene fitting the narration transition, although a small boat is visible in the distance.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-20001": {
+  "subject": "Shallow coastal water and beach with sunlight",
+  "species_match": null,
+  "features": {
+   "shallow coastal water": "yes",
+   "sunlight": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Coastal scene matching narration requirements",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-335074": {
+  "subject": "ocean beach at dusk",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows beach at dusk instead of deep ocean darkness",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-e7aa1e037b": {
+  "subject": "satellite map of Arctic sea ice",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "text",
+   "modern objects"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "shows earth map with date labels instead of deep ocean darkness",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-d59a853847": {
+  "subject": "satellite weather footage of North America",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "text",
+   "logos"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "logos",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows satellite view of earth with severe weather overlays, text and NOAA logo, not deep ocean darkness.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-c3ac212c2c": {
+  "subject": "satellite imagery of earth",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "text",
+   "logos"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "logos"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "satellite footage with English text overlays, not deep ocean darkness",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-40742": {
+  "subject": "school of small fish swimming",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "school of fish swimming in water",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-134510": {
+  "subject": "clouds in the sky",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows sky and clouds instead of underwater view",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-168022": {
+  "subject": "blue sky with clouds",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows sky instead of underwater scene",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-224739": {
+  "subject": "clouds in the sky over mountains",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows sky and clouds, not an underwater shadow",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-220585": {
+  "subject": "cloudy sky over mountains",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "mountains",
+   "sky"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a sky and mountains instead of an underwater shadow.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-98977": {
+  "subject": "a decorated Christmas tree in a snowy landscape at night",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "Christmas tree",
+   "lights"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a Christmas tree and night sky instead of floating sediment particles.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-15794": {
+  "subject": "blue sediment particles floating in water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "matches sediment particles floating",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-13022": {
+  "subject": "crocodile in water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a crocodile instead of fossil teeth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-38270": {
+  "subject": "desert landscape",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a desert landscape instead of fossil teeth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-127432": {
+  "subject": "desert landscape with rock formations",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows desert instead of a scientist holding a fossil tooth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-40353": {
+  "subject": "a person in a medical or office setting with computers",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "modern objects",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "clip shows an indoor setting with a person and computers, completely unrelated to fossils.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-155552": {
+  "subject": "shark swimming in aquarium",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a live shark in an aquarium instead of fossil teeth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-201528": {
+  "subject": "hourglass on rocks by the sea",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "hourglass"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an hourglass instead of a scientist measuring a tooth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-24294": {
+  "subject": "Wasp feeding on fruit or pulp",
+  "species_match": null,
+  "features": {
+   "fossil": "no",
+   "whale_bone": "no",
+   "bite_mark": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an insect instead of a fossil whale bone.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-181023": {
+  "subject": "plant stem with insect",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a plant stem, not a fossil whale bone.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-27890": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0693,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-27890.jpg",
+  "subject": "fossil whale bone with bite mark",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-132805": {
+  "subject": "a surreal human skeleton in a suit adjusting a tie",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "surreal animation, does not show paleontologist examining bone",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-272034": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0825,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-272034.jpg",
+  "subject": "museum visitor looking at shark",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-267473": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1168,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-267473.jpg",
+  "subject": "museum visitor looking at shark",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-89833": {
+  "subject": "aerial view of a dry dam and dried-up reservoir",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a dried dam instead of a historical drawing of a shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-202813": {
+  "subject": "church in fog",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a church instead of a shark drawing",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-335699": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0928,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-335699.jpg",
+  "subject": "historical drawing of shark",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-144044": {
+  "subject": "ancient ruins and pyramids from above",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows ancient ruins instead of a shark tooth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-144045": {
+  "subject": "ancient Mesoamerican pyramid and landscape",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings",
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a pyramid, not a shark tooth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-144042": {
+  "subject": "ancient Mesoamerican pyramid site",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows ancient ruins/pyramid instead of a shark tooth artifact.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-57307": {
+  "subject": "spinning vinyl record",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "text"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows a vinyl record instead of old journal pages.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-111279": {
+  "subject": "person turning pages of an old book",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "fits the historical context of the narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-203449": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0733,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-203449.jpg",
+  "subject": "old scientific journal pages",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-128271": {
+  "subject": "arid landscape canyon and rock formations",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a desert canyon instead of an ancient Greek text scroll.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-128273": {
+  "subject": "archaeological ruins from above",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "modern objects",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows archaeological site instead of ancient text scroll.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-46688": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.124,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-46688.jpg",
+  "subject": "ancient greek text scroll",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-212453": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0755,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-212453.jpg",
+  "subject": "dictionary definition close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-28837": {
+  "subject": "ocean waves breaking on a rocky coast",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Coastal scenery with ocean waves breaking.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-27057": {
+  "subject": "illuminated ferris wheels at night",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows amusement park ferris wheels instead of underwater currents",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-158701": {
+  "subject": "a flowing river in the forest",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an above-water river instead of underwater current movement.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-71457": {
+  "subject": "blossoming tree branch",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows blooming flowers instead of a geological time scale chart.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-163333": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1002,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-163333.jpg",
+  "subject": "geological time scale chart",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-27111": {
+  "subject": "mountain landscape with clouds",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows mountains and clouds instead of geological time scale",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-128640": {
+  "subject": "rock stream and waterfall",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows rocks and water instead of rock strata layers.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-31377": {
+  "subject": "aerial view of waves crashing on rocky coast",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "coastal rocks serve as a good background for geological/fossil narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-9abfbb6039": {
+  "subject": "global temperature anomaly map animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "text"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "text"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "global map animation showing climate change data with timeline",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-fb3d17eb72": {
+  "subject": "global map animation showing Earth",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Global map animation fitting narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-362639": {
+  "subject": "snowy coastal landscape aerial",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of a snowy coastal landscape with a road",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-62247": {
+  "subject": "coastal landscape aerial",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of a sandy beach and coastline",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-24910": {
+  "subject": "wooden walkway to a sandy beach",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "wooden walkway"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "View of the sea from a wooden walkway on a beach.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-b191477b75": {
+  "subject": "research ship, lab work, credits and titles",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "logos",
+   "vehicles",
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows a research vessel, laboratory work, and credits text, not shallow tropical sea water.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-311056": {
+  "subject": "a small crab in shallow tropical sea water",
+  "species_match": null,
+  "features": {
+   "shallow tropical sea water": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows shallow tropical sea water fitting the description",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-15324": {
+  "subject": "swimming jellyfish",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows jellyfish instead of an underwater depth gauge",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-89796": {
+  "subject": "snake on a branch",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a snake instead of a fossilized whale bone",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-140920": {
+  "subject": "ocean waves at sunset",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "ocean waves and sunset time-lapse fits narration well",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-380907": {
+  "subject": "underwater light rays",
+  "species_match": null,
+  "features": {
+   "underwater_light_rays": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows underwater light rays as requested",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-207396": {
+  "subject": "Li river landscape with karst mountains",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows karst landscape instead of ancient seabed sediment",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-175816": {
+  "subject": "mountainous valley landscape with village",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings",
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows modern buildings and a road instead of ancient seabed sediment",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-253475": {
+  "subject": "sunrise over a forest and clouds",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows landscape instead of a fossil",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-186560": {
+  "subject": "cows grazing in a mountain meadow",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows cows in a mountain landscape instead of a fossil.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-384849": {
+  "subject": "full moon setting behind trees",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a moon setting, not a fossil.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-214512": {
+  "subject": "french fries",
+  "species_match": null,
+  "features": {
+   "sharp edges": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows crinkle-cut fries, not teeth with sharp edges",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-383281": {
+  "subject": "a butterfly on a plant",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a butterfly, not tooth serrations.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-135122": {
+  "subject": "mountain landscape panorama",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows mountain landscape, not tooth serrations",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-15241": {
+  "subject": "snow-covered mountain valley",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a mountain landscape instead of tooth serrations",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-43613": {
+  "subject": "digital timer display",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "text"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "clip shows a placeholder timer instead of a mechanical precision model",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-120962": {
+  "subject": "abstract glowing particle waves",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows abstract light particles, not a mechanical model",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-204582": {
+  "subject": "gold mechanical watch movement",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "text",
+   "logos",
+   "modern objects"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "text",
+   "logos",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "shows a mechanical watch movement matching the requested model",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-137006": {
+  "subject": "mountain peak with a cross",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "mountain cross"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a mountain peak instead of a shark tooth cross section.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-111397": {
+  "subject": "train crossing a bridge over water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "vehicles",
+   "buildings",
+   "modern objects"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "train",
+   "bridge",
+   "railroad tracks"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a train on a bridge, completely unrelated to shark tooth cross section",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-155558": {
+  "subject": "underwater rocky reef structure with corals",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows rocky reef structure with corals",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-228783": {
+  "subject": "Biosphere dome building aerial view",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a large geodesic dome, not a fossil display case.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-217712": {
+  "subject": "lush green leaves in rain",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows plants instead of fossilized bone texture",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-217711": {
+  "subject": "wet green leaves",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows green leaves instead of fossil bone texture.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-146169": {
+  "subject": "clouds in the sky",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows clouds instead of a microscope view.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-261267": {
+  "subject": "group of seals swimming in the ocean surf",
+  "species_match": false,
+  "features": {
+   "distinctive white belly and grey back": "no",
+   "triangular serrated teeth": "not visible",
+   "large pectoral fins": "no",
+   "prominent dorsal fin": "no",
+   "slender, streamlined body": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows seals instead of a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-246672": {
+  "subject": "a molehill on grass",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a molehill, not a fossil excavation site",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-216470": {
+  "subject": "modern buildings under construction",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "modern objects",
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows modern buildings instead of a fossil excavation site.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-147192": {
+  "subject": "ocean surface waves and rocky coast",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows ocean surface waves near a rocky shore",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-41ce4cc7ac": {
+  "subject": "global chlorophyll concentration map",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "text",
+   "logos"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "logos"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows global ocean chlorophyl map instead of deep ocean darkness",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-204172": {
+  "subject": "ocean sunset horizon",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial footage of sunset over the ocean.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-200244": {
+  "subject": "open ocean with choppy waves under a cloudy sky",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows open sea instead of waves crashing on rocks",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-300403": {
+  "subject": "underwater coral reef scene with surface view",
+  "species_match": null,
+  "features": {
+   "underwater light rays": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows underwater lighting and coral reef",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-21639": {
+  "subject": "ocean horizon and rocks",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "ocean waves and horizon view",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-260397": {
+  "subject": "sunrise over a sea of clouds",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows sunrise over clouds, not underwater deep sea",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-382582": {
+  "subject": "sunlight rays through a forest",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a forest instead of the deep sea.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-262188": {
+  "subject": "scientist examining sample under microscope",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows microscope work, not a fossil jaw in a museum",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-114513": {
+  "subject": "a small colorful bird eating fruit on a wooden feeder",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a bird on a feeder, not a paleontologist with a fossil diagram.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-64630": {
+  "subject": "colorful ink in water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows ink dispersing in liquid, not a rocky seabed.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-67354": {
+  "subject": "blue ink spreading in water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows ink in water, not a rocky seabed",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-64640": {
+  "subject": "colored ink diffusing in water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows abstract ink in water instead of rocky seabed texture.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-67361": {
+  "subject": "blue and pink ink swirling in water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract ink in water instead of rocky seabed",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-63560": {
+  "subject": "underwater ocean view with light rays",
+  "species_match": null,
+  "features": {
+   "water": "yes",
+   "light_rays": "yes",
+   "caustics": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "underwater scene matching narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-58193": {
+  "subject": "colored ink swirling in water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows abstract ink in water, not shark teeth texture",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-224355": {
+  "subject": "small bird on a wooden bench",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "wooden bench",
+   "bird"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a bird on a wooden bench instead of a shark tooth row.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-224356": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.088,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-224356.jpg",
+  "subject": "detailed fossil shark tooth row close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-224353": {
+  "subject": "chipmunk on a park bench",
+  "species_match": null,
+  "features": {
+   "fossil": "no",
+   "shark tooth": "no",
+   "tooth row": "no",
+   "close up": "no"
+  },
+  "forbidden_seen": [
+   "modern objects"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a chipmunk on a wooden bench, completely unrelated to fossil shark teeth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-244006": {
+  "subject": "a live shark swimming underwater",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a live shark instead of a fossil shark jaw reconstruction model.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-41035": {
+  "subject": "CGI sharks on green screen",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "green screen"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows digital CGI sharks swimming, not a fossil shark jaw model.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-40251": {
+  "subject": "human skull with smoke",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a human skull, not a shark jaw.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-117224": {
+  "subject": "yellow daisy-like flower",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a flower instead of a fossil shark tooth root macro shot",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-94465": {
+  "subject": "sea lion on a rock",
+  "species_match": false,
+  "features": {
+   "distinctive white belly and grey back": "no",
+   "triangular serrated teeth": "not visible",
+   "large pectoral fins": "no",
+   "prominent dorsal fin": "no",
+   "slender, streamlined body": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a sea lion, not a great white shark hunting a seal",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-94464": {
+  "subject": "sea lion resting on a ledge",
+  "species_match": false,
+  "features": {
+   "distinctive white belly and grey back": "no",
+   "triangular serrated teeth": "not visible",
+   "large pectoral fins": "not visible",
+   "prominent dorsal fin": "not visible",
+   "slender, streamlined body": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a sea lion, not a great white shark",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-85687": {
+  "subject": "giraffes in nature",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows giraffes, not a shark jaw or museum.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-88697": {
+  "subject": "Modern financial stock market charts with green neon lines and glowing candles",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows financial stock charts instead of historical scientific papers.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-33805": {
+  "subject": "stock market financial chart with downward trend",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows financial charts instead of old scientific papers and diagrams.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-65390": {
+  "subject": "vinyl record spinning on a turntable",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "shows a vinyl record instead of old papers and diagrams",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-4015": {
+  "subject": "dental anatomy and root canal procedure animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern medical illustration",
+   "dental crown"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a tooth and dental treatment, completely unrelated to shark teeth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-318885": {
+  "subject": "alpine mountain valley landscape",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows mountain scenery instead of 1994 conference footage.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-323513": {
+  "subject": "aerial view of a harbor with boats and city",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles",
+   "watercraft"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a modern harbor instead of 1994 conference footage.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-104679": {
+  "subject": "forest path in sunrise light",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a forest path, not scientific conference footage",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-103316": {
+  "subject": "aerial view of beach and river",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows landscape/beach, not a 1994 scientific conference.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-151122": {
+  "subject": "AI-generated mermaid fantasy portrait",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Fantasy mermaid image, does not show a fossil shark tooth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-27495": {
+  "subject": "autumn tree canopy and sky",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows autumn trees looking up at the sky, not a shark tooth under a microscope",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-16185": {
+  "subject": "jellyfish swimming in water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows jellyfish instead of fossil shark tooth under microscope.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-374283": {
+  "subject": "airplane flying near large clouds",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows clouds and an airplane instead of a fossil tooth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-32810": {
+  "subject": "rock arch over the sea",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a rock formation instead of a shark tooth measurement.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-20841": {
+  "subject": "white daisies and a stone structure",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows flowers and a stone structure, no fossils or research setup",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-22315": {
+  "subject": "abstract chemical reaction or microscopic footage",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows abstract liquid/bubbles, not fossils or research setup",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-150521": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0697,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-150521.jpg",
+  "subject": "scientific research setup with fossils",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-76395": {
+  "subject": "automated laboratory pipetting equipment",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows scientific research setup",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-72854": {
+  "subject": "human skull with flowing ink or smoke",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "human skull"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a human skull instead of shark skull models or scientists.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-262187": {
+  "subject": "scientist holding glass slide by microscope",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "modern objects"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a scientist with a microscope instead of shark skull models",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-154610": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0678,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-154610.jpg",
+  "subject": "scientist comparing shark skull models",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-218956": {
+  "subject": "DNA strand animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows DNA instead of a researcher measuring a fossil tooth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-171907": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0679,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-171907.jpg",
+  "subject": "researcher measuring fossil tooth width",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-15264": {
+  "subject": "abstract digital architecture model",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "modern objects",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows abstract architectural CGI scenery, not sharks or presentation",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-15263": {
+  "subject": "architectural 3d rendering of a public plaza with stylized figures",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "buildings",
+   "vehicles",
+   "modern objects"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "buildings",
+   "vehicles",
+   "modern objects"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows architectural rendering of a public space, not sharks or academic models",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-5618": {
+  "subject": "video wall with multiple screens showing various nature and urban scenes",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "screens",
+   "building"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a wall of screens with various irrelevant clips",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-22192": {
+  "subject": "digital marketing whiteboard animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "text"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "completely off-topic animation about digital marketing",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-135160": {
+  "subject": "men working out in a gym",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "modern objects",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows men exercising in a gym instead of a scientist calculating.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-148211": {
+  "subject": "people in gym exercising",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "text",
+   "logos"
+  ],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows people working out in a gym, unrelated to scientific calculations.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-148203": {
+  "subject": "people exercising in a gym",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "modern objects",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows people in a gym, completely unrelated to the narration about calculation.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-50f68eefc5": {
+  "subject": "globe graphic showing Atlantic ocean currents",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows a globe animation with current lines instead of the ocean surface from below.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-e22d7f42c8": {
+  "subject": "globe showing Atlantic ocean currents",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows globe animation instead of ocean surface from below",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-111263": {
+  "subject": "ocean waves crashing on a beach from above",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows coastal waves, not deep ocean water particles.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-150883": {
+  "subject": "futuristic computer desk in a dark room",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a desk, but it is a futuristic computer setup rather than a scientist's desk.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-133319": {
+  "subject": "coffee cup and smartphone on a desk",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "shows desk items, but no scientist",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-122233": {
+  "subject": "person reading a book in library",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "books",
+   "people",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a person reading in a library, not a scientist working at a desk",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-276340": {
+  "subject": "aerial view of a city",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings",
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles",
+   "roads"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows city aerial view instead of an academic lecture hall.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-22182": {
+  "subject": "chalkboard drawing of a classroom",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "people",
+   "books",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "chalk animation of a classroom",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-80685": {
+  "subject": "cinema auditorium with green screen",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a cinema hall, not an academic lecture hall",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-140806": {
+  "subject": "Young man reading in a library",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "books"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "books"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a person, which is forbidden under this line.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-27693": {
+  "subject": "Matrix-style falling text animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "text"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Abstract animation with text instead of a researcher.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-47802": {
+  "subject": "digital code waterfall animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Abstract visualization of data and calculations.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-14900": {
+  "subject": "server rack with flashing lights and cables",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Illustrates data calculation/processing.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-205519": {
+  "subject": "stressed man surrounded by green data visualization screens",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows data screens as requested, but also features a person.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-202987": {
+  "subject": "person using a smartphone",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "modern objects"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows hands using a phone instead of computer data visualization.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-36784": {
+  "subject": "digital data visualization graphic",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "abstract computer data visual representation",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-349089": {
+  "subject": "man celebrating in front of stock charts on laptop",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "modern objects",
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "modern objects",
+   "vehicles",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "stock trader clip, completely irrelevant to nature documentary",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-66810": {
+  "subject": "dew-covered grass with bokeh and sunlight",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows grass with dew, not underwater sunlight rays.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-192073": {
+  "subject": "underwater rocky sea floor with small fish",
+  "species_match": null,
+  "features": {
+   "sunlight rays": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows underwater scene, though distinct sun rays are not clearly visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-26640": {
+  "subject": "clear turquoise ocean water with visible rocks underneath",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows ocean water, fitting the general narration requirement.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-60478": {
+  "subject": "dinosaur models in smoke",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "does not show a paleontologist examining a fossil",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-60486": {
+  "subject": "toy dinosaur figures with green smoke/liquid",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows toy dinosaurs instead of a paleontologist examining a fossil.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-60484": {
+  "subject": "toy dinosaur in swirling ink",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a toy dinosaur instead of a paleontologist",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-60474": {
+  "subject": "dinosaur toy in swirling green liquid",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a toy dinosaur in dye, not a paleontologist",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-228781": {
+  "subject": "geodesic dome building",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "modern objects",
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a large geodesic dome, not a curator",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-165072": {
+  "subject": "modern architectural buildings and sculpture",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "text",
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "text"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows modern buildings instead of a museum curator handling an artifact.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-275052": {
+  "subject": "strawberries with sugar",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows strawberries and sugar, completely unrelated to a shark tooth fossil.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-34855": {
+  "subject": "mechanical watch gears macro",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "text",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows a mechanical watch movement instead of a shark tooth fossil.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-26493": {
+  "subject": "abstract colorful liquid droplets mixing",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows abstract colored liquids, not a shark tooth fossil",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-216232": {
+  "subject": "scientist working with laboratory equipment on a boat",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "modern objects",
+   "vehicles"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a scientist operating laboratory equipment on a boat, not measuring a fossil.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-133872": {
+  "subject": "ceiling fan",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The clip shows a ceiling fan, completely unrelated to measuring a tooth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-105686": {
+  "subject": "effervescent tablet dissolving in a glass of water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "glass of water",
+   "tablet"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a tablet dissolving in water, not calipers measuring an object.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-138088": {
+  "subject": "falling confetti on green screen",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "confetti"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Confetti animation on green screen, completely unrelated to teeth or calipers.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-5a2ca9a1ae": {
+  "subject": "soldiers inspecting vehicle",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "vehicles"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows soldiers inspecting a military vehicle instead of calipers measuring an object",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-124291": {
+  "subject": "moon rising over mountains",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows mountains and moon instead of underwater bubbles",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-150344": {
+  "subject": "freezing soap bubble on moss",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a freezing soap bubble instead of underwater bubbles.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-158230": {
+  "subject": "tropical beach with palm trees and ocean waves",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a beach instead of underwater bubbles.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-53297": {
+  "subject": "Halloween illustration with pumpkins and owl",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a Halloween scene instead of a diver with a flashlight.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-200941": {
+  "subject": "person with flashlight",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a person with a flashlight, not a diver.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-144574": {
+  "subject": "dark forest at night",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "does not show a diver with flashlight",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-99622": {
+  "subject": "christmas decoration background",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows christmas decorations instead of a diver",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-229071": {
+  "subject": "doctor examining a patient's leg",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "vehicles"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a medical examination rather than scientists discussing",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-229069": {
+  "subject": "Nurse comforting senior patient",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows people instead of a team of scientists.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-137265": {
+  "subject": "three men discussing at a whiteboard",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "scientists discussing data in front of a whiteboard",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-304211": {
+  "subject": "business meeting with diagrams on screen",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "vehicles",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a corporate business meeting instead of nature or diagrams",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-124057": {
+  "subject": "digital chart or graph with multiple lines and data points",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "digital diagram representing data evaluation matching the narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-141525": {
+  "subject": "open book against a blurry background",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "books"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "books"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an open book instead of a researcher writing notes.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-313145": {
+  "subject": "foggy hills and forests at sunrise",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows mountain landscape with fog, not shallow water sunlight",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-345593": {
+  "subject": "shallow water with corals at sunset",
+  "species_match": null,
+  "features": {
+   "shallow water": "yes",
+   "sunlight": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows shallow water with corals and sunlight perfectly matching the requirements.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-74891": {
+  "subject": "school of fish and seal/shark from above",
+  "species_match": null,
+  "features": {
+   "tiny fish": "yes",
+   "swimming": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of a fish school in the ocean",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-133870": {
+  "subject": "planted fish tank with a blue fish",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows an aquarium tank, but no scientist observing it",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-62800": {
+  "subject": "wolf in forest",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a wolf, not a scientist observing a tank.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-83882": {
+  "subject": "turtle on a log",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "turtle basking in natural habitat",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-379750": {
+  "subject": "flowing water over riverbed",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear footage of flowing river water fitting the context.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-25909": {
+  "subject": "clear turquoise ocean water with small fish",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows shallow turquoise water instead of deep ocean blue",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-339930": {
+  "subject": "split level view of arctic ocean and underwater ice formations",
+  "species_match": null,
+  "features": {
+   "deep ocean blue": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows deep ocean blue with underwater ice scenery",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-4907fa0944": {
+  "subject": "historical museum exhibition",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "text",
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": true,
+  "note": "shows a historical museum or exhibition interior, not archive photos",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-336514": {
+  "subject": "Kinkaku-ji golden pavilion in snow",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a temple building instead of historical archive photos",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-207864": {
+  "subject": "spiral clock faces and roman numerals",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "clock",
+   "roman numerals",
+   "text"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows a clock tunnel instead of old scientific journals.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-177126": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0744,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-177126.jpg",
+  "subject": "old scientific journals",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-54708": {
+  "subject": "person working on wood with chisel",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "vehicles"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows someone carving wood rather than a historian researching.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-329397": {
+  "subject": "ocean waves with underwater ice",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "stormy ocean waves with underwater ice formations",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-283431": {
+  "subject": "night landscape with milky way and terraced fields",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a starry sky over rice fields, no fisherman or boat visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-213814": {
+  "subject": "spaceship flying in a surreal alien sky",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a spaceship, completely unrelated to 1990s historical archive footage",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-187403": {
+  "subject": "Santa Justa Lift in Lisbon from above",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "buildings",
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "buildings",
+   "vehicles"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows city architecture, unrelated to historical science archive footage.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-133318": {
+  "subject": "pouring tea into a cup",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "computer keyboard",
+   "computer mouse",
+   "glasses"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows someone pouring tea, completely unrelated to scientific papers.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-201676": {
+  "subject": "podcast studio setup with microphone",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "text",
+   "modern objects",
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "modern objects",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows a podcast studio, not old scientific papers.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-86259": {
+  "subject": "person adjusting a microscope",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "hands operating a microscope",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-86260": {
+  "subject": "scientist looking into microscope",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "text",
+   "modern objects"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "people",
+   "text",
+   "modern objects"
+  ],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "shows a microscope being used",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-60485": {
+  "subject": "colored liquids and a dinosaur toy",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows ink in water and a plastic dinosaur toy instead of a microscope examining a fossil.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-93231": {
+  "subject": "brown bear sticking out tongue",
+  "species_match": null,
+  "features": {
+   "scientist": "not visible",
+   "fossil teeth": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a brown bear instead of a scientist comparing fossil teeth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-204292": {
+  "subject": "financial market stock ticker data",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "shows stock market data instead of fossil analysis",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-65148": {
+  "subject": "ocean surface waves",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "deep ocean water surface waves",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-348401": {
+  "subject": "underwater sandy seabed with light patterns",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "underwater scene matches the description well",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-175955": {
+  "subject": "ocean horizon at sunset",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Ocean horizon wide shot at sunset.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-345470": {
+  "subject": "octopus hiding in rocks",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows an octopus, not deep ocean water texture",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-345469": {
+  "subject": "an octopus among rocks",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows an octopus instead of deep blue ocean water texture",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-60476": {
+  "subject": "dinosaur toy model with red smoke",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "toy",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a dinosaur toy model instead of a paleontologist examining a fossil.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-142300": {
+  "subject": "kingfisher perched on branch",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a bird instead of a researcher measuring a tooth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-236706": {
+  "subject": "jellyfish swimming",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows jellyfish, not underwater light caustics.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-365393": {
+  "subject": "underwater light caustics on sandy seabed",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear underwater light caustics matching the description.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-19162": {
+  "subject": "stacks of white plates",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "plates"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows stacks of plates instead of paleontologists",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-137249": {
+  "subject": "woman writing on a whiteboard",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "text",
+   "modern objects",
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "text",
+   "modern objects",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "shows a modern business presentation board instead of paleontologists",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-88235": {
+  "subject": "animated industrial and engineering scenes",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "vehicles",
+   "text",
+   "modern objects",
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "vehicles",
+   "text",
+   "modern objects",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "animated graphics of factory workers and industrial processes",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-95101": {
+  "subject": "mushroom in grass",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a mushroom in grass, not a fossil collection.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-184736": {
+  "subject": "coffee cup and donut on table",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows coffee and a donut instead of fossils",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-113166": {
+  "subject": "waterfall and rocks",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a waterfall and rocks above water, not a dark underwater environment.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-287510": {
+  "subject": "misty forest river in sunlight",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a bright forest river with mist, not a dark underwater environment",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-232069": {
+  "subject": "mountain landscape with forest",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a mountain and forest, not an excavation site with fossil bones",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-206315": {
+  "subject": "modern buildings and construction crane",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "modern objects",
+   "buildings",
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows modern city construction, completely unrelated to fossils.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-119637": {
+  "subject": "ants and aphids on a plant stem",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows ants and aphids instead of fossilized vertebrae",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-216230": {
+  "subject": "scientist in laboratory pouring liquid",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "modern objects",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a laboratory setting with chemicals instead of measuring vertebra diameter",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-185023": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0678,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-185023.jpg",
+  "subject": "scientist measuring vertebra diameter",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-144156": {
+  "subject": "abstract digital vortex animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows abstract light swirl instead of fossil bone texture",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-121430": {
+  "subject": "abstract digital particle animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract particle effect, not fossil bone texture",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-8451": {
+  "subject": "sunset timelapse",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows sunset, not fossil bone texture detail.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-124162": {
+  "subject": "coastal rock formations",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows above-water rocks instead of underwater rock formation.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-229685": {
+  "subject": "sky with moving clouds",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows clouds in the sky, not an underwater rock formation.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-224738": {
+  "subject": "alpine mountain landscape",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows mountains instead of underwater rock formation",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-124163": {
+  "subject": "rocky beach and ocean waves",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an above-water rocky coastline, not an underwater rock formation.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-31251": {
+  "subject": "digital chart graph",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract digital chart visualization fits estimations context",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-276711": {
+  "subject": "rocky mountain landscape with people hiking",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows mountains and hikers instead of a fossil spine arrangement",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-168345": {
+  "subject": "Veterinarian examining a cat",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a cat being examined by a vet, completely unrelated to paleontology or fossils.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-132726": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0689,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-132726.jpg",
+  "subject": "paleontologist examining fossil bone",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "commons-3b6964a5d4": {
+  "subject": "scientific ocean temperature and current data visualization",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "shows scientific 3D map data rather than deep blue ocean water",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-45341": {
+  "subject": "looking through a cave or rock tunnel",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "does not show a scientist measuring a fossil vertebra",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-221870": {
+  "subject": "rocky shore by water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows water and rocks, not a scientist measuring a fossil vertebra",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-94446": {
+  "subject": "a giraffe eating hay",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a giraffe, completely unrelated to the narration.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-144934": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0943,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-144934.jpg",
+  "subject": "paleontologist examining large fossil vertebra",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-131174": {
+  "subject": "animated cartoon skeleton walking on green screen",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows an animated cartoon skeleton, not a museum display",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-112722": {
+  "subject": "ocean waves",
+  "species_match": false,
+  "features": {
+   "large aquatic mammal body": "not visible",
+   "presence of bite marks on fossilized bones": "not visible",
+   "streamlined shape for swimming": "not visible",
+   "blowhole on top of head": "not visible",
+   "flippers and tail flukes": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "only ocean water is shown, no whale visible",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-7930": {
+  "subject": "mechanical calculator mechanism",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a mechanical calculation device instead of a scientist writing notes.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-8051": {
+  "subject": "3D animation of mechanical calculator inner workings",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows a mechanical calculator mechanism instead of a scientist writing notes.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-137085": {
+  "subject": "astronaut in spaceship looking at Earth",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "vehicles"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "does not show scientists discussing in a lab",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-132961": {
+  "subject": "futuristic digital human skull animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "text"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "CGI animation of a skull in a high-tech lab, not a museum fossil display.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-40617": {
+  "subject": "path between stone walls with people walking",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows people walking down a path, completely unrelated to fossil vertebrae.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-72198": {
+  "subject": "Kayakers on water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "vehicles",
+   "people"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles",
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows kayakers instead of fossil vertebrae",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-313652": {
+  "subject": "aerial view of agricultural fields",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows fields instead of fossil vertebrae",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-233297": {
+  "subject": "VU meter gauge",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "text",
+   "modern objects"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows a VU meter instead of fossil vertebra measurement.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-51313": {
+  "subject": "Crookes radiometer",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a radiometer instead of fossil vertebra measurement.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-326934": {
+  "subject": "hourglass running",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an hourglass instead of fossil vertebra measurement.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-4214": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0949,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-4214.jpg",
+  "subject": "scientist examining fossil",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-4213": {
+  "subject": "medical animation of heart rhythms",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "text",
+   "modern objects"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "completely irrelevant medical video",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-29760": {
+  "subject": "digital globe animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a digital Earth globe instead of a fossil analysis",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-26038": {
+  "subject": "futuristic neon tunnel",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract neon tunnel animation, not scientist analyzing fossil data",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-141507": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0796,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-141507.jpg",
+  "subject": "scientist analyzing 3d hologram fossil data",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-189046": {
+  "subject": "digital globe animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a digital globe instead of a scientist analyzing fossil data.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-213616": {
+  "subject": "pink jellyfish",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows jellyfish instead of a shark skeleton",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-31772": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1247,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-31772.jpg",
+  "subject": "researcher comparing shark anatomy charts",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-108459": {
+  "subject": "animated hands pointing at a chart with graphs",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows generic statistical charts instead of shark anatomy",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-56888": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0962,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-56888.jpg",
+  "subject": "paleontologist presenting calculation results",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-177223": {
+  "subject": "misty river landscape at sunrise",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a misty river/marsh landscape, not a norwegian fjord",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-335040": {
+  "subject": "aerial forest view with a ski lift tower",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "ski lift tower",
+   "cables"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a forest with a ski lift tower instead of a Norwegian fjord landscape.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-216060": {
+  "subject": "aerial view of river and forest with fog",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a river and tropical landscape, not a Norwegian fjord.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-118113": {
+  "subject": "abstract green cellular or biological background animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract animation, does not show a scientist examining a bone sample",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-18702": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1126,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-18702.jpg",
+  "subject": "scientist examining bone sample",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-197483": {
+  "subject": "scientist holding flask",
+  "species_match": null,
+  "features": {
+   "scientist": "yes",
+   "bone sample": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "flask",
+   "gloves",
+   "safety goggles"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "scientist holding flask, not bone sample",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-148202": {
+  "subject": "woman doing crunches in a gym",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "text",
+   "modern objects",
+   "buildings",
+   "vehicles"
+  ],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "completely off-topic gym scene",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-142044": {
+  "subject": "flock of cranes in a field",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows cranes instead of an industrial crane lifting load",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-27279": {
+  "subject": "bird flying over landscape",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a bird flying, not a heavy industrial crane lifting load",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-125595": {
+  "subject": "loading bar animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "shows a loading screen instead of the requested heavy industrial crane",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-199375": {
+  "subject": "aerial view of a construction site with a crane",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a construction site from above, not a heavy industrial crane lifting a load.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-209900": {
+  "subject": "cargo ships at sea",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Multiple cargo ships anchored or sailing near a coast.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-345244": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0733,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-345244.jpg",
+  "subject": "large cargo ship at sea",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-68978": {
+  "subject": "abstract purple glowing tunnel",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a sci-fi tunnel animation, not a scientist explaining data",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-33577": {
+  "subject": "abstract purple digital background with light streaks",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract graphic suitable for data/calculations",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-228810": {
+  "subject": "ocean waves with small fish jumping",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows ocean water and fish, but no research boat.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-203974": {
+  "subject": "sailboats and motorboats on calm sea",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows leisure boats on calm sea, not a small research boat in rough sea",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-182970": {
+  "subject": "Waves crashing on rocky shore",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows rocky shore and water instead of a small research boat in rough sea.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-224807": {
+  "subject": "rough sea waves with white foam",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "rough sea shown, boat missing",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-2176": {
+  "subject": "digital padlock graphic with binary code",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "text"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "shows digital security graphic instead of an expert in a lab",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-166285": {
+  "subject": "green bar chart on screen",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "digital bar chart matching scientific graph context",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-201422": {
+  "subject": "coastal landscape and sea",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows coastal landscape above water instead of deep ocean sunlight",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-199788": {
+  "subject": "industrial chimney smoking against sunset sky",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings",
+   "modern objects"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "industrial chimney",
+   "smoke",
+   "modern objects",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows industrial pollution, completely unrelated to deep ocean sunlight.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-201423": {
+  "subject": "coastal landscape with buildings and rocky shore",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a coastal town/buildings instead of deep ocean sunlight.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-215832": {
+  "subject": "boat in turbulent water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "vehicles"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a boat in rough water, not a shark skeleton",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-90907": {
+  "subject": "historic university building exterior",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an exterior university building instead of a paleontology lecture.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-36688": {
+  "subject": "foggy forest landscape",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a misty forest instead of old fossil photos.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-32543": {
+  "subject": "black and white clouds",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows clouds instead of old fossil photos",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-104499": {
+  "subject": "Black-headed sheep",
+  "species_match": null,
+  "features": {
+   "old black and white fossil photos": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a living sheep instead of old fossil photos.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-204199": {
+  "subject": "dark rocky cave entrance",
+  "species_match": null,
+  "features": {
+   "dark cave": "yes",
+   "underwater": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a dark cave entrance, fitting the context though water is not clearly visible.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-186405": {
+  "subject": "lake and forest landscape",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a lake and forest instead of deep ocean water column",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-328628": {
+  "subject": "sunset or sunrise clouds",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows sky and clouds above water, not underwater rays.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-11661": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1338,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-11661.jpg",
+  "subject": "scientist examining fossil whale bone",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-27898": {
+  "subject": "spider wrapping prey",
+  "species_match": null,
+  "features": {
+   "close up": "yes",
+   "fossilized bone": "no",
+   "bite marks": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a spider with prey, not fossil bones.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-27893": {
+  "subject": "a spider in its web",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a spider, completely unrelated to fossilized bones",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-188595": {
+  "subject": "mountain lake landscape with autumn foliage",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a lake and mountains, not deep ocean dark water.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-2e9a2b8e99": {
+  "subject": "satellite map of ocean color and phytoplankton",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "logos",
+   "modern objects",
+   "map graphics"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "satellite map graphic with dates and text, not actual deep ocean footage",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-197439": {
+  "subject": "stormy ocean waves crashing against rocks",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "matches the narration request perfectly",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-33193": {
+  "subject": "coastal cliffs and black sand beach",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows coastal cliffs, not a glacier calving",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-364730": {
+  "subject": "mountain glacier valley",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows mountain glacier, not calving into sea",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-220945": {
+  "subject": "snowy mountain peak",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows snowy mountains instead of a glacier calving into the sea.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-326281": {
+  "subject": "snowy mountain landscape",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows snowy mountains, not glacier calving into sea",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-214942": {
+  "subject": "coastal landscape with rough sea and rocky cliff",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a rough sea and cliff, not a paleontologist studying rock strata",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-242215": {
+  "subject": "rocky landscape and forest",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows rock formations and forest, but no paleontologist studying rock strata.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-37088": {
+  "subject": "large waterfall in a lush canyon",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a waterfall, not a paleontologist studying rock strata.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-18088": {
+  "subject": "historic college building exterior",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows an exterior of a historic building instead of scientists debating in a lecture hall",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-145428": {
+  "subject": "A young man writing at a desk with books and a lamp",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "books"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "books",
+   "modern objects"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Contains a person writing, violating the documentary scene requirements.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-38919": {
+  "subject": "office workers at desks",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "text",
+   "modern objects",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Modern office scene instead of old academic books",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-20567": {
+  "subject": "calm clear ocean water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Calm water view fitting the narration nicely.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-59026": {
+  "subject": "full moon in cloudy sky",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows moon and clouds, not underwater silence or dark depths.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-26897": {
+  "subject": "abstract purple glowing particles floating",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "abstract motion graphics",
+   "digital effects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract animation, not underwater",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-131642": {
+  "subject": "rock layers and quarry structures",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "buildings",
+   "machinery"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view of a quarry with rock layers and industrial buildings",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-215955": {
+  "subject": "aerial view with tall antenna and landscape",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "modern objects",
+   "buildings",
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows an antenna and landscape, not rock layers in a quarry.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-355017": {
+  "subject": "a green frog in water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a frog instead of a shark tooth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-41421": {
+  "subject": "shallow coastal water ripples",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows shallow water/shoreline instead of open ocean blue water.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-306186a749": {
+  "subject": "satellite imagery time-lapse of wetlands and rivers",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "text",
+   "modern objects"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text",
+   "satellite imagery graphics",
+   "year markers"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows satellite imagery over time with years displayed, not open ocean blue water.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "commons-9ecf529bb2": {
+  "subject": "satellite imagery time lapse of coastal erosion over decades",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "text"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "text"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "satellite time-lapse images showing landscape changes over years with year labels",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-36565": {
+  "subject": "cherry blossoms blooming time lapse",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows flower blooming time-lapse, not landscape",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-8348": {
+  "subject": "Time-lapse of clouds over lake and mountains transitioning to night city lights",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a lake and landscape time-lapse, not melting icebergs.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-145151": {
+  "subject": "snowy forest landscape with sun shining through frosted branches",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows snowy trees instead of an iceberg melting in the sea.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-215368": {
+  "subject": "coastal landscape with orange flowers",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows coast with flowers, not a melting iceberg",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-28835": {
+  "subject": "coastal landscape with rock formations and ocean waves",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows coastline, not scientist with fossil teeth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-19159": {
+  "subject": "white cups and saucers",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows white cups and saucers, not shark teeth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-13203": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1047,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-13203.jpg",
+  "subject": "researcher writing notes in lab",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-33522": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0819,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-33522.jpg",
+  "subject": "researcher writing notes in lab",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-148596": {
+  "subject": "researcher working on laptop with charts",
+  "species_match": null,
+  "features": {
+   "researcher": "yes",
+   "lab setting": "no",
+   "writing notes": "yes"
+  },
+  "forbidden_seen": [
+   "people",
+   "text",
+   "modern objects",
+   "buildings"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Researcher studying data for a comprehensive study",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-349091": {
+  "subject": "stressed young man looking at laptop",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "vehicles",
+   "modern objects"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "modern objects",
+   "vehicles"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "does not show a professor explaining a graph on whiteboard",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-141519": {
+  "subject": "open book by the sea",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "an open book representing prior assumptions or scientific literature",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-110462": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.099,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-110462.jpg",
+  "subject": "student taking notes in lecture",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-84709": {
+  "subject": "human skeleton 3D model",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows human skeleton instead of scientist measuring fossil jaw.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-115228": {
+  "subject": "two yellow and red tulips",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows flowers instead of a researcher comparing fossils",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-145486": {
+  "subject": "a burning candle shaped like the number two",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "candles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "candles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a number 2 candle instead of a researcher",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-114099": {
+  "subject": "shark swimming underwater",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a live shark instead of a scientist measuring a fossilized tooth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-192281": {
+  "subject": "two scientists discussing data on tablet",
+  "species_match": null,
+  "features": {
+   "scientist": "yes",
+   "fossil": "no",
+   "shark tooth": "no",
+   "measuring": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "modern objects",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "scientists with tablet instead of measuring a tooth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-115987": {
+  "subject": "animated tooth with smartphone",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "animated cartoon tooth holding a phone, completely unrelated to a scientist measuring a fossilized shark tooth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-4014": {
+  "subject": "dental implant animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "teeth animation"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a dental implant instead of a fossil shark tooth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-182592": {
+  "subject": "cozy room interior with large round window overlooking forest",
+  "species_match": null,
+  "features": {
+   "paleontologist": "no",
+   "fossilized bone": "no",
+   "study setup": "no"
+  },
+  "forbidden_seen": [
+   "books",
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "books",
+   "buildings",
+   "candles",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "completely unrelated cozy interior image, not a paleontology scene",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-131990": {
+  "subject": "person writing in a notebook",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "modern objects",
+   "books"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "person",
+   "notebook",
+   "pen"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a person writing, unrelated to whale bone fossils.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-128312": {
+  "subject": "industrial landscape aerial with power plant and lake",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "modern objects",
+   "buildings",
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "power plant",
+   "bridge",
+   "smoke"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows industrial pollution and power plant instead of climate landscape aerial.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-34608": {
+  "subject": "aerial view of mountains and clouds",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial drone shot over misty mountains",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-236261": {
+  "subject": "coastal ocean waves",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a coastline with buildings instead of deep sea darkness.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-43275": {
+  "subject": "abstract glowing network animation",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract animation, not deep sea footage",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-191855": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0945,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-191855.jpg",
+  "subject": "archaeologist digging in sediment",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-334192": {
+  "subject": "jellyfish in deep water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a jellyfish and water particles",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-105936": {
+  "subject": "lush mossy waterfall landscape",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a waterfall instead of a paleontologist with a fossil.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-39812": {
+  "subject": "Bulldozer on landfill",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "vehicles",
+   "text",
+   "logos"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles",
+   "text",
+   "logos"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Shows a landfill with a bulldozer instead of a paleontologist with a fossil.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-39813": {
+  "subject": "Bulldozer on landfill or waste site",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "vehicles",
+   "modern objects"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles",
+   "modern objects"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a landfill and a bulldozer, unrelated to the fossil narration.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-199558": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1197,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-199558.jpg",
+  "subject": "paleontologist brushing dust off fossilized shark tooth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-212348": {
+  "subject": "aerial view of a lush green forest canyon",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a green forest valley, not layered sedimentary rock strata.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-197827": {
+  "subject": "rocky coastline at sunset",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows rocky coast at sunset instead of sedimentary rock strata",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-32318": {
+  "subject": "coastal beach with rocks and sunset",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows shoreline instead of deep sea floor",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-50642": {
+  "subject": "ocean waves and foam from above",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows surface ocean waves instead of deep sea floor sediment.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-220073": {
+  "subject": "sea lions on rocky shore",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows sea lions instead of deep sea sediment",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-137001": {
+  "subject": "ocean waves crashing against rocky cliffs from above",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows coastal cliffs instead of deep sea floor sediment and rocks.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-13100": {
+  "subject": "colorful paint droplets in liquid",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "abstract paint patterns, does not show shark teeth",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-173243": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0909,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-173243.jpg",
+  "subject": "close up of numerous shark teeth arranged in grid",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-3145": {
+  "subject": "person typing on laptop",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows someone typing on a laptop instead of scientific research on teeth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-213991": {
+  "subject": "forest canopy and foliage",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a forest, not an underwater kelp forest",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-168887": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1005,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-168887.jpg",
+  "subject": "underwater kelp forest swaying",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-112643": {
+  "subject": "aerial view of sea ice",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "aerial view shows ice, not open ocean horizon",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-204023": {
+  "subject": "aerial view of rocky coastline and ocean waves",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows coastal ocean waves from above, suitable as documentary B-roll",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-326483": {
+  "subject": "frozen soap bubble",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a frozen bubble, not underwater bubbles",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-89791": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0736,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-89791.jpg",
+  "subject": "paleontologist showing fossilized whale bone with bite marks",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-189881": {
+  "subject": "snow-covered branches",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows snowy branches instead of ocean and icebergs.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-207981": {
+  "subject": "iceberg in cold ocean at sunset",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Iceberg floating in the ocean at sunset",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-325566": {
+  "subject": "ocean waves crashing on rocks",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "waves crashing on rocky shore",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-89182": {
+  "subject": "tall grass blowing in the wind",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Wind blowing through dry grass, fitting the narration about climate change.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-64759": {
+  "subject": "clouds in the sky",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows clouds instead of a scientist with a laptop.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-64767": {
+  "subject": "sky and clouds",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clouds represent climate and weather well.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-9151": {
+  "subject": "clouds in the sky",
+  "species_match": null,
+  "features": {
+   "distant mountains": "no",
+   "cloudy sky": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "clouds fit climate/weather context, but mountains are missing",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-16160": {
+  "subject": "dark ocean under night sky",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows sea surface at night instead of deep ocean water",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-160867": {
+  "subject": "ocean waves hitting a sandy beach with rocks",
+  "species_match": null,
+  "features": {
+   "single shark tooth": "no",
+   "sandy bottom": "no"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a beach landscape instead of a shark tooth.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-26085": {
+  "subject": "desert landscape at sunset",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a desert landscape at sunset, not a shark tooth on a sandy bottom.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-16230": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0745,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-16230.jpg",
+  "subject": "single shark tooth resting on sandy bottom",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-13771": {
+  "subject": "coastal landscape with cliffs and sandy beach",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a beach coastline instead of a shark tooth on sandy bottom.",
+  "model": "gemini-flash-lite-latest"
  }
 }
