@@ -71,7 +71,7 @@ def rows_of():
             species = json.loads(sp.read_text(encoding="utf-8"))
         speciescheck.SPECIES.update({k: v for k, v in species.items() if k not in speciescheck.SPECIES})
         for cid, v in known.items():
-            if "__s" in cid or cid not in src or "error" in v or v.get("model") == "siglip":
+            if "__s" in cid or cid not in src or "error" in v or v.get("model") == "siglip" or v.get("missing"):
                 continue
             need, query = need_of[cid]
             b, _line = beat_of.get(need, ({}, ""))

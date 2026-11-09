@@ -88,7 +88,6 @@ def defer(slug, why):
     log.warning("%s deferred until %s: %s", slug, turn.isoformat(), why)
 
 
-PARTIAL_MIN = 40          # image requests left today worth a partial footage check
 
 
 def need(step, slug):
@@ -101,11 +100,12 @@ def need(step, slug):
         n = image_need(slug, kinds=("real",), fixed=False)
         ok, why = image_ok(n)
         why = f"needs ~{n}; {why}"
-        if not ok and image_ok(PARTIAL_MIN)[0]:
+        if not ok and image_ok(1)[0]:
             # 08.11: megalodon needs ~317, more than one day gives (~250): a day's share is checked,
             # the verdicts kept, and the episode waits for the rest (the workflow defers it while any
             # beat is still unjudged) - never a step on with clips nobody has judged
-            ok, why = True, why + f"; a partial check today (at least {PARTIAL_MIN}), the rest after the next reset"
+            # 09.11: whatever is left today is used (megalodon: ~28 needed, 17 left, a day lost)
+            ok, why = True, why + "; a partial check with what is left today, the rest after the next reset"
     elif step == "render":
         n = image_need(slug)
         ok, why = image_ok(n)

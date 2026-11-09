@@ -298,6 +298,8 @@ def passes(v, species=None, archive=False, allow=()):
     allow = [a.lower() for a in allow]
     if "error" in v:
         return None, v["error"]
+    if v.get("missing"):                            # the clip never downloaded: the next one is tried
+        return False, "frames missing"
     if v.get("model") == "siglip":                  # turned down on the CPU (pipeline/prefilter.py)
         return False, f"CPU: clearly not it ({v.get('score')})"
     why = []
@@ -463,7 +465,8 @@ def batch_prefill(key, beats, footage, layers, out_dir, known, vpath):
             for beat, line, species, cid, kind, src in pending[k:k + BATCH_CLIPS]:
                 fr = _frames(cid, src, out_dir)
                 if not fr:
-                    state[beat_key(beat)] = -1          # check() records it as missing
+                    known[cid] = {"missing": True, "note": "no frames (the clip did not download)"}
+                    progress = True                     # the beat's next clip comes in the next round
                     continue
                 group.append((beat, cid, {"images": fr, "line": line, "species": species,
                                           "topic": beat.get("topic"), "archive": bool(beat.get("archive")),
@@ -587,6 +590,9 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
                     break
                 fr = _frames(cid, src, out_dir)
                 if not fr:
+                    # 09.11: kept as unusable, so the budget walks on to the alternate instead of
+                    # counting this clip as still to ask (megalodon waited a day on 22 such beats)
+                    known[cid] = {"missing": True, "note": "no frames (the clip did not download)"}
                     row["candidates"].append({"id": cid, "verdict": "missing"})
                     continue
                 if not key:
