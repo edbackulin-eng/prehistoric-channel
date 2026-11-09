@@ -3650,5 +3650,1481 @@
   "museum_display": false,
   "note": "A fossilized Megalodon tooth on the ocean floor.",
   "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-13192": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1202,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-13192.jpg",
+  "subject": "19th century scientist writing notes",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-120911": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0726,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-120911.jpg",
+  "subject": "scientist measuring tooth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-161128": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0739,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-161128.jpg",
+  "subject": "ancient hunting weapons display",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-363571": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0821,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-363571.jpg",
+  "subject": "dictionary definition close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-363570": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0857,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-363570.jpg",
+  "subject": "dictionary definition close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-76259": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0783,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-76259.jpg",
+  "subject": "underwater depth gauge",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-217710": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0355,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-217710.jpg",
+  "subject": "megalodon jaw closeup",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-292363": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0342,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-292363.jpg",
+  "subject": "megalodon jaw closeup",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-9597": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.014,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-9597.jpg",
+  "subject": "megalodon jaw closeup",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-222790": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1299,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-222790.jpg",
+  "subject": "megalodon jaw closeup",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-379022": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0352,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-379022.jpg",
+  "subject": "ancient whale swimming in ocean",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-134264": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0364,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-134264.jpg",
+  "subject": "ancient whale swimming in ocean",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-20070": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0605,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-20070.jpg",
+  "subject": "megalodon posterior teeth detail",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-46924": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0028,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-46924.jpg",
+  "subject": "megalodon posterior teeth detail",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-145516": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0734,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-145516.jpg",
+  "subject": "megalodon posterior teeth detail",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-91832": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1191,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-91832.jpg",
+  "subject": "megalodon posterior teeth detail",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-26388": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0935,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-26388.jpg",
+  "subject": "museum fossil display case",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-136497": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0918,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-136497.jpg",
+  "subject": "great white shark swimming in ocean",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-25613": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1128,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-25613.jpg",
+  "subject": "paleontologist pointing at fossil diagram",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-23263": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0888,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-23263.jpg",
+  "subject": "paleontologist pointing at fossil diagram",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-189730": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0775,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-189730.jpg",
+  "subject": "shark tooth fossil close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-35022": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1132,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-35022.jpg",
+  "subject": "great white shark swimming close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-35021": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1159,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-35021.jpg",
+  "subject": "great white shark swimming close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-165886": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0828,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-165886.jpg",
+  "subject": "great white shark swimming close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-244378": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0478,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-244378.jpg",
+  "subject": "great white shark biting prey underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-79866": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0881,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-79866.jpg",
+  "subject": "great white shark biting prey underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-91079": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1015,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-91079.jpg",
+  "subject": "ancient fossilized shark teeth collection museum display",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-353900": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0849,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-353900.jpg",
+  "subject": "ancient fossilized shark teeth collection museum display",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-5269": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1261,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-5269.jpg",
+  "subject": "ancient fossilized shark teeth collection museum display",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-6421": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1168,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-6421.jpg",
+  "subject": "ancient fossilized shark teeth collection museum display",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-165397": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0713,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-165397.jpg",
+  "subject": "fossil shark tooth cross section analysis",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-148394": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.081,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-148394.jpg",
+  "subject": "fossil shark tooth cross section analysis",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-164215": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0919,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-164215.jpg",
+  "subject": "fossil shark tooth root macro shot",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-13441": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1195,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-13441.jpg",
+  "subject": "fossil shark tooth root macro shot",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-242060": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1212,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-242060.jpg",
+  "subject": "fossil shark tooth root macro shot",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-29699": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0671,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-29699.jpg",
+  "subject": "great white shark hunting seal",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-121499": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0713,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-121499.jpg",
+  "subject": "old scientific papers and diagrams",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-82641": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0727,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-82641.jpg",
+  "subject": "fossil shark tooth detailed measurement",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-94447": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0778,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-94447.jpg",
+  "subject": "scientist holding large fossil shark tooth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-85690": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1045,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-85690.jpg",
+  "subject": "scientist holding large fossil shark tooth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-94445": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1363,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-94445.jpg",
+  "subject": "scientist holding large fossil shark tooth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-94448": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1097,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-94448.jpg",
+  "subject": "scientist holding large fossil shark tooth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-24340": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.073,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-24340.jpg",
+  "subject": "great white shark jaw close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-108694": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0812,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-108694.jpg",
+  "subject": "scientist pointing at chart",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-206783": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0067,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-206783.jpg",
+  "subject": "shark dorsal fin surface",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-367738": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0004,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-367738.jpg",
+  "subject": "shark dorsal fin surface",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-364249": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0191,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-364249.jpg",
+  "subject": "shark dorsal fin surface",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-221495": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0396,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-221495.jpg",
+  "subject": "shark dorsal fin surface",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-120355": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0975,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-120355.jpg",
+  "subject": "fossil shark tooth close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-165176": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0883,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-165176.jpg",
+  "subject": "fossil shark tooth close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-16011": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0902,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-16011.jpg",
+  "subject": "great white shark jaw open",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-21285": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0661,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-21285.jpg",
+  "subject": "great white shark jaw open",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-43353": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0102,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-43353.jpg",
+  "subject": "mako shark swimming fast",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-206771": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0327,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-206771.jpg",
+  "subject": "mako shark swimming fast",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-43757": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0611,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-43757.jpg",
+  "subject": "young great white shark",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-226233": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0452,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-226233.jpg",
+  "subject": "young great white shark",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-288413": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0778,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-288413.jpg",
+  "subject": "young great white shark",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-43758": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0407,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-43758.jpg",
+  "subject": "young great white shark",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-288087": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0617,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-288087.jpg",
+  "subject": "male great white shark",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-368040": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0707,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-368040.jpg",
+  "subject": "male great white shark",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-57957": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0667,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-57957.jpg",
+  "subject": "female great white shark",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-42665": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0909,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-42665.jpg",
+  "subject": "historian researching",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-179207": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0747,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-179207.jpg",
+  "subject": "fisherman on boat",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-231078": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0687,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-231078.jpg",
+  "subject": "paleontologist working in lab 1996",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-282086": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0996,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-282086.jpg",
+  "subject": "paleontologist working in lab 1996",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-179318": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0685,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-179318.jpg",
+  "subject": "paleontologist working in lab 1996",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-224959": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1052,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-224959.jpg",
+  "subject": "paleontologist working in lab 1996",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-240531": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0354,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-240531.jpg",
+  "subject": "great white shark tooth close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-94443": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0921,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-94443.jpg",
+  "subject": "scientist comparing fossil teeth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-21015": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0749,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-21015.jpg",
+  "subject": "scientist measuring fossil bone",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-21016": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0715,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-21016.jpg",
+  "subject": "scientist measuring fossil bone",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-276645": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0961,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-276645.jpg",
+  "subject": "researcher using calipers on tooth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-20069": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0702,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-20069.jpg",
+  "subject": "shark tooth fossil detail",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-383282": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0816,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-383282.jpg",
+  "subject": "shark tooth fossil detail",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-7127": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1248,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-7127.jpg",
+  "subject": "dark museum hall with large fossil",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-9220": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.07,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-9220.jpg",
+  "subject": "mako shark swimming fast",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-211771": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0334,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-211771.jpg",
+  "subject": "mako shark close up face",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-286401": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0612,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-286401.jpg",
+  "subject": "mako shark close up face",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-199545": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0512,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-199545.jpg",
+  "subject": "mako shark close up face",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-303274": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0555,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-303274.jpg",
+  "subject": "mako shark full body side view",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-218828": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0563,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-218828.jpg",
+  "subject": "mako shark full body side view",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-176798": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0207,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-176798.jpg",
+  "subject": "mako shark tail fin movement",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-205279": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0694,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-205279.jpg",
+  "subject": "mako shark tail fin movement",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-156152": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0364,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-156152.jpg",
+  "subject": "mako shark tail fin movement",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-18120": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0639,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-18120.jpg",
+  "subject": "mako shark tail fin movement",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-245065": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0749,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-245065.jpg",
+  "subject": "scientist measuring fossil vertebra",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-41298": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0993,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-41298.jpg",
+  "subject": "scientist measuring fossil vertebra",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-102663": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0894,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-102663.jpg",
+  "subject": "paleontologist examining large fossil vertebra",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-144930": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0724,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-144930.jpg",
+  "subject": "paleontologist examining large fossil vertebra",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-25907": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0543,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-25907.jpg",
+  "subject": "blue whale swimming",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-148197": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0133,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-148197.jpg",
+  "subject": "mako shark slender body",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-148196": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0079,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-148196.jpg",
+  "subject": "mako shark slender body",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-148212": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0066,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-148212.jpg",
+  "subject": "mako shark slender body",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-264448": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0074,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-264448.jpg",
+  "subject": "mako shark slender body",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-243194": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0565,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-243194.jpg",
+  "subject": "great white shark stocky body",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-87419": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0795,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-87419.jpg",
+  "subject": "scientist writing calculation notes",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-214928": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0779,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-214928.jpg",
+  "subject": "sperm whale swimming",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-286400": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0747,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-286400.jpg",
+  "subject": "fossilized vertebra close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-269913": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1052,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-269913.jpg",
+  "subject": "mako shark swimming",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-171604": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0512,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-171604.jpg",
+  "subject": "mako shark swimming",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-166289": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1389,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-166289.jpg",
+  "subject": "researcher comparing shark anatomy charts",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-119186": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.192,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-119186.jpg",
+  "subject": "mako shark profile view",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-368458": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0993,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-368458.jpg",
+  "subject": "mako shark profile view",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-219153": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0773,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-219153.jpg",
+  "subject": "mako shark head close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-30470": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0704,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-30470.jpg",
+  "subject": "mako shark head close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-18249": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0504,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-18249.jpg",
+  "subject": "mako shark tail fin movement",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-24999": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1014,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-24999.jpg",
+  "subject": "expert discussing large fossil find",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-208063": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0586,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-208063.jpg",
+  "subject": "stocky great white shark",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-122396": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0194,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-122396.jpg",
+  "subject": "stocky great white shark",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-333819": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0117,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-333819.jpg",
+  "subject": "stocky great white shark",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-190053": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0715,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-190053.jpg",
+  "subject": "biologist comparing shark body shapes",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-120775": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1224,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-120775.jpg",
+  "subject": "biologist comparing shark body shapes",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-22098": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0882,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-22098.jpg",
+  "subject": "biologist comparing shark body shapes",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-32516": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1084,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-32516.jpg",
+  "subject": "paleontologist presenting mass data",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-12716": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1056,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-12716.jpg",
+  "subject": "paleontologist presenting mass data",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-58480": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1113,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-58480.jpg",
+  "subject": "researcher analyzing statistical range",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-198475": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.096,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-198475.jpg",
+  "subject": "researcher analyzing statistical range",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-347076": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0946,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-347076.jpg",
+  "subject": "researcher analyzing statistical range",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-192444": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0685,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-192444.jpg",
+  "subject": "researcher analyzing statistical range",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-257182": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1079,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-257182.jpg",
+  "subject": "scientists looking at computer model",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-119283": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0808,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-119283.jpg",
+  "subject": "scientists looking at computer model",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-7529": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.086,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-7529.jpg",
+  "subject": "scientists looking at computer model",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-124217": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0839,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-124217.jpg",
+  "subject": "researchers sorting fossil teeth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-204412": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1105,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-204412.jpg",
+  "subject": "pile of shark teeth on table",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-3742": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0772,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-3742.jpg",
+  "subject": "pile of shark teeth on table",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-79155": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0781,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-79155.jpg",
+  "subject": "pile of shark teeth on table",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-22183": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0175,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-22183.jpg",
+  "subject": "ancient whale swimming in ocean",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-10427": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0024,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-10427.jpg",
+  "subject": "whales swimming in warm clear water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-364436": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0178,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-364436.jpg",
+  "subject": "whales swimming in warm clear water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-216067": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0205,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-216067.jpg",
+  "subject": "whales swimming in warm clear water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-263529": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0304,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-263529.jpg",
+  "subject": "whales swimming in warm clear water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-13704": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0023,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-13704.jpg",
+  "subject": "ancient whale swimming in ocean",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-10350": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0786,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-10350.jpg",
+  "subject": "museum display of megalodon teeth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-271871": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0945,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-271871.jpg",
+  "subject": "visitor looking at fossil exhibit",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-111294": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1113,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-111294.jpg",
+  "subject": "visitor looking at fossil exhibit",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-131985": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0953,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-131985.jpg",
+  "subject": "visitor looking at fossil exhibit",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-152222": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.083,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-152222.jpg",
+  "subject": "professor explaining graph on whiteboard",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-228782": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0836,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-228782.jpg",
+  "subject": "fossil shark jaw in museum case",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-165242": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1149,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-165242.jpg",
+  "subject": "fossil shark jaw in museum case",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-8064": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0723,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-8064.jpg",
+  "subject": "fossil shark jaw in museum case",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-64978": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0886,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-64978.jpg",
+  "subject": "fossil shark jaw in museum case",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-285736": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0301,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-285736.jpg",
+  "subject": "shark fin breaking water surface",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-186196": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.024,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-186196.jpg",
+  "subject": "shark fin breaking water surface",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-184799": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.072,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-184799.jpg",
+  "subject": "mako shark hunting fish",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-150227": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0572,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-150227.jpg",
+  "subject": "mako shark hunting fish",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-127153": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0443,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-127153.jpg",
+  "subject": "mako shark hunting fish",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-133871": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0321,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-133871.jpg",
+  "subject": "mako shark hunting fish",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-118417": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0867,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-118417.jpg",
+  "subject": "archaeologist digging in sediment",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-29939": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1026,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-29939.jpg",
+  "subject": "researcher measuring large bone fragment with tape",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-61695": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1448,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-61695.jpg",
+  "subject": "researcher measuring large bone fragment with tape",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-128215": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0999,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-128215.jpg",
+  "subject": "great white shark swimming near boat",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-99746": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1331,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-99746.jpg",
+  "subject": "great white shark swimming near boat",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-28838": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0692,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-28838.jpg",
+  "subject": "scientist examining stack of fossilized shark teeth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-28834": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0751,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-28834.jpg",
+  "subject": "scientist examining stack of fossilized shark teeth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-28839": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0673,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-28839.jpg",
+  "subject": "scientist examining stack of fossilized shark teeth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-116618": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0798,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-116618.jpg",
+  "subject": "researcher using microscope on tooth sample",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-340276": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0854,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-340276.jpg",
+  "subject": "scientist pointing at graph on whiteboard",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-34473": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0796,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-34473.jpg",
+  "subject": "scientist pointing at graph on whiteboard",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-111649": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0754,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-111649.jpg",
+  "subject": "two researchers discussing in lab",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-198791": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1292,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-198791.jpg",
+  "subject": "two researchers discussing in lab",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-21852": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1087,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-21852.jpg",
+  "subject": "two researchers discussing in lab",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-191443": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1268,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-191443.jpg",
+  "subject": "two researchers discussing in lab",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-43518": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0369,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-43518.jpg",
+  "subject": "large whale swimming in ocean",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-272166": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1292,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-272166.jpg",
+  "subject": "paleontologist showing fossilized whale bone with bite marks",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
  }
 }
