@@ -26,6 +26,17 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_00",
+     "species": "great_white_shark",
+     "standby": true
+    },
+    {
+     "kind": "recon",
+     "id": "cretaceous_trex_stride",
+     "species": null
     }
    ]
   },
@@ -82,6 +93,11 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "cretaceous_triceratops_herd",
+     "species": null
     }
    ]
   },
@@ -209,16 +225,6 @@
      "id": "otodus_megalodon_scene_35",
      "species": "otodus_megalodon",
      "scene": true
-    },
-    {
-     "kind": "recon",
-     "id": "megalodon_pose_32",
-     "species": "megalodon"
-    },
-    {
-     "kind": "recon",
-     "id": "otodus_megalodon_pose_1",
-     "species": "otodus_megalodon"
     }
    ]
   },
@@ -255,6 +261,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_01",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -322,11 +334,6 @@
    "section": "story",
    "amb": "beach",
    "beats": [
-    {
-     "kind": "recon",
-     "id": "otodus_megalodon_pose_2",
-     "species": "otodus_megalodon"
-    },
     {
      "kind": "anim",
      "anim": "map",
@@ -506,13 +513,7 @@
    "n": 15,
    "section": "story",
    "amb": "room",
-   "beats": [
-    {
-     "kind": "recon",
-     "id": "otodus_megalodon_pose_3",
-     "species": "otodus_megalodon"
-    }
-   ]
+   "beats": []
   },
   {
    "at": "Zähne, bis zu achtzehn",
@@ -680,16 +681,6 @@
    "amb": "room",
    "beats": [
     {
-     "kind": "recon",
-     "id": "otodus_megalodon_pose_4",
-     "species": "otodus_megalodon"
-    },
-    {
-     "kind": "recon",
-     "id": "megalodon_spearhead",
-     "species": "megalodon"
-    },
-    {
      "kind": "real",
      "need": "v021_2",
      "species": null,
@@ -738,6 +729,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_02",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -891,11 +888,6 @@
    "section": "story",
    "amb": "room",
    "beats": [
-    {
-     "kind": "recon",
-     "id": "otodus_megalodon_pose_5",
-     "species": "otodus_megalodon"
-    },
     {
      "kind": "real",
      "need": "v027_0",
@@ -1149,11 +1141,6 @@
    "amb": "ocean",
    "beats": [
     {
-     "kind": "recon",
-     "id": "otodus_megalodon_pose_6",
-     "species": "otodus_megalodon"
-    },
-    {
      "kind": "real",
      "need": "v033_0",
      "species": null,
@@ -1338,6 +1325,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_ancient_whale_00",
+     "species": "ancient_whale",
+     "standby": true
     }
    ]
   },
@@ -1377,8 +1370,9 @@
     },
     {
      "kind": "recon",
-     "id": "megalodon_teeth_variety",
-     "species": "megalodon"
+     "id": "standby_great_white_shark_03",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -1388,11 +1382,6 @@
    "section": "story",
    "amb": "underwater",
    "beats": [
-    {
-     "kind": "recon",
-     "id": "otodus_megalodon_pose_7",
-     "species": "otodus_megalodon"
-    },
     {
      "kind": "real",
      "need": "v039_0",
@@ -1562,6 +1551,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_04",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -1734,6 +1729,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_05",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -2061,6 +2062,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_06",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -2343,6 +2350,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_whales_00",
+     "species": "whales",
+     "standby": true
     }
    ]
   },
@@ -2592,6 +2605,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_07",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -3068,6 +3087,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_mako_shark_00",
+     "species": "mako_shark",
+     "standby": true
     }
    ]
   },
@@ -3193,6 +3218,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_08",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -3539,6 +3570,12 @@
       "archival photograph"
      ],
      "people": true
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_09",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -3969,11 +4006,6 @@
      "scene": true
     },
     {
-     "kind": "recon",
-     "id": "otodus_megalodon_pose_20",
-     "species": "otodus_megalodon"
-    },
-    {
      "kind": "real",
      "need": "v114_1",
      "species": null,
@@ -4178,11 +4210,6 @@
    "amb": "room",
    "beats": [
     {
-     "kind": "recon",
-     "id": "otodus_megalodon_pose_21",
-     "species": "otodus_megalodon"
-    },
-    {
      "kind": "real",
      "need": "v120_0",
      "species": null,
@@ -4318,6 +4345,12 @@
       "submersible",
       "archival photograph"
      ]
+    },
+    {
+     "kind": "recon",
+     "id": "standby_mako_shark_01",
+     "species": "mako_shark",
+     "standby": true
     }
    ]
   },
@@ -4327,11 +4360,6 @@
    "section": "climax",
    "amb": "underwater",
    "beats": [
-    {
-     "kind": "recon",
-     "id": "otodus_megalodon_pose_22",
-     "species": "otodus_megalodon"
-    },
     {
      "kind": "real",
      "need": "v126_0",
@@ -4479,11 +4507,6 @@
    "amb": "underwater",
    "beats": [
     {
-     "kind": "recon",
-     "id": "otodus_megalodon_pose_23",
-     "species": "otodus_megalodon"
-    },
-    {
      "kind": "real",
      "need": "v132_1",
      "species": "whales",
@@ -4606,11 +4629,6 @@
      "id": "otodus_megalodon_scene_40",
      "species": "otodus_megalodon",
      "scene": true
-    },
-    {
-     "kind": "recon",
-     "id": "otodus_megalodon_pose_24",
-     "species": "otodus_megalodon"
     },
     {
      "kind": "real",
@@ -4835,11 +4853,6 @@
    "amb": "room",
    "beats": [
     {
-     "kind": "recon",
-     "id": "otodus_megalodon_pose_25",
-     "species": "otodus_megalodon"
-    },
-    {
      "kind": "real",
      "need": "v144_1",
      "species": null,
@@ -5042,6 +5055,12 @@
       "archival photograph"
      ],
      "people": true
+    },
+    {
+     "kind": "recon",
+     "id": "standby_great_white_shark_10",
+     "species": "great_white_shark",
+     "standby": true
     }
    ]
   },
@@ -5200,11 +5219,6 @@
    "section": "climax",
    "amb": "room",
    "beats": [
-    {
-     "kind": "recon",
-     "id": "otodus_megalodon_pose_26",
-     "species": "otodus_megalodon"
-    },
     {
      "kind": "real",
      "need": "v153_0",
