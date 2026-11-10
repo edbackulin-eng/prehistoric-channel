@@ -20,7 +20,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
-sys.path.insert(0, str(ROOT / "automation"))
+# (not automation/ itself on the path: its watchdog.py would hide gpu/kernels/watchdog.py)
 from automation import gitsave  # noqa: E402
 from core import llm_usage  # noqa: E402
 from core.logger import get_logger  # noqa: E402
@@ -34,7 +34,7 @@ def queue():
 
 
 def image_room():
-    import llm_budget as b
+    from automation import llm_budget as b
     return max(0, llm_usage.left(b.FLASH)["requests"]) + max(0, llm_usage.left(b.LITE)["requests"])
 
 
@@ -42,7 +42,7 @@ def reserve_for(slug):
     """What the episode being built still needs of today's images: its FLUX check, its render."""
     if not slug:
         return 0
-    import llm_budget as b
+    from automation import llm_budget as b
     try:
         return b.Q["per_episode"]["flux_check"]["image_requests"] + b.image_need(slug)
     except Exception as e:                                   # noqa: BLE001
@@ -59,7 +59,7 @@ def save(slug, what):
 
 
 def scripts(topics):
-    import llm_budget as b
+    from automation import llm_budget as b
     pe = b.Q["per_episode"]["script"]
     for t in topics[:SCRIPTS_AHEAD]:
         slug = t["slug"]
@@ -75,8 +75,8 @@ def scripts(topics):
 
 
 def prepare(slug, building):
-    import llm_budget as b
-    import plan_episode
+    from automation import llm_budget as b
+    from automation import plan_episode
     from pipeline import speciescheck
     ep = ROOT / "episodes" / slug
     if not (ep / "script.txt").exists():
