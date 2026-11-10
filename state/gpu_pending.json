@@ -1,12 +1,1 @@
-[
- {
-  "workflow": "episode.yml",
-  "inputs": {
-   "slug": "megalodon",
-   "relay": "1"
-  },
-  "opens": "2026-11-10T17:30:00Z",
-  "at": "2026-11-10T17:10:00Z",
-  "why": "the free GPU window opens after this run's wait"
- }
-]
+[]
