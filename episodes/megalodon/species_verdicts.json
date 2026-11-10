@@ -10876,5 +10876,295 @@
   "museum_display": false,
   "note": "Shows a beach coastline instead of a shark tooth on sandy bottom.",
   "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-22619": {
+  "subject": "coastal cliffs and sea",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "vehicles"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Aerial view of coastal cliffs and sea, fits general landscape intro.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-236325": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "pixabay-386512": {
+  "subject": "school of goldfish in shallow water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Goldfish swimming in a pond.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-328741": {
+  "subject": "lake landscape with mountains",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles",
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a lake and mountains, not a museum visitor looking at a shark.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-226063": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "pixabay-224277": {
+  "subject": "flowing river with mossy rocks",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "above-water river scene, not underwater current",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-277231": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "pixabay-213447": {
+  "subject": "construction or demolition site with excavators",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "vehicles",
+   "buildings",
+   "text",
+   "logos"
+  ],
+  "people": true,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "shows modern excavators at a construction or demolition site, not a fossil excavation",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-243395": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "pixabay-243153": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "pixabay-228697": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "pixabay-246514": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "pixabay-210947": {
+  "subject": "aerial view of a park or garden",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "buildings"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a park instead of an academic lecture hall.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-218794": {
+  "subject": "person kayaking in coastal waters",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "people",
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people",
+   "vehicles"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows person kayaking, completely unrelated to fossil vertebrae",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-315767": {
+  "subject": "aerial view of a castle on a rocky outcrop by water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings",
+   "vehicles"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows landscape instead of lecture",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-224791": {
+  "subject": "geyser or fountain in lake with mountains",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a water fountain instead of old fossil photos.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-252821": {
+  "subject": "rocky landscape and forest",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows rock formations rather than a paleontologist studying strata",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-90933": {
+  "subject": "university building exterior with park",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [
+   "buildings",
+   "people"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "people",
+   "vehicles"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows university exterior instead of lecture hall.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-32708": {
+  "subject": "aerial view of university or campus buildings",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "buildings",
+   "vehicles"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows aerial view of a university campus instead of scientists debating in a lecture hall.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-210647": {
+  "subject": "aerial view of quarry or pit",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows quarry landscape fitting the narration",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-214197": {
+  "subject": "orange flowers by the sea with green hills",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows coastal landscape with flowers, not an iceberg melting in sea.",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-295210": {
+  "subject": "white flowers in the rain",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "flowers instead of archaeologist",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-260037": {
+  "subject": "open water surface with sunlight reflection",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows water surface instead of underwater kelp forest",
+  "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-276605": {
+  "subject": "aerial view of a winding road through forests and fields",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "road"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows forests and fields instead of open ocean",
+  "model": "gemini-flash-lite-latest"
  }
 }
