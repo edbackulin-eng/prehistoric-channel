@@ -1,0 +1,38 @@
+name: ahead
+# Owner 10.11: two videos a week - while one episode is on the GPU or its render, the next one's
+# scripts, plan, species check and stand-ins are done here (automation/ahead.py), the image quota
+# shared by days so the episode being built keeps what it still needs.
+on:
+  schedule:
+    - cron: "20 9,13,17,22 * * *"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: ahead
+  cancel-in-progress: false
+env:
+  PYTHONUTF8: 1
+jobs:
+  prepare:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    env:
+      GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
+      GROQ_API_KEY_PH: ${{ secrets.GROQ_API_KEY }}
+      PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install -q -r requirements.txt
+      - uses: actions/cache@v4
+        with:
+          path: assets/models/open_clip
+          key: open-clip-ViT-B-16-SigLIP-webli-1
+      - run: pip install -q torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu && pip install -q -r requirements-prefilter.txt
+      - run: python automation/ahead.py

@@ -300,6 +300,8 @@ def passes(v, species=None, archive=False, allow=()):
         return None, v["error"]
     if v.get("missing"):                            # the clip never downloaded: the next one is tried
         return False, "frames missing"
+    if v.get("model") == "reused":                  # turned down in another episode, for no line's reason
+        return False, f"turned down before ({v.get('reused_from')}): {v.get('reused_why')}"
     if v.get("model") == "siglip":                  # turned down on the CPU (pipeline/prefilter.py)
         return False, f"CPU: clearly not it ({v.get('score')})"
     why = []
@@ -332,17 +334,79 @@ def passes(v, species=None, archive=False, allow=()):
 
 
 # ------------------------------------------------------------ candidates
+ORDER = {}                # cid -> the prefilter's score on its poster: the order the clips are tried in
+
+
+def use_scores(slug):
+    """The episode's prefilter scores (episodes/<slug>/prefilter_scores.json), for candidates()."""
+    ORDER.clear()
+    p = ROOT / "episodes" / slug / "prefilter_scores.json"
+    if p.exists():
+        ORDER.update(json.loads(p.read_text(encoding="utf-8")))
+    return ORDER
+
+
 def candidates(beat, footage, layers):
-    """[(candidate id, kind, source)] in the order they are tried."""
+    """[(candidate id, kind, source)] in the order they are tried. Owner 10.11: a beat's stock clips
+    in the order of the prefilter's score (best first; a clip with no score keeps its place after
+    them), the walk stopping at the first one Gemini passes."""
     k = beat["kind"]
     if k == "real":
         main = footage[beat["need"]]
-        return [(c["id"], "real", c) for c in [main] + list(main.get("alternates") or [])]
+        cs = [main] + list(main.get("alternates") or [])
+        if ORDER and any(c.get("id") in ORDER for c in cs):
+            scored = sorted((c for c in cs if c.get("id") in ORDER), key=lambda c: -ORDER[c["id"]])
+            cs = scored + [c for c in cs if c.get("id") not in ORDER]
+        return [(c["id"], "real", c) for c in cs]
     if k == "photo":
         return [(i, "photo", layers / f"{i}.jpg") for i in [beat["need"]] + list(beat.get("alts") or [])]
     if k == "recon":
         return [(f"{beat['id']}__s{s}", "recon", layers / f"{beat['id']}__s{s}.jpg") for s in range(3)]
     return []
+
+
+_REUSE = {}
+
+
+def _reuse_index(slug):
+    """cid -> [(episode, verdict)] of every other episode's saved verdicts (built once a run)."""
+    if slug not in _REUSE:
+        idx = {}
+        for vf in (ROOT / "episodes").glob("*/species_verdicts.json"):
+            if vf.parent.name == slug:
+                continue
+            try:
+                for cid, v in json.loads(vf.read_text(encoding="utf-8")).items():
+                    if isinstance(v, dict) and v.get("model") not in ("siglip", None) and "error" not in v:
+                        idx.setdefault(cid, []).append((vf.parent.name, v))
+            except (OSError, ValueError):
+                continue
+        _REUSE[slug] = idx
+    return _REUSE[slug]
+
+
+def _asked_for(v):
+    """The species a saved verdict was asked for: kept since 10.11, before that read off its features."""
+    if v.get("species_asked"):
+        return v["species_asked"]
+    feats = set((v.get("features") or {}).keys())
+    return next((k for k, sp in SPECIES.items() if feats and feats == set(sp.get("features") or [])), None)
+
+
+def reused_fail(slug, cid, species, beat):
+    """Owner 10.11: a clip another episode's check turned down for a reason no line changes - the
+    wrong animal for the same species, a logo or text, people where none are allowed - is turned
+    down again without a request. A pass is never reused: it depends on the line."""
+    allow = [a.lower() for a in beat.get("allow", ())]
+    for other, v in _reuse_index(slug).get(cid, []):
+        same = species and species != "prehistoric_scene" and _asked_for(v) == species
+        why = ("not the species" if same and v.get("species_match") is False
+               else "text or logo" if v.get("text_or_logo") and "text" not in allow and not beat.get("archive")
+               else "people" if v.get("people") and "people" not in allow and not beat.get("archive") else None)
+        if why:
+            return {**{k: v.get(k) for k in ("subject", "species_match", "people", "text_or_logo", "note")},
+                    "model": "reused", "reused_from": other, "reused_why": why}
+    return None
 
 
 def beat_kind(beat):
@@ -370,6 +434,40 @@ def cpu_verdict(cid, src, beat, footage):
             "subject": query, "note": "decided on the CPU (pipeline/prefilter.py)"}
 
 
+def _score_all(slug, shots, footage):
+    """The prefilter's score of every stock candidate on its poster, kept in
+    episodes/<slug>/prefilter_scores.json (the order candidates() tries them in)."""
+    from pipeline import prefilter
+    p = ROOT / "episodes" / slug / "prefilter_scores.json"
+    have = json.loads(p.read_text(encoding="utf-8")) if p.exists() else {}
+    vf = ROOT / "episodes" / slug / "species_verdicts.json"
+    if not p.exists() and vf.exists() and any(
+            isinstance(v, dict) and str(v.get("model", "")).startswith("gemini")
+            for v in json.loads(vf.read_text(encoding="utf-8")).values()):
+        # its check began in the planned order (megalodon): a new order now would ask again what is judged
+        return have
+    if not prefilter.available():
+        return have
+    todo, seen = [], set()
+    for line in shots:
+        for beat in line["beats"]:
+            if beat["kind"] != "real" or beat["need"] in seen or beat["need"] not in footage:
+                continue
+            seen.add(beat["need"])
+            main = footage[beat["need"]]
+            query = beat.get("topic") or main.get("query")
+            for c in [main] + list(main.get("alternates") or []):
+                if c.get("id") and c["id"] not in have:
+                    pp = prefilter.poster(c, c["id"])
+                    if pp:
+                        todo.append((c["id"], prefilter.text_for(query=query), pp))
+    for (cid, _t, _p), s in zip(todo, prefilter.scores([(t_, p_) for _c, t_, p_ in todo])):
+        have[cid] = round(s, 4)
+    p.write_text(json.dumps(have, indent=0), encoding="utf-8")
+    log.info("prefilter: %d stock clips of %s scored (%d new)", len(have), slug, len(todo))
+    return have
+
+
 def prefilter_pass(slug):
     """Before the budget is asked: every stock clip the CPU can decide is decided, so the
     estimate (automation/llm_budget.py) counts only what Gemini still has to see. Returns the
@@ -382,6 +480,8 @@ def prefilter_pass(slug):
         SPECIES.update({k: v for k, v in json.loads(sp_path.read_text(encoding="utf-8")).items() if k not in SPECIES})
     vpath = ep / "species_verdicts.json"
     known = json.loads(vpath.read_text(encoding="utf-8")) if vpath.exists() else {}
+    _score_all(slug, shots, footage)
+    use_scores(slug)
     n, seen = 0, set()
     for line in shots:
         for beat in line["beats"]:
@@ -391,7 +491,7 @@ def prefilter_pass(slug):
             for cid, kind, src in candidates(beat, footage, None):
                 v = known.get(cid)
                 if v is None:
-                    v = cpu_verdict(cid, src, beat, footage)
+                    v = reused_fail(slug, cid, beat.get("species"), beat) or cpu_verdict(cid, src, beat, footage)
                     if v is None:
                         break                          # doubtful: Gemini sees it (and what follows) in the check
                     known[cid] = v
@@ -531,6 +631,7 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
     vpath = ep / "species_verdicts.json"
     known = json.loads(vpath.read_text(encoding="utf-8")) if vpath.exists() else {}
     asked = [0]
+    use_scores(slug)
     if key and BATCH_CLIPS > 1:
         # owner 08.11: the clips asked BATCH_CLIPS a request first; the walk below then reads them
         batch_prefill(key, _beats_to_check(spec, timeline, kinds), footage, layers, out_dir, known, vpath)
@@ -573,8 +674,9 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
                         passing.append(cid)
                     continue
                 if key and kind == "real":
-                    # owner 08.11: SigLIP on the CPU first - a clear match or a clear miss needs no Gemini
-                    v = cpu_verdict(cid, src, beat, footage)
+                    # owner 08.11: SigLIP on the CPU first - a clear miss needs no Gemini; 10.11: nor a
+                    # clip another episode turned down for a reason no line changes
+                    v = reused_fail(slug, cid, species, beat) or cpu_verdict(cid, src, beat, footage)
                     if v:
                         known[cid] = v
                         ok, why = passes(v, species, archive, beat.get("allow", ()))
@@ -604,6 +706,7 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
                     else "one still image"
                 v = ask(key, fr, line, species, beat.get("topic"), archive, what)
                 if "error" not in v:
+                    v["species_asked"] = species
                     known[cid] = v
                     asked[0] += 1
                     if asked[0] % 10 == 0:       # kept as it goes: a run that dies later loses nothing

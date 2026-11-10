@@ -38,11 +38,12 @@ def image_need(slug, kinds=("real", "recon", "photo"), fixed=True):
     footage = json.loads((ep / "footage.json").read_text(encoding="utf-8")) if (ep / "footage.json").exists() else {}
     known = json.loads((ep / "species_verdicts.json").read_text(encoding="utf-8")) \
         if (ep / "species_verdicts.json").exists() else {}
+    speciescheck.use_scores(slug)                 # the clips in the order the check tries them
     todo = 0
     for b in {(b.get("id") or b.get("need")): b for l in shots for b in l["beats"] if b["kind"] in kinds}.values():
         if b["kind"] == "real":
             f = footage.get(b["need"], {})
-            ids = [i for i in [f.get("id")] + [a.get("id") for a in f.get("alternates") or []] if i]
+            ids = [c for c, _k, _s in speciescheck.candidates(b, footage, None)] if f else []
             # 08.11: the clips are tried in order - the beat is done at its first passing clip, and
             # Gemini is needed only when an unjudged clip comes before one (the CPU prefilter has
             # judged the clear ones by now: pipeline/speciescheck.prefilter_pass)
