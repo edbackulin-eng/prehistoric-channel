@@ -11232,5 +11232,72 @@
   "museum_display": false,
   "note": "depicts a shark resembling a great white rather than megalodon",
   "model": "gemini-flash-lite-latest"
+ },
+ "otodus_megalodon_pose_0__s0": {
+  "subject": "modern shark swimming in ocean",
+  "species_match": false,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "not visible",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "no",
+   "robust and broad jaw structure compared to modern sharks": "no"
+  },
+  "forbidden_seen": [
+   "a modern animal in a prehistoric scene"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a modern shark, not Megalodon",
+  "model": "gemini-flash-lite-latest"
+ },
+ "otodus_megalodon_scene_34__s1": {
+  "subject": "Large shark breaching water with open mouth",
+  "species_match": true,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "not visible",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "not visible",
+   "robust and broad jaw structure compared to modern sharks": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Illustration of a massive shark breaching, fitting the context of weight discussion",
+  "model": "gemini-flash-lite-latest"
+ },
+ "otodus_megalodon_scene_34__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_scene_35__s0": {
+  "subject": "huge shark with diver",
+  "species_match": false,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "not visible",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "yes",
+   "robust and broad jaw structure compared to modern sharks": "yes"
+  },
+  "forbidden_seen": [
+   "a modern animal in an incorrect context or AI generated mix with diver"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "diver"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "AI-generated image showing a shark with a human diver, likely depicting Megalodon scale but unrealistic context.",
+  "model": "gemini-flash-lite-latest"
  }
 }
