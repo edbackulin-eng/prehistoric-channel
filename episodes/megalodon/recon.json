@@ -177,10 +177,7 @@
    "cretaceous_trex_stride",
    "cretaceous_triceratops_herd"
   ],
-  "dinosaur_frames_added": [
-   "cretaceous_trex_stride",
-   "cretaceous_triceratops_herd"
-  ],
+  "dinosaur_frames_added": [],
   "wow_pictures": 26,
   "frames": 60,
   "animated": 10
