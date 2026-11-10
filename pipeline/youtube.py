@@ -36,7 +36,7 @@ DAYS = {"Mon": 0, "Tue": 1, "Wed": 2, "Thu": 3, "Fri": 4, "Sat": 5, "Sun": 6}
 SLOT_WEEKDAYS = tuple(DAYS[d] for d in CFG["weekdays"])
 SLOT_TIME = tuple(int(x) for x in CFG["time"].split(":"))
 TZ = ZoneInfo(CFG["tz"])
-MIN_LEAD = timedelta(minutes=30)
+MIN_LEAD = timedelta(hours=6)       # 11.11: no approve any more - YouTube has its 4K versions ready by then
 CHUNK_MB = 8
 
 

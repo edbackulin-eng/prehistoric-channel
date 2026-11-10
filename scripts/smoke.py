@@ -608,7 +608,7 @@ def main():
                                                "topic": f"topic {i}"} for i in range(4)]}]}
     (_ep / "footage.json").write_text(json.dumps(_foot), encoding="utf-8")
     (_ep / "shots.json").write_text(json.dumps(_shots), encoding="utf-8")
-    _score = {"c0a": 0.9, "c1a": 0.01, "c1b": 0.9, "c2a": 0.5, "c3a": 0.01, "c3b": 0.5}
+    _score = {"c0a": 0.9, "c0b": 0.5, "c1a": 0.01, "c1b": 0.05, "c2a": 0.5, "c2b": 0.6, "c3a": 0.01, "c3b": 0.5}
     _img = _d / "p.jpg"
     from PIL import Image as _Image
     _Image.new("RGB", (32, 32)).save(_img)
@@ -620,6 +620,8 @@ def main():
         _pf.scores = lambda pairs: [_score[Path(p).stem] for _t, p in pairs]
         speciescheck.ROOT = _lb.ROOT = _d
         n_cpu = speciescheck.prefilter_pass("pf")
+        order3 = [c for c, _k, _s in speciescheck.candidates(_shots["lines"][0]["beats"][3], _foot, None)]
+        order2 = [c for c, _k, _s in speciescheck.candidates(_shots["lines"][0]["beats"][2], _foot, None)]
         kn = json.loads((_ep / "species_verdicts.json").read_text(encoding="utf-8"))
         need_after = _lb.image_need("pf", kinds=("real",), fixed=False)
     finally:
@@ -628,9 +630,32 @@ def main():
     p_no = speciescheck.passes({"model": "siglip", "cpu": "reject", "score": 0.01}, "whales")
     check("prefilter: the CPU only turns clear misses down (never takes a clip, an accept threshold is "
           "ignored); everything else goes to Gemini and is counted by the budget",
-          n_cpu == 2 and set(kn) == {"c1a", "c3a"} and kn["c1a"]["cpu"] == "reject"
-          and p_ok[0] is False and p_no[0] is False and need_after == int(4 * 1.3 + 0),
-          f"{n_cpu} decided, {sorted(kn)}, need {need_after}")
+          n_cpu == 2 and set(kn) == {"c1a", "c1b"} and kn["c1a"]["cpu"] == "reject"
+          and p_ok[0] is False and p_no[0] is False and need_after == int(3 * 1.3 + 0)
+          and order3 == ["c3b", "c3a"] and order2 == ["c2b", "c2a"],
+          f"{n_cpu} decided, {sorted(kn)}, need {need_after}, order {order3} {order2}")
+    # owner 10.11: a clip turned down in another episode for no line's reason is not asked again
+    (_d / "episodes" / "other").mkdir(parents=True, exist_ok=True)
+    (_d / "episodes" / "other" / "species_verdicts.json").write_text(json.dumps({
+        "x1": {"species_match": False, "species_asked": "whales", "model": "gemini-flash-lite-latest"},
+        "x2": {"species_match": True, "species_asked": "whales", "fits_narration": False, "model": "gemini-flash-lite-latest"},
+        "x3": {"species_match": None, "text_or_logo": True, "model": "gemini-flash-lite-latest"}}), encoding="utf-8")
+    saved_root = speciescheck.ROOT
+    try:
+        speciescheck.ROOT = _d
+        speciescheck._REUSE.clear()
+        r1 = speciescheck.reused_fail("pf", "x1", "whales", {})
+        r2 = speciescheck.reused_fail("pf", "x2", "whales", {})
+        r3 = speciescheck.reused_fail("pf", "x1", "great_white_shark", {})
+        r4 = speciescheck.reused_fail("pf", "x3", None, {})
+        r5 = speciescheck.reused_fail("pf", "x3", None, {"allow": ["text"]})
+    finally:
+        speciescheck.ROOT = saved_root
+        speciescheck._REUSE.clear()
+    check("species check: a clip another episode turned down for the same species, or for a logo, is not asked "
+          "again; a pass or another species is",
+          bool(r1) and r2 is None and r3 is None and bool(r4) and r5 is None
+          and speciescheck.passes(r1, "whales")[0] is False, f"{r1} {r4}")
     # owner 08.11: four clips a request - each beat's next undecided clip, until each has a passing one
     calls_b = []
     saved_b = (speciescheck.ask_batch, speciescheck._frames, speciescheck.cpu_verdict, speciescheck.BATCH_CLIPS)
