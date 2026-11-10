@@ -11166,5 +11166,20 @@
   "museum_display": false,
   "note": "shows forests and fields instead of open ocean",
   "model": "gemini-flash-lite-latest"
+ },
+ "pixabay-275983": {
+  "subject": "ocean sunset with a small torii gate on a rock",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "torii gate"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Ocean horizon with a rock and torii gate during sunset.",
+  "model": "gemini-flash-lite-latest"
  }
 }
