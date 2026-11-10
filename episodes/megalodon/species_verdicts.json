@@ -11299,5 +11299,83 @@
   "museum_display": false,
   "note": "AI-generated image showing a shark with a human diver, likely depicting Megalodon scale but unrealistic context.",
   "model": "gemini-flash-lite-latest"
+ },
+ "otodus_megalodon_scene_35__s1": {
+  "subject": "massive shark with diver",
+  "species_match": false,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "not visible",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "yes",
+   "robust and broad jaw structure compared to modern sharks": "yes"
+  },
+  "forbidden_seen": [
+   "small size comparable to a great white shark"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "diver"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "depicts a great white shark or similar modern shark scaled up with a diver",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_35__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "standby_great_white_shark_01__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "standby_ancient_whale_00__s1": {
+  "subject": "Basilosaurus or early ancient whale underwater",
+  "species_match": true,
+  "features": {
+   "large aquatic mammal body": "yes",
+   "presence of bite marks on fossilized bones": "not visible",
+   "streamlined shape for swimming": "yes",
+   "blowhole on top of head": "not visible",
+   "flippers and tail flukes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "AI-generated image showing an ancient whale in water.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "ancient_whale"
+ },
+ "standby_ancient_whale_00__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_scene_36__s0": {
+  "subject": "Great white shark swimming near the surface",
+  "species_match": false,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "not visible",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "no",
+   "robust and broad jaw structure compared to modern sharks": "no"
+  },
+  "forbidden_seen": [
+   "small size comparable to a great white shark"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a modern great white shark instead of Megalodon.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
  }
 }
