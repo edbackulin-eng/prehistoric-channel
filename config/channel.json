@@ -154,8 +154,8 @@
     "rpm": 10
    },
    "gemini-flash-lite-latest": {
-    "rpd": 250,
-    "source": "estimate (>= 180 seen in one day)",
+    "rpd": 500,
+    "source": "the 429 of 11.11: GenerateRequestsPerDayPerProjectPerModel-FreeTier=500 (was an estimate of 250)",
     "rpm": 15
    },
    "gemma-4-31b-it": {
