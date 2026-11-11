@@ -1,0 +1,18 @@
+{
+ "gemini-flash-latest": {
+  "requests": 9,
+  "in_tokens": 14510,
+  "out_tokens": 1689,
+  "steps": {
+   "species_check": 9
+  }
+ },
+ "gemini-flash-lite-latest": {
+  "requests": 7,
+  "in_tokens": 11334,
+  "out_tokens": 1256,
+  "steps": {
+   "species_check": 7
+  }
+ }
+}
