@@ -11421,5 +11421,65 @@
  "otodus_megalodon_scene_36__s2": {
   "missing": true,
   "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_scene_37__s0": {
+  "subject": "Megalodon shark swimming underwater with smaller sharks",
+  "species_match": true,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "not visible",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "yes",
+   "robust and broad jaw structure compared to modern sharks": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Illustration of a Megalodon shark with smaller sharks around it.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "standby_whales_00__s0": {
+  "subject": "Underwater view of a whale-like marine mammal",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "horizontal tail flukes": "not visible",
+   "blowhole on top of head": "yes",
+   "smooth skin without scales": "yes",
+   "large size relative to other marine animals": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Clear shot of a whale swimming underwater",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "whales"
+ },
+ "standby_whales_00__s1": {
+  "subject": "AI-generated prehistoric whale",
+  "species_match": true,
+  "features": {
+   "large streamlined body": "yes",
+   "horizontal tail flukes": "not visible",
+   "blowhole on top of head": "not visible",
+   "smooth skin without scales": "yes",
+   "large size relative to other marine animals": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "AI generated image of a whale-like creature",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "whales"
  }
 }
