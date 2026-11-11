@@ -72,6 +72,11 @@ def scripts(topics):
         log.info("writing ahead: %s (%s)", slug, why)
         if run(ROOT / "automation" / "write_episode.py", slug) == 0:
             save(slug, "script")
+        else:
+            log.info("%s not written now; the next script waits for the next run", slug)
+        # 11.11: three scripts in one night spent Groq's day of tokens and the flash-lite requests the
+        # species checks need - one script a run (four runs a day), and none after a failure
+        return
 
 
 def prepare(slug, building):
