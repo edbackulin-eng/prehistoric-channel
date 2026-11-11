@@ -86,5 +86,14 @@
   "hours": 0.702,
   "ok": true,
   "check": "60/60 images (need 54), 60 image files, weights: kaggle-mirror:/kaggle/input/notebooks/metberi/whatif-flux-weights/flux4bit, errors: []"
+ },
+ {
+  "task": "animate",
+  "ref": "metberi/prehistoric-animate",
+  "start": "2026-11-11T17:36:25.981435+00:00",
+  "end": "2026-11-11T18:16:07.633062+00:00",
+  "hours": 0.662,
+  "ok": true,
+  "check": "10/10 clips (need 8), errors: []"
  }
 ]
