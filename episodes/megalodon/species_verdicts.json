@@ -11481,5 +11481,385 @@
   "note": "AI generated image of a whale-like creature",
   "model": "gemini-flash-lite-latest",
   "species_asked": "whales"
+ },
+ "otodus_megalodon_scene_38__s0": {
+  "subject": "digital illustration of a Megalodon leaping from the water",
+  "species_match": true,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "no",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "not visible",
+   "robust and broad jaw structure compared to modern sharks": "yes"
+  },
+  "forbidden_seen": [
+   "smooth non-serrated tooth edges"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Stylized 3D rendering of a Megalodon showing smooth, conical teeth without serrations.",
+  "model": "gemini-flash-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_38__s1": {
+  "subject": "AI rendering of a giant shark at sea surface",
+  "species_match": true,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "not visible",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "not visible",
+   "robust and broad jaw structure compared to modern sharks": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "CGI depiction of Megalodon resembling an oversized great white shark.",
+  "model": "gemini-flash-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_38__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "standby_mako_shark_00__s0": {
+  "subject": "CGI model of a prehistoric or fantasy fish",
+  "species_match": false,
+  "features": {
+   "slender, torpedo-shaped body": "yes",
+   "long, pointed snout": "yes",
+   "large, triangular pectoral fins": "no",
+   "dark blue-grey coloration": "yes",
+   "fast-swimming appearance": "yes"
+  },
+  "forbidden_seen": [
+   "presence of a beak or bird-like head"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The image shows an AI-generated or CGI fish with an upturned beak-like rostrum and single gill slit, not a shortfin mako shark.",
+  "model": "gemini-flash-latest",
+  "species_asked": "mako_shark"
+ },
+ "standby_mako_shark_00__s1": {
+  "subject": "CGI prehistoric marine creature with bill-like snout",
+  "species_match": false,
+  "features": {
+   "slender, torpedo-shaped body": "yes",
+   "long, pointed snout": "yes",
+   "large, triangular pectoral fins": "yes",
+   "dark blue-grey coloration": "yes",
+   "fast-swimming appearance": "yes"
+  },
+  "forbidden_seen": [
+   "presence of a beak or bird-like head"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Depicts a stylized or prehistoric creature with a bony operculum and bill-like snout rather than a shortfin mako shark.",
+  "model": "gemini-flash-latest",
+  "species_asked": "mako_shark"
+ },
+ "standby_mako_shark_00__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "standby_great_white_shark_08__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_scene_39__s0": {
+  "subject": "CGI depiction of Megalodon beneath a boat",
+  "species_match": true,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "not visible",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "yes",
+   "robust and broad jaw structure compared to modern sharks": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "boat",
+   "vehicle"
+  ],
+  "people": false,
+  "text_or_logo": true,
+  "museum_display": false,
+  "note": "Giant shark depicted underwater beneath the hull of a modern boat with writing on it.",
+  "model": "gemini-flash-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_39__s1": {
+  "subject": "giant shark swimming near boats underwater",
+  "species_match": true,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "not visible",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "yes",
+   "robust and broad jaw structure compared to modern sharks": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "boat",
+   "boat hull"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "AI-generated depiction of a gigantic megalodon shark next to modern boats.",
+  "model": "gemini-flash-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_39__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "standby_mako_shark_01__s0": {
+  "subject": "a fictional fish with an extremely long snout",
+  "species_match": false,
+  "features": {
+   "slender, torpedo-shaped body": "yes",
+   "long, pointed snout": "no",
+   "large, triangular pectoral fins": "no",
+   "dark blue-grey coloration": "yes",
+   "fast-swimming appearance": "yes"
+  },
+  "forbidden_seen": [
+   "presence of a beak or bird-like head"
+  ],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Snout is too long and pointed for a mako shark",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "mako_shark"
+ },
+ "standby_mako_shark_01__s1": {
+  "subject": "3D render of an ichthyosaur",
+  "species_match": false,
+  "features": {
+   "slender, torpedo-shaped body": "yes",
+   "long, pointed snout": "yes",
+   "large, triangular pectoral fins": "no",
+   "dark blue-grey coloration": "yes",
+   "fast-swimming appearance": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The image shows a CGI model of an ichthyosaur, not a shortfin mako shark (Isurus oxyrinchus).",
+  "model": "gemini-flash-latest",
+  "species_asked": "mako_shark"
+ },
+ "standby_mako_shark_01__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_scene_40__s0": {
+  "subject": "CGI shark attacking a whale",
+  "species_match": true,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "no",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "yes",
+   "robust and broad jaw structure compared to modern sharks": "yes"
+  },
+  "forbidden_seen": [
+   "smooth non-serrated tooth edges"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "The narration explicitly introduces fossil vertebral bodies (Wirbelkörper), but the image depicts a fully rendered shark hunting at the surface.",
+  "model": "gemini-flash-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_40__s1": {
+  "subject": "Great white shark biting an underwater drone",
+  "species_match": false,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "not visible",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "no",
+   "robust and broad jaw structure compared to modern sharks": "no"
+  },
+  "forbidden_seen": [
+   "small size comparable to a great white shark",
+   "a modern animal in a prehistoric scene"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "underwater drone",
+   "modern equipment"
+  ],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a modern great white shark biting a submersible drone, not a Megalodon or vertebrae as mentioned in narration.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_40__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "standby_great_white_shark_10__s0": {
+  "subject": "great white shark underwater",
+  "species_match": true,
+  "features": {
+   "distinctive white belly and grey back": "yes",
+   "triangular serrated teeth": "yes",
+   "large pectoral fins": "yes",
+   "prominent dorsal fin": "yes",
+   "slender, streamlined body": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "clear image of a great white shark",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "great_white_shark"
+ },
+ "standby_great_white_shark_10__s1": {
+  "subject": "great white shark underwater (CGI)",
+  "species_match": true,
+  "features": {
+   "distinctive white belly and grey back": "yes",
+   "triangular serrated teeth": "yes",
+   "large pectoral fins": "yes",
+   "prominent dorsal fin": "yes",
+   "slender, streamlined body": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Stylized or 3D-rendered depiction of a great white shark.",
+  "model": "gemini-flash-latest",
+  "species_asked": "great_white_shark"
+ },
+ "otodus_megalodon_scene_41__s0": {
+  "subject": "Large shark with a diver in the background",
+  "species_match": true,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "not visible",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "yes",
+   "robust and broad jaw structure compared to modern sharks": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a massive shark and diver, but does not show bite marks on ancient bones.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_41__s1": {
+  "subject": "Giant shark with diver",
+  "species_match": true,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "not visible",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "yes",
+   "robust and broad jaw structure compared to modern sharks": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "people"
+  ],
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Image shows a giant shark and a diver, not bite marks on ancient bones.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_41__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_scene_42__s0": {
+  "subject": "shark attacking another sea creature",
+  "species_match": false,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "no",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "no",
+   "robust and broad jaw structure compared to modern sharks": "no"
+  },
+  "forbidden_seen": [
+   "small size comparable to a great white shark"
+  ],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "depicts a shark resembling a great white rather than megalodon",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_42__s1": {
+  "subject": "a large shark in water",
+  "species_match": true,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "not visible",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "not visible",
+   "robust and broad jaw structure compared to modern sharks": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "illustration of a giant shark",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_42__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
  }
 }
