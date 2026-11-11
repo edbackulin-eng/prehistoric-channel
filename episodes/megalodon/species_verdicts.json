@@ -11377,5 +11377,49 @@
   "note": "Shows a modern great white shark instead of Megalodon.",
   "model": "gemini-flash-lite-latest",
   "species_asked": "otodus_megalodon"
+ },
+ "standby_ancient_whale_00__s0": {
+  "subject": "Prehistoric whale-like creature underwater",
+  "species_match": true,
+  "features": {
+   "large aquatic mammal body": "yes",
+   "presence of bite marks on fossilized bones": "not visible",
+   "streamlined shape for swimming": "yes",
+   "blowhole on top of head": "not visible",
+   "flippers and tail flukes": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "AI-generated image showing an ancient aquatic mammal",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "ancient_whale"
+ },
+ "otodus_megalodon_scene_36__s1": {
+  "subject": "Large shark swimming near the surface",
+  "species_match": false,
+  "features": {
+   "massive triangular teeth with finely serrated edges": "not visible",
+   "V-shaped notch at the base of the tooth root": "not visible",
+   "asymmetrical posterior teeth with slanted tips": "not visible",
+   "enormous body size estimated between 9 and 18 meters": "not visible",
+   "robust and broad jaw structure compared to modern sharks": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a shark, but details of jaw and teeth are not clearly visible.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_36__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
  }
 }
