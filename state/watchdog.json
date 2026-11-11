@@ -404,6 +404,13 @@
    "sig": "build / Species check of the FLUX frames, and which to animate",
    "day": "2026-11-07",
    "rerun": false
+  },
+  {
+   "run": "43050735330/1",
+   "wf": "episode.yml",
+   "sig": "build / Run sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg",
+   "day": "2026-11-11",
+   "rerun": true
   }
  ],
  "cancelled": [
