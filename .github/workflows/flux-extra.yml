@@ -1,0 +1,118 @@
+name: flux-extra
+run-name: flux-extra ${{ inputs.slug }}
+
+# Owner 12.11 (megalodon): FLUX frames more for an episode whose GPU run is done - the prompts named
+# here (already in episodes/<slug>/recon.json and on their lines in shots.json), RECON_SEEDS seeds
+# each, in the next free Kaggle window (gpu/kaggle_once.py, the same rules as every GPU job). The
+# frames come out beside the ones of `gpu_run`'s gpu-<slug> artifact (its clips kept), in this run's
+# own gpu-<slug> artifact - the gpu_run for footage-check.yml and render.yml.
+# Start it only once no animate job of this channel is pending: the LTX kernel reads its frames from
+# the FLUX kernel's latest output, which this run replaces.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: episode
+        required: true
+      gpu_run:
+        description: the run (episode, ltx-extra or flux-extra) whose gpu-<slug> artifact to add to
+        required: true
+      prompts:
+        description: FLUX prompt ids of recon.json, comma separated
+        required: true
+      seeds:
+        description: seeds a prompt
+        default: "1"
+      relay:
+        description: restarts while waiting for the GPU
+        default: "0"
+
+permissions:
+  contents: write
+  actions: write
+
+concurrency:
+  group: flux-extra
+  cancel-in-progress: false
+
+env:
+  PYTHONUTF8: 1
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  flux:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    env:
+      KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+      KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      HF_TOKEN: ${{ secrets.HF_TOKEN }}
+      GPU_MAX_WAIT_S: "15000"
+      RECON_ONLY: ${{ inputs.prompts }}
+      RECON_SEEDS: ${{ inputs.seeds }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - uses: actions/download-artifact@v5
+        with:
+          name: gpu-${{ inputs.slug }}
+          path: gpu/
+          run-id: ${{ inputs.gpu_run }}
+          github-token: ${{ github.token }}
+      - name: The frames there so far, set aside
+        run: |
+          mkdir -p gpu/_raw_before
+          cp gpu/results_recon/raw/*.jpg gpu/_raw_before/ 2>/dev/null || true
+          ls gpu/_raw_before | wc -l
+      - name: FLUX on Kaggle
+        id: flux
+        run: |
+          set +e
+          python -u gpu/kaggle_once.py recon "${{ inputs.slug }}"; rc=$?
+          echo "rc=$rc" >> "$GITHUB_OUTPUT"
+          [ $rc -eq 0 ] || [ $rc -eq 3 ] || exit $rc
+      - name: The frames old and new together
+        if: steps.flux.outputs.rc == '0'
+        run: |
+          mkdir -p gpu/results_recon/raw
+          n_new=$(ls gpu/results_recon/raw/*.jpg | wc -l)
+          for f in gpu/_raw_before/*.jpg; do [ -e "gpu/results_recon/raw/$(basename "$f")" ] || cp "$f" gpu/results_recon/raw/; done
+          echo "new frames: $n_new; all: $(ls gpu/results_recon/raw/*.jpg | wc -l)"
+      - uses: actions/upload-artifact@v5
+        if: steps.flux.outputs.rc == '0'
+        with:
+          name: gpu-${{ inputs.slug }}
+          retention-days: 14
+          compression-level: 0
+          path: |
+            gpu/results_recon/raw/
+            gpu/results_recon/report.json
+            gpu/results_animate/clips/
+            gpu/results_animate/report.json
+            gpu/animate_job.json
+      - name: Keep the GPU records
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          for f in state/kaggle_once.json state/gpu_ledger.json; do [ -e "$f" ] && git add -A "$f"; done
+          git diff --cached --quiet && exit 0
+          git commit -q -m "GPU usage after flux-extra run ${{ github.run_id }}"
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
+      - name: Relay (still waiting for a free GPU slot)
+        if: steps.flux.outputs.rc == '3' && fromJSON(inputs.relay) < 12
+        run: |
+          python automation/gpu_pending.py relay flux-extra.yml slug="${{ inputs.slug }}" \
+            gpu_run="${{ inputs.gpu_run }}" prompts="${{ inputs.prompts }}" seeds="${{ inputs.seeds }}" \
+            relay="$(( ${{ inputs.relay }} + 1 ))"
+          if [ -e state/gpu_pending.json ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add state/gpu_pending.json
+            git diff --cached --quiet || git commit -q -m "flux-extra ${{ inputs.slug }}: waits for the GPU window (run ${{ github.run_id }})"
+            for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && break; sleep $((i * 10)); done
+          fi

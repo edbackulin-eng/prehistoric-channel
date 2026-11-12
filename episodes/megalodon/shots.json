@@ -659,6 +659,11 @@
    "amb": "room",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_00",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
      "need": "v020_1",
      "species": "great_white_shark",
@@ -1263,6 +1268,11 @@
    "amb": "room",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_01",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
      "need": "v036_0",
      "species": null,
@@ -1482,6 +1492,11 @@
    "section": "story",
    "amb": "room",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_02",
+     "species": "otodus_megalodon"
+    },
     {
      "kind": "real",
      "need": "v041_1",
@@ -1946,6 +1961,11 @@
    "amb": "room",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_03",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
      "need": "v053_0",
      "species": null,
@@ -1983,6 +2003,11 @@
    "section": "story",
    "amb": "underwater",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_04",
+     "species": "otodus_megalodon"
+    },
     {
      "kind": "real",
      "need": "v054_1",
@@ -2078,6 +2103,11 @@
    "amb": "underwater",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_05",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
      "need": "v058_1",
      "species": null,
@@ -2158,6 +2188,11 @@
    "amb": "room",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_06",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
      "need": "v061_2",
      "species": null,
@@ -2179,6 +2214,11 @@
    "section": "story",
    "amb": "room",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_07",
+     "species": "otodus_megalodon"
+    },
     {
      "kind": "real",
      "need": "v062_2",
@@ -2229,6 +2269,11 @@
    "section": "story",
    "amb": "room",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_08",
+     "species": "otodus_megalodon"
+    },
     {
      "kind": "real",
      "need": "v064_2",
@@ -2287,6 +2332,12 @@
    "section": "story",
    "amb": "room",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_09",
+     "species": "otodus_megalodon",
+     "scene": true
+    },
     {
      "kind": "real",
      "need": "v066_2",
@@ -2387,6 +2438,12 @@
    "section": "story",
    "amb": "room",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_10",
+     "species": "otodus_megalodon",
+     "scene": true
+    },
     {
      "kind": "real",
      "need": "v069_2",
@@ -2497,6 +2554,11 @@
    "section": "story",
    "amb": "room",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_11",
+     "species": "otodus_megalodon"
+    },
     {
      "kind": "real",
      "need": "v074_0",
@@ -3904,6 +3966,11 @@
    "cut": true,
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_12",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
      "need": "v111_1",
      "species": null,
@@ -4210,6 +4277,11 @@
    "amb": "room",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_13",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
      "need": "v120_0",
      "species": null,
@@ -4324,7 +4396,13 @@
    "n": 124,
    "section": "climax",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_14",
+     "species": "otodus_megalodon"
+    }
+   ]
   },
   {
    "at": "Legt man dieselben anatomischen",
@@ -4403,6 +4481,11 @@
    "section": "climax",
    "amb": "underwater",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_15",
+     "species": "otodus_megalodon"
+    },
     {
      "kind": "real",
      "need": "v128_0",
@@ -4527,7 +4610,14 @@
    "n": 133,
    "section": "climax",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_16",
+     "species": "otodus_megalodon",
+     "scene": true
+    }
+   ]
   },
   {
    "at": "Doch diese extremen Ausreißer",
@@ -5108,6 +5198,11 @@
    "amb": "room",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_17",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
      "need": "v150_1",
      "species": null,
@@ -5256,6 +5351,11 @@
    "section": "climax",
    "amb": "ocean",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_18",
+     "species": "otodus_megalodon"
+    },
     {
      "kind": "real",
      "need": "v154_1",
@@ -5462,6 +5562,11 @@
    "section": "finale",
    "amb": "underwater",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_19",
+     "species": "otodus_megalodon"
+    },
     {
      "kind": "real",
      "need": "v160_0",
@@ -5796,6 +5901,11 @@
    "amb": "room",
    "beats": [
     {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_20",
+     "species": "otodus_megalodon"
+    },
+    {
      "kind": "real",
      "need": "v167_0",
      "species": null,
@@ -6059,7 +6169,13 @@
    "n": 173,
    "section": "finale",
    "amb": "underwater",
-   "beats": []
+   "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_21",
+     "species": "otodus_megalodon"
+    }
+   ]
   },
   {
    "at": "182: Der durchschnittliche Wert",
@@ -6191,6 +6307,11 @@
    "section": "finale",
    "amb": "room",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_22",
+     "species": "otodus_megalodon"
+    },
     {
      "kind": "real",
      "need": "v177_0",
@@ -6468,6 +6589,11 @@
    "section": "finale",
    "amb": "underwater",
    "beats": [
+    {
+     "kind": "recon",
+     "id": "otodus_megalodon_extra_23",
+     "species": "otodus_megalodon"
+    },
     {
      "kind": "real",
      "need": "v184_0",

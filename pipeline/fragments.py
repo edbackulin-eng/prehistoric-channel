@@ -270,6 +270,10 @@ def refine(shots, end_all, pool, is_landscape, is_wow, wow_ids, hook_window, wow
                     # (04.11: a real clip's piece lost its "need", and the render failed on it)
                     same = {**{kk: s[kk] for kk in CLIP_KEYS if kk in s and kk not in ("clip", "crop")}, **same}
                 got = same or pool.subject(a, step, species=s.get("species"), moving=hook, still_first=not hook)
+                if got is None and hook and not (named or {}).get(s.get("line")):
+                    # 12.11: in the first 30 s a line that names no animal takes any moving one of the
+                    # episode's rather than a 6.7 s shot (QA: hook cuts 1.5-3 s)
+                    got = pool.subject(a, step, moving=True, any_animal=True)
                 if got is None:                       # nothing left anywhere: the piece stays with its shot
                     out[-1]["end"] = p["end"]
                     continue

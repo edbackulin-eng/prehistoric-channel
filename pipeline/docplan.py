@@ -189,6 +189,7 @@ def build(slug, timeline, narration_s, parts=6, picks=None, animated=None):
     landscape_s = [0.0]
     shots = []
     prev_beats = []
+    prev_named = set()
     for entry, li, a, b in segs:
         hook = (entry.get("section") or timeline[li].get("section")) == "hook" or a < HOOK_WINDOW_S
         span = b - a
@@ -200,10 +201,19 @@ def build(slug, timeline, narration_s, parts=6, picks=None, animated=None):
             prev_beats = [bt for bt in entry["beats"] if not bt.get("standby")] or prev_beats
         # a line about an animal shows the animal first, and its world too (owner 07.11: the
         # surroundings, people, maps of the line stay; they were dropped for the animal before)
-        with_species = [bt for bt in beats if bt.get("species")]
+        # 12.11: an LTX clip of a prehistoric animal (a FLUX frame with no species of the episode, the
+        # triceratops) is an animal too - it came after the line's other beats and was never reached,
+        # and QA's two dinosaurs in motion were one
+        with_species = [bt for bt in beats if bt.get("species") or (
+            bt["kind"] == "recon" and any(c in animated for c in picks.get(speciescheck.beat_key(bt)) or []))]
         if with_species and len(with_species) < len(beats):
-            beats = with_species + [bt for bt in beats if not bt.get("species")]
+            beats = with_species + [bt for bt in beats if not any(bt is w for w in with_species)]
         named = {bt.get("species") for bt in beats if bt.get("species")}   # the line's, or those it goes on with
+        if hook and not named:
+            # 12.11: QA wants only moving animals in the first 30 s; a line there that names none (megalodon:
+            # "Es war im Jahr 1835 ...") goes on with the animals of the line before it, not its people
+            named = set(prev_named)
+        prev_named = named or prev_named
         base = {"line": li, "text": timeline[li]["text"], "amb": entry.get("amb"),
                 "cut_here": bool(entry.get("cut")), "section": timeline[li].get("section", "story")}
         if not beats:
