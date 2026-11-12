@@ -228,6 +228,13 @@ def build(task, slug, folder):
         job = {k: spec[k] for k in ("style", "prompts", "thumbs")}
         job["two_seeds"] = spec.get("two_seeds", [])
         job["seeds_per_prompt"] = n = spec.get("seeds_per_prompt", 1)
+        only = [x for x in os.environ.get("RECON_ONLY", "").split(",") if x]
+        if only:
+            # flux-extra.yml (owner 12.11): only these prompts, with RECON_SEEDS seeds each, no thumbnails -
+            # frames added to an episode whose GPU run is done
+            job["prompts"] = {k: job["prompts"][k] for k in only}
+            job["thumbs"], job["two_seeds"] = {}, []
+            job["seeds_per_prompt"] = n = int(os.environ.get("RECON_SEEDS") or n)
         # the ids this job makes: an earlier run's output (other prompts) never counts
         want = [f"{k}__s{i}" for k in job["prompts"] for i in range(max(n, 2 if k in job["two_seeds"] else 1))]
         want += [f"{k}__s{i}" for k in job["thumbs"] for i in range(2)]
