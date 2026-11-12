@@ -1,0 +1,43 @@
+[
+ {
+  "id": "thumb_a",
+  "hook": "scale",
+  "animal": "mosasaurus",
+  "base": "flux",
+  "query": "",
+  "prompt": "Cinematic dramatic underwater shot, massive Mosasaurus with huge open mouth full of sharp conical teeth lunging directly at the camera, aggressive attack pose, bright neon orange and deep blue contrast, volumetric lighting, highly detailed scales, small scuba diver silhouette next to it for scale, no text, no people in foreground",
+  "fossil_query": "",
+  "words": [
+   "18-METER",
+   "JÄGER"
+  ],
+  "accent": 0
+ },
+ {
+  "id": "thumb_b",
+  "hook": "split",
+  "animal": "mosasaurus",
+  "base": "flux",
+  "query": "",
+  "prompt": "Split screen composition, left side is a realistic fossil skull of a Mosasaurus, right side is a vivid, hyper-realistic reconstruction of a living Mosasaurus with open mouth, vibrant colors, dramatic lighting, high contrast, no text, no humans",
+  "fossil_query": "mosasaurus fossil skull",
+  "words": [
+   "FOSIL",
+   "LEBT"
+  ],
+  "accent": 1
+ },
+ {
+  "id": "thumb_c",
+  "hook": "silhouette",
+  "animal": "mosasaurus",
+  "base": "flux",
+  "query": "",
+  "prompt": "Dramatic underwater scene, large Mosasaurus in foreground with mouth open, dark silhouette of a T-Rex in the distant background, high contrast, bright saturated colors, action shot, sense of danger, no text, no humans",
+  "fossil_query": "",
+  "words": [
+   "URZEIT-MONSTER"
+  ],
+  "accent": 0
+ }
+]

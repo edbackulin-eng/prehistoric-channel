@@ -1,0 +1,262 @@
+{
+ "mosasaurus": {
+  "name": "Mosasaurus (Mosasaurus)",
+  "features": [
+   "elongated streamlined body",
+   "four robust paddle-like limbs",
+   "long tail ending in a downward-bent hypocercal fin",
+   "massive skull with large sharp conical teeth",
+   "scales covering the skin"
+  ],
+  "forbidden": [
+   "bird-like beak",
+   "long neck like a plesiosaur",
+   "external ears or mammalian features",
+   "feathers or fur",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": false,
+  "video_query": null,
+  "look": "A massive, streamlined marine reptile with a long, muscular body covered in small, smooth grey-green scales. It has four robust, paddle-like limbs positioned mid-body and a long, powerful tail ending in a distinct, downward-bent hypocercal fin. The head is large and robust with a wide mouth full of large, sharp, conical teeth, and the eyes are positioned high on the skull."
+ },
+ "crocodile": {
+  "name": "Krokodil (Crocodylus)",
+  "features": [
+   "long snout with visible teeth",
+   "scaly, armored skin",
+   "powerful tail for swimming",
+   "nostrils and eyes on top of head",
+   "four legs with claws"
+  ],
+  "forbidden": [
+   "paddle-like flippers instead of legs",
+   "whale-like blowhole",
+   "feathers",
+   "long neck",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "crocodile swimming in water",
+  "look": "A large, semi-aquatic reptile with a long, low-slung body covered in thick, bony scales (osteoderms). It has a long snout filled with sharp teeth, small ears, and a powerful, laterally flattened tail. The skin is typically dark green or brown, and the limbs are short and sturdy with claws."
+ },
+ "whale": {
+  "name": "Wal (Mammalia (Cetacea))",
+  "features": [
+   "streamlined body without limbs",
+   "horizontal tail flukes",
+   "blowhole on top of head",
+   "smooth, hairless skin",
+   "large pectoral fins"
+  ],
+  "forbidden": [
+   "four legs or paddles",
+   "scales or scutes",
+   "external ears",
+   "vertical tail fin",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "whale swimming underwater",
+  "look": "A large marine mammal with a smooth, hairless, streamlined body. It has a horizontal tail fluke for propulsion, small pectoral fins, and a blowhole on the top of its head. The skin is typically dark grey or black, and the body shape is torpedo-like for efficient swimming."
+ },
+ "monitor_lizard": {
+  "name": "Waran (Varanus)",
+  "features": [
+   "long, slender body",
+   "forked tongue",
+   "sharp claws",
+   "patterned scales",
+   "long tail"
+  ],
+  "forbidden": [
+   "webbed feet like a frog",
+   "wings",
+   "shell",
+   "feathers",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "monitor lizard walking",
+  "look": "A medium-sized lizard with a long, slender body and a very long tail. It has a patterned skin with dark spots or bands on a lighter background, sharp claws on its limbs, and a forked tongue. The head is somewhat triangular with prominent eyes and nostrils."
+ },
+ "shark": {
+  "name": "Hai (Selachimorpha)",
+  "features": [
+   "cartilaginous skeleton",
+   "dorsal fin",
+   "gill slits",
+   "heterocercal tail",
+   "smooth skin with denticles"
+  ],
+  "forbidden": [
+   "legs",
+   "scales like a fish",
+   "blowhole",
+   "feathers",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "shark swimming underwater",
+  "look": "A large fish with a streamlined, torpedo-shaped body. It has a prominent dorsal fin, a heterocercal tail (upper lobe longer than lower), and five to seven gill slits on the sides of the head. The skin is covered in small, tooth-like denticles giving it a rough texture, typically grey on top and white underneath."
+ },
+ "tylosaurus": {
+  "name": "Tylosaurus (Tylosaurus)",
+  "features": [
+   "slender, snake-like body",
+   "smaller head relative to body size",
+   "dark dorsal and light ventral coloration",
+   "powerful tail for propulsion",
+   "webbed limbs used for steering"
+  ],
+  "forbidden": [
+   "bird-like beak",
+   "long slender neck like a plesiosaur",
+   "feathers or fur",
+   "external gills",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": false,
+  "video_query": null,
+  "look": "A long, slender, snake-like marine reptile with a relatively small head, dark grey-brown dorsal side and pale cream ventral side, featuring a powerful tail, webbed limbs, and jaws lined with sharp conical teeth."
+ },
+ "prognathodon": {
+  "name": "Prognathodon (Prognathodon)",
+  "features": [
+   "hypocercal tail with longer lower lobe",
+   "robust jaws with large teeth",
+   "dark dorsal and light ventral coloration",
+   "powerful tail for propulsion",
+   "webbed limbs used for steering"
+  ],
+  "forbidden": [
+   "bird-like beak",
+   "long slender neck like a plesiosaur",
+   "feathers or fur",
+   "external gills",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": false,
+  "video_query": null,
+  "look": "A robust marine reptile with a hypocercal tail where the lower lobe is longer than the upper, dark grey-brown dorsal side and pale cream ventral side, featuring powerful jaws with large teeth and webbed limbs."
+ },
+ "cephalopod": {
+  "name": "Kopffüßer (Cephalopoda)",
+  "features": [
+   "mantle and tentacles",
+   "large camera-like eyes",
+   "jet propulsion",
+   "soft body without bones",
+   "variable skin coloration"
+  ],
+  "forbidden": [
+   "bony skeleton",
+   "feathers or fur",
+   "external gills",
+   "sclerotic ring in eye",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "octopus swimming underwater",
+  "look": "A soft-bodied marine animal with a mantle, eight tentacles, large eyes, and variable skin coloration, moving through the water using jet propulsion."
+ },
+ "ammonite": {
+  "name": "Ammoniten (Ammonoidea)",
+  "features": [
+   "coiled shell with septa",
+   "siphuncle for buoyancy control",
+   "tentacles around the mouth",
+   "large eyes",
+   "jet propulsion"
+  ],
+  "forbidden": [
+   "bony skeleton",
+   "feathers or fur",
+   "external gills",
+   "sclerotic ring in eye",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": false,
+  "video_query": null,
+  "look": "A marine animal with a coiled, chambered shell, tentacles around the mouth, large eyes, and a soft body, moving through the water using jet propulsion."
+ },
+ "seabird": {
+  "name": "Vögel (Aves)",
+  "features": [
+   "feathers covering the body",
+   "beak without teeth",
+   "hollow bones",
+   "wings for flight",
+   "high metabolic rate"
+  ],
+  "forbidden": [
+   "scales instead of feathers",
+   "external gills",
+   "sclerotic ring in eye",
+   "cartilaginous skeleton",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "seabird flying over ocean",
+  "look": "A bird with feathers covering its body, a beak without teeth, wings for flight, and hollow bones, flying over the ocean."
+ },
+ "sea_turtle": {
+  "name": "Meeresschildkröten (Chelonia)",
+  "features": [
+   "hard shell (carapace and plastron)",
+   "flippers instead of legs",
+   "no external ears",
+   "long lifespan",
+   "oviparous"
+  ],
+  "forbidden": [
+   "feathers or fur",
+   "external gills",
+   "sclerotic ring in eye",
+   "cartilaginous skeleton",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "sea turtle swimming underwater",
+  "look": "A marine reptile with a hard shell, flippers instead of legs, and a long lifespan, swimming through the water."
+ },
+ "fish": {
+  "name": "Fische (Pisces)",
+  "features": [
+   "gills for breathing",
+   "fins for movement",
+   "scales covering the body",
+   "lateral line system",
+   "cold-blooded"
+  ],
+  "forbidden": [
+   "feathers or fur",
+   "external gills",
+   "sclerotic ring in eye",
+   "cartilaginous skeleton",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "school of fish swimming underwater",
+  "look": "A cold-blooded aquatic animal with gills for breathing, fins for movement, and scales covering its body, swimming through the water."
+ },
+ "snake": {
+  "name": "Schlangen (Serpentes)",
+  "features": [
+   "legless, elongated body",
+   "smooth or keeled scales",
+   "forked tongue",
+   "no external ears",
+   "varied patterns including stripes or spots"
+  ],
+  "forbidden": [
+   "presence of legs or limbs",
+   "feathers or wings",
+   "external gills",
+   "hooves",
+   "a modern animal in a prehistoric scene"
+  ],
+  "living": true,
+  "video_query": "snake slithering through grass",
+  "look": "A legless, elongated reptile with a smooth, scaly body. The skin features a pattern of dark bands or spots on a lighter background. The head is distinct from the neck, with small eyes and a forked tongue. The body is flexible and muscular, designed for slithering. The overall appearance is that of a sleek, agile predator."
+ }
+}

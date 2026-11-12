@@ -1,0 +1,43 @@
+{
+ "version": 9,
+ "script_sha": "c760a5ef24cf",
+ "lines": 344,
+ "species": 13,
+ "living": [
+  "cephalopod",
+  "crocodile",
+  "fish",
+  "monitor_lizard",
+  "sea_turtle",
+  "seabird",
+  "shark",
+  "snake",
+  "whale"
+ ],
+ "flux_prompts": 27,
+ "flux_frames": 54,
+ "animate": [
+  "maastricht_discovery",
+  "mosasaurus_scene_42",
+  "mosasaurus_skull_legend",
+  "cuvier_examines_skull",
+  "unknown_leviathan_lurking",
+  "lost_ancient_world_ocean",
+  "mosa_hunt_scene",
+  "mosasaurus_hunt",
+  "mosasaurus_extinct_shadow",
+  "mosasaurus_maas_river"
+ ],
+ "video_beats": 636,
+ "lines_without_picture": [
+  1,
+  11,
+  17,
+  21,
+  27,
+  39,
+  70,
+  73,
+  228
+ ]
+}
