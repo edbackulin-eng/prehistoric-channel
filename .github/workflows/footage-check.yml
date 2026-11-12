@@ -1,0 +1,92 @@
+name: footage-check
+run-name: footage-check ${{ inputs.slug }}
+
+# The species check of an episode's pictures without the rest of the build (12.11): after
+# `plan_episode.py --refootage` or a changed checklist, the stock clips (and, with gpu_run, the FLUX
+# frames of that episode run) are judged inside the day's Gemini budget and the verdicts committed,
+# so render.yml (gpu_run + layers_run: no GPU, no new layers) finds them all judged. A check the
+# quota cuts short keeps what it has; run it again after the next reset.
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: episode
+        default: megalodon
+      gpu_run:
+        description: the episode.yml run whose FLUX frames to judge too (empty - stock clips only)
+        default: ""
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: footage-check-${{ inputs.slug }}
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 300
+    env:
+      PYTHONUTF8: 1
+      SLUG: ${{ inputs.slug }}
+      GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+      - run: pip install -q -r requirements.txt
+      - uses: actions/cache@v4
+        with:
+          path: assets/models/open_clip
+          key: open-clip-ViT-B-16-SigLIP-webli-1
+      - run: pip install -q torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu && pip install -q -r requirements-prefilter.txt
+      - name: Git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          cat > "$RUNNER_TEMP/push.sh" <<'EOF'
+          git diff --cached --quiet && exit 0
+          git commit -q -m "$1"
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
+          exit 1
+          EOF
+      - name: Today's free quotas
+        run: python automation/llm_budget.py report
+      - name: The FLUX frames (from the episode run)
+        if: inputs.gpu_run != ''
+        uses: actions/download-artifact@v5
+        with:
+          name: gpu-${{ inputs.slug }}
+          path: gpu/
+          run-id: ${{ inputs.gpu_run }}
+          github-token: ${{ github.token }}
+      - name: FLUX frames
+        if: inputs.gpu_run != ''
+        run: |
+          python -c "import sys; sys.path.insert(0, '.'); from pipeline import speciescheck; speciescheck.check('$SLUG', 'gpu/results_recon/raw', 'work/$SLUG/recon_check', kinds=('recon',))"
+          git add "episodes/$SLUG/species_verdicts.json" && bash "$RUNNER_TEMP/push.sh" "FLUX species check for $SLUG (footage-check)" || true
+      - name: Stock clips
+        run: |
+          python -c "import sys; sys.path.insert(0, '.'); from pipeline import speciescheck; speciescheck.prefilter_pass('$SLUG')" || true
+          git add "episodes/$SLUG/species_verdicts.json" && bash "$RUNNER_TEMP/push.sh" "Prefilter verdicts for $SLUG" || true
+          python -c "import sys; sys.path.insert(0, '.'); from pipeline import speciescheck; speciescheck.check('$SLUG', 'work/none', 'work/$SLUG/footage_check', kinds=('real',))"
+          git add "episodes/$SLUG/species_verdicts.json" && bash "$RUNNER_TEMP/push.sh" "Footage species check for $SLUG (footage-check)" || true
+          left=$(python -c "import json; s = json.load(open('work/$SLUG/footage_check/species_check.json')); print(sum(1 for r in s['rows'] if r.get('action') == 'unknown'))")
+          echo "beats still unjudged: $left"
+          [ "$left" = "0" ] || echo "::warning::$left beats still unjudged (quota); run again after the next reset"
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: footage-check-${{ inputs.slug }}
+          retention-days: 7
+          path: |
+            work/${{ inputs.slug }}/footage_check/species_check.json
+            work/${{ inputs.slug }}/footage_check/species_grid.jpg
+            work/${{ inputs.slug }}/recon_check/species_check.json
+            work/${{ inputs.slug }}/recon_check/species_grid.jpg

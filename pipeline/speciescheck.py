@@ -132,6 +132,7 @@ Look at the image(s) - {what} - and answer with JSON only:
  "forbidden_seen": [<every item from the forbidden list that you do see>],
  "fits_narration": true|false,   // true if it shows what "The picture should show" describes, or is a fair documentary stand-in for the line (a sea for a voyage, a harbour coast for a harbour); false only if it contradicts or distracts from it
  "off_topic_objects": [<objects that do not belong under this line: candles, books (unless books are spoken of), people, text, logos, watermarks, modern objects, buildings, vehicles>],
+ "other_animal": "<an animal clearly shown that is neither the species asked for nor named or meant by the narration line (a goldfish, a crab, a jellyfish under a line about something else), or null>",
  "people": true|false,
  "text_or_logo": true|false,
  "museum_display": true|false,   // a preserved specimen, taxidermy, a model or a museum display case
@@ -315,6 +316,7 @@ Its image(s) follow - {what}. Its answer object:
  "forbidden_seen": [<every item from this clip's forbidden list that you do see>],
  "fits_narration": true|false,   // true if it shows what "The picture should show" describes, or is a fair documentary stand-in for the line; false only if it contradicts or distracts from it
  "off_topic_objects": [<objects that do not belong under this line: candles, books (unless books are spoken of), people, text, logos, watermarks, modern objects, buildings, vehicles>],
+ "other_animal": "<an animal clearly shown that is neither the species asked for nor named or meant by the narration line (a goldfish, a crab, a jellyfish under a line about something else), or null>",
  "people": true|false, "text_or_logo": true|false,
  "museum_display": true|false,   // a preserved specimen, taxidermy, a model or a museum display case
  "note": "<a few words>"}}
@@ -435,6 +437,12 @@ def passes(v, species=None, archive=False, allow=()):
             why.append("forbidden: " + "; ".join(map(str, v["forbidden_seen"])))
     if v.get("fits_narration") is False:
         why.append("does not fit the line")
+    # 12.11 (megalodon's QA "match": a goldfish, a crab, a jellyfish passed as scenery under lines that
+    # name none of them): an animal the line does not tell of is a wrong picture (asked since 12.11)
+    other = v.get("other_animal")
+    if other and str(other).strip().lower() not in ("null", "none", "no", "false", "") and \
+            not any(w in str(other).lower() for w in allow):
+        why.append(f"an animal the line does not name: {other}")
     ok_words = list(allow) + (["people", "person", "text", "man", "woman"] if archive else [])
     off = [o for o in (v.get("off_topic_objects") or []) if not any(w in str(o).lower() for w in ok_words)]
     if off:

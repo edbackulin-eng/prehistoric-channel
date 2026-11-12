@@ -83,7 +83,7 @@ def poster(src, cid):
     try:
         p.parent.mkdir(parents=True, exist_ok=True)
         req = urllib.request.Request(url, headers={"User-Agent": "prehistoric-channel/1.0"})
-        with urllib.request.urlopen(req, timeout=60) as r:
+        with urllib.request.urlopen(req, timeout=20) as r:
             p.write_bytes(r.read())
         return p
     except Exception as e:                                           # noqa: BLE001

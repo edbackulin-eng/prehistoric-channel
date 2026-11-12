@@ -635,6 +635,10 @@ def main():
           "Megalodon, alive" in t_rec and t_gws is None, t_rec)
     _pv = {"species_match": None, "features": {}, "fits_narration": True, "off_topic_objects": ["people"],
            "people": True, "text_or_logo": False}
+    check("species check: an animal the line does not name fails (QA 'match'); none is fine",
+          speciescheck.passes({**_pv, "people": False, "off_topic_objects": [], "other_animal": "goldfish"}, None)[0]
+          is False and speciescheck.passes({**_pv, "people": False, "off_topic_objects": [],
+                                           "other_animal": None}, None)[0] is True, "")
     check("species check: a beat planned with people may show people; another may not",
           speciescheck.passes(_pv, None, allow=speciescheck.allow_of({"kind": "real", "people": True}))[0] is True
           and speciescheck.passes(_pv, None, allow=speciescheck.allow_of({"kind": "real"}))[0] is False

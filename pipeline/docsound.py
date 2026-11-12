@@ -244,11 +244,31 @@ def _loop(tr, n, x_s=1.5):
     if len(tr) >= n or len(tr) <= 2 * x:
         return np.concatenate([tr] * (int(np.ceil(n / max(1, len(tr)))) + 1))[:n]
     out = tr.copy()
+    # 12.11 (megalodon): a repeat came in with the track's soft opening (Heroic Age: 3 s at -30 dBFS,
+    # 14 dB under its median, above _no_silence's cut) - ducked under the voice, 2 s under -60 dBFS at
+    # the seam, and QA's music check failed. A repeat starts where the track has its body.
+    rest = tr[_body_from(tr):]
+    if len(rest) <= 2 * x:
+        rest = tr
     fade = np.linspace(0, 1, x, dtype=np.float32)[:, None]
     while len(out) < n:
-        out[-x:] = out[-x:] * (1 - fade) + tr[:x] * fade
-        out = np.concatenate([out, tr[x:]])
+        out[-x:] = out[-x:] * (1 - fade) + rest[:x] * fade
+        out = np.concatenate([out, rest[x:]])
     return out[:n]
+
+
+def _body_from(tr, within_s=12, below_db=8.0):
+    """The first sample of the track's first second within below_db of its median level (0 if none
+    in the first within_s seconds)."""
+    k = len(tr) // SR
+    if k < 4:
+        return 0
+    db = 20 * np.log10(np.sqrt((tr[: k * SR].mean(1).reshape(k, SR) ** 2).mean(1)) + 1e-9)
+    med = float(np.median(db))
+    for i in range(min(k, within_s)):
+        if db[i] >= med - below_db:
+            return i * SR
+    return 0
 
 
 def _score_audio(music, n, offset_s):
