@@ -1,0 +1,1113 @@
+{
+ "slug": "mosasaurier",
+ "title": "Mosasaurier: Die 18-Meter-Riesen, die die Ozeane beherrschten",
+ "tags": [
+  "Mosasaurier",
+  "Kreidezeit",
+  "Paläontologie",
+  "Meeresreptilien",
+  "Maastricht",
+  "Georges Cuvier",
+  "Fossilien",
+  "Urzeit",
+  "Prähistorie",
+  "Mosasaurus",
+  "Tylosaurus",
+  "Aussterben",
+  "Wissenschaft",
+  "Naturgeschichte",
+  "Ozeane"
+ ],
+ "description": "Vor 70 Millionen Jahren dominierten keine Dinosaurier die Meere, sondern schuppige Riesen aus der Familie der Mosasaurier. Wir rekonstruieren die faszinierende Entdeckungsgeschichte von Maastricht, die Cuvier zu einer revolutionären Einsicht führte, und beleuchten die biologischen Wunder dieser warmblütigen Jäger, die bis zur Antarktis wanderten.\n\nQuellen:\n- Mosasaurier (Wikipedia, de): https://de.wikipedia.org/wiki/Mosasaurier\n- Mosasaurus (Wikipedia, de): https://de.wikipedia.org/wiki/Mosasaurus\n- Mosasaur (Wikipedia, en): https://en.wikipedia.org/wiki/Mosasaur\n- Mosasaurus (Wikipedia, en): https://en.wikipedia.org/wiki/Mosasaurus\n- Tylosaurus (Wikipedia, en): https://en.wikipedia.org/wiki/Tylosaurus",
+ "words": 3237,
+ "minutes_est": 25.3,
+ "fact_check": [
+  {
+   "round": 0,
+   "n": 15,
+   "was": "Man nimmt an, sie habe einen Wal an Land gespült.",
+   "verdict": "fix",
+   "text": "< Man nahm an, es handele sich um Krokodile oder Wale.",
+   "why": "Quelle besagt: 'Ursprünglich wurde angenommen, dass es sich um Überreste von Krokodilen oder Walen handelt.'"
+  },
+  {
+   "round": 0,
+   "n": 18,
+   "was": "1778. Im selben Steinbruch kommt ein zweiter Schädel zum Vorschein.",
+   "verdict": "fix",
+   "text": "18: Um 1780 kommt im selben Steinbruch ein zweiter Schädel zum Vorschein.",
+   "why": "Jahr 1778 wird laut Quelle mit 'Um 1780' angegeben."
+  },
+  {
+   "round": 0,
+   "n": 41,
+   "was": "Er wird verladen, auf Karren gezogen, nach Paris transportiert.",
+   "verdict": "fix",
+   "text": "Er wird nach Paris transportiert.",
+   "why": "Quellen belegen den Transport nach Paris, erwähnen aber keine Karren."
+  },
+  {
+   "round": 0,
+   "n": 42,
+   "was": "Die Legende erzählt von 12 Grenadieren, die den Fund für 600 Flaschen Wein aushandelten.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Legende über 12 Grenadiere und 600 Flaschen Wein wird in den Quellen explizit beschrieben."
+  },
+  {
+   "round": 0,
+   "n": 43,
+   "was": "Historiker wissen: Diese Geschichte ist übertrieben.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Quellen bestätigen, dass Historiker diese Geschichte als unzureichend belegt bzw. größtenteils erfunden ansehen."
+  },
+  {
+   "round": 0,
+   "n": 54,
+   "was": "Zunächst hält man ihn für einen Wal.",
+   "verdict": "fix",
+   "text": "Zunächst wird angenommen, dass es sich um ein Krokodil oder einen Wal handelt.",
+   "why": "Die Quelle nennt Krokodil oder Wal als ursprüngliche Annahmen, nicht nur Wal."
+  },
+  {
+   "round": 0,
+   "n": 55,
+   "was": "1778 folgt ein zweiter, vollständigerer Fund.",
+   "verdict": "fix",
+   "text": "Um 1780 folgt ein zweiter, vollständigerer Schädel.",
+   "why": "Es war ein Schädel (kein allgemeiner Fund) und die Datierung ist ca. 1780 laut Quelle."
+  },
+  {
+   "round": 0,
+   "n": 59,
+   "was": "Er stuft das Tier erneut als Wal ein, als eine „unbekannte Zahnwalart“.",
+   "verdict": "fix",
+   "text": "Er stuft das Tier als „unbekannte Zahnwalart“ ein.",
+   "why": "Ernsthaft als Wal eingestuft, das 'erneut' greift falsch vor."
+  },
+  {
+   "round": 0,
+   "n": 85,
+   "was": "Erst 14 Jahre später wagt sich ein anderer an die Nomenklatur.",
+   "verdict": "fix",
+   "text": "Erst 1822 wagt sich ein anderer an die Nomenklatur.",
+   "why": "Conybeare benannte es 1822 (laut Quelle), nicht erst 14 Jahre nach Cuviers Schluss von 1808 (was 1822 entspricht, aber die Jahreszahl ist präziser und im Text steht 'Erst 14 Jahre später', während 1808 bis 1822 genau 14 Jahre sind, aber die Nennung des Jahres ist sicherer)."
+  },
+  {
+   "round": 0,
+   "n": 99,
+   "was": "Aber Hoffmann war der Erste, der die Fragmente zusammenbrachte.",
+   "verdict": "fix",
+   "text": "Aber Hoffmann war nicht der Erste, der die Fragmente zusammenbrachte, da auch andere Personen wie Leutnant Jean Baptiste Drouin Funde machten.",
+   "why": "Die Quelle nennt Jean Baptiste Drouin als Sammler eines früheren Funds (1766) und gibt an, dass es keine Beweise dafür gibt, dass Hoffmann das Fossil jemals besaß."
+  },
+  {
+   "round": 0,
+   "n": 105,
+   "was": "Es war der Beginn der Paläontologie.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Die Behauptung, dies sei 'der Beginn der Paläontologie' gewesen, ist in den Quellen nicht belegt."
+  },
+  {
+   "round": 0,
+   "n": 106,
+   "was": "Die Frage, wie dieses Tier lebte, bleibt offen.",
+   "verdict": "ok",
+   "text": "Die Frage, wie dieses Tier lebte, bleibt offen.",
+   "why": "Erzählerische offene Frage, durch Textkontext gedeckt."
+  },
+  {
+   "round": 0,
+   "n": 107,
+   "was": "Wie konnte ein Reptil so perfekt zum Schwimmen angepasst sein?",
+   "verdict": "ok",
+   "text": "Wie konnte ein Reptil so perfekt zum Schwimmen angepasst sein?",
+   "why": "Rhetorische Frage, passt zum Reptil- und Meeresbiologie-Kontext."
+  },
+  {
+   "round": 0,
+   "n": 110,
+   "was": "1808, Paris. Cuvier hält den Schädel in den Händen.",
+   "verdict": "fix",
+   "text": "1808, Paris. Cuvier kommt zu dem Schluss.",
+   "why": "Die Quelle nennt für das Jahr 1808 Cuviers Schlussfolgerung, aber nicht, dass er den Schädel in den Händen hielt."
+  },
+  {
+   "round": 0,
+   "n": 125,
+   "was": "Cuvier bleibt bescheiden im Namen.",
+   "verdict": "fix",
+   "text": "Cuvier vergibt selbst noch keinen Namen.",
+   "why": "Die Quelle belegt, dass Cuvier dem Tier keinen Namen gab, aber nicht, dass er dabei bescheiden blieb."
+  },
+  {
+   "round": 0,
+   "n": 137,
+   "was": "1829 kommt die finale Präzisierung.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Quellen nennen 1829 für die Benennung der Art durch Gideon Mantell."
+  },
+  {
+   "round": 0,
+   "n": 138,
+   "was": "Gideon Mantell benennt die Art.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Gideon Mantell benannte die Art 1829 laut Quelle."
+  },
+  {
+   "round": 0,
+   "n": 139,
+   "was": "M. hoffmannii, zu Ehren von Hoffmann.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Artbezeichnung hoffmannii zu Ehren von Hoffmann."
+  },
+  {
+   "round": 0,
+   "n": 140,
+   "was": "Der Mann, der den zweiten Schädel fand.",
+   "verdict": "fix",
+   "text": "Der Mann, der den zweiten Schädel besass oder sich dafür interessierte.",
+   "why": "Quellen besagen, dass Hoffmann den zweiten Schädel nicht selbst fand, sondern sich sehr dafür interessierte und ihn besessen bzw. gesammelt hatte."
+  },
+  {
+   "round": 0,
+   "n": 144,
+   "was": "Von der Stasis zur Dynamik der Evolution.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Bezug zur Evolution und Stasis ist in den Quellen nicht belegt."
+  },
+  {
+   "round": 0,
+   "n": 145,
+   "was": "Cuviers Analyse legte den Grundstein.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Cuviers Analyse erkannte erstmals, dass es sich um eine nicht mehr existierende Art handelt."
+  },
+  {
+   "round": 0,
+   "n": 146,
+   "was": "Für die moderne Paläontologie als Wissenschaft.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Begründung der modernen Paläontologie als Gesamtwissenschaft ist in den Quellen zu weit gegriffen."
+  },
+  {
+   "round": 0,
+   "n": 147,
+   "was": "Das Tier von Maastricht war der Beweis.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Das Fossil aus Maastricht war das erste Reptil, bei dem das Aussterben erkannt wurde."
+  },
+  {
+   "round": 0,
+   "n": 148,
+   "was": "Dass die Erde eine Geschichte hat.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Trug zur Entwicklung der Vorstellungen des Aussterbens bei."
+  },
+  {
+   "round": 0,
+   "n": 149,
+   "was": "Und dass wir sie lesen können.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Erzählerischer Bogen, von den Quellen gedeckt."
+  },
+  {
+   "round": 0,
+   "n": 150,
+   "was": "> Das Tier von Maastricht war der Beweis.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Wiederholung von Zeile 147."
+  },
+  {
+   "round": 0,
+   "n": 151,
+   "was": "Dass die Erde eine Geschichte hat.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Wiederholung von Zeile 148."
+  },
+  {
+   "round": 0,
+   "n": 152,
+   "was": "Und dass wir sie lesen können.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Wiederholung von Zeile 149."
+  },
+  {
+   "round": 0,
+   "n": 154,
+   "was": "Es war kein Fisch. Es war kein Krokodil.",
+   "verdict": "fix",
+   "text": "< Es war kein Krokodil. Es war kein Wal.",
+   "why": "Laut Quellen hielt man es ursprünglich für ein Krokodil oder einen Wal (nicht Fisch)."
+  },
+  {
+   "round": 0,
+   "n": 160,
+   "was": "Sie dienten nicht dem Vortrieb, sondern der Steuerung.",
+   "verdict": "fix",
+   "text": "> Sie dienten vor allem der Steuerung unter Wasser.",
+   "why": "Quellen besagen: 'um das Tier unter Wasser zu steuern'."
+  },
+  {
+   "round": 0,
+   "n": 171,
+   "was": "Und sie waren bereit, ihre Beute zu zerreißen.",
+   "verdict": "fix",
+   "text": "Und sie stellten der Beute in schnellen Überraschungsangriffen nach.",
+   "why": "Behauptung des Zerreißens ist nicht direkt belegt, dafür aber der schnelle Überraschungsangriff."
+  },
+  {
+   "round": 0,
+   "n": 176,
+   "was": "Jeder Biss war final.",
+   "verdict": "fix",
+   "text": "Die Beute musste komplett heruntergeschluckt werden.",
+   "why": "'Jeder Biss war final' ist reißerisch und nicht exakt gedeckt; die Quelle besagt, dass die Nahrung komplett heruntergeschluckt werden musste, da sie nicht zerkleinert werden konnte."
+  },
+  {
+   "round": 0,
+   "n": 179,
+   "was": "Mosasaurus hatte einen schlechten Geruchssinn.",
+   "verdict": "ok",
+   "text": "Mosasaurus hatte einen schlechten Geruchssinn.",
+   "why": "Quelle Mosasaurus bestätigt ausdrücklich: 'Mosasaurus war ein Prädator, der einen schlechten Geruchssinn, dafür aber ein hervorragendes Sehvermögen hatte'."
+  },
+  {
+   "round": 0,
+   "n": 180,
+   "was": "Er roch die Beute nicht, bevor sie sah, dass er kam.",
+   "verdict": "fix",
+   "text": "Er hatte einen schlechten Geruchssinn, bevor die Beute sah, dass er kam.",
+   "why": "Quelle besagt explizit: 'schlechten Geruchssinn'"
+  },
+  {
+   "round": 0,
+   "n": 183,
+   "was": "Er sah in der trüben, warmen Wasserwelt der Kreidezeit mit einer Präzision, die andere Meeresreptilien nicht hatten.",
+   "verdict": "fix",
+   "text": "Er sah in der Wasserwelt der Kreidezeit mit einer Präzision.",
+   "why": "Trüb und warm ist nicht belegt für das Sehvermögen in den Quellen."
+  },
+  {
+   "round": 0,
+   "n": 200,
+   "was": "Schuppenkriechtiere. Squamata. Die Ahnenlinie verriet nichts von diesem Wandel.",
+   "verdict": "fix",
+   "text": "Schuppenkriechtiere. Squamata. Die Ahnenlinie verriet anfangs nichts von diesem Wandel.",
+   "why": "Die Formulierung 'verriet nichts von diesem Wandel' ist unbelegt für die Ahnenlinie; laut Quelle waren sie hochgradig angepasst."
+  },
+  {
+   "round": 0,
+   "n": 209,
+   "was": "Diese hypocerke Struktur verlieh ihm eine Geschwindigkeit, die man für unmöglich hielt.",
+   "verdict": "fix",
+   "text": "Diese hypocerke Struktur verlieh ihm eine Schwimmgeschwindigkeit, die bisher nicht für möglich gehalten wurde.",
+   "why": "Die Quelle sagt: 'Mosasaurier könnten mit dieser Schwanzflosse schneller geschwommen sein als bisher gedacht'."
+  },
+  {
+   "round": 0,
+   "n": 210,
+   "was": "Im Kampf um Beute zählte jeder Tick der Zeit.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Die Aussage 'Im Kampf um Beute zählte jeder Tick der Zeit' ist poetisch und spekulativ, lässt sich aber ohne Beleg für Zeitmessungs-Metaphern nicht direkt stützen."
+  },
+  {
+   "round": 0,
+   "n": 214,
+   "was": "Er konnte Beute zerteilen, bevor sie fliehen konnte.",
+   "verdict": "fix",
+   "text": "Er konnte Beute packen, musste sie mangels Zerkleinerung jedoch komplett herunterschlucken.",
+   "why": "Die Quelle besagt, dass die Nahrung mit den spitzen Zähnen nicht zerkleinert werden konnte, sondern komplett heruntergeschluckt werden musste ('zerteilen' widerspricht dem)."
+  },
+  {
+   "round": 0,
+   "n": 215,
+   "was": "Interessantes Detail: Der Geruchssinn war schlecht. Fast irrelevant.",
+   "verdict": "fix",
+   "text": "Interessantes Detail: Der Geruchssinn war schlecht, dafür besaß er ein hervorragendes Sehvermögen.",
+   "why": "Die Quelle erwähnt explizit, dass er neben dem schlechten Geruchssinn ein hervorragendes Sehvermögen hatte."
+  },
+  {
+   "round": 0,
+   "n": 216,
+   "was": "Dafür besaß er ein hervorragendes Sehvermögen.",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 217,
+   "was": "Ein Skleralring aus dünnen Knochenplatten schützte den Augapfel.",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 218,
+   "was": "Er sah die Beute, lange bevor sie den Schatten bemerkte.",
+   "verdict": "fix",
+   "text": "Er erlegte die Beute in einem schnellen Überraschungsangriff.",
+   "why": "Die Quelle sagt, sie stellten der Beute nicht hetzend nach, sondern erlegten sie in schnellem Überraschungsangriff; keine direkte Erwähnung, ob die Beute den Schatten bemerkte."
+  },
+  {
+   "round": 0,
+   "n": 219,
+   "was": "Die Anatomie eines perfekten Jägers war vollständig.",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 220,
+   "was": "> Die Anatomie eines perfekten Jägers war vollständig.",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 221,
+   "was": "Doch dieser Jäger war keine Ausnahme, sondern der Anführer einer Flotte.",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 222,
+   "was": "In der gesamten Oberkreide, vor 100 Millionen Jahren, dominierten Mosasaurier die Ozeane.",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 223,
+   "was": "Ihr Reich erstreckte sich vom Atlantik bis an die Küsten der Antarktis.",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 224,
+   "was": "Fossilien belegen ihre Präsenz in Nord- und Südamerika, Europa, Afrika und Westasien.",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 225,
+   "was": "Sie besiedelten tropische, subtropische, gemäßigte und subpolare Klimazonen.",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 226,
+   "was": "Wo immer Wasser war, war er da.",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 227,
+   "was": "< [pause 0.8]",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 228,
+   "was": "An der Spitze der Nahrungskette stand ein Tier, das fast alles fraß.",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 229,
+   "was": "Fische, Haie, Kopffüßer, Vögel und Meeresschildkröten zählten zu seiner Beute.",
+   "verdict": "fix",
+   "text": "Fische, Haie, Kopffüßer, Vögel und andere Meeresreptilien zählten zu seiner Beute.",
+   "why": "Meeresschildkröten werden in den Quellen nicht explizit genannt (nur 'andere Meeresreptilien wie Meeresschildkröten' steht im Text, Quelle nennt 'andere Meeresreptilien')."
+  },
+  {
+   "round": 0,
+   "n": 230,
+   "was": "Selbst andere Mosasaurier wurden gejagt.",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 231,
+   "was": "Er jagte bevorzugt im offenen Wasser, nahe der Oberfläche.",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 232,
+   "was": "Doch er war nicht allein.",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 233,
+   "was": "In denselben Gewässern lebten andere große Räuber wie Tylosaurus und Prognathodon.",
+   "verdict": "ok"
+  },
+  {
+   "round": 0,
+   "n": 238,
+   "was": "Fossilien zeigen Bisswunden an Mosasaurus-Knochen, die von Tylosaurus stammen.",
+   "verdict": "fix",
+   "text": "Fossilien zeigen Bisswunden an Mosasaurus-Individuen, die von Tylosaurus und Artgenossen stammen.",
+   "why": "Die Quelle nennt Angriffe durch Tylosaurus und Artgenossen, nicht nur von Tylosaurus auf Mosasaurus-Knochen."
+  },
+  {
+   "round": 0,
+   "n": 258,
+   "was": "Fische und Haie bildeten die Basis ihres Speiseplans.",
+   "verdict": "fix",
+   "text": "Fische, Haie und Kopffüßer bildeten die Basis ihres Speiseplans.",
+   "why": "Quellen nennen Fische, Haie, Kopffüßer, Vögel, andere Meeresreptilien und Schildkröten – Haie und Fische allein bilden laut Quelle nicht die alleinige Basis."
+  },
+  {
+   "round": 0,
+   "n": 259,
+   "was": "Doch sie griffen auch Kopffüßer an, deren Tintenfackel sie durchdrangen.",
+   "verdict": "fix",
+   "text": "Doch sie griffen auch Kopffüßer wie Ammoniten an.",
+   "why": "Der Begriff 'Tintenfackel' ist ein Tippfehler/unbelegt; die Quelle nennt Ammoniten."
+  },
+  {
+   "round": 0,
+   "n": 288,
+   "was": "Sie waren die ultimativen Anpassungen an das Leben im offenen Ozean.",
+   "verdict": "ok",
+   "why": "Gedeckt durch 'hochgradig an eine aquatische Lebensweise angepasste Schuppenkriechtiere' und 'ultimative Anpassungen'."
+  },
+  {
+   "round": 0,
+   "n": 289,
+   "was": "Kein Winkel der Weltmeere war vor ihren Zähnen sicher.",
+   "verdict": "fix",
+   "text": "Kein Winkel der Ozeane war vor ihren Zähnen sicher.",
+   "why": "Weltmeere ist zwar synonym, aber im Text wird von 'diesen Ozeanen' gesprochen; kleine stilistische Glättung."
+  },
+  {
+   "round": 0,
+   "n": 290,
+   "was": "Diese globale Domination definierte die Oberkreide-Ökosysteme.",
+   "verdict": "ok",
+   "why": "Gedeckt durch 'dominante Gattung, die an der Spitze der Nahrungskette stand'."
+  },
+  {
+   "round": 0,
+   "n": 291,
+   "was": "Sie formten die Fauna, insbesondere in Gebieten wie dem Western Interior Seaway.",
+   "verdict": "ok",
+   "why": "Quellen: 'Die Verbreitung an einigen Orten wie dem Western Interior Seaway in Nordamerika veränderte die Fauna stark.'"
+  },
+  {
+   "round": 0,
+   "n": 292,
+   "was": "Dort veränderte ihre Anwesenheit die Zusammensetzung der Tierwelt stark.",
+   "verdict": "ok",
+   "why": "Quellen: 'veränderte die Fauna stark.'"
+  },
+  {
+   "round": 0,
+   "n": 293,
+   "was": "Die Konkurrenz mit Tylosaurus und Prognathodon war ein ständiger Faktor.",
+   "verdict": "ok",
+   "why": "Quellen: 'in Konkurrenz stand mit anderen großen räuberischen Mosasauriern wie Prognathodon und Tylosaurus'"
+  },
+  {
+   "round": 0,
+   "n": 294,
+   "was": "Aber die Nischendifferenzierung hielt das Gleichgewicht stabil.",
+   "verdict": "ok",
+   "why": "Quellen: 'konnten die Gattungen durch Nischendifferenzierung in denselben Ökosystemen koexistieren.'"
+  },
+  {
+   "round": 0,
+   "n": 295,
+   "was": "Die Fossilien erzählen diese Geschichte der Koexistenz und des Konflikts.",
+   "verdict": "ok",
+   "why": "Erzählerisches Bild, gedeckt durch Fossilienfunde und Angriffsspuren."
+  },
+  {
+   "round": 0,
+   "n": 296,
+   "was": "Sie zeigen ein Ökosystem, das an der Grenze des Möglichen operierte.",
+   "verdict": "ok",
+   "why": "Erzählerische Metapher für ein Ökosystem mit Spitzenprädatoren."
+  },
+  {
+   "round": 0,
+   "n": 297,
+   "was": "Ein System, in dem Stärke und Anpassungsfähigkeit überlebenswichtig waren.",
+   "verdict": "ok",
+   "why": "Erzählerisch, gedeckt durch Raubverhalten und Konkurrenz."
+  },
+  {
+   "round": 0,
+   "n": 298,
+   "was": "Die Mosasaurier waren die Meister dieses Systems.",
+   "verdict": "ok",
+   "why": "Gedeckt als dominante Gattung an der Spitze der Nahrungskette."
+  },
+  {
+   "round": 0,
+   "n": 299,
+   "was": "Ihre Geschichte endet mit dem großen Aussterben, aber ihr Erbe bleibt.",
+   "verdict": "ok",
+   "why": "Gedeckt durch das Aussterben der Mosasaurier und ihr fortbestehendes Erbe in der Wissenschaft."
+  },
+  {
+   "round": 0,
+   "n": 300,
+   "was": "Sie lehren uns, wie komplexe marine Ökosysteme funktionieren.",
+   "verdict": "ok",
+   "why": "Erzählerisches Fazit über marine Ökosysteme."
+  },
+  {
+   "round": 0,
+   "n": 301,
+   "was": "Und wie ein einzelner Prädator eine ganze Welt prägen kann.",
+   "verdict": "ok",
+   "why": "Gedeckt durch den tiefgreifenden Einfluss auf die Struktur mariner Ökosysteme."
+  },
+  {
+   "round": 0,
+   "n": 305,
+   "was": "Wie sah dieser Schatten aus, der aus der Tiefe schoss? Bis zum Jahr 2014 blieb die Farbe des Jägers ein vollkommenes Geheimnis.",
+   "verdict": "fix",
+   "text": "Wie sah dieser Jäger aus? Bis zum Jahr 2014 gab es bezüglich bestimmter Merkmale offene Fragen in der Wissenschaft.",
+   "why": "Die Quelle erwähnt keine Farbe als 'vollkommenes Geheimnis', sondern eine unklare Diagnose des Typusexemplars, die erst 2017 gelöst wurde. Korrigiert auf das tatsächliche taxonomische Problem."
+  },
+  {
+   "round": 0,
+   "n": 306,
+   "was": "Doch dann machte sich Johan Lindgren an die Arbeit und untersuchte die fossilen Schuppen eines Tylosaurus nepaeolicus mit dem Blick eines Detektivs.",
+   "verdict": "fix",
+   "text": "306: Doch dann machte sich ein Forscher an die Arbeit und untersuchte die fossilen Schuppen eines Tylosaurus mit dem Blick eines Detektivs.",
+   "why": "Der Name 'Johan Lindgren' und 'Tylosaurus nepaeolicus' kommen in den Quellen nicht vor, nur 'Tylosaurus' bzw. Forscher allgemein."
+  },
+  {
+   "round": 0,
+   "n": 307,
+   "was": "< Was er im Mikroskop entdeckte, veränderte unser Bild dieser Tiere für immer: winzige Spuren von versteinertem Melanin.",
+   "verdict": "fix",
+   "text": "307: < Was im Mikroskop entdeckt wurde, veränderte unser Bild dieser Tiere für immer: winzige Spuren von versteinertem Melanin.",
+   "why": "Kein Beleg in den Quellen für die Entdeckung von Melanin oder Mikroskopie bei Tylosaurus/Mosasauriern."
+  },
+  {
+   "round": 0,
+   "n": 308,
+   "was": "Die Analysen offenbarten ein Muster, das heute noch den Weißen Hai und die Lederbackschildkröte perfekt tarnt.",
+   "verdict": "fix",
+   "text": "308: Die Analysen offenbarten ein Muster, das von der Kontrastfärbung abgeleitet wird.",
+   "why": "Kein Beleg in den Quellen für den Vergleich mit Weißem Hai oder Lederbackschildkröte."
+  },
+  {
+   "round": 0,
+   "n": 309,
+   "was": "Die Mosasaurier besaßen eine kontrastreiche Färbung – einen dunklen Rücken und einen hellen Bauch.",
+   "verdict": "fix",
+   "text": "309: Die Mosasaurier besaßen laut Studien eine kontrastreiche Färbung.",
+   "why": "Dunkler Rücken und heller Bauch sind in den Quellen für Mosasaurus/Mosasaurier nicht belegt."
+  },
+  {
+   "round": 0,
+   "n": 310,
+   "was": "Doch wie funktionierte diese Tarnung im endlosen, offenen Ozean?",
+   "verdict": "fix",
+   "text": "310: Doch wie funktionierte diese Tarnung im Ozean?",
+   "why": "Bezieht sich auf die ungedeckte Tarnung davor."
+  },
+  {
+   "round": 0,
+   "n": 311,
+   "was": "> Von oben verschmolzen sie im Sonnenlicht mit der finsteren Tiefe; blickte man von unten auf sie, waren sie gegen die helle Wasseroberfläche unsichtbar.",
+   "verdict": "fix",
+   "text": "311: > Im offenen Wasser waren sie als Raubtiere aktiv.",
+   "why": "Der spezifische Satz über das Verschmelzen mit Tiefe und Wasseroberfläche ist quellenfremd."
+  },
+  {
+   "round": 0,
+   "n": 313,
+   "was": "Wegen einer unklaren Diagnose des historischen Typusexemplars waren im Laufe der Zeit über 50 verschiedene Arten der Gattung Mosasaurus zugeordnet worden.",
+   "verdict": "fix",
+   "text": "313: Wegen einer unklaren Diagnose des Typusexemplars waren im Laufe der Zeit über 50 verschiedene Arten der Gattung Mosasaurus zugeordnet worden.",
+   "why": "Das Wort 'historischen' wird entfernt, um nah an den Quellen zu bleiben."
+  },
+  {
+   "round": 0,
+   "n": 317,
+   "was": "< Sie bestätigte: Nur exakt fünf Arten verdienten diesen Namen wirklich.",
+   "verdict": "fix",
+   "text": "317: < Sie bestätigte: Mindestens fünf Arten gehören zur Gattung.",
+   "why": "Die Quelle sagt 'mindestens fünf Arten', nicht 'nur exakt fünf Arten'."
+  },
+  {
+   "round": 0,
+   "n": 318,
+   "was": "Dazu gehörte der massive, kraftstrotzende Mosasaurus hoffmannii ebenso wie der schlanke, fast schlangenförmige Mosasaurus lemonnieri.",
+   "verdict": "fix",
+   "text": "318: Dazu gehörte der robust gebaute M. hoffmannii ebenso wie der schlanke und schlangenförmige Mosasaurus lemonnieri.",
+   "why": "Anpassung an die genaue Formulierung der Quelle ('robust gebauter M. hoffmannii', 'schlanken und schlangenförmigen M. lemonnieri')."
+  },
+  {
+   "round": 0,
+   "n": 320,
+   "was": "Fünf weitere nominelle Arten warten in den Archiven darauf, in künftigen Studien auf den Prüfstand gestellt zu werden.",
+   "verdict": "fix",
+   "text": "320: Weitere fünf Arten, die noch nominell in Mosasaurus klassifiziert sind, sollen in einer künftigen Studie erneut untersucht werden.",
+   "why": "Übernahme der exakten Formulierung aus der Quelle ('nominell in Mosasaurus klassifiziert sind, sollen in einer künftigen Studie erneut untersucht werden')."
+  },
+  {
+   "round": 0,
+   "n": 324,
+   "was": "Die Identität des Jägers war jedoch noch immer unvollständig, denn bis zum Jahr 2014 blieb seine Färbung ein absolutes Mysterium.",
+   "verdict": "fix",
+   "text": "Die Färbung der Mosasaurier war jedoch bis zum Jahr 2014 ein absolutes Mysterium.",
+   "why": "Quellen belegen, dass die Färbung von Mosasauriern (bzw. dem Tylosaurus) bis 2014 unbekannt war, nicht speziell die des \"Jägers\" in diesem Zusammenhang."
+  },
+  {
+   "round": 0,
+   "n": 327,
+   "was": "Die Tiere nutzten eine Gegenlichtfärbung, in der Fachwelt als Countershading bekannt.",
+   "verdict": "fix",
+   "text": "Die Tiere waren wahrscheinlich so gefärbt, dass sie einen dunklen Rücken und eine helle Bauchseite hatten.",
+   "why": "Der Begriff \"Countershading\" bzw. Gegenlichtfärbung kommt so direkt nicht in den deutschen Quellen vor; dort ist von \"dunkel gefärbt und eine helle Bauchseite hatten\" bzw. \"likely countershaded\" im englischen Text die Rede. Wir bleiben nah am deutschen Quelltext."
+  },
+  {
+   "round": 0,
+   "n": 328,
+   "was": "Ein dunkler Rücken und ein heller Bauch – eine Taktik, die sie im offenen Ozean nahezu unsichtbar machte.",
+   "verdict": "fix",
+   "text": "Ein dunkler Rücken und eine helle Bauchseite – eine Tarnung, ähnlich wie beim Weißen Hai oder der Lederbackschildkröte.",
+   "why": "Die Wortwahl \"nahezu unsichtbar im offenen Ozean\" ist eine Erzählung, aber die Quelle nennt den Weißen Hai und die Lederbackschildkröte als Vergleich für die Färbung."
+  },
+  {
+   "round": 0,
+   "n": 329,
+   "was": "Von oben verschmolzen sie mit der Tiefe, von unten mit dem gleißenden Licht der Oberfläche.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Das spezifische Verschmelzen mit Tiefe und gleißendem Licht ist eine dichterische Spekulation, die so in den Quellen nicht belegt ist."
+  },
+  {
+   "round": 0,
+   "n": 330,
+   "was": "Genau wie der Weiße Hai oder die Lederbackschildkröte, deren Urahnen ebenfalls so gefärbt waren.",
+   "verdict": "fix",
+   "text": "Ähnlich wie beim Weißen Hai oder der Lederbackschildkröte, deren Vorfahren ebenfalls so gefärbt waren.",
+   "why": "Anpassung an die Quelle bezüglich der Lederbackschildkröte (\"fossilized ancestors for which color was also determined\")."
+  },
+  {
+   "round": 0,
+   "n": 331,
+   "was": "Nur so konnten sie ihre Beute im blauen Nichts überraschen, ohne selbst entdeckt zu werden.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Das Überraschen der Beute im \"blauen Nichts\" ist unbelegt durch die Quellen in dieser Spezifität."
+  },
+  {
+   "round": 0,
+   "n": 358,
+   "was": "War jahrelang unklar, was genau vorlag? Eine erneute Diagnose des Typusexemplars im Jahr 2017 löste langjährige taxonomische Probleme.",
+   "verdict": "fix",
+   "text": "War jahrelang unklar, was genau vorlag? Eine erneute Diagnose des Typusexemplars im Jahr 2017 trug zur Lösung historischer Taxonomieprobleme bei.",
+   "why": "Die Quelle spricht von 'Lösung des Taxonomieproblems' und dass die Klassifizierung 'historisch problematisch' war, nicht von 'längjährigen taxonomischen Problemen'."
+  },
+  {
+   "round": 0,
+   "n": 361,
+   "was": "Jede Art zeichnet sich durch einzigartige anatomische Merkmale aus, vom robusten Bau bis zur Schlangenform.",
+   "verdict": "fix",
+   "text": "Jede Art zeichnet sich durch einzigartige anatomische Merkmale aus, vom robust gebauten M. hoffmannii bis zum schlanken und schlangenförmigen M. lemonnieri.",
+   "why": "Die Quelle nennt konkret M. hoffmannii als robust gebaut und M. lemonnieri als schlank und schlangenförmig."
+  },
+  {
+   "round": 1,
+   "n": 3,
+   "was": "Was ist das Wesen? Ein Krokodil? Ein Wal? Oder etwas völlig Neues?",
+   "verdict": "fix",
+   "text": "Was ist das Wesen? Ein Krokodil? Ein Wal?",
+   "why": "Die Frage nach 'etwas völlig Neues' wird in dieser Zeile vorweggenommen, aber die Quellen nennen konkret Krokodile und Wale als ursprüngliche Annahmen."
+  },
+  {
+   "round": 1,
+   "n": 4,
+   "was": "Die Antwort liegt 200 Meter tief im Gestein. Aber dazu später.",
+   "verdict": "fix",
+   "text": "Die Antwort liegt im Gestein. Aber dazu später.",
+   "why": "Die Angabe '200 Meter tief' ist in den Quellen nicht belegt."
+  },
+  {
+   "round": 1,
+   "n": 8,
+   "was": "Die Antwort liegt 200 Meter tief im Gestein. Aber dazu später.",
+   "verdict": "fix",
+   "text": "Die Antwort liegt im Gestein. Aber dazu später.",
+   "why": "Die Angabe '200 Meter tief' ist in den Quellen nicht belegt."
+  },
+  {
+   "round": 1,
+   "n": 42,
+   "was": "Die Legende erzählt von 12 Grenadieren, die den Fund für 600 Flaschen Wein aushandelten.",
+   "verdict": "fix",
+   "text": "Die Legende erzählt von zwölf Grenadieren, die den Schädel unter dem Versprechen von 600 Flaschen Wein brachten.",
+   "why": "Laut Quelle bot de Frécine die Belohnung für das Finden, und die Grenadiere brachten das Fossil nach Zusicherung und Erhalt der Belohnung."
+  },
+  {
+   "round": 1,
+   "n": 46,
+   "was": "Er erhält die Katalognummer MNHN AC 9648.",
+   "verdict": "fix",
+   "text": "Er erhält die Katalognummer NMHN AC. 9648.",
+   "why": "Die Quelle nennt die genaue Schreibweise NMHN AC. 9648."
+  },
+  {
+   "round": 1,
+   "n": 51,
+   "was": "Wie konnte dieses Tier überleben? Die Antwort liegt in 200 Metern Tiefe - aber dazu später.",
+   "verdict": "fix",
+   "text": "Wie konnte dieses Tier überleben? Die Antwort liegt in den Jahrmillionen der Erdgeschichte - aber dazu später.",
+   "why": "Die Angabe '200 Metern Tiefe' ist in den Quellen nicht belegt."
+  },
+  {
+   "round": 1,
+   "n": 56,
+   "was": "Der Militärchirurg Johann Leonard Hoffmann erkennt darin ein Krokodil.",
+   "verdict": "fix",
+   "text": "Der Militärchirurg Johann Leonard Hoffmann vermutet darin ein Krokodil.",
+   "why": "Er hat es laut Quellen nicht 'erkannt', sondern 'vermutet'."
+  },
+  {
+   "round": 1,
+   "n": 66,
+   "was": "Warane kommen ihm in den Sinn.",
+   "verdict": "fix",
+   "text": "Ähnlichkeiten zu Waranen kommen ihm in den Sinn.",
+   "why": "Quellen sagen, er kam zu dem Schluss, dass es Ähnlichkeiten zu Waranen aufweist."
+  },
+  {
+   "round": 1,
+   "n": 76,
+   "was": "Bis dahin glaubte man, die Arten seien unveränderlich.",
+   "verdict": "fix",
+   "text": "Bis dahin waren Vorstellungen von Evolution und Aussterben nicht verbreitet.",
+   "why": "Die Quelle sagt nicht direkt, dass man glaubte, Arten seien unveränderlich, sondern dass 'Vorstellungen von Evolution und Aussterben nicht verbreitet' waren."
+  },
+  {
+   "round": 1,
+   "n": 77,
+   "was": "Fossilien galten als Überreste von Tieren, die heute noch existieren.",
+   "verdict": "fix",
+   "text": "Fossilien galten als Überreste von Tieren, die man für Krokodile oder Wale hielt.",
+   "why": "Die Quelle nennt als vorherige Annahmen Krokodile oder Wale, nicht pauschal Tiere, die heute noch existieren."
+  },
+  {
+   "round": 1,
+   "n": 99,
+   "was": "Aber Hoffmann war nicht der Erste, der die Fragmente zusammenbrachte, da auch andere Personen wie Leutnant Jean Baptiste Drouin Funde machten.",
+   "verdict": "fix",
+   "text": "Aber Hoffmann war nicht der Einzige, der sich mit den Knochen befasste, da auch andere Personen wie Leutnant Jean Baptiste Drouin Funde machten.",
+   "why": "Drouin sammelte Fossilien, aber das Zusammentragen der Fragmente durch Hoffmann wird in den Quellen so nicht als direktes Gemeinschaftsprojekt beschrieben; Drouin sammelte den ersten Schädel, Hoffmann den zweiten."
+  },
+  {
+   "round": 1,
+   "n": 105,
+   "was": "Die Frage, wie dieses Tier lebte, bleibt offen.",
+   "verdict": "fix",
+   "text": "Die Frage, wie dieses Tier lebte und jagte, füllt die Forschung.",
+   "why": "Die Quelle sagt, er war ein häufiges großes Raubtier und beschreibt detailliert seine Lebensweise, daher ist sie nicht 'offen'."
+  },
+  {
+   "round": 1,
+   "n": 126,
+   "was": "Zwei Jahrzehnte vergehen in der Forschung.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Keine Zeitangabe von 'Zwei Jahrzehnte vergehen' in den Quellen."
+  },
+  {
+   "round": 1,
+   "n": 136,
+   "was": "1829 kommt die finale Präzisierung.",
+   "verdict": "fix",
+   "text": "1829 benennt Gideon Mantell die Art.",
+   "why": "Quelle nennt 1829 für das Hinzufügen des Artepithets, keine 'finale Präzisierung'."
+  },
+  {
+   "round": 1,
+   "n": 162,
+   "was": "Diese Form, die hypocerke Anordnung, erinnerte an heutige Haie, war aber anders.",
+   "verdict": "fix",
+   "text": "162: Diese Form, die hypocerke Flosse, erinnerte an heutige Haie, war aber anders.",
+   "why": "Die Quelle spricht von einer 'hypocerken Flosse' und erwähnt Haie im Vergleich dazu (der längere Teil ragt nach unten, 'anders als bei den meisten Haien'). Die Formulierung 'hypocerke Anordnung' ist nicht belegt, es heißt 'hypocerke Flosse'."
+  },
+  {
+   "round": 1,
+   "n": 166,
+   "was": "Das deutete auf höhere Geschwindigkeiten hin, als man es je vermutet hatte.",
+   "verdict": "fix",
+   "text": "166: Das deutete darauf hin, dass sie schneller geschwommen sein könnten, als man bisher gedacht hatte.",
+   "why": "Quelle sagt: 'Mosasaurier könnten mit dieser Schwanzflosse schneller geschwommen sein als bisher gedacht.' (Nicht: 'höhere Geschwindigkeiten, als man es je vermutet hatte')."
+  },
+  {
+   "round": 1,
+   "n": 176,
+   "was": "Mosasaurus hatte einen schlechten Geruchssinn.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Quelle bestätigt: 'Mosasaurus war ein Prädator, der einen schlechten Geruchssinn, dafür aber ein hervorragendes Sehvermögen hatte'."
+  },
+  {
+   "round": 1,
+   "n": 177,
+   "was": "Er hatte einen schlechten Geruchssinn, bevor die Beute sah, dass er kam.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Zeile 177 ergibt im Kontext keinen Sinn und enthält unbelegte Aussagen ('bevor die Beute sah, dass er kam')."
+  },
+  {
+   "round": 1,
+   "n": 187,
+   "was": "Diese innere Hitze trieb ihre Muskeln an, machte sie zu blitzschnellen Jägern.",
+   "verdict": "fix",
+   "text": "Diese hohe Stoffwechselrate trieb ihren Körper an.",
+   "why": "Die Quelle nennt eine hohe Stoffwechselrate und Endothermie, aber direkte Kausalität bezüglich Muskeln und 'innere Hitze' wird so nicht explizit genannt."
+  },
+  {
+   "round": 1,
+   "n": 196,
+   "was": "Überleben durch Dominanz.",
+   "verdict": "fix",
+   "text": "Anpassung an die Meereswelt.",
+   "why": "'Überleben durch Dominanz' ist zu spekulativ und erzählerisch übertrieben im Vergleich zu den harten Fakten der Anpassung an die aquatische Lebensweise."
+  },
+  {
+   "round": 1,
+   "n": 206,
+   "was": "Diese hypocerke Struktur verlieh ihm eine Schwimmgeschwindigkeit, die bisher nicht für möglich gehalten wurde.",
+   "verdict": "fix",
+   "text": "Diese hypocerke Struktur verlieh ihm möglicherweise eine höhere Schwimmgeschwindigkeit als bisher gedacht.",
+   "why": "Quelle sagt: 'Mosasaurier könnten mit dieser Schwanzflosse schneller geschwommen sein als bisher gedacht.' Das ist vorsichtiger formuliert als 'bisher nicht für möglich gehalten'."
+  },
+  {
+   "round": 1,
+   "n": 211,
+   "was": "Interessantes Detail: Der Geruchssinn war schlecht, dafür besaß er ein hervorragendes Sehvermögen.",
+   "verdict": "fix",
+   "text": "Interessantes Detail: Er besaß einen schlechten Geruchssinn, dafür aber ein hervorragendes Sehvermögen.",
+   "why": "Die Behauptung, der Geruchssinn sei schlecht gewesen, steht in der Mosasaurus-Quelle ('einen schlechten Geruchssinn, dafür aber ein hervorragendes Sehvermögen'), war aber in Zeile 211 durch doppelte Verneinung/Aussage verwechselt oder redundant zu Zeile 212."
+  },
+  {
+   "round": 1,
+   "n": 212,
+   "was": "Dafür besaß er ein hervorragendes Sehvermögen.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Diese Zeile ist eine exakte Wiederholung des zweiten Teils von Zeile 211 und redundant."
+  },
+  {
+   "round": 1,
+   "n": 270,
+   "was": "Diese Dynamik zeigt sich auch in den fossilen Spuren der Aggression.",
+   "verdict": "fix",
+   "text": "Diese Dynamik zeigt sich auch in Fossilien mit Spuren von Angriffen.",
+   "why": "Aggression wird so im Text nicht genannt, aber Angriffe auf Individuen sind belegt."
+  },
+  {
+   "round": 1,
+   "n": 273,
+   "was": "Aber auch Bisse von Artgenossen finden sich an den Skeletten.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Quellen belegen Angriffe durch Artgenossen (und Tylosaurus)."
+  },
+  {
+   "round": 1,
+   "n": 274,
+   "was": "Diese Verletzungen waren keine Jagdwunden auf wehrlose Opfer.",
+   "verdict": "fix",
+   "text": "Diese Verletzungen stammten von Angriffen auf andere Tiere.",
+   "why": "Die Details zu Jagdwunden/Opfern stehen so nicht in den Quellen."
+  },
+  {
+   "round": 1,
+   "n": 275,
+   "was": "Sie waren das Ergebnis von Rangkämpfen, von der Festigung der Hierarchie.",
+   "verdict": "fix",
+   "text": "Vermutlich fanden Rangkämpfe in Form von Bissen statt.",
+   "why": "Die spezifische Nennung von 'Hierarchie' geht über die Quelle ('Vermutlich fanden Rangkämpfe in Form von Bissen statt') hinaus."
+  },
+  {
+   "round": 1,
+   "n": 276,
+   "was": "Ein Biss konnte den sozialen Status sichern oder ein Leben beenden.",
+   "verdict": "fix",
+   "text": "Solche Bisse waren Teil der Konkurrenz unter den Raubtieren.",
+   "why": "So drastische Folgen für den Status werden in den Quellen nicht direkt erwähnt."
+  },
+  {
+   "round": 1,
+   "n": 279,
+   "was": "Jeder Biss trug zur Struktur der Gesellschaft bei.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Spekulativer philosophischer Satz ohne direkte Stütze in den Quellen."
+  },
+  {
+   "round": 1,
+   "n": 280,
+   "was": "Jeder Tod prägte die Überlebenden.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Erzählerischer Überbau ohne Beleg."
+  },
+  {
+   "round": 1,
+   "n": 281,
+   "was": "Diese ökologische Nische war eng, aber tödlich effizient.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Wertung 'eng, aber tödlich effizient' ist nicht durch Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 284,
+   "was": "Sie waren die ultimativen Anpassungen an das Leben im offenen Ozean.",
+   "verdict": "fix",
+   "text": "Sie waren erfolgreich an das Leben im Ozean angepasst.",
+   "why": "'Ultimative Anpassungen' ist eine unbelegte Steigerung."
+  },
+  {
+   "round": 1,
+   "n": 285,
+   "was": "Kein Winkel der Ozeane war vor ihren Zähnen sicher.",
+   "verdict": "fix",
+   "text": "Sie erbeuteten zahlreiche Tiere in diesen Ozeanen.",
+   "why": "'Kein Winkel war sicher' ist zu absolut im Vergleich zu den Quellen."
+  },
+  {
+   "round": 1,
+   "n": 301,
+   "was": "Wie sah dieser Jäger aus? Bis zum Jahr 2014 gab es bezüglich bestimmter Merkmale offene Fragen in der Wissenschaft.",
+   "verdict": "fix",
+   "text": "Wie sah dieser Jäger aus? Bis zum Jahr 2014 war die Färbung der Mosasaurier in der Wissenschaft unbekannt.",
+   "why": "Die Quellen sprechen spezifisch von der unbekannten Färbung und nennen das Jahr 2014."
+  },
+  {
+   "round": 1,
+   "n": 302,
+   "was": "306: Doch dann machte sich ein Forscher an die Arbeit und untersuchte die fossilen Schuppen eines Tylosaurus mit dem Blick eines Detektivs.",
+   "verdict": "fix",
+   "text": "Doch dann untersuchte Johan Lindgren von der Universität Lund und Kollegen die fossilen Schuppen eines Tylosaurus.",
+   "why": "Konkreter Forscher und Universität laut englischer Quelle."
+  },
+  {
+   "round": 1,
+   "n": 303,
+   "was": "307: < Was im Mikroskop entdeckt wurde, veränderte unser Bild dieser Tiere für immer: winzige Spuren von versteinertem Melanin.",
+   "verdict": "fix",
+   "text": "< Was im Mikroskop oder den Analysen entdeckt wurde, brachte winzige Spuren von versteinertem Melanin zutage.",
+   "why": "Anpassung an die exakte Formulierung der Quelle (Melanin in fossilen Schuppen)."
+  },
+  {
+   "round": 1,
+   "n": 304,
+   "was": "308: Die Analysen offenbarten ein Muster, das von der Kontrastfärbung abgeleitet wird.",
+   "verdict": "fix",
+   "text": "Die Analysen offenbarten ein Muster, das auf eine Kontrastfärbung hindeutet.",
+   "why": "Quelle sagt 'likely countershaded'."
+  },
+  {
+   "round": 1,
+   "n": 305,
+   "was": "309: Die Mosasaurier besaßen laut Studien eine kontrastreiche Färbung.",
+   "verdict": "fix",
+   "text": "Die Mosasaurier waren den Studien zufolge wahrscheinlich kontrastgefärbt mit dunklem Rücken und hellem Bauch.",
+   "why": "Quelle nennt Details zur Kontrastfärbung (dark backs and light underbellies)."
+  },
+  {
+   "round": 1,
+   "n": 320,
+   "was": "Die Färbung der Mosasaurier war jedoch bis zum Jahr 2014 ein absolutes Mysterium.",
+   "verdict": "fix",
+   "text": "Die Färbung der Mosasaurier war jedoch bis zum Jahr 2014 ein Mysterium.",
+   "why": "Das Wort 'absolutes' ist eine Übertreibung, die in den Quellen so nicht steht."
+  },
+  {
+   "round": 1,
+   "n": 321,
+   "was": "Dann gelang Johan Lindgren von der Universität Lund der Durchbruch: Er wies das Pigment Melanin in den fossilen Schuppen eines Tylosaurus nepaeolicus nach.",
+   "verdict": "fix",
+   "text": "Dann gelang Johan Lindgren der Durchbruch: Er wies das Pigment Melanin in den fossilen Schuppen eines Tylosaurus nepaeolicus nach.",
+   "why": "Die Universitätsangabe steht nicht im deutschen Text der Quelle, nur im englischen."
+  },
+  {
+   "round": 1,
+   "n": 324,
+   "was": "Ein dunkler Rücken und eine helle Bauchseite – eine Tarnung, ähnlich wie beim Weißen Hai oder der Lederbackschildkröte.",
+   "verdict": "fix",
+   "text": "Ein dunkler Rücken und eine helle Bauchseite – eine Tarnung, die durch dunkle Spuren im fossil erhaltenen Weichgewebe belegt ist.",
+   "why": "Weißer Hai und Lederbackschildkröte werden in den Quellen im Zusammenhang mit der Färbung nicht erwähnt."
+  },
+  {
+   "round": 1,
+   "n": 325,
+   "was": "Ähnlich wie beim Weißen Hai oder der Lederbackschildkröte, deren Vorfahren ebenfalls so gefärbt waren.",
+   "verdict": "drop",
+   "why": "Dass die Vorfahren des Weißen Hais oder der Lederbackschildkröte so gefärbt waren, kommt in den Quellen nicht vor."
+  },
+  {
+   "round": 1,
+   "n": 340,
+   "was": "Ob sie ihre Jungen lebend gebaren und mit dem Schwanz voran in die Tiefen entließen, zeugt von einer evolutionären Perfektion, die ihresgleichen sucht.",
+   "verdict": "fix",
+   "text": "Ob sie ihre Jungen lebend gebaren und mit dem Schwanz voran entließen, zeugt von einer evolutionären Anpassung.",
+   "why": "Die Formulierung 'in die Tiefen' und die 'evolutionäre Perfektion, die ihresgleichen sucht' sind so nicht in den Quellen gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 344,
+   "was": "< Führt die unsichtbare Linie direkt zu den heutigen Waranen oder doch als Schwestergruppe zu den Schlangen?",
+   "verdict": "ok",
+   "text": "",
+   "why": "Die rhetorische Frage greift exakt den in den Quellen genannten, ungelösten wissenschaftlichen Diskurs auf (Warane oder Schlangen)."
+  },
+  {
+   "round": 1,
+   "n": 350,
+   "was": "Trotz schlechten Geruchssinns besaßen sie ein hervorragendes Sehvermögen und eine hohe Stoffwechselrate.",
+   "verdict": "fix",
+   "text": "Trotz schlechten Geruchssinns besaßen sie ein hervorragendes Sehvermögen und eine hohe Stoffwechselrate.",
+   "why": "Die Quelle sagt präzise, dass Mosasaurus einen schlechten Geruchssinn hatte (nicht die Mosasaurier allgemein als Gruppe, laut Text ist hier aber das Tier Mosasaurus im Kontext)."
+  }
+ ],
+ "hook_written_separately": {
+  "hook": [
+   "1764. Unter dem Sint Pietersberg bei Maastricht brechen Bergleute in den Kalkstein.",
+   "Sie stoßen auf einen Schädel. Riesig. Unbekannt.",
+   "Was ist das Wesen? Ein Krokodil? Ein Wal?",
+   "Die Antwort liegt im Gestein. Aber dazu später.",
+   "Dieser Fund wird alles verändern. Die Biologie. Die Erdgeschichte.",
+   "Wir enthüllen das Geheimnis des großen Tiers von Maastricht."
+  ],
+  "check": {
+   "concrete_scene": true,
+   "question": true,
+   "not_all": true,
+   "facts_supported": true,
+   "unsupported": [],
+   "note": "Der Hook enthält alle geforderten Elemente (konkrete Szene durch Datum/Ort/Akteure, Fragen, Cliffhanger/Vorschau) und ist durch die Quellen gedeckt."
+  },
+  "words": 53,
+  "why": []
+ },
+ "hook_sha": "91da9dbd088d"
+}
