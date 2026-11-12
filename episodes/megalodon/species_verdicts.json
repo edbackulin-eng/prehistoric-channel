@@ -16303,5 +16303,89 @@
   "model": "reused",
   "reused_from": "lebende-fossilien",
   "reused_why": "people"
+ },
+ "pixabay-134822|great_white_shark": {
+  "subject": "ocean waves",
+  "species_match": false,
+  "features": {
+   "distinctive white belly and grey back": "not visible",
+   "triangular serrated teeth": "not visible",
+   "large pectoral fins": "not visible",
+   "prominent dorsal fin": "not visible",
+   "slender, streamlined body": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows open water surface matching the narration about a geological formation/sea",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "great_white_shark"
+ },
+ "pixabay-65672": {
+  "subject": "bees on honeycomb frames",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "other_animal": "bees",
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows bees instead of fossil teeth.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": null
+ },
+ "pixabay-8686": {
+  "subject": "Conveyor belt with cardboard boxes",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [
+   "modern objects",
+   "vehicles"
+  ],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows industrial conveyor belt instead of fossil teeth.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": null
+ },
+ "pixabay-13989": {
+  "subject": "crocodile in an aquarium with fish",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "other_animal": "crocodile and various fish",
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a crocodile and fish in an aquarium, not fossil teeth.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": null
+ },
+ "pixabay-146345": {
+  "subject": "a wolf",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": false,
+  "off_topic_objects": [],
+  "other_animal": "wolf",
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows a wolf instead of shark teeth",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": null
  }
 }
