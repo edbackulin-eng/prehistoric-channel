@@ -49,6 +49,12 @@ Owner 07.11, after lebende-fossilien passed with real faults, for every episode 
   viewer      Gemini as a viewer on the contact sheet with the text: more than 3 boring,
               repeated or out-of-place marks and the episode does not go up (qa_view)
 A chapter is a section of the script when it has more than hook and story, else 3 minutes.
+
+Owner 12.11 - two tiers. Only real faults stop an upload (BLOCKING): an animal on screen other than
+the one the voice names (named_animal, match), broken sound or silence (sound), black or broken
+frames (frames), wrong text on the thumbnail (text), a source without a confirmed licence (license),
+a length outside config length_min_range (duration). Everything else is a score against the
+realistic targets of config qa.targets: reported, aimed at, never a reason to stop.
 """
 import argparse
 import json
@@ -391,16 +397,123 @@ def checks_of(plan, sound, thumbs, slug, parts=None, view=None):
     ch = (thumbs or {}).get("choice") or {}
     add("thumbnail", bool(ch.get("best")) and ch.get("judge_pass", False),
         f"chosen: {ch.get('best')}; judge: {ch.get('judge') or ch.get('why')}")
+
+    # ---- owner 12.11: the faults that stop an upload
+    add("named_animal", not wrong_animal, f"an animal other than the line names at {wrong_animal[:10] or 'none'} s")
+    j = ch.get("judge") if isinstance(ch.get("judge"), dict) else {}
+    add("text", bool(ch.get("best")) and j.get("german_correct") is not False and j.get("words_readable") is not False,
+        f"thumbnail {ch.get('best')}: text {j.get('text')!r}, German correct {j.get('german_correct')}, "
+        f"readable {j.get('words_readable')}")
+    add("sound", *sound_ok(sound))
+    add("duration", *duration_ok(total))
+    add("license", *license_ok(plan, slug))
     return out
+
+
+def sound_ok(sound):
+    """Broken sound or silence: clipping, a loudness off the norm, the music over the voice, or a
+    stretch of 3 s or more with nothing on any track (the render's own per-second measurement)."""
+    sound = sound or {}
+    lv = sound.get("levels") or {}
+    curve = lv.get("curve_dbfs") or {}
+    if not curve:
+        return False, "NO measurement of the sound"
+    n = max(len(v) for v in curve.values())
+    loud = [max((curve[k][t] if t < len(curve[k]) else -200.0) for k in curve) for t in range(n)]
+    silent, run = [], 0
+    for t, db in enumerate(loud):
+        run = run + 1 if db < -55.0 and 2 <= t < n - 3 else 0
+        if run == 3:
+            silent.append(t - 2)
+    pm = lv.get("per_minute") or []
+    louder = [m["minute"] for m in pm if m.get("voice_lufs") is not None and m.get("music_lufs") is not None
+              and m["music_lufs"] >= m["voice_lufs"]]
+    tp, il = sound.get("true_peak_dbtp"), sound.get("integrated_lufs")
+    peak_bad = tp is not None and tp > -0.5
+    lufs_bad = il is not None and not (-17.0 <= il <= -11.0)
+    ok = not silent and not louder and not peak_bad and not lufs_bad
+    return ok, (f"silence of 3 s or more at {silent[:10] or 'none'} s; music over the voice in minute(s) "
+                f"{louder or 'none'}; true peak {tp} dBTP (max -0.5); loudness {il} LUFS (-17..-11)")
+
+
+def duration_ok(total):
+    lo, hi = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8")).get("length_min_range", [20, 30])
+    return lo * 60 <= total <= hi * 60, f"{total / 60:.1f} min ({lo}-{hi})"
+
+
+LICENSES = _re.compile(r"pixabay content licen|public domain|\bpd\b|cc0|cc[ -]by(?![ -]nc|[ -]nd)|"
+                       r"apache|mit\b|ofl|open font", _re.I)
+
+
+def license_ok(plan, slug):
+    """Every clip, track and atmosphere the film uses carries a licence the channel may monetise
+    (the same records automation/credits.py writes the description from)."""
+    fp = ROOT / "episodes" / slug / "footage.json"
+    footage = json.loads(fp.read_text(encoding="utf-8")) if fp.exists() else {}
+    lic = {}
+    for c in footage.values():
+        for x in [c] + (c.get("alternates") or []):
+            lic.setdefault(x.get("id"), x.get("license") or ("Pixabay Content License"
+                                                             if str(x.get("id", "")).startswith("pixabay") else None))
+    bad = []
+    for s in plan["shots"]:
+        c = s.get("clip") or {}
+        cid = c.get("id")
+        if s.get("kind") != "real" or not cid or str(cid).startswith("ltx-"):
+            continue
+        if not LICENSES.search(str(lic.get(cid) or "")):
+            bad.append(f"{cid}: {lic.get(cid)}")
+    try:
+        lib = json.loads((ROOT / "assets" / "music" / "library.json").read_text(encoding="utf-8"))["tracks"]
+        used = set(plan.get("music") or [])
+        bad += [f"music {t['title']}" for t in lib if t["title"] in used and not LICENSES.search(
+            str(t.get("license") or "CC BY 4.0" if "incompetech" in str(t.get("url", "")) else t.get("license") or ""))]
+    except (OSError, ValueError, KeyError) as e:
+        bad.append(f"music library unreadable ({e})")
+    return not bad, f"sources without a confirmed licence: {sorted(set(bad))[:8] or 'none'}"
+
+
+BLOCKING = ("named_animal", "match", "sound", "frames", "text", "license", "duration")
+
+
+def score(checks):
+    """Owner 12.11: the targets (config qa.targets) as a score; a check that is not BLOCKING is
+    measured against its target, never a reason to stop."""
+    t = CFG.get("targets") or {}
+    for c in checks:
+        c["blocking"] = c["name"] in BLOCKING
+        if c["blocking"]:
+            continue
+        if c["name"] == "pace" and "mean_shot_s" in c:
+            c["ok"] = c["mean_shot_s"] <= t.get("pace_mean_s", 7.0)
+            c["target"] = f"average shot <= {t.get('pace_mean_s', 7.0)} s"
+        elif c["name"] == "subject" and "landscape_share" in c:
+            c["ok"] = c["landscape_share"] <= t.get("landscape_max", 0.25)
+            c["target"] = f"landscapes <= {t.get('landscape_max', 0.25):.0%}"
+        elif c["name"] == "motion" and "motion_share" in c:
+            c["ok"] = c["motion_share"] >= t.get("motion_min", 0.25)
+            c["target"] = f"animals in motion >= {t.get('motion_min', 0.25):.0%}"
+        else:
+            c["target"] = "the strict rule in its detail"
+    scored = [c for c in checks if not c["blocking"]]
+    return round(sum(c["ok"] for c in scored) / max(1, len(scored)), 2)
+
+
+FRAME_CHECK = {}            # the contact sheet's own look at the picture: black frames, decoding errors
 
 
 def contact_sheet(video, dest, every=5, w=240, cols=12):
     tmp = dest.parent / "_frames"
     shutil.rmtree(tmp, ignore_errors=True)
     tmp.mkdir(parents=True)
-    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(video), "-vf",
-                    f"fps=1/{every},scale={w}:-2", str(tmp / "f%04d.jpg")], check=True)
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-y", "-i", str(video), "-vf",
+                        f"fps=1/{every},scale={w}:-2", str(tmp / "f%04d.jpg")], capture_output=True, text=True)
     frames = sorted(tmp.glob("*.jpg"))
+    import numpy as _np
+    black = [i * every for i, f in enumerate(frames)
+             if 0 < i * every and float(_np.asarray(Image.open(f).convert("L")).mean()) < 6.0]
+    FRAME_CHECK.update(frames=len(frames), black_s=black,
+                       errors=[x for x in (r.stderr or "").splitlines() if x.strip()][:5], rc=r.returncode)
     if not frames:
         return 0
     fw, fh = Image.open(frames[0]).size
@@ -460,7 +573,9 @@ def view_checks(plan, video, slug, rel):
     try:
         frames = qa_view.shot_frames(video, shots, rel / "_shot_frames")
         out["repeats"] = qa_view.repeats(shots, frames)[:2]
-        out["match"] = qa_view.match(shots, frames, line_species(slug), cache)[:2]
+        meta_p = ROOT / "episodes" / slug / "meta.json"
+        topic = json.loads(meta_p.read_text(encoding="utf-8")).get("title", slug) if meta_p.exists() else slug
+        out["match"] = qa_view.match(shots, frames, line_species(slug), cache, topic=topic)[:2]
         out["consistent"] = qa_view.consistent(shots, frames, rel, cache)[:2]
 
         seen_lines, segs = set(), []
@@ -491,15 +606,20 @@ def main(slug, res):
     if video.exists():
         view = view_checks(plan, video, slug, rel)
     checks = checks_of(plan, rep.get("sound"), thumbs, slug, rep.get("parts"), view=view)
-    ok = all(c["ok"] for c in checks)
-    q = {"slug": slug, "pass": ok, "checks": checks, "duration_s": rep.get("duration_s"),
-         "first_minute_moving": plan.get("checks", {}).get("first_minute_moving_share")}
-    rel.mkdir(parents=True, exist_ok=True)
-    (rel / "qa.json").write_text(json.dumps(q, indent=1, ensure_ascii=False), encoding="utf-8")
     out = ROOT / "qa" / slug
     shutil.rmtree(out, ignore_errors=True)
     out.mkdir(parents=True)
     n = contact_sheet(rel / "video.mp4", out / "contact.jpg") if (rel / "video.mp4").exists() else 0
+    fc = FRAME_CHECK
+    checks.append({"name": "frames", "ok": bool(n) and not fc.get("black_s") and not fc.get("errors") and fc.get("rc") == 0,
+                   "detail": f"{n} frames looked at (one every 5 s): black at {fc.get('black_s') or 'none'} s; "
+                             f"decoding errors: {fc.get('errors') or 'none'}"})
+    sc = score(checks)
+    ok = all(c["ok"] for c in checks if c["blocking"])
+    q = {"slug": slug, "pass": ok, "score": sc, "checks": checks, "duration_s": rep.get("duration_s"),
+         "first_minute_moving": plan.get("checks", {}).get("first_minute_moving_share")}
+    rel.mkdir(parents=True, exist_ok=True)
+    (rel / "qa.json").write_text(json.dumps(q, indent=1, ensure_ascii=False), encoding="utf-8")
     sound_graph(rep.get("sound"), out / "sound.png")
     # the three the judge passed, the chosen one first; not the 336 px copies (07.11: thumb_1-3
     # were the first files of the folder, small copies and turned-down ones among them)
@@ -512,14 +632,18 @@ def main(slug, res):
         Image.open(f).convert("RGB").resize((640, 360)).save(out / f"thumb_{i}.jpg", quality=85)
     (out / "qa.json").write_text(json.dumps({**q, "levels_per_minute": ((rep.get("sound") or {}).get("levels") or {})
                                              .get("per_minute")}, indent=1, ensure_ascii=False), encoding="utf-8")
-    md = [f"# QA: {slug}", "", f"**{'PASSED' if ok else 'FAILED'}**", "",
-          "| check | ok | what was measured |", "|---|---|---|"]
-    md += [f"| {c['name']} | {'yes' if c['ok'] else '**no**'} | {c['detail'].replace('|', '/')} |" for c in checks]
+    md = [f"# QA: {slug}", "", f"**{'PASSED' if ok else 'FAILED'}** - score {sc:.0%} of the targets met", "",
+          "| check | blocks upload | ok | target | what was measured |", "|---|---|---|---|---|"]
+    md += [f"| {c['name']} | {'yes' if c['blocking'] else 'no'} | {'yes' if c['ok'] else '**no**'} | "
+           f"{c.get('target', '')} | {c['detail'].replace('|', '/')} |"
+           for c in sorted(checks, key=lambda c: not c["blocking"])]
     md += ["", f"- contact sheet: [contact.jpg](contact.jpg) ({n} frames, one every 5 s)",
            "- voice and music: [sound.png](sound.png)",
            "- thumbnails: " + ", ".join(f"[thumb_{i}](thumb_{i}.jpg)" for i in range(1, 4)), ""]
     (out / "README.md").write_text("\n".join(md), encoding="utf-8")
-    log.info("QA %s: %s", slug, "PASSED" if ok else "FAILED " + str([c["name"] for c in checks if not c["ok"]]))
+    log.info("QA %s: %s; score %.0f%%, targets missed %s", slug, "PASSED" if ok else "FAILED " + str(
+        [c["name"] for c in checks if c["blocking"] and not c["ok"]]), 100 * sc,
+        [c["name"] for c in checks if not c["blocking"] and not c["ok"]])
     return 0 if ok else 1
 
 

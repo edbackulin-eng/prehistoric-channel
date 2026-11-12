@@ -1,0 +1,19 @@
+name: gemini-quota
+# Does GEMINI_API_KEY_PH answer, and which quota does Google name on a 429 (scripts/gemini_quota.py)?
+on:
+  workflow_dispatch:
+    inputs:
+      n:
+        description: requests a model
+        default: "3"
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    env:
+      GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
+    steps:
+      - uses: actions/checkout@v5
+      - run: python scripts/gemini_quota.py "${{ inputs.n }}"

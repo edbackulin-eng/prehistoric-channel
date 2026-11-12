@@ -180,8 +180,9 @@ def main():
         docplan.ROOT = real
     from pipeline import fragments
     imgs = [x.get("image") for x in pl["shots"] if x.get("image")]
-    frags = [fragments.key(x) for x in pl["shots"] if x.get("image")]
-    # no fragment twice: a still may come back in another framing (pipeline/fragments.py, owner 04.11)
+    frags = [fragments.key(x) for x in pl["shots"] if x.get("image") and not x.get("fallback")]
+    # no fragment twice: a still may come back in another framing (pipeline/fragments.py, owner 04.11);
+    # owner 12.11: where nothing is left, the topic's checked frames come again (marked "fallback")
     check("plan: dropped scene covered", "impact_forest__s0" not in imgs and len(frags) == len(set(frags))
           and abs(pl["shots"][-1]["end"] - pl["total_s"]) < 0.01, str([(x["kind"], x.get("image"), x["start"], x["end"])
                                                                        for x in pl["shots"]]))

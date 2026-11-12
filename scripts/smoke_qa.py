@@ -63,7 +63,10 @@ def good_plan():
 def good_sound(minutes=5):
     pm = [{"minute": m, "voice_lufs": -18.0, "music_lufs_under_voice": -40.0, "music_lufs": -36.0, "under_db": 22.0,
            "background_lufs_under_voice": -40.5, "background_under_db": 22.5} for m in range(minutes)]
-    return {"hook_hit": True, "levels": {"per_minute": pm, "music_silent_s": 0, "curve_dbfs": {}, "amb_spans": []}}
+    sec = minutes * 60
+    curve = {"voice": [-20.0] * sec, "music": [-42.0] * sec, "amb": [-45.0] * sec}
+    return {"hook_hit": True, "true_peak_dbtp": -1.4, "integrated_lufs": -14.0,
+            "levels": {"per_minute": pm, "music_silent_s": 0, "curve_dbfs": curve, "amb_spans": []}}
 
 
 def run(slug="lebende-fossilien"):
@@ -75,11 +78,37 @@ def run(slug="lebende-fossilien"):
     qa.recon_wow = lambda s: ["tense_mawsonia"]
     thumbs = {"choice": {"best": "thumbnail_a.jpg", "judge_pass": True}}
 
+    # a 5-minute test film of made-up clips: its length and licences are judged on their own below
+    qa.duration_ok, qa.license_ok = (lambda total: (True, "smoke")), (lambda plan, slug: (True, "smoke"))
+
     def run_checks(plan, sound=None, th=thumbs):
         return {c["name"]: c for c in qa.checks_of(plan, sound or good_sound(), th, slug)}
     c = run_checks(good_plan())
     out.append(("QA: a good film passes", all(x["ok"] for x in c.values()),
                 str({k: v["detail"] for k, v in c.items() if not v["ok"]})))
+    # owner 12.11: only real faults block; the rest is a score against config qa.targets
+    import importlib
+    q2 = importlib.reload(qa)
+    snd = good_sound()
+    for k in ("voice", "music", "amb"):
+        snd["levels"]["curve_dbfs"][k][100:105] = [-90.0] * 5
+    out.append(("QA 12.11: 5 s of silence blocks", q2.sound_ok(snd)[0] is False and q2.sound_ok(good_sound())[0],
+                q2.sound_ok(snd)[1]))
+    out.append(("QA 12.11: a length outside the range blocks", q2.duration_ok(300.0)[0] is False
+                and q2.duration_ok(25 * 60.0)[0], q2.duration_ok(300.0)[1]))
+    lic = q2.license_ok({"shots": [{"kind": "real", "clip": {"id": "nolicence-1"}}], "music": []}, "no-such-episode")
+    out.append(("QA 12.11: a clip with no licence blocks", lic[0] is False, lic[1]))
+    chk = [{"name": "pace", "ok": False, "detail": "", "mean_shot_s": 6.0},
+           {"name": "subject", "ok": False, "detail": "", "landscape_share": 0.3},
+           {"name": "viewer", "ok": False, "detail": ""}, {"name": "sound", "ok": True, "detail": ""}]
+    sc = q2.score(chk)
+    out.append(("QA 12.11: pace, landscapes, viewer are scores, not gates",
+                not any(c["blocking"] for c in chk if c["name"] != "sound") and chk[0]["ok"] and not chk[1]["ok"]
+                and 0 < sc < 1, str([(c["name"], c["ok"], c.get("target")) for c in chk])))
+    qa.duration_ok, qa.license_ok = (lambda total: (True, "smoke")), (lambda plan, slug: (True, "smoke"))
+    qa.line_species = lambda s: spec
+    qa.recon_prompts = lambda s: {}
+    qa.recon_wow = lambda s: ["tense_mawsonia"]
     p = good_plan()
     p["shots"][2]["kind"], p["shots"][2]["clip"] = "photo", None
     out.append(("QA: a still in the hook fails", not run_checks(p)["hook"]["ok"], run_checks(p)["hook"]["detail"]))

@@ -146,7 +146,8 @@ def _ask(prompt, images, models, cache, key, step):
     return a
 
 
-MATCH = """Du prüfst Bilder einer deutschen Urzeit-Doku gegen den gesprochenen Text. Zu jedem nummerierten Bild:
+MATCH = """Du prüfst Bilder einer deutschen Urzeit-Doku gegen den gesprochenen Text. Der ganze Film handelt von: {topic}.
+Zu jedem nummerierten Bild:
 der Satz, der dabei gesprochen wird, und die Tiere, die dieser Satz nennt (Art). Das Bild darf zeigen:
 das genannte Tier (genau diese Art - ein Megalodon ist kein beliebiger Hai, ein Quastenflosser kein
 beliebiger Fisch), seine Umgebung, Menschen, Fundstücke, Karten oder Grafiken ohne Tier. VERBOTEN: ein
@@ -157,8 +158,10 @@ BILDER:
 {rows}"""
 
 
-def match(shots, frames, line_species, cache, batch=12):
-    """(ok, detail, bad shots): every frame against its line's text and animals."""
+def match(shots, frames, line_species, cache, batch=12, topic=""):
+    """(ok, detail, bad shots): every frame against its line's text and animals. Owner 12.11: what
+    stops an upload is an animal other than the one the voice names (a line that names one and a
+    picture of another); an animal under a line that names none is reported, not a fault."""
     rows = [(i, s) for i, s in enumerate(shots) if i in frames and s.get("kind") != "anim"]
     bad = []
     unchecked = 0
@@ -167,7 +170,8 @@ def match(shots, frames, line_species, cache, batch=12):
         listing = "\n".join(f"{j}. Satz: \"{(s.get('text') or '')[:220]}\"; genannte Tiere: "
                             f"{', '.join(sorted(line_species.get(s.get('line'), ()) or [])) or 'keine'}"
                             for j, (i, s) in enumerate(part))
-        a = _ask(MATCH.format(rows=listing), [frames[i] for i, _ in part], BULK_MODELS, cache,
+        a = _ask(MATCH.format(rows=listing, topic=topic or "Urzeit-Tiere"), [frames[i] for i, _ in part],
+                 BULK_MODELS, cache,
                  "match:" + ",".join(str(i) for i, _ in part), "qa-match")
         res = {int(r.get("i", -1)): r for r in (a.get("results") or [])} if isinstance(a, dict) else {}
         for j, (i, s) in enumerate(part):
@@ -176,11 +180,17 @@ def match(shots, frames, line_species, cache, batch=12):
                 unchecked += 1
                 continue
             if not r.get("ok", True) or r.get("unnamed_animal"):
+                named = bool(line_species.get(s.get("line")))
+                seen = str(r.get("animal_seen") or "none").strip().lower()
                 bad.append({"shot": i, "at": round(s["start"], 1), "seen": r.get("animal_seen"),
-                            "why": str(r.get("why", ""))[:100]})
-    ok = len(bad) <= MATCH_BAD_MAX and unchecked <= max(3, len(rows) // 20)
-    return ok, (f"{len(rows)} shots checked against their line, {len(bad)} wrong or unnamed animal "
-                f"(max {MATCH_BAD_MAX}){': ' + str([(b['at'], b['seen']) for b in bad[:8]]) if bad else ''}; "
+                            "why": str(r.get("why", ""))[:100],
+                            "wrong": named and r.get("named_animal_shown") is False and seen not in ("none", "")})
+    wrong = [b for b in bad if b["wrong"]]
+    ok = len(wrong) <= MATCH_BAD_MAX and unchecked <= max(3, len(rows) // 20)
+    return ok, (f"{len(rows)} shots checked against their line: {len(wrong)} another animal than the voice names "
+                f"(blocks above {MATCH_BAD_MAX}){': ' + str([(b['at'], b['seen']) for b in wrong[:8]]) if wrong else ''}; "
+                f"{len(bad) - len(wrong)} an animal under a line that names none (reported)"
+                f"{': ' + str([(b['at'], b['seen']) for b in bad if not b['wrong']][:6]) if len(bad) > len(wrong) else ''}; "
                 f"{unchecked} without an answer"), bad
 
 

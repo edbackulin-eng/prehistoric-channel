@@ -92,6 +92,33 @@ class Pool:
             for cid in picks.get(beat_key(bt)) or []:
                 self.subjects.append((bt, cid))
         self.subjects.sort(key=lambda r: 0 if r[1] in animated else 1 if r[0]["kind"] == "real" else 2)
+        from collections import Counter
+        # the episode's own animal: its FLUX frames, not the stand-ins of living ones (megalodon, not the great white)
+        recon_sp = Counter(bt.get("species") for bt, _c in self.subjects
+                           if bt["kind"] == "recon" and bt.get("species") and not bt.get("standby")) or             Counter(bt.get("species") for bt, _c in self.subjects if bt["kind"] == "recon" and bt.get("species"))
+        self.main = recon_sp.most_common(1)[0][0] if recon_sp else None
+
+    def fallback(self, at, length, species=None):
+        """Owner 12.11: material that runs short never stops a film nor leaves scenery in its place -
+        the topic's best checked FLUX frames come again (the least shown first, the one shown longest
+        ago, in another framing; the render moves it in 2.5D), past the repeat rule. `species`: the
+        animals the line names (only those); none named - the episode's main animal."""
+        want = set(species) if species else ({self.main} if self.main else set())
+        rows = [(bt, cid) for bt, cid in self.subjects if bt["kind"] == "recon" and bt.get("species") in want]
+        if not rows:
+            return None
+
+        def rank(r):
+            t = self.uses.get("img:" + str(r[1]).split("#")[0], [])
+            return (len(t), -min([abs(at - x) for x in t] or [1e9]))
+        bt, cid = min(rows, key=rank)
+        src = "img:" + str(cid).split("#")[0]
+        i = len(self.uses.get(src, [])) % len(CROPS)
+        self.use(src, at)
+        k = f"{cid}#{i}" if i else cid
+        self.shown.setdefault(k, []).append(at)
+        base = {kk: v for kk, v in bt.items() if v is not None and kk not in ("alts", "allow", "label", "title")}
+        return {**base, "kind": "recon", "image": cid, "crop": i or None, "fallback": True}
 
     def src_free(self, src, at):
         t = self.uses.get(src, [])
@@ -274,7 +301,11 @@ def refine(shots, end_all, pool, is_landscape, is_wow, wow_ids, hook_window, wow
                     # 12.11: in the first 30 s a line that names no animal takes any moving one of the
                     # episode's rather than a 6.7 s shot (QA: hook cuts 1.5-3 s)
                     got = pool.subject(a, step, moving=True, any_animal=True)
-                if got is None:                       # nothing left anywhere: the piece stays with its shot
+                if got is None:
+                    # 12.11: nothing free under the repeat rule - the topic's checked frames again
+                    line_sp = sorted((named or {}).get(s.get("line"), ()))
+                    got = pool.fallback(a, step, species=line_sp)
+                if got is None:                       # nothing at all: the piece stays with its shot
                     out[-1]["end"] = p["end"]
                     continue
                 _set(p, got)
