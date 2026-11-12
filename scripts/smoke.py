@@ -635,6 +635,17 @@ def main():
           "Megalodon, alive" in t_rec and t_gws is None, t_rec)
     _pv = {"species_match": None, "features": {}, "fits_narration": True, "off_topic_objects": ["people"],
            "people": True, "text_or_logo": False}
+    # owner 12.11: pinned days (megalodon Sun 15.11, mosasaurier Wed 18.11), the rest Sun/Wed in turn;
+    # an episode rebuilt after its QA failed is one of the two ahead
+    from datetime import date as _date, datetime as _dt, timezone as _tz
+    from pipeline import youtube as _yt
+    from automation import release as _rel
+    _pins, _now = {"a": _date(2026, 11, 15), "b": _date(2026, 11, 18)}, _dt(2026, 11, 13, 12, tzinfo=_tz.utc)
+    _s = [_yt.next_slot(["2026-11-08T16:00:00Z"], _now, slug=k, pins=_pins).date().isoformat() for k in ("b", "a", "c")]
+    _ah = _rel.ahead([{"slug": "m", "status": "qa-failed", "built_at": "2026-11-12T08:30:06Z"},
+                      {"slug": "o", "status": "qa-failed", "built_at": "2026-10-01T08:30:06Z"}], now=_now)
+    check("schedule: pinned days kept, the next free Sun/Wed for the rest; a fresh QA-failed rebuild counts ahead",
+          _s == ["2026-11-18", "2026-11-15", "2026-11-22"] and [x["slug"] for x in _ah] == ["m"], f"{_s} {_ah}")
     check("species check: an animal the line does not name fails (QA 'match'); none is fine",
           speciescheck.passes({**_pv, "people": False, "off_topic_objects": [], "other_animal": "goldfish"}, None)[0]
           is False and speciescheck.passes({**_pv, "people": False, "off_topic_objects": [],

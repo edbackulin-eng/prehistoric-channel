@@ -26,7 +26,9 @@ from core import llm_usage  # noqa: E402
 from core.logger import get_logger  # noqa: E402
 
 log = get_logger("ahead")
-SCRIPTS_AHEAD = 3
+# owner 12.11: two videos a week (Sun, Wed) and nothing built beyond them - one script ahead, and the
+# next topic's plan and species check only once fewer than `buffer` episodes are ahead or being built
+SCRIPTS_AHEAD = 1
 
 
 def queue():
@@ -39,12 +41,19 @@ def image_room():
 
 
 def reserve_for(slug):
-    """What the episode being built still needs of today's images: its FLUX check, its render."""
-    if not slug:
-        return 0
+    """What the episode being built still needs of today's images: its FLUX check, its render; and
+    what an episode being rebuilt still has to have judged."""
     from automation import llm_budget as b
+    extra = 0
+    for s in rebuilding():
+        try:
+            extra += b.image_need(s)
+        except Exception:                                    # noqa: BLE001
+            extra += 120
+    if not slug:
+        return extra
     try:
-        return b.Q["per_episode"]["flux_check"]["image_requests"] + b.image_need(slug)
+        return extra + b.Q["per_episode"]["flux_check"]["image_requests"] + b.image_need(slug)
     except Exception as e:                                   # noqa: BLE001
         log.info("reserve for %s not known (%s): 120", slug, e)
         return 120
@@ -114,11 +123,24 @@ def prepare(slug, building):
     return "prepared: plan, species check and stand-ins done; FLUX when it is its turn"
 
 
+def rebuilding():
+    """Episodes whose QA failed and that are being rebuilt (release.ahead counts them): their species
+    check comes before the next topic's."""
+    from automation import release
+    return [x["slug"] for x in release.ahead() if x["status"] == "qa-failed"]
+
+
 def main():
+    from automation import release
     topics = queue()
     building = next((t["slug"] for t in topics if t.get("status") == "building"), None)
     nxt = [t for t in topics if t.get("status") == "queued"]
     scripts(nxt)
+    full = len(release.ahead()) + (1 if building else 0)
+    if full >= json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))["buffer"]:
+        log.info("nothing prepared ahead: %d episodes ahead or being built (%s, building %s) fill the schedule",
+                 full, [x["slug"] for x in release.ahead()], building or "-")
+        return 0
     if nxt:
         log.info("next after %s: %s - %s", building or "nothing", nxt[0]["slug"], prepare(nxt[0]["slug"], building))
     return 0

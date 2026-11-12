@@ -18,7 +18,7 @@ the moment YouTube returns it (automation/gitsave.py), so no rerun uploads twice
 """
 import json
 import sys
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -31,6 +31,8 @@ log = get_logger("release")
 STATE = ROOT / "state" / "episodes.json"
 CFG_PATH = ROOT / "config" / "channel.json"
 
+
+REBUILD_WINDOW = timedelta(days=7)
 
 def rows():
     return json.loads(STATE.read_text(encoding="utf-8")) if STATE.exists() else []
@@ -66,6 +68,11 @@ def ahead(r=None, now=None):
             out.append(x)
         elif x["status"] == "scheduled" and datetime.fromisoformat(x["publish_at"].replace("Z", "+00:00")) > now:
             out.append(x)
+        elif x["status"] == "qa-failed" and x.get("built_at") and \
+                now - datetime.fromisoformat(x["built_at"].replace("Z", "+00:00")) < REBUILD_WINDOW:
+            # owner 12.11: an episode rebuilt after its QA failed (megalodon) is one of the two a week,
+            # not a reason to start another topic; after REBUILD_WINDOW it no longer holds the line
+            out.append(x)
     return out
 
 
@@ -97,7 +104,7 @@ def upload(slug, release_dir=None):
     r = rows()
     row = row_of(r, slug)
     manual = manual_left() > 0
-    slot = None if manual else youtube.next_slot([x["publish_at"] for x in r if x.get("publish_at")])
+    slot = None if manual else youtube.next_slot([x["publish_at"] for x in r if x.get("publish_at")], slug=slug)
     title, desc, tags = description(slug, release_dir)
     marker = ROOT / "episodes" / slug / "uploaded.json"
 
@@ -147,7 +154,7 @@ def approve(slug):
     again = row["status"] == "scheduled" and not row.get("publish_at")
     if row["status"] != "awaiting_approval" and not again:
         raise SystemExit(f"{slug} is {row['status']}, not awaiting approval")
-    slot = youtube.next_slot([x["publish_at"] for x in r if x.get("publish_at")])
+    slot = youtube.next_slot([x["publish_at"] for x in r if x.get("publish_at")], slug=slug)
     import time
     for attempt in range(4):
         st = youtube.set_schedule(row["youtube_id"], slot)

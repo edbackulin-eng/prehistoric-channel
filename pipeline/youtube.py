@@ -69,13 +69,29 @@ def authorize(client_secret, token_out):
     return data
 
 
-def next_slot(taken=(), now=None):
-    """The nearest free slot (UTC), Sunday or Wednesday 17:00 in Berlin."""
+def pinned(cfg=None):
+    """slug -> the Berlin date the owner set for it (config schedule.pinned; owner 12.11: megalodon on
+    Sunday 15.11, mosasaurier on Wednesday 18.11)."""
+    from datetime import date
+    return {k: date.fromisoformat(v) for k, v in ((cfg or CFG).get("pinned") or {}).items() if not k.startswith("_")}
+
+
+def next_slot(taken=(), now=None, slug=None, pins=None):
+    """The nearest free slot (UTC), Sunday or Wednesday 17:00 in Berlin. A day pinned to another
+    episode is not free; an episode with a pinned day gets that day while it can still be kept."""
     now = now or datetime.now(timezone.utc)
+    pins = pinned() if pins is None else pins
     taken_days = set()
     for t in taken:
         t = datetime.fromisoformat(t.replace("Z", "+00:00")) if isinstance(t, str) else t
         taken_days.add(t.astimezone(TZ).date())
+    if slug in pins and pins[slug] not in taken_days:
+        d = pins[slug]
+        own = datetime(d.year, d.month, d.day, SLOT_TIME[0], SLOT_TIME[1], tzinfo=TZ)
+        if own - now >= MIN_LEAD:
+            return own.astimezone(timezone.utc)
+        log.warning("%s: its pinned day %s can no longer be kept; the nearest free slot instead", slug, d)
+    taken_days |= {d for s, d in pins.items() if s != slug}
     day = now.astimezone(TZ).replace(hour=SLOT_TIME[0], minute=SLOT_TIME[1], second=0, microsecond=0)
     for _ in range(120):
         if day.weekday() in SLOT_WEEKDAYS and day - now >= MIN_LEAD and day.date() not in taken_days:

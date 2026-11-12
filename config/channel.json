@@ -101,6 +101,11 @@
   ],
   "time": "17:00",
   "tz": "Europe/Berlin",
+  "pinned": {
+   "_note": "owner 12.11: these episodes on these Berlin dates, the rest on the free Sun/Wed slots in turn (pipeline/youtube.next_slot)",
+   "megalodon": "2026-11-15",
+   "mosasaurier": "2026-11-18"
+  },
   "privacy": "private",
   "contains_synthetic_media": true,
   "subtitles": "de",
