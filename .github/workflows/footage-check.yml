@@ -75,6 +75,10 @@ jobs:
         run: |
           python -c "import sys; sys.path.insert(0, '.'); from pipeline import speciescheck; speciescheck.prefilter_pass('$SLUG')" || true
           git add "episodes/$SLUG/species_verdicts.json" && bash "$RUNNER_TEMP/push.sh" "Prefilter verdicts for $SLUG" || true
+          # owner 12.11 (megalodon by Sunday): every beat its first passing clip first, through the whole
+          # film, and only then the second ones - a day's quota that runs out leaves no line without a picture
+          python -c "import sys; sys.path.insert(0, '.'); from pipeline import speciescheck; speciescheck.WANT_PASSING = 1; speciescheck.check('$SLUG', 'work/none', 'work/$SLUG/footage_check', kinds=('real',))"
+          git add "episodes/$SLUG/species_verdicts.json" && bash "$RUNNER_TEMP/push.sh" "Footage species check for $SLUG, first clips (footage-check)" || true
           python -c "import sys; sys.path.insert(0, '.'); from pipeline import speciescheck; speciescheck.check('$SLUG', 'work/none', 'work/$SLUG/footage_check', kinds=('real',))"
           git add "episodes/$SLUG/species_verdicts.json" && bash "$RUNNER_TEMP/push.sh" "Footage species check for $SLUG (footage-check)" || true
           left=$(python -c "import json; s = json.load(open('work/$SLUG/footage_check/species_check.json')); print(sum(1 for r in s['rows'] if r.get('action') == 'unknown'))")
