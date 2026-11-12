@@ -11411,5 +11411,369 @@
   "note": "Stylized or 3D-rendered depiction of a great white shark.",
   "model": "gemini-flash-latest",
   "species_asked": "great_white_shark"
+ },
+ "otodus_megalodon_pose_0__s0|otodus_megalodon": {
+  "subject": "A large shark swimming in deep blue water",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Reconstructed Megalodon swimming",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_pose_0__s1|otodus_megalodon": {
+  "subject": "Megalodon shark reconstruction swimming in the ocean",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Reconstructed Megalodon matching all specified features.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "cretaceous_trex_stride__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_scene_34__s1|otodus_megalodon": {
+  "subject": "Megalodon shark reconstruction",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Reconstructed Megalodon shark with mouth open near the water surface.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_34__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "cretaceous_triceratops_herd__s1": {
+  "subject": "a herd of triceratops near water",
+  "species_match": null,
+  "features": {},
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Prehistoric scene with dinosaurs fitting weight/size narration context",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "prehistoric_scene"
+ },
+ "otodus_megalodon_scene_35__s0|otodus_megalodon": {
+  "subject": "reconstructed megalodon shark with diver",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "diver"
+  ],
+  "other_animal": null,
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "shows reconstructed megalodon with human diver for scale",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_35__s1|otodus_megalodon": {
+  "subject": "Megalodon shark with diver",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "diver"
+  ],
+  "other_animal": null,
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Reconstructed Megalodon with human diver for scale",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_36__s0|otodus_megalodon": {
+  "subject": "reconstructed Megalodon shark swimming",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Reconstructed living Megalodon matching features",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_36__s1|otodus_megalodon": {
+  "subject": "Megalodon shark swimming near the surface",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Reconstruction of a Megalodon shark focusing on the head and jaw.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_37__s0|otodus_megalodon": {
+  "subject": "Megalodon shark reconstruction swimming near the surface",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": "smaller sharks or fish around it",
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Reconstruction of a living Megalodon matching the requested features",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_37__s1|otodus_megalodon": {
+  "subject": "Reconstructed Megalodon shark swimming in the ocean",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Reconstructed living Megalodon matching features",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_37__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_scene_38__s1|otodus_megalodon": {
+  "subject": "reconstructed living Megalodon shark breaching the water",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Reconstructed Megalodon matching features",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_38__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_scene_39__s0|otodus_megalodon": {
+  "subject": "Megalodon shark attacking a boat",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "yes"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [
+   "vehicles"
+  ],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Reconstructed Megalodon shown alongside a boat for scale.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_39__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_scene_40__s0|otodus_megalodon": {
+  "subject": "reconstructed megalodon shark",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "not visible",
+   "a tall crescent-shaped tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "documentary reconstruction of a megalodon",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_40__s1|otodus_megalodon": {
+  "subject": "reconstructed Megalodon shark biting object",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "not visible",
+   "a tall crescent-shaped tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Reconstruction of a living Megalodon shark.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_41__s1|otodus_megalodon": {
+  "subject": "Reconstruction of a living Megalodon shark with a diver",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": true,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Shows a living Megalodon reconstruction next to a diver for scale.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_41__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_scene_42__s1|otodus_megalodon": {
+  "subject": "Reconstructed Megalodon shark swimming with open jaw",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "AI-generated reconstruction of a living Megalodon matching features.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_scene_42__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
  }
 }
