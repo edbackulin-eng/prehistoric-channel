@@ -39,6 +39,7 @@ def image_need(slug, kinds=("real", "recon", "photo"), fixed=True):
     known = json.loads((ep / "species_verdicts.json").read_text(encoding="utf-8")) \
         if (ep / "species_verdicts.json").exists() else {}
     speciescheck.use_scores(slug)                 # the clips in the order the check tries them
+    speciescheck.load_episode_species(ep)         # verdicts count only for the animal they were asked for
     todo = 0
     for b in {(b.get("id") or b.get("need")): b for l in shots for b in l["beats"] if b["kind"] in kinds}.values():
         if b["kind"] == "real":
@@ -49,14 +50,19 @@ def image_need(slug, kinds=("real", "recon", "photo"), fixed=True):
             # judged the clear ones by now: pipeline/speciescheck.prefilter_pass)
             done = False
             for i in ids:
-                if i not in known:
+                v = speciescheck.saved(known, i, b.get("species"))
+                if v is None:
                     break
-                ok, _why = speciescheck.passes(known[i], b.get("species"), bool(b.get("archive")), b.get("allow", ()))
+                ok, _why = speciescheck.passes(v, b.get("species"), bool(b.get("archive")), speciescheck.allow_of(b))
                 if ok:
                     done = True
                     break
             else:
                 done = bool(ids)                  # every clip judged and none passed: nothing to ask
+        elif b["kind"] == "recon":
+            sp = b.get("species") if b.get("species") in speciescheck.SPECIES else "prehistoric_scene"
+            done = any(speciescheck.saved(known, cid, sp) is not None
+                       for cid, _k, _s in speciescheck.candidates(b, footage, Path(".")))
         else:
             done = any(k.startswith(f"{b.get('id') or b.get('need')}__s") or k == b.get("need") for k in known)
         todo += 0 if done else 1

@@ -124,8 +124,11 @@ def build(slug, timeline, narration_s, parts=6, picks=None, animated=None):
         specimens and display cases: MUSEUM_MAX an episode."""
         bk = speciescheck.beat_key(beat)
         order = picks.get(bk)
-        if order is None:                          # no check ran: the candidates in their own order
+        if order is None and not picks:            # no check ran: the candidates in their own order
             order = [c[0] for c in speciescheck.candidates(beat, footage, Path("."))]
+        # 12.11: a beat the check could not answer (quota) has no picks - it shows nothing rather than
+        # clips nobody has looked at
+        order = order or []
         for cid in order:
             if cid in used or (cid in museum and len(shown_museum) >= MUSEUM_MAX):
                 continue

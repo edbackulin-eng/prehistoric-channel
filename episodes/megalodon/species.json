@@ -2,18 +2,18 @@
  "otodus_megalodon": {
   "name": "Megalodon (Otodus megalodon)",
   "features": [
-   "massive triangular teeth with finely serrated edges",
-   "V-shaped notch at the base of the tooth root",
-   "asymmetrical posterior teeth with slanted tips",
-   "enormous body size estimated between 9 and 18 meters",
-   "robust and broad jaw structure compared to modern sharks"
+   "a very large, heavy, thick-bodied shark",
+   "a broad, short, blunt rounded snout",
+   "a massive deep jaw with rows of large triangular teeth",
+   "long, broad pectoral fins",
+   "a tall crescent-shaped tail fin"
   ],
   "forbidden": [
-   "presence of bony skeleton visible in water",
-   "small size comparable to a great white shark",
-   "smooth non-serrated tooth edges",
-   "presence of dorsal fins with spines (like in some primitive sharks)",
-   "a modern animal in a prehistoric scene"
+   "a slender small shark such as a reef shark, dogfish or hammerhead",
+   "a whale, dolphin or seal",
+   "a bony fish",
+   "legs, a long neck or a reptile's head",
+   "a skeleton or a fossil jaw instead of the living animal"
   ],
   "living": false,
   "video_query": null,
@@ -23,7 +23,6 @@
   "name": "Urzeit-Wale (Ancetis cetaceans (generic))",
   "features": [
    "large aquatic mammal body",
-   "presence of bite marks on fossilized bones",
    "streamlined shape for swimming",
    "blowhole on top of head",
    "flippers and tail flukes"
@@ -31,9 +30,7 @@
   "forbidden": [
    "presence of legs or limbs",
    "scales or fins instead of flippers",
-   "small size like a dolphin",
-   "presence of external ears",
-   "a modern animal in a prehistoric scene"
+   "presence of external ears"
   ],
   "living": true,
   "video_query": "ancient whale swimming in ocean",
@@ -42,18 +39,18 @@
  "megalodon": {
   "name": "Megalodon (Otodus megalodon)",
   "features": [
-   "massive triangular teeth with serrated edges",
-   "robust and stocky body build",
-   "short, high dorsal vertebrae",
-   "large head relative to body length",
-   "powerful caudal fin for speed"
+   "a very large, heavy, thick-bodied shark",
+   "a broad, short, blunt rounded snout",
+   "a massive deep jaw with rows of large triangular teeth",
+   "long, broad pectoral fins",
+   "a tall crescent-shaped tail fin"
   ],
   "forbidden": [
-   "slender, elongated body like a modern mako shark",
-   "small, conical teeth without serrations",
-   "presence of a beak or bird-like head",
-   "long, thin neck structure",
-   "a modern animal in a prehistoric scene"
+   "a slender small shark such as a reef shark, dogfish or hammerhead",
+   "a whale, dolphin or seal",
+   "a bony fish",
+   "legs, a long neck or a reptile's head",
+   "a skeleton or a fossil jaw instead of the living animal"
   ],
   "living": false,
   "video_query": null,
@@ -70,10 +67,8 @@
   ],
   "forbidden": [
    "extremely stocky or bulky body shape",
-   "teeth that are disproportionately wide compared to body size",
    "presence of a beak or non-shark head structure",
-   "long, thin neck",
-   "a modern animal in a prehistoric scene"
+   "long, thin neck"
   ],
   "living": true,
   "video_query": "great white shark swimming in ocean",
@@ -92,8 +87,7 @@
    "stocky or bulky body build",
    "short, blunt snout",
    "presence of a beak or bird-like head",
-   "long, thin neck",
-   "a modern animal in a prehistoric scene"
+   "long, thin neck"
   ],
   "living": true,
   "video_query": "shortfin mako shark swimming fast",
@@ -105,15 +99,13 @@
    "large streamlined body",
    "horizontal tail flukes",
    "blowhole on top of head",
-   "smooth skin without scales",
-   "large size relative to other marine animals"
+   "smooth skin without scales"
   ],
   "forbidden": [
    "fins instead of flippers",
    "gills instead of blowhole",
    "scales on skin",
-   "legs instead of flippers",
-   "a modern animal in a prehistoric scene"
+   "legs instead of flippers"
   ],
   "living": true,
   "video_query": "large whale swimming in ocean",

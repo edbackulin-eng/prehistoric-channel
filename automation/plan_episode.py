@@ -35,6 +35,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 from core import delivery, gemini, textllm  # noqa: E402
+from pipeline import speciescheck  # noqa: E402
 from core.logger import get_logger  # noqa: E402
 
 log = get_logger("plan")
@@ -47,14 +48,25 @@ ANIMALS = """Hier ist der Sprechertext einer deutschen Urzeit-Doku. Nenne jedes 
 das im Text vorkommt und gezeigt werden soll. Antworte als JSON:
 {{"animals": [{{"key": "<snake_case, englisch>", "name_de": "...", "latin": "...",
   "living": true|false,          // lebt die Art (oder eine nahe Art der Gruppe) heute noch?
-  "features": ["<4-5 sichtbare Merkmale, die die Art von ähnlichen unterscheiden, englisch>"],
-  "forbidden": ["<4 Merkmale, die ein falsches Tier verraten - z. B. Vogelkopf beim Flugsaurier, langer Hals beim Hadrosaurier, englisch>"],
+  "features": ["<4-5 Merkmale, die man auf EINEM Foto oder Filmbild des lebenden Tiers SIEHT und die es von
+                ähnlichen unterscheiden: Körperform, Kopf, Schnauze, Flossen/Beine, Schwanz, Farbe, Zeichnung - englisch.
+                NIE: Zahnwurzeln, Zahndetails, Knochen, Wirbel, Fossilien, Größe in Metern/Tonnen, Vergleiche mit
+                anderen Arten, Inneres - das zeigt kein Bild>"],
+  "forbidden": ["<4 sichtbare Merkmale, die ein falsches Tier verraten - z. B. Vogelkopf beim Flugsaurier, langer Hals beim
+                 Hadrosaurier, Beine beim Fisch - englisch; NIE Größenangaben oder Vergleiche>"],
   "video_query": "<englische Suchanfrage für echtes Stock-Video, nur wenn living>",
   "look": "<EINE feste englische Beschreibung des Aussehens (Körperform, Farbe, Zeichnung, Größe), die für JEDES Bild
            dieses Tiers wörtlich gleich verwendet wird, damit es im ganzen Film gleich aussieht>"}}]}}
 
 TEXT:
 {script}"""
+
+VISIBLE = """Für jedes dieser Tiere: 4-5 Merkmale auf Englisch, die man auf EINEM Bild des lebenden Tiers
+(Foto, Film, Rekonstruktion) sieht und die es von ähnlichen Tieren unterscheiden - Körperform, Kopf, Schnauze,
+Flossen/Beine, Schwanz, Farbe, Zeichnung. Nie Zahnwurzeln, Knochen, Fossilien, Größen in Metern, Vergleiche.
+Antworte als JSON: {{"animals": [{{"key": "<key wie unten>", "features": ["..."]}}]}}
+
+{animals}"""
 
 BEATS = """Du planst die Bilder einer deutschen Urzeit-Doku (4K, BBC-Ästhetik). Für jede nummerierte Zeile:
 was gezeigt wird. Der Film ist die WELT um das Tier, nicht nur das Tier (Vorgabe des Kanals):
@@ -128,7 +140,8 @@ TIERE:
 {animals}"""
 
 
-PLAN_VERSION = 9          # 07.11: the extinct animal, a scene every 3 min and the people share enforced in code
+PLAN_VERSION = 10         # 12.11: checklists of what a picture shows, stock candidates ranked by SigLIP, landscapes <= 15 % of the beats
+_PLAN_VERSION_9 = 9          # 07.11: the extinct animal, a scene every 3 min and the people share enforced in code
 _PLAN_VERSION_8 = 8          # 07.11: the world around the animal (main <= 40 %, 3 kinds a chapter), a scene a chapter, one look per animal, only the line's animals
 _PLAN_VERSION_7 = 7          # 31.10: the animal on screen (>= 60 % of its chapter), <= 15 % landscapes, a moving hook with animals; a lost chunk of lines asked again; older plans are made again
 # FLUX draws animals and landscapes; a diagram, a DNA strand or a "visualisation" comes out as
@@ -173,6 +186,7 @@ SCENE_POSES = ["attacking a prehistoric whale, jaws wide open, a cloud of blood 
 SETTINGS = ["open ocean at noon, bright blue", "murky green coastal water", "deep twilight zone, beams of light",
             "over a coral reef of its era", "at dusk near the surface, orange light", "a kelp-like forest of its era"]
 PEOPLE_MAX = 0.25            # of an episode's beats
+LANDSCAPE_MAX = 0.15         # of an episode's beats (docplan.LANDSCAPE_MAX, measured on the film by qa.py)
 CHAPTER_LINES_S = 180.0      # a scene every ~3 minutes
 
 
@@ -267,6 +281,23 @@ def enforce_world(lines, out_lines, species, flux, order, secs_per_word=0.45, ti
         if keep and len(keep) < len(r["beats"]):
             extra -= len(r["beats"]) - len(keep)
             r["beats"] = keep
+    # 4. sea, sky and land without an animal at most LANDSCAPE_MAX of the beats (12.11: the model planned
+    # 85 of 383 in megalodon, and the film came out at 35 %): the extra ones go where the line has another
+    # picture, the ones of the lines with the most pictures first
+    from pipeline import docplan
+    allb = [b for r in out_lines for b in r["beats"]]
+    land = [b for b in allb if b.get("kind") == "real" and docplan.is_landscape(b)]
+    extra = int(-(-(len(land) - LANDSCAPE_MAX * len(allb)) // (1 - LANDSCAPE_MAX)))
+    n_land = len(land)
+    for r in sorted(out_lines, key=lambda r: -len(r["beats"])):
+        if extra <= 0:
+            break
+        lb = [b for b in r["beats"] if b.get("kind") == "real" and docplan.is_landscape(b)]
+        if lb and len(lb) < len(r["beats"]):
+            r["beats"] = [b for b in r["beats"] if b is not lb[0]]
+            extra -= 1
+            n_land -= 1
+    log.info("landscape beats %d -> %d", len(land), n_land)
     log.info("enforced: main animal %s; %d FLUX frames added (%d scenes); people beats %d -> %d", main,
              len(added), sum(1 for f in added if flux[f]["scene"]), len(ppl),
              sum(1 for r in out_lines for b in r["beats"] if b.get("people")))
@@ -278,11 +309,21 @@ def chunks(seq, n):
         yield i, seq[i:i + n]
 
 
+RANK_POOL = 40            # Pixabay clips a query (as before), scored with Commons' on their posters, on the CPU
+CANDIDATES = 4            # kept for the species check, best first
+
+
 def footage_for(query, used, need_live, min_w=1280):
-    from pipeline import footage
+    """A beat's stock candidates. 12.11 (megalodon): they were the four of the best resolution among
+    what Pixabay and Commons return for the query, in Pixabay's "popular" order - clouds for
+    "underwater shadow passing", grass for "quill pen on paper" - and Gemini turned down 551 of them
+    as not fitting the line (190 of 268 scenery beats came out empty, their shots ran on to 15 s). Now
+    SigLIP (pipeline/prefilter.py) scores every poster against the query and the closest four are kept;
+    resolution only breaks ties. Without the model the old order stays."""
+    from pipeline import footage, prefilter
     cands = []
     try:
-        cands += footage.pixabay(query, per_page=40)
+        cands += footage.pixabay(query, per_page=RANK_POOL)
     except Exception as e:                                               # noqa: BLE001
         log.warning("pixabay %r: %s", query, e)
     try:
@@ -293,7 +334,18 @@ def footage_for(query, used, need_live, min_w=1280):
              and (c.get("duration") or 0) >= 5 and (c.get("mime") or "video").startswith(("video", "application/ogg"))]
     # animals are rare on open licences: any resolution from 1280 up; the best first
     cands.sort(key=lambda c: (-(c["width"] >= 3840), -(c["width"] >= 1920), -min(c.get("duration") or 0, 30)))
-    return cands[:4]
+    if len(cands) > CANDIDATES and prefilter.available():
+        posters = [(c, prefilter.poster(c, c["id"])) for c in cands]
+        have = [(c, p) for c, p in posters if p]
+        sc = dict(zip((c["id"] for c, _p in have),
+                      prefilter.scores([(prefilter.text_for(query=query), p) for _c, p in have])))
+        th = prefilter.thresholds("scene")
+        floor = th[1] if th and th[1] is not None else None
+        # a clip with no poster keeps its place after the scored ones; a clear miss is not kept at all
+        ranked = sorted((c for c in cands if c["id"] in sc and (floor is None or sc[c["id"]] > floor)),
+                        key=lambda c: -sc[c["id"]])
+        cands = ranked + [c for c in cands if c["id"] not in sc]
+    return cands[:CANDIDATES]
 
 
 def main(slug):
@@ -308,8 +360,29 @@ def main(slug):
             if isinstance(a, dict) and a.get("key") and all(a["key"] != b.get("key") for b in animals):
                 animals.append(a)
     animals = [a for a in animals if isinstance(a, dict) and a.get("key")]
+    # 12.11 (megalodon): the checklist asked for tooth roots, a body of 9-18 m and "small size like a great
+    # white" - nothing a picture shows - and all 20 FLUX frames of the animal failed; and "a modern animal in
+    # a prehistoric scene" on every animal turned down the FLUX shark and the real great white alike. Only
+    # what a picture shows is kept; an animal left with fewer than three such features is asked again.
+    for a in animals:
+        a.update({k: v for k, v in speciescheck.visible(a).items() if k in ("features", "forbidden")})
+    thin = [a for a in animals if len(a.get("features") or []) < 3]
+    if thin:
+        try:
+            more = gemini.pick(textllm.ask(VISIBLE.format(animals="\n".join(
+                f"- {a['key']}: {a.get('name_de')} ({a.get('latin')})" for a in thin)), step="plan",
+                temperature=0.2, max_tokens=1500), "animals")
+        except Exception as e:                                           # noqa: BLE001
+            log.warning("visible features: %s", str(e)[:160])
+            more = []
+        for m in more:
+            a = next((x for x in thin if isinstance(m, dict) and x["key"] == m.get("key")), None)
+            if a:
+                a["features"] = list(dict.fromkeys((a.get("features") or []) +
+                                                   speciescheck.visible({"features": m.get("features") or []})["features"]))
+        log.info("visible features asked again for %s", [a["key"] for a in thin])
     species = {a["key"]: {"name": f"{a.get('name_de')} ({a.get('latin')})", "features": (a.get("features") or [])[:5],
-                          "forbidden": (a.get("forbidden") or [])[:5] + ["a modern animal in a prehistoric scene"],
+                          "forbidden": (a.get("forbidden") or [])[:5],
                           "living": bool(a.get("living")), "video_query": a.get("video_query"),
                           # one reference look per animal for every FLUX frame of it (owner 07.11)
                           "look": str(a.get("look") or "").strip() or
@@ -524,6 +597,7 @@ def standby(slug):
         for fid in list(recon.pop("standby")):
             drop(fid)
     species = json.loads((ep / "species.json").read_text(encoding="utf-8"))
+    speciescheck.load_episode_species(ep)          # the checklists as the check reads them
     footage = json.loads((ep / "footage.json").read_text(encoding="utf-8"))
     vpath = ep / "species_verdicts.json"
     known = json.loads(vpath.read_text(encoding="utf-8")) if vpath.exists() else {}
@@ -543,7 +617,8 @@ def standby(slug):
                 continue
             main = footage[b["need"]]
             for c in [main] + list(main.get("alternates") or []):
-                if c["id"] in known and speciescheck.passes(known[c["id"]], b["species"], allow=b.get("allow") or ())[0]:
+                v = speciescheck.saved(known, c["id"], b["species"])
+                if v is not None and speciescheck.passes(v, b["species"], allow=speciescheck.allow_of(b))[0]:
                     real[b["species"]].add(c["id"])
     per_prompt = seeds * docplan.REPEAT_MAX * docplan.TARGET_S * STANDBY_PASS
     want = {}
@@ -730,7 +805,47 @@ def stale(slug):
     return r.get("version") != PLAN_VERSION or ("script_sha" in r and r["script_sha"] != sha)
 
 
+def refootage(slug):
+    """New stock candidates (footage_for, ranked) for the beats none of whose clips passed the
+    species check; the shots, FLUX frames and LTX clips stay - no GPU. Megalodon 12.11: its plan
+    was made with the resolution-first candidates, 190 of 268 scenery beats came out empty."""
+    ep = ROOT / "episodes" / slug
+    spec = json.loads((ep / "shots.json").read_text(encoding="utf-8"))
+    footage = json.loads((ep / "footage.json").read_text(encoding="utf-8"))
+    known = json.loads((ep / "species_verdicts.json").read_text(encoding="utf-8")) \
+        if (ep / "species_verdicts.json").exists() else {}
+    speciescheck.load_episode_species(ep)
+    speciescheck.use_scores(slug)
+    used = {c["id"] for f in footage.values() for c in [f] + list(f.get("alternates") or [])}
+    n = kept = 0
+    for e in spec["lines"]:
+        for b in e["beats"]:
+            if b["kind"] != "real" or b["need"] not in footage:
+                continue
+            sp = b.get("species")
+            vs = [speciescheck.saved(known, cid, sp) for cid, _k, _s in speciescheck.candidates(b, footage, None)]
+            if any(v is None or speciescheck.passes(v, sp, bool(b.get("archive")), speciescheck.allow_of(b))[0]
+                   for v in vs):
+                kept += 1                                # a passing clip, or one still to be asked
+                continue
+            cands = footage_for(b.get("topic") or footage[b["need"]].get("query") or "ocean", used, False)
+            if not cands:
+                continue
+            used.update(c["id"] for c in cands)
+            main_ = cands[0]
+            footage[b["need"]] = {**main_, "alternates": [{kk: c.get(kk) for kk in (
+                "id", "url", "width", "height", "duration", "page", "author", "license", "license_url",
+                "source", "title", "tags", "thumb")} for c in cands[1:]],
+                "query": footage[b["need"]].get("query") or b.get("topic")}
+            n += 1
+    (ep / "footage.json").write_text(json.dumps(footage, indent=1, ensure_ascii=False), encoding="utf-8")
+    log.info("%s: new candidates for %d beats (%d kept)", slug, n, kept)
+    return 0
+
+
 if __name__ == "__main__":
+    if sys.argv[1] == "--refootage":
+        sys.exit(refootage(sys.argv[2]))
     if sys.argv[1] == "--if-stale":
         sys.exit(main(sys.argv[2]) if stale(sys.argv[2]) else 0)
     if sys.argv[1] == "--standby":

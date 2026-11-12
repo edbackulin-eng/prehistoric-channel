@@ -30,6 +30,7 @@ import base64
 import io
 import json
 import os
+import re
 import time
 import urllib.error
 import urllib.request
@@ -44,7 +45,10 @@ log = get_logger("species")
 ROOT = Path(__file__).resolve().parent.parent
 MODELS = ("gemini-flash-latest", "gemini-flash-lite-latest")
 URL = "https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent"
-WANT_PASSING = 1          # a line's second shot is another moment of the same clip (docplan): half the requests
+# 12.11: was 1 - "a line's second shot is another moment of the same clip" - but since 07.11 another
+# moment of a clip is the same source (twice a film, never within 3 min: pipeline/fragments.py), so a
+# long line had nothing for its second shot and ran on (megalodon: 15 s a shot). Two passing clips a beat.
+WANT_PASSING = 2
 _SPENT = set()            # models out of quota for the rest of this run
 
 SCENE = {"name": "a prehistoric scene (no particular animal asked for)", "features": [],
@@ -115,6 +119,7 @@ SPECIES = {
         "forbidden": ["modern reef fish (clownfish, perch, snapper, tropical fish)", "a modern shark",
                       "modern branching hard corals as the main reef"]},
 }
+BUILTIN = frozenset(SPECIES)
 
 PROMPT = """You check pictures for a German nature documentary about "living fossils".
 The narration at this point says (German): "{line}"
@@ -139,6 +144,104 @@ def _key():
     return os.environ.get("GEMINI_API_KEY_PH", "").strip()
 
 
+# 12.11 (megalodon, 0 of 20 FLUX frames passed): the planner's checklist named what only a fossil or a
+# tape measure shows - "V-shaped notch at the base of the tooth root", "body 9-18 m", "small size
+# comparable to a great white" - which no picture of a living animal can answer, so every frame was
+# "too few features visible" or "forbidden: small size". A checklist asks only what a picture shows.
+MEASURED = re.compile(r"\d+(?:[.,]\d+)?\s*(?:-|to|bis)?\s*\d*\s*(?:m|cm|mm|meters?|metres?|feet|ft|tons?|tonnes?|kg)\b|"
+                      r"estimated|\bsize\b|comparable|compared to|than (?:a|an|the) (?:modern|living)|weigh|"
+                      r"\broot\b|notch|posterior teeth|internal|microscop|bite force|lifespan|growth rings?|"
+                      r"\bdna\b|genetic", re.I)
+# a feature of the living animal is never its fossil; a fossil or a skeleton in the picture is still
+# a wrong picture, so the forbidden list keeps those
+INVISIBLE = re.compile(MEASURED.pattern + r"|fossil|bone|skelet|vertebra|cartilag", re.I)
+# the planner added this to every animal's forbidden list: a FLUX megalodon is a shark and a real great
+# white is a modern animal, so it turned down the very animals asked for; a prehistoric scene keeps it (SCENE)
+NOT_FOR_ANIMALS = re.compile(r"modern animal in a prehistoric scene", re.I)
+
+
+def visible(sp):
+    """The checklist with only what a picture can show (features and forbidden traits)."""
+    sp = dict(sp)
+    sp["features"] = [f for f in sp.get("features") or [] if not INVISIBLE.search(str(f))]
+    sp["forbidden"] = [f for f in sp.get("forbidden") or []
+                       if not MEASURED.search(str(f)) and not NOT_FOR_ANIMALS.search(str(f))]
+    return sp
+
+
+def load_episode_species(ep):
+    """The episode's own checklists (episodes/<slug>/species.json), as a picture can answer them."""
+    p = Path(ep) / "species.json"
+    if p.exists():
+        SPECIES.update({k: visible(v) for k, v in json.loads(p.read_text(encoding="utf-8")).items()
+                        if k not in BUILTIN})
+    SPECIES["prehistoric_scene"] = SCENE
+
+
+def extinct(species):
+    sp = SPECIES.get(species or "")
+    return bool(sp) and sp.get("living") is False
+
+
+def topic_of(beat, species):
+    """What the picture should show. A FLUX frame of the episode's extinct animal shows it alive: 12.11,
+    megalodon frames were turned down as "does not fit" under lines about its vertebrae and bite marks,
+    though a documentary shows the animal while it tells of its fossils."""
+    if beat.get("topic"):
+        return beat["topic"]
+    if beat.get("kind") == "recon" and extinct(species):
+        return (f"{SPECIES[species]['name']}, alive, as reconstructed for this film - the animal this part of "
+                f"the film tells of (shown alive also while the narration speaks of its fossils or finds)")
+    return None
+
+
+PEOPLE_WORDS = ["people", "person", "man", "woman", "men", "women", "scientist", "researcher", "fisherman",
+                "fishermen", "diver", "worker", "palaeontologist", "paleontologist"]
+SCALE_WORDS = ["diver", "people", "person", "boat", "hull", "ship", "vessel", "kayak", "torch"]
+
+
+def allow_of(beat):
+    """Words for what belongs in this beat's picture. 12.11: a beat planned to show people ("fishermen
+    pulling a net", "scientist examining a fossil") was turned down for its people, and a scene planned
+    with a diver or a boat for scale (plan_episode.SCENE_POSES) for its diver - 176 such refusals."""
+    allow = list(beat.get("allow") or ())
+    if beat.get("people"):
+        allow += PEOPLE_WORDS
+    if beat.get("kind") == "recon" and beat.get("scene"):
+        allow += SCALE_WORDS
+    return allow
+
+
+def vkey(cid, species):
+    """Where a verdict is kept: a clip asked for an animal under its own key per animal (12.11: kept by
+    the clip alone, a clip judged as a whale was read again for a great white - 314 of 886 readings
+    in megalodon answered another question than the one asked)."""
+    return f"{cid}|{species}" if species and species != "prehistoric_scene" and species in SPECIES else cid
+
+
+def saved(known, cid, species):
+    """The kept verdict that answers this candidate for this species, or None (to be asked)."""
+    k = vkey(cid, species)
+    v = known.get(k)
+    if v is not None or k == cid:
+        return v
+    v = known.get(cid)
+    if v is None:
+        return None
+    if v.get("missing") or v.get("model") in ("siglip", "reused"):
+        return v                                    # no download, or the CPU's / another episode's no
+    if v.get("species_asked"):
+        return v if v["species_asked"] == species else None
+    feats = set((v.get("features") or {}).keys())
+    if feats and feats == set(SPECIES[species].get("features") or []):
+        return v
+    # a FLUX frame belongs to one beat, so its old verdict was asked for this animal - unless its
+    # checklist is another animal's of this episode
+    if "__s" in cid and feats and not any(feats == set(sp.get("features") or []) for sp in SPECIES.values()):
+        return v
+    return None
+
+
 def _b64(path, side=768):
     im = Image.open(path).convert("RGB")
     im.thumbnail((side, side))
@@ -147,8 +250,8 @@ def _b64(path, side=768):
     return base64.b64encode(buf.getvalue()).decode()
 
 
-def ask(key, images, line, species=None, topic=None, archive=False, what="one still image"):
-    block, feats = _species_block(species, archive)
+def ask(key, images, line, species=None, topic=None, archive=False, what="one still image", recon=False):
+    block, feats = _species_block(species, archive, recon)
     text = PROMPT.format(line=line, topic=f"The picture should show: {topic}." if topic else "",
                          species_block=block, what=what, features_json=feats)
     parts = [{"text": text}] + [{"inline_data": {"mime_type": "image/jpeg", "data": _b64(p)}} for p in images]
@@ -219,13 +322,21 @@ For every feature answer "yes" (clearly seen), "no" (seen to be different) or "n
 species_match is null when no species is asked for."""
 
 
-def _species_block(species, archive):
+RECON_NOTE = ("\nThis animal is EXTINCT: the image is a reconstruction of it, drawn for this film. Judge whether "
+              "it shows this animal as reconstructed from the features above; that it looks like its living "
+              "relatives is not wrong in itself (an extinct shark is drawn as a shark). Judge size only where "
+              "something in the picture gives the scale.")
+
+
+def _species_block(species, archive, recon=False):
     sp = SPECIES.get(species) if species else None
     if not sp:
         return "No particular species is asked for: judge relevance only.", ""
     block = (f"Species asked for: {sp['name']}.\nFeatures to check: " + "; ".join(sp["features"]) +
              ".\nForbidden - any of these means it is the wrong animal or a bad picture: " +
              "; ".join(sp["forbidden"]) + ".")
+    if recon and sp.get("living") is False:
+        block += RECON_NOTE
     if archive:
         block += ("\nThis is a historical photograph (possibly black and white, with people): judge only "
                   "whether the animal in it is this species; people and old print are fine here.")
@@ -238,7 +349,7 @@ def ask_batch(key, items):
     parts = [{"text": BATCH_INTRO.format(n=len(items))}]
     n_img = 0
     for i, it in enumerate(items):
-        block, feats = _species_block(it.get("species"), it.get("archive"))
+        block, feats = _species_block(it.get("species"), it.get("archive"), it.get("recon"))
         parts.append({"text": BATCH_CLIP.format(
             i=i, line=it["line"], topic=f"The picture should show: {it['topic']}." if it.get("topic") else "",
             species_block=block, what=it.get("what", "one still image"), features_json=feats)})
@@ -376,9 +487,9 @@ def _reuse_index(slug):
             if vf.parent.name == slug:
                 continue
             try:
-                for cid, v in json.loads(vf.read_text(encoding="utf-8")).items():
+                for k, v in json.loads(vf.read_text(encoding="utf-8")).items():
                     if isinstance(v, dict) and v.get("model") not in ("siglip", None) and "error" not in v:
-                        idx.setdefault(cid, []).append((vf.parent.name, v))
+                        idx.setdefault(k.split("|")[0], []).append((vf.parent.name, v))
             except (OSError, ValueError):
                 continue
         _REUSE[slug] = idx
@@ -397,7 +508,7 @@ def reused_fail(slug, cid, species, beat):
     """Owner 10.11: a clip another episode's check turned down for a reason no line changes - the
     wrong animal for the same species, a logo or text, people where none are allowed - is turned
     down again without a request. A pass is never reused: it depends on the line."""
-    allow = [a.lower() for a in beat.get("allow", ())]
+    allow = [a.lower() for a in allow_of(beat)]
     for other, v in _reuse_index(slug).get(cid, []):
         same = species and species != "prehistoric_scene" and _asked_for(v) == species
         why = ("not the species" if same and v.get("species_match") is False
@@ -475,9 +586,7 @@ def prefilter_pass(slug):
     ep = ROOT / "episodes" / slug
     shots = json.loads((ep / "shots.json").read_text(encoding="utf-8"))["lines"]
     footage = json.loads((ep / "footage.json").read_text(encoding="utf-8"))
-    sp_path = ep / "species.json"
-    if sp_path.exists():
-        SPECIES.update({k: v for k, v in json.loads(sp_path.read_text(encoding="utf-8")).items() if k not in SPECIES})
+    load_episode_species(ep)
     vpath = ep / "species_verdicts.json"
     known = json.loads(vpath.read_text(encoding="utf-8")) if vpath.exists() else {}
     _score_all(slug, shots, footage)
@@ -489,14 +598,14 @@ def prefilter_pass(slug):
                 continue
             seen.add(beat["need"])
             for cid, kind, src in candidates(beat, footage, None):
-                v = known.get(cid)
+                v = saved(known, cid, beat.get("species"))
                 if v is None:
                     v = reused_fail(slug, cid, beat.get("species"), beat) or cpu_verdict(cid, src, beat, footage)
                     if v is None:
                         break                          # doubtful: Gemini sees it (and what follows) in the check
-                    known[cid] = v
+                    known[vkey(cid, beat.get("species"))] = v
                     n += 1
-                ok, _why = passes(v, beat.get("species"), bool(beat.get("archive")), beat.get("allow", ()))
+                ok, _why = passes(v, beat.get("species"), bool(beat.get("archive")), allow_of(beat))
                 if ok:
                     break
     vpath.write_text(json.dumps(known, indent=1, ensure_ascii=False), encoding="utf-8")
@@ -543,16 +652,16 @@ def batch_prefill(key, beats, footage, layers, out_dir, known, vpath):
                 if cid in tried:
                     continue
                 tried.add(cid)
-                v = known.get(cid)
+                v = saved(known, cid, species)
                 if v is None and kind == "real":
                     v = cpu_verdict(cid, src, beat, footage)
                     if v:
-                        known[cid] = v
+                        known[vkey(cid, species)] = v
                 if v is None:
                     if state[bk] >= 0:
                         pending.append((beat, line, species, cid, kind, src))
                     break
-                ok, _w = passes(v, species, bool(beat.get("archive")), beat.get("allow", ()))
+                ok, _w = passes(v, species, bool(beat.get("archive")), allow_of(beat))
                 if ok:
                     n_pass += 1
                     if n_pass >= want:
@@ -569,18 +678,20 @@ def batch_prefill(key, beats, footage, layers, out_dir, known, vpath):
                     progress = True                     # the beat's next clip comes in the next round
                     continue
                 group.append((beat, cid, {"images": fr, "line": line, "species": species,
-                                          "topic": beat.get("topic"), "archive": bool(beat.get("archive")),
+                                          "topic": topic_of(beat, species), "archive": bool(beat.get("archive")),
+                                          "recon": kind == "recon",
                                           "what": "three frames from the start, middle and end of one video clip"
                                           if kind == "real" else "one still image"}))
             if not group:
                 continue
             vs = ask_batch(key, [g[2] for g in group])
             asked += 1
-            for (beat, cid, _it), v in zip(group, vs):
+            for (beat, cid, it), v in zip(group, vs):
                 if "error" in v:
                     state[beat_key(beat)] = -1          # unknown: check() asks it on its own, or later
                 else:
-                    known[cid] = v
+                    v["species_asked"] = it["species"]
+                    known[vkey(cid, it["species"])] = v
                     progress = True
             if asked % 5 == 0:
                 vpath.write_text(json.dumps(known, indent=1, ensure_ascii=False), encoding="utf-8")
@@ -620,11 +731,7 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
     spec = json.loads((ep / "shots.json").read_text(encoding="utf-8"))["lines"]
     footage = json.loads((ep / "footage.json").read_text(encoding="utf-8"))
     # the episode's own checklists, written with its plan (automation/plan_episode.py)
-    sp_path = ep / "species.json"
-    if sp_path.exists():
-        SPECIES.update({k: v for k, v in json.loads(sp_path.read_text(encoding="utf-8")).items()
-                        if k not in SPECIES})
-    SPECIES["prehistoric_scene"] = SCENE
+    load_episode_species(ep)
     layers, out_dir = Path(layers), Path(out_dir)
     key = _key()
     picks, logrows, seen, museum = {}, [], {}, []
@@ -662,10 +769,11 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
                     continue
                 tried.add(cid)
                 label = source_label(kind, src)
-                if cid in known and key:
-                    # judged before (an earlier run, a rerun): no download, no request, no wait
-                    v = known[cid]
-                    ok, why = passes(v, species, archive, beat.get("allow", ()))
+                allow = allow_of(beat)
+                if key and saved(known, cid, species) is not None:
+                    # judged before (an earlier run, a rerun) for this very animal: no download, no request
+                    v = saved(known, cid, species)
+                    ok, why = passes(v, species, archive, allow)
                     if ok and v.get("museum_display"):
                         museum.append(cid)
                     row["candidates"].append({"id": cid, "pass": ok, "why": why, "answer": v, "source": label,
@@ -678,8 +786,8 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
                     # clip another episode turned down for a reason no line changes
                     v = reused_fail(slug, cid, species, beat) or cpu_verdict(cid, src, beat, footage)
                     if v:
-                        known[cid] = v
-                        ok, why = passes(v, species, archive, beat.get("allow", ()))
+                        known[vkey(cid, species)] = v
+                        ok, why = passes(v, species, archive, allow)
                         row["candidates"].append({"id": cid, "pass": ok, "why": why, "answer": v, "source": label,
                                                   "frame": v.get("poster")})
                         log.info("%-22s %-34s %s %s", bk, cid, "PASS" if ok else "fail", why)
@@ -704,14 +812,14 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
                     continue
                 what = "three frames from the start, middle and end of one video clip" if kind == "real" \
                     else "one still image"
-                v = ask(key, fr, line, species, beat.get("topic"), archive, what)
+                v = ask(key, fr, line, species, topic_of(beat, species), archive, what, recon=kind == "recon")
                 if "error" not in v:
                     v["species_asked"] = species
-                    known[cid] = v
+                    known[vkey(cid, species)] = v
                     asked[0] += 1
                     if asked[0] % 10 == 0:       # kept as it goes: a run that dies later loses nothing
                         vpath.write_text(json.dumps(known, indent=1, ensure_ascii=False), encoding="utf-8")
-                ok, why = passes(v, species, archive, beat.get("allow", ()))
+                ok, why = passes(v, species, archive, allow)
                 if ok is None:
                     # the checker failed (429, quota, a timeout), not the picture: no verdict,
                     # and nothing kept or dropped on it - the beat is asked again later

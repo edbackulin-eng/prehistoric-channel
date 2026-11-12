@@ -450,8 +450,11 @@ def main():
     (ep_v / "shots.json").write_text(json.dumps({"lines": [{"at": "Eins", "n": 0, "beats": [
         {"kind": "real", "need": "r1", "species": "latimeria"}]}]}), encoding="utf-8")
     (ep_v / "footage.json").write_text(json.dumps({"r1": {**clip("k1"), "alternates": [clip("k2")]}}), encoding="utf-8")
-    (ep_v / "species_verdicts.json").write_text(json.dumps({"k1": {**good, "species_match": False},
-                                                            "k2": good}), encoding="utf-8")
+    # asked for this species (kept with every verdict since 10.11; 12.11: one asked for another is asked again)
+    (ep_v / "species_verdicts.json").write_text(json.dumps({"k1": {**good, "species_match": False,
+                                                                   "species_asked": "latimeria"},
+                                                            "k2": {**good, "species_asked": "latimeria"}}),
+                                                encoding="utf-8")
     saved = (scq.ROOT, scq.ask, scq._frames, scq._key)
     asked = []
     scq.ROOT, scq._key = tmp_ep, lambda: "k"
@@ -594,6 +597,50 @@ def main():
     from pipeline import speciescheck
     v = speciescheck.passes({"error": "HTTP 429"}, "prehistoric_scene")
     check("species check: a 429 is no verdict", v[0] is None, str(v))
+    # 12.11 (megalodon): a checklist asks only what a picture shows; a verdict counts only for the animal
+    # it was asked for; a beat planned with people or a diver for scale may show them
+    vis = speciescheck.visible({"features": ["V-shaped notch at the base of the tooth root", "enormous body size "
+                                             "estimated between 9 and 18 meters", "a broad blunt snout",
+                                             "long broad pectoral fins"],
+                                "forbidden": ["small size comparable to a great white shark",
+                                              "a modern animal in a prehistoric scene", "a skeleton or fossil jaw"]})
+    check("species check: no tooth roots, sizes or 'modern animal' on an animal's checklist; a fossil still forbidden",
+          vis["features"] == ["a broad blunt snout", "long broad pectoral fins"]
+          and vis["forbidden"] == ["a skeleton or fossil jaw"], str(vis))
+    _sp_saved = dict(speciescheck.SPECIES)
+    try:
+        speciescheck.SPECIES.update({"whales": {"name": "whales", "features": ["flukes"], "forbidden": []},
+                                     "great_white_shark": {"name": "gws", "features": ["fin", "belly"], "forbidden": [],
+                                                           "living": True},
+                                     "megalo": {"name": "Megalodon", "features": ["snout"], "forbidden": [],
+                                                "living": False}})
+        _kn2 = {"c1": {"species_match": True, "features": {"flukes": "yes"}, "model": "g"},
+                "c2": {"species_match": True, "species_asked": "great_white_shark", "features": {"x": "yes"}, "model": "g"},
+                "m_scene_1__s0": {"species_match": False, "features": {"old feature": "no"}, "model": "g"}}
+        s1 = speciescheck.saved(_kn2, "c1", "great_white_shark")
+        s2 = speciescheck.saved(_kn2, "c1", "whales")
+        s3 = speciescheck.saved(_kn2, "c2", "great_white_shark")
+        s4 = speciescheck.saved(_kn2, "m_scene_1__s0", "megalo")
+        s5 = speciescheck.saved(_kn2, "c1", None)
+        k6 = speciescheck.vkey("c1", "great_white_shark")
+        t_rec = speciescheck.topic_of({"kind": "recon"}, "megalo") or ""
+        t_gws = speciescheck.topic_of({"kind": "recon"}, "great_white_shark")
+    finally:
+        speciescheck.SPECIES.clear()
+        speciescheck.SPECIES.update(_sp_saved)
+    check("species check: a clip judged as a whale is asked again for a great white, kept under its own key",
+          s1 is None and s2 is not None and s3 is not None and s4 is not None and s5 is not None
+          and k6 == "c1|great_white_shark", f"{s1} {s2} {s3} {s4} {k6}")
+    check("species check: a FLUX frame of the extinct animal is judged as the animal alive, not as the line's fossil",
+          "Megalodon, alive" in t_rec and t_gws is None, t_rec)
+    _pv = {"species_match": None, "features": {}, "fits_narration": True, "off_topic_objects": ["people"],
+           "people": True, "text_or_logo": False}
+    check("species check: a beat planned with people may show people; another may not",
+          speciescheck.passes(_pv, None, allow=speciescheck.allow_of({"kind": "real", "people": True}))[0] is True
+          and speciescheck.passes(_pv, None, allow=speciescheck.allow_of({"kind": "real"}))[0] is False
+          and speciescheck.passes({**_pv, "off_topic_objects": ["diver"]}, None,
+                                  allow=speciescheck.allow_of({"kind": "recon", "scene": True}))[0] is True,
+          "")
     # owner 08.11: SigLIP on the CPU decides the clear clips before Gemini; the budget counts the rest
     import tempfile as _tf
     from pipeline import prefilter as _pf
@@ -658,9 +705,11 @@ def main():
           and speciescheck.passes(r1, "whales")[0] is False, f"{r1} {r4}")
     # owner 08.11: four clips a request - each beat's next undecided clip, until each has a passing one
     calls_b = []
-    saved_b = (speciescheck.ask_batch, speciescheck._frames, speciescheck.cpu_verdict, speciescheck.BATCH_CLIPS)
+    saved_b = (speciescheck.ask_batch, speciescheck._frames, speciescheck.cpu_verdict, speciescheck.BATCH_CLIPS,
+               speciescheck.WANT_PASSING)
     try:
         speciescheck.BATCH_CLIPS = 4
+        speciescheck.WANT_PASSING = 1               # the batching itself; two passing clips a beat is the default
         speciescheck.ask_batch = lambda key, items: (calls_b.append(len(items)) or [
             {"species_match": True, "features": {}, "fits_narration": it["line"] != "bad", "off_topic_objects": [],
              "people": False, "text_or_logo": False} for it in items])
@@ -671,7 +720,8 @@ def main():
         _kn = {}
         speciescheck.batch_prefill("k", _beats, _foot6, None, _d, _kn, _d / "v.json")
     finally:
-        speciescheck.ask_batch, speciescheck._frames, speciescheck.cpu_verdict, speciescheck.BATCH_CLIPS = saved_b
+        (speciescheck.ask_batch, speciescheck._frames, speciescheck.cpu_verdict, speciescheck.BATCH_CLIPS,
+         speciescheck.WANT_PASSING) = saved_b
     check("species check: clips asked four a request, the alternate only where the first failed",
           calls_b == [4, 2, 1] and set(_kn) == {f"d{i}a" for i in range(6)} | {"d2b"}, f"{calls_b} {sorted(_kn)}")
     # owner 07.11: a long part is joined a few shots at a time (the runner's memory), same picture
