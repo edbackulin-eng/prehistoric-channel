@@ -1,0 +1,27 @@
+{
+ "gemini-flash-lite-latest": {
+  "requests": 5,
+  "in_tokens": 7488,
+  "out_tokens": 766,
+  "steps": {
+   "species_check": 3,
+   "thumb-judge": 2
+  }
+ },
+ "gemma-4-31b-it": {
+  "requests": 3,
+  "in_tokens": 2223,
+  "out_tokens": 458,
+  "steps": {
+   "thumb-judge": 3
+  }
+ },
+ "gemma-4-26b-a4b-it": {
+  "requests": 1,
+  "in_tokens": 901,
+  "out_tokens": 46,
+  "steps": {
+   "thumb-choose": 1
+  }
+ }
+}
