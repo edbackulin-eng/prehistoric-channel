@@ -1,0 +1,2721 @@
+{
+ "pixabay-297938|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0331,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-297938.jpg",
+  "subject": "crocodile swimming in murky water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-297940|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0183,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-297940.jpg",
+  "subject": "crocodile swimming in murky water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-13022|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0077,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-13022.jpg",
+  "subject": "crocodile swimming in murky water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-158411|crocodile": {
+  "subject": "aerial view of waterfall and swimming pool in nature",
+  "species_match": false,
+  "people": true,
+  "text_or_logo": false,
+  "note": "Shows a waterfall and people swimming, completely unrelated to nautilus.",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "people"
+ },
+ "pixabay-147192|whale": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0292,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-147192.jpg",
+  "subject": "whale breaching ocean surface",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-228697|whale": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0233,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-228697.jpg",
+  "subject": "whale breaching ocean surface",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-246514|whale": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0096,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-246514.jpg",
+  "subject": "whale breaching ocean surface",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-133547|whale": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0137,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-133547.jpg",
+  "subject": "whale breaching ocean surface",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-122607|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0192,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-122607.jpg",
+  "subject": "crocodile basking on riverbank",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-122606|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0187,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-122606.jpg",
+  "subject": "crocodile basking on riverbank",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-85718|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0031,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-85718.jpg",
+  "subject": "crocodile basking on riverbank",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-34316|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0299,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-34316.jpg",
+  "subject": "crocodile basking on riverbank",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-65390": {
+  "subject": "vinyl record spinning on a turntable",
+  "species_match": null,
+  "people": false,
+  "text_or_logo": true,
+  "note": "shows a vinyl record instead of old papers and diagrams",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-21016": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.082,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-21016.jpg",
+  "subject": "museum curator examining bone",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-218410": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0763,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-218410.jpg",
+  "subject": "museum curator examining bone",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-21015": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0975,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-21015.jpg",
+  "subject": "museum curator examining bone",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-244334": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1404,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-244334.jpg",
+  "subject": "historical portrait military surgeon",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-262464": {
+  "subject": "a scientist in a medical or chemical laboratory",
+  "species_match": false,
+  "people": true,
+  "text_or_logo": true,
+  "note": "Shows a laboratory setting fitting the theme of blue blood science, though no animal is visible.",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "text or logo"
+ },
+ "pixabay-265501": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0868,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-265501.jpg",
+  "subject": "anatomist dissecting animal cadaver",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-206771|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0267,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-206771.jpg",
+  "subject": "large crocodile swimming",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-364463|crocodile": {
+  "subject": "diver in deep blue water",
+  "species_match": false,
+  "people": true,
+  "text_or_logo": false,
+  "note": "Shows a diver in deep blue water instead of a nautilus.",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "people"
+ },
+ "pixabay-85687|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0293,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-85687.jpg",
+  "subject": "large crocodile swimming",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-43353|crocodile": {
+  "subject": "aerial view of people on a pier and swimming",
+  "species_match": false,
+  "people": true,
+  "text_or_logo": false,
+  "note": "Aerial footage of a wooden pier with sunbathers and swimmers; completely unrelated to the coelacanth.",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "people"
+ },
+ "pixabay-349087": {
+  "subject": "hand browsing through archive records",
+  "species_match": null,
+  "people": true,
+  "text_or_logo": true,
+  "note": "fits archival research context",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "text or logo"
+ },
+ "pixabay-257182": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0872,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-257182.jpg",
+  "subject": "man looking worried at documents",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-263659": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0891,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-263659.jpg",
+  "subject": "man looking worried at documents",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-107240": {
+  "subject": "hand writing with a dip pen",
+  "species_match": null,
+  "people": true,
+  "text_or_logo": true,
+  "note": "hand writing with a pen, candle and inkpot visible",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-253475": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1302,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-253475.jpg",
+  "subject": "anatomist using scalpel on bone",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-173660": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0978,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-173660.jpg",
+  "subject": "anatomist using scalpel on bone",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-153458": {
+  "subject": "pile of US hundred dollar bills",
+  "species_match": false,
+  "people": false,
+  "text_or_logo": true,
+  "note": "completely off-topic, shows money instead of a tuatara",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "text or logo"
+ },
+ "pixabay-212453": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0754,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-212453.jpg",
+  "subject": "close up surgical tools on fossil",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-367126": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0735,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-367126.jpg",
+  "subject": "close up surgical tools on fossil",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-276646": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1288,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-276646.jpg",
+  "subject": "close up surgical tools on fossil",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-140808": {
+  "subject": "Young man reading book in modern library",
+  "species_match": null,
+  "people": true,
+  "text_or_logo": true,
+  "note": "Shows a modern library and a person, not old natural history books.",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-38917": {
+  "subject": "library shelves with books",
+  "species_match": null,
+  "people": false,
+  "text_or_logo": true,
+  "note": "library archive setting matching narration",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "text or logo"
+ },
+ "pixabay-111279": {
+  "subject": "person turning pages of an old book",
+  "species_match": null,
+  "people": true,
+  "text_or_logo": true,
+  "note": "fits the historical context of the narration",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-28838": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0808,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-28838.jpg",
+  "subject": "stack of old envelopes",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-28835": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.071,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-28835.jpg",
+  "subject": "stack of old envelopes",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-177126": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0846,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-177126.jpg",
+  "subject": "stack of old envelopes",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-28834": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0861,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-28834.jpg",
+  "subject": "stack of old envelopes",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-211771|whale": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0023,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-211771.jpg",
+  "subject": "whale head close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-214512|whale": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.04,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-214512.jpg",
+  "subject": "whale head close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-189730|whale": {
+  "subject": "a woman exercising outdoors",
+  "species_match": false,
+  "people": true,
+  "text_or_logo": false,
+  "note": "completely off-topic video showing a woman working out",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "people"
+ },
+ "pixabay-120355": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0689,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-120355.jpg",
+  "subject": "close up fossil jaw teeth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-111281": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1363,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-111281.jpg",
+  "subject": "french soldiers marching 18th century",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-138115": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0913,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-138115.jpg",
+  "subject": "french soldiers marching 18th century",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-14900": {
+  "subject": "network server rack with flashing lights",
+  "species_match": null,
+  "people": false,
+  "text_or_logo": true,
+  "note": "shows server racks instead of a vintage museum interior",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "text or logo"
+ },
+ "pixabay-186196|whale": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0153,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-186196.jpg",
+  "subject": "whale breaching ocean surface",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-311442": {
+  "subject": "mountain forest landscape with hikers",
+  "species_match": null,
+  "people": true,
+  "text_or_logo": false,
+  "note": "Hikers appear in the final frame, making it unsuitable for a nature documentary scene about prehistoric forests.",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "people"
+ },
+ "pixabay-228783": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0731,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-228783.jpg",
+  "subject": "old French museum interior oil paintings historic architecture",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-120994|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0117,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-120994.jpg",
+  "subject": "monitor lizard swimming in clear tropical water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-10427|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0203,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-10427.jpg",
+  "subject": "monitor lizard swimming in clear tropical water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-216720|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0105,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-216720.jpg",
+  "subject": "monitor lizard walking slowly on river bank swamp",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-174860|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.028,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-174860.jpg",
+  "subject": "monitor lizard walking slowly on river bank swamp",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-125414|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0199,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-125414.jpg",
+  "subject": "monitor lizard walking slowly on river bank swamp",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-358693|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0551,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-358693.jpg",
+  "subject": "monitor lizard walking slowly on river bank swamp",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-80847": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0859,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-80847.jpg",
+  "subject": "paleontologist measuring skull dimensions with calipers",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-133081": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1175,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-133081.jpg",
+  "subject": "paleontologist measuring skull dimensions with calipers",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-120911": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1495,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-120911.jpg",
+  "subject": "paleontologist measuring skull dimensions with calipers",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-76259": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1676,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-76259.jpg",
+  "subject": "paleontologist measuring skull dimensions with calipers",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-206997|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0054,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-206997.jpg",
+  "subject": "saltwater crocodile swimming murky river water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-206998|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.011,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-206998.jpg",
+  "subject": "saltwater crocodile swimming murky river water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-240320|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0329,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-240320.jpg",
+  "subject": "saltwater crocodile swimming murky river water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-169249|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0475,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-169249.jpg",
+  "subject": "saltwater crocodile swimming murky river water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-80133|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0212,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-80133.jpg",
+  "subject": "taxidermy crocodile historical museum exhibit display glass",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-168313|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0581,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-168313.jpg",
+  "subject": "taxidermy crocodile historical museum exhibit display glass",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-189290|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0844,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-189290.jpg",
+  "subject": "taxidermy crocodile historical museum exhibit display glass",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-175579|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0957,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-175579.jpg",
+  "subject": "taxidermy crocodile historical museum exhibit display glass",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-177138|whale": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0813,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-177138.jpg",
+  "subject": "historic whale skeleton hanging in natural history museum",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-111130|whale": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0861,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-111130.jpg",
+  "subject": "historic whale skeleton hanging in natural history museum",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-228351|whale": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0916,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-228351.jpg",
+  "subject": "historic whale skeleton hanging in natural history museum",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-124425|whale": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1389,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-124425.jpg",
+  "subject": "historic whale skeleton hanging in natural history museum",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-28690": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1517,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-28690.jpg",
+  "subject": "museum curator adjusting display case lighting",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-26388": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1206,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-26388.jpg",
+  "subject": "museum curator adjusting display case lighting",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-175579": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1298,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-175579.jpg",
+  "subject": "museum curator adjusting display case lighting",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-207864": {
+  "subject": "spiral clock faces and roman numerals",
+  "species_match": null,
+  "people": false,
+  "text_or_logo": true,
+  "note": "Shows a clock tunnel instead of old scientific journals.",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-7350": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0679,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-7350.jpg",
+  "subject": "old man sorting bones in box",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-52101": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0728,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-52101.jpg",
+  "subject": "old man sorting bones in box",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-143884": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0772,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-143884.jpg",
+  "subject": "old man sorting bones in box",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-203449": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0891,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-203449.jpg",
+  "subject": "old man sorting bones in box",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-145428": {
+  "subject": "A young man writing at a desk with books and a lamp",
+  "species_match": null,
+  "people": true,
+  "text_or_logo": false,
+  "note": "Contains a person writing, violating the documentary scene requirements.",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "people"
+ },
+ "pixabay-3742": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0927,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-3742.jpg",
+  "subject": "hand writing scientific name on paper",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-38919": {
+  "subject": "office workers at desks",
+  "species_match": null,
+  "people": true,
+  "text_or_logo": true,
+  "note": "Modern office scene instead of old academic books",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-197482": {
+  "subject": "chemical molecule model",
+  "species_match": null,
+  "people": false,
+  "text_or_logo": true,
+  "note": "Shows a chemical molecule instead of classification text",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "text or logo"
+ },
+ "pixabay-26539": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0805,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-26539.jpg",
+  "subject": "hand writing scientific name on paper",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-132961": {
+  "subject": "futuristic digital human skull animation",
+  "species_match": null,
+  "people": false,
+  "text_or_logo": true,
+  "note": "CGI animation of a skull in a high-tech lab, not a museum fossil display.",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-39812": {
+  "subject": "Bulldozer on landfill",
+  "species_match": null,
+  "people": false,
+  "text_or_logo": true,
+  "note": "Shows a landfill with a bulldozer instead of a paleontologist with a fossil.",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-212850|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0331,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-212850.jpg",
+  "subject": "mosasaurus reveal",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-153610|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0127,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-153610.jpg",
+  "subject": "mosasaurus reveal",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-383077|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0146,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-383077.jpg",
+  "subject": "mosasaurus reveal",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-102224|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0461,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-102224.jpg",
+  "subject": "mosasaurus reveal",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-174860|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.011,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-174860.jpg",
+  "subject": "crocodile swimming in river",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-263108|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0112,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-263108.jpg",
+  "subject": "crocodile swimming in river",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-111940|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0105,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-111940.jpg",
+  "subject": "crocodile swimming in river",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-263109|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0044,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-263109.jpg",
+  "subject": "crocodile swimming in river",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-27784|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0093,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-27784.jpg",
+  "subject": "mosasaurus swimming underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-130231|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0114,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-130231.jpg",
+  "subject": "mosasaurus swimming underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-26818|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0187,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-26818.jpg",
+  "subject": "mosasaurus swimming underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-10480|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0346,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-10480.jpg",
+  "subject": "mosasaurus swimming underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-1198|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0135,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-1198.jpg",
+  "subject": "mosasaurus swimming underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-336532": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0746,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-336532.jpg",
+  "subject": "scientist pointing at fossil limb",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-25613": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0698,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-25613.jpg",
+  "subject": "scientist pointing at fossil limb",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-131985": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0681,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-131985.jpg",
+  "subject": "scientist pointing at fossil limb",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-108694": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0713,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-108694.jpg",
+  "subject": "scientist pointing at fossil limb",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-10861|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0375,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-10861.jpg",
+  "subject": "mosasaurus swimming underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-72382|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.04,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-72382.jpg",
+  "subject": "monitor lizard swimming",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-29966|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0196,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-29966.jpg",
+  "subject": "monitor lizard swimming",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-72381|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0233,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-72381.jpg",
+  "subject": "monitor lizard swimming",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-72394|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0003,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-72394.jpg",
+  "subject": "monitor lizard swimming",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-22192": {
+  "subject": "digital marketing whiteboard animation",
+  "species_match": null,
+  "people": false,
+  "text_or_logo": true,
+  "note": "completely off-topic animation about digital marketing",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-338904": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1099,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-338904.jpg",
+  "subject": "paleontologist carefully brushing sand off fragile fossil bone in dark museum drawer",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-14297": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1232,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-14297.jpg",
+  "subject": "paleontologist carefully brushing sand off fragile fossil bone in dark museum drawer",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-111263": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0934,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-111263.jpg",
+  "subject": "paleontologist carefully brushing sand off fragile fossil bone in dark museum drawer",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-198358": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1023,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-198358.jpg",
+  "subject": "paleontologist carefully brushing sand off fragile fossil bone in dark museum drawer",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-94003": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0719,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-94003.jpg",
+  "subject": "old oil painting portrait of 18th century French scientist in heavy wooden frame",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-94447": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.087,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-94447.jpg",
+  "subject": "museum curator placing large fossilized skull label next to exhibit",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-213616": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0936,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-213616.jpg",
+  "subject": "museum curator placing large fossilized skull label next to exhibit",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-7127": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1692,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-7127.jpg",
+  "subject": "museum curator placing large fossilized skull label next to exhibit",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-191443": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1223,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-191443.jpg",
+  "subject": "rows of vintage wooden taxonomic classification drawers in natural history museum",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-205921": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1001,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-205921.jpg",
+  "subject": "rows of vintage wooden taxonomic classification drawers in natural history museum",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-185908": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1021,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-185908.jpg",
+  "subject": "rows of vintage wooden taxonomic classification drawers in natural history museum",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-210104": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1392,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-210104.jpg",
+  "subject": "rows of vintage wooden taxonomic classification drawers in natural history museum",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-131174": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0786,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-131174.jpg",
+  "subject": "two scientists in heated discussion pointing at large fossil skeleton",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-263529|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0055,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-263529.jpg",
+  "subject": "monitor lizard swimming gracefully in clear tropical river water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-216067|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0111,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-216067.jpg",
+  "subject": "monitor lizard swimming gracefully in clear tropical river water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-216069|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0132,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-216069.jpg",
+  "subject": "monitor lizard swimming gracefully in clear tropical river water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-364436|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0326,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-364436.jpg",
+  "subject": "monitor lizard swimming gracefully in clear tropical river water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-201766|snake": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0144,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-201766.jpg",
+  "subject": "sea snake undulating smoothly through clear blue tropical ocean water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-176303|snake": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0176,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-176303.jpg",
+  "subject": "sea snake undulating smoothly through clear blue tropical ocean water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-153167|snake": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0147,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-153167.jpg",
+  "subject": "sea snake undulating smoothly through clear blue tropical ocean water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-229071": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1024,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-229071.jpg",
+  "subject": "modern paleontology conference auditorium with scientists listening intently",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-81678": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.101,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-81678.jpg",
+  "subject": "modern paleontology conference auditorium with scientists listening intently",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-229069": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1535,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-229069.jpg",
+  "subject": "modern paleontology conference auditorium with scientists listening intently",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-84583": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1568,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-84583.jpg",
+  "subject": "modern paleontology conference auditorium with scientists listening intently",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-192066": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0937,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-192066.jpg",
+  "subject": "old black and white photograph of Victorian scientist at desk",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-32543": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1105,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-32543.jpg",
+  "subject": "old black and white photograph of Victorian scientist at desk",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-36688": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1392,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-36688.jpg",
+  "subject": "old black and white photograph of Victorian scientist at desk",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-104499": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1479,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-104499.jpg",
+  "subject": "old black and white photograph of Victorian scientist at desk",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-98064|ammonite": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0331,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-98064.jpg",
+  "subject": "3d animation of ancient ammonite swimming with tentacles moving in dark water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-82431|ammonite": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0302,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-82431.jpg",
+  "subject": "3d animation of ancient ammonite swimming with tentacles moving in dark water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-26038|ammonite": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.08,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-26038.jpg",
+  "subject": "3d animation of ancient ammonite swimming with tentacles moving in dark water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-141507|ammonite": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0895,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-141507.jpg",
+  "subject": "3d animation of ancient ammonite swimming with tentacles moving in dark water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-217279": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0961,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-217279.jpg",
+  "subject": "museum conservator gently brushing dust off ancient fossilized jawbone",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-45615": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1044,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-45615.jpg",
+  "subject": "museum conservator gently brushing dust off ancient fossilized jawbone",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-199558": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1311,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-199558.jpg",
+  "subject": "museum conservator gently brushing dust off ancient fossilized jawbone",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-39813": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.081,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-39813.jpg",
+  "subject": "museum conservator gently brushing dust off ancient fossilized jawbone",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-360310": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0751,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-360310.jpg",
+  "subject": "paleontologists carefully lifting large plaster jacket containing dinosaur fossil out of dirt trench",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-229623": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0784,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-229623.jpg",
+  "subject": "paleontologists carefully lifting large plaster jacket containing dinosaur fossil out of dirt trench",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-120883": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1808,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-120883.jpg",
+  "subject": "paleontologists carefully lifting large plaster jacket containing dinosaur fossil out of dirt trench",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-121528": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.2391,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-121528.jpg",
+  "subject": "paleontologists carefully lifting large plaster jacket containing dinosaur fossil out of dirt trench",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-293788": {
+  "subject": "ocean landscape at sunset with boats",
+  "species_match": false,
+  "people": false,
+  "text_or_logo": true,
+  "note": "Shows a scenic seascape at sunset, not a mackerel shark.",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-94680": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1034,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-94680.jpg",
+  "subject": "scientist holding magnifying glass over fossil",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-129855": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0767,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-129855.jpg",
+  "subject": "scientist holding magnifying glass over fossil",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-189189": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.097,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-189189.jpg",
+  "subject": "scientist holding magnifying glass over fossil",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-372241|whale": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0298,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-372241.jpg",
+  "subject": "whale swimming in ocean",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-217115|whale": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0233,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-217115.jpg",
+  "subject": "whale swimming in ocean",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-216102|whale": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0078,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-216102.jpg",
+  "subject": "whale swimming in ocean",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-379022|whale": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0132,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-379022.jpg",
+  "subject": "whale swimming in ocean",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-265271|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0108,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-265271.jpg",
+  "subject": "monitor lizard walking on land",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-127152|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0358,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-127152.jpg",
+  "subject": "monitor lizard walking on land",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-177607|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0535,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-177607.jpg",
+  "subject": "monitor lizard walking on land",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-213648|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0869,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-213648.jpg",
+  "subject": "monitor lizard walking on land",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-213447": {
+  "subject": "construction or demolition site with excavators",
+  "species_match": null,
+  "people": true,
+  "text_or_logo": true,
+  "note": "shows modern excavators at a construction or demolition site, not a fossil excavation",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-16697|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0411,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-16697.jpg",
+  "subject": "shark turning quickly underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-170536|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0797,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-170536.jpg",
+  "subject": "shark turning quickly underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-134362|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0806,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-134362.jpg",
+  "subject": "shark turning quickly underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-165490|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.09,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-165490.jpg",
+  "subject": "shark turning quickly underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-244378|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0272,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-244378.jpg",
+  "subject": "shark attacking prey underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-98577|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0515,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-98577.jpg",
+  "subject": "shark attacking prey underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-56353|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0946,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-56353.jpg",
+  "subject": "shark attacking prey underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-134102|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0997,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-134102.jpg",
+  "subject": "shark attacking prey underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-83832|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0244,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-83832.jpg",
+  "subject": "crocodile jaw muscles moving",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-142037|crocodile": {
+  "subject": "drummers playing percussion instruments",
+  "species_match": false,
+  "people": true,
+  "text_or_logo": false,
+  "note": "completely off-topic video clip showing people playing drums",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "people"
+ },
+ "pixabay-109821|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1036,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-109821.jpg",
+  "subject": "crocodile jaw muscles moving",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-212745|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0789,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-212745.jpg",
+  "subject": "crocodile jaw muscles moving",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-26493|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0244,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-26493.jpg",
+  "subject": "shark teeth close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-353900|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0483,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-353900.jpg",
+  "subject": "shark teeth close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-30470|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0392,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-30470.jpg",
+  "subject": "shark teeth close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-199545|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0465,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-199545.jpg",
+  "subject": "shark teeth close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "commons-2e9a2b8e99": {
+  "subject": "satellite map of ocean color and phytoplankton",
+  "species_match": null,
+  "people": false,
+  "text_or_logo": true,
+  "note": "satellite map graphic with dates and text, not actual deep ocean footage",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-271161|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0209,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-271161.jpg",
+  "subject": "shark sniffing water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-121455|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0461,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-121455.jpg",
+  "subject": "shark sniffing water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-163869|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0388,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-163869.jpg",
+  "subject": "shark sniffing water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-169249|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0442,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-169249.jpg",
+  "subject": "shark sniffing water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-173059|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.031,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-173059.jpg",
+  "subject": "crocodile nostrils close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-30470|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0563,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-30470.jpg",
+  "subject": "crocodile nostrils close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-199545|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0742,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-199545.jpg",
+  "subject": "crocodile nostrils close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-136997|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0429,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-136997.jpg",
+  "subject": "mosasaurus swimming underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-120522|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.001,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-120522.jpg",
+  "subject": "crocodile swimming in water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-224821|crocodile": {
+  "subject": "aerial view of a waterfall and forest",
+  "species_match": false,
+  "people": true,
+  "text_or_logo": false,
+  "note": "aerial view of waterfall, completely unrelated to nautilus",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "people"
+ },
+ "pixabay-161128|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0463,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-161128.jpg",
+  "subject": "shark hunting prey underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-206771|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0034,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-206771.jpg",
+  "subject": "mosasaurus swimming fast",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-120522|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0332,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-120522.jpg",
+  "subject": "mosasaurus swimming fast",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-158411|mosasaurus": {
+  "subject": "aerial view of waterfall and swimming pool in nature",
+  "species_match": false,
+  "people": true,
+  "text_or_logo": false,
+  "note": "Shows a waterfall and people swimming, completely unrelated to nautilus.",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "people"
+ },
+ "pixabay-43353|mosasaurus": {
+  "subject": "aerial view of people on a pier and swimming",
+  "species_match": false,
+  "people": true,
+  "text_or_logo": false,
+  "note": "Aerial footage of a wooden pier with sunbathers and swimmers; completely unrelated to the coelacanth.",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "people"
+ },
+ "pixabay-86508|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0126,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-86508.jpg",
+  "subject": "mosasaurus bone structure",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-209022|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0321,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-209022.jpg",
+  "subject": "mosasaurus bone structure",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-12716|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.058,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-12716.jpg",
+  "subject": "mosasaurus bone structure",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-27018|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0601,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-27018.jpg",
+  "subject": "mosasaurus bone structure",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-132762|monitor_lizard": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0248,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-132762.jpg",
+  "subject": "monitor lizard walking",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-13100|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0615,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-13100.jpg",
+  "subject": "mosasaurus fossil skull close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-26493|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0573,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-26493.jpg",
+  "subject": "mosasaurus fossil skull close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-151629|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.062,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-151629.jpg",
+  "subject": "mosasaurus fossil skull close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-286400|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1284,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-286400.jpg",
+  "subject": "mosasaurus fossil skull close up",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-54057|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0616,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-54057.jpg",
+  "subject": "shark attacking prey underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-171388|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1052,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-171388.jpg",
+  "subject": "shark attacking prey underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "commons-3b6964a5d4": {
+  "subject": "scientific ocean temperature and current data visualization",
+  "species_match": null,
+  "people": false,
+  "text_or_logo": true,
+  "note": "shows scientific 3D map data rather than deep blue ocean water",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-5269": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0791,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-5269.jpg",
+  "subject": "museum fossil skeleton display",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-6421": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0904,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-6421.jpg",
+  "subject": "museum fossil skeleton display",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-10350": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1154,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-10350.jpg",
+  "subject": "museum fossil skeleton display",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-34753|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0169,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-34753.jpg",
+  "subject": "mosasaurus fossil bones",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-70405|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0244,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-70405.jpg",
+  "subject": "mosasaurus fossil bones",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-40251|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0398,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-40251.jpg",
+  "subject": "mosasaurus fossil bones",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-132726|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0879,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-132726.jpg",
+  "subject": "mosasaurus fossil bones",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-110879|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0318,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-110879.jpg",
+  "subject": "mosasaurus swimming underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-183422|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0388,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-183422.jpg",
+  "subject": "mosasaurus hunting prey",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-75469|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0706,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-75469.jpg",
+  "subject": "mosasaurus hunting prey",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-104038|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0924,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-104038.jpg",
+  "subject": "mosasaurus hunting prey",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-29699|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.074,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-29699.jpg",
+  "subject": "mosasaurus hunting prey",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-14293|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0213,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-14293.jpg",
+  "subject": "shark hunting in open water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-120522|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0057,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-120522.jpg",
+  "subject": "shark hunting in open water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-358930|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0082,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-358930.jpg",
+  "subject": "shark hunting in open water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-127152|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0433,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-127152.jpg",
+  "subject": "shark hunting in open water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-272166": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1219,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-272166.jpg",
+  "subject": "paleontologist pointing at fossil tooth marks",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-240271|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0328,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-240271.jpg",
+  "subject": "crocodiles fighting in water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-27798|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0671,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-27798.jpg",
+  "subject": "crocodiles fighting in water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-225356|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.097,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-225356.jpg",
+  "subject": "crocodiles fighting in water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "commons-e7aa1e037b": {
+  "subject": "satellite map of Arctic sea ice",
+  "species_match": null,
+  "people": false,
+  "text_or_logo": true,
+  "note": "shows earth map with date labels instead of deep ocean darkness",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "commons-41ce4cc7ac": {
+  "subject": "global chlorophyll concentration map",
+  "species_match": null,
+  "people": false,
+  "text_or_logo": true,
+  "note": "Shows global ocean chlorophyl map instead of deep ocean darkness",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "commons-d59a853847": {
+  "subject": "satellite weather footage of North America",
+  "species_match": null,
+  "people": false,
+  "text_or_logo": true,
+  "note": "Shows satellite view of earth with severe weather overlays, text and NOAA logo, not deep ocean darkness.",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "commons-c3ac212c2c": {
+  "subject": "satellite imagery of earth",
+  "species_match": null,
+  "people": false,
+  "text_or_logo": true,
+  "note": "satellite footage with English text overlays, not deep ocean darkness",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-6420": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1007,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-6420.jpg",
+  "subject": "museum fossil skeleton display",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-207990|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.01,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-207990.jpg",
+  "subject": "mosasaurus swimming underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-247497|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0265,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-247497.jpg",
+  "subject": "mosasaurus swimming underwater",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-285736|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0112,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-285736.jpg",
+  "subject": "mosasaurus near water surface",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-221495|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0042,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-221495.jpg",
+  "subject": "mosasaurus near water surface",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-364249|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0072,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-364249.jpg",
+  "subject": "mosasaurus near water surface",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-133547|mosasaurus": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0172,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-133547.jpg",
+  "subject": "mosasaurus near water surface",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-135083|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0365,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-135083.jpg",
+  "subject": "shark hunting fish school",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-133871|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0083,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-133871.jpg",
+  "subject": "shark hunting fish school",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-127154|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0177,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-127154.jpg",
+  "subject": "shark hunting fish school",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-296169|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.074,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-296169.jpg",
+  "subject": "shark hunting fish school",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-171604|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0205,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-171604.jpg",
+  "subject": "shark swimming calmly",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-216102|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0097,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-216102.jpg",
+  "subject": "shark swimming calmly",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-269913|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0369,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-269913.jpg",
+  "subject": "shark swimming calmly",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-9220|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0191,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-9220.jpg",
+  "subject": "shark swimming calmly",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-271135|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0282,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-271135.jpg",
+  "subject": "shark gliding through water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-64978": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0702,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-64978.jpg",
+  "subject": "fossil skeleton in museum case",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-165242": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0713,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-165242.jpg",
+  "subject": "fossil skeleton in museum case",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-8064": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0775,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-8064.jpg",
+  "subject": "fossil skeleton in museum case",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-183422|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0246,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-183422.jpg",
+  "subject": "shark biting prey",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-75469|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0004,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-75469.jpg",
+  "subject": "shark biting prey",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-183423|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0108,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-183423.jpg",
+  "subject": "shark biting prey",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-104038|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0148,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-104038.jpg",
+  "subject": "shark biting prey",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-191191|fish": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.025,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-191191.jpg",
+  "subject": "fish reacting to predator",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-147248|fish": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0346,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-147248.jpg",
+  "subject": "fish reacting to predator",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-27400|fish": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0456,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-27400.jpg",
+  "subject": "fish reacting to predator",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-168896|fish": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0469,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-168896.jpg",
+  "subject": "fish reacting to predator",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-119256|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0028,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-119256.jpg",
+  "subject": "shark circling prey",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-24216|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0169,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-24216.jpg",
+  "subject": "crocodile basking on shore",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-348116|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0234,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-348116.jpg",
+  "subject": "crocodile basking on shore",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-284557|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0348,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-284557.jpg",
+  "subject": "crocodile basking on shore",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-138306|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0117,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-138306.jpg",
+  "subject": "crocodile opening mouth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-2717|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0135,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-2717.jpg",
+  "subject": "crocodile opening mouth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-16126|crocodile": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0316,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-16126.jpg",
+  "subject": "crocodile opening mouth",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-135083|fish": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0353,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-135083.jpg",
+  "subject": "fish school in distance",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-158075|fish": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0142,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-158075.jpg",
+  "subject": "fish school in distance",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-57242|fish": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.009,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-57242.jpg",
+  "subject": "fish school in distance",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-206519|fish": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0351,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-206519.jpg",
+  "subject": "fish school in distance",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-246391|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0406,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-246391.jpg",
+  "subject": "shark swimming in cold water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-154726|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.013,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-154726.jpg",
+  "subject": "shark swimming in cold water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-333819|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.009,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-333819.jpg",
+  "subject": "shark swimming in cold water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-189881|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0233,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-189881.jpg",
+  "subject": "shark swimming in cold water",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-98504|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0027,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-98504.jpg",
+  "subject": "shark hunting",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-98503|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0102,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-98503.jpg",
+  "subject": "shark hunting",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-48188|shark": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0287,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-48188.jpg",
+  "subject": "shark hunting",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-123409|fish": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": 0.0011,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-123409.jpg",
+  "subject": "fish school moving",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-535|fish": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0066,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-535.jpg",
+  "subject": "fish school moving",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-17141|fish": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0112,
+  "kind": "species",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-17141.jpg",
+  "subject": "fish school moving",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-86259": {
+  "subject": "person adjusting a microscope",
+  "species_match": null,
+  "people": true,
+  "text_or_logo": true,
+  "note": "hands operating a microscope",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-86260": {
+  "subject": "scientist looking into microscope",
+  "species_match": null,
+  "people": true,
+  "text_or_logo": true,
+  "note": "shows a microscope being used",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-152222": {
+  "subject": "on air sign and microphone on green background",
+  "species_match": null,
+  "people": false,
+  "text_or_logo": true,
+  "note": "shows a microphone and on air sign, not a news room",
+  "model": "reused",
+  "reused_from": "lebende-fossilien",
+  "reused_why": "text or logo"
+ },
+ "pixabay-276645": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1079,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-276645.jpg",
+  "subject": "researcher erasing notes on whiteboard",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-165651": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1384,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-165651.jpg",
+  "subject": "researcher erasing notes on whiteboard",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-148596": {
+  "subject": "researcher working on laptop with charts",
+  "species_match": null,
+  "people": true,
+  "text_or_logo": true,
+  "note": "Researcher studying data for a comprehensive study",
+  "model": "reused",
+  "reused_from": "megalodon",
+  "reused_why": "text or logo"
+ },
+ "pixabay-185092": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.072,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-185092.jpg",
+  "subject": "scientist writing notes in lab",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-33522": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0897,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-33522.jpg",
+  "subject": "scientist writing notes in lab",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-13203": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1077,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-13203.jpg",
+  "subject": "scientist writing notes in lab",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-21852": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0693,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-21852.jpg",
+  "subject": "two scientists discussing fossils",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-198791": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1272,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-198791.jpg",
+  "subject": "two scientists discussing fossils",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-32023": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0786,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-32023.jpg",
+  "subject": "museum display of a complete mosasaurus skeleton",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-25047": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0978,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-25047.jpg",
+  "subject": "museum display of a complete mosasaurus skeleton",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-16160": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1175,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-16160.jpg",
+  "subject": "museum display of a complete mosasaurus skeleton",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-13948": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1731,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-13948.jpg",
+  "subject": "museum display of a complete mosasaurus skeleton",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-65672": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0723,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-65672.jpg",
+  "subject": "scientist in museum archive looking at fossil crates",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-137886": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.0918,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-137886.jpg",
+  "subject": "scientist in museum archive looking at fossil crates",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-340276": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1106,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-340276.jpg",
+  "subject": "scientist in museum archive looking at fossil crates",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ },
+ "pixabay-170030": {
+  "model": "siglip",
+  "cpu": "reject",
+  "score": -0.1428,
+  "kind": "scene",
+  "poster": "/home/runner/work/prehistoric-channel/prehistoric-channel/cache/posters/pixabay-170030.jpg",
+  "subject": "scientist in museum archive looking at fossil crates",
+  "note": "decided on the CPU (pipeline/prefilter.py)"
+ }
+}
