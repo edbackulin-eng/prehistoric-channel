@@ -38,6 +38,8 @@ def one(key, model):
         except Exception:                                            # noqa: BLE001
             pass
         return e.code, info
+    except Exception as e:                                           # noqa: BLE001
+        return 0, f" {type(e).__name__}: {str(e)[:120]}"
 
 
 def main():

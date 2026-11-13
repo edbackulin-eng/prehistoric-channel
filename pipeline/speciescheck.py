@@ -43,7 +43,9 @@ from core.logger import get_logger
 log = get_logger("species")
 
 ROOT = Path(__file__).resolve().parent.parent
-MODELS = ("gemini-flash-latest", "gemini-flash-lite-latest")
+# 13.11: flash-lite first - flash's free day is ~20 requests and it is often overloaded (timeouts); asked
+# first, it was spent at once and its 429s set the run's checks aside. flash stays as the fallback
+MODELS = ("gemini-flash-lite-latest", "gemini-flash-latest")
 URL = "https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent"
 # 12.11: was 1 - "a line's second shot is another moment of the same clip" - but since 07.11 another
 # moment of a clip is the same source (twice a film, never within 3 min: pipeline/fragments.py), so a
