@@ -104,5 +104,14 @@
   "hours": 0.577,
   "ok": true,
   "check": "8/8 clips (need 8), errors: []"
+ },
+ {
+  "task": "recon",
+  "ref": "metberi/prehistoric-recon",
+  "start": "2026-11-13T17:45:57.419855+00:00",
+  "end": "2026-11-13T18:07:35.294288+00:00",
+  "hours": 0.361,
+  "ok": true,
+  "check": "24/24 images (need 22), 24 image files, weights: kaggle-mirror:/kaggle/input/notebooks/metberi/whatif-flux-weights/flux4bit, errors: []"
  }
 ]
