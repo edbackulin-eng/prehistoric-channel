@@ -22504,5 +22504,108 @@
   "note": "Shows raindrops on a glass surface instead of deep ocean water.",
   "model": "gemini-flash-lite-latest",
   "species_asked": null
+ },
+ "otodus_megalodon_scene_34__s0|otodus_megalodon": {
+  "subject": "A large shark with a bloody mouth",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Reconstructed Megalodon matching features.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_extra_00__s0|otodus_megalodon": {
+  "subject": "Reconstructed Megalodon shark swimming",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Reconstructed Megalodon matching the required features.",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_extra_00__s1": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_extra_00__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_extra_01__s0|otodus_megalodon": {
+  "subject": "reconstructed living Megalodon shark with open mouth",
+  "species_match": true,
+  "features": {
+   "a very large, heavy, thick-bodied shark": "yes",
+   "a broad, short, blunt rounded snout": "yes",
+   "a massive deep jaw with rows of large triangular teeth": "yes",
+   "long, broad pectoral fins": "yes",
+   "a tall crescent-shaped tail fin": "not visible"
+  },
+  "forbidden_seen": [],
+  "fits_narration": true,
+  "off_topic_objects": [],
+  "other_animal": null,
+  "people": false,
+  "text_or_logo": false,
+  "museum_display": false,
+  "note": "Reconstructed Megalodon shark swimming towards camera",
+  "model": "gemini-flash-lite-latest",
+  "species_asked": "otodus_megalodon"
+ },
+ "otodus_megalodon_extra_01__s1": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_extra_01__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_extra_02__s1": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_extra_02__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_extra_03__s1": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_extra_03__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_extra_04__s1": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
+ },
+ "otodus_megalodon_extra_04__s2": {
+  "missing": true,
+  "note": "no frames (the clip did not download)"
  }
 }
