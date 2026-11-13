@@ -64,13 +64,28 @@ def run(*args):
 
 
 def save(slug, what):
-    gitsave.save([ROOT / "episodes" / slug, ROOT / "state" / "llm_usage"], f"Ahead: {what} for {slug}")
+    gitsave.save([ROOT / "episodes" / slug, ROOT / "state" / "llm_usage", ROOT / "topics" / "queue.json"], f"Ahead: {what} for {slug}")
 
 
 def scripts(topics):
     from automation import llm_budget as b
     pe = b.Q["per_episode"]["script"]
-    for t in topics[:SCRIPTS_AHEAD]:
+    from automation import topics as _topics
+    q = _topics.load()
+    by = {x["slug"]: x for x in q["topics"]}
+    usable = []
+    for t in topics:
+        x = by.get(t["slug"], t)
+        if "material" not in x:                  # owner 12.11: material first, then a script
+            x["material"] = _topics.material(x)
+            if x["material"].get("ok") is False:
+                x["status"] = "skipped-material"
+            _topics.save(q)
+        if x.get("status") == "queued":
+            usable.append(x)
+        if len(usable) >= SCRIPTS_AHEAD:
+            break
+    for t in usable[:SCRIPTS_AHEAD]:
         slug = t["slug"]
         if (ROOT / "episodes" / slug / "script.txt").exists():
             continue

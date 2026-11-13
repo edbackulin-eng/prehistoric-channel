@@ -68,7 +68,7 @@ def ahead(r=None, now=None):
             out.append(x)
         elif x["status"] == "scheduled" and datetime.fromisoformat(x["publish_at"].replace("Z", "+00:00")) > now:
             out.append(x)
-        elif x["status"] == "qa-failed" and x.get("built_at") and \
+        elif x["status"] in ("qa-failed", "rebuilding") and x.get("built_at") and \
                 now - datetime.fromisoformat(x["built_at"].replace("Z", "+00:00")) < REBUILD_WINDOW:
             # owner 12.11: an episode rebuilt after its QA failed (megalodon) is one of the two a week,
             # not a reason to start another topic; after REBUILD_WINDOW it no longer holds the line
@@ -133,8 +133,16 @@ def record(slug, run_id):
     rel = ROOT / "work" / slug / "release"
     ok, why = qa_passed(rel)
     row.update({"run_id": str(run_id), "artifact": f"release-{slug}", "built_at": now_s()})
+    import os
+    row.update({k: v for k, v in (("gpu_run", os.environ.get("GPU_RUN")), ("layers_run", os.environ.get("LAYERS_RUN")))
+                if v})
     if not ok:
         row.update({"status": "qa-failed", "qa_failed": why})
+        # 12.11: the sources QA found at fault, left out of the next render (watchdog.check_rebuilds)
+        q = json.loads((rel / "qa.json").read_text(encoding="utf-8")) if (rel / "qa.json").exists() else {}
+        rp = ROOT / "episodes" / slug / "qa_rejects.json"
+        old = json.loads(rp.read_text(encoding="utf-8")) if rp.exists() else []
+        rp.write_text(json.dumps(sorted(set(old) | set(q.get("rejects") or [])), indent=1), encoding="utf-8")
         save(r)
         log.error("%s: QA failed, kept back: %s", slug, why)
         return 2
