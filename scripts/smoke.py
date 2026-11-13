@@ -444,6 +444,45 @@ def main():
     check("watchdog: 3 reruns of one step a day, then deferred to tomorrow and one letter",
           len(reruns) == 3 and deferred and deferred[0][0] == "lebende-fossilien" and len({k for k, _ in letters}) == 1,
           str((len(reruns), deferred[:1], letters)))
+    # owner 12.11: no pause waits for the owner - a topic giving up on two days is skipped; the same
+    # step giving up for two topics pauses the builds until the code changes; a QA fault is rebuilt
+    skipped, defers2, mails2, renders = [], [], [], []
+    saved2 = (watchdog.failed_log, watchdog.failed_tail, watchdog.run_slug, watchdog.email, watchdog.skip_topic,
+              watchdog.code_fingerprint, llm_budget.defer, llm_budget.deferred_now, watchdog.gh)
+    try:
+        watchdog.failed_log = lambda rid: ""
+        watchdog.failed_tail = lambda rid, t=None: ""
+        watchdog.email = lambda key, subj, body, mem: mails2.append(subj)
+        watchdog.skip_topic = lambda slug, why, mem, actions, rid=None, tail="": skipped.append(slug)
+        watchdog.code_fingerprint = lambda: "fp1"
+        llm_budget.defer = lambda slug, why, code_fp=None: defers2.append((slug, code_fp))
+        llm_budget.deferred_now = lambda: None
+        m2, a2 = {"emailed": []}, []
+        watchdog.run_slug = lambda rid, t: "topic-a"
+        watchdog.give_up_today("episode.yml", 1, "build / Plan", m2, a2)        # day 1: tomorrow again
+        m2["give_ups"][-1]["day"] = "2026-01-01"
+        watchdog.give_up_today("episode.yml", 2, "build / Plan", m2, a2)        # day 2: skipped
+        first = (list(defers2), list(skipped))
+        watchdog.run_slug = lambda rid, t: "topic-b"
+        m3 = {"emailed": [], "give_ups": [{"slug": "topic-a", "sig": "build / FLUX", "day": "2026-01-01"}]}
+        watchdog.give_up_today("episode.yml", 3, "build / FLUX", m3, [])          # 2nd topic, same step: code
+        from automation import release as _rel2
+        saved_rows = (_rel2.rows, _rel2.save)
+        rows_ = [{"slug": "ep", "status": "qa-failed", "gpu_run": "9", "layers_run": "", "rebuilds": 0}]
+        _rel2.rows, _rel2.save = (lambda: rows_), (lambda r: None)
+        watchdog.gh = lambda *a, **k: renders.append(a) or ""
+        watchdog.check_rebuilds({"emailed": []}, [], busy=False)
+        rows_[0].update(status="qa-failed", rebuilds=2)
+        watchdog.check_rebuilds({"emailed": []}, [], busy=False)
+        _rel2.rows, _rel2.save = saved_rows
+    finally:
+        (watchdog.failed_log, watchdog.failed_tail, watchdog.run_slug, watchdog.email, watchdog.skip_topic,
+         watchdog.code_fingerprint, llm_budget.defer, llm_budget.deferred_now, watchdog.gh) = saved2
+    check("watchdog 12.11: a topic failing on two days is skipped; one step failing for two topics pauses "
+          "until the code changes; a QA fault is rendered again, then skipped",
+          first == ([("topic-a", None)], ["topic-a"]) and defers2[-1] == ("topic-b", "fp1")
+          and len(renders) == 1 and "render.yml" in renders[0] and skipped[-1] == "ep",
+          str((first, defers2, renders, skipped)))
     # a verdict once given is never asked again, nor its clip fetched (the reruns ate Gemini's quota)
     from pipeline import speciescheck as scq
     ep_v = tmp_ep / "episodes" / "verdicts"

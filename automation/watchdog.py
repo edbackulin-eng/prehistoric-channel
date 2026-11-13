@@ -20,6 +20,14 @@ Acts only through GitHub Actions and the YouTube API. Each pass:
   6. once a day the state is committed (state/heartbeat.json), so GitHub never
      switches the schedules off for a quiet repository.
 Every email is recorded in state/watchdog.json so one failure is reported once.
+
+Owner 12.11 - no pause that waits for him:
+  - a topic whose build gives up on two days is skipped (topics/queue.json "skipped") and the next
+    one is built; one letter says so;
+  - an episode whose QA found a real fault is rebuilt (render.yml from its GPU results, the faulty
+    sources left out: episodes/<slug>/qa_rejects.json) up to REBUILDS times, then skipped the same way;
+  - only when the same step gives up for two different topics is the CODE taken to be broken: the
+    builds stop (state/deferred.json with the code's fingerprint) until the code changes, one letter.
 """
 import json
 import re
@@ -40,6 +48,8 @@ CFG = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))
 WATCHED = {"episode.yml": 7, "render.yml": 10, "upload.yml": 3,      # hours before a run counts as hung
            "restyle.yml": 3}       # a script being retold: no build of it may start meanwhile
 DAILY_RERUNS = 3          # reruns of one failing step a UTC day; then it waits for the next day
+TOPIC_GIVE_UPS = 2        # owner 12.11: days a topic may give up before the next one is built
+REBUILDS = 2              # renders again after a failed QA before the topic is skipped
 SETTLE_MIN = 12
 STATE = ROOT / "state" / "watchdog.json"
 HEARTBEAT = ROOT / "state" / "heartbeat.json"
@@ -125,13 +135,93 @@ def give_up_today(wf, rid, sig, mem, actions):
     tail = failed_tail(rid, text)
     slug = run_slug(rid, text) or "?"
     why = f"{wf}: '{sig}' failed {DAILY_RERUNS + 1} times today"
+    gu = mem.setdefault("give_ups", [])
+    gu.append({"slug": slug, "sig": sig, "day": f"{now():%Y-%m-%d}"})
+    mem["give_ups"] = gu[-100:]
+    others = {g["slug"] for g in gu if g["sig"] == sig and g["slug"] not in (slug, "?")}
+    if others:
+        # the same step stops two topics: the code, not the topic - builds wait for a code change
+        llm_budget.defer(slug, f"code broken: '{sig}' fails for {slug} and {sorted(others)}", code_fp=code_fingerprint())
+        actions.append(f"builds paused until the code changes: '{sig}' fails for {slug} and {sorted(others)}")
+        email(f"code-{sig}-{code_fingerprint()}", f"Urzeit-Kanal: the code is broken - {sig}",
+              f"The step fails for two topics ({slug}, {', '.join(sorted(others))}), so the fault is in the code, "
+              f"not in a topic. Builds wait until the code changes (any commit to pipeline/, automation/, core/, "
+              f"gpu/ or the workflows lifts the pause).\n\nLast run: https://github.com/{REPO}/actions/runs/{rid}"
+              f"\n\n```\n{tail}\n```", mem)
+        return
+    days = {g["day"] for g in gu if g["slug"] == slug}
+    if slug != "?" and len(days) >= TOPIC_GIVE_UPS:
+        skip_topic(slug, f"{why} (on {len(days)} days)", mem, actions, rid, tail)
+        return
     if not llm_budget.deferred_now():
         llm_budget.defer(slug, why)
         actions.append(f"{slug} deferred to the next day: {why}")
-    email(f"stop-{wf}-{sig}-{now():%Y%m%d}", f"Urzeit-Kanal: {slug} stopped until tomorrow - {sig}",
-          f"The same step failed {DAILY_RERUNS + 1} times today ({DAILY_RERUNS} reruns); no more reruns today, "
-          f"the build goes on by itself tomorrow.\n\nLast run: https://github.com/{REPO}/actions/runs/{rid}"
-          f"\n\n```\n{tail}\n```", mem)
+    email(f"stop-{wf}-{sig}-{now():%Y%m%d}", f"Urzeit-Kanal: {slug} tries again tomorrow - {sig}",
+          f"The same step failed {DAILY_RERUNS + 1} times today ({DAILY_RERUNS} reruns); the build goes on by "
+          f"itself tomorrow, and if it fails then too, the next topic is built instead."
+          f"\n\nLast run: https://github.com/{REPO}/actions/runs/{rid}\n\n```\n{tail}\n```", mem)
+
+
+def code_fingerprint():
+    """The code as git has it: pipeline/, automation/, core/, gpu/, the workflows."""
+    import hashlib
+    try:
+        out = subprocess.run(["git", "ls-files", "-s", "pipeline", "automation", "core", "gpu", ".github/workflows"],
+                             capture_output=True, text=True, cwd=ROOT).stdout
+    except OSError:
+        return "?"
+    return hashlib.sha1(out.encode()).hexdigest()[:16]
+
+
+def skip_topic(slug, why, mem, actions, rid=None, tail=""):
+    """Owner 12.11: a topic that cannot be built is left; the next one is built. One letter."""
+    from automation import llm_budget, release, topics
+    topics.done(slug, "skipped")
+    r = release.rows()
+    row = next((x for x in r if x["slug"] == slug), None)
+    if row is not None:
+        row.update({"status": "skipped", "skipped_why": why, "skipped_at": f"{now():%Y-%m-%dT%H:%M:%SZ}"})
+        release.save(r)
+    d = llm_budget.deferred_now()
+    if d and d.get("slug") == slug:
+        llm_budget.DEFERRED.unlink(missing_ok=True)
+    actions.append(f"{slug} skipped, the next topic is built: {why}")
+    email(f"skip-{slug}", f"Urzeit-Kanal: {slug} skipped - the next topic is being built",
+          f"{why}\n\n" + (f"Last run: https://github.com/{REPO}/actions/runs/{rid}\n\n```\n{tail}\n```" if rid
+                           else ""), mem)
+
+
+def check_rebuilds(mem, actions, busy):
+    """Owner 12.11: an episode whose QA found a real fault is rendered again from its GPU results,
+    the faulty sources left out (release.record wrote them to episodes/<slug>/qa_rejects.json);
+    after REBUILDS such renders the topic is skipped."""
+    from automation import release
+    if busy:
+        return
+    r = release.rows()
+    for row in r:
+        if row.get("status") != "qa-failed":
+            continue
+        n = int(row.get("rebuilds", 0))
+        if n >= REBUILDS:
+            skip_topic(row["slug"], f"QA found a real fault in {n + 1} renders: {row.get('qa_failed')}", mem, actions)
+            return
+        if not row.get("gpu_run"):
+            continue
+        layers = row.get("layers_run") or ""
+        if layers:
+            try:
+                arts = gh("api", f"repos/{REPO}/actions/runs/{layers}/artifacts?per_page=100")["artifacts"]
+                if not any(a["name"].startswith("layers-") and not a["expired"] for a in arts):
+                    layers = ""
+            except Exception:                                    # noqa: BLE001
+                layers = ""
+        gh("workflow", "run", "render.yml", "-R", REPO, "-f", f"slug={row['slug']}", "-f", f"gpu_run={row['gpu_run']}",
+           "-f", f"layers_run={layers}", "-f", "release=true", parse=False)
+        row.update({"status": "rebuilding", "rebuilds": n + 1, "rebuild_at": f"{now():%Y-%m-%dT%H:%M:%SZ}"})
+        release.save(r)
+        actions.append(f"{row['slug']}: QA fault, rendered again without its faulty sources ({n + 1}/{REBUILDS})")
+        return
 
 
 def check_runs(mem, actions):
@@ -237,6 +327,10 @@ def main():
         busy = check_gpu_pending(actions) or busy
     except Exception as e:                                           # noqa: BLE001
         log.error("pending GPU starts failed: %s", e)
+    try:
+        check_rebuilds(mem, actions, busy)
+    except Exception as e:                                           # noqa: BLE001
+        log.error("rebuild check failed: %s", e)
     try:
         have = check_buffer(busy, actions)
     except Exception as e:                                           # noqa: BLE001

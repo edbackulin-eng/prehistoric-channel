@@ -387,6 +387,7 @@ def checks_of(plan, sound, thumbs, slug, parts=None, view=None):
         f"{missing or 'none'}", scenes=len(scenes))
 
     if view is not None:
+        REJECTS[:] = view.get("_rejects") or []
         for name in ("repeats", "match", "consistent", "viewer"):
             r = view.get(name)
             if r is None:
@@ -463,6 +464,7 @@ def license_ok(plan, slug):
             continue
         if not LICENSES.search(str(lic.get(cid) or "")):
             bad.append(f"{cid}: {lic.get(cid)}")
+            REJECTS.append(str(cid))
     try:
         lib = json.loads((ROOT / "assets" / "music" / "library.json").read_text(encoding="utf-8"))["tracks"]
         used = set(plan.get("music") or [])
@@ -500,6 +502,7 @@ def score(checks):
 
 
 FRAME_CHECK = {}            # the contact sheet's own look at the picture: black frames, decoding errors
+REJECTS = []                # sources a rebuild leaves out (the wrong animal, no licence)
 
 
 def contact_sheet(video, dest, every=5, w=240, cols=12):
@@ -575,7 +578,12 @@ def view_checks(plan, video, slug, rel):
         out["repeats"] = qa_view.repeats(shots, frames)[:2]
         meta_p = ROOT / "episodes" / slug / "meta.json"
         topic = json.loads(meta_p.read_text(encoding="utf-8")).get("title", slug) if meta_p.exists() else slug
-        out["match"] = qa_view.match(shots, frames, line_species(slug), cache, topic=topic)[:2]
+        m = qa_view.match(shots, frames, line_species(slug), cache, topic=topic)
+        out["match"] = m[:2]
+        # 12.11: the shots of another animal than the voice names, for the rebuild to leave out
+        from pipeline import fragments
+        out["_rejects"] = sorted({str(fragments.source_of(shots[b["shot"]]) or "").split(":", 1)[-1].removeprefix("ltx-")
+                                  for b in m[2] if b.get("wrong")} - {""})
         out["consistent"] = qa_view.consistent(shots, frames, rel, cache)[:2]
 
         seen_lines, segs = set(), []
@@ -617,6 +625,7 @@ def main(slug, res):
     sc = score(checks)
     ok = all(c["ok"] for c in checks if c["blocking"])
     q = {"slug": slug, "pass": ok, "score": sc, "checks": checks, "duration_s": rep.get("duration_s"),
+         "rejects": sorted(set(REJECTS)),
          "first_minute_moving": plan.get("checks", {}).get("first_minute_moving_share")}
     rel.mkdir(parents=True, exist_ok=True)
     (rel / "qa.json").write_text(json.dumps(q, indent=1, ensure_ascii=False), encoding="utf-8")

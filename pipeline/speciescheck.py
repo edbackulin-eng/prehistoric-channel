@@ -43,7 +43,9 @@ from core.logger import get_logger
 log = get_logger("species")
 
 ROOT = Path(__file__).resolve().parent.parent
-MODELS = ("gemini-flash-latest", "gemini-flash-lite-latest")
+# 13.11: flash-lite first - flash's free day is ~20 requests and it is often overloaded (timeouts); asked
+# first, it was spent at once and its 429s set the run's checks aside. flash stays as the fallback
+MODELS = ("gemini-flash-lite-latest", "gemini-flash-latest")
 URL = "https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent"
 # 12.11: was 1 - "a line's second shot is another moment of the same clip" - but since 07.11 another
 # moment of a clip is the same source (twice a film, never within 3 min: pipeline/fragments.py), so a
@@ -220,8 +222,22 @@ def vkey(cid, species):
     return f"{cid}|{species}" if species and species != "prehistoric_scene" and species in SPECIES else cid
 
 
+QA_REJECTS = set()          # 12.11: sources the QA of a render found showing the wrong animal or unlicensed
+
+
+def load_rejects(ep):
+    """episodes/<slug>/qa_rejects.json: what a failed QA turned down; a rebuild leaves it out."""
+    p = Path(ep) / "qa_rejects.json"
+    QA_REJECTS.clear()
+    if p.exists():
+        QA_REJECTS.update(json.loads(p.read_text(encoding="utf-8")))
+
+
 def saved(known, cid, species):
     """The kept verdict that answers this candidate for this species, or None (to be asked)."""
+    if str(cid) in QA_REJECTS:
+        return {"model": "reused", "reused_from": "qa", "reused_why": "turned down by the film's QA",
+                "species_match": False}
     k = vkey(cid, species)
     v = known.get(k)
     if v is not None or k == cid:
@@ -740,6 +756,7 @@ def check(slug, layers, out_dir, timeline=None, kinds=None):
     footage = json.loads((ep / "footage.json").read_text(encoding="utf-8"))
     # the episode's own checklists, written with its plan (automation/plan_episode.py)
     load_episode_species(ep)
+    load_rejects(ep)
     layers, out_dir = Path(layers), Path(out_dir)
     key = _key()
     picks, logrows, seen, museum = {}, [], {}, []

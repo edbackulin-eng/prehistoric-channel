@@ -86,12 +86,15 @@ def image_ok(requests):
     return room >= requests, f"Gemini images: {room} requests left today"
 
 
-def defer(slug, why):
+def defer(slug, why, code_fp=None):
+    """Until the next quota day; with code_fp (watchdog: the code is broken) until the code changes."""
     now = datetime.now(llm_usage.PT)
     turn = (now + timedelta(days=1)).replace(hour=0, minute=10, second=0, microsecond=0)
+    if code_fp:
+        turn = now + timedelta(days=60)
     DEFERRED.parent.mkdir(exist_ok=True)
     DEFERRED.write_text(json.dumps({"slug": slug, "why": why, "until": turn.astimezone(timezone.utc).strftime(
-        "%Y-%m-%dT%H:%M:%SZ")}, indent=1), encoding="utf-8")
+        "%Y-%m-%dT%H:%M:%SZ"), **({"code": code_fp} if code_fp else {})}, indent=1), encoding="utf-8")
     log.warning("%s deferred until %s: %s", slug, turn.isoformat(), why)
 
 
@@ -134,6 +137,11 @@ def deferred_now():
         return None
     d = json.loads(DEFERRED.read_text(encoding="utf-8"))
     until = datetime.fromisoformat(d["until"].replace("Z", "+00:00"))
+    if d.get("code"):
+        # a pause for broken code ends with any change to the code (owner 12.11: no pause waits for him)
+        from automation import watchdog
+        if watchdog.code_fingerprint() not in (d["code"], "?"):
+            return None
     return d if until > datetime.now(timezone.utc) else None
 
 

@@ -55,12 +55,52 @@ def pick():
     if len(release.ahead()) >= CFG["buffer"]:
         log.info("buffer full: %d ahead", len(release.ahead()))
         return None
-    t = next((t for t in q["topics"] if t["status"] == "queued"), None)
-    if t is None:
-        return None
-    t["status"] = "building"
-    save(q)
-    return t["slug"]
+    # owner 12.11: a topic is built only once there is material for it; one without goes, the next is tried
+    for t in [t for t in q["topics"] if t["status"] == "queued"]:
+        m = t.get("material") or material(t)
+        t["material"] = m
+        if m.get("ok") is False:
+            t["status"] = "skipped-material"
+            log.warning("%s skipped: too little material (%s)", t["slug"], m)
+            save(q)
+            continue
+        t["status"] = "building"
+        save(q)
+        return t["slug"]
+    return None
+
+
+MATERIAL_MIN = {"commons_files": 100, "stock_clips": 10}     # either is enough
+
+
+def material(t):
+    """What the free sources hold for a topic, checked before its script is written (owner 12.11):
+    media files on Wikimedia Commons (fossils, skeletons, illustrations, photos of the animal or its
+    living relatives) and stock clips of 1280 px or more (Pixabay). The FLUX reconstructions and
+    their 2.5D moves are made for every topic; these are what the film shows besides them."""
+    import time as _t
+    terms = ((t.get("articles") or {}).get("en") or [t["slug"].replace("-", " ")])[:2]
+    files, clips, unknown = 0, 0, False
+    for term in terms:
+        for attempt in range(3):
+            try:
+                u = "https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode(
+                    {"action": "query", "list": "search", "srsearch": term, "srnamespace": 6, "format": "json",
+                     "srlimit": 1})
+                d = json.loads(urllib.request.urlopen(urllib.request.Request(u, headers=UA), timeout=30).read())
+                files += int(d["query"]["searchinfo"]["totalhits"])
+                break
+            except Exception:                                        # noqa: BLE001
+                _t.sleep(10 * (attempt + 1))
+        else:
+            unknown = True
+        try:
+            from pipeline import footage
+            clips += len([c for c in footage.pixabay(term, per_page=40) if (c.get("width") or 0) >= 1280])
+        except Exception:                                            # noqa: BLE001
+            pass
+    ok = None if unknown and not clips else (files >= MATERIAL_MIN["commons_files"] or clips >= MATERIAL_MIN["stock_clips"])
+    return {"commons_files": files, "stock_clips": clips, "ok": ok, "terms": terms}
 
 
 def done(slug, status="built"):
