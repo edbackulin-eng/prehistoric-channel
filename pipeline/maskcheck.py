@@ -25,6 +25,7 @@ import numpy as np
 from PIL import Image
 
 MODEL = "gemini-flash-lite-latest"
+BUDGET_S = int(os.environ.get("MASK_CHECK_BUDGET_S", "1200"))   # the whole check; prepare has 150 min
 URL = "https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent"
 PROMPT = """The image is a photograph or illustration in which one region is shown in
 full colour with a red tint, and everything else is dimmed. The red-tinted region is
@@ -66,10 +67,17 @@ def _ask(key, b64):
                              d.get("usageMetadata", {}).get("candidatesTokenCount"), "mask_check")
             return json.loads(text[text.find("{"): text.rfind("}") + 1])
         except Exception as e:                                   # noqa: BLE001
+            body = ""
+            try:
+                body = e.read().decode("utf-8", "replace") if hasattr(e, "read") else ""
+            except Exception:                                    # noqa: BLE001
+                pass
+            if "429" in str(e) and ("PerDay" in body or "per day" in body.lower()):
+                return {"error": "quota: the day's requests are spent", "quota": True}
             if "429" in str(e) and attempt < 3:
                 time.sleep(20 * (attempt + 1))
                 continue
-            return {"error": f"{type(e).__name__}: {str(e)[:160]}"}
+            return {"error": f"{type(e).__name__}: {str(e)[:160]}", "quota": "429" in str(e)}
 
 
 def check(layers_dir, report_path=None):
@@ -80,13 +88,20 @@ def check(layers_dir, report_path=None):
     alphas = sorted(layers_dir.glob("*_alpha.png"))
     if not key:
         rep["skipped"] = "GEMINI_API_KEY_PH is not set; geometric and two-model checks only"
+    t0, stop = time.monotonic(), ""
     for ap in alphas:
         name = ap.name[: -len("_alpha.png")]
         img = layers_dir / f"{name}.jpg"
-        if not key or not img.exists():
-            rep["masks"][name] = {"verdict": "not checked"}
+        if not stop and time.monotonic() - t0 > BUDGET_S:
+            stop = f"time budget {BUDGET_S} s used up"
+        if not key or not img.exists() or stop:
+            rep["masks"][name] = {"verdict": "not checked" + (f" ({stop})" if stop else "")}
             continue
         v = _ask(key, _overlay(img, ap))
+        if v.get("quota"):
+            # 13.11: 78 masks x 2 min of 429 retries outran the render's prepare job (150 min);
+            # once the quota answers 429 for good, the rest keep their masks unchecked
+            stop = "Gemini quota"
         keep = bool(v.get("animal")) and bool(v.get("whole_animal")) and not v.get("background_included")
         if "error" in v:
             keep = True                       # an unreachable checker does not throw work away
@@ -98,6 +113,8 @@ def check(layers_dir, report_path=None):
                 if f.exists():
                     f.rename(f.with_name(f.name + ".rejected"))
         time.sleep(4)
+    if stop:
+        rep["stopped"] = stop
     if report_path:
         Path(report_path).write_text(json.dumps(rep, indent=1), encoding="utf-8")
     return rep
