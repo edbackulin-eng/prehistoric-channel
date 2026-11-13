@@ -1,15 +1,1 @@
-[
- {
-  "workflow": "flux-extra.yml",
-  "inputs": {
-   "slug": "megalodon",
-   "gpu_run": "43256773069",
-   "prompts": "otodus_megalodon_extra_00,otodus_megalodon_extra_01,otodus_megalodon_extra_02,otodus_megalodon_extra_03,otodus_megalodon_extra_04,otodus_megalodon_extra_05,otodus_megalodon_extra_06,otodus_megalodon_extra_07,otodus_megalodon_extra_08,otodus_megalodon_extra_09,otodus_megalodon_extra_10,otodus_megalodon_extra_11,otodus_megalodon_extra_12,otodus_megalodon_extra_13,otodus_megalodon_extra_14,otodus_megalodon_extra_15,otodus_megalodon_extra_16,otodus_megalodon_extra_17,otodus_megalodon_extra_18,otodus_megalodon_extra_19,otodus_megalodon_extra_20,otodus_megalodon_extra_21,otodus_megalodon_extra_22,otodus_megalodon_extra_23",
-   "seeds": "1",
-   "relay": "1"
-  },
-  "opens": "2026-11-13T17:30:00Z",
-  "at": "2026-11-13T17:10:00Z",
-  "why": "the free GPU window opens after this run's wait"
- }
-]
+[]
