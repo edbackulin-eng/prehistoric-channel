@@ -233,9 +233,20 @@ def load_rejects(ep):
         QA_REJECTS.update(json.loads(p.read_text(encoding="utf-8")))
 
 
+def _family(cid):
+    """A FLUX frame's scene without its seed and LTX prefix: ltx-cretaceous_trex_stride__s1 -> cretaceous_trex_stride."""
+    return re.sub(r"__s\d+$", "", str(cid).removeprefix("ltx-"))
+
+
+def rejected(cid):
+    """Turned down by a film's QA - the source itself or, 14.11, another seed of the same scene
+    (megalodon's QA rejected trex_stride__s1; its __s0 shows the same T. rex)."""
+    return str(cid) in QA_REJECTS or _family(cid) in {_family(x) for x in QA_REJECTS}
+
+
 def saved(known, cid, species):
     """The kept verdict that answers this candidate for this species, or None (to be asked)."""
-    if str(cid) in QA_REJECTS:
+    if rejected(cid):
         return {"model": "reused", "reused_from": "qa", "reused_why": "turned down by the film's QA",
                 "species_match": False}
     k = vkey(cid, species)
