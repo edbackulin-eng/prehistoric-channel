@@ -29,21 +29,18 @@
  },
  {
   "slug": "megalodon",
-  "run_id": "43159253320",
+  "run_id": "43588710402",
   "artifact": "release-megalodon",
-  "built_at": "2026-11-12T08:30:06Z",
+  "built_at": "2026-11-14T13:32:56Z",
   "status": "qa-failed",
   "qa_failed": [
-   "hook: 9 shots in 30 s, 9 moving animal clips (need 3), not moving or no animal at none, cuts outside 1.5-3 s: [16.53], sound hit: yes",
-   "subject: animal shown where told: {'great_white_shark': 0.76, 'otodus_megalodon': 0.0, 'ancient_whale': 0.68, 'whales': 0.6}; another animal than the line names at none s; landscapes 35% (max 15%); prehistoric animals in motion: 17 shots",
-   "pace: average shot 15.1 s (3-5), hook 3.6 s (1.5-3); shown more than twice: none; again within 3 min: none",
-   "music: music under the voice per minute: [23.13, 22.96, 22.92, 23.27, 23.31, 22.89, 23.33, 23.23, 23.08, 23.04, 23.0, 22.91, 22.74, 23.2, 22.97, 22.6, 23.36, 22.8, 22.97, 22.61, 22.9, 23.05, 23.49, 23.06, 22.78, 23.11, 23.48] dB; music as loud as the voice in minute(s): none; music silent 2 s",
-   "motion: prehistoric animals in motion 37% of the film (need 40%): LTX 73 s, real footage of the animals 170 s, 2.5D parallax 333 s",
-   "dinosaurs: 1 dinosaurs in motion (need 2): LTX clips ['ltx-cretaceous_trex_stride__s1'], FLUX dinosaurs moved by the 2.5D parallax none",
-   "scenes: 1 dramatic animated scenes (LTX or real film); chapters without one: ['hook', 'story', 'finale']",
-   "match: 101 shots checked against their line, 6 wrong or unnamed animal (max 2): [(4.3, 'dinosaur'), (91.8, 'goldfish'), (206.8, 'crab'), (290.2, 'none'), (652.1, 'whale'), (1456.3, 'jellyfish')]; 0 without an answer",
-   "consistent: 3 animals compared across the film; another look for: {'great_white_shark': {'at': [414], 'why': 'Bild 8 zeigt einen Haifisch mit deutlich hellerem, bräunlichem Kopf- und Rückenfaktor sowie abweichenden Proportionen un'}, 'ancient_whale': {'at': [269, 528, 534], 'why': 'Die Bilder zeigen völlig unterschiedliche Tiere (z.B. gemusterter Urzeitwal bei 1/5, glatter grauer Kopf bei 2, und mode'}, 'whales': {'at': [988, 997], 'why': 'Die Bilder 4 und 6 zeigen einen echten Buckelwal, während die anderen Bilder ein CGI-Modell eines Urzeit-Wals (z.B. Basi'}}",
-   "viewer: 171 places a viewer would switch off (max 3): [('0:20', 'wiederholt', 'Fast exakt dasselbe Hai-Bild wie bei 0:15.'), ('0:25', 'wiederholt', 'Schon wieder genau dieselbe Hai-Perspektive.'), ('0:45', 'wiederholt', 'Identische Küstenszene wie im Bild davor.'), ('1:10', 'wiederholt', 'Exakt dieselbe Weltkarte mit Zoom auf Afrika wird '), ('1:20', 'wiederholt', 'Wiederholt exakt das Wolken- und Strandbild von 1:'), ('1:35', 'langweilig', 'Unruhige, wenig aussagekräftige Wasseraufnahme.'), ('1:45', 'wiederholt', 'Das blaue Unterwasserlicht wiederholt sich fast id'), ('1:50', 'wiederholt', 'Erneut derselbe blaue Strömungseffekt ohne neue In')]"
-  ]
+   "music: music under the voice per minute: [22.79, 22.7, 22.65, 22.92, 23.02, 22.72, 22.46, 22.49, 22.23, 22.35, 22.58, 22.61, 22.51, 22.89, 22.68, 22.51, 22.84, 23.02, 22.39, 23.21, 23.05, 22.85, 22.6, 22.52, 22.84, 23.13, 23.39] dB; music as loud as the voice in minute(s): none; music silent 4 s",
+   "repeats: 157 sources for 444 shots; more than 2 times: {'clip:ltx-otodus_megalodon_pose_0__s0': 8, 'clip:ltx-standby_great_white_shark_00__s1': 5, 'clip:ltx-otodus_megalodon_scene_34__s1': 8, 'clip:ltx-otodus_megalodon_scene_35__s0': 8, 'clip:ltx-standby_great_white_shark_01__s0': 5, 'clip:ltx-standby_great_white_shark_02__s0': 5, 'clip:ltx-standby_great_white_shark_03__s0': 5, 'clip:ltx-standby_great_white_shark_06__s0': 4}; again within 3 min: {'clip:ltx-otodus_megalodon_pose_0__s0': [0, 44, 363, 405, 751, 930, 1234, 1425], 'clip:ltx-standby_great_white_shark_00__s1': [2, 162, 211, 237, 717], 'clip:ltx-otodus_megalodon_scene_34__s1': [6, 48, 367, 437, 754, 933, 1237, 1429], 'clip:ltx-otodus_megalodon_scene_35__s0': [9, 79, 412, 771, 958, 1166, 1257, 1480], 'clip:ltx-standby_great_white_shark_01__s0': [10, 165, 218, 283, 724], 'clip:ltx-standby_great_white_shark_02__s0': [12, 168, 274, 287, 1435]}",
+   "match: 433 shots checked against their line: 9 another animal than the voice names (blocks above 2): [(4.3, 'Tyrannosaurus'), (13.7, 'Triceratops'), (207.5, 'crab'), (444.7, 'otodus_megalodon'), (448.4, 'otodus_megalodon'), (452.1, 'otodus_megalodon'), (724.3, 'megalodon'), (1306.3, 'shark')]; 161 an animal under a line that names none (reported): [(17.3, 'great_white_shark'), (19.2, 'great_white_shark'), (21.1, 'great_white_shark'), (91.8, 'great_white_shark'), (97.0, 'goldfish'), (104.9, 'great_white_shark')]; 0 without an answer",
+   "consistent: 4 animals compared across the film; another look for: {'otodus_megalodon': {'at': [549, 923, 1193, 1577], 'why': 'Die Bilder zeigen deutliche Unterschiede in Farbe, Zeichnung (z. B. braune Töne und Streifenmuster bei 5, 6, 8) und im R'}, 'great_white_shark': {'at': [168, 311], 'why': 'Bild 3 zeigt einen Hai mit deutlich glatterem, helleren Grauton und weniger markanter Zeichnung, während Bild 5 in dunkl'}, 'ancient_whale': {'at': [540, 1313], 'why': 'Die Bilder 3 und 8 zeigen ein Tier mit anderer Farbgebung und Hautzeichnung (grau/glatt ohne Streifenmuster) im Vergleic'}, 'whales': {'at': [989], 'why': 'Bild 2 zeigt einen echten Buckelwal aus der Realität, während die anderen 7 Bilder computergenerierte Urzeit-Wale (z. B.'}}",
+   "viewer: 66 places a viewer would switch off (max 3): [('1:05', 'wiederholt', 'Exakt dieselbe Weltkarte wie bei 1:00 wird einfach'), ('2:20', 'wiederholt', 'Sehr ähnliche Nahaufnahme des Mauls wie bei 2:15'), ('2:25', 'wiederholt', 'Erneut fast dasselbe Motiv mit aufgerissenem Maul'), ('2:35', 'langweilig', 'Statischer Hai ohne Handlung'), ('2:40', 'wiederholt', 'Wieder nah am Kopf von schräg vorne'), ('2:45', 'wiederholt', 'Wieder die Standard-Seitenansicht des Hais'), ('2:55', 'wiederholt', 'Schon wieder eine fast identische Seitenansicht'), ('3:00', 'wiederholt', 'Wieder der gleiche Hai von der Seite')]"
+  ],
+  "gpu_run": "43470569537",
+  "layers_run": "43573673575"
  }
 ]

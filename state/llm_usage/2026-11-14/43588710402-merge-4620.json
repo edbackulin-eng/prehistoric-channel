@@ -1,0 +1,12 @@
+{
+ "gemini-flash-lite-latest": {
+  "requests": 55,
+  "in_tokens": 530637,
+  "out_tokens": 37454,
+  "steps": {
+   "qa-match": 37,
+   "qa-consistent": 4,
+   "qa-viewer": 14
+  }
+ }
+}
