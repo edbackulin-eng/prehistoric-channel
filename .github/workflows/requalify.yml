@@ -111,8 +111,8 @@ jobs:
           name: qa-${{ inputs.slug }}
           retention-days: 30
           path: qa/${{ inputs.slug }}/
-      - name: Release - private without a date while the first episodes wait for approval
-        if: steps.qa.outputs.pass == 'true'
+      - name: Release - on its slot when the QA passed; a failure recorded (qa-failed, or qa-waiting when only the Gemini quota ran out)
+        if: ${{ !cancelled() }}
         env:
           YT_TOKEN_JSON: ${{ secrets.YT_TOKEN_JSON }}
           GH_TOKEN: ${{ github.token }}

@@ -191,6 +191,43 @@ def skip_topic(slug, why, mem, actions, rid=None, tail=""):
                            else ""), mem)
 
 
+def pacific_day(t):
+    """The quota day (Gemini and Groq count per Pacific day)."""
+    from zoneinfo import ZoneInfo
+    return t.astimezone(ZoneInfo("America/Los_Angeles")).date()
+
+
+def check_requalify(mem, actions, busy):
+    """14.11: a film whose QA ran out of Gemini quota (release.quota_only) is checked again on the
+    next quota day from its finished render - requalify.yml, which releases it when it passes."""
+    from automation import release
+    if busy:
+        return
+    r = release.rows()
+    for row in r:
+        if row.get("status") == "qa-failed" and release.quota_only(row.get("qa_failed")):
+            # a render on older code wrote qa-failed for it
+            row.update({"status": "qa-waiting", "qa_waiting_since": row.get("built_at") or f"{now():%Y-%m-%dT%H:%M:%SZ}"})
+            release.save(r)
+            actions.append(f"{row['slug']}: QA ran out of Gemini quota, not a fault; checked again on the next quota day")
+        if row.get("status") == "requalifying" and (now() - ts(row["requalify_at"])).total_seconds() > 4 * 3600:
+            # the requalify run ended without a record (it broke): the next quota day tries again
+            row.update({"status": "qa-waiting", "qa_waiting_since": f"{now():%Y-%m-%dT%H:%M:%SZ}"})
+            release.save(r)
+            actions.append(f"{row['slug']}: requalify left no record; tried again on the next quota day")
+        if row.get("status") != "qa-waiting" or not row.get("run_id"):
+            continue
+        since = ts(row.get("qa_waiting_since") or row.get("built_at"))
+        if pacific_day(now()) <= pacific_day(since):
+            continue
+        gh("workflow", "run", "requalify.yml", "-R", REPO, "-f", f"slug={row['slug']}", "-f",
+           f"run_id={row['run_id']}", "-f", "thumbs=false", parse=False)
+        row.update({"status": "requalifying", "requalify_at": f"{now():%Y-%m-%dT%H:%M:%SZ}"})
+        release.save(r)
+        actions.append(f"{row['slug']}: QA again on the new quota day (requalify of render {row['run_id']})")
+        return
+
+
 def check_rebuilds(mem, actions, busy):
     """Owner 12.11: an episode whose QA found a real fault is rendered again from its GPU results,
     the faulty sources left out (release.record wrote them to episodes/<slug>/qa_rejects.json);
@@ -327,6 +364,10 @@ def main():
         busy = check_gpu_pending(actions) or busy
     except Exception as e:                                           # noqa: BLE001
         log.error("pending GPU starts failed: %s", e)
+    try:
+        check_requalify(mem, actions, busy)
+    except Exception as e:                                           # noqa: BLE001
+        log.error("requalify check failed: %s", e)
     try:
         check_rebuilds(mem, actions, busy)
     except Exception as e:                                           # noqa: BLE001

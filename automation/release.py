@@ -87,6 +87,26 @@ def description(slug, release_dir):
     return meta["title"], text, meta.get("tags", [])
 
 
+# automation/qa.py BLOCKING (kept here so the watchdog needs no picture libraries)
+BLOCKING = ("named_animal", "match", "sound", "frames", "text", "license", "duration")
+
+
+def quota_only(fails):
+    """14.11: the only real-fault checks that failed did so for want of answers - the day's Gemini
+    quota spent (megalodon: 0 wrong animals, 386 of 432 shots unanswered) - not for a fault in the
+    film. Such a film waits for the next quota day and is checked again (requalify.yml), it is
+    neither a fault nor a rebuild."""
+    import re
+    blocking = [f for f in fails or [] if str(f).split(":", 1)[0] in BLOCKING]
+    if not blocking:
+        return False
+    for f in blocking:
+        m = re.match(r"match: .*?\b(\d+) another animal.*?\b(\d+) without an answer", str(f))
+        if not m or int(m.group(1)) != 0 or int(m.group(2)) == 0:
+            return False
+    return True
+
+
 def qa_passed(release_dir):
     f = Path(release_dir) / "qa.json"
     if not f.exists():
@@ -136,6 +156,11 @@ def record(slug, run_id):
     import os
     row.update({k: v for k, v in (("gpu_run", os.environ.get("GPU_RUN")), ("layers_run", os.environ.get("LAYERS_RUN")))
                 if v})
+    if not ok and quota_only(why):
+        row.update({"status": "qa-waiting", "qa_failed": why, "qa_waiting_since": now_s()})
+        save(r)
+        log.error("%s: QA could not ask for every shot (Gemini quota); checked again on the next quota day", slug)
+        return 2
     if not ok:
         row.update({"status": "qa-failed", "qa_failed": why})
         # 12.11: the sources QA found at fault, left out of the next render (watchdog.check_rebuilds)
