@@ -1,0 +1,18 @@
+{
+ "gemma-4-31b-it": {
+  "requests": 2,
+  "in_tokens": 7777,
+  "out_tokens": 1582,
+  "steps": {
+   "qa-match": 2
+  }
+ },
+ "gemma-4-26b-a4b-it": {
+  "requests": 2,
+  "in_tokens": 7542,
+  "out_tokens": 1549,
+  "steps": {
+   "qa-match": 2
+  }
+ }
+}
