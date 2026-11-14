@@ -439,16 +439,26 @@ def wow_pass(shots, wow_ids, pool, picks, animated):
 
 
 def split(shots, parts):
-    """[(first, end)] shot ranges of similar length, each starting on a cut."""
+    """[(first, end)] shot ranges of similar length, each starting on a cut.
+
+    14.11: megalodon is nearly all dissolves, its few cuts sat together and part 2 got
+    157 shots (600 s of 1592) - it outran the part job's 120 minutes. A part now starts
+    on a cut only when one lies near its target; otherwise the dissolve nearest the
+    target becomes a cut. Shot times are absolute, so the timeline does not move:
+    the shot before simply loses the tail it would have dissolved with."""
     total = shots[-1]["end"]
+    slack = total / parts * 0.25
     bounds = [0]
     for k in range(1, parts):
         target = total * k / parts
-        cands = [i for i, s in enumerate(shots) if i > bounds[-1] and s["transition"] == "cut"]
-        if not cands:
+        later = [i for i in range(len(shots)) if i > bounds[-1]]
+        if not later:
             break
-        best = min(cands, key=lambda i: abs(shots[i]["start"] - target))
-        if best not in bounds:
-            bounds.append(best)
+        cuts = [i for i in later if shots[i]["transition"] == "cut" and abs(shots[i]["start"] - target) <= slack]
+        best = min(cuts or later, key=lambda i: abs(shots[i]["start"] - target))
+        if not cuts:
+            shots[best]["transition"] = "cut"
+            shots[best]["part_cut"] = True
+        bounds.append(best)
     bounds.append(len(shots))
     return [[a, b] for a, b in zip(bounds, bounds[1:]) if b > a]
