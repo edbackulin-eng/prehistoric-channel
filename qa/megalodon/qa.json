@@ -5,79 +5,43 @@
  "checks": [
   {
    "name": "hook",
-   "ok": true,
-   "detail": "16 shots in 30 s, 16 moving animal clips (need 3), not moving or no animal at none, cuts outside 1.5-3 s: none, sound hit: yes",
+   "ok": false,
+   "detail": "16 shots in 30 s, 14 moving animal clips (need 3), not moving or no animal at [19.2, 21.1], cuts outside 1.5-3 s: none, sound hit: yes",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "ltx",
    "ok": true,
-   "detail": "18 LTX-Video clips (need 8)",
+   "detail": "13 LTX-Video clips (need 8)",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "subject",
    "ok": true,
-   "detail": "animal shown where told: {'otodus_megalodon': 0.82, 'great_white_shark': 0.71, 'ancient_whale': 0.63, 'whales': 0.74, 'mako_shark': 0.0}; another animal than the line names at none s; landscapes 13% (max 15%); prehistoric animals in motion: 32 shots",
+   "detail": "animal shown where told: {'otodus_megalodon': 0.81, 'great_white_shark': 0.72, 'ancient_whale': 0.63, 'whales': 0.48, 'mako_shark': 0.0}; another animal than the line names at none s; landscapes 13% (max 15%); prehistoric animals in motion: 23 shots",
    "subject_share": {
-    "otodus_megalodon": 0.82,
-    "great_white_shark": 0.71,
+    "otodus_megalodon": 0.81,
+    "great_white_shark": 0.72,
     "ancient_whale": 0.63,
-    "whales": 0.74,
+    "whales": 0.48,
     "mako_shark": 0.0
    },
-   "landscape_share": 0.131,
+   "landscape_share": 0.129,
    "blocking": false,
    "target": "landscapes <= 25%"
   },
   {
    "name": "pace",
    "ok": true,
-   "detail": "average shot 3.6 s (3-5), hook 2.0 s (1.5-3); shown more than twice: {'otodus_megalodon_scene_35__s1': 3, 'otodus_megalodon_extra_00__s0': 3, 'otodus_megalodon_extra_04__s0': 3, 'otodus_megalodon_extra_05__s0': 3, 'otodus_megalodon_extra_01__s0': 3, 'otodus_megalodon_pose_0__s1': 3, 'standby_ancient_whale_00__s0': 3, 'standby_ancient_whale_00__s1': 3, 'otodus_megalodon_scene_34__s0': 3, 'standby_whales_00__s0': 4, 'standby_whales_00__s1': 4}; again within 3 min: ['standby_ancient_whale_00__s0', 'standby_whales_00__s0', 'standby_whales_00__s1', 'standby_whales_00__s0#2', 'standby_whales_00__s1#2', 'standby_whales_00__s0#3', 'standby_whales_00__s1#3', 'standby_whales_00__s0#4']",
-   "mean_shot_s": 3.62,
+   "detail": "average shot 3.6 s (3-5), hook 2.0 s (1.5-3); shown more than twice: {'otodus_megalodon_scene_35__s1': 3, 'otodus_megalodon_extra_00__s0': 3, 'otodus_megalodon_extra_05__s0': 3, 'otodus_megalodon_extra_06__s0': 3, 'otodus_megalodon_extra_01__s0': 3, 'otodus_megalodon_pose_0__s1': 3, 'standby_ancient_whale_00__s0': 3, 'standby_ancient_whale_00__s1': 3, 'otodus_megalodon_scene_34__s0': 3}; again within 3 min: ['standby_ancient_whale_00__s0']",
+   "mean_shot_s": 3.63,
    "repeats": {
     "standby_ancient_whale_00__s0": [
      267,
      652,
      676
-    ],
-    "standby_whales_00__s0": [
-     533,
-     1023,
-     1051,
-     1086
-    ],
-    "standby_whales_00__s1": [
-     618,
-     1027,
-     1055,
-     1089
-    ],
-    "standby_whales_00__s0#2": [
-     1030,
-     1065
-    ],
-    "standby_whales_00__s1#2": [
-     1034,
-     1068
-    ],
-    "standby_whales_00__s0#3": [
-     1037,
-     1072
-    ],
-    "standby_whales_00__s1#3": [
-     1041,
-     1075
-    ],
-    "standby_whales_00__s0#4": [
-     1044,
-     1079
-    ],
-    "standby_whales_00__s1#4": [
-     1048,
-     1082
     ]
    },
    "blocking": false,
@@ -86,21 +50,21 @@
   {
    "name": "music",
    "ok": false,
-   "detail": "music under the voice per minute: [22.79, 22.7, 22.65, 22.92, 23.02, 22.72, 22.46, 22.49, 22.23, 22.35, 22.58, 22.61, 22.51, 22.89, 22.68, 22.51, 22.84, 23.02, 22.39, 23.21, 23.05, 22.85, 22.6, 22.52, 22.84, 23.13, 23.39] dB; music as loud as the voice in minute(s): none; music silent 4 s",
+   "detail": "music under the voice per minute: [22.78, 22.86, 22.73, 22.93, 23.04, 22.87, 22.53, 22.57, 22.24, 22.35, 22.58, 22.61, 22.51, 22.89, 22.68, 22.52, 22.85, 22.73, 22.24, 23.19, 23.05, 22.8, 22.57, 22.51, 22.84, 23.13, 23.39] dB; music as loud as the voice in minute(s): none; music silent 4 s",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "background",
    "ok": true,
-   "detail": "music + atmosphere under the voice per minute: [22.03, 21.99, 22.16, 21.97, 22.03, 22.03, 22.03, 21.96, 22.01, 22.11, 21.98, 22.0, 22.14, 22.0, 21.99, 22.21, 21.98, 21.99, 22.1, 22.08, 21.95, 22.2, 21.99, 22.07, 22.0, 22.02, 22.0] dB (need >= 20); minutes too loud: none",
+   "detail": "music + atmosphere under the voice per minute: [22.05, 21.98, 22.18, 21.97, 22.05, 22.0, 22.05, 21.95, 22.01, 22.11, 21.98, 22.0, 22.14, 22.0, 21.99, 22.22, 21.97, 22.01, 22.07, 22.08, 21.94, 22.22, 21.99, 22.06, 22.0, 22.02, 22.0] dB (need >= 20); minutes too loud: none",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "ambience",
    "ok": true,
-   "detail": "113 atmosphere stretches, only inside their shots; sea under a picture without sea at none s",
+   "detail": "109 atmosphere stretches, only inside their shots; sea under a picture without sea at none s",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
@@ -114,37 +78,37 @@
   {
    "name": "motion",
    "ok": true,
-   "detail": "prehistoric animals in motion 50% of the film (need 40%): LTX 98 s, real footage of the animals 33 s, 2.5D parallax 653 s",
-   "motion_share": 0.496,
+   "detail": "prehistoric animals in motion 50% of the film (need 40%): LTX 72 s, real footage of the animals 34 s, 2.5D parallax 690 s",
+   "motion_share": 0.503,
    "blocking": false,
    "target": "animals in motion >= 25%"
   },
   {
    "name": "dinosaurs",
-   "ok": true,
-   "detail": "2 dinosaurs in motion (need 2): LTX clips ['ltx-cretaceous_trex_stride__s1', 'ltx-cretaceous_triceratops_herd__s0'], FLUX dinosaurs moved by the 2.5D parallax none",
+   "ok": false,
+   "detail": "0 dinosaurs in motion (need 2): LTX clips none, FLUX dinosaurs moved by the 2.5D parallax none",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "wow",
    "ok": true,
-   "detail": "113 wow scenes; the longest stretch without one 119 s (reported; the rule is a scene in every chapter, see scenes)",
-   "wow_max_gap_s": 119.0,
+   "detail": "122 wow scenes; the longest stretch without one 67 s (reported; the rule is a scene in every chapter, see scenes)",
+   "wow_max_gap_s": 66.6,
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "diversity",
    "ok": true,
-   "detail": "main animal (great_white_shark) 14% of the film (max 40%); kinds: {'other_animal': '60%', 'main': '14%', 'environment': '13%', 'people': '6%', 'other': '4%', 'map': '3%'}; chapters with fewer than 3 kinds: none",
+   "detail": "main animal (great_white_shark) 14% of the film (max 40%); kinds: {'other_animal': '62%', 'main': '14%', 'environment': '12%', 'people': '6%', 'other': '4%', 'map': '3%'}; chapters with fewer than 3 kinds: none",
    "kind_shares": {
-    "other_animal": 0.604,
-    "main": 0.143,
-    "other": 0.042,
-    "environment": 0.126,
-    "map": 0.028,
-    "people": 0.057
+    "other_animal": 0.617,
+    "main": 0.135,
+    "other": 0.04,
+    "people": 0.056,
+    "environment": 0.124,
+    "map": 0.028
    },
    "blocking": false,
    "target": "the strict rule in its detail"
@@ -152,42 +116,42 @@
   {
    "name": "scenes",
    "ok": true,
-   "detail": "113 dramatic animated scenes (LTX or real film); chapters without one: none",
-   "scenes": 113,
+   "detail": "122 dramatic animated scenes (LTX or real film); chapters without one: none",
+   "scenes": 122,
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "repeats",
    "ok": false,
-   "detail": "157 sources for 444 shots; more than 2 times: {'clip:ltx-otodus_megalodon_pose_0__s0': 8, 'clip:ltx-standby_great_white_shark_00__s1': 5, 'clip:ltx-otodus_megalodon_scene_34__s1': 8, 'clip:ltx-otodus_megalodon_scene_35__s0': 8, 'clip:ltx-standby_great_white_shark_01__s0': 5, 'clip:ltx-standby_great_white_shark_02__s0': 5, 'clip:ltx-standby_great_white_shark_03__s0': 5, 'clip:ltx-standby_great_white_shark_06__s0': 4}; again within 3 min: {'clip:ltx-otodus_megalodon_pose_0__s0': [0, 44, 363, 405, 751, 930, 1234, 1425], 'clip:ltx-standby_great_white_shark_00__s1': [2, 162, 211, 237, 717], 'clip:ltx-otodus_megalodon_scene_34__s1': [6, 48, 367, 437, 754, 933, 1237, 1429], 'clip:ltx-otodus_megalodon_scene_35__s0': [9, 79, 412, 771, 958, 1166, 1257, 1480], 'clip:ltx-standby_great_white_shark_01__s0': [10, 165, 218, 283, 724], 'clip:ltx-standby_great_white_shark_02__s0': [12, 168, 274, 287, 1435]}",
+   "detail": "148 sources for 443 shots; more than 2 times: {'clip:ltx-otodus_megalodon_pose_0__s0': 8, 'clip:ltx-standby_great_white_shark_00__s1': 6, 'clip:ltx-otodus_megalodon_scene_34__s1': 7, 'clip:ltx-otodus_megalodon_scene_36__s0': 7, 'clip:ltx-standby_great_white_shark_02__s0': 6, 'clip:ltx-standby_great_white_shark_03__s0': 6, 'clip:ltx-standby_great_white_shark_04__s0': 6, 'clip:ltx-otodus_megalodon_scene_37__s1': 8}; again within 3 min: {'clip:ltx-otodus_megalodon_pose_0__s0': [0, 44, 363, 437, 707, 912, 1082, 1297], 'clip:ltx-standby_great_white_shark_00__s1': [2, 162, 204, 226, 328, 1442], 'clip:ltx-otodus_megalodon_scene_34__s1': [4, 48, 367, 710, 916, 1086, 1300], 'clip:ltx-otodus_megalodon_scene_36__s0': [9, 100, 415, 757, 937, 1169, 1356], 'clip:ltx-standby_great_white_shark_02__s0': [10, 165, 208, 230, 339, 1446], 'clip:ltx-standby_great_white_shark_03__s0': [14, 168, 212, 233, 346, 1489]}",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "match",
    "ok": false,
-   "detail": "433 shots checked against their line: 9 another animal than the voice names (blocks above 2): [(4.3, 'Tyrannosaurus'), (13.7, 'Triceratops'), (207.5, 'crab'), (444.7, 'otodus_megalodon'), (448.4, 'otodus_megalodon'), (452.1, 'otodus_megalodon'), (724.3, 'megalodon'), (1306.3, 'shark')]; 161 an animal under a line that names none (reported): [(17.3, 'great_white_shark'), (19.2, 'great_white_shark'), (21.1, 'great_white_shark'), (91.8, 'great_white_shark'), (97.0, 'goldfish'), (104.9, 'great_white_shark')]; 0 without an answer",
+   "detail": "432 shots checked against their line: 0 another animal than the voice names (blocks above 2); 19 an animal under a line that names none (reported): [(23.3, 'shark'), (25.4, 'shark'), (27.6, 'shark'), (29.7, 'shark'), (44.5, 'shark'), (48.3, 'shark')]; 386 without an answer",
    "blocking": true
   },
   {
    "name": "consistent",
-   "ok": false,
-   "detail": "4 animals compared across the film; another look for: {'otodus_megalodon': {'at': [549, 923, 1193, 1577], 'why': 'Die Bilder zeigen deutliche Unterschiede in Farbe, Zeichnung (z. B. braune Töne und Streifenmuster bei 5, 6, 8) und im R'}, 'great_white_shark': {'at': [168, 311], 'why': 'Bild 3 zeigt einen Hai mit deutlich glatterem, helleren Grauton und weniger markanter Zeichnung, während Bild 5 in dunkl'}, 'ancient_whale': {'at': [540, 1313], 'why': 'Die Bilder 3 und 8 zeigen ein Tier mit anderer Farbgebung und Hautzeichnung (grau/glatt ohne Streifenmuster) im Vergleic'}, 'whales': {'at': [989], 'why': 'Bild 2 zeigt einen echten Buckelwal aus der Realität, während die anderen 7 Bilder computergenerierte Urzeit-Wale (z. B.'}}",
+   "ok": true,
+   "detail": "4 animals compared across the film; another look for: none",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "viewer",
-   "ok": false,
-   "detail": "66 places a viewer would switch off (max 3): [('1:05', 'wiederholt', 'Exakt dieselbe Weltkarte wie bei 1:00 wird einfach'), ('2:20', 'wiederholt', 'Sehr ähnliche Nahaufnahme des Mauls wie bei 2:15'), ('2:25', 'wiederholt', 'Erneut fast dasselbe Motiv mit aufgerissenem Maul'), ('2:35', 'langweilig', 'Statischer Hai ohne Handlung'), ('2:40', 'wiederholt', 'Wieder nah am Kopf von schräg vorne'), ('2:45', 'wiederholt', 'Wieder die Standard-Seitenansicht des Hais'), ('2:55', 'wiederholt', 'Schon wieder eine fast identische Seitenansicht'), ('3:00', 'wiederholt', 'Wieder der gleiche Hai von der Seite')]",
+   "ok": true,
+   "detail": "0 places a viewer would switch off (max 3): none",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "thumbnail",
    "ok": true,
-   "detail": "chosen: thumbnail_e5.jpg; judge: {'animal': 'Megalodon', 'animal_big_and_recognisable': True, 'prehistoric_or_living_fossil': True, 'bright': True, 'words_readable': True, 'text': 'DER KÖNIG', 'german_correct': True, 'action_or_trick': True, 'forbidden_seen': [], 'pass': True, 'why': 'Das Vorschaubild zeigt einen riesigen, sofort als Megalodon erkennbaren Haifisch mit offenem Maul in Aktion, hat starke Kontraste, leuchtende Farben und einen kurzen, grammatikalisch korrekten deutschen Text.'}",
+   "detail": "chosen: thumbnail_e5.jpg; judge: {'animal': 'Megalodon', 'animal_big_and_recognisable': True, 'prehistoric_or_living_fossil': True, 'bright': True, 'words_readable': True, 'text': 'DER KÖNIG', 'german_correct': True, 'action_or_trick': True, 'forbidden_seen': [], 'pass': True, 'why': 'Das Vorschaubild zeigt einen riesigen, sofort erkennbaren Haikopf mit offenem Maul in starkem Kontrast, hat einen prägnanten und grammatikalisch korrekten zweiteiligen Text (\"DER KÖNIG\") und erfüllt alle Kriterien der Nische.'}",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
@@ -229,97 +193,87 @@
   }
  ],
  "duration_s": 1581.05,
- "rejects": [
-  "cretaceous_trex_stride__s1",
-  "cretaceous_triceratops_herd__s0",
-  "pixabay-184069",
-  "pixabay-311056",
-  "standby_great_white_shark_01__s0",
-  "standby_great_white_shark_06__s0",
-  "standby_great_white_shark_07__s0",
-  "standby_great_white_shark_07__s1",
-  "standby_whales_00__s0"
- ],
+ "rejects": [],
  "first_minute_moving": 0.72,
  "levels_per_minute": [
   {
    "minute": 0,
    "voice_lufs": -17.66,
-   "music_lufs_under_voice": -40.45,
-   "music_lufs": -40.46,
-   "under_db": 22.79,
-   "background_lufs_under_voice": -39.68,
-   "background_under_db": 22.03
+   "music_lufs_under_voice": -40.43,
+   "music_lufs": -40.45,
+   "under_db": 22.78,
+   "background_lufs_under_voice": -39.71,
+   "background_under_db": 22.05
   },
   {
    "minute": 1,
    "voice_lufs": -18.12,
-   "music_lufs_under_voice": -40.82,
-   "music_lufs": -40.75,
-   "under_db": 22.7,
-   "background_lufs_under_voice": -40.1,
-   "background_under_db": 21.99
+   "music_lufs_under_voice": -40.98,
+   "music_lufs": -40.91,
+   "under_db": 22.86,
+   "background_lufs_under_voice": -40.09,
+   "background_under_db": 21.98
   },
   {
    "minute": 2,
    "voice_lufs": -17.72,
-   "music_lufs_under_voice": -40.37,
-   "music_lufs": -40.21,
-   "under_db": 22.65,
-   "background_lufs_under_voice": -39.89,
-   "background_under_db": 22.16
+   "music_lufs_under_voice": -40.45,
+   "music_lufs": -40.29,
+   "under_db": 22.73,
+   "background_lufs_under_voice": -39.9,
+   "background_under_db": 22.18
   },
   {
    "minute": 3,
    "voice_lufs": -17.98,
    "music_lufs_under_voice": -40.91,
    "music_lufs": -40.86,
-   "under_db": 22.92,
-   "background_lufs_under_voice": -39.95,
+   "under_db": 22.93,
+   "background_lufs_under_voice": -39.96,
    "background_under_db": 21.97
   },
   {
    "minute": 4,
    "voice_lufs": -17.69,
-   "music_lufs_under_voice": -40.71,
-   "music_lufs": -40.47,
-   "under_db": 23.02,
-   "background_lufs_under_voice": -39.71,
-   "background_under_db": 22.03
+   "music_lufs_under_voice": -40.73,
+   "music_lufs": -40.49,
+   "under_db": 23.04,
+   "background_lufs_under_voice": -39.74,
+   "background_under_db": 22.05
   },
   {
    "minute": 5,
    "voice_lufs": -18.06,
-   "music_lufs_under_voice": -40.77,
-   "music_lufs": -40.42,
-   "under_db": 22.72,
-   "background_lufs_under_voice": -40.09,
-   "background_under_db": 22.03
+   "music_lufs_under_voice": -40.92,
+   "music_lufs": -40.57,
+   "under_db": 22.87,
+   "background_lufs_under_voice": -40.05,
+   "background_under_db": 22.0
   },
   {
    "minute": 6,
    "voice_lufs": -18.08,
-   "music_lufs_under_voice": -40.54,
-   "music_lufs": -40.39,
-   "under_db": 22.46,
-   "background_lufs_under_voice": -40.11,
-   "background_under_db": 22.03
+   "music_lufs_under_voice": -40.61,
+   "music_lufs": -40.46,
+   "under_db": 22.53,
+   "background_lufs_under_voice": -40.13,
+   "background_under_db": 22.05
   },
   {
    "minute": 7,
    "voice_lufs": -18.44,
-   "music_lufs_under_voice": -40.93,
-   "music_lufs": -40.88,
-   "under_db": 22.49,
-   "background_lufs_under_voice": -40.4,
-   "background_under_db": 21.96
+   "music_lufs_under_voice": -41.01,
+   "music_lufs": -40.96,
+   "under_db": 22.57,
+   "background_lufs_under_voice": -40.39,
+   "background_under_db": 21.95
   },
   {
    "minute": 8,
    "voice_lufs": -17.9,
-   "music_lufs_under_voice": -40.13,
-   "music_lufs": -40.06,
-   "under_db": 22.23,
+   "music_lufs_under_voice": -40.14,
+   "music_lufs": -40.05,
+   "under_db": 22.24,
    "background_lufs_under_voice": -39.91,
    "background_under_db": 22.01
   },
@@ -380,46 +334,46 @@
   {
    "minute": 15,
    "voice_lufs": -17.74,
-   "music_lufs_under_voice": -40.25,
-   "music_lufs": -40.0,
-   "under_db": 22.51,
-   "background_lufs_under_voice": -39.95,
-   "background_under_db": 22.21
+   "music_lufs_under_voice": -40.26,
+   "music_lufs": -40.01,
+   "under_db": 22.52,
+   "background_lufs_under_voice": -39.96,
+   "background_under_db": 22.22
   },
   {
    "minute": 16,
    "voice_lufs": -17.65,
-   "music_lufs_under_voice": -40.48,
-   "music_lufs": -40.18,
-   "under_db": 22.84,
-   "background_lufs_under_voice": -39.63,
-   "background_under_db": 21.98
+   "music_lufs_under_voice": -40.5,
+   "music_lufs": -40.2,
+   "under_db": 22.85,
+   "background_lufs_under_voice": -39.62,
+   "background_under_db": 21.97
   },
   {
    "minute": 17,
    "voice_lufs": -17.58,
-   "music_lufs_under_voice": -40.6,
-   "music_lufs": -40.42,
-   "under_db": 23.02,
-   "background_lufs_under_voice": -39.56,
-   "background_under_db": 21.99
+   "music_lufs_under_voice": -40.3,
+   "music_lufs": -40.12,
+   "under_db": 22.73,
+   "background_lufs_under_voice": -39.59,
+   "background_under_db": 22.01
   },
   {
    "minute": 18,
    "voice_lufs": -17.71,
-   "music_lufs_under_voice": -40.1,
-   "music_lufs": -39.32,
-   "under_db": 22.39,
-   "background_lufs_under_voice": -39.81,
-   "background_under_db": 22.1
+   "music_lufs_under_voice": -39.95,
+   "music_lufs": -39.19,
+   "under_db": 22.24,
+   "background_lufs_under_voice": -39.78,
+   "background_under_db": 22.07
   },
   {
    "minute": 19,
    "voice_lufs": -18.24,
-   "music_lufs_under_voice": -41.44,
-   "music_lufs": -40.82,
-   "under_db": 23.21,
-   "background_lufs_under_voice": -40.32,
+   "music_lufs_under_voice": -41.43,
+   "music_lufs": -40.81,
+   "under_db": 23.19,
+   "background_lufs_under_voice": -40.31,
    "background_under_db": 22.08
   },
   {
@@ -428,35 +382,35 @@
    "music_lufs_under_voice": -41.05,
    "music_lufs": -40.75,
    "under_db": 23.05,
-   "background_lufs_under_voice": -39.95,
-   "background_under_db": 21.95
+   "background_lufs_under_voice": -39.94,
+   "background_under_db": 21.94
   },
   {
    "minute": 21,
    "voice_lufs": -17.88,
-   "music_lufs_under_voice": -40.73,
-   "music_lufs": -40.72,
-   "under_db": 22.85,
-   "background_lufs_under_voice": -40.08,
-   "background_under_db": 22.2
+   "music_lufs_under_voice": -40.68,
+   "music_lufs": -40.68,
+   "under_db": 22.8,
+   "background_lufs_under_voice": -40.1,
+   "background_under_db": 22.22
   },
   {
    "minute": 22,
    "voice_lufs": -17.05,
-   "music_lufs_under_voice": -39.66,
-   "music_lufs": -39.23,
-   "under_db": 22.6,
-   "background_lufs_under_voice": -39.04,
+   "music_lufs_under_voice": -39.62,
+   "music_lufs": -39.19,
+   "under_db": 22.57,
+   "background_lufs_under_voice": -39.05,
    "background_under_db": 21.99
   },
   {
    "minute": 23,
    "voice_lufs": -17.46,
    "music_lufs_under_voice": -39.97,
-   "music_lufs": -39.77,
-   "under_db": 22.52,
+   "music_lufs": -39.76,
+   "under_db": 22.51,
    "background_lufs_under_voice": -39.52,
-   "background_under_db": 22.07
+   "background_under_db": 22.06
   },
   {
    "minute": 24,
