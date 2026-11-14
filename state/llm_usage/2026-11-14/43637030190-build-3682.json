@@ -1,0 +1,34 @@
+{
+ "groq:qwen/qwen3.8-27b": {
+  "requests": 2,
+  "in_tokens": 5340,
+  "out_tokens": 2415,
+  "steps": {
+   "plan": 2
+  }
+ },
+ "gemma-4-31b-it": {
+  "requests": 6,
+  "in_tokens": 9369,
+  "out_tokens": 6607,
+  "steps": {
+   "plan": 6
+  }
+ },
+ "gemma-4-26b-a4b-it": {
+  "requests": 1,
+  "in_tokens": 1411,
+  "out_tokens": 100,
+  "steps": {
+   "plan": 1
+  }
+ },
+ "gemini-flash-lite-latest": {
+  "requests": 3,
+  "in_tokens": 6039,
+  "out_tokens": 7005,
+  "steps": {
+   "plan": 3
+  }
+ }
+}
