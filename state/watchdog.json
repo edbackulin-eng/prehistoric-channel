@@ -418,6 +418,13 @@
    "sig": "part / Run actions/upload-artifact@v5",
    "day": "2026-11-11",
    "rerun": true
+  },
+  {
+   "run": "43637030190/1",
+   "wf": "episode.yml",
+   "sig": "build / Plan, species checklists, footage candidates",
+   "day": "2026-11-14",
+   "rerun": true
   }
  ],
  "cancelled": [
