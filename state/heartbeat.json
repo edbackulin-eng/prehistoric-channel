@@ -1,8 +1,8 @@
 {
  "date": "2026-11-14",
- "checked_at": "2026-11-14T21:15:14Z",
+ "checked_at": "2026-11-14T22:00:22Z",
  "ahead": [],
  "actions": [
-  "reran episode.yml 43637030190 (attempt 2; 'build / Plan, species checklists, footage candidates' 1/3 today)"
+  "reran episode.yml 43637030190 (attempt 3; 'build / Plan, species checklists, footage candidates' 2/3 today)"
  ]
 }
