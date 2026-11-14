@@ -242,7 +242,8 @@ jobs:
     needs: part
     if: ${{ !cancelled() && needs.part.result == 'success' }}
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
+    # 14.11 megalodon (26.5 min, 2160p): join 6 min, thumbnails 20, loudness check 19, QA 15+ - 60 cut the QA off
+    timeout-minutes: 150
     env:
       GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
       PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
