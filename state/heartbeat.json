@@ -1,6 +1,8 @@
 {
  "date": "2026-11-14",
- "checked_at": "2026-11-14T00:14:29Z",
+ "checked_at": "2026-11-14T13:43:32Z",
  "ahead": [],
- "actions": []
+ "actions": [
+  "megalodon: QA fault, rendered again without its faulty sources (1/2)"
+ ]
 }
