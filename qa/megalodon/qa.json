@@ -139,7 +139,7 @@
   {
    "name": "match",
    "ok": false,
-   "detail": "432 shots checked against their line: 0 another animal than the voice names (blocks above 2); 13 an animal under a line that names none (reported): [(78.9, 'great_white_shark'), (88.7, 'great_white_shark'), (91.8, 'goldfish'), (100.3, 'great_white_shark'), (103.5, 'great_white_shark'), (106.8, 'great_white_shark')]; 397 without an answer",
+   "detail": "415 shots checked against their line: 2 another animal than the voice names (blocks above 2): [(378.1, 'great_white_shark'), (886.6, 'Tigerhai')]; 96 an animal under a line that names none (reported): [(78.9, 'great_white_shark'), (88.7, 'great_white_shark'), (91.8, 'goldfish'), (100.3, 'great_white_shark'), (103.5, 'great_white_shark'), (106.8, 'great_white_shark')]; 140 without an answer",
    "blocking": true
   },
   {
@@ -195,13 +195,16 @@
   },
   {
    "name": "frames",
-   "ok": true,
-   "detail": "316 frames looked at (one every 5 s): black at none s; decoding errors: none",
+   "ok": false,
+   "detail": "304 frames looked at (one every 5 s): black at none s; decoding errors: ['[NULL @ 0x561e6d4fde40] Invalid NAL unit size (116688 > 98393).', '[NULL @ 0x561e6d4fde40] missing picture in access unit with size 98397', '[mov,mp4,m4a,3gp,3g2,mj2 @ 0x561e6d4fcec0] stream 0, offset 0x1cbbf2467: partial file', '[h264 @ 0x561e6d662dc0] Invalid NAL unit size (116688 > 98393).', '[h264 @ 0x561e6d662dc0] Error splitting the input into NAL units.']",
    "blocking": true
   }
  ],
  "duration_s": 1581.05,
- "rejects": [],
+ "rejects": [
+  "otodus_megalodon_pose_0__s1",
+  "otodus_megalodon_scene_40__s0"
+ ],
  "first_minute_moving": 0.72,
  "levels_per_minute": [
   {

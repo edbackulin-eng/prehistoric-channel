@@ -4,13 +4,13 @@
 
 | check | blocks upload | ok | target | what was measured |
 |---|---|---|---|---|
-| match | yes | **no** |  | 432 shots checked against their line: 0 another animal than the voice names (blocks above 2); 13 an animal under a line that names none (reported): [(78.9, 'great_white_shark'), (88.7, 'great_white_shark'), (91.8, 'goldfish'), (100.3, 'great_white_shark'), (103.5, 'great_white_shark'), (106.8, 'great_white_shark')]; 397 without an answer |
+| match | yes | **no** |  | 415 shots checked against their line: 2 another animal than the voice names (blocks above 2): [(378.1, 'great_white_shark'), (886.6, 'Tigerhai')]; 96 an animal under a line that names none (reported): [(78.9, 'great_white_shark'), (88.7, 'great_white_shark'), (91.8, 'goldfish'), (100.3, 'great_white_shark'), (103.5, 'great_white_shark'), (106.8, 'great_white_shark')]; 140 without an answer |
 | named_animal | yes | yes |  | an animal other than the line names at none s |
 | text | yes | yes |  | thumbnail thumbnail_b.jpg: text 'LEBT NOCH!', German correct True, readable True |
 | sound | yes | yes |  | silence of 3 s or more at none s; music over the voice in minute(s) none; true peak -1.4 dBTP (max -0.5); loudness -14.0 LUFS (-17..-11) |
 | duration | yes | yes |  | 26.4 min (22-27) |
 | license | yes | yes |  | sources without a confirmed licence: none |
-| frames | yes | yes |  | 316 frames looked at (one every 5 s): black at none s; decoding errors: none |
+| frames | yes | **no** |  | 304 frames looked at (one every 5 s): black at none s; decoding errors: ['[NULL @ 0x561e6d4fde40] Invalid NAL unit size (116688 > 98393).', '[NULL @ 0x561e6d4fde40] missing picture in access unit with size 98397', '[mov,mp4,m4a,3gp,3g2,mj2 @ 0x561e6d4fcec0] stream 0, offset 0x1cbbf2467: partial file', '[h264 @ 0x561e6d662dc0] Invalid NAL unit size (116688 > 98393).', '[h264 @ 0x561e6d662dc0] Error splitting the input into NAL units.'] |
 | hook | no | **no** | the strict rule in its detail | 16 shots in 30 s, 14 moving animal clips (need 3), not moving or no animal at [19.2, 21.1], cuts outside 1.5-3 s: none, sound hit: yes |
 | ltx | no | yes | the strict rule in its detail | 11 LTX-Video clips (need 8) |
 | subject | no | yes | landscapes <= 25% | animal shown where told: {'otodus_megalodon': 0.6, 'great_white_shark': 0.79, 'ancient_whale': 0.84, 'whales': 0.23, 'mako_shark': 0.0}; another animal than the line names at none s; landscapes 13% (max 15%); prehistoric animals in motion: 22 shots |
@@ -29,6 +29,6 @@
 | viewer | no | yes | the strict rule in its detail | 0 places a viewer would switch off (max 3): none |
 | thumbnail | no | yes | the strict rule in its detail | chosen: thumbnail_b.jpg; judge: {'animal': 'Megalodon (Hai)', 'animal_big_and_recognisable': True, 'prehistoric_or_living_fossil': True, 'bright': True, 'words_readable': True, 'text': 'LEBT NOCH!', 'german_correct': True, 'action_or_trick': True, 'forbidden_seen': [], 'pass': True, 'why': 'Perfektes Thumbnail: Riesiges Tier mit offenem Maul, knalliger Kontrast zwischen Dunkel und Türkis, roter Pfeil als Blickfang und extrem kurzer, lesbarer Text.'} |
 
-- contact sheet: [contact.jpg](contact.jpg) (316 frames, one every 5 s)
+- contact sheet: [contact.jpg](contact.jpg) (304 frames, one every 5 s)
 - voice and music: [sound.png](sound.png)
 - thumbnails: [thumb_1](thumb_1.jpg), [thumb_2](thumb_2.jpg), [thumb_3](thumb_3.jpg)
