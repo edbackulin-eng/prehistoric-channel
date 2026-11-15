@@ -1,0 +1,42 @@
+{
+ "groq:qwen/qwen3.8-27b": {
+  "requests": 2,
+  "in_tokens": 1194,
+  "out_tokens": 1792,
+  "steps": {
+   "pool-queries": 2
+  }
+ },
+ "gemini-flash-lite-latest": {
+  "requests": 59,
+  "in_tokens": 675319,
+  "out_tokens": 37435,
+  "steps": {
+   "pool-describe": 59
+  }
+ },
+ "gemma-4-31b-it": {
+  "requests": 25,
+  "in_tokens": 80475,
+  "out_tokens": 16513,
+  "steps": {
+   "pool-describe": 25
+  }
+ },
+ "gemini-flash-latest": {
+  "requests": 2,
+  "in_tokens": 23278,
+  "out_tokens": 1354,
+  "steps": {
+   "pool-describe": 2
+  }
+ },
+ "gemma-4-26b-a4b-it": {
+  "requests": 6,
+  "in_tokens": 19314,
+  "out_tokens": 1985,
+  "steps": {
+   "pool-describe": 6
+  }
+ }
+}
