@@ -153,7 +153,10 @@ def run():
     out.append(("real: a still and a film rendered without layers", abs(r["seconds"] - 6.0) < 0.2, str(r["seconds"])))
 
     # the QA's licence rule and the scores on a real plan
-    from automation import qa
+    import importlib.util                 # a fresh copy: scripts/smoke_qa.py stubs license_ok for its test film
+    spec = importlib.util.spec_from_file_location("qa_real_smoke", ROOT / "automation" / "qa.py")
+    qa = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(qa)
     bad = {"format": "real", "shots": [{"kind": "photo", "pool_id": "x", "license": None}], "music": []}
     good = {"format": "real", "shots": [{"kind": "photo", "pool_id": "y", "license": "CC BY-SA 4.0"},
                                         {"kind": "real", "clip": {"id": "z"}, "license": "Pixabay Content License"}],
