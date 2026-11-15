@@ -78,6 +78,19 @@ jobs:
           run-id: ${{ inputs.thumbs_run }}
           github-token: ${{ github.token }}
       - run: ls -la "work/$SLUG" "work/$SLUG/release" && df -h / | tail -1
+      - name: The picture is whole (15.11: one download came back without its last minute - the QA saw broken frames)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in 1 2 3; do
+            if ffmpeg -v error -sseof -90 -i "work/$SLUG/release/video.mp4" -f null - 2>/tmp/whole.txt && [ ! -s /tmp/whole.txt ]; then
+              echo "the picture is whole"; exit 0
+            fi
+            echo "::warning::the downloaded picture is cut short (try $i): $(head -c 300 /tmp/whole.txt)"
+            rm -f "work/$SLUG/release/video.mp4"
+            gh run download "${{ inputs.run_id }}" -R "${{ github.repository }}" -n "release-$SLUG" -D "work/$SLUG/release/"
+          done
+          exit 1
       - name: Thumbnails from the episode's own animals (judge with fallback models)
         if: inputs.thumbs == 'true'
         run: |
@@ -103,6 +116,7 @@ jobs:
           retention-days: 30
           path: |
             work/${{ inputs.slug }}/release/qa.json
+            work/${{ inputs.slug }}/release/qa_view_cache.json
             work/${{ inputs.slug }}/release/thumbnail*.jpg
             work/${{ inputs.slug }}/release/thumbnails_report.json
       - uses: actions/upload-artifact@v5
