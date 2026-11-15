@@ -29,9 +29,86 @@ MAPS = {"name": "Blue Marble Next Generation (Dec 2004, topography and bathymetr
         "license": "Public domain (NASA)", "url": "https://visibleearth.nasa.gov/images/73909"}
 
 
+REPO_URL = "https://github.com/edbackulin-eng/prehistoric-channel/blob/main"
+DESC_CREDITS_MAX = 2400        # characters of the description the credit block may take (YouTube: 5000 in all)
+
+
+def main_real(slug, plan):
+    """owner 15.11, real footage: every clip and picture of the film with its source, author and licence.
+    CC BY / CC BY-SA need title, author, source and licence - in full in episodes/<slug>/CREDITS.md
+    (linked from the description), and the authors with their licences in the description itself."""
+    ep = ROOT / "episodes" / slug
+    pool = {it["id"]: it for it in json.loads((ep / "pool.json").read_text(encoding="utf-8"))["items"]}
+    used = []
+    for s in plan["shots"]:
+        it = pool.get(s.get("pool_id"))
+        if it and it["id"] not in {u["id"] for u in used}:
+            used.append(it)
+    tr = ROOT / "work" / slug / "release" / "thumbnails_report.json"
+    trep = json.loads(tr.read_text(encoding="utf-8")) if tr.exists() else {}
+    best = ((trep.get("choice") or {}).get("best") or "") if isinstance(trep, dict) else ""
+    for v in (trep.get("variants") or []) if isinstance(trep, dict) else []:
+        sid = (v.get("source") or {}).get("id")
+        if sid in pool and sid not in {u["id"] for u in used} and best.endswith(v["id"].split("_", 1)[1] + ".jpg"):
+            used.append(pool[sid])
+    used_music = set(plan.get("music") or [])
+    music = [t for t in json.loads((ROOT / "assets/music/library.json").read_text(encoding="utf-8"))["tracks"]
+             if t["title"] in used_music]
+    amb_lib = json.loads((ROOT / "assets/ambience/library.json").read_text(encoding="utf-8"))["beds"]
+    used_amb = {s.get("amb") for s in plan["shots"]}
+    amb = [{"scene": k, **v} for k, v in amb_lib.items() if k in used_amb and "file" in v]
+    rec = [{k: it.get(k) for k in ("id", "source", "title", "tags", "author", "license", "license_url", "page")}
+           for it in used]
+    credits = {"format": "real", "footage": rec, "music": music, "ambience": amb, "voices": VOICES, "fonts": FONTS}
+    out = ROOT / "work" / slug / "release"
+    out.mkdir(parents=True, exist_ok=True)
+    for d in (out, ep):
+        (d / "credits.json").write_text(json.dumps(credits, indent=1, ensure_ascii=False), encoding="utf-8")
+
+    def name(r):
+        return (r.get("title") or "").replace("File:", "").rsplit(".", 1)[0][:70] or (r.get("tags") or "")[:50]
+
+    md = [f"# Bildnachweise / Credits: {slug}", "",
+          "Alle Filmaufnahmen und Bilder sind echtes Material aus freien Quellen; die Lizenz steht jeweils auf der "
+          "Seite der Quelle. Keine KI-Bilder, keine Animation.", "", "| Titel | Urheber | Lizenz | Quelle |",
+          "|---|---|---|---|"]
+    for r in rec:
+        md.append(f"| {name(r).replace('|', '/')} | {str(r.get('author') or '').replace('|', '/')[:80]} | "
+                  f"{r.get('license')} | [{r.get('source')}]({r.get('page')}) |")
+    md += ["", "## Musik", ""] + [f"- \"{t['title']}\" Kevin MacLeod (incompetech.com), CC BY 4.0" for t in music]
+    md += ["", "## Ton", ""] + [f"- {a['title'].replace('File:', '')} - {a['author']} - {a['license']} - {a['page']}"
+                                for a in amb]
+    md += ["", "## Stimme", "", "- Thorsten-Voice (Thorsten Müller), CC0 - Piper de_DE-thorsten-high"]
+    (ep / "CREDITS.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+    (out / "LICENSES.md").write_text("\n".join(md) + "\n", encoding="utf-8")
+
+    desc = ["Bildnachweise (Titel, Urheber, Lizenz und Link zu jeder Aufnahme): "
+            f"{REPO_URL}/episodes/{slug}/CREDITS.md"]
+    by = [r for r in rec if str(r.get("license") or "").upper().startswith("CC BY")]
+    line = "Unter CC BY / CC BY-SA: " + "; ".join(f"{str(r.get('author') or 'unbekannt')[:40]} ({r['license']})"
+                                                    for r in by)
+    if len(line) > DESC_CREDITS_MAX:
+        line = line[:DESC_CREDITS_MAX].rsplit(";", 1)[0] + "; weitere siehe Link."
+    if by:
+        desc.append(line)
+    srcs = sorted({r.get("source") for r in rec})
+    desc.append("Weiteres Material: " + ", ".join(srcs) + " (gemeinfrei, CC0, Pixabay-/Pexels-Lizenz).")
+    for t in music:
+        desc.append(f'Musik: "{t["title"]}" Kevin MacLeod (incompetech.com), licensed under Creative Commons: '
+                    f'By Attribution 4.0 License, http://creativecommons.org/licenses/by/4.0/')
+    for a in amb:
+        if a["license"].upper().startswith("CC BY"):
+            desc.append(f'Ton: "{a["title"].replace("File:", "")}" von {a["author"]}, {a["license"]} - {a["page"]}')
+    desc.append("Sprecherstimme: Thorsten-Voice (Thorsten Müller, CC0).")
+    (out / "description_credits.txt").write_text("\n".join(desc), encoding="utf-8")
+    print(f"{len(rec)} pictures credited ({len(by)} CC BY/BY-SA) -> CREDITS.md, description_credits.txt")
+
+
 def main(slug):
     ep = ROOT / "episodes" / slug
     plan = json.loads((ROOT / "work" / slug / "plan.json").read_text(encoding="utf-8"))
+    if plan.get("format") == "real":
+        return main_real(slug, plan)
     footage = json.loads((ep / "footage.json").read_text(encoding="utf-8"))
     recon = json.loads((ep / "recon.json").read_text(encoding="utf-8"))
     used_ids = {s["clip"]["id"] for s in plan["shots"] if s["kind"] == "real"}

@@ -20,6 +20,9 @@ URL = "https://generativelanguage.googleapis.com/v1beta/models/{m}:generateConte
 TEXT_MODELS = ("gemini-flash-latest", "gemini-flash-lite-latest")
 _SPENT = set()
 _FAILS = {}                            # model -> 5xx answers in a row
+_COOL = {}                             # model -> time it may be asked again (server errors, not quota)
+COOL_S = 240                           # 15.11: a model set aside for its 5xx comes back after this
+WAIT_MAX_S = 1200                      # how long one call waits for a cooled model before giving up
 _WINDOW = {}                           # model -> [(time, tokens)] of the last minute
 
 
@@ -92,8 +95,27 @@ def ask(prompt, images=(), models=TEXT_MODELS, json_out=True, temperature=0.4, m
     """The model's answer: parsed JSON when json_out, else text."""
     parts = [{"text": prompt}] + [image_part(p) for p in images]
     last = None
+    waited = 0.0
+    while True:
+        try:
+            return _ask_once(parts, prompt, images, models, json_out, temperature, max_tokens, timeout, step)
+        except RuntimeError as e:
+            last = e
+        # 15.11: every model set aside for server errors (megalodon's QA: 140 shots unanswered) - the
+        # earliest to cool down is asked again, within WAIT_MAX_S; a spent day is not waited for
+        cool = [t for m, t in _COOL.items() if m in models and m not in _SPENT and t > time.time()]
+        if not cool or waited >= WAIT_MAX_S:
+            raise last
+        pause = max(5.0, min(cool) - time.time())
+        log.warning("all models cooling down after server errors; asked again in %.0f s", pause)
+        time.sleep(pause)
+        waited += pause
+
+
+def _ask_once(parts, prompt, images, models, json_out, temperature, max_tokens, timeout, step):
+    last = None
     for m in models:
-        if m in _SPENT:
+        if m in _SPENT or _COOL.get(m, 0) > time.time():
             continue
         cfg = {"temperature": temperature}
         if json_out and not m.startswith("gemma"):          # Gemma takes no response MIME type
@@ -142,8 +164,9 @@ def ask(prompt, images=(), models=TEXT_MODELS, json_out=True, temperature=0.4, m
                     # answered only 500 and 503 for an afternoon); a single 5xx is waited out
                     _FAILS[m] = _FAILS.get(m, 0) + 1
                     if _FAILS[m] >= 2:
-                        _SPENT.add(m)
-                        log.warning("%s set aside after %d server errors in a row", m, _FAILS[m])
+                        _COOL[m] = time.time() + COOL_S
+                        _FAILS[m] = 0
+                        log.warning("%s set aside for %d s after server errors in a row", m, COOL_S)
                         break
                     time.sleep(20)
                     continue

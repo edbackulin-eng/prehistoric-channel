@@ -256,6 +256,23 @@ def check_rebuilds(mem, actions, busy):
         if n >= REBUILDS:
             skip_topic(row["slug"], f"QA found a real fault in {n + 1} renders: {row.get('qa_failed')}", mem, actions)
             return
+        if (ROOT / "episodes" / row["slug"] / "pool.json").exists() and not row.get("gpu_run"):
+            # owner 15.11, real footage: the plan cut again from the pool without the rejected pictures;
+            # the narration of the last render is kept when its artifact is still there
+            prev = row.get("layers_run") or ""
+            try:
+                arts = gh("api", f"repos/{REPO}/actions/runs/{prev}/artifacts?per_page=100")["artifacts"] if prev else []
+                if not any(a["name"] == "narration" and not a["expired"] for a in arts):
+                    prev = ""
+            except Exception:                                    # noqa: BLE001
+                prev = ""
+            gh("workflow", "run", "render.yml", "-R", REPO, "-f", f"slug={row['slug']}", "-f", "real=true",
+               "-f", f"layers_run={prev}", "-f", "release=true", parse=False)
+            row.update({"status": "rebuilding", "rebuilds": n + 1, "rebuild_at": f"{now():%Y-%m-%dT%H:%M:%SZ}"})
+            release.save(r)
+            actions.append(f"{row['slug']}: QA fault, cut again from its real pictures without the rejected ones "
+                           f"({n + 1}/{REBUILDS})")
+            return
         if not row.get("gpu_run"):
             continue
         layers = row.get("layers_run") or ""

@@ -101,6 +101,7 @@ def fetch_media(slug, plan, shots=None, local_only=False):
     from pipeline import footage
     media = W(slug) / "inputs" / "media"
     media.mkdir(parents=True, exist_ok=True)
+    fetched = {}
     for s in (plan["shots"] if shots is None else shots):
         if s["kind"] != "real":
             continue
@@ -112,13 +113,17 @@ def fetch_media(slug, plan, shots=None, local_only=False):
         dest = media / f"{c['id']}{ext}"
         if dest.exists():
             continue
+        same = [f for f in media.glob("*") if f.suffix != ".part" and fetched.get(f.name) == c["url"]]
         if c["url"].startswith("file:"):           # an LTX-Video clip, upscaled on the runners
             shutil.copy(c["url"][5:], dest)
+        elif same:                                 # another stretch of the same film (archive.org)
+            shutil.copy(same[0], dest)
         elif cached.exists():
             shutil.copy(cached, dest)
         else:
             footage.download(c["url"], dest)
             time.sleep(2)
+        fetched[dest.name] = c["url"]
         log.info("media %s", dest.name)
     return media
 
@@ -193,7 +198,75 @@ def animated(slug):
     return out
 
 
+def is_real(slug=None):
+    """owner 15.11: the channel's films are cut from real footage only (config "format": "real")."""
+    cfg = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))
+    return cfg.get("format") == "real" or (slug is not None and (ROOT / "episodes" / slug / "pool.json").exists()
+                                            and not (ROOT / "episodes" / slug / "recon.json").exists())
+
+
+def still_16x9(src, dest, w=4224, h=2376):
+    """A photograph or painting of any shape on the 16:9 plate the slow camera move films (the
+    picture whole, over a blurred, darkened copy of itself) - nothing invented, nothing cut off."""
+    from PIL import Image, ImageFilter, ImageEnhance
+    im = Image.open(src).convert("RGB")
+    bg = im.copy()
+    s = max(w / bg.width, h / bg.height)
+    bg = bg.resize((int(bg.width * s) + 1, int(bg.height * s) + 1), Image.LANCZOS)
+    bg = bg.crop(((bg.width - w) // 2, (bg.height - h) // 2, (bg.width - w) // 2 + w, (bg.height - h) // 2 + h))
+    bg = ImageEnhance.Brightness(bg.filter(ImageFilter.GaussianBlur(60))).enhance(0.45)
+    fit = min(w * 0.94 / im.width, h * 0.94 / im.height)
+    if im.width / im.height > 1.6:               # already wide: fill the frame
+        fit = max(w / im.width, h / im.height)
+    fg = im.resize((max(1, int(im.width * fit)), max(1, int(im.height * fit))), Image.LANCZOS)
+    bg.paste(fg, ((w - fg.width) // 2, (h - fg.height) // 2))
+    if fg.width >= w and fg.height >= h:
+        bg = fg.crop(((fg.width - w) // 2, (fg.height - h) // 2, (fg.width - w) // 2 + w, (fg.height - h) // 2 + h))
+    bg.save(dest, quality=94)
+    return dest
+
+
+def prepare_real(slug, res):
+    """Real footage only: no layers, no FLUX - the narration, the plan cut from the pool, the stills
+    on their plates, the thumbnail bases, the subtitles."""
+    from pipeline import realplan, footage
+    wav, data = narration(slug)
+    seconds = sf.info(str(wav)).duration
+    plan = realplan.build(slug, data["timeline"], seconds, parts=int(ARGS.parts))
+    plan["voice"] = MAIN_VOICE
+    plan["narration"] = data["report"]
+    (W(slug) / "plan.json").write_text(json.dumps(plan, indent=1, ensure_ascii=False), encoding="utf-8")
+    subtitles(slug, data["timeline"])
+    layers = W(slug) / "inputs" / "layers"
+    layers.mkdir(parents=True, exist_ok=True)
+    raw = W(slug) / "stills_raw"
+    raw.mkdir(parents=True, exist_ok=True)
+    for s in plan["shots"]:
+        if s["kind"] != "photo":
+            continue
+        dest = layers / f"{s['image']}.jpg"
+        if dest.exists():
+            continue
+        src = raw / f"{s['image']}{Path(s['still_url'].split('?')[0]).suffix or '.jpg'}"
+        footage.download(s["still_url"], src, min_bytes=20_000)
+        still_16x9(src, dest)
+        time.sleep(1)
+    tb = W(slug) / "inputs" / "thumb_bases"
+    tb.mkdir(parents=True, exist_ok=True)
+    for it in realplan.thumbs_plan(slug, ""):
+        try:
+            src = tb / f"{it['id']}{Path(str(it.get('full_url') or it['url']).split('?')[0]).suffix or '.jpg'}"
+            footage.download(it.get("full_url") or it["url"], src, min_bytes=20_000)
+        except Exception as e:                                           # noqa: BLE001
+            log.warning("thumbnail base %s: %s", it["id"], e)
+    log.info("plan (real): %d shots, %d parts, %.1f s, %s", len(plan["shots"]), len(plan["parts"]), plan["total_s"],
+             plan["checks"])
+    return plan
+
+
 def prepare(slug, res):
+    if is_real(slug):
+        return prepare_real(slug, res)
     from pipeline import docplan, speciescheck
     wav, data = narration(slug)
     seconds = sf.info(str(wav)).duration

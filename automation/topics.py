@@ -24,11 +24,14 @@ Q = ROOT / "topics" / "queue.json"
 CFG = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))
 UA = {"User-Agent": "prehistoric-channel/1.0 (vladgula557@gmail.com)"}
 
-REFILL = """Schlage {n} neue Themen für einen deutschen YouTube-Kanal über Urzeit-Tiere vor (25-Minuten-Dokus):
-lebende Fossilien, Meeresreptilien, Megafauna, Rätsel der Aussterben, Dinosaurier, urzeitliche Fische,
-Insekten, Eiszeit. Nicht doppelt zu diesen: {have}. Jedes Thema mit 2-4 Wikipedia-Artikeln, deutsch und
-englisch, genau mit ihrem Titel. Antworte als JSON:
-{{"topics": [{{"slug": "<kebab-case, deutsch>", "title": "<deutscher Titel>", "focus": "<ein Satz: worum es geht>",
+REFILL = """Schlage {n} neue Themen für einen deutschen YouTube-Kanal vor, der die GESCHICHTE BERÜHMTER
+FOSSIL-ENTDECKUNGEN erzählt (10-15-Minuten-Dokus auf echtem Material): jede Folge ein bestimmter Fund - wer ihn
+machte, wo und wann, die Expedition, die Abenteuer, der Streit der Forscher (z. B. die Knochenkriege, Mary Anning,
+Stromers Spinosaurus, die Gobi-Expeditionen, der Berliner Brachiosaurus aus Tendaguru, Sue der T. rex). Nur Funde,
+zu denen es ALTES ARCHIVMATERIAL gibt: historische Fotos der Grabung oder Expedition, Stiche, Porträts der Forscher,
+Museumsstücke. Nicht doppelt zu diesen: {have}. Jedes Thema mit 2-4 Wikipedia-Artikeln (das Tier, die Entdecker,
+die Expedition), deutsch und englisch, genau mit ihrem Titel. Antworte als JSON:
+{{"topics": [{{"slug": "<kebab-case, deutsch>", "title": "<deutscher Titel>", "focus": "<ein Satz: wer fand was, wo, wann>",
 "articles": {{"de": ["..."], "en": ["..."]}}}}]}}"""
 
 
@@ -56,9 +59,22 @@ def pick():
         log.info("buffer full: %d ahead", len(release.ahead()))
         return None
     # owner 12.11: a topic is built only once there is material for it; one without goes, the next is tried
+    real = CFG.get("format") == "real"
+    tried = 0
     for t in [t for t in q["topics"] if t["status"] == "queued"]:
-        m = t.get("material") or material(t)
+        if real:
+            if tried >= REAL_TRIES:
+                log.info("material of %d topics checked this run; the next ones on the next run", tried)
+                return None
+            tried += 1
+            m = real_material(t)
+        else:
+            m = t.get("material") or material(t)
         t["material"] = m
+        if m.get("ok") is None:
+            log.warning("%s: material not yet known (%s); checked again on the next run", t["slug"], m)
+            save(q)
+            return None
         if m.get("ok") is False:
             t["status"] = "skipped-material"
             log.warning("%s skipped: too little material (%s)", t["slug"], m)
@@ -71,6 +87,25 @@ def pick():
 
 
 MATERIAL_MIN = {"commons_files": 100, "stock_clips": 10}     # either is enough
+REAL_TRIES = 3                 # topics whose material one run looks at (each costs vision requests)
+REAL_MIN_S = 10.5 * 60 / 0.72  # pipeline/realplan uses ~72 % of the pool's seconds (write_episode.FILL)
+REAL_MAIN_MIN = 5              # pictures of the extinct animal itself (fossils, skeletons, paintings)
+REAL_ARCHIVE_MIN = 8           # owner 15.11: archive pictures of THIS find (old photos, engravings, portraits)
+
+
+def real_material(t):
+    """owner 15.11: the real footage, stills and paintings with a confirmed licence, looked at by the
+    vision model (pipeline/realpool.py) - enough for 10 minutes, each picture once, or the topic goes."""
+    from pipeline import realpool
+    pool = realpool.harvest(t["slug"], t)
+    m = dict(pool["material"])
+    n = len(pool["items"])
+    if pool.get("undescribed", 0) > 0.3 * max(1, n):
+        m["ok"] = None                 # the vision model's day ran out: not judged yet
+    else:
+        m["ok"] = m["seconds"] >= REAL_MIN_S and m["main_animal_items"] >= REAL_MAIN_MIN             and m.get("archive_items", 0) >= REAL_ARCHIVE_MIN
+    m["need_s"] = round(REAL_MIN_S)
+    return m
 
 
 def material(t):
