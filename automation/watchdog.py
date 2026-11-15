@@ -197,6 +197,19 @@ def pacific_day(t):
     return t.astimezone(ZoneInfo("America/Los_Angeles")).date()
 
 
+def check_waived(actions):
+    """15.11: a film the owner let out by exception (config release.qa_waived) is not rebuilt, not
+    skipped and not checked again: it is built, and check_uploads sends it up."""
+    from automation import release
+    r = release.rows()
+    for row in r:
+        if row.get("status") in ("qa-failed", "qa-waiting", "requalifying") and release.waived(row["slug"])                 and not (ROOT / "episodes" / row["slug"] / "uploaded.json").exists() and row.get("run_id"):
+            row.update({"status": "built"})
+            release.save(r)
+            actions.append(f"{row['slug']}: owner's exception, goes up as built")
+            return
+
+
 def check_requalify(mem, actions, busy):
     """14.11: a film whose QA ran out of Gemini quota (release.quota_only) is checked again on the
     next quota day from its finished render - requalify.yml, which releases it when it passes."""
@@ -237,7 +250,7 @@ def check_rebuilds(mem, actions, busy):
         return
     r = release.rows()
     for row in r:
-        if row.get("status") != "qa-failed":
+        if row.get("status") != "qa-failed" or release.waived(row["slug"]):
             continue
         n = int(row.get("rebuilds", 0))
         if n >= REBUILDS:
@@ -364,6 +377,10 @@ def main():
         busy = check_gpu_pending(actions) or busy
     except Exception as e:                                           # noqa: BLE001
         log.error("pending GPU starts failed: %s", e)
+    try:
+        check_waived(actions)
+    except Exception as e:                                           # noqa: BLE001
+        log.error("waiver check failed: %s", e)
     try:
         check_requalify(mem, actions, busy)
     except Exception as e:                                           # noqa: BLE001

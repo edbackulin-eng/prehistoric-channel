@@ -43,6 +43,18 @@ jobs:
           path: work/${{ inputs.slug }}/release/
           run-id: ${{ inputs.run_id }}
           github-token: ${{ github.token }}
+      - name: "The picture is whole (15.11, a download once came back without its last minute)"
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
+          for i in 1 2 3; do
+            if ffmpeg -v error -sseof -90 -i "work/${{ inputs.slug }}/release/video.mp4" -f null - 2>/tmp/whole.txt && [ ! -s /tmp/whole.txt ]; then
+              echo "the picture is whole"; exit 0
+            fi
+            echo "::warning::the downloaded picture is cut short (try $i): $(head -c 300 /tmp/whole.txt)"
+            rm -f "work/${{ inputs.slug }}/release/video.mp4"
+            gh run download "${{ inputs.run_id }}" -R "${{ github.repository }}" -n "release-${{ inputs.slug }}" -D "work/${{ inputs.slug }}/release/"
+          done
+          exit 1
       - run: python automation/release.py upload "${{ inputs.slug }}"
       - name: Keep the record
         if: always()

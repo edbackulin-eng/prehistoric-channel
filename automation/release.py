@@ -107,18 +107,30 @@ def quota_only(fails):
     return True
 
 
-def qa_passed(release_dir):
+def waived(slug):
+    """The blocking checks the owner let one film go out without (config release.qa_waived)."""
+    w = json.loads(CFG_PATH.read_text(encoding="utf-8")).get("release", {}).get("qa_waived", {}).get(slug) or {}
+    return set(w.get("checks") or [])
+
+
+def qa_passed(release_dir, slug=None):
     f = Path(release_dir) / "qa.json"
     if not f.exists():
         return False, ["no QA report (release/qa.json)"]
     q = json.loads(f.read_text(encoding="utf-8"))
-    return bool(q.get("pass")), [c["name"] + ": " + c.get("detail", "") for c in q.get("checks", [])
-                                 if not c.get("ok")]
+    slug = slug or q.get("slug")
+    skip = waived(slug) if slug else set()
+    fails = [c for c in q.get("checks", []) if not c.get("ok")]
+    real = [c for c in fails if c.get("blocking") and c["name"] not in skip]
+    if skip and not q.get("pass") and not real:
+        log.warning("%s: QA passes only with the owner's exception (%s)", slug, sorted(skip))
+        return True, []
+    return bool(q.get("pass")), [c["name"] + ": " + c.get("detail", "") for c in fails]
 
 
 def upload(slug, release_dir=None):
     release_dir = Path(release_dir or ROOT / "work" / slug / "release")
-    ok, why = qa_passed(release_dir)
+    ok, why = qa_passed(release_dir, slug)
     if not ok:
         raise SystemExit(f"{slug}: QA did not pass, not uploading: {why}")
     r = rows()
@@ -151,7 +163,7 @@ def record(slug, run_id):
         log.info("%s was uploaded already; nothing to record", slug)
         return 0
     rel = ROOT / "work" / slug / "release"
-    ok, why = qa_passed(rel)
+    ok, why = qa_passed(rel, slug)
     row.update({"run_id": str(run_id), "artifact": f"release-{slug}", "built_at": now_s()})
     import os
     row.update({k: v for k, v in (("gpu_run", os.environ.get("GPU_RUN")), ("layers_run", os.environ.get("LAYERS_RUN")))
