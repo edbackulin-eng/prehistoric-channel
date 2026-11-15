@@ -28,6 +28,7 @@ import re
 import subprocess
 import sys
 import time
+import urllib.error
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -176,6 +177,44 @@ def pexels(query, cat, per_page=30):
     return out
 
 
+WM_API = "https://commons.wikimedia.org/w/api.php?"
+WM_UA = {"User-Agent": "prehistoric-channel/1.0 (https://github.com/edbackulin-eng/prehistoric-channel; "
+                       "documentary research) python-urllib"}
+WM_PAUSE_S = 1.2
+_wm_last = [0.0]
+_off = set()                  # sources that refused this run (LoC 403/429): not asked again
+
+
+def wm(params):
+    """One Commons API call, cached; Wikimedia's etiquette (15.11: 83 x 429 in one harvest): a client
+    that says who it is, one request at a time with a pause, Retry-After respected."""
+    url = WM_API + urllib.parse.urlencode({**params, "format": "json"})
+    key = "wm_" + hashlib.sha1(url.encode()).hexdigest()
+    cp = footage.CACHE / f"{key}.json"
+    if cp.exists():
+        return json.loads(cp.read_text(encoding="utf-8"))
+    for attempt in range(6):
+        wait = WM_PAUSE_S - (time.time() - _wm_last[0])
+        if wait > 0:
+            time.sleep(wait)
+        _wm_last[0] = time.time()
+        try:
+            with urllib.request.urlopen(urllib.request.Request(url, headers=WM_UA), timeout=60) as r:
+                data = json.loads(r.read().decode("utf-8"))
+            footage.CACHE.mkdir(parents=True, exist_ok=True)
+            cp.write_text(json.dumps(data), encoding="utf-8")
+            return data
+        except urllib.error.HTTPError as e:
+            if e.code == 429 or e.code >= 500:
+                ra = e.headers.get("Retry-After") if e.headers else None
+                time.sleep(min(180, float(ra) if ra and str(ra).isdigit() else 20 * (attempt + 1)))
+                continue
+            raise
+        except Exception:                                                # noqa: BLE001
+            time.sleep(5 * (attempt + 1))
+    raise RuntimeError(f"Commons kept refusing: {params.get('gsrsearch') or params.get('cmtitle') or params}")
+
+
 def _clean(html):
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", html or "")).strip()
 
@@ -183,17 +222,72 @@ def _clean(html):
 def commons(query, cat, media, limit=40, min_w=None):
     """Commons files with their licence from the file page's metadata: PD, CC0, CC BY, CC BY-SA."""
     ft = "filetype:video" if media == "video" else "filetype:bitmap"
-    url = "https://commons.wikimedia.org/w/api.php?" + urllib.parse.urlencode({
-        "action": "query", "format": "json", "generator": "search", "gsrsearch": f"{query} {ft}",
-        "gsrnamespace": 6, "gsrlimit": limit, "prop": "imageinfo",
-        "iiprop": "url|size|mime|extmetadata|mediatype", "iiurlwidth": 4224 if media != "video" else 640})
     try:
-        data = footage._get(url)
+        data = wm({"action": "query", "generator": "search", "gsrsearch": f"{query} {ft}",
+                   "gsrnamespace": 6, "gsrlimit": limit, "prop": "imageinfo",
+                   "iiprop": "url|size|mime|extmetadata|mediatype", "iiurlwidth": 4224 if media != "video" else 640})
     except Exception as e:                                               # noqa: BLE001
         log.warning("commons %s: %s", query, e)
         return []
+    return _commons_items(((data.get("query") or {}).get("pages") or {}).values(), query, cat, media, min_w)
+
+
+SKIP_CAT = re.compile(r"stamps?|coins?|logos?|maps?\b|diagrams?|charts?|cladogram|size comparison|toys?|"
+                      r"figurines?|sculptures in|statues? of|art by|cartoons?|video games?|in culture|"
+                      r"in popular culture|lego|models? of", re.I)
+
+
+def commons_categories(term, cat, max_files=120, depth=2):
+    """owner 15.11: the find's own pictures - Commons sorts them in categories (the specimen, its museum,
+    the quarry, the discoverer), where a text search hardly reaches. The categories matching the term,
+    their files and those of their subcategories (two levels), each file with its licence."""
+    try:
+        found = wm({"action": "query", "list": "search", "srsearch": term, "srnamespace": 14, "srlimit": 8})
+    except Exception as e:                                               # noqa: BLE001
+        log.warning("commons categories %s: %s", term, e)
+        return []
+    todo = [(c["title"], 0) for c in found.get("query", {}).get("search", []) if not SKIP_CAT.search(c["title"])]
+    seen_cats, files = set(), []
+    while todo and len(files) < max_files:
+        title, d = todo.pop(0)
+        if title in seen_cats:
+            continue
+        seen_cats.add(title)
+        try:
+            mem = wm({"action": "query", "list": "categorymembers", "cmtitle": title, "cmtype": "file|subcat",
+                      "cmlimit": 200})
+        except Exception as e:                                           # noqa: BLE001
+            log.warning("commons category %s: %s", title, e)
+            continue
+        for m in mem.get("query", {}).get("categorymembers", []):
+            t = m["title"]
+            if t.startswith("Category:"):
+                if d < depth and not SKIP_CAT.search(t):
+                    todo.append((t, d + 1))
+            elif re.search(r"\.(jpe?g|png|tiff?|webp|webm|ogv)$", t, re.I) and t not in files:
+                files.append(t)
     out = []
-    for page in ((data.get("query") or {}).get("pages") or {}).values():
+    for k in range(0, min(len(files), max_files), 15):
+        batch = files[k:k + 15]
+        for media in ("bitmap", "video"):
+            names = [f for f in batch if (f.lower().endswith((".webm", ".ogv")) == (media == "video"))]
+            if not names:
+                continue
+            try:
+                d = wm({"action": "query", "titles": "|".join(names), "prop": "imageinfo",
+                        "iiprop": "url|size|mime|extmetadata|mediatype", "iiurlwidth": 4224 if media != "video" else 640})
+            except Exception as e:                                       # noqa: BLE001
+                log.warning("commons files of %s: %s", term, e)
+                continue
+            out += _commons_items(((d.get("query") or {}).get("pages") or {}).values(), term, cat, media, 900)
+    log.info("commons categories %s: %d categories, %d files, %d with a free licence", term, len(seen_cats),
+             len(files), len(out))
+    return out
+
+
+def _commons_items(pages, query, cat, media, min_w):
+    out = []
+    for page in pages:
         info = (page.get("imageinfo") or [{}])[0]
         meta = info.get("extmetadata", {})
         lic = _clean(meta.get("LicenseShortName", {}).get("value", ""))
@@ -231,11 +325,16 @@ LOC_FREE = re.compile(r"no known restrictions|public domain|no known copyright",
 def loc(query, cat, media="photos", rows=20):
     """Library of Congress photographs and films marked free to use ("No known restrictions on publication").
     A refusal of the API (it turns some clients away) is logged and the source skipped."""
+    if "loc" in _off:
+        return []
     url = f"https://www.loc.gov/{media}/?" + urllib.parse.urlencode({"q": query, "fo": "json", "c": rows})
     try:
-        data = _get_json(url)
+        time.sleep(2)
+        with urllib.request.urlopen(urllib.request.Request(url, headers=WM_UA), timeout=40) as r:
+            data = json.loads(r.read().decode("utf-8"))
     except Exception as e:                                               # noqa: BLE001
-        log.warning("loc %s: %s", query, str(e)[:120])
+        log.warning("loc %s: %s - not asked again this run", query, str(e)[:120])
+        _off.add("loc")
         return []
     out = []
     for r in data.get("results", []):
@@ -336,8 +435,17 @@ def _thumb(item, dest):
     url = item.get("thumb_url")
     if not url:
         raise RuntimeError("no picture")
-    with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
-        dest.write_bytes(r.read())
+    for attempt in range(5):
+        try:
+            if "wikimedia.org" in url:
+                time.sleep(0.4)
+            with urllib.request.urlopen(urllib.request.Request(url, headers=WM_UA), timeout=60) as r:
+                dest.write_bytes(r.read())
+            return dest
+        except urllib.error.HTTPError as e:
+            if e.code != 429 or attempt == 4:
+                raise
+            time.sleep(15 * (attempt + 1))
     return dest
 
 
@@ -460,6 +568,34 @@ def material(pool):
             "archive_items": archive_n}
 
 
+def topic_words(qs):
+    """Names that tie a picture to the story: the animals, the people's surnames, the places."""
+    out = set()
+    for a in qs.get("animals", []):
+        if a.get("extinct"):
+            for k in ("latin", "name_de", "key"):
+                if a.get(k):
+                    out.add(str(a[k]).lower().replace("_", " ").split()[0])
+    disc = qs.get("discovery") or {}
+    for person in disc.get("people") or []:
+        parts = [x for x in re.split(r"[\s,.]+", str(person)) if len(x) >= 4]
+        out.update(x.lower() for x in (parts[1:] or parts))     # the surname(s), not the first name
+    for place in disc.get("places") or []:
+        parts = [x for x in re.split(r"[\s,()-]+", str(place)) if len(x) >= 5]
+        out.update(x.lower() for x in parts[:2])
+    out -= {"museum", "natural", "history", "naturalis", "national", "institute", "university"}
+    return {w for w in out if len(w) >= 4}
+
+
+def on_topic(it, words):
+    """The picture's title or description names the animal, a person or a place of the story - or the
+    vision model saw the animal itself."""
+    if any(w in f"{it.get('title') or ''} {it.get('tags') or ''}".lower() for w in words):
+        return True
+    animal = str((it.get("desc") or {}).get("animal") or "none")
+    return animal not in ("none", "") and not animal.startswith("other")
+
+
 def harvest(slug, topic=None):
     """Queries, candidates, descriptions -> episodes/<slug>/pool.json."""
     ep = ROOT / "episodes" / slug
@@ -476,13 +612,18 @@ def harvest(slug, topic=None):
         for it in items:
             cand.setdefault(it["id"], it)
 
-    for q in (qs.get("discovery") or {}).get("queries", [])[:16]:
+    disc = qs.get("discovery") or {}
+    terms = [a.get("latin") or a["key"] for a in qs["animals"] if a.get("extinct")][:3] + \
+        (disc.get("places") or [])[:4] + (disc.get("people") or [])[:5]
+    for term in dict.fromkeys(t for t in terms if t):
+        add(commons_categories(term, "archive"))
+    for q in disc.get("queries", [])[:14]:
         add(commons(q, "archive", "bitmap", 30, min_w=900))
         add(commons(q, "archive", "video", 10))
         add(archive(q, "archive", 4))
         add(loc(q, "archive", "photos", 15))
     for a in qs["animals"]:
-        for q in (a.get("queries") or [])[:5]:
+        for q in (a.get("queries") or [])[:(5 if a.get("extinct") else 2)]:
             cat = "animal" if not a.get("extinct") else "taxon"
             add(pixabay(q, cat, 30))
             add(pexels(q, cat, 20))
@@ -495,17 +636,21 @@ def harvest(slug, topic=None):
         add(commons(q, "science", "video", 15))
         add(commons(q, "science", "bitmap", 15))
         add(archive(q, "science", 4))
-    for q in qs["landscapes"][:6]:
-        add(pixabay(q, "landscape", 25))
-        add(pexels(q, "landscape", 15))
+    for q in qs["landscapes"][:3]:
+        add(pixabay(q, "landscape", 15))
+        add(pexels(q, "landscape", 10))
     items = list(cand.values())
     log.info("%s: %d candidates (%s)", slug, len(items),
              {s: sum(1 for i in items if i["source"] == s) for s in {i["source"] for i in items}})
     desc = describe(items, topic.get("title", slug), qs["animals"], ep / "pool_describe.json")
     seen = used_elsewhere(slug)
+    words = topic_words(qs)
     for it in items:
         it["desc"] = desc.get(it["id"])
         it["usable"] = usable(it) and it["id"] not in seen
+        if it["usable"] and (it["desc"] or {}).get("category") in ARCHIVE and not on_topic(it, words):
+            it["usable"] = False             # an old print from the same museum, but not of this story
+            it["off_topic"] = True
         if it["id"] in seen:
             it["used_elsewhere"] = True
     pool = {"slug": slug, "animals": qs["animals"], "items": items}
