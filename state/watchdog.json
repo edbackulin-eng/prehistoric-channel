@@ -481,6 +481,13 @@
    "sig": "build / Plan, species checklists, footage candidates",
    "day": "2026-11-15",
    "rerun": false
+  },
+  {
+   "run": "43692734784/1",
+   "wf": "episode.yml",
+   "sig": "build / Plan, species checklists, footage candidates",
+   "day": "2026-11-15",
+   "rerun": false
   }
  ],
  "cancelled": [
