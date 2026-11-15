@@ -135,7 +135,8 @@ def _cache(path):
 
 
 def _ask(prompt, images, models, cache, key, step):
-    if key in cache:
+    # 15.11: a cached error (the day's quota spent) is no answer - asked again, not reused
+    if key in cache and not (isinstance(cache[key], dict) and cache[key].get("error")):
         return cache[key]
     from core import gemini
     try:

@@ -36,6 +36,7 @@ DAYS = {"Mon": 0, "Tue": 1, "Wed": 2, "Thu": 3, "Fri": 4, "Sat": 5, "Sun": 6}
 SLOT_WEEKDAYS = tuple(DAYS[d] for d in CFG["weekdays"])
 SLOT_TIME = tuple(int(x) for x in CFG["time"].split(":"))
 TZ = ZoneInfo(CFG["tz"])
+PIN_MIN_LEAD = timedelta(minutes=30)   # a pinned day: kept while there is still time to upload
 MIN_LEAD = timedelta(hours=6)       # 11.11: no approve any more - YouTube has its 4K versions ready by then
 CHUNK_MB = 8
 
@@ -88,7 +89,8 @@ def next_slot(taken=(), now=None, slug=None, pins=None):
     if slug in pins and pins[slug] not in taken_days:
         d = pins[slug]
         own = datetime(d.year, d.month, d.day, SLOT_TIME[0], SLOT_TIME[1], tzinfo=TZ)
-        if own - now >= MIN_LEAD:
+        if own - now >= PIN_MIN_LEAD:
+            # 15.11: the owner's pinned date wins over the 4K head start; YouTube publishes what it has
             return own.astimezone(timezone.utc)
         log.warning("%s: its pinned day %s can no longer be kept; the nearest free slot instead", slug, d)
     taken_days |= {d for s, d in pins.items() if s != slug}
