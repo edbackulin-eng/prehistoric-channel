@@ -32,7 +32,7 @@
   "run_id": "43613079504",
   "artifact": "release-megalodon",
   "built_at": "2026-11-14T18:47:58Z",
-  "status": "qa-waiting",
+  "status": "requalifying",
   "qa_failed": [
    "hook: 16 shots in 30 s, 14 moving animal clips (need 3), not moving or no animal at [19.2, 21.1], cuts outside 1.5-3 s: none, sound hit: yes",
    "music: music under the voice per minute: [22.78, 22.86, 22.71, 22.96, 23.07, 22.96, 22.42, 22.92, 22.92, 22.53, 22.6, 22.61, 22.5, 22.89, 22.68, 22.51, 22.79, 22.73, 22.24, 23.19, 23.05, 22.82, 22.65, 22.53, 22.84, 23.13, 23.39] dB; music as loud as the voice in minute(s): none; music silent 5 s",
@@ -44,6 +44,7 @@
   "layers_run": "43573673575",
   "rebuilds": 2,
   "rebuild_at": "2026-11-14T15:59:06Z",
-  "qa_waiting_since": "2026-11-14T18:47:58Z"
+  "qa_waiting_since": "2026-11-14T18:47:58Z",
+  "requalify_at": "2026-11-15T08:02:23Z"
  }
 ]
