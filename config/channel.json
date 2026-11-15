@@ -1,10 +1,12 @@
 {
  "_note": "The rules every episode of the German prehistoric channel is built to. Code reads them from here (core/channel.py); changing a rule is a reviewed change to this file, through dev -> smoke -> main.",
  "language": "de-DE",
- "length_min": 25,
+ "format": "real",
+ "_format_note": "owner 15.11: a plain German documentary on REAL footage only - no FLUX, no LTX, no 2.5D. Pictures: Pixabay / Pexels video, Wikimedia Commons (PD, CC0, CC BY, CC BY-SA, credited), archive.org; palaeo-art paintings from Commons as stills with a slow camera move. Each picture once per film (pipeline/realplan.py); the length follows the material, 10-15 min; a topic without enough material is passed over (pipeline/realpool.py).",
+ "length_min": 12,
  "length_min_range": [
-  22,
-  27
+  10,
+  15
  ],
  "voice": {
   "engine": "piper",
@@ -107,7 +109,7 @@
    "mosasaurier": "2026-11-18"
   },
   "privacy": "private",
-  "contains_synthetic_media": true,
+  "contains_synthetic_media": false,
   "subtitles": "de",
   "upload_subtitles": false,
   "_upload_subtitles_note": "owner 31.10: no subtitle upload, YouTube makes its own automatic German captions; true sends release/subtitles_de.srt (needs a token with the youtube.force-ssl scope)",
@@ -122,7 +124,7 @@
  "buffer": 2,
  "qa": {
   "_note": "automation/qa.py: the gate before every upload (owner review 31.10); ltx_min: the render waits for so many LTX-Video clips",
-  "ltx_min": 8, "targets": {"_note": "owner 12.11: scores, not gates (automation/qa.py score); set from what the replay of megalodon on free material reaches (~9-10 s a shot before the 12.11 fill, 36 % landscapes)", "pace_mean_s": 7.0, "landscape_max": 0.25, "motion_min": 0.25},
+  "ltx_min": 8, "targets": {"_note": "owner 12.11: scores, not gates (automation/qa.py score); set from what the replay of megalodon on free material reaches (~9-10 s a shot before the 12.11 fill, 36 % landscapes)", "pace_mean_s": 8.0, "landscape_max": 0.25, "motion_min": 0.25},
   "_motion_note": "owner 02.11: prehistoric animals (living fossils included) in motion - LTX clips, real footage of the episode's animals, FLUX animals with a 2.5D parallax move - >= prehistoric_motion_min of the film; >= dino_ltx_min LTX clips of dinosaurs; a wow moment (an animated creature, real footage of one, a tense FLUX shot) at least every wow_max_s; LTX clips of ltx_frames frames (161 = 6.7 s)",
   "prehistoric_motion_min": 0.40,
   "dino_ltx_min": 2,

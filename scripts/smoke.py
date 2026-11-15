@@ -207,12 +207,15 @@ def main():
     import smoke_qa
     for name, ok, detail in smoke_qa.run():
         check(name, ok, detail)
+    import smoke_real                     # owner 15.11: the real-footage format
+    for name, ok, detail in smoke_real.run():
+        check(name, ok, detail)
     # sections: the markup carries them, the music follows them by mood
     from core import delivery
     secs = [l.section for l in delivery.parse("[section hook]\n> A.\n[section story]\nB.\n[section finale]\nC.")]
     check("sections", secs == ["hook", "story", "finale"], str(secs))
     from automation import write_episode as we
-    check("script rules", we.MIN_WORDS == 22 * 128 and we.MAX_WORDS == 27 * 128
+    check("script rules", we.MIN_WORDS == int(10.4 * 128) and we.MAX_WORDS == int(14.6 * 128)
           and we.has_hook(we.normalise("[Hook]\n> A.\n[Geschichte]\nB."))
           and not we.has_hook(we.normalise("> A.\n[section story]\nB.")))
     from core import gemini as gm

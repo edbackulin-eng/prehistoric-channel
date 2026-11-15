@@ -45,6 +45,7 @@ from pipeline import doc_thumb, speciescheck  # noqa: E402
 
 log = get_logger("thumbs")
 # flash first; its day spent, the lighter models with their own quotas (config llm_quota)
+REAL = False              # owner 15.11: real-footage episodes (set in main)
 JUDGE_MODELS = ("gemini-flash-latest", "gemini-flash-lite-latest", "gemma-4-31b-it", "gemma-4-26b-a4b-it")
 # the hook words for an animal of the episode: two or three German words, honest to the film
 # owner 07.11: correct German, never two loose words ("RIESIG URZEIT", "NOCH LEBEND", "URZEIT
@@ -196,7 +197,8 @@ def make_variant(t, work, out_dir, raw):
     elif t.get("base") == "episode":
         # passed the species check in prepare (species_picks.json): not asked again
         base_img = close_up(Image.open(t["file"]).convert("RGB"), text_side=t.get("text_side", "right"))
-        src = {"source": "FLUX.1-schnell (episode frame)", "title": Path(t["file"]).stem}
+        src = ({"source": "pool", "id": Path(t["file"]).stem} if REAL
+               else {"source": "FLUX.1-schnell (episode frame)", "title": Path(t["file"]).stem})
     elif t.get("base") == "flux":
         for s in (0, 1):
             p = raw / f"{t['id']}__s{s}.jpg"
@@ -277,8 +279,10 @@ def judge(path, title):
         a = gemini.ask(JUDGE.format(title=title), images=[str(path)], models=JUDGE_MODELS, step="thumb-judge")
     except Exception as e:                                               # noqa: BLE001
         return False, f"judge unavailable: {str(e)[:120]}"
-    ok = bool(a.get("pass")) and a.get("animal_big_and_recognisable") and a.get("prehistoric_or_living_fossil") \
-        and a.get("words_readable") and a.get("german_correct") is True and a.get("action_or_trick") is True         and not a.get("forbidden_seen")
+    if REAL:
+        ok = a.get("animal_big_and_recognisable") and a.get("prehistoric_or_living_fossil")             and a.get("words_readable") and a.get("german_correct") is True
+    else:
+        ok = bool(a.get("pass")) and a.get("animal_big_and_recognisable") and a.get("prehistoric_or_living_fossil")             and a.get("words_readable") and a.get("german_correct") is True and a.get("action_or_trick") is True             and not a.get("forbidden_seen")
     return bool(ok), a
 
 
@@ -384,8 +388,52 @@ groß und sofort als urzeitlich erkennbar, der Bild-Trick funktioniert, Text in 
 Antworte als JSON {{"best": <1|2|3>, "why": "<kurz>"}}"""
 
 
+REAL_WORDS = """Drei Texte für YouTube-Vorschaubilder der deutschen Doku "{title}" (das Bild zeigt ein Fossil,
+Skelett oder Gemälde des Urzeittiers). Je 1-3 Wörter in GROSSBUCHSTABEN, korrektes Deutsch: ein kurzer Ausruf
+("DER KÖNIG", "LEBT NOCH!", "GEFUNDEN!") oder ein Wort mit Bindestrich am Zeilenende ("URZEIT-" / "MONSTER"),
+nie zwei lose Wörter ohne Satzbau. Wahr, neugierig. Eines der Wörter ist der Akzent (rot).
+Antworte als JSON: {{"thumbs": [{{"words": ["..."], "accent": <Index>}}]}}"""
+
+
+def real_variants(slug, title, n_have):
+    """owner 15.11: bases are the episode's own real pictures - Commons paintings, skeletons, fossils
+    (work/<slug>/inputs/thumb_bases, picked by pipeline/realplan.thumbs_plan) - no FLUX."""
+    tb = ROOT / "work" / slug / "inputs" / "thumb_bases"
+    files = [f for f in sorted(tb.glob("*")) if f.suffix.lower() in (".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff")]
+    try:
+        from core import gemini, textllm
+        sets = [t for t in gemini.pick(textllm.ask(REAL_WORDS.format(title=title), step="thumb-words",
+                                                   temperature=0.7, max_tokens=600), "thumbs")
+                if isinstance(t, dict) and t.get("words")]
+    except Exception as e:                                               # noqa: BLE001
+        log.warning("thumbnail words: %s", e)
+        sets = []
+    sets = sets or [{"words": ["URZEIT-", "MONSTER"], "accent": 1}, {"words": ["GEFUNDEN!"], "accent": 0},
+                    {"words": ["DER", "KÖNIG"], "accent": 1}]
+    out = []
+    for i, f in enumerate(files[:6]):
+        try:
+            jpg = f if f.suffix.lower() in (".jpg", ".jpeg") else f.with_suffix(".jpg")
+            if jpg != f:
+                Image.open(f).convert("RGB").save(jpg, quality=95)
+        except Exception:                                                # noqa: BLE001
+            continue
+        w = sets[i % len(sets)]
+        out.append({"id": f"thumb_r{n_have + i}", "hook": "none", "base": "episode", "file": str(jpg),
+                    "animal": slug, "words": [str(x).upper() for x in w["words"]][:3],
+                    "accent": int(w.get("accent") or 0)})
+    return out
+
+
 def main(slug, episode_only=False):
     ep = ROOT / "episodes" / slug
+    meta0 = json.loads((ep / "meta.json").read_text(encoding="utf-8"))
+    wplan = ROOT / "work" / slug / "plan.json"
+    if (wplan.exists() and json.loads(wplan.read_text(encoding="utf-8")).get("format") == "real")             or not (ep / "thumbs.json").exists():
+        (ep / "thumbs.json").write_text(json.dumps(real_variants(slug, meta0["title"], 0), indent=1,
+                                                   ensure_ascii=False), encoding="utf-8")
+        global REAL
+        REAL = True
     plan = json.loads((ep / "thumbs.json").read_text(encoding="utf-8"))
     meta = json.loads((ep / "meta.json").read_text(encoding="utf-8"))
     work = ROOT / "work" / slug / "thumbs"

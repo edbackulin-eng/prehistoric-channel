@@ -442,8 +442,25 @@ def duration_ok(total):
     return lo * 60 <= total <= hi * 60, f"{total / 60:.1f} min ({lo}-{hi})"
 
 
-LICENSES = _re.compile(r"pixabay content licen|public domain|\bpd\b|cc0|cc[ -]by(?![ -]nc|[ -]nd)|"
+LICENSES = _re.compile(r"pixabay content licen|pexels licen|public domain|\bpd\b|^pd-|cc0|cc[ -]by(?![ -]nc|[ -]nd)|"
                        r"apache|mit\b|ofl|open font", _re.I)
+# owner 15.11: what only the FLUX/LTX format measured; a real-footage film is not scored on it
+FLUX_ONLY = ("ltx", "dinosaurs", "motion", "wow", "scenes", "consistent")
+
+
+def real_checks(checks, plan):
+    out = [c for c in checks if c["name"] not in FLUX_ONLY]
+    for c in out:
+        if c["name"] == "subject":
+            c["ok"] = "another animal than the line names at none" in c["detail"] and \
+                c.get("landscape_share", 0) <= LANDSCAPE_MAX
+            c["detail"] = c["detail"].split("; prehistoric animals in motion")[0]
+    pc = plan.get("checks", {})
+    rep = pc.get("repeats", 0)
+    out.append({"name": "unique", "ok": rep == 0, "blocking": False,
+                "detail": f"{pc.get('unique_pictures')} pictures, {rep} used twice (owner 15.11: each picture "
+                          f"once); held on for want of pictures at {pc.get('held_on_at') or 'none'} s"})
+    return out
 
 
 def license_ok(plan, slug):
@@ -459,7 +476,13 @@ def license_ok(plan, slug):
     bad = []
     for s in plan["shots"]:
         c = s.get("clip") or {}
-        cid = c.get("id")
+        cid = c.get("id") or s.get("pool_id")
+        if plan.get("format") == "real":
+            # owner 15.11: every clip and still carries the licence read from its source page
+            if not LICENSES.search(str(s.get("license") or "")):
+                bad.append(f"{cid}: {s.get('license')}")
+                REJECTS.append(str(cid))
+            continue
         if s.get("kind") != "real" or not cid or str(cid).startswith("ltx-"):
             continue
         if not LICENSES.search(str(lic.get(cid) or "")):
@@ -614,6 +637,8 @@ def main(slug, res):
     if video.exists():
         view = view_checks(plan, video, slug, rel)
     checks = checks_of(plan, rep.get("sound"), thumbs, slug, rep.get("parts"), view=view)
+    if plan.get("format") == "real":
+        checks = real_checks(checks, plan)
     out = ROOT / "qa" / slug
     shutil.rmtree(out, ignore_errors=True)
     out.mkdir(parents=True)

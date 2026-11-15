@@ -32,6 +32,9 @@ on:
       release:
         description: upload (or buffer) the finished episode
         default: "false"
+      real:
+        description: "real footage only (owner 15.11): no FLUX frames, no LTX clips, no 2.5D layers"
+        default: "false"
 
 permissions:
   contents: write
@@ -58,7 +61,7 @@ jobs:
 
   layers:
     needs: shards
-    if: inputs.layers_run == ''
+    if: inputs.layers_run == '' && inputs.real != 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 150
     strategy:
@@ -170,9 +173,10 @@ jobs:
           run-id: ${{ inputs.gpu_run }}
           github-token: ${{ github.token }}
       - name: The FLUX report from Kaggle (no episode run given)
-        if: inputs.gpu_run == ''
+        if: inputs.gpu_run == '' && inputs.real != 'true'
         run: python gpu/kaggle_once.py fetch recon
       - uses: actions/download-artifact@v5
+        if: inputs.real != 'true'
         with:
           pattern: layers-*
           merge-multiple: true
@@ -198,6 +202,8 @@ jobs:
           path: |
             work/${{ inputs.slug }}/plan.json
             work/${{ inputs.slug }}/inputs/
+            episodes/${{ inputs.slug }}/shots.json
+            episodes/${{ inputs.slug }}/footage.json
             state/llm_usage/
             cache/maps/
             assets/music/
@@ -353,7 +359,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # path by path: uploaded.json is there only after an upload, and one missing path adds nothing
-          for f in state/episodes.json topics/queue.json "episodes/$SLUG/uploaded.json" "episodes/$SLUG/qa_rejects.json" state/llm_usage; do
+          for f in state/episodes.json topics/queue.json "episodes/$SLUG/uploaded.json" "episodes/$SLUG/qa_rejects.json" "episodes/$SLUG/CREDITS.md" "episodes/$SLUG/shots.json" "episodes/$SLUG/footage.json" state/llm_usage; do
             [ -e "$f" ] && git add -A "$f"
           done
           git diff --cached --quiet && exit 0

@@ -35,7 +35,41 @@ WPM = CFG["voice"]["target_wpm"]
 # (core/narrate_de.py), so minutes are words / WPM: 25 min is 3200 words, and the
 # script must land within 22-27 min - longer costs GPU frames and render time.
 WORDS = int(CFG["length_min"] * WPM)
-MIN_WORDS, MAX_WORDS = int(22 * WPM), int(27 * WPM)
+_LO, _HI = CFG.get("length_min_range", [22, 27])
+MIN_WORDS, MAX_WORDS = int((_LO + 0.4) * WPM), int((_HI - 0.4) * WPM)
+# owner 15.11: real footage only, each picture once - the film is as long as its pictures allow
+FILL = 0.72                # of the pool's seconds the plan can really use (lines want certain pictures)
+VISUALS = """
+WICHTIG - FORMAT (Vorgabe des Kanals): Die Doku erzählt die GESCHICHTE DER ENTDECKUNG - wer das Tier fand, wo
+und wann, wie die Expeditionen und Grabungen verliefen, welche Rückschläge und Abenteuer es gab, wie Forscher
+stritten und was sie am Ende erkannten. Nenne die Menschen mit vollem Namen, die Orte und Jahreszahlen, wie die
+Quellen sie nennen. Das Tier selbst wird über seine Funde beschrieben (Knochen, Skelett im Museum, was die Forscher
+daraus schlossen). Die Bilder sind ECHTES Material, keine Animation: {inventory}. Heute lebende Verwandte nur
+kurz und ausdrücklich als Vergleich. Keine langen Schilderungen, die man nur mit Animation zeigen könnte."""
+
+
+def material_length(slug, topic):
+    """Words and the picture inventory from episodes/<slug>/pool.json (pipeline/realpool.py)."""
+    global WORDS, MIN_WORDS, MAX_WORDS
+    p = ROOT / "episodes" / slug / "pool.json"
+    if not p.exists():
+        return topic
+    pool = json.loads(p.read_text(encoding="utf-8"))
+    m = pool.get("material") or {}
+    minutes = max(_LO + 0.5, min(_HI - 0.5, m.get("seconds", 0) * FILL / 60))
+    WORDS = int(minutes * WPM)
+    MAX_WORDS = min(int((_HI - 0.4) * WPM), int((minutes + 1.2) * WPM))
+    MIN_WORDS = max(int((_LO + 0.4) * WPM), int((minutes - 1.2) * WPM))
+    names = {a["key"]: a.get("name_de") or a.get("latin") or a["key"] for a in pool.get("animals", [])}
+    by = {}
+    for it in pool["items"]:
+        if it.get("usable"):
+            d = it["desc"]
+            k = (names.get(str(d.get("animal")), "kein Tier"), d.get("category"))
+            by[k] = by.get(k, 0) + 1
+    inv = "; ".join(f"{n} x {cat} ({who})" for (who, cat), n in sorted(by.items(), key=lambda kv: -kv[1])[:16])
+    log.info("%s: %.1f min from the material (%s s); %d-%d words", slug, minutes, m.get("seconds"), MIN_WORDS, MAX_WORDS)
+    return {**topic, "focus": (topic.get("focus") or "") + VISUALS.format(inventory=inv)}
 UA = {"User-Agent": "prehistoric-channel/1.0 (documentary research; vladgula557@gmail.com)"}
 
 WRITE = """Du schreibst den Sprechertext für eine deutsche Natur- und Urzeit-Dokumentation auf YouTube
@@ -170,7 +204,7 @@ QUELLEN:
 
 
 SHORTEN = """Der folgende deutsche Doku-Text ist {have} Wörter lang (etwa {minutes:.0f} Minuten), er darf höchstens
-{want} Wörter haben (25 Minuten). Kürze ihn auf etwa {want} Wörter: verdichte [section story] und
+{want} Wörter haben. Kürze ihn auf etwa {want} Wörter: verdichte [section story] und
 [section climax], streiche Wiederholungen und Nebensächliches, behalte alle Schlüsselfakten, den roten Faden,
 Hook und Finale. Nur Fakten aus den Quellen, selbes Markup. Antworte als JSON {{"script": "..."}}.
 
@@ -585,7 +619,7 @@ def write_by_chapters(topic, block, words=None, skip_hook=False):
     came out 463 words long when the model fell back (29.10)."""
     words = words or WORDS
     plan = textllm.ask(OUTLINE.format(title=topic["title"], focus=topic["focus"], words=words,
-                                      minutes=CFG["length_min"],
+                                      minutes=round(words / WPM),
                                       sources=textllm.relevant(block, f"{topic['title']} {topic['focus']}", 10000)),
                        step="script", temperature=0.5, max_tokens=2000)
     chapters = [c for c in gemini.pick(plan, "chapters") if isinstance(c, dict)
@@ -632,6 +666,7 @@ def main(slug):
     ep.mkdir(parents=True, exist_ok=True)
     src = sources(topic)
     block = src
+    topic = material_length(slug, topic)
     ans, script = write_by_chapters(topic, block)
     script = normalise(script)
     (ep / "script_draft.txt").write_text(script, encoding="utf-8")

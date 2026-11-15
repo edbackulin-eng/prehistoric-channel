@@ -95,7 +95,7 @@ def run(slug="lebende-fossilien"):
     out.append(("QA 12.11: 5 s of silence blocks", q2.sound_ok(snd)[0] is False and q2.sound_ok(good_sound())[0],
                 q2.sound_ok(snd)[1]))
     out.append(("QA 12.11: a length outside the range blocks", q2.duration_ok(300.0)[0] is False
-                and q2.duration_ok(25 * 60.0)[0], q2.duration_ok(300.0)[1]))
+                and q2.duration_ok(12 * 60.0)[0] and q2.duration_ok(16 * 60.0)[0] is False, q2.duration_ok(300.0)[1]))
     lic = q2.license_ok({"shots": [{"kind": "real", "clip": {"id": "nolicence-1"}}], "music": []}, "no-such-episode")
     out.append(("QA 12.11: a clip with no licence blocks", lic[0] is False, lic[1]))
     chk = [{"name": "pace", "ok": False, "detail": "", "mean_shot_s": 6.0},
