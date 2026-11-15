@@ -78,7 +78,7 @@ jobs:
           run-id: ${{ inputs.thumbs_run }}
           github-token: ${{ github.token }}
       - run: ls -la "work/$SLUG" "work/$SLUG/release" && df -h / | tail -1
-      - name: The picture is whole (15.11: one download came back without its last minute - the QA saw broken frames)
+      - name: "The picture is whole (15.11, one download came back without its last minute, the QA saw broken frames)"
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
