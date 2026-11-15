@@ -31,14 +31,15 @@
   "slug": "megalodon",
   "run_id": "43613079504",
   "artifact": "release-megalodon",
-  "built_at": "2026-11-14T18:47:58Z",
-  "status": "qa-waiting",
+  "built_at": "2026-11-15T13:12:10Z",
+  "status": "qa-failed",
   "qa_failed": [
    "hook: 16 shots in 30 s, 14 moving animal clips (need 3), not moving or no animal at [19.2, 21.1], cuts outside 1.5-3 s: none, sound hit: yes",
    "music: music under the voice per minute: [22.78, 22.86, 22.71, 22.96, 23.07, 22.96, 22.42, 22.92, 22.92, 22.53, 22.6, 22.61, 22.5, 22.89, 22.68, 22.51, 22.79, 22.73, 22.24, 23.19, 23.05, 22.82, 22.65, 22.53, 22.84, 23.13, 23.39] dB; music as loud as the voice in minute(s): none; music silent 5 s",
    "dinosaurs: 0 dinosaurs in motion (need 2): LTX clips none, FLUX dinosaurs moved by the 2.5D parallax none",
    "repeats: 118 sources for 443 shots; more than 2 times: {'clip:ltx-otodus_megalodon_pose_0__s0': 17, 'clip:ltx-standby_great_white_shark_00__s1': 8, 'clip:ltx-otodus_megalodon_scene_34__s1': 17, 'clip:ltx-otodus_megalodon_scene_35__s0': 17, 'clip:ltx-otodus_megalodon_scene_36__s0': 17, 'clip:ltx-standby_great_white_shark_02__s0': 8, 'clip:ltx-standby_great_white_shark_03__s0': 8, 'clip:ltx-standby_great_white_shark_04__s0': 8}; again within 3 min: {'clip:ltx-otodus_megalodon_pose_0__s0': [0, 44, 186, 395, 416, 589, 736, 811, 872, 937, 996, 1051, 1166, 1216, 1277, 1386, 1473], 'clip:ltx-standby_great_white_shark_00__s1': [2, 142, 172, 204, 283, 451, 496, 1435], 'clip:ltx-otodus_megalodon_scene_34__s1': [4, 48, 248, 398, 420, 592, 743, 818, 876, 940, 1000, 1055, 1169, 1220, 1281, 1389, 1476], 'clip:ltx-otodus_megalodon_scene_35__s0': [6, 79, 251, 402, 423, 595, 751, 821, 879, 944, 1003, 1058, 1172, 1227, 1284, 1392, 1480], 'clip:ltx-otodus_megalodon_scene_36__s0': [9, 100, 363, 405, 565, 644, 777, 849, 916, 975, 1031, 1082, 1196, 1257, 1345, 1419, 1540], 'clip:ltx-standby_great_white_shark_02__s0': [10, 145, 176, 208, 287, 455, 499, 1439]}",
-   "match: 432 shots checked against their line: 0 another animal than the voice names (blocks above 2); 13 an animal under a line that names none (reported): [(78.9, 'great_white_shark'), (88.7, 'great_white_shark'), (91.8, 'goldfish'), (100.3, 'great_white_shark'), (103.5, 'great_white_shark'), (106.8, 'great_white_shark')]; 397 without an answer"
+   "match: 415 shots checked against their line: 2 another animal than the voice names (blocks above 2): [(378.1, 'great_white_shark'), (886.6, 'Tigerhai')]; 96 an animal under a line that names none (reported): [(78.9, 'great_white_shark'), (88.7, 'great_white_shark'), (91.8, 'goldfish'), (100.3, 'great_white_shark'), (103.5, 'great_white_shark'), (106.8, 'great_white_shark')]; 140 without an answer",
+   "frames: 304 frames looked at (one every 5 s): black at none s; decoding errors: ['[NULL @ 0x561e6d4fde40] Invalid NAL unit size (116688 > 98393).', '[NULL @ 0x561e6d4fde40] missing picture in access unit with size 98397', '[mov,mp4,m4a,3gp,3g2,mj2 @ 0x561e6d4fcec0] stream 0, offset 0x1cbbf2467: partial file', '[h264 @ 0x561e6d662dc0] Invalid NAL unit size (116688 > 98393).', '[h264 @ 0x561e6d662dc0] Error splitting the input into NAL units.']"
   ],
   "gpu_run": "43470569537",
   "layers_run": "43573673575",
