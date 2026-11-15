@@ -40,54 +40,186 @@
      "Otodus"
     ]
    },
-   "status": "qa-failed"
+   "status": "built"
   },
   {
    "slug": "mosasaurier",
-   "title": "Mosasaurier",
-   "focus": "Die Herrscher der Kreidemeere: Mosasaurus, Tylosaurus, die Entdeckung bei Maastricht 1764",
+   "title": "Das Ungeheuer von Maastricht",
+   "focus": "Die Entdeckung des Mosasaurus: die Riesenkiefer aus den Kalksteinbrüchen des Sint-Pietersberg bei Maastricht (1764 und um 1780), der Streit um den Fund, sein Raub durch französische Truppen 1795 und wie Cuvier und Conybeare das Tier erkannten",
    "articles": {
     "de": [
-     "Mosasaurier",
-     "Mosasaurus"
+     "Mosasaurus",
+     "Barthélemy Faujas de Saint-Fond",
+     "Georges Cuvier"
     ],
     "en": [
-     "Mosasaur",
      "Mosasaurus",
-     "Tylosaurus"
+     "Sint-Pietersberg",
+     "Barthélemy Faujas de Saint-Fond",
+     "Georges Cuvier",
+     "William Conybeare (geologist)"
     ]
    },
-   "status": "building"
+   "status": "queued",
+   "format": "discovery"
   },
   {
-   "slug": "tyrannosaurus",
-   "title": "Tyrannosaurus rex",
-   "focus": "Der König der Echsen: Biss, Jagd und Größe des T. rex, die Funde von Barnum Brown 1902 und Sue",
+   "slug": "archaeopteryx",
+   "title": "Archaeopteryx: Der Urvogel aus dem Steinbruch",
+   "focus": "Die Funde des Archaeopteryx in den Solnhofener Plattenkalken: die Feder von 1861, das Londoner Exemplar, das Hermann von Meyer beschrieb und Richard Owen kaufte, das Berliner Exemplar von 1874/1877 und der Streit um Darwins Theorie",
    "articles": {
     "de": [
-     "Tyrannosaurus"
+     "Archaeopteryx",
+     "Solnhofener Plattenkalk",
+     "Hermann von Meyer",
+     "Richard Owen"
     ],
     "en": [
-     "Tyrannosaurus"
+     "Archaeopteryx",
+     "Solnhofen Limestone",
+     "Hermann von Meyer",
+     "Richard Owen"
     ]
    },
-   "status": "queued"
+   "status": "queued",
+   "format": "discovery"
+  },
+  {
+   "slug": "kambrische-explosion",
+   "title": "Das Geheimnis des Burgess-Schiefers",
+   "focus": "Charles Doolittle Walcott entdeckt 1909 den Burgess-Schiefer in den kanadischen Rocky Mountains, seine Grabungen bis 1924, die vergessenen Fossilien und ihre Neudeutung durch Harry Whittington und Simon Conway Morris",
+   "articles": {
+    "de": [
+     "Burgess-Schiefer",
+     "Charles Doolittle Walcott",
+     "Kambrische Explosion"
+    ],
+    "en": [
+     "Burgess Shale",
+     "Charles Doolittle Walcott",
+     "Cambrian explosion",
+     "Harry B. Whittington"
+    ]
+   },
+   "status": "queued",
+   "format": "discovery"
+  },
+  {
+   "slug": "wollhaarmammut",
+   "title": "Das Mammut aus dem Eis",
+   "focus": "Die gefrorenen Mammuts Sibiriens: das Adams-Mammut an der Lena (1799/1806), die Expedition zum Beresowka-Mammut 1901 und wie die Funde nach Sankt Petersburg kamen",
+   "articles": {
+    "de": [
+     "Wollhaarmammut",
+     "Adams-Mammut"
+    ],
+    "en": [
+     "Woolly mammoth",
+     "Adams mammoth"
+    ]
+   },
+   "status": "queued",
+   "format": "discovery"
   },
   {
    "slug": "spinosaurus",
-   "title": "Spinosaurus",
-   "focus": "Der Raubsaurier am Fluss: Segel, Krokodilschnauze, Ernst Stromer und die verlorenen Fossilien von München",
+   "title": "Stromers verlorener Spinosaurus",
+   "focus": "Ernst Stromer und sein Sammler Richard Markgraf finden 1912 in der ägyptischen Oase Bahariya den Spinosaurus; 1944 verbrennen die Knochen im Bombenkrieg in München - und erst ein Jahrhundert später kehrt das Tier zurück",
    "articles": {
     "de": [
      "Spinosaurus",
-     "Ernst Stromer"
+     "Ernst Stromer",
+     "Richard Markgraf",
+     "Bahariya"
     ],
     "en": [
      "Spinosaurus",
-     "Ernst Stromer"
+     "Ernst Stromer",
+     "Richard Markgraf",
+     "Bahariya Oasis"
     ]
    },
-   "status": "queued"
+   "status": "queued",
+   "format": "discovery"
+  },
+  {
+   "slug": "tyrannosaurus",
+   "title": "Barnum Brown und der König der Echsen",
+   "focus": "Barnum Brown findet 1902 in der Hell-Creek-Formation in Montana das erste Skelett des Tyrannosaurus rex; Henry Fairfield Osborn beschreibt ihn 1905, das American Museum of Natural History stellt ihn aus - bis zum Streit um Sue",
+   "articles": {
+    "de": [
+     "Tyrannosaurus",
+     "Barnum Brown",
+     "Henry Fairfield Osborn",
+     "Hell-Creek-Formation"
+    ],
+    "en": [
+     "Tyrannosaurus",
+     "Barnum Brown",
+     "Henry Fairfield Osborn",
+     "Hell Creek Formation",
+     "Sue (dinosaur)"
+    ]
+   },
+   "status": "queued",
+   "format": "discovery"
+  },
+  {
+   "slug": "plesiosaurier",
+   "title": "Mary Anning und das Seeungeheuer",
+   "focus": "Mary Anning findet 1823 bei Lyme Regis das erste vollständige Plesiosaurier-Skelett; Georges Cuvier zweifelt an dem Fund, William Conybeare beschreibt ihn - die Geschichte einer Sammlerin, die die Wissenschaft lange übersah",
+   "articles": {
+    "de": [
+     "Mary Anning",
+     "Plesiosaurier",
+     "Lyme Regis"
+    ],
+    "en": [
+     "Mary Anning",
+     "Plesiosaurus",
+     "Lyme Regis",
+     "William Conybeare (geologist)"
+    ]
+   },
+   "status": "queued",
+   "format": "discovery"
+  },
+  {
+   "slug": "saebelzahnkatzen",
+   "title": "Die Teergruben von La Brea",
+   "focus": "Die Säbelzahnkatzen aus den Asphaltgruben von Rancho La Brea in Los Angeles: die Grabungen ab 1901 und 1913-1915, Millionen Knochen und was sie über die Eiszeit verraten",
+   "articles": {
+    "de": [
+     "Smilodon",
+     "La Brea Tar Pits"
+    ],
+    "en": [
+     "Smilodon",
+     "La Brea Tar Pits",
+     "George C. Page Museum"
+    ]
+   },
+   "status": "queued",
+   "format": "discovery"
+  },
+  {
+   "slug": "riesenfaultier",
+   "title": "Das Riesentier aus Luján",
+   "focus": "Das Megatherium: 1788 am Río Luján in Argentinien gefunden, nach Madrid gebracht, von Georges Cuvier 1796 als ausgestorbenes Riesenfaultier erkannt; Charles Darwin findet auf der Beagle-Reise weitere Knochen",
+   "articles": {
+    "de": [
+     "Megatherium",
+     "Georges Cuvier",
+     "Charles Darwin"
+    ],
+    "en": [
+     "Megatherium",
+     "Georges Cuvier",
+     "Second voyage of HMS Beagle"
+    ]
+   },
+   "status": "queued",
+   "format": "discovery"
   },
   {
    "slug": "titanoboa",
@@ -118,41 +250,6 @@
      "Quetzalcoatlus",
      "Pterosaur",
      "Azhdarchidae"
-    ]
-   },
-   "status": "queued"
-  },
-  {
-   "slug": "saebelzahnkatzen",
-   "title": "Säbelzahnkatzen",
-   "focus": "Smilodon und seine Verwandten: wie man mit Säbelzähnen jagt, die Teergruben von La Brea",
-   "articles": {
-    "de": [
-     "Smilodon",
-     "Säbelzahnkatzen",
-     "La Brea Tar Pits"
-    ],
-    "en": [
-     "Smilodon",
-     "Machairodontinae",
-     "La Brea Tar Pits"
-    ]
-   },
-   "status": "queued"
-  },
-  {
-   "slug": "plesiosaurier",
-   "title": "Plesiosaurier",
-   "focus": "Langhälse der Meere: Elasmosaurus, wie sie schwammen, der Knochenkrieg",
-   "articles": {
-    "de": [
-     "Plesiosaurier",
-     "Elasmosaurus"
-    ],
-    "en": [
-     "Plesiosauria",
-     "Elasmosaurus",
-     "Bone Wars"
     ]
    },
    "status": "queued"
@@ -212,24 +309,6 @@
    "status": "queued"
   },
   {
-   "slug": "wollhaarmammut",
-   "title": "Das Wollhaarmammut",
-   "focus": "Leben in der Mammutsteppe, gefrorene Kadaver, das letzte Mammut auf der Wrangelinsel",
-   "articles": {
-    "de": [
-     "Wollhaarmammut",
-     "Mammutsteppe",
-     "Wrangelinsel"
-    ],
-    "en": [
-     "Woolly mammoth",
-     "Mammoth steppe",
-     "Wrangel Island"
-    ]
-   },
-   "status": "queued"
-  },
-  {
    "slug": "eiszeit-megafauna",
    "title": "Die Giganten der Eiszeit",
    "focus": "Höhlenbär, Wollnashorn, Riesenhirsch: wer sie auslöschte - Klima oder Mensch",
@@ -284,22 +363,6 @@
    "status": "queued"
   },
   {
-   "slug": "riesenfaultier",
-   "title": "Das Riesenfaultier",
-   "focus": "Megatherium und Eremotherium: Faultiere so groß wie Elefanten, ihr Ende in Amerika",
-   "articles": {
-    "de": [
-     "Megatherium",
-     "Riesenfaultiere"
-    ],
-    "en": [
-     "Megatherium",
-     "Ground sloth"
-    ]
-   },
-   "status": "queued"
-  },
-  {
    "slug": "rieseninsekten-karbon",
    "title": "Rieseninsekten des Karbon",
    "focus": "Meganeura und Arthropleura: warum Insekten so groß werden konnten, Sauerstoff im Karbon",
@@ -332,41 +395,6 @@
    "status": "queued"
   },
   {
-   "slug": "kambrische-explosion",
-   "title": "Die Kambrische Explosion",
-   "focus": "Anomalocaris, Opabinia, der Burgess-Schiefer: als das Tierleben explodierte",
-   "articles": {
-    "de": [
-     "Kambrische Explosion",
-     "Burgess-Schiefer",
-     "Anomalocaris"
-    ],
-    "en": [
-     "Cambrian explosion",
-     "Burgess Shale",
-     "Anomalocaris",
-     "Opabinia"
-    ]
-   },
-   "status": "queued"
-  },
-  {
-   "slug": "archaeopteryx",
-   "title": "Archaeopteryx",
-   "focus": "Der Urvogel aus Solnhofen: Federn und Zähne, das Bindeglied zwischen Dinosauriern und Vögeln",
-   "articles": {
-    "de": [
-     "Archaeopteryx",
-     "Solnhofener Plattenkalk"
-    ],
-    "en": [
-     "Archaeopteryx",
-     "Solnhofen Limestone"
-    ]
-   },
-   "status": "queued"
-  },
-  {
    "slug": "hochschreckliche-unterwasser-krieger",
    "title": "Die unbekannten Unterwasserkrieger: Placodermen",
    "focus": "Eine Reise in das Silur zur Entdeckung der gepanzerter Knochenfische, die als Vorläufer aller heutigen Knochenfische gelten.",
@@ -383,5 +411,6 @@
    },
    "status": "queued"
   }
- ]
+ ],
+ "_note_15_11": "owner 15.11: every film tells the history of one find (who, where, when, expeditions, quarrels), on archive pictures of that find"
 }
