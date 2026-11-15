@@ -457,6 +457,11 @@ def real_checks(checks, plan):
             c["detail"] = c["detail"].split("; prehistoric animals in motion")[0]
     pc = plan.get("checks", {})
     rep = pc.get("repeats", 0)
+    over6, runs = pc.get("stills_over_6s") or [], pc.get("photo_runs_over_3") or []
+    out.append({"name": "photos", "ok": not over6 and not runs, "blocking": False,
+                "detail": f"owner 15.11: a photograph at most 6 s ({over6 or 'none'} longer), at most 3 in a row "
+                          f"without film or archive between ({runs or 'none'}); video {pc.get('video_share')}, "
+                          f"stills {pc.get('still_share')}, archive {pc.get('archive_share')}"})
     out.append({"name": "unique", "ok": rep == 0, "blocking": False,
                 "detail": f"{pc.get('unique_pictures')} pictures, {rep} used twice (owner 15.11: each picture "
                           f"once); held on for want of pictures at {pc.get('held_on_at') or 'none'} s"})

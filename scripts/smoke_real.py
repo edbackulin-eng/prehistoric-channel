@@ -116,6 +116,11 @@ def run():
     out.append(("real: a picture another film showed is not shown again", "video-49" not in ids, ""))
     out.append(("real: archive pictures used", plan["checks"].get("archive_share", 0) > 0,
                 str(plan["checks"].get("archive_share"))))
+    longest_still = max([s["duration"] for s in shots if s["kind"] == "photo"] or [0])
+    out.append(("real: a photograph at most 6 s", longest_still <= 6.05 and not plan["checks"]["stills_over_6s"],
+                f"{longest_still:.2f} s"))
+    out.append(("real: at most 3 photographs in a row without film or archive", not realplan.runs_over(shots, 3)
+                and not plan["checks"]["photo_runs_over_3"], str(plan["checks"]["photo_runs_over_3"])))
 
     # the vision model's verdicts: renders, text and moving paintings are out
     base = {"kind": "video", "source": "Pixabay", "desc": {"category": "living_animal", "animal": "x", "cgi": False,
@@ -166,7 +171,36 @@ def run():
     chk = [{"name": n, "ok": False, "detail": "x"} for n in ("ltx", "dinosaurs", "motion", "wow", "scenes", "pace")]
     rc = qa.real_checks(chk, {"checks": {"repeats": 0, "unique_pictures": 9}})
     out.append(("real QA: the FLUX-only scores are gone, uniqueness measured",
-                [c["name"] for c in rc] == ["pace", "unique"] and rc[-1]["ok"], str([c["name"] for c in rc])))
+                [c["name"] for c in rc] == ["pace", "photos", "unique"] and rc[-1]["ok"] and rc[-2]["ok"],
+                str([c["name"] for c in rc])))
+
+    # many fossil photographs, few films: the films are spread so that no 4 photographs follow each other
+    tmp2 = Path(tempfile.mkdtemp())
+    ep2 = tmp2 / "episodes" / "smoke-real"
+    ep2.mkdir(parents=True)
+    p2 = _pool()
+    p2["items"] = [it for it in p2["items"] if it["kind"] == "still" and it["desc"]["category"] != "portrait"
+                   and it["desc"]["category"] != "archive_photo"]
+    for i in range(60, 75):
+        p2["items"].append({**p2["items"][0], "id": f"still-{i}", "desc": {**p2["items"][0]["desc"], "category": "fossil"}})
+    for i in range(80, 88):
+        p2["items"].append({"id": f"video-{i}", "source": "Pixabay", "kind": "video", "url": "u", "duration": 12,
+                            "license": "Pixabay Content License", "desc": {"category": "excavation", "animal": "none",
+                            "what": "dig", "cgi": False, "text": False, "quality": 4}, "usable": True})
+    (ep2 / "pool.json").write_text(json.dumps(p2), encoding="utf-8")
+    tl2 = [{"text": "Der Mosasaurus und seine Knochen.", "kind": "normal", "section": "story", "start": 30.0 * i,
+            "end": 30.0 * i + 29} for i in range(5)]
+    realplan.ROOT = realpool.ROOT = tmp2
+    textllm.ask = no_llm
+    try:
+        plan2 = realplan.build("smoke-real", tl2, 150.0, parts=1)
+    finally:
+        realplan.ROOT, textllm.ask, realpool.ROOT = real_root, real_ask, pool_root
+    sh2 = plan2["shots"]
+    out.append(("real: films spread between the photographs (never 4 in a row)",
+                not realplan.runs_over(sh2, 3) and max(s["duration"] for s in sh2 if s["kind"] == "photo") <= 6.05,
+                "".join("V" if s["kind"] == "real" else "p" for s in sh2)))
+    shutil.rmtree(tmp2, ignore_errors=True)
     shutil.rmtree(tmp, ignore_errors=True)
     return out
 

@@ -133,7 +133,8 @@
  },
  "release": {
   "_note": "manual_left: so many next uploads go up private WITHOUT a date and wait for approve.yml (approve <slug>); then scheduling is automatic again",
-  "manual_left": 0,
+  "manual_left": 1,
+  "_manual_left_15_11": "owner 15.11: the first film of the real-footage format goes up private without a date; the owner watches it, then approve.yml gives it its slot",
   "qa_waived": {
    "_note": "an exception by the owner for ONE film: these blocking checks are not held against it (release.qa_passed). Never a general switch; new films are checked in full.",
    "megalodon": {"checks": ["match", "frames"], "why": "owner 15.11 in chat: the film goes out today. match: 140 of 415 shots got no answer (Gemini server errors), 2 wrong of the 275 answered, limit 2; frames: a download came back cut short, the render's own check of the same picture passed (316 frames, no errors)"}

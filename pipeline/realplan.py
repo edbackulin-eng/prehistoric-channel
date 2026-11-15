@@ -23,8 +23,10 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 LEAD_S = 0.25
-SHOT_S = 6.5               # aimed length of a shot
-SHOT_MAX_S = 9.0           # longer than this is cut in two
+SHOT_S = 5.5               # aimed length of a shot
+SHOT_MAX_S = 6.0           # owner 15.11: a photograph at most 6 s - every shot is cut to that
+STILL_MAX_S = 6.0
+PLAIN_RUN_MAX = 3          # owner 15.11: at most 3 photographs in a row without film or an archive picture between
 HOLD_MAX_S = 14.0          # a shot that has to run on for want of pictures: up to this
 XFADE_S = 0.6
 OUTRO_S = 3.0
@@ -138,6 +140,20 @@ def _name_in(name, text):
     return surname in text or name.lower() in text
 
 
+def runs_over(shots, limit):
+    """Start times of runs of more than `limit` photographs (not archive pictures) in a row."""
+    out, run, first = [], 0, None
+    for s in shots:
+        if s.get("kind") == "photo" and s.get("category") not in ARCHIVE:
+            run += 1
+            first = s["start"] if run == 1 else first
+            if run == limit + 1:
+                out.append(round(first))
+        else:
+            run = 0
+    return out
+
+
 def build(slug, timeline, narration_s, parts=20):
     ep = ROOT / "episodes" / slug
     pool = json.loads((ep / "pool.json").read_text(encoding="utf-8"))
@@ -170,6 +186,13 @@ def build(slug, timeline, narration_s, parts=20):
         cand.append({it["id"]: _fits(it, tag, extinct, relatives_of) for it in items})
         cand[-1] = {k: v for k, v in cand[-1].items() if v > 0}
     by_id = {it["id"]: it for it in items}
+    _cand_line = {}
+
+    def cand_of(line):
+        if line not in _cand_line:
+            _cand_line[line] = {it["id"]: v for it in items
+                                for v in [_fits(it, tags[line], extinct, relatives_of)] if v > 0}
+        return _cand_line[line]
     used, chosen = set(), [None] * len(slots)
     still_s, video_s, fill_s = 0.0, 0.0, 0.0
     order = list(range(len(slots)))
@@ -201,31 +224,17 @@ def build(slug, timeline, narration_s, parts=20):
             if by_id[best]["desc"].get("category") in FILL_ONLY:
                 fill_s += need
 
-    # ---- shots; an empty slot is taken over by its neighbour in the same line, else the one before
-    shots = []
-    for j, s in enumerate(slots):
-        if chosen[j] is None:
-            if shots and shots[-1]["line"] == s["line"] and s["end"] - shots[-1]["start"] <= HOLD_MAX_S:
-                shots[-1]["end"] = s["end"]
-                continue
-            nxt = next((k for k in range(j + 1, len(slots)) if slots[k]["line"] == s["line"] and chosen[k]), None)
-            if nxt is not None and slots[nxt]["end"] - s["start"] <= HOLD_MAX_S:
-                slots[nxt]["start"] = s["start"]
-                continue
-            if shots:
-                shots[-1]["end"] = s["end"]
-                shots[-1]["held"] = True
-                continue
-            shots.append({"line": s["line"], "start": s["start"], "end": s["end"], "empty": True})
-            continue
-        it = by_id[chosen[j]]
+    keys = {a["key"] for a in animals}
+
+    def dress(shot, it):
+        """The picture's own fields on a shot (the repair below may give a shot another picture)."""
+        for k in ("clip", "image", "still_url"):
+            shot.pop(k, None)
         d = it["desc"]
-        animal = d.get("animal") if str(d.get("animal")) in {a["key"] for a in animals} else None
-        shot = {"line": s["line"], "start": round(s["start"], 3), "end": round(s["end"], 3),
-                "text": timeline[s["line"]]["text"], "section": timeline[s["line"]].get("section") or "story",
-                "need": it["id"], "pool_id": it["id"], "species": animal, "category": d.get("category"),
-                "what": d.get("what"), "license": it["license"], "author": it.get("author"), "page": it.get("page"),
-                "source": it["source"]}
+        shot.update({"need": it["id"], "pool_id": it["id"],
+                     "species": d.get("animal") if str(d.get("animal")) in keys else None,
+                     "category": d.get("category"), "what": d.get("what"), "license": it["license"],
+                     "author": it.get("author"), "page": it.get("page"), "source": it["source"]})
         if it["kind"] == "video":
             dur = float(it.get("duration") or 0)
             at = (float(it["at_s"]) / dur) if it.get("at_s") is not None and dur else 0.08
@@ -234,7 +243,79 @@ def build(slug, timeline, narration_s, parts=20):
                                                   "source": it["source"], "at": round(at, 4), "speed": None}})
         else:
             shot.update({"kind": "photo", "image": it["id"], "still_url": it.get("full_url") or it["url"]})
-        shots.append(shot)
+
+    def make(line, start, end, it):
+        shot = {"line": line, "start": round(start, 3), "end": round(end, 3),
+                "text": timeline[line]["text"], "section": timeline[line].get("section") or "story"}
+        dress(shot, it)
+        return shot
+
+    def still(x):
+        return x.get("kind") == "photo"
+
+    # ---- shots; an empty slot is taken over by a neighbour - a film may run on, a photograph only to 6 s
+    shots = []
+    for j, s in enumerate(slots):
+        if chosen[j] is None:
+            prev = shots[-1] if shots else None
+            if prev and prev["line"] == s["line"] and s["end"] - prev["start"] <= (
+                    STILL_MAX_S + 0.01 if still(prev) else HOLD_MAX_S):
+                prev["end"] = s["end"]
+                continue
+            nxt = next((k for k in range(j + 1, len(slots)) if slots[k]["line"] == s["line"] and chosen[k]), None)
+            if nxt is not None and slots[nxt]["end"] - s["start"] <= (
+                    HOLD_MAX_S if by_id[chosen[nxt]]["kind"] == "video" else STILL_MAX_S + 0.01):
+                slots[nxt]["start"] = s["start"]
+                continue
+            if prev:
+                prev["end"] = s["end"]
+                prev["held"] = True
+                continue
+            shots.append({"line": s["line"], "start": s["start"], "end": s["end"], "empty": True})
+            continue
+        shots.append(make(s["line"], s["start"], slots[j]["end"], by_id[chosen[j]]))
+
+    # ---- owner 15.11: no more than 3 photographs in a row; the 4th gets a film or an archive picture
+    # from what is left, else it trades pictures with a film shot elsewhere that fits both lines
+    def plain(x):
+        return still(x) and x.get("category") not in ARCHIVE
+
+    def breaker(it):
+        return it["kind"] == "video" or it["desc"].get("category") in ARCHIVE
+
+    run = 0
+    for k, sh in enumerate(shots):
+        if sh.get("empty") or not plain(sh):
+            run = 0
+            continue
+        run += 1
+        if run <= PLAIN_RUN_MAX:
+            continue
+        tag = tags[sh["line"]]
+        spare = sorted(((c, v) for c, v in cand_of(sh["line"]).items() if c not in used and breaker(by_id[c])),
+                       key=lambda kv: -kv[1])
+        if spare:
+            used.discard(sh["pool_id"])
+            used.add(spare[0][0])
+            dress(sh, by_id[spare[0][0]])
+            run = 0
+            continue
+        for m, other in enumerate(shots):
+            if m == k or other.get("empty") or not breaker(by_id[other["pool_id"]]):
+                continue
+            mine, theirs = by_id[sh["pool_id"]], by_id[other["pool_id"]]
+            if _fits(theirs, tag, extinct, relatives_of) <= 0 or \
+                    _fits(mine, tags[other["line"]], extinct, relatives_of) <= 0:
+                continue
+            if other["end"] - other["start"] > STILL_MAX_S + 0.01:
+                continue
+            near = [shots[x] for x in range(max(0, m - 3), min(len(shots), m + 4)) if x != m]
+            if sum(1 for x in near if plain(x)) >= PLAIN_RUN_MAX:
+                continue            # the photograph would make a run of 4 where it lands
+            dress(sh, theirs)
+            dress(other, mine)
+            run = 0
+            break
     if shots and shots[0].get("empty"):
         raise RuntimeError("the film's first line has no picture")
     shots = [s for s in shots if not s.get("empty")]
@@ -274,7 +355,10 @@ def build(slug, timeline, narration_s, parts=20):
               "mean_shot_s": round(end_all / max(1, len(shots)), 2), "held_on_at": held[:20],
               "archive_share": round(sum(s["duration"] for s in shots if s.get("category") in ARCHIVE) / end_all, 3),
               "fill_share": round(sum(s["duration"] for s in shots if s.get("category") in FILL_ONLY) / end_all, 3),
-              "longest_shot_s": round(max(s["duration"] for s in shots), 1)}
+              "longest_shot_s": round(max(s["duration"] for s in shots), 1),
+              "stills_over_6s": [round(s["start"]) for s in shots if s["kind"] == "photo"
+                                 and s["duration"] > STILL_MAX_S + 0.05][:20],
+              "photo_runs_over_3": runs_over(shots, PLAIN_RUN_MAX)}
     assert checks["repeats"] == 0, "a picture used twice"
     plan = {"slug": slug, "format": "real", "narration_s": round(narration_s, 3), "total_s": round(end_all, 3),
             "xfade_s": XFADE_S, "shots": shots, "sections": sections, "checks": checks,
