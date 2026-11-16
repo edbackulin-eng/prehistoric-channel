@@ -1,0 +1,69 @@
+name: library
+
+# The picture library of the then-and-now format (owner 16.11): gathered once (harvest), then looked at by
+# Gemini a few hundred pictures a day, every answer kept (assets/library_checks.json) so no picture is ever
+# sent twice. The daily look starts after the providers' day turns (midnight Pacific = 08:00 UTC) and stops
+# at the first 429; what is left waits for the next day. Nothing heavy runs on the owner's computer.
+on:
+  schedule:
+    - cron: "40 8 * * *"
+  workflow_dispatch:
+    inputs:
+      cmd:
+        description: "harvest, check or both"
+        default: "check"
+      max:
+        description: "pictures to look at in this run"
+        default: "300"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: library
+  cancel-in-progress: false
+
+env:
+  PYTHONUTF8: 1
+
+jobs:
+  library:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    env:
+      GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
+      CMD: ${{ github.event.inputs.cmd || 'check' }}
+      MAX: ${{ github.event.inputs.max || '300' }}
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+          cache: pip
+      - run: pip install -q -r requirements.txt
+      - uses: actions/cache@v4
+        with:
+          path: cache/library_thumbs
+          key: library-thumbs-${{ github.run_id }}
+          restore-keys: library-thumbs-
+      - name: Gather (metadata only)
+        if: env.CMD == 'harvest' || env.CMD == 'both'
+        run: python -m pipeline.library harvest
+      - name: Look (Gemini, 10 to a request, stops at the day's quota)
+        if: env.CMD == 'check' || env.CMD == 'both'
+        run: |
+          [ -f assets/library.json ] || { echo "no library yet"; exit 0; }
+          python -m pipeline.library check --max "$MAX"
+      - run: python -m pipeline.library report
+        if: always()
+      - name: Keep the library on main
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/library.json assets/library_checks.json 2>/dev/null || true
+          for f in state/llm_usage; do [ -e "$f" ] && git add -A "$f"; done
+          git diff --cached --quiet && exit 0
+          git commit -q -m "library: $CMD $(date -u +%Y-%m-%d)"
+          for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done
+          exit 1

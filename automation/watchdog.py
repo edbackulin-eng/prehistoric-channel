@@ -354,6 +354,10 @@ def check_buffer(busy, actions):
     from automation import release
     from automation import llm_budget
     have = release.ahead()
+    from automation import format_gate
+    if not format_gate.ready():
+        actions.append("the new format is being built (owner 16.11): no episode started")
+        return have
     d = llm_budget.deferred_now()
     if d:
         actions.append(f"{d['slug']} waits for the quota day (until {d['until']})")
