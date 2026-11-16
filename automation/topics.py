@@ -99,7 +99,7 @@ def real_material(t):
     from pipeline import realpool
     pool = realpool.harvest(t["slug"], t)
     m = dict(pool["material"])
-    n = len(pool["items"])
+    n = pool.get("looked") or len(pool["items"])
     if pool.get("undescribed", 0) > 0.3 * max(1, n):
         m["ok"] = None                 # the vision model's day ran out: not judged yet
     else:

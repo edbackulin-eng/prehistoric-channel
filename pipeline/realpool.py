@@ -237,7 +237,7 @@ SKIP_CAT = re.compile(r"stamps?|coins?|logos?|maps?\b|diagrams?|charts?|cladogra
                       r"in popular culture|lego|models? of", re.I)
 
 
-def commons_categories(term, cat, max_files=120, depth=2):
+def commons_categories(term, cat, max_files=80, depth=2):
     """owner 15.11: the find's own pictures - Commons sorts them in categories (the specimen, its museum,
     the quarry, the discoverer), where a text search hardly reaches. The categories matching the term,
     their files and those of their subcategories (two levels), each file with its licence."""
@@ -470,10 +470,12 @@ Films: {animals}. Zu jedem nummerierten Bild (ein Standbild aus einem Film oder 
 Antworte als JSON: {{"items": [{{"i": <n>, "category": "...", "animal": "...", "what": "...", "cgi": false,
 "text": false, "quality": 4}}]}}
 BILDER: {n} Stück, nummeriert 0 bis {last}."""
-VISION_MODELS = ("gemini-flash-lite-latest", "gemma-4-31b-it", "gemma-4-26b-a4b-it", "gemini-flash-latest")
+# 16.11: Gemma answered pictures with nothing (empty answers, then 5xx) - only the flash models look at them
+VISION_MODELS = ("gemini-flash-lite-latest", "gemini-flash-latest")
+DESCRIBE_BUDGET_S = 75 * 60     # the episode job has 355 min; what is left is described on the next run
 
 
-def describe(items, title, animals, cache_path, batch=10):
+def describe(items, title, animals, cache_path, batch=16):
     """The vision model's look at each candidate; answers kept in cache_path (a rerun asks only the rest)."""
     from core import gemini
     cache = json.loads(cache_path.read_text(encoding="utf-8")) if cache_path.exists() else {}
@@ -485,12 +487,21 @@ def describe(items, title, animals, cache_path, batch=10):
             pics.append((it, _thumb(it, CACHE / "thumbs" / f"{it['id']}.jpg")))
         except Exception as e:                                           # noqa: BLE001
             cache[it["id"]] = {"error": f"picture: {str(e)[:120]}"}
+    t0 = time.time()
     for k in range(0, len(pics), batch):
         part = pics[k:k + batch]
         prompt = DESCRIBE.format(title=title, animals=keys, categories=CATEGORIES, n=len(part), last=len(part) - 1)
+        if time.time() - t0 > DESCRIBE_BUDGET_S:
+            log.warning("describe: %d min used; %d pictures wait for the next run (the job has a time limit)",
+                        DESCRIBE_BUDGET_S // 60, len(pics) - k)
+            break
+        if all(m in gemini._SPENT for m in VISION_MODELS):
+            log.warning("describe: the vision models' day is spent; %d pictures wait for the next run",
+                        len(pics) - k)
+            break
         try:
             ans = gemini.ask(prompt, images=[str(p) for _, p in part], models=VISION_MODELS, temperature=0.0,
-                             max_tokens=2500, step="pool-describe")
+                             max_tokens=3500, step="pool-describe")
         except Exception as e:                                           # noqa: BLE001
             log.warning("describe: no answer for %d pictures (%s); asked again on the next run", len(part), e)
             continue
@@ -642,9 +653,12 @@ def harvest(slug, topic=None):
     items = list(cand.values())
     log.info("%s: %d candidates (%s)", slug, len(items),
              {s: sum(1 for i in items if i["source"] == s) for s in {i["source"] for i in items}})
-    desc = describe(items, topic.get("title", slug), qs["animals"], ep / "pool_describe.json")
-    seen = used_elsewhere(slug)
     words = topic_words(qs)
+    look = [it for it in items if it.get("cat") not in ("archive", "taxon") or on_topic(it, words)]
+    log.info("%s: %d of %d candidates go to the vision model (the rest name nothing of the story)", slug,
+             len(look), len(items))
+    desc = describe(look, topic.get("title", slug), qs["animals"], ep / "pool_describe.json")
+    seen = used_elsewhere(slug)
     for it in items:
         it["desc"] = desc.get(it["id"])
         it["usable"] = usable(it) and it["id"] not in seen
@@ -655,7 +669,8 @@ def harvest(slug, topic=None):
             it["used_elsewhere"] = True
     pool = {"slug": slug, "animals": qs["animals"], "items": items}
     pool["material"] = material(pool)
-    pool["undescribed"] = sum(1 for it in items if not it.get("desc"))
+    pool["undescribed"] = sum(1 for it in look if not it.get("desc"))
+    pool["looked"] = len(look)
     (ep / "pool.json").write_text(json.dumps(pool, indent=1, ensure_ascii=False), encoding="utf-8")
     log.info("%s: material %s; %d not yet described", slug, pool["material"], pool["undescribed"])
     return pool
