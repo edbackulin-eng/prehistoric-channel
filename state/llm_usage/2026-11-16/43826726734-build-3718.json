@@ -1,0 +1,26 @@
+{
+ "groq:qwen/qwen3.8-27b": {
+  "requests": 1,
+  "in_tokens": 600,
+  "out_tokens": 866,
+  "steps": {
+   "pool-queries": 1
+  }
+ },
+ "gemini-flash-lite-latest": {
+  "requests": 42,
+  "in_tokens": 749947,
+  "out_tokens": 43714,
+  "steps": {
+   "pool-describe": 42
+  }
+ },
+ "gemini-flash-latest": {
+  "requests": 1,
+  "in_tokens": 17966,
+  "out_tokens": 671,
+  "steps": {
+   "pool-describe": 1
+  }
+ }
+}
