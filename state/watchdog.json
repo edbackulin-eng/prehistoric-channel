@@ -502,6 +502,13 @@
    "sig": "build / Topic (real format - only one whose real material is enough, checked before the script)",
    "day": "2026-11-15",
    "rerun": true
+  },
+  {
+   "run": "43826726734/1",
+   "wf": "episode.yml",
+   "sig": "build / Topic (real format - only one whose real material is enough, checked before the script)",
+   "day": "2026-11-16",
+   "rerun": true
   }
  ],
  "cancelled": [
