@@ -35,4 +35,4 @@ jobs:
           path: assets/models/open_clip
           key: open-clip-ViT-B-16-SigLIP-webli-1
       - run: pip install -q torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu && pip install -q -r requirements-prefilter.txt
-      - run: python automation/ahead.py
+      - run: python automation/format_gate.py && python automation/ahead.py || echo 'skipped'

@@ -1,12 +1,12 @@
 {
  "_note": "The rules every episode of the German prehistoric channel is built to. Code reads them from here (core/channel.py); changing a rule is a reviewed change to this file, through dev -> smoke -> main.",
  "language": "de-DE",
- "format": "real",
- "_format_note": "owner 15.11: a plain German documentary on REAL footage only - no FLUX, no LTX, no 2.5D. Pictures: Pixabay / Pexels video, Wikimedia Commons (PD, CC0, CC BY, CC BY-SA, credited), archive.org; palaeo-art paintings from Commons as stills with a slow camera move. Each picture once per film (pipeline/realplan.py); the length follows the material, 10-15 min; a topic without enough material is passed over (pipeline/realpool.py).",
- "length_min": 12,
+ "format": "then_now",
+ "_format_note": "owner 16.11: 'So stellte man sich ... vor - und so sah er wirklich aus'. 8-12 min. Pictures about a third each: old public-domain illustrations moved in 2.5D (Harder 'Tiere der Urwelt', Knight works PD in the EU AND the US, 19th-century plates from BHL, Commons PD/CC0/CC BY), Blender 3D (Smithsonian CC0 scans, Sketchfab CC0/CC BY museum scans, PhyloPic silhouettes for size comparisons), animated maps and graphics. No shot still for more than 4 s. Material comes from assets/library.json, checked once. Until format_ready is true no episode is built.",
+ "length_min": 10,
  "length_min_range": [
-  10,
-  15
+  8,
+  12
  ],
  "voice": {
   "engine": "piper",
@@ -104,29 +104,77 @@
   "time": "17:00",
   "tz": "Europe/Berlin",
   "pinned": {
-   "_note": "owner 12.11: these episodes on these Berlin dates, the rest on the free Sun/Wed slots in turn (pipeline/youtube.next_slot)",
+   "_note": "owner 16.11: mosasaurier moved to Sunday 22.11 (the first film of the new format, owner approves it 21.11); the rest on the free Sun/Wed slots in turn",
    "megalodon": "2026-11-15",
-   "mosasaurier": "2026-11-18"
+   "mosasaurier": "2026-11-22"
   },
   "privacy": "private",
   "contains_synthetic_media": false,
   "subtitles": "de",
   "upload_subtitles": false,
   "_upload_subtitles_note": "owner 31.10: no subtitle upload, YouTube makes its own automatic German captions; true sends release/subtitles_de.srt (needs a token with the youtube.force-ssl scope)",
-  "tag_brands": ["Terra X", "TerraX", "ZDF", "ARD", "Arte", "3sat", "WDR", "NDR", "SWR", "BR", "MDR", "Phoenix",
-                 "Planet Wissen", "Quarks", "Galileo", "Universum", "Leschs Kosmos", "Kurzgesagt", "Doc Planet",
-                 "BBC", "Discovery", "National Geographic", "Nat Geo", "NatGeo", "History Channel", "Animal Planet",
-                 "Netflix", "Disney", "Apple TV", "Prime Video", "Jurassic Park", "Jurassic World",
-                 "Walking with Dinosaurs", "Dinosaurier - Im Reich der Giganten", "Prehistoric Planet",
-                 "Planet Earth", "Blue Planet", "Attenborough", "N24", "ntv", "RTL", "ProSieben",
-                 "Pro7", "Sat.1", "Kabel Eins", "DMAX", "YouTube"]
+  "tag_brands": [
+   "Terra X",
+   "TerraX",
+   "ZDF",
+   "ARD",
+   "Arte",
+   "3sat",
+   "WDR",
+   "NDR",
+   "SWR",
+   "BR",
+   "MDR",
+   "Phoenix",
+   "Planet Wissen",
+   "Quarks",
+   "Galileo",
+   "Universum",
+   "Leschs Kosmos",
+   "Kurzgesagt",
+   "Doc Planet",
+   "BBC",
+   "Discovery",
+   "National Geographic",
+   "Nat Geo",
+   "NatGeo",
+   "History Channel",
+   "Animal Planet",
+   "Netflix",
+   "Disney",
+   "Apple TV",
+   "Prime Video",
+   "Jurassic Park",
+   "Jurassic World",
+   "Walking with Dinosaurs",
+   "Dinosaurier - Im Reich der Giganten",
+   "Prehistoric Planet",
+   "Planet Earth",
+   "Blue Planet",
+   "Attenborough",
+   "N24",
+   "ntv",
+   "RTL",
+   "ProSieben",
+   "Pro7",
+   "Sat.1",
+   "Kabel Eins",
+   "DMAX",
+   "YouTube"
+  ]
  },
  "buffer": 2,
  "qa": {
   "_note": "automation/qa.py: the gate before every upload (owner review 31.10); ltx_min: the render waits for so many LTX-Video clips",
-  "ltx_min": 8, "targets": {"_note": "owner 12.11: scores, not gates (automation/qa.py score); set from what the replay of megalodon on free material reaches (~9-10 s a shot before the 12.11 fill, 36 % landscapes)", "pace_mean_s": 8.0, "landscape_max": 0.25, "motion_min": 0.25},
+  "ltx_min": 8,
+  "targets": {
+   "_note": "owner 12.11: scores, not gates (automation/qa.py score); set from what the replay of megalodon on free material reaches (~9-10 s a shot before the 12.11 fill, 36 % landscapes)",
+   "pace_mean_s": 8.0,
+   "landscape_max": 0.25,
+   "motion_min": 0.25
+  },
   "_motion_note": "owner 02.11: prehistoric animals (living fossils included) in motion - LTX clips, real footage of the episode's animals, FLUX animals with a 2.5D parallax move - >= prehistoric_motion_min of the film; >= dino_ltx_min LTX clips of dinosaurs; a wow moment (an animated creature, real footage of one, a tense FLUX shot) at least every wow_max_s; LTX clips of ltx_frames frames (161 = 6.7 s)",
-  "prehistoric_motion_min": 0.40,
+  "prehistoric_motion_min": 0.4,
   "dino_ltx_min": 2,
   "wow_max_s": 45,
   "ltx_frames": 161
@@ -137,7 +185,13 @@
   "_manual_left_15_11": "owner 15.11: the first film of the real-footage format goes up private without a date; the owner watches it, then approve.yml gives it its slot",
   "qa_waived": {
    "_note": "an exception by the owner for ONE film: these blocking checks are not held against it (release.qa_passed). Never a general switch; new films are checked in full.",
-   "megalodon": {"checks": ["match", "frames"], "why": "owner 15.11 in chat: the film goes out today. match: 140 of 415 shots got no answer (Gemini server errors), 2 wrong of the 275 answered, limit 2; frames: a download came back cut short, the render's own check of the same picture passed (316 frames, no errors)"}
+   "megalodon": {
+    "checks": [
+     "match",
+     "frames"
+    ],
+    "why": "owner 15.11 in chat: the film goes out today. match: 140 of 415 shots got no answer (Gemini server errors), 2 wrong of the 275 answered, limit 2; frames: a download came back cut short, the render's own check of the same picture passed (316 frames, no errors)"
+   }
   },
   "_no_approve": "owner 10.11: no approve - after QA and the viewer gate an episode is uploaded and scheduled on the nearest free slot (Sun/Wed 17:00 Berlin); the judge picks the thumbnail"
  },
@@ -223,5 +277,20 @@
  },
  "species_batch_clips": 1,
  "_species_batch_note": "08.11, validate-batch.yml run 42475615750: four clips a request agreed with the saved single-clip verdicts on 61 of 93 (65.6 %, species passes 5 of 8, scene passes 20 of 38) - under the owner's 95 %; one clip a request stays",
- "prefilter": {"arch": "ViT-B-16-SigLIP", "pretrained": "webli", "thresholds": {"species": {"accept": null, "reject": 0.04}, "scene": {"accept": null, "reject": -0.0666}}, "_set_on": "2026-11-08, scripts/calibrate_prefilter.py on 788 Gemini verdicts of stock clips (lebende-fossilien, megalodon). species: 8 of 427 passed Gemini, at scores 0.074-0.124; 95% of the failing ones score under 0.039 - reject at 0.04 (the calibration's 0.074 sat on the lowest passing clip; 0.034 kept as margin for so few passing ones). scene: reject at -0.0666 drops 75 of 361, 7 of 79 passing lost (9%, they fall back to the alternates). accept: none - no score reached 95% agreement with Gemini, so every clip that is shown is still confirmed by Gemini."}
+ "prefilter": {
+  "arch": "ViT-B-16-SigLIP",
+  "pretrained": "webli",
+  "thresholds": {
+   "species": {
+    "accept": null,
+    "reject": 0.04
+   },
+   "scene": {
+    "accept": null,
+    "reject": -0.0666
+   }
+  },
+  "_set_on": "2026-11-08, scripts/calibrate_prefilter.py on 788 Gemini verdicts of stock clips (lebende-fossilien, megalodon). species: 8 of 427 passed Gemini, at scores 0.074-0.124; 95% of the failing ones score under 0.039 - reject at 0.04 (the calibration's 0.074 sat on the lowest passing clip; 0.034 kept as margin for so few passing ones). scene: reject at -0.0666 drops 75 of 361, 7 of 79 passing lost (9%, they fall back to the alternates). accept: none - no score reached 95% agreement with Gemini, so every clip that is shown is still confirmed by Gemini."
+ },
+ "format_ready": false
 }
