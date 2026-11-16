@@ -14,7 +14,7 @@ on:
         default: "check"
       max:
         description: "pictures to look at in this run"
-        default: "300"
+        default: "450"
 
 permissions:
   contents: write
@@ -33,7 +33,7 @@ jobs:
     env:
       GEMINI_API_KEY_PH: ${{ secrets.GEMINI_API_KEY_PH }}
       CMD: ${{ github.event.inputs.cmd || 'check' }}
-      MAX: ${{ github.event.inputs.max || '300' }}
+      MAX: ${{ github.event.inputs.max || '450' }}
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -61,8 +61,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/library.json assets/library_checks.json 2>/dev/null || true
-          for f in state/llm_usage; do [ -e "$f" ] && git add -A "$f"; done
+          # each path on its own: one missing path makes a whole `git add` add nothing
+          for f in assets/library.json assets/library_checks.json state/llm_usage; do
+            if [ -e "$f" ]; then git add -A "$f"; fi
+          done
           git diff --cached --quiet && exit 0
           git commit -q -m "library: $CMD $(date -u +%Y-%m-%d)"
           for i in 1 2 3 4 5; do git pull -q --rebase --autostash origin main && git push -q origin HEAD:main && exit 0; sleep $((i * 10)); done

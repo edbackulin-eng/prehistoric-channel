@@ -433,7 +433,17 @@ def check(max_items=300, batch=10):
     lib, done = load(), checks()
     todo = [it for it in lib["items"].values() if it["id"] not in done and it.get("thumb_url")
             and it["kind"] not in ("scan3d", "silhouette")]
-    todo.sort(key=lambda it: (-len(it.get("animals") or []), it["id"]))
+    # the first episodes' animals first (mosasaurier, then the queue in order), old public-domain art before photos
+    order = {}
+    try:
+        q = json.loads((ROOT / "topics" / "queue.json").read_text(encoding="utf-8"))["topics"]
+        for n, t in enumerate(x for x in q if x.get("status") == "queued"):
+            for a in tags_of(" ".join([t["slug"], t.get("title", ""), t.get("focus", "")]))[0]:
+                order.setdefault(a, n)
+    except Exception:                                                    # noqa: BLE001
+        pass
+    todo.sort(key=lambda it: (min([order.get(a, 99) for a in it.get("animals") or []] or [99]),
+                              it.get("license_kind") != "pd", it["kind"] not in ("illustration", "plate"), it["id"]))
     todo = todo[:max_items]
     log.info("pictures to look at: %d of %d not judged yet", len(todo),
              sum(1 for it in lib["items"].values() if it["id"] not in done and it["kind"] not in ("scan3d", "silhouette")))
