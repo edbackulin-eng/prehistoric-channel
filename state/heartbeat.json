@@ -1,8 +1,8 @@
 {
  "date": "2026-11-17",
- "checked_at": "2026-11-17T00:11:22Z",
+ "checked_at": "2026-11-17T00:41:30Z",
  "ahead": [],
  "actions": [
-  "reran episode.yml 43977509973 (attempt 4; 'build / The format is being rebuilt (owner 16.11) - nothing built, no quota spent' 1/3 today)"
+  "reran episode.yml 43977509973 (attempt 5; 'build / The format is being rebuilt (owner 16.11) - nothing built, no quota spent' 2/3 today)"
  ]
 }
