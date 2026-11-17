@@ -33,7 +33,21 @@ env:
   GH_TOKEN: ${{ github.token }}
 
 jobs:
+  gate:
+    runs-on: ubuntu-24.04
+    outputs:
+      ready: ${{ steps.g.outputs.ready }}
+    steps:
+      - uses: actions/checkout@v5
+      - id: g
+        name: The format is being rebuilt (owner 16.11) - nothing built, no quota spent
+        run: |
+          if why=$(python automation/format_gate.py); then echo "ready=true" >> "$GITHUB_OUTPUT"
+          else echo "ready=false" >> "$GITHUB_OUTPUT"; echo "::notice::$why"; fi
+
   build:
+    needs: gate
+    if: needs.gate.outputs.ready == 'true'
     runs-on: ubuntu-24.04
     timeout-minutes: 355
     env:
@@ -58,8 +72,6 @@ jobs:
           path: assets/models/open_clip
           key: open-clip-ViT-B-16-SigLIP-webli-1
       - run: pip install -q torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu && pip install -q -r requirements-prefilter.txt
-      - name: The format is being rebuilt (owner 16.11) - nothing built, no quota spent
-        run: python automation/format_gate.py
       - name: Git identity
         run: |
           git config user.name "github-actions[bot]"

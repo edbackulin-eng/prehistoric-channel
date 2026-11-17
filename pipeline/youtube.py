@@ -161,13 +161,28 @@ def slug_tag(slug):
     return f"urzeit-{slug}"
 
 
+def guarded_videos(yt):
+    """Owner 17.11 (core/ytguard.py, the same in every channel): the token is this channel's, the whole
+    list is read (every page, retried) and holds every id the state knows - else Doubt, no upload."""
+    from core import ytguard
+    cfg = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))
+    ytguard.check_channel(yt, cfg.get("youtube_channel_id"))
+    st = ROOT / "state" / "episodes.json"
+    rows = json.loads(st.read_text(encoding="utf-8")) if st.exists() else []
+    rows = rows if isinstance(rows, list) else list(rows.values())
+    return ytguard.all_uploads(yt, [r.get("youtube_id") for r in rows if r.get("youtube_id")])
+
+
 def already_on_channel(slug, title, yt, ignore=()):
-    """The episode's video if the channel has one (same title or the episode's tag), else None.
-    `ignore`: ids of rejected videos that a rebuild replaces."""
-    for v in channel_videos(yt):
+    """The episode's video if the channel has one (its marker, the same title or the episode's tag), else
+    None. `ignore`: ids of rejected videos that a rebuild replaces."""
+    from core import ytguard
+    marker = ytguard.ref("urzeit", slug)
+    for v in guarded_videos(yt):
         if v["id"] in ignore:
             continue
-        if v["title"].strip().casefold() == title[:100].strip().casefold() or slug_tag(slug) in v["tags"]:
+        if marker in v["description"] or v["title"].strip().casefold() == title[:100].strip().casefold() \
+                or slug_tag(slug) in v["tags"]:
             return v
     return None
 
@@ -217,6 +232,10 @@ def upload(slug, release_dir, title, description, tags, publish_at, yt=None, ign
     release_dir = Path(release_dir)
     media = MediaFileUpload(str(release_dir / "video.mp4"), chunksize=CHUNK_MB * 1024 * 1024, resumable=True,
                             mimetype="video/mp4")
+    from core import ytguard
+    marker_ref = ytguard.ref("urzeit", slug)
+    if marker_ref not in description:
+        description = description[:5000 - len(marker_ref) - 2].rstrip() + "\n\n" + marker_ref
     req = yt.videos().insert(part="snippet,status", body=body(title, description, list(tags) + [slug_tag(slug)],
                                                               publish_at), media_body=media)
     response, last = None, -1

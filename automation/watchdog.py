@@ -47,7 +47,9 @@ OWNER = REPO.split("/")[0]
 CFG = json.loads((ROOT / "config" / "channel.json").read_text(encoding="utf-8"))
 WATCHED = {"episode.yml": 7, "render.yml": 10, "upload.yml": 3,      # hours before a run counts as hung
            "restyle.yml": 3}       # a script being retold: no build of it may start meanwhile
-DAILY_RERUNS = 3          # reruns of one failing step a UTC day; then it waits for the next day
+DAILY_RERUNS = 1          # owner 17.11: one rerun of a failing step a UTC day; then it waits for the next day
+NO_RERUN = ("format is being rebuilt", "format_gate")      # a deliberate stop is not a failure to repeat
+QUOTA_MARKS = ("429", "RESOURCE_EXHAUSTED", "quota", "Too Many Requests")
 TOPIC_GIVE_UPS = 2        # owner 12.11: days a topic may give up before the next one is built
 REBUILDS = 2              # renders again after a failed QA before the topic is skipped
 SETTLE_MIN = 12
@@ -322,6 +324,17 @@ def check_runs(mem, actions):
         reruns = mem.setdefault("reruns", [])
         if f"{rid}/{attempt}" in {r["run"] for r in reruns}:
             continue                       # this failure has had its answer (a rerun or the stop)
+        if any(m.lower() in sig.lower() for m in NO_RERUN):
+            reruns.append({"run": f"{rid}/{attempt}", "wf": wf, "sig": sig, "day": day, "rerun": False})
+            mem["reruns"] = reruns[-300:]
+            continue                       # owner 17.11: a deliberate stop waits, nothing is rerun
+        logf = subprocess.run(["gh", "run", "view", str(rid), "-R", REPO, "--log-failed"],
+                              capture_output=True, text=True).stdout[-20000:]
+        if any(m.lower() in logf.lower() for m in QUOTA_MARKS):
+            reruns.append({"run": f"{rid}/{attempt}", "wf": wf, "sig": sig, "day": day, "rerun": False})
+            mem["reruns"] = reruns[-300:]
+            actions.append(f"{wf} {rid} stopped on a spent quota; it waits for the quota to turn (no rerun)")
+            continue
         done_today = sum(1 for r in reruns if r["day"] == day and r["wf"] == wf and r["sig"] == sig
                          and r.get("rerun"))
         if done_today < DAILY_RERUNS:
