@@ -1,0 +1,73 @@
+{
+ "animals": [
+  {
+   "key": "mammuthus",
+   "name_de": "Wollhaarmammut",
+   "latin": "Mammuthus primigenius",
+   "name_en": "woolly mammoth",
+   "extinct": true,
+   "queries": [
+    "woolly mammoth",
+    "mammoth skeleton museum",
+    "mammoth tusk",
+    "Mammuthus primigenius",
+    "frozen mammoth"
+   ]
+  },
+  {
+   "key": "elephant",
+   "name_de": "Asiatischer Elefant",
+   "latin": "Elephas maximus",
+   "name_en": "asian elephant",
+   "extinct": false,
+   "relative_of": "mammuthus",
+   "queries": [
+    "asian elephant",
+    "elephant herd walking"
+   ]
+  }
+ ],
+ "discovery": {
+  "people": [
+   "Otto Herz",
+   "Eugen Pfizenmayer",
+   "Michail Adams",
+   "Ossip Schumachow",
+   "Georges Cuvier",
+   "Johann Friedrich Blumenbach"
+  ],
+  "places": [
+   "Beresowka",
+   "Lena-Delta",
+   "Jakutsk",
+   "Sankt Petersburg"
+  ],
+  "years": [
+   "1799",
+   "1806",
+   "1900",
+   "1901"
+  ],
+  "queries": [
+   "Berezovka mammoth",
+   "Adams mammoth",
+   "mammoth Zoological Museum Saint Petersburg",
+   "Otto Herz mammoth expedition",
+   "Cuvier mammoth elephant",
+   "Lena delta mammoth",
+   "Pfizenmayer mammoth"
+  ]
+ },
+ "science": [
+  "mammoth tusk excavation",
+  "permafrost excavation",
+  "fossil preparation lab",
+  "natural history museum skeleton",
+  "mammoth skeleton museum"
+ ],
+ "landscapes": [
+  "siberia tundra",
+  "permafrost river bank",
+  "snowy taiga"
+ ]
+}

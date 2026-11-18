@@ -1,0 +1,34 @@
+{
+ "_note": "owner 18.11: interim episode from the checked library while the then-and-now format is built",
+ "places": [
+  {
+   "name": "Lyme Regis",
+   "sub": "Dorset, England",
+   "lat": 50.725,
+   "lon": -2.936,
+   "words": [
+    "Lyme",
+    "Dorset"
+   ]
+  },
+  {
+   "name": "London",
+   "sub": "Geological Society",
+   "lat": 51.51,
+   "lon": -0.13,
+   "words": [
+    "London"
+   ]
+  },
+  {
+   "name": "Paris",
+   "sub": "Georges Cuvier",
+   "lat": 48.86,
+   "lon": 2.35,
+   "words": [
+    "Paris",
+    "Cuvier"
+   ]
+  }
+ ]
+}

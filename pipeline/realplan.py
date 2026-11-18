@@ -324,6 +324,26 @@ def build(slug, timeline, narration_s, parts=20):
         a_["end"] = b_["start"]
     shots[-1]["end"] = round(end_all, 3)
 
+    # ---- the maps of the find (owner 18.11, interim episodes): the first shot of a line that names a place
+    # of the story becomes the animated map of that place (once per place); its picture is free again
+    maps_done, map_lines = set(), set()
+    for s in shots:
+        if s["line"] in map_lines:
+            continue
+        text = timeline[s["line"]]["text"]
+        for p in pool.get("places") or []:
+            if p["name"] in maps_done:
+                continue
+            if any(re.search(rf"{re.escape(w)}", text, re.I) for w in (p.get("words") or [p["name"]])):
+                for k_ in ("clip", "image", "still_url", "need", "species", "license", "author", "page", "source"):
+                    s.pop(k_, None)
+                s.update({"kind": "anim", "anim": "map", "pool_id": None, "category": "map",
+                          "what": f"Karte: {p['name']}", "caption": p.get("sub"),
+                          "places": [{"name": p["name"], "sub": p.get("sub"), "lat": p["lat"], "lon": p["lon"]}]})
+                maps_done.add(p["name"])
+                map_lines.add(s["line"])
+                break
+
     # ---- transitions, moves, atmosphere
     for n, s in enumerate(shots):
         first_of_section = n == 0 or shots[n - 1]["section"] != s["section"]
@@ -346,7 +366,7 @@ def build(slug, timeline, narration_s, parts=20):
         if not sections or sections[-1]["name"] != s["section"]:
             sections.append({"name": s["section"], "start": s["start"], "end": s["end"]})
         sections[-1]["end"] = s["end"]
-    ids = [s["pool_id"] for s in shots]
+    ids = [s["pool_id"] for s in shots if s.get("pool_id")]
     held = [round(s["start"]) for s in shots if s.get("held")]
     from pipeline import docplan
     checks = {"format": "real", "shots": len(shots), "unique_pictures": len(set(ids)), "repeats": len(ids) - len(set(ids)),
@@ -358,7 +378,7 @@ def build(slug, timeline, narration_s, parts=20):
               "longest_shot_s": round(max(s["duration"] for s in shots), 1),
               "stills_over_6s": [round(s["start"]) for s in shots if s["kind"] == "photo"
                                  and s["duration"] > STILL_MAX_S + 0.05][:20],
-              "photo_runs_over_3": runs_over(shots, PLAIN_RUN_MAX)}
+              "photo_runs_over_3": runs_over(shots, PLAIN_RUN_MAX), "maps": sorted(maps_done)}
     assert checks["repeats"] == 0, "a picture used twice"
     plan = {"slug": slug, "format": "real", "narration_s": round(narration_s, 3), "total_s": round(end_all, 3),
             "xfade_s": XFADE_S, "shots": shots, "sections": sections, "checks": checks,
@@ -368,7 +388,7 @@ def build(slug, timeline, narration_s, parts=20):
     spec = {"lines": [{"n": i, "text": l["text"], "beats": [{"species": k} for k in sorted(tags[i]["animals"])],
                        "want": tags[i]["want"]} for i, l in enumerate(timeline)], "format": "real"}
     (ep / "shots.json").write_text(json.dumps(spec, indent=1, ensure_ascii=False), encoding="utf-8")
-    used_items = {s["pool_id"]: by_id[s["pool_id"]] for s in shots}
+    used_items = {s["pool_id"]: by_id[s["pool_id"]] for s in shots if s.get("pool_id")}
     (ep / "footage.json").write_text(json.dumps(used_items, indent=1, ensure_ascii=False), encoding="utf-8")
     return plan
 

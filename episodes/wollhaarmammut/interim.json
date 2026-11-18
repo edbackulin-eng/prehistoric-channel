@@ -1,0 +1,53 @@
+{
+ "_note": "owner 18.11: interim episode from the checked library while the then-and-now format is built",
+ "places": [
+  {
+   "name": "Beresowka",
+   "sub": "Ostsibirien, 1900",
+   "lat": 67.0,
+   "lon": 152.5,
+   "words": [
+    "Beresowka",
+    "Berjosowka",
+    "Kolyma"
+   ]
+  },
+  {
+   "name": "Lena-Delta",
+   "sub": "Adams-Mammut, 1799",
+   "lat": 72.4,
+   "lon": 126.5,
+   "words": [
+    "Lena"
+   ]
+  },
+  {
+   "name": "Jakutsk",
+   "sub": "Sibirien",
+   "lat": 62.03,
+   "lon": 129.73,
+   "words": [
+    "Jakutsk"
+   ]
+  },
+  {
+   "name": "Sankt Petersburg",
+   "sub": "Zoologisches Museum",
+   "lat": 59.94,
+   "lon": 30.31,
+   "words": [
+    "Petersburg"
+   ]
+  },
+  {
+   "name": "Paris",
+   "sub": "Georges Cuvier",
+   "lat": 48.86,
+   "lon": 2.35,
+   "words": [
+    "Paris",
+    "Cuvier"
+   ]
+  }
+ ]
+}

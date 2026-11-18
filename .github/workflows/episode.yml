@@ -42,7 +42,8 @@ jobs:
       - id: g
         name: The format is being rebuilt (owner 16.11) - nothing built, no quota spent
         run: |
-          if why=$(python automation/format_gate.py); then echo "ready=true" >> "$GITHUB_OUTPUT"
+          # owner 18.11: an interim episode given by slug passes while the new format is built
+          if why=$(python automation/format_gate.py "${{ inputs.slug }}"); then echo "ready=true" >> "$GITHUB_OUTPUT"
           else echo "ready=false" >> "$GITHUB_OUTPUT"; echo "::notice::$why"; fi
 
   build:
@@ -83,7 +84,10 @@ jobs:
           exit 1
           EOF
       - name: The channel's format (owner 15.11 - real footage only, no FLUX/LTX/2.5D)
-        run: echo "REAL=$(python -c "import json;print(1 if json.load(open('config/channel.json',encoding='utf-8')).get('format')=='real' else 0)")" >> "$GITHUB_ENV"
+        run: |
+          # owner 18.11: an interim episode is cut like the real format, from the library and real footage
+          echo "REAL=$(python -c "import json,sys;c=json.load(open('config/channel.json',encoding='utf-8'));print(1 if c.get('format')=='real' or sys.argv[1] in ((c.get('interim') or {}).get('slugs') or []) else 0)" "${{ inputs.slug }}")" >> "$GITHUB_ENV"
+          echo "INTERIM=$(python automation/format_gate.py "${{ inputs.slug }}" >/dev/null && [ -n "${{ inputs.slug }}" ] && python -c "import json,sys;c=json.load(open('config/channel.json',encoding='utf-8'));print(1 if sys.argv[1] in ((c.get('interim') or {}).get('slugs') or []) else 0)" "${{ inputs.slug }}" || echo 0)" >> "$GITHUB_ENV"
       - id: pick
         name: Topic (real format - only one whose real material is enough, checked before the script)
         run: |
@@ -93,7 +97,8 @@ jobs:
       - name: The real pictures of a topic given by hand (its pool, if not there yet)
         if: inputs.slug != '' && env.REAL == '1'
         run: |
-          [ -f "episodes/${{ inputs.slug }}/pool.json" ] || python -m pipeline.realpool "${{ inputs.slug }}"
+          if [ "$INTERIM" = "1" ]; then [ -f "episodes/${{ inputs.slug }}/pool.json" ] || python -m pipeline.libpool "${{ inputs.slug }}"
+          else [ -f "episodes/${{ inputs.slug }}/pool.json" ] || python -m pipeline.realpool "${{ inputs.slug }}"; fi
           git add "episodes/${{ inputs.slug }}" && bash "$RUNNER_TEMP/push.sh" "Real pictures of ${{ inputs.slug }}"
       - name: The episode, for every later step and its log
         run: echo "SLUG=${{ steps.pick.outputs.slug }}" >> "$GITHUB_ENV"

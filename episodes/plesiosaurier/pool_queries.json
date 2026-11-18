@@ -1,0 +1,71 @@
+{
+ "animals": [
+  {
+   "key": "plesiosaurus",
+   "name_de": "Plesiosaurus",
+   "latin": "Plesiosaurus dolichodeirus",
+   "name_en": "plesiosaur",
+   "extinct": true,
+   "queries": [
+    "Plesiosaurus fossil",
+    "plesiosaur skeleton museum",
+    "Plesiosaurus dolichodeirus",
+    "plesiosaur"
+   ]
+  },
+  {
+   "key": "ichthyosaurus",
+   "name_de": "Ichthyosaurus",
+   "latin": "Ichthyosaurus communis",
+   "name_en": "ichthyosaur",
+   "extinct": true,
+   "queries": [
+    "Ichthyosaurus fossil",
+    "ichthyosaur skeleton",
+    "Ichthyosaurus communis"
+   ]
+  }
+ ],
+ "discovery": {
+  "people": [
+   "Mary Anning",
+   "Joseph Anning",
+   "William Conybeare",
+   "Henry De la Beche",
+   "William Buckland",
+   "Georges Cuvier"
+  ],
+  "places": [
+   "Lyme Regis",
+   "Dorset",
+   "London"
+  ],
+  "years": [
+   "1811",
+   "1821",
+   "1823",
+   "1824",
+   "1830"
+  ],
+  "queries": [
+   "Mary Anning",
+   "Lyme Regis fossil",
+   "Duria Antiquior",
+   "Conybeare plesiosaurus",
+   "Anning ichthyosaurus",
+   "Jurassic Coast Lyme Regis",
+   "Geological Society London 1824"
+  ]
+ },
+ "science": [
+  "ammonite fossil beach",
+  "fossil hunting cliff",
+  "marine reptile fossil museum",
+  "fossil preparation lab"
+ ],
+ "landscapes": [
+  "Lyme Regis coast",
+  "jurassic coast cliffs",
+  "stormy sea cliffs"
+ ]
+}

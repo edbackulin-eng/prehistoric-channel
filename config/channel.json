@@ -106,7 +106,9 @@
   "pinned": {
    "_note": "owner 18.11: mosasaurier (the first film of the new format) moved to Sunday 29.11 17:00 Berlin, the owner approves it 28.11 (was 22.11 / 21.11); the rest on the free Sun/Wed slots in turn",
    "megalodon": "2026-11-15",
-   "mosasaurier": "2026-11-29"
+   "mosasaurier": "2026-11-29",
+   "wollhaarmammut": "2026-11-22",
+   "plesiosaurier": "2026-11-25"
   },
   "privacy": "private",
   "contains_synthetic_media": false,
@@ -293,5 +295,6 @@
   "_set_on": "2026-11-08, scripts/calibrate_prefilter.py on 788 Gemini verdicts of stock clips (lebende-fossilien, megalodon). species: 8 of 427 passed Gemini, at scores 0.074-0.124; 95% of the failing ones score under 0.039 - reject at 0.04 (the calibration's 0.074 sat on the lowest passing clip; 0.034 kept as margin for so few passing ones). scene: reject at -0.0666 drops 75 of 361, 7 of 79 passing lost (9%, they fall back to the alternates). accept: none - no score reached 95% agreement with Gemini, so every clip that is shown is still confirmed by Gemini."
  },
  "format_ready": false,
+ "interim": {"_note": "owner 18.11: no pause - until then_now is ready, interim episodes cut from the checked library, real footage and maps of the find (pipeline/libpool.py), German, Piper Thorsten, 8-12 min, Sun/Wed 17:00 Berlin; only these slugs pass the format gate", "slugs": ["wollhaarmammut", "plesiosaurier"]},
  "youtube_channel_id": "UC3V7L-EcpCwJiLOWkgKlUAQ"
 }
