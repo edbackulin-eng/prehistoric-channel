@@ -25,6 +25,9 @@ class _Exec:
         return self.fn()
 
 
+SMOKE_CHANNEL = "UC-smoke"
+
+
 class FakeYT:
     def __init__(self, videos=None, fail_captions=True, fail_thumb=True):
         self.videos_ = list(videos or [])
@@ -34,7 +37,8 @@ class FakeYT:
 
     def channels(self):
         return type("C", (), {"list": lambda s, **k: _Exec(lambda: {"items": [
-            {"contentDetails": {"relatedPlaylists": {"uploads": "UU"}}}]})})()
+            {"id": SMOKE_CHANNEL, "snippet": {"title": "smoke"},
+             "contentDetails": {"relatedPlaylists": {"uploads": "UU"}}}]})})()
 
     def playlistItems(self):
         vs = self.videos_
@@ -82,7 +86,11 @@ class FakeYT:
 
 
 def run(work):
+    # 17.11: the shared guard checks the token's channel against config; the fake channel is the smoke's own,
+    # and the state's real video ids are not on it
+    from core import ytguard
     from pipeline import youtube
+    youtube.guarded_videos = lambda yt: (ytguard.check_channel(yt, SMOKE_CHANNEL), ytguard.all_uploads(yt))[1]
     out = []
     slug = "smoke-dup"
     ep = ROOT / "episodes" / slug
