@@ -95,6 +95,8 @@ CHECKS = {"YouTube": youtube, "Claude": claude, "Kaggle": kaggle, "Gemini": gemi
 
 
 def email(subject, body):
+    print(f"LETTER (mail is off (owner 18.11): the text stays in the Actions log, nobody is written to): {subject}\n{body}")
+    return
     r = subprocess.run(["gh", "issue", "list", "-R", REPO, "--label", "run-log", "--state", "open",
                         "--json", "number"], capture_output=True, text=True)
     issues = json.loads(r.stdout or "[]")

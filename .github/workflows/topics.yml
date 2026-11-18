@@ -39,4 +39,4 @@ jobs:
         if: failure()
         run: |
           n=$(gh issue list -R ${{ github.repository }} --label run-log --state open --json number --jq '.[0].number // empty')
-          [ -n "$n" ] && gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} topic refill failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          [ -n "$n" ] && : gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} topic refill failed: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

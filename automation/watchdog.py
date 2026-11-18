@@ -81,6 +81,8 @@ def memory():
 
 
 def email(key, subject, body, mem):
+    print(f"LETTER (mail is off (owner 18.11): the text stays in the Actions log, nobody is written to): {subject}\n{body}")
+    return
     if key in mem["emailed"]:
         return
     issues = gh("issue", "list", "-R", REPO, "--label", "run-log", "--state", "open", "--json", "number")

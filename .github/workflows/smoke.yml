@@ -75,4 +75,4 @@ jobs:
         if: failure() && (inputs.ref || 'dev') == 'dev'
         run: |
           n=$(gh issue list -R ${{ github.repository }} --label run-log --state open --json number --jq '.[0].number // empty')
-          [ -n "$n" ] && gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} **smoke test failed - the change was NOT moved to main**: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          [ -n "$n" ] && : gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} **smoke test failed - the change was NOT moved to main**: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"

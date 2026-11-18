@@ -307,7 +307,7 @@ jobs:
         run: |
           why=$(python -c "import json;q=json.load(open('work/$SLUG/release/qa.json'));print(chr(10).join('- **'+c['name']+'**: '+c.get('detail','') for c in q['checks'] if not c['ok']))" 2>/dev/null || echo "- no QA report")
           n=$(gh issue list -R ${{ github.repository }} --label run-log --state open --json number --jq '.[0].number // empty')
-          [ -n "$n" ] && gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} **QA failed, not uploaded** ($SLUG, render ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}):
+          [ -n "$n" ] && : gh issue comment "$n" -R ${{ github.repository }} --body "@${{ github.repository_owner }} **QA failed, not uploaded** ($SLUG, render ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}):
           $why
 
           Report: ${{ github.server_url }}/${{ github.repository }}/tree/main/qa/$SLUG"
