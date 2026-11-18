@@ -66,6 +66,7 @@ jobs:
     timeout-minutes: 150
     strategy:
       fail-fast: false
+      max-parallel: 6   # account limit: 20 jobs at once for all channels (channels-monitor docs/render-schedule.md)
       matrix:
         k: ${{ fromJSON(needs.shards.outputs.list) }}
     env:
@@ -219,6 +220,7 @@ jobs:
     timeout-minutes: 120
     strategy:
       fail-fast: false
+      max-parallel: 6   # account limit: 20 jobs at once for all channels (channels-monitor docs/render-schedule.md)
       matrix:
         k: ${{ fromJSON(needs.prepare.outputs.parts) }}
     steps:

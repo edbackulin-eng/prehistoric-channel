@@ -136,7 +136,15 @@ def upload(slug, release_dir=None):
     r = rows()
     row = row_of(r, slug)
     manual = manual_left() > 0
-    slot = None if manual else youtube.next_slot([x["publish_at"] for x in r if x.get("publish_at")], slug=slug)
+    # owner 17.11: the days already held on YouTube count too (not the state alone); in doubt, no upload
+    from core import ytguard
+    try:
+        held = ytguard.channel_dates(youtube.guarded_videos(youtube.service()))
+    except ytguard.Doubt as e:
+        ytguard.notify(f"Urzeit-Archiv: upload of {slug} cancelled (not sure about the channel)", str(e))
+        raise SystemExit(f"{slug}: not sure about the channel, nothing uploaded: {e}")
+    slot = None if manual else youtube.next_slot([x["publish_at"] for x in r if x.get("publish_at")] + held,
+                                                 slug=slug)
     title, desc, tags = description(slug, release_dir)
     marker = ROOT / "episodes" / slug / "uploaded.json"
 

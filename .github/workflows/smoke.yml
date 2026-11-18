@@ -39,16 +39,31 @@ jobs:
           python-version: "3.11"
       - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - run: pip install -q -r requirements.txt google-api-python-client google-auth
+      # 17.11: kept between runs - every smoke run fetched them again and Wikimedia began answering 429
+      - uses: actions/cache@v4
+        with:
+          path: |
+            assets/music/*.mp3
+            assets/music/*.ogg
+            assets/ambience/*.mp3
+            assets/ambience/*.ogg
+            assets/models
+            cache/maps/bluemarble_21600.jpg
+          key: smoke-assets-${{ hashFiles('assets/music/library.json', 'assets/ambience/library.json', 'automation/fetch_models.py') }}
+          restore-keys: smoke-assets-
       - name: Models, music, atmosphere, maps
         run: python automation/fetch_assets.py
       - name: Smoke test
         run: python scripts/smoke.py
+      - name: Shared guards (owner 17.11)
+        run: pip install -q pyyaml google-api-python-client google-auth && python -X utf8 scripts/smoke_guards.py
       - name: Promote dev to main
         if: (inputs.ref || 'dev') == 'dev'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch -q origin main dev
+          git reset -q --hard                      # a smoke run may leave tracked files changed
           git checkout -q -B main origin/main
           git merge --no-edit origin/dev -m "Promote dev ($(git rev-parse --short origin/dev)) after a passing smoke test"
           for i in 1 2 3 4 5; do

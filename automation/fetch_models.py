@@ -35,7 +35,9 @@ def fetch(url, dest, min_bytes):
     import time
     for attempt in range(6):
         try:
-            req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0 (prehistoric-channel)"})
+            # 17.11: Wikimedia answers 429 to browser-like agents
+            ua = "prehistoric-channel/1.0 (https://github.com/edbackulin-eng/prehistoric-channel; automated asset fetch)"
+            req = urllib.request.Request(url, headers={"User-Agent": ua})
             with urllib.request.urlopen(req, timeout=900) as r, open(tmp, "wb") as fh:
                 while chunk := r.read(1 << 20):
                     fh.write(chunk)
