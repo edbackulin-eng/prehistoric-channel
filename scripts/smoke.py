@@ -444,8 +444,9 @@ def main():
     finally:
         (watchdog.runs, watchdog.gh, watchdog.failed_step, watchdog.failed_log, watchdog.email, watchdog.now,
          llm_budget.defer, llm_budget.deferred_now) = saved
-    check("watchdog: 3 reruns of one step a day, then deferred to tomorrow and one letter",
-          len(reruns) == 3 and deferred and deferred[0][0] == "lebende-fossilien" and len({k for k, _ in letters}) == 1,
+    # owner 17.11: one rerun a day (was 3)
+    check(f"watchdog: {watchdog.DAILY_RERUNS} rerun(s) of one step a day, then deferred to tomorrow and one letter",
+          len(reruns) == watchdog.DAILY_RERUNS and deferred and deferred[0][0] == "lebende-fossilien" and len({k for k, _ in letters}) == 1,
           str((len(reruns), deferred[:1], letters)))
     # owner 12.11: no pause waits for the owner - a topic giving up on two days is skipped; the same
     # step giving up for two topics pauses the builds until the code changes; a QA fault is rebuilt
