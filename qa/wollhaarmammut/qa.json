@@ -1,22 +1,21 @@
 {
  "slug": "wollhaarmammut",
- "pass": false,
+ "pass": true,
  "score": 0.54,
  "checks": [
   {
    "name": "hook",
    "ok": false,
-   "detail": "9 shots in 30 s, 0 moving animal clips (need 3), not moving or no animal at [0.0, 3.4, 6.9, 10.7, 13.9, 16.1, 20.4, 22.6, 26.0], cuts outside 1.5-3 s: [3.44, 3.44, 3.86, 3.21, 4.29, 3.41, 4.89], sound hit: yes",
+   "detail": "9 shots in 30 s, 0 moving animal clips (need 3), not moving or no animal at [0.0, 3.4, 6.9, 10.8, 13.8, 16.0, 20.1, 22.3, 25.6], cuts outside 1.5-3 s: [3.44, 3.44, 3.92, 4.11, 3.29, 4.85], sound hit: yes",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "subject",
    "ok": true,
-   "detail": "animal shown where told: {'mammuthus': 0.58, 'elephant': 0.72}; another animal than the line names at none s; landscapes 0% (max 15%)",
+   "detail": "animal shown where told: {'mammuthus': 0.54}; another animal than the line names at none s; landscapes 0% (max 15%)",
    "subject_share": {
-    "mammuthus": 0.58,
-    "elephant": 0.72
+    "mammuthus": 0.54
    },
    "landscape_share": 0.0,
    "blocking": false,
@@ -25,8 +24,8 @@
   {
    "name": "pace",
    "ok": true,
-   "detail": "average shot 3.7 s (3-5), hook 3.4 s (1.5-3); shown more than twice: none; again within 3 min: none",
-   "mean_shot_s": 3.72,
+   "detail": "average shot 3.8 s (3-5), hook 3.4 s (1.5-3); shown more than twice: none; again within 3 min: none",
+   "mean_shot_s": 3.81,
    "repeats": {},
    "blocking": false,
    "target": "average shot <= 8.0 s"
@@ -34,21 +33,21 @@
   {
    "name": "music",
    "ok": true,
-   "detail": "music under the voice per minute: [22.31, 22.32, 22.71, 22.44, 22.55, 22.18, 22.27, 22.59, 22.68, 22.81] dB; music as loud as the voice in minute(s): none; music silent 0 s",
+   "detail": "music under the voice per minute: [22.29, 22.53, 22.81, 22.54, 22.52, 22.22, 22.15, 22.49, 22.83, 22.78] dB; music as loud as the voice in minute(s): none; music silent 0 s",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "background",
    "ok": true,
-   "detail": "music + atmosphere under the voice per minute: [22.07, 21.98, 22.11, 21.95, 22.29, 21.99, 22.02, 22.27, 21.96, 22.07] dB (need >= 20); minutes too loud: none",
+   "detail": "music + atmosphere under the voice per minute: [22.11, 21.95, 22.15, 21.95, 22.24, 21.98, 22.1, 22.14, 21.98, 22.02] dB (need >= 20); minutes too loud: none",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "ambience",
    "ok": true,
-   "detail": "45 atmosphere stretches, only inside their shots; sea under a picture without sea at none s",
+   "detail": "46 atmosphere stretches, only inside their shots; sea under a picture without sea at none s",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
@@ -62,11 +61,11 @@
   {
    "name": "diversity",
    "ok": false,
-   "detail": "main animal (mammuthus) 45% of the film (max 40%); kinds: {'other': '52%', 'main': '45%', 'other_animal': '4%'}; chapters with fewer than 3 kinds: {'story': ['main'], 'climax': ['main', 'other_animal'], 'finale': []}",
+   "detail": "main animal (mammuthus) 43% of the film (max 40%); kinds: {'other': '53%', 'main': '43%', 'other_animal': '4%'}; chapters with fewer than 3 kinds: {'story': ['main', 'other_animal'], 'climax': ['main', 'other_animal'], 'finale': []}",
    "kind_shares": {
-    "main": 0.446,
-    "other": 0.516,
-    "other_animal": 0.039
+    "other": 0.534,
+    "main": 0.426,
+    "other_animal": 0.04
    },
    "blocking": false,
    "target": "the strict rule in its detail"
@@ -74,27 +73,27 @@
   {
    "name": "repeats",
    "ok": false,
-   "detail": "139 sources for 162 shots; more than 2 times: {'img:commons-430274e81c': 11, 'img:commons-921f580fac': 7, 'img:commons-ec78b28e5f': 3}; again within 3 min: {'img:commons-430274e81c': [37, 44, 193, 307, 323, 348, 423, 428, 455, 465, 529], 'img:commons-921f580fac': [60, 85, 197, 360, 370, 438, 457], 'img:commons-ec78b28e5f': [78, 461, 468], 'img:commons-be562c73cd': [151, 243], 'img:commons-f7a5d96463': [339, 495], 'img:lib-commons-bc39f04383': [365, 451]}",
+   "detail": "136 sources for 158 shots; more than 2 times: {'img:commons-8027cbdb6e': 11, 'img:commons-fb0f7ddb4e': 7}; again within 3 min: {'img:commons-2f4852e45f': [0, 160], 'img:lib-commons-a8861290c2': [22, 150], 'img:commons-8027cbdb6e': [33, 37, 60, 103, 196, 334, 367, 394, 421, 427, 575], 'img:commons-fb0f7ddb4e': [41, 78, 234, 343, 363, 379, 437], 'img:commons-be562c73cd': [171, 251], 'img:commons-f7a5d96463': [372, 473]}",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "match",
-   "ok": false,
-   "detail": "162 shots checked against their line: 0 another animal than the voice names (blocks above 2); 15 an animal under a line that names none (reported): [(0.0, 'mammuthus'), (3.4, 'mammuthus'), (20.4, 'mammuthus'), (33.9, 'mammuthus'), (108.1, 'mammuthus'), (110.8, 'mammuthus')]; 14 without an answer",
+   "ok": true,
+   "detail": "158 shots checked against their line: 0 another animal than the voice names (blocks above 2); 10 an animal under a line that names none (reported): [(3.4, 'mammuthus'), (25.6, 'mammuthus'), (30.4, 'mammuthus'), (150.2, 'Mammuthus'), (363.3, 'mammuthus'), (371.5, 'mammuthus')]; 0 without an answer",
    "blocking": true
   },
   {
    "name": "viewer",
    "ok": false,
-   "detail": "25 places a viewer would switch off (max 3): [('0:30', 'unpassend', 'Zeigt völlig zusammenhanglose Wappen statt des Tex'), ('1:00', 'unpassend', 'Bild einer düsteren Statue in Nische passt nicht z'), ('1:30', 'unpassend', 'Flusslandschaft bei Sonnenuntergang passt nicht zu'), ('3:10', 'unpassend', 'Die orangefarbene Wand/Gebäude passt nicht zur sib'), ('3:15', 'unpassend', 'Eine moderne Straßenszene passt nicht zum Kontext '), ('3:30', 'unpassend', 'Die moderne Stadtansicht passt nicht zur historisc'), ('4:05', 'wiederholt', 'Fast identisches Bild eines Knochens wie bei 4:00.'), ('4:05', 'unpassend', 'Zeichnungen von Vögeln/Flügeln, während im Text vo')]",
+   "detail": "32 places a viewer would switch off (max 3): [('0:40', 'unpassend', 'Kirchenorgel passt überhaupt nicht zum Thema Urzei'), ('1:10', 'langweilig', 'Wassergrafik ohne Bezug zum gesprochenen Text.'), ('1:15', 'wiederholt', 'Dasselbe Wasserfall-Bild direkt nochmal.'), ('1:35', 'langweilig', 'Bachlandschaft ohne Handlung oder Tierbezug.'), ('1:40', 'wiederholt', 'Dasselbe Bach-Bild direkt nochmal.'), ('2:05', 'unpassend', 'Ein asiatisches Tempeltor passt überhaupt nicht zu'), ('2:20', 'unpassend', 'Ein Bagger bei Abrissarbeiten hat keinen Bezug zur'), ('2:45', 'unpassend', 'Moderne Stadtansicht von oben passt nicht in die D')]",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "thumbnail",
    "ok": true,
-   "detail": "chosen: thumbnail_r2.jpg; judge: {'animal': 'Mammut', 'animal_big_and_recognisable': True, 'prehistoric_or_living_fossil': True, 'bright': False, 'words_readable': True, 'text': 'URZEIT-MONSTER', 'german_correct': True, 'action_or_trick': False, 'forbidden_seen': [], 'pass': False, 'why': 'Das Bild ist zu dunkel und blass (keine knalligen Farben oder starker Kontrast), das Mammut steht nur unbewegt da (keine Action/Emotion) und es wirkt eher wie eine reale Statue in einem Park als ein packendes Urzeit-Thumbnail.'}",
+   "detail": "chosen: thumbnail_r2.jpg; judge: {'animal': 'Mammut', 'animal_big_and_recognisable': True, 'prehistoric_or_living_fossil': True, 'bright': True, 'words_readable': True, 'text': 'JETZT GEFUNDEN!', 'german_correct': True, 'action_or_trick': False, 'forbidden_seen': [], 'pass': False, 'why': 'Das Bild zeigt kein echtes Eis- oder Action-Szenario, sondern wirkt wie eine normale Museumsstatue im Tageslicht ohne die geforderten knalligen Farben oder dramatischen Effekte.'}",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
@@ -107,7 +106,7 @@
   {
    "name": "text",
    "ok": true,
-   "detail": "thumbnail thumbnail_r2.jpg: text 'URZEIT-MONSTER', German correct True, readable True",
+   "detail": "thumbnail thumbnail_r2.jpg: text 'JETZT GEFUNDEN!', German correct True, readable True",
    "blocking": true
   },
   {
@@ -124,22 +123,22 @@
   },
   {
    "name": "license",
-   "ok": false,
-   "detail": "sources without a confirmed licence: ['lib-commons-4095a95d7a: No restrictions', 'lib-commons-755f0f5d78: No restrictions', 'lib-commons-94d20ef118: No restrictions']",
+   "ok": true,
+   "detail": "sources without a confirmed licence: none",
    "blocking": true
   },
   {
    "name": "photos",
    "ok": false,
    "blocking": false,
-   "detail": "owner 15.11: a photograph at most 6 s ([236, 519] longer), at most 3 in a row without film or archive between (none); video 0.332, stills 0.668, archive 0.188",
+   "detail": "owner 15.11: a photograph at most 6 s ([234] longer), at most 3 in a row without film or archive between (none); video 0.376, stills 0.624, archive 0.185",
    "target": "the strict rule in its detail"
   },
   {
    "name": "unique",
    "ok": true,
    "blocking": false,
-   "detail": "162 pictures, 0 used twice (owner 15.11: each picture once); held on for want of pictures at [236, 510, 519] s",
+   "detail": "158 pictures, 0 used twice (owner 15.11: each picture once); held on for want of pictures at [234, 512, 585] s",
    "target": "the strict rule in its detail"
   },
   {
@@ -149,103 +148,99 @@
    "blocking": true
   }
  ],
- "duration_s": 600.02,
- "rejects": [
-  "lib-commons-4095a95d7a",
-  "lib-commons-755f0f5d78",
-  "lib-commons-94d20ef118"
- ],
+ "duration_s": 597.76,
+ "rejects": [],
  "first_minute_moving": null,
  "levels_per_minute": [
   {
    "minute": 0,
-   "voice_lufs": -17.99,
-   "music_lufs_under_voice": -40.31,
-   "music_lufs": -40.09,
-   "under_db": 22.31,
-   "background_lufs_under_voice": -40.07,
-   "background_under_db": 22.07
-  },
-  {
-   "minute": 1,
-   "voice_lufs": -17.65,
-   "music_lufs_under_voice": -39.97,
-   "music_lufs": -39.33,
-   "under_db": 22.32,
-   "background_lufs_under_voice": -39.63,
-   "background_under_db": 21.98
-  },
-  {
-   "minute": 2,
-   "voice_lufs": -17.52,
-   "music_lufs_under_voice": -40.23,
-   "music_lufs": -39.99,
-   "under_db": 22.71,
-   "background_lufs_under_voice": -39.63,
+   "voice_lufs": -18.03,
+   "music_lufs_under_voice": -40.33,
+   "music_lufs": -40.13,
+   "under_db": 22.29,
+   "background_lufs_under_voice": -40.14,
    "background_under_db": 22.11
   },
   {
+   "minute": 1,
+   "voice_lufs": -17.99,
+   "music_lufs_under_voice": -40.52,
+   "music_lufs": -39.91,
+   "under_db": 22.53,
+   "background_lufs_under_voice": -39.94,
+   "background_under_db": 21.95
+  },
+  {
+   "minute": 2,
+   "voice_lufs": -17.4,
+   "music_lufs_under_voice": -40.21,
+   "music_lufs": -39.95,
+   "under_db": 22.81,
+   "background_lufs_under_voice": -39.55,
+   "background_under_db": 22.15
+  },
+  {
    "minute": 3,
-   "voice_lufs": -17.71,
-   "music_lufs_under_voice": -40.16,
-   "music_lufs": -39.67,
-   "under_db": 22.44,
-   "background_lufs_under_voice": -39.66,
+   "voice_lufs": -17.46,
+   "music_lufs_under_voice": -40.0,
+   "music_lufs": -39.63,
+   "under_db": 22.54,
+   "background_lufs_under_voice": -39.4,
    "background_under_db": 21.95
   },
   {
    "minute": 4,
-   "voice_lufs": -17.52,
-   "music_lufs_under_voice": -40.06,
-   "music_lufs": -39.82,
-   "under_db": 22.55,
-   "background_lufs_under_voice": -39.8,
-   "background_under_db": 22.29
+   "voice_lufs": -17.71,
+   "music_lufs_under_voice": -40.23,
+   "music_lufs": -40.03,
+   "under_db": 22.52,
+   "background_lufs_under_voice": -39.95,
+   "background_under_db": 22.24
   },
   {
    "minute": 5,
-   "voice_lufs": -17.35,
-   "music_lufs_under_voice": -39.53,
-   "music_lufs": -39.05,
-   "under_db": 22.18,
-   "background_lufs_under_voice": -39.34,
-   "background_under_db": 21.99
+   "voice_lufs": -17.33,
+   "music_lufs_under_voice": -39.55,
+   "music_lufs": -39.14,
+   "under_db": 22.22,
+   "background_lufs_under_voice": -39.31,
+   "background_under_db": 21.98
   },
   {
    "minute": 6,
-   "voice_lufs": -16.88,
-   "music_lufs_under_voice": -39.15,
-   "music_lufs": -38.83,
-   "under_db": 22.27,
-   "background_lufs_under_voice": -38.9,
-   "background_under_db": 22.02
+   "voice_lufs": -17.36,
+   "music_lufs_under_voice": -39.51,
+   "music_lufs": -39.28,
+   "under_db": 22.15,
+   "background_lufs_under_voice": -39.46,
+   "background_under_db": 22.1
   },
   {
    "minute": 7,
-   "voice_lufs": -17.36,
-   "music_lufs_under_voice": -39.95,
-   "music_lufs": -39.7,
-   "under_db": 22.59,
-   "background_lufs_under_voice": -39.63,
-   "background_under_db": 22.27
+   "voice_lufs": -17.13,
+   "music_lufs_under_voice": -39.62,
+   "music_lufs": -39.3,
+   "under_db": 22.49,
+   "background_lufs_under_voice": -39.27,
+   "background_under_db": 22.14
   },
   {
    "minute": 8,
-   "voice_lufs": -17.57,
-   "music_lufs_under_voice": -40.25,
-   "music_lufs": -39.73,
-   "under_db": 22.68,
-   "background_lufs_under_voice": -39.53,
-   "background_under_db": 21.96
+   "voice_lufs": -17.3,
+   "music_lufs_under_voice": -40.14,
+   "music_lufs": -39.75,
+   "under_db": 22.83,
+   "background_lufs_under_voice": -39.28,
+   "background_under_db": 21.98
   },
   {
    "minute": 9,
-   "voice_lufs": -17.52,
-   "music_lufs_under_voice": -40.33,
-   "music_lufs": -39.73,
-   "under_db": 22.81,
-   "background_lufs_under_voice": -39.59,
-   "background_under_db": 22.07
+   "voice_lufs": -17.33,
+   "music_lufs_under_voice": -40.1,
+   "music_lufs": -39.65,
+   "under_db": 22.78,
+   "background_lufs_under_voice": -39.34,
+   "background_under_db": 22.02
   }
  ]
 }
