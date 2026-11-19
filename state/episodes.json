@@ -76,7 +76,11 @@
   ],
   "youtube_id": "x-RpMsApFWU",
   "publish_at": null,
-  "uploaded_at": "2026-11-19T20:45:10Z"
+  "uploaded_at": "2026-11-19T20:45:10Z",
+  "extras": {
+   "thumbnail": "set",
+   "subtitles": "off: YouTube's automatic captions (config schedule.upload_subtitles)"
+  }
  },
  {
   "slug": "plesiosaurier",
