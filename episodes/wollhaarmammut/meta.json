@@ -1,0 +1,695 @@
+{
+ "slug": "wollhaarmammut",
+ "title": "Das gefrorene Mammut: Wie Sibirien sein Geheimnis lüftete",
+ "tags": [
+  "Wollhaarmammut",
+  "Sibirien",
+  "Adams-Mammut",
+  "Paläontologie",
+  "Fossilien",
+  "Geschichte der Wissenschaft",
+  "Lena",
+  "Sankt Petersburg",
+  "Eiszeit",
+  "Entdeckungsreise",
+  "Fossile Tiere",
+  "Naturgeschichte",
+  "Museum",
+  "Archäologie",
+  "Permafrost"
+ ],
+ "description": "1799 fand ein Jäger an der Lena ein Tier, das die Wissenschaft seit Jahrhunderten suchte. Die Geschichte des Adams-Mammuts erzählt von Raub, wissenschaftlichen Fehlern und einer Expedition, die die Paläontologie changed.\n\nQuellen:\n- Wollhaarmammut (Wikipedia, de): https://de.wikipedia.org/wiki/Wollhaarmammut\n- Adams-Mammut (Wikipedia, de): https://de.wikipedia.org/wiki/Adams-Mammut\n- Woolly mammoth (Wikipedia, en): https://en.wikipedia.org/wiki/Woolly_mammoth\n- Adams mammoth (Wikipedia, en): https://en.wikipedia.org/wiki/Adams_mammoth",
+ "words": 1363,
+ "minutes_est": 10.6,
+ "fact_check": [
+  {
+   "round": 0,
+   "n": 11,
+   "was": "Ossip Schumachow, ein tungusischer Jäger, sah das Tier.",
+   "verdict": "fix",
+   "text": "Ossip Schumachow, ein ewenkischer Jäger, sah das Tier.",
+   "why": "Die Quellen widersprechen sich bezüglich der Ethnie (tungusisch vs. ewenkisch). Die spezifischere Quelle zum Adams-Mammut bezeichnet ihn als ewenkischen Jäger, was auch mit Zeile 2 übereinstimmt. Zeile 11 nannte ihn fälschlicherweise tungusisch."
+  },
+  {
+   "round": 0,
+   "n": 22,
+   "was": "Doch er wusste nicht, wo genau das Tier lag.",
+   "verdict": "drop",
+   "why": "Die Quelle erwähnt nicht, dass der Aufenthaltsort des Tieres unklar war; Boltunow kannte den Fundort."
+  },
+  {
+   "round": 0,
+   "n": 25,
+   "was": "Was auf dem Spiel stand, war die Antwort auf eine Frage, die Europa beschäftigte.",
+   "verdict": "drop",
+   "why": "Spekulativ und nicht durch die angegebenen Textquellen gestützt in dieser Zuspitzung."
+  },
+  {
+   "round": 0,
+   "n": 26,
+   "was": "Wie konnte ein tropisches Tier im ewigen Eis überleben?",
+   "verdict": "fix",
+   "text": "Wie konnte ein tropisches Tier im ewigen Eis überleben?",
+   "why": "Die Frage bezog sich laut Quelle historisch darauf, wie ein Tier aus den Tropen nach Sibirien gelangen konnte."
+  },
+  {
+   "round": 0,
+   "n": 27,
+   "was": "Die Antwort lag in 200 Metern Tiefe – aber dazu später.",
+   "verdict": "drop",
+   "why": "Behauptet Fakten ('200 Meter Tiefe'), die in den Quellen nicht vorkommen."
+  },
+  {
+   "round": 0,
+   "n": 45,
+   "was": "Drei Kosaken segeln mit ihm die Lena hinab.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Gedeckt durch Quelle 'Adams-Mammut': 'Mit drei Kosaken segelte er die Lena bis zur Mündung hinab.'"
+  },
+  {
+   "round": 0,
+   "n": 54,
+   "was": "1805 schloss sich Adams der gescheiterten Golowkin-Mission nach China an.",
+   "verdict": "fix",
+   "text": "1805 schloss sich Adams der gescheiterten Golowkin-Mission nach China an, die ihn nach Sibirien führte.",
+   "why": "Die Quelle besagt, dass Adams 1805 als Teilnehmer einer Forschergruppe nach Sibirien kam, die sich der Mission angeschlossen hatte. Die Originalzeile impliziert, er sei der Mission selbst (nach China) beigetreten, was ungenau ist, da er in Sibirien blieb."
+  },
+  {
+   "round": 0,
+   "n": 56,
+   "was": "In Jakutsk verriet Boltunow ihm die genaue Fundstelle im Lenadelta.",
+   "verdict": "fix",
+   "text": "In Jakutsk erfuhr Adams von Boltunow von der Entdeckung des Mammuts im Lenadelta.",
+   "why": "Die Quelle sagt, Adams erfuhr von der Entdeckung im Lenadelta. Es wird nicht explizit gesagt, dass Boltunow ihm die 'genaue Fundstelle' verriet, sondern nur, dass er von der Entdeckung erfuhr. Die genaue Fundstelle wurde erst bei der Ankunft in Schumachows Dorf bzw. durch die Reise dorthin ermittelt."
+  },
+  {
+   "round": 0,
+   "n": 58,
+   "was": "Ende Juni erreichte er Schumachows Dorf und traf den Jäger.",
+   "verdict": "fix",
+   "text": "Ende Juni 1806 erreichte er Schumachows Dorf.",
+   "why": "Die Quelle bestätigt das Datum 'Ende Juni 1806' und den Ort 'Schumachows Dorf'. Die Originalzeile behauptet, er 'traf den Jäger'. Die Quelle sagt nur, er kam im Dorf an. Später reisten sie zusammen. Es ist nicht explizit belegt, dass er den Jäger *dort* traf (obwohl es naheliegt, ist es eine zusätzliche Behauptung). Besser: Nur die Ankunft bestätigen."
+  },
+  {
+   "round": 0,
+   "n": 61,
+   "was": "Zehn Personen brauchten Kraft, um die Teile zu heben.",
+   "verdict": "fix",
+   "text": "Zehn Personen brauchten große Schwierigkeiten, um die Teile zu heben.",
+   "why": "Die Quelle zitiert Adams: 'dass zehn Personen ... sie mit großen Schwierigkeiten anheben konnten'. Die Originalzeile sagt 'brauchten Kraft', was eine Interpretation ist. 'Große Schwierigkeiten' ist die direkte Quelle."
+  },
+  {
+   "round": 0,
+   "n": 62,
+   "was": "Die Weichteile gingen bei der Bergung fast komplett verloren.",
+   "verdict": "fix",
+   "text": "Bei der Bergung gingen fast alle Weichteile verloren.",
+   "why": "Die Quelle sagt: 'Bei der Bergung des Skelettes gingen jedoch bis auf die Kopfhaut und die Fußsohlen alle Weichteile verloren.' Die Originalzeile sagt 'fast komplett verloren'. Das ist korrekt, aber 'alle ... bis auf' ist präziser. Allerdings ist 'fast komplett' akzeptabel. Warte, Zeile 63 sagt 'Nur die Kopfhaut und Fußsohlen überlebten'. Das deckt sich. Zeile 62 ist also ok? 'Fast komplett verloren' ist eine zulässige Paraphrase von 'alle ... bis auf [kleine Reste]'. Ich markiere es als ok, wenn ich es nicht überkorrigiere. Aber schauen wir uns Zeile 63 an."
+  },
+  {
+   "round": 0,
+   "n": 63,
+   "was": "Nur die Kopfhaut und Fußsohlen überlebten die Rückreise.",
+   "verdict": "ok",
+   "text": "",
+   "why": ""
+  },
+  {
+   "round": 0,
+   "n": 66,
+   "was": "Die Wölfe hatten bereits die rechte Seite zerstört.",
+   "verdict": "fix",
+   "text": "Die Wölfe hatten bereits die zugängliche Seite des Tieres zerfressen.",
+   "why": "Die Quelle sagt: 'Die zugängliche Seite des gewaltigen Tieres war bereits von Wölfen zerfressen'. Die Originalzeile sagt 'die rechte Seite'. Die Quelle (Adams-Mammut) sagt 'zugängliche Seite'. Die andere Quelle (Wollhaarmammut) sagt 'die linke Körperseite wies aber noch eine gute Haar- und Hautkonservierung auf'. Das impliziert, dass die *andere* (rechte) Seite zerstört war. Also ist 'rechte Seite' korrekt abgeleitet. Aber die Quelle sagt explizit 'zugängliche Seite'. Um sicherzugehen, ist 'zugängliche Seite' die wörtliche Quelle. Allerdings ist die Ableitung 'rechte Seite' logisch konsistent mit 'linke Seite gut erhalten'. Ich lasse es als ok, da es eine logische Konsequenz ist. Warte, die Quelle 'Adams-Mammut' sagt: 'Die zugängliche Seite ... war bereits von Wölfen zerfressen'. Sie sagt nicht explizit 'rechte'. Aber wenn die linke gut war, ist die rechte die zugängliche/zerfressene. Das ist gedeckt."
+  },
+  {
+   "round": 0,
+   "n": 70,
+   "was": "< Die rechte Seite ist ein Schlachtfeld. Wölfe haben das Fleisch zerrissen.",
+   "verdict": "fix",
+   "text": "< Die zugängliche Seite ist ein Schlachtfeld. Wölfe haben das Fleisch zerrissen.",
+   "why": "Die Quelle sagt 'zugängliche Seite'. Die Originalzeile sagt 'rechte Seite'. Wie oben, ist 'rechte' eine Ableitung. Aber die Quelle 'Wollhaarmammut' sagt 'linke ... gute Konservierung'. Das bestätigt, dass die rechte die schlechte ist. Also ist 'rechte Seite' faktisch korrekt. Ich ändere es nicht, es sei denn, es ist eine 'neue Tatsache'. Es ist keine neue Tatsache, sondern eine logische Schlussfolgerung aus den Quellen. Also ok?"
+  },
+  {
+   "round": 0,
+   "n": 73,
+   "was": "Haut und Haar sind dort erhalten, fest im Eis verankert.",
+   "verdict": "fix",
+   "text": "Haut und Haar sind dort erhalten, fest im Eis verankert.",
+   "why": "Die Quelle besagt, dass die linke Seite eine gute Haar- und Hautkonservierung aufwies, aber nicht, dass sie 'fest im Eis verankert' war. Das Tier wurde aus dem Erdreich/Fundort geborgen, nicht aus Eis. Die Behauptung 'fest im Eis verankert' ist eine ungedeckte Tatsache."
+  },
+  {
+   "round": 0,
+   "n": 75,
+   "was": "Sie sind von einer Masse, die jeder Vorstellung widerspricht.",
+   "verdict": "fix",
+   "text": "Sie sind von einer Masse, die jeder Vorstellung widerspricht.",
+   "why": "Die Quelle zitiert Adams: 'von solchen außerordentlichen Ausmaßen, dass zehn Personen ... sie mit großen Schwierigkeiten anheben konnten'. Die Formulierung 'jeder Vorstellung widerspricht' ist eine subjektive Übertreibung, die nicht direkt gedeckt ist, obwohl die Größe 'außerordentlich' war. Besser: 'Sie sind von außerordentlicher Größe.'"
+  },
+  {
+   "round": 0,
+   "n": 76,
+   "was": "Zehn Männer ringen mit einem einzigen Knochen. Erst nach großer Mühe hebt sich das Gewicht.",
+   "verdict": "fix",
+   "text": "Zehn Männer ringen mit einem einzigen Knochen. Erst nach großer Mühe hebt sich das Gewicht.",
+   "why": "Die Quelle sagt: 'zehn Personen ... sie mit großen Schwierigkeiten anheben konnten'. Es geht um das Anheben der Knochen (Plural oder Gesamtheit), nicht spezifisch um 'einen einzigen Knochen'. Zudem ist 'ringen' etwas dramatisiert, aber akzeptabel. Der Hauptfehler ist die Singularisierung 'einen einzigen Knochen', da die Quelle von 'sie' (die Knochen/Teile) spricht. Korrektur: 'Zehn Männer ringen mit den Knochen. Erst nach großer Mühe hebt sich das Gewicht.'"
+  },
+  {
+   "round": 0,
+   "n": 84,
+   "was": "Adams kauft unterwegs ein Paar Stoßzähne.",
+   "verdict": "fix",
+   "text": "Adams kauft unterwegs ein Paar Stoßzähne.",
+   "why": "Die Quelle sagt: 'Während der Rückreise kaufte er ein Paar Stoßzähne'. 'Unterwegs' ist vage, aber akzeptabel. Allerdings ist die Zeile 85 die eigentliche Behauptung. Zeile 84 ist faktisch korrekt."
+  },
+  {
+   "round": 0,
+   "n": 86,
+   "was": "Erst Jahre später wird sich zeigen, dass er sich irrt.",
+   "verdict": "fix",
+   "text": "Erst Jahre später wird sich zeigen, dass er sich irrt.",
+   "why": "Die Quelle sagt: 'Erst 1899 wurde der Irrtum festgestellt'. Adams starb 1838. 'Jahre später' ist korrekt, aber die Quelle bezieht sich auf die wissenschaftliche Feststellung des Irrtums bei der Rekonstruktion (Tilesius' Fehler), nicht direkt auf Adams' Kauf. Adams' Irrtum über die Herkunft der Zähne wird in der Quelle nicht explizit als 'später widerlegt' dargestellt, sondern Tilesius' Fehler bei der Montage wird 1899 korrigiert. Es ist unklar, ob Adams' Glaube an die Herkunft der Zähne widerlegt wurde oder nur Tilesius' Montage. Die Quelle sagt: 'Tilesius machte jedoch einen Fehler bei der Anordnung der Stoßzähne... Erst 1899 wurde der Irrtum festgestellt'. Es geht um die Montage, nicht um die Herkunft. Die Behauptung, dass Adams sich irrte (über die Herkunft), ist nicht direkt gedeckt. Die Quelle sagt nur, dass er *glaubte*, es seien die gleichen. Ob er sich irrte, wird nicht explizit gesagt, sondern nur, dass Tilesius sie falsch montierte. Daher ist die Behauptung 'dass er sich irrt' (bezüglich der Herkunft) ungedeckt."
+  },
+  {
+   "round": 0,
+   "n": 87,
+   "was": "Die Wahrheit lag in den Details, die er nicht sehen konnte.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Die Quelle enthält keine Information darüber, dass die Wahrheit in Details lag, die Adams nicht sehen konnte. Das ist eine erzählerische Interpretation ohne faktische Grundlage in den Quellen."
+  },
+  {
+   "round": 0,
+   "n": 88,
+   "was": "In Sankt Petersburg lag das zerlegte Skelett in den Kellern der Kunstkammer.",
+   "verdict": "fix",
+   "text": "In Sankt Petersburg lag das zerlegte Skelett in den Kellern der Kunstkammer.",
+   "why": "Die Quelle sagt: 'Das Skelett wurde anschließend nach Sankt Petersburg gebracht und dort seit 1808 in der Kunstkammer aufgestellt.' Es wird nicht erwähnt, dass es in den 'Kellern' lag. Es wurde 'aufgestellt'. Die Behauptung 'in den Kellern' ist ungedeckt."
+  },
+  {
+   "round": 0,
+   "n": 89,
+   "was": "Wilhelm Gottlieb Tilesius von Tilenau übernahm den Auftrag, das Tier wieder zusammenzusetzen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Gedeckt durch: 'In Sankt Petersburg erhielt Wilhelm Gottlieb Tilesius von Tilenau den Auftrag, das Tier wiederherzustellen.'"
+  },
+  {
+   "round": 0,
+   "n": 90,
+   "was": "Er stand vor einer Aufgabe, die es so noch nie gab.",
+   "verdict": "fix",
+   "text": "Er stand vor einer Aufgabe, die es so noch nie gab.",
+   "why": "Die Quelle besagt, dass seine Arbeit einer der *ersten* Versuche war, ein fossiles Tier zu rekonstruieren. Die absolute Aussage 'so noch nie gab' ist zu stark und nicht gedeckt."
+  },
+  {
+   "round": 0,
+   "n": 91,
+   "was": "Doch die Arbeit wurde leichter, als erwartet.",
+   "verdict": "ok",
+   "why": "Gedeckt durch 'Seine Aufgabe wurde durch die Tatsache erleichtert...'"
+  },
+  {
+   "round": 0,
+   "n": 92,
+   "was": "Denn in einer Vitrine stand das Skelett eines indischen Elefanten.",
+   "verdict": "ok",
+   "why": "Gedeckt durch '...dass die Kunstkammer das Skelett eines indischen Elefanten besaß...'"
+  },
+  {
+   "round": 0,
+   "n": 93,
+   "was": "Tilesius nutzte es als stilles Vergleichsobjekt.",
+   "verdict": "ok",
+   "why": "Gedeckt durch '...das er als Vergleichsobjekt verwenden konnte.'"
+  },
+  {
+   "round": 0,
+   "n": 94,
+   "was": "< Er maß, verglich, überlegte.",
+   "verdict": "ok",
+   "why": "Erzählerisch, keine neuen Fakten."
+  },
+  {
+   "round": 0,
+   "n": 95,
+   "was": "Für den fehlenden Beinknochen fertigte er eine Nachbildung aus Holz an.",
+   "verdict": "ok",
+   "why": "Gedeckt durch 'Tilesius fertigte Nachbildungen aus Holz an, um den fehlenden Beinknochen zu ersetzen.'"
+  },
+  {
+   "round": 0,
+   "n": 96,
+   "was": "Das Holz wurde geschnitzt, angepasst, eingespannt.",
+   "verdict": "ok",
+   "why": "Erzählerische Beschreibung des Prozesses, keine falschen Fakten."
+  },
+  {
+   "round": 0,
+   "n": 97,
+   "was": "Alles schien in Ordnung zu sein.",
+   "verdict": "ok",
+   "why": "Gedeckt durch 'Die Rekonstruktion war im Wesentlichen korrekt...'"
+  },
+  {
+   "round": 0,
+   "n": 98,
+   "was": "Nur die Stoßzähne blieben ein Rätsel.",
+   "verdict": "ok",
+   "why": "Erzählerisch, führt zum nächsten Punkt."
+  },
+  {
+   "round": 0,
+   "n": 99,
+   "was": "Tilesius setzte sie an den Schädel.",
+   "verdict": "ok",
+   "why": "Impliziert durch die Diskussion der Stoßzähne."
+  },
+  {
+   "round": 0,
+   "n": 100,
+   "was": "Doch er machte einen Fehler.",
+   "verdict": "ok",
+   "why": "Gedeckt durch 'Tilesius machte jedoch einen Fehler...'"
+  },
+  {
+   "round": 0,
+   "n": 101,
+   "was": "Statt einwärts, wie es das Leben verlangte, bogen sie auswärts.",
+   "verdict": "ok",
+   "why": "Gedeckt durch 'Statt einwärts setzte er sie auswärts gebogen an.'"
+  },
+  {
+   "round": 0,
+   "n": 102,
+   "was": "Eine kleine Biegung. Ein großer Irrtum.",
+   "verdict": "ok",
+   "why": "Erzählerisch."
+  },
+  {
+   "round": 0,
+   "n": 103,
+   "was": "Wie konnte er diesen Fehler übersehen?",
+   "verdict": "ok",
+   "why": "Rhetorische Frage."
+  },
+  {
+   "round": 0,
+   "n": 104,
+   "was": "Die Antwort lag in der Perspektive, die ihm fehlte.",
+   "verdict": "ok",
+   "why": "Erzählerisch/Interpretativ, keine harte Faktenbehauptung, die widerlegt wird."
+  },
+  {
+   "round": 0,
+   "n": 105,
+   "was": "1808 wurde das Skelett aufgestellt.",
+   "verdict": "ok",
+   "why": "Gedeckt durch '...dort seit 1808 in der Kunstkammer aufgestellt.'"
+  },
+  {
+   "round": 0,
+   "n": 106,
+   "was": "Es war das erste montierte Wollhaarmammut der Welt.",
+   "verdict": "ok",
+   "why": "Gedeckt durch 'Es ist somit das erste montierte Wollhaarmammut-Skelett weltweit...'"
+  },
+  {
+   "round": 0,
+   "n": 107,
+   "was": "Die Augen der Besucher wanderten über die Knochen.",
+   "verdict": "ok",
+   "why": "Erzählerisch."
+  },
+  {
+   "round": 0,
+   "n": 111,
+   "was": "Erst Jahre später würde jemand den Fehler bemerken.",
+   "verdict": "fix",
+   "text": "Erst Jahrzehnte später würde jemand den Fehler bemerken.",
+   "why": "Die Quelle besagt, dass der Fehler erst 1899 festgestellt wurde. Da die Rekonstruktion um 1808 stattfand, sind es mehr als 'Jahre' (was oft wenige Jahre impliziert), sondern Jahrzehnte. 'Jahrzehnte' ist präziser und deckt den zeitlichen Abstand besser ab, ohne den Ton zu brechen."
+  },
+  {
+   "round": 0,
+   "n": 119,
+   "was": "Doch der Fehler in den Stoßzähnen blieb unsichtbar.",
+   "verdict": "fix",
+   "text": "Doch der Fehler in den Stoßzähnen blieb lange unsichtbar.",
+   "why": "Die Quelle besagt, dass der Irrtum erst 1899 festgestellt wurde. 'Blieb unsichtbar' ist eine starke Behauptung, die nicht direkt gedeckt ist (er war sichtbar, aber falsch interpretiert/akzeptiert). 'Blieb lange unsichtbar' oder 'blieb unentdeckt' wäre besser. Da 'unsichtbar' im Sinne von 'nicht erkannt' gemeint ist, ist 'unentdeckt' oder 'unbeachtet' faktisch genauer. Ich wähle 'blieb lange unentdeckt' für maximale Präzision im selben Ton."
+  },
+  {
+   "round": 0,
+   "n": 121,
+   "was": "Bis dahin blieb das Mammut mit den falsch gebogenen Zähnen stehen.",
+   "verdict": "fix",
+   "text": "Bis dahin blieb das Mammut mit den falsch gebogenen Zähnen stehen.",
+   "why": "Diese Zeile ist eigentlich ok, da sie sich auf den Zustand bezieht, bis zur Korrektur. Aber im Kontext der vorherigen Korrektur (1899) ist sie konsistent. Warte, ich habe 119 korrigiert. 121 sagt 'Bis dahin' (bezugnehmend auf 1899). Das ist korrekt. Also ist 121 ok. Ich habe 119 als 'fix' markiert, weil 'unsichtbar' physikalisch falsch ist (die Zähne waren da, nur falsch angeordnet). 'Unentdeckt' ist die richtige Tatsache."
+  },
+  {
+   "round": 0,
+   "n": 139,
+   "was": "Er würde erst 1899 korrigiert.",
+   "verdict": "fix",
+   "text": "Erst 1899 wurde der Irrtum festgestellt.",
+   "why": "Die Quellen besagen, dass der Fehler 1899 festgestellt wurde, nicht dass er korrigiert wurde (die korrekte Anordnung blieb bis ins 20. Jahrhundert ein Streitthema)."
+  },
+  {
+   "round": 0,
+   "n": 140,
+   "was": "Bis dahin blieb das Mammut mit den falsch gebogenen Zähnen stehen.",
+   "verdict": "fix",
+   "text": "Bis dahin blieb das Mammut mit den falsch gebogenen Zähnen stehen.",
+   "why": "Die Behauptung, es sei 'bis dahin' (1899) gestanden, ist korrekt, aber die vorherige Zeile hat 'korrigiert' behauptet. Da 139 auf 'festgestellt' geändert wurde, ist 140 konsistent. Allerdings impliziert 'Bis dahin' in Kombination mit der vorherigen falschen Korrektur eine physische Änderung. Da 139 nun 'festgestellt' sagt, ist 140 faktisch korrekt (es stand mit den falschen Zähnen da, bis der Fehler 1899 erkannt wurde). Warte, die Quelle sagt: 'The error was not corrected until 1899'. Das widerspricht der deutschen Quelle 'Erst 1899 wurde der Irrtum festgestellt'. Die englische Quelle sagt explizit 'not corrected until 1899'. Die deutsche Quelle sagt 'festgestellt'. Wenn die englische Quelle 'corrected' sagt, dann war 139 'korrigiert' eigentlich korrekt? Nein, die deutsche Quelle ist spezifischer: 'festgestellt... blieb jedoch bis in das 20. Jahrhundert ein Thema'. Das impliziert, dass die physische Korrektur vielleicht nicht sofort oder eindeutig 1899 stattfand, oder dass die Debatte andauerte. Die englische Quelle sagt 'not corrected until 1899'. Das ist ein Widerspruch zwischen den Quellen. Normalerweise gilt die detailliertere oder spezifischere Quelle. Die deutsche Quelle sagt 'festgestellt'. Die englische sagt 'corrected'. Wenn ich mich an die deutsche Quelle halte (da der Text deutsch ist), ist 'korrigiert' in 139 falsch. In 140 steht 'Bis dahin blieb das Mammut... stehen'. Wenn 139 'festgestellt' ist, dann ist 140 ok. Wenn 139 'korrigiert' wäre, wäre 140 auch ok. Aber 139 muss korrigiert werden, weil die deutsche Quelle 'festgestellt' sagt und die Debatte andauerte. Also ist 140 ok, wenn 139 fixiert ist. Warte, schau dir 141 an. 141 sagt 'bis ins 20. Jahrhundert'. Das passt zur deutschen Quelle. Also ist 139 der Fehler. 140 ist dann ok."
+  },
+  {
+   "round": 0,
+   "n": 142,
+   "was": "Erst fast ein Jahrhundert nach der Bergung wurde der Fehler festgestellt.",
+   "verdict": "fix",
+   "text": "Erst fast ein Jahrhundert nach der Bergung wurde der Fehler festgestellt.",
+   "why": "Die Zeile ist faktisch korrekt (1806 Bergung, 1899 Feststellung = 93 Jahre). Aber sie wiederholt die Information aus 139. Ist sie 'ok'? Ja, sie ist gedeckt. Warum habe ich sie als fix markiert? Ich habe sie nicht markiert. Ich habe nur 139 markiert. Lass mich 142 prüfen. 'Erst fast ein Jahrhundert nach der Bergung wurde der Fehler festgestellt.' Bergung 1806. Feststellung 1899. 93 Jahre. 'Fast ein Jahrhundert' ist korrekt. Also ist 142 ok."
+  },
+  {
+   "round": 0,
+   "n": 149,
+   "was": "Heute steht es noch im Zoologischen Museum von Sankt Petersburg.",
+   "verdict": "fix",
+   "text": "Heute steht es noch in der Kunstkammer in Sankt Petersburg.",
+   "why": "Die Quellen geben an, dass das Skelett seit 1808 in der Kunstkammer aufgestellt ist. Die Behauptung, es stehe im 'Zoologischen Museum', ist nicht durch die Quellen gedeckt (obwohl es historisch oft dort zugeordnet wird, nennen die Quellen explizit die Kunstkammer)."
+  },
+  {
+   "round": 0,
+   "n": 157,
+   "was": "Wie konnte ein solches Tier in dieser Wüste überleben? Die Antwort lag in seiner Physiologie.",
+   "verdict": "fix",
+   "text": "Wie konnte ein solches Tier in dieser Kälte überleben? Die Antwort lag in seiner Physiologie.",
+   "why": "Die Quellen beschreiben das Wollhaarmammut als Bewohner der kaltzeitlichen Steppen in Sibirien (Kälte/Schnee), nicht als Bewohner einer 'Wüste'. Die Korrektur passt den Ort an die Fakten an, ohne den Ton zu ändern."
+  },
+  {
+   "round": 0,
+   "n": 165,
+   "was": "< Das Skelett steht heute noch im Zoologischen Museum von Sankt Petersburg.",
+   "verdict": "fix",
+   "text": "< Das Skelett steht heute noch im Zoologischen Museum von Sankt Petersburg.",
+   "why": "Die Quelle besagt, dass es seit 1808 in der Kunstkammer aufgestellt ist. Der Adams-Mammut-Artikel sagt, Adams brachte es ins 'Zoologische Museum'. Da die Kunstkammer historisch oft mit dem Zoologischen Museum oder dessen Vorgängern in Verbindung gebracht wird und die Quelle explizit 'Zoologische Museum' im Kontext der Bergung nennt, ist die Aussage gedeckt. Allerdings ist die Quelle 'Adams-Mammut' explizit: 'brachte es ins Zoologische Museum von Sankt Petersburg'. Die andere Quelle sagt 'in der Kunstkammer aufgestellt'. Da 'Kunstkammer' und 'Zoologisches Museum' in Sankt Petersburg historisch eng verknüpft sind (die Kunstkammer war Teil des Kaiserlichen Museums, aus dem das Zoologische Museum hervorging), und die spezifischere Quelle zum Adams-Mammut 'Zoologisches Museum' nennt, ist die Zeile faktisch korrekt im Sinne der Quelle. Warte, die Quelle 'Adams-Mammut' sagt: 'brachte es ins Zoologische Museum von Sankt Petersburg'. Die Quelle 'Wollhaarmammut' sagt: 'seit 1808 in der Kunstkammer aufgestellt'. Es gibt eine Diskrepanz in der Bezeichnung, aber die Zeile behauptet 'Zoologisches Museum'. Da eine Quelle das explizit so sagt, ist es gedeckt. Also 'ok'."
+  },
+  {
+   "round": 0,
+   "n": 167,
+   "was": "< Zwischen 1692 und 1806 wurden nur vier Funde beschrieben, keiner geborgen.",
+   "verdict": "ok",
+   "why": "Quelle: 'Zwischen 1692 und 1806 wurden nur vier Funde von Mammutkadavern beschrieben. Keiner dieser Funde wurde geborgen.'"
+  },
+  {
+   "round": 0,
+   "n": 168,
+   "was": "> Adams barg 1806 das Skelett, den Schädel und fast vierzig Pfund Haar.",
+   "verdict": "fix",
+   "text": "> Adams barg 1806 das Skelett und den Schädel.",
+   "why": "Die Quelle besagt, dass bei der Bergung 'bis auf die Kopfhaut und die Fußsohlen alle Weichteile verloren' gingen. Es wird nicht erwähnt, dass 'fast vierzig Pfund Haar' geborgen wurden. Tatsächlich ging die Haarbedeckung größtenteils verloren. Die Behauptung über die Pfund Haar ist ungedeckt/falsch."
+  },
+  {
+   "round": 0,
+   "n": 169,
+   "was": "< Tilesius rekonstruierte es 1808 mit Hilfe eines indischen Elefanten.",
+   "verdict": "ok",
+   "why": "Quelle: 'Tilesius von Tilenau ... erhielt den Auftrag, das Tier wiederherzustellen ... Kunstkammer das Skelett eines indischen Elefanten besaß, das er als Vergleichsobjekt verwenden konnte.' Das Jahr 1808 wird in der Quelle 'Wollhaarmammut' genannt ('seit 1808 in der Kunstkammer aufgestellt'), was impliziert, dass die Rekonstruktion zu diesem Zeitpunkt abgeschlossen oder aufgestellt war. Die Quelle 'Adams-Mammut' sagt nicht explizit 1808 für Tilesius, aber die andere Quelle datiert die Aufstellung auf 1808. Es ist eine plausible Zusammenfassung der Quellen."
+  },
+  {
+   "round": 0,
+   "n": 170,
+   "was": "> Ein Fehler bei den Stoßzähnen blieb bis 1899 unbeachtet.",
+   "verdict": "ok",
+   "why": "Quelle: 'Tilesius machte jedoch einen Fehler bei der Anordnung der Stoßzähne. ... Erst 1899 wurde der Irrtum festgestellt'."
+  },
+  {
+   "round": 1,
+   "n": 10,
+   "was": "Im Jahr 1799 lag der Kadaver im Eis des Lensk-Deltas, freigelegt durch einen Erdrutsch.",
+   "verdict": "fix",
+   "text": "Im Jahr 1799 lag der Kadaver im Eis des Lensk-Deltas, freigelegt durch einen Erdrutsch.",
+   "why": "Der Text behauptet, der Kadaver lag 1799 im Eis. Die Quelle sagt, er wurde 1799 gefunden, war aber erst 1806 vollständig freigelegt. Zudem ist 'Lensk-Delta' eine spezifische geografische Angabe, die in den Quellen nicht vorkommt (nur 'Delta der Lena' oder 'Lenadelta'). Die Korrektur entfernt die falsche zeitliche Präzisierung des Zustands (vollständig freigelegt vs. gefunden) und die ungedeckte Ortsangabe, behält aber den Kern der Entdeckung 1799 im Lena-Delta bei. Da die Zeile 'Im Jahr 1799 lag der Kadaver...' impliziert, dass er dort *lag* (was stimmt, er war im Eis), ist die Hauptproblematik die Kombination mit 'freigelegt durch einen Erdrutsch' als Zustand im Jahr 1799. Die Quelle sagt: 'während eines Erdrutsches teilweise... freigelegt'. Also war er 1799 *teilweise* freigelegt. Die Zeile sagt nur 'freigelegt', was mehrdeutig ist, aber im Kontext von 'lag im Eis' akzeptabel sein könnte. Allerdings ist 'Lensk-Delta' faktisch falsch/ungedeckt. Ich korrigiere 'Lensk-Deltas' zu 'Lena-Deltas' und lasse den Rest, da 'freigelegt durch einen Erdrutsch' den Prozess beschreibt, der zur Entdeckung führte. Warte, die Quelle sagt: 'Er war während eines Erdrutsches teilweise... freigelegt worden.' Die Zeile sagt: 'lag der Kadaver im Eis... freigelegt durch einen Erdrutsch.' Das ist konsistent. Das Problem ist 'Lensk-Delta'. Quelle: 'Delta der Lena'. Also: 'Im Jahr 1799 lag der Kadaver im Eis des Lena-Deltas, freigelegt durch einen Erdrutsch.'"
+  },
+  {
+   "round": 1,
+   "n": 17,
+   "was": "Der Körper war abgesehen von Raubtierfraß an Rüssel und Ohren vollständig.",
+   "verdict": "fix",
+   "text": "Der Körper war abgesehen von Raubtierfraß an Rüssel und Ohren vollständig.",
+   "why": "Die Quelle sagt, Boltunow fertigte eine Skizze an, der Kadaver war 'abgesehen von Raubtierfraß an Rüssel und Ohren, vollständig'. Die Zeile behauptet dies als Tatsache über den Körper. Das ist gedeckt. Warte, ich muss prüfen, ob es 'ok' ist. Ja, es ist gedeckt. Also 'ok'.\n\nLass mich Zeile 10 nochmal prüfen. 'Lensk-Delta' ist nicht in der Quelle. Quelle: 'Delta der Lena'. Also ist 'Lensk' eine ungedeckte Tatsache. Das muss korrigiert werden.\n\nZeile 17: 'Der Körper war abgesehen von Raubtierfraß an Rüssel und Ohren vollständig.' Quelle: '...Skizze des Kadavers an, der, abgesehen von Raubtierfraß an Rüssel und Ohren, vollständig war.' Das ist eine direkte Übereinstimmung. Also 'ok'."
+  },
+  {
+   "round": 1,
+   "n": 22,
+   "was": "Zwischen 1692 und 1806 wurden nur 4 ähnliche Funde beschrieben.",
+   "verdict": "fix",
+   "text": "Zwischen 1692 und 1806 wurden nur 4 Funde von Mammutkadavern beschrieben.",
+   "why": "Die Quelle spricht von 'Funden von Mammutkadavern', nicht von 'ähnlichen Funden' (was vage ist) oder implizit anderen Tierarten. Die Zahl 4 ist korrekt, aber die Bezeichnung muss präzisiert werden, um der Quelle zu entsprechen."
+  },
+  {
+   "round": 1,
+   "n": 27,
+   "was": "Dieser reiste persönlich zum Fundort und zeichnete die detaillierte Skizze des Tieres.",
+   "verdict": "fix",
+   "text": "Dieser reiste zum Fundort und fertigte eine Skizze des Kadavers an.",
+   "why": "Die Quelle sagt 'fertigte eine Skizze des Kadavers an'. Das Wort 'detaillierte' ist in der Quelle nicht enthalten und stellt eine ungedeckte Zusatzinformation dar."
+  },
+  {
+   "round": 1,
+   "n": 28,
+   "was": "Adams erfuhr in Jakutsk von Boltunow erst 1806 von der Entdeckung im Lenadelta.",
+   "verdict": "fix",
+   "text": "Adams erfuhr in Jakutsk von Boltunow 1806 von der Entdeckung im Lenadelta.",
+   "why": "Die Quelle sagt, Adams erfuhr 'in Jakutsk' von der Entdeckung. Das Wort 'erst' impliziert eine Verzögerung oder einen Kontrast, der in der Quelle nicht steht. Zudem ist die zeitliche Einordnung '1806' korrekt (Anfang des Sommers 1806), aber die Formulierung 'erst 1806' ist stilistisch überladen und nicht direkt gedeckt. Die einfachere Aussage ist sicherer."
+  },
+  {
+   "round": 1,
+   "n": 30,
+   "was": "Keiner dieser vier war je geborgen oder wissenschaftlich untersucht worden.",
+   "verdict": "fix",
+   "text": "Keiner dieser vier war je geborgen worden.",
+   "why": "Die Quelle sagt: 'Keiner dieser Funde wurde geborgen.' Die Zusatzinformation 'oder wissenschaftlich untersucht worden' ist in dieser spezifischen Zeile der Quelle nicht enthalten (obwohl es im Kontext stimmt, dass sie nicht untersucht wurden, ist die explizite Behauptung 'wissenschaftlich untersucht' hier eine Hinzufügung, die nicht wörtlich gedeckt ist. Die Quelle sagt nur 'nicht geborgen'. Um streng zu bleiben, wird der Zusatz entfernt."
+  },
+  {
+   "round": 1,
+   "n": 31,
+   "was": "Adams organisierte daraufhin eine Expedition, zu der ihn Schumachow führte.",
+   "verdict": "fix",
+   "text": "Adams organisierte daraufhin eine Expedition, zu der ihn Schumachow 1806 führte.",
+   "why": "Die Quelle sagt: 'Adams organisierte eine Expedition zum Fundgebiet, zu dem ihn Schumachow 1806 führte.' Das Wort 'daraufhin' ist eine kausale Interpretation, die in der Quelle nicht explizit steht (obwohl logisch). Die Quelle nennt nur die Handlung. Um sicherzugehen, wird 'daraufhin' entfernt, da es eine narrative Kausalität behauptet, die nicht wörtlich gedeckt ist."
+  },
+  {
+   "round": 1,
+   "n": 34,
+   "was": "Viele kehren zurück, doch Michael Friedrich Adams bleibt.",
+   "verdict": "fix",
+   "text": "Viele kehren zurück, doch Michael Friedrich Adams bleibt.",
+   "why": "Die Quelle sagt: 'Nach dem Scheitern der Mission blieben mehrere Mitglieder der Gruppe vor Ort'. Es wird nicht gesagt, dass 'viele' zurückkehrten, nur dass 'mehrere' blieben. Die Aussage 'Viele kehren zurück' ist eine ungedeckte Quantifizierung. Besser: 'Mehrere Mitglieder der Gruppe bleiben vor Ort, darunter Michael Friedrich Adams.'"
+  },
+  {
+   "round": 1,
+   "n": 42,
+   "was": "Drei Kosaken segeln mit ihm die Lena hinab.",
+   "verdict": "fix",
+   "text": "Vier Kosaken segeln mit ihm die Lena hinab.",
+   "why": "Die Quelle (Adams mammoth) gibt an, dass Adams vier Kosaken anheuerte ('hired four Cossacks'), während der Text drei nennt."
+  },
+  {
+   "round": 1,
+   "n": 45,
+   "was": "Der Jäger, der das Skelett vor Jahren freigelegt hatte, ist da.",
+   "verdict": "fix",
+   "text": "Der Jäger, der das Skelett vor Jahren freigelegt hatte, ist dort.",
+   "why": "Die Quelle besagt, dass Adams Ende Juni in Schumachows Dorf ankam ('arrived in Shumachov's village'), nicht dass der Jäger physisch 'da' war (im Dorf anwesend), sondern dass Adams dort ankam. Der Jäger reiste erst Ende Juli mit Adams zum Fundort. Die Formulierung 'ist da' ist irreführend, da Adams erst dort ankam, um ihn zu treffen. Korrektur: Er ist dort (im Dorf), wo Adams ankommt."
+  },
+  {
+   "round": 1,
+   "n": 48,
+   "was": "Die Wölfe haben genagt, was das Eis nicht hielt.",
+   "verdict": "fix",
+   "text": "Die Wölfe haben genagt, was das Eis nicht hielt, und die Jäger fütterten Hunde.",
+   "why": "Die Quelle erwähnt explizit, dass Fleisch auch von einheimischen Jägern an Hunde verfüttert wurde ('flesh was partly fed to their dogs by local hunters'). Die ursprüngliche Zeile ignoriert diesen Teil der Zerstörung, der in der Quelle genannt wird, und behauptet implizit, nur Wölfe hätten genagt. Da 'genagt' spezifisch für Wölfe ist, muss der Hund-Teil ergänzt werden, um die Tatsache vollständig und korrekt abzubilden, oder die Aussage präzisiert werden. Da die Zeile 'Die Wölfe haben genagt...' sagt, ist sie nicht falsch, aber unvollständig im Kontext der 'Zerfressenheit'. Allerdings ist die Behauptung 'Wölfe haben genagt' korrekt. Die Quelle sagt: 'accessible side... eaten by wolves, flesh partly fed to dogs'. Die Zeile 47 sagt 'halb zerfressen'. Zeile 48 sagt 'Wölfe haben genagt'. Das ist gedeckt. Aber: Die Quelle sagt 'accessible side... eaten by wolves'. Es ist ok. Warte, Zeile 48 sagt 'was das Eis nicht hielt'. Das ist interpretativ. Die Quelle sagt 'accessible side'. Ich behalte es bei, wenn es keine falsche Tatsache ist. Es ist keine falsche Tatsache. Es ist ok. \n\nKorrektur: Ich habe Zeile 45 als fix markiert. Ist das nötig? 'Der Jäger ... ist da.' Adams kommt in Schumachows Dorf an. Schumachow lebt dort. Also ist er da. Das ist ok. \n\nSchauen wir uns Zeile 42 nochmal an. 'Drei Kosaken'. Quelle: 'hired four Cossacks'. Das ist ein Fehler. Fix.\n\nZeile 45: 'Der Jäger ... ist da.' Adams kommt in Schumachows Dorf an. Schumachow ist dort. Das ist ok.\n\nZeile 48: 'Die Wölfe haben genagt, was das Eis nicht hielt.' Quelle: 'accessible side ... eaten by wolves'. Das ist ok.\n\nZeile 51: '1805 schloss sich Adams der gescheiterten Golowkin-Mission nach China an, die ihn nach Sibirien führte.' Quelle: 'Adams had come to Siberia in 1805 as part a scientific team attached to Count Yury Golovkin's unsuccessful diplomatic mission to China.' Das ist ok.\n\nZeile 52: 'Die Forschergruppe blieb in Sibirien, um weiter zu arbeiten.' Quelle: 'After the failure of the mission, several members of the scientific team stayed on in Siberia to conduct research.' Das ist ok.\n\nZeile 53: 'In Jakutsk erfuhr Adams von Boltunow von der Entdeckung des Mammuts im Lenadelta.' Quelle: 'While in Yakutsk ... Adams heard from an ivory merchant about the frozen mammoth discovered near the Lena Delta.' Und 'Von dem Elfenbeinjäger Roman Boltunow ... erfuhr Adams in Jakutsk von der Entdeckung'. Das ist ok.\n\nAlso nur Zeile 42 ist ein klarer Fehler (3 vs 4 Kosaken)."
+  },
+  {
+   "round": 1,
+   "n": 58,
+   "was": "Zehn Personen brauchten große Schwierigkeiten, um die Teile zu heben.",
+   "verdict": "fix",
+   "text": "Zehn Personen brauchten große Schwierigkeiten, um die Teile anzuheben.",
+   "why": "Die Quelle zitiert Adams mit 'anheben konnten', nicht 'heben'. 'Anheben' ist die korrekte Wiedergabe der zitierten Aussage."
+  },
+  {
+   "round": 1,
+   "n": 65,
+   "was": "> Ende Juli 1806. Adams, Schumachow und 10 Männer erreichen die Bykowski-Halbinsel.",
+   "verdict": "fix",
+   "text": "> Ende Juli 1806. Adams, Schumachow und 10 Männer reisen zum Fundort auf der Bykowski-Halbinsel.",
+   "why": "Die Quelle sagt 'reisten ... zum Fundort', nicht 'erreichen'. Die Ankunft ist nicht explizit als abgeschlossener Zustand in diesem Satz der Quelle verankert, nur die Reise."
+  },
+  {
+   "round": 1,
+   "n": 84,
+   "was": "In Sankt Petersburg lag das zerlegte Skelett in den Kellern der Kunstkammer.",
+   "verdict": "fix",
+   "text": "In Sankt Petersburg wurde das zerlegte Skelett in der Kunstkammer wieder zusammengesetzt.",
+   "why": "Die Quelle besagt, dass das Skelett in der Kunstkammer 'aufgestellt' bzw. 'wiederhergestellt' wurde, nicht dass es dort 'in den Kellern lag'."
+  },
+  {
+   "round": 1,
+   "n": 107,
+   "was": "Erst Jahrzehnte später würde jemand den Fehler bemerken.",
+   "verdict": "fix",
+   "text": "Erst 1899 wurde der Fehler bemerkt.",
+   "why": "Die Quelle datiert die Feststellung des Irrtums auf 1899, nicht auf 'Jahrzehnte später' (was ab 1808 auf ca. 1830-1840 hindeuten würde)."
+  },
+  {
+   "round": 1,
+   "n": 110,
+   "was": "Er zeichnete Radierungen von seiner Wiederherstellung.",
+   "verdict": "fix",
+   "text": "Tilesius fertigte Radierungen von seiner Wiederherstellung an.",
+   "why": "Der Text sagt 'er' (bezieht sich auf Adams aus Kontext), aber die Quelle sagt, Tilesius hat die Radierungen gemacht."
+  },
+  {
+   "round": 1,
+   "n": 111,
+   "was": "Diese Bilder schickte er an andere Forscher in Europa.",
+   "verdict": "fix",
+   "text": "Diese Bilder schickte er an andere Naturforscher.",
+   "why": "Quelle sagt 'other naturalists' (andere Naturforscher), Text sagt 'Forscher'. 'Naturforscher' ist die präzisere Übereinstimmung mit der Quelle, 'Forscher' ist aber semantisch deckungsgleich. Allerdings: Die vorherige Zeile hat den Akteur geändert. Wenn Zeile 110 auf Tilesius korrigiert wird, ist 'er' in 111 korrekt. Die Quelle sagt 'sent them other naturalists to examine'. 'Forscher' ist akzeptabel, aber 'Naturforscher' ist exakter. Ich behalte 'Forscher' bei, da es keine falsche Tatsache ist, sondern eine Verallgemeinerung. Warte, die Anweisung sagt: 'Eine Zeile ist ok, wenn jede Tatsachenbehauptung darin von den Quellen gedeckt ist.' 'Forscher' ist gedeckt durch 'naturalists'. Also ok? Ja. Aber ich muss prüfen, ob 'er' in 111 noch zu Adams passt, wenn 110 geändert wird. Wenn 110 'Tilesius' sagt, dann ist 'er' in 111 Tilesius. Das ist konsistent. Also ist 111 ok, wenn 110 fixiert wird. Ich markiere 111 als ok, es sei denn, 'Forscher' ist zu ungenau. 'Naturforscher' ist besser. Ich werde 111 als fix markieren, um die Präzision zu erhöhen, oder als ok lassen? 'Forscher' ist nicht falsch. Ich lasse 111 als ok, da 'Forscher' eine korrekte Obermenge von 'Naturforscher' ist und keine falsche Tatsache behauptet."
+  },
+  {
+   "round": 1,
+   "n": 112,
+   "was": "Sie sollten prüfen, was er gebaut hatte.",
+   "verdict": "ok",
+   "why": "Quelle: 'sent them other naturalists to examine'. 'Prüfen, was er gebaut hatte' ist eine zulässige Paraphrase von 'examine' im Kontext der Rekonstruktion."
+  },
+  {
+   "round": 1,
+   "n": 113,
+   "was": "1815 erschien sein ausführlicher Bericht.",
+   "verdict": "ok",
+   "why": "Quelle: 'detailed report of the skeleton, which was finally published in 1815'."
+  },
+  {
+   "round": 1,
+   "n": 114,
+   "was": "Die Wissenschaftscommunity diskutierte.",
+   "verdict": "ok",
+   "why": "Quelle: 'The debate they provoked was fierce' (impliziert durch 'circulated... debate' in anderen Abschnitten, spezifisch 'Rezeption' Abschnitt erwähnt die Verbreitung und impliziert die Wirkung. Der Abschnitt 'Rezeption' sagt: 'Adams Bericht... wurde Ende 1807 veröffentlicht... zirkulierte...'. Der Abschnitt 'Adams-Mammut' sagt: 'Tilesius machte... Radierungen... schickte sie... zur Überprüfung.' Die Debatte wird im Abschnitt 'Geschichtlicher Hintergrund' und 'Rezeption' angedeutet. 'Die Wissenschaftscommunity diskutierte' ist eine plausible Zusammenfassung der 'heftigen Debatte' (Zeile 122) und der Überprüfung durch andere Naturforscher."
+  },
+  {
+   "round": 1,
+   "n": 115,
+   "was": "Doch der Fehler in den Stoßzähnen blieb lange unsichtbar.",
+   "verdict": "ok",
+   "why": "Quelle: 'Tilesius machte jedoch einen Fehler bei der Anordnung der Stoßzähne... Erst 1899 wurde der Irrtum festgestellt'."
+  },
+  {
+   "round": 1,
+   "n": 116,
+   "was": "Er würde erst 1899 korrigiert.",
+   "verdict": "ok",
+   "why": "Quelle: 'Erst 1899 wurde der Irrtum festgestellt'."
+  },
+  {
+   "round": 1,
+   "n": 117,
+   "was": "Bis dahin blieb das Mammut mit den falsch gebogenen Zähnen stehen.",
+   "verdict": "ok",
+   "why": "Quelle: 'die korrekte Anordnung der Stoßzähne blieb jedoch bis in das 20. Jahrhundert ein Thema wissenschaftlicher Debatten.' Impliziert, dass das falsche Modell stand, bis es korrigiert wurde."
+  },
+  {
+   "round": 1,
+   "n": 119,
+   "was": "> Adams’ Bericht über die Expedition erschien Ende 1807.",
+   "verdict": "ok",
+   "why": "Quelle: 'Adams' account of his journey was published in late 1807'."
+  },
+  {
+   "round": 1,
+   "n": 120,
+   "was": "Er wurde schnell in andere europäische Sprachen übersetzt.",
+   "verdict": "ok",
+   "why": "Quelle: 'was soon translated into other European languages'."
+  },
+  {
+   "round": 1,
+   "n": 121,
+   "was": "Schon bald zirkulierten die Texte in ganz Europa und Amerika.",
+   "verdict": "ok",
+   "why": "Quelle: 'circulated throughout Europe and the Americas'."
+  },
+  {
+   "round": 1,
+   "n": 122,
+   "was": "Die Debatte, die sie auslösten, war heftig.",
+   "verdict": "ok",
+   "why": "Quelle: 'The debate they provoked was fierce' (aus dem englischen Abschnitt, der den deutschen 'Rezeption' spiegelt). Im deutschen Text steht nicht explizit 'heftig', aber 'Debatte' wird impliziert durch die Verbreitung und die Überprüfung. Der englische Text sagt 'fierce'. Der deutsche Text sagt 'heftig'. Das ist gedeckt."
+  },
+  {
+   "round": 1,
+   "n": 123,
+   "was": "Man stritt über die Natur des Tieres.",
+   "verdict": "ok",
+   "why": "Quelle: 'Man stritt über die Natur des Tieres.' Dies ist eine Zusammenfassung der wissenschaftlichen Debatte über die Einordnung des Mammuts (Elefant vs. anderes), die im historischen Hintergrund und der Rezeption angedeutet wird."
+  },
+  {
+   "round": 1,
+   "n": 124,
+   "was": "Was war es? Ein Elefant? Oder etwas völlig anderes?",
+   "verdict": "ok",
+   "why": "Rhetorische Frage, die die Debatte über die Einordnung (Elefant oder nicht) widerspiegelt, wie im historischen Hintergrund (Sloane, Breyne) beschrieben."
+  },
+  {
+   "round": 1,
+   "n": 138,
+   "was": "Erst fast ein Jahrhundert nach der Bergung wurde der Fehler festgestellt.",
+   "verdict": "drop",
+   "why": "Duplikat von Zeile 135"
+  },
+  {
+   "round": 1,
+   "n": 161,
+   "was": "< Das Skelett steht heute noch im Zoologischen Museum von Sankt Petersburg.",
+   "verdict": "fix",
+   "text": "< Das Skelett steht heute noch in der Kunstkammer von Sankt Petersburg.",
+   "why": "Die Quelle besagt explizit, dass das Skelett seit 1808 in der Kunstkammer aufgestellt ist. Die Behauptung 'Zoologisches Museum' ist nicht gedeckt und widerspricht der spezifischen Nennung der Kunstkammer in der Quelle."
+  },
+  {
+   "round": 1,
+   "n": 165,
+   "was": "< Tilesius rekonstruierte es 1808 mit Hilfe eines indischen Elefanten.",
+   "verdict": "fix",
+   "text": "< Tilesius rekonstruierte es 1808 mit Hilfe eines indischen Elefanten.",
+   "why": "Die Quellen nennen kein Jahr für die Rekonstruktion durch Tilesius (nur, dass Adams 1806 barg und der Bericht 1815 erschien). Das Jahr 1808 ist nicht gedeckt."
+  }
+ ],
+ "hook_written_separately": {
+  "hook": [
+   "1799, Lensk-Delta. Ein Jäger sieht im Eis ein Tier, das seit Jahrtausenden tot sein sollte.",
+   "Er stiehlt die Stoßzähne, nicht wissend, dass er das erste vollständige Mammutkadaver überhaupt freilegt.",
+   "Wie konnte ein tropisches Riese im ewigen Eis überleben, als die Dinosaurier längst starben?",
+   "Und es ist nicht das letzte, das das Eis preisgibt."
+  ],
+  "check": {
+   "concrete_scene": true,
+   "question": true,
+   "not_all": true,
+   "facts_supported": false,
+   "unsupported": [
+    "Er stiehlt die Stoßzähne, nicht wissend, dass er das erste vollständige Mammutkadaver überhaupt freilegt.",
+    "Wie konnte ein tropisches Riese im ewigen Eis überleben, als die Dinosaurier längst starben?"
+   ],
+   "note": "Der Jäger (Schumachow) verkaufte die Zähne, statt sie zu stehlen, und der Kadaver war 1799 nur teilweise freigelegt (vollständig erst 1806). Zudem ist die Behauptung, das Mammut habe 'überlebt', während die Dinosaurier starben, paläontologisch falsch (Mammuts lebten in der Pleistozän, Dinosaurier starben im Kretazäer vor ~66 Mio. Jahren; Mammuts waren zudem nicht 'tropisch' im Sinne von rezenten Tropen, sondern an kalte Klimaten angepasst)."
+  },
+  "words": 53,
+  "why": [
+   "facts_supported"
+  ],
+  "story_lines_as_hook": true
+ },
+ "hook_sha": "ac12baec47de"
+}
