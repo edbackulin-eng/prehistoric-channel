@@ -60,6 +60,9 @@ def material_length(slug, topic):
     WORDS = int(minutes * WPM)
     MAX_WORDS = min(int((_HI - 0.4) * WPM), int((minutes + 1.2) * WPM))
     MIN_WORDS = max(int((_LO + 0.4) * WPM), int((minutes - 1.2) * WPM))
+    if pool.get("interim"):            # owner 18.11: an interim film is 8-12 min, the whole window
+        minutes = (_LO + _HI) / 2
+        WORDS, MIN_WORDS, MAX_WORDS = int(minutes * WPM), int((_LO + 0.4) * WPM), int((_HI - 0.4) * WPM)
     names = {a["key"]: a.get("name_de") or a.get("latin") or a["key"] for a in pool.get("animals", [])}
     by = {}
     for it in pool["items"]:
@@ -433,6 +436,17 @@ def write_hook(script, block, tries=4):
             log.info("hook written and checked: %s", v)
             return "[section hook]\n" + "\n".join(hook) + "\n" + rest, last
         log.info("hook rejected: %s", v)
+    # 18.11: four hooks in a row added details the sources do not carry. The story's first three lines went
+    # through the whole script's fact check: they open the film instead of failing the build.
+    rows = body.splitlines()
+    idx = [i for i, l in enumerate(rows) if l.strip() and not l.strip().startswith("[")][:3]
+    if len(idx) == 3:
+        hook = [rows[i].strip() for i in idx]
+        rest = [l for i, l in enumerate(rows) if i not in idx]
+        if not (rest and rest[0].strip().startswith("[section")):
+            rest = ["[section story]"] + rest
+        log.warning("no new hook passed its check; the story's first lines open the film: %s", last)
+        return "[section hook]\n" + "\n".join(hook) + "\n" + "\n".join(rest), {**(last or {}), "story_lines_as_hook": True}
     raise RuntimeError(f"no hook passed its check: {last}")
 
 
@@ -497,10 +511,12 @@ def _section_at(rows, i):
 
 def fit_length(script, block):
     """22-27 minutes: a long script is condensed, a short one extended from the sources."""
+    tried = []
     for _ in range(6):
         n = words(script)
         if MIN_WORDS <= n <= MAX_WORDS:
             return script
+        tried.append((max(MIN_WORDS - n, n - MAX_WORDS), script))
         if n > MAX_WORDS:
             script = textllm.ask(SHORTEN.format(have=n, minutes=n / WPM, want=WORDS, script=script,
                                                 sources=textllm.relevant(block, script[:3000], 12000)),
@@ -520,9 +536,15 @@ def fit_length(script, block):
             script = "\n".join(rows[:end + 1] + add + rows[end + 1:])
         log.info("length: %d -> %d words", n, words(script))
     n = words(script)
-    if not MIN_WORDS <= n <= MAX_WORDS:
-        raise RuntimeError(f"script is {n} words ({n / WPM:.1f} min); it must be {MIN_WORDS}-{MAX_WORDS}")
-    return script
+    if MIN_WORDS <= n <= MAX_WORDS:
+        return script
+    tried.append((max(MIN_WORDS - n, n - MAX_WORDS), script))
+    best = min(tried, key=lambda t: t[0])[1]
+    n = words(best)
+    if int(_LO * WPM) <= n <= int(_HI * WPM):   # inside the channel's own 8-12 min, just off the aim
+        log.warning("length: %d words is the nearest attempt (aim %d-%d); kept", n, MIN_WORDS, MAX_WORDS)
+        return best
+    raise RuntimeError(f"script is {n} words ({n / WPM:.1f} min); it must be {MIN_WORDS}-{MAX_WORDS}")
 
 
 def edit(lines, before="(Anfang)", step="editor"):
