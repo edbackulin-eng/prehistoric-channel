@@ -1,0 +1,240 @@
+{
+ "slug": "plesiosaurier",
+ "pass": false,
+ "score": 0.62,
+ "checks": [
+  {
+   "name": "hook",
+   "ok": false,
+   "detail": "8 shots in 30 s, 0 moving animal clips (need 3), not moving or no animal at [0.0, 5.0, 9.9, 14.1, 18.2, 20.3, 23.8, 27.3], cuts outside 1.5-3 s: [4.97, 4.97, 4.12, 4.12, 3.51, 3.51, 5.17], sound hit: yes",
+   "blocking": false,
+   "target": "the strict rule in its detail"
+  },
+  {
+   "name": "subject",
+   "ok": true,
+   "detail": "animal shown where told: {'ichthyosaurus': 0.33, 'plesiosaurus': 0.95}; another animal than the line names at none s; landscapes 0% (max 15%)",
+   "subject_share": {
+    "ichthyosaurus": 0.33,
+    "plesiosaurus": 0.95
+   },
+   "landscape_share": 0.0,
+   "blocking": false,
+   "target": "landscapes <= 25%"
+  },
+  {
+   "name": "pace",
+   "ok": true,
+   "detail": "average shot 4.2 s (3-5), hook 4.1 s (1.5-3); shown more than twice: none; again within 3 min: none",
+   "mean_shot_s": 4.23,
+   "repeats": {},
+   "blocking": false,
+   "target": "average shot <= 8.0 s"
+  },
+  {
+   "name": "music",
+   "ok": true,
+   "detail": "music under the voice per minute: [21.93, 22.15, 22.15, 22.31, 22.13, 22.41, 22.42, 22.18, 22.2] dB; music as loud as the voice in minute(s): none; music silent 0 s",
+   "blocking": false,
+   "target": "the strict rule in its detail"
+  },
+  {
+   "name": "background",
+   "ok": true,
+   "detail": "music + atmosphere under the voice per minute: [22.17, 22.03, 22.0, 21.99, 22.0, 22.12, 21.99, 22.0, 22.04] dB (need >= 20); minutes too loud: none",
+   "blocking": false,
+   "target": "the strict rule in its detail"
+  },
+  {
+   "name": "ambience",
+   "ok": true,
+   "detail": "25 atmosphere stretches, only inside their shots; sea under a picture without sea at none s",
+   "blocking": false,
+   "target": "the strict rule in its detail"
+  },
+  {
+   "name": "first_min",
+   "ok": false,
+   "detail": "0% moving in the first minute (need 70 %)",
+   "blocking": false,
+   "target": "the strict rule in its detail"
+  },
+  {
+   "name": "diversity",
+   "ok": false,
+   "detail": "main animal (plesiosaurus) 43% of the film (max 40%); kinds: {'main': '43%', 'other': '39%', 'other_animal': '18%'}; chapters with fewer than 3 kinds: {'story': ['main', 'other_animal'], 'climax': ['main', 'other_animal'], 'finale': ['main', 'other_animal']}",
+   "kind_shares": {
+    "other": 0.393,
+    "other_animal": 0.176,
+    "main": 0.432
+   },
+   "blocking": false,
+   "target": "the strict rule in its detail"
+  },
+  {
+   "name": "repeats",
+   "ok": false,
+   "detail": "96 sources for 128 shots; more than 2 times: {'img:lib-commons-e1dcdca9d6': 27, 'img:commons-8d0d7e34e2': 4}; again within 3 min: {'img:lib-commons-e1dcdca9d6': [33, 47, 55, 72, 85, 92, 95, 102, 112, 127, 130, 136, 140, 166, 171, 202, 230, 256, 322, 370, 430, 443, 448, 462, 488, 491, 494], 'img:commons-8d0d7e34e2': [178, 194, 252, 317], 'img:commons-805ac83aaf': [190, 249], 'img:lib-commons-a7cc158b4c': [219, 365], 'img:lib-commons-45d6f4cb1e': [346, 513]}",
+   "blocking": false,
+   "target": "the strict rule in its detail"
+  },
+  {
+   "name": "match",
+   "ok": true,
+   "detail": "128 shots checked against their line: 0 another animal than the voice names (blocks above 2); 35 an animal under a line that names none (reported): [(18.2, 'reptil'), (27.3, 'ammonit'), (47.3, 'plesiosaurus'), (108.9, 'Plesiosaurier'), (140.0, 'Plesiosaurier'), (156.6, 'Tintenfisch')]; 1 without an answer",
+   "blocking": true
+  },
+  {
+   "name": "viewer",
+   "ok": false,
+   "detail": "19 places a viewer would switch off (max 3): [('0:00', 'unpassend', 'Modernes Schnappschuss-Foto einer Frau statt histo'), ('0:20', 'unpassend', \"Plakette von 'Mary Ann Nichols' (Jack-the-Ripper-O\"), ('0:45', 'wiederholt', 'Dasselbe Motiv historischer Ichthyosaurier-Zeichnu'), ('1:10', 'wiederholt', 'Identische Küsten-Luftaufnahme wie bei 1:05'), ('1:35', 'wiederholt', 'Exakt dieselbe historische Zeichnung von Mary Anni'), ('2:30', 'unpassend', 'Hände beim Gemüseschnippen passen nicht zur Mary A'), ('2:35', 'unpassend', 'Kochender Topf hat keinen Bezug zum Thema Urzeitti'), ('3:15', 'wiederholt', 'Dieselbe historische Zeichnung wird direkt im näch')]",
+   "blocking": false,
+   "target": "the strict rule in its detail"
+  },
+  {
+   "name": "thumbnail",
+   "ok": true,
+   "detail": "chosen: thumbnail_r2.jpg; judge: {'animal': 'Plesiosaurus', 'animal_big_and_recognisable': True, 'prehistoric_or_living_fossil': True, 'bright': False, 'words_readable': True, 'text': 'ENDLICH GEFUNDEN!', 'german_correct': True, 'action_or_trick': False, 'forbidden_seen': [], 'pass': False, 'why': 'Das Tier zeigt keine Aktion (kein offenes Maul, kein Angriff) und der Hintergrund ist zu dunkel ohne knallige Wasserfarben.'}",
+   "blocking": false,
+   "target": "the strict rule in its detail"
+  },
+  {
+   "name": "named_animal",
+   "ok": true,
+   "detail": "an animal other than the line names at none s",
+   "blocking": true
+  },
+  {
+   "name": "text",
+   "ok": true,
+   "detail": "thumbnail thumbnail_r2.jpg: text 'ENDLICH GEFUNDEN!', German correct True, readable True",
+   "blocking": true
+  },
+  {
+   "name": "sound",
+   "ok": true,
+   "detail": "silence of 3 s or more at none s; music over the voice in minute(s) none; true peak -1.4 dBTP (max -0.5); loudness -14.0 LUFS (-17..-11)",
+   "blocking": true
+  },
+  {
+   "name": "duration",
+   "ok": true,
+   "detail": "9.0 min (8-12)",
+   "blocking": true
+  },
+  {
+   "name": "license",
+   "ok": false,
+   "detail": "sources without a confirmed licence: ['lib-commons-d0f6a7ef3d: No restrictions']",
+   "blocking": true
+  },
+  {
+   "name": "photos",
+   "ok": true,
+   "blocking": false,
+   "detail": "owner 15.11: a photograph at most 6 s (none longer), at most 3 in a row without film or archive between (none); video 0.1, stills 0.9, archive 0.514",
+   "target": "the strict rule in its detail"
+  },
+  {
+   "name": "unique",
+   "ok": true,
+   "blocking": false,
+   "detail": "128 pictures, 0 used twice (owner 15.11: each picture once); held on for want of pictures at none s",
+   "target": "the strict rule in its detail"
+  },
+  {
+   "name": "frames",
+   "ok": true,
+   "detail": "108 frames looked at (one every 5 s): black at none s; decoding errors: none",
+   "blocking": true
+  }
+ ],
+ "duration_s": 540.54,
+ "rejects": [
+  "lib-commons-d0f6a7ef3d"
+ ],
+ "first_minute_moving": null,
+ "levels_per_minute": [
+  {
+   "minute": 0,
+   "voice_lufs": -18.43,
+   "music_lufs_under_voice": -40.36,
+   "music_lufs": -40.05,
+   "under_db": 21.93,
+   "background_lufs_under_voice": -40.6,
+   "background_under_db": 22.17
+  },
+  {
+   "minute": 1,
+   "voice_lufs": -17.46,
+   "music_lufs_under_voice": -39.61,
+   "music_lufs": -38.84,
+   "under_db": 22.15,
+   "background_lufs_under_voice": -39.48,
+   "background_under_db": 22.03
+  },
+  {
+   "minute": 2,
+   "voice_lufs": -17.8,
+   "music_lufs_under_voice": -39.95,
+   "music_lufs": -39.15,
+   "under_db": 22.15,
+   "background_lufs_under_voice": -39.8,
+   "background_under_db": 22.0
+  },
+  {
+   "minute": 3,
+   "voice_lufs": -17.84,
+   "music_lufs_under_voice": -40.15,
+   "music_lufs": -39.8,
+   "under_db": 22.31,
+   "background_lufs_under_voice": -39.84,
+   "background_under_db": 21.99
+  },
+  {
+   "minute": 4,
+   "voice_lufs": -17.3,
+   "music_lufs_under_voice": -39.43,
+   "music_lufs": -39.2,
+   "under_db": 22.13,
+   "background_lufs_under_voice": -39.3,
+   "background_under_db": 22.0
+  },
+  {
+   "minute": 5,
+   "voice_lufs": -17.13,
+   "music_lufs_under_voice": -39.54,
+   "music_lufs": -38.9,
+   "under_db": 22.41,
+   "background_lufs_under_voice": -39.25,
+   "background_under_db": 22.12
+  },
+  {
+   "minute": 6,
+   "voice_lufs": -17.64,
+   "music_lufs_under_voice": -40.06,
+   "music_lufs": -39.17,
+   "under_db": 22.42,
+   "background_lufs_under_voice": -39.63,
+   "background_under_db": 21.99
+  },
+  {
+   "minute": 7,
+   "voice_lufs": -17.73,
+   "music_lufs_under_voice": -39.91,
+   "music_lufs": -39.48,
+   "under_db": 22.18,
+   "background_lufs_under_voice": -39.73,
+   "background_under_db": 22.0
+  },
+  {
+   "minute": 8,
+   "voice_lufs": -17.51,
+   "music_lufs_under_voice": -39.71,
+   "music_lufs": -39.52,
+   "under_db": 22.2,
+   "background_lufs_under_voice": -39.55,
+   "background_under_db": 22.04
+  }
+ ]
+}
