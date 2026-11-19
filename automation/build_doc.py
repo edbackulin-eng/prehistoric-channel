@@ -209,7 +209,15 @@ def still_16x9(src, dest, w=4224, h=2376):
     """A photograph or painting of any shape on the 16:9 plate the slow camera move films (the
     picture whole, over a blurred, darkened copy of itself) - nothing invented, nothing cut off."""
     from PIL import Image, ImageFilter, ImageEnhance
-    im = Image.open(src).convert("RGB")
+    # 19.11: a library scan of 238 megapixels tripped PIL's bomb guard; the files are Commons originals
+    # we chose, so they open, and a giant one is shrunk at decode time before anything else
+    Image.MAX_IMAGE_PIXELS = 1_000_000_000
+    im = Image.open(src)
+    if im.width * im.height > 40_000_000:
+        im.draft("RGB", (w * 2, h * 2))          # JPEG: decoded at a fraction of the size
+        if im.width * im.height > 40_000_000:
+            im.thumbnail((w * 2, h * 2), Image.LANCZOS)
+    im = im.convert("RGB")
     bg = im.copy()
     s = max(w / bg.width, h / bg.height)
     bg = bg.resize((int(bg.width * s) + 1, int(bg.height * s) + 1), Image.LANCZOS)
