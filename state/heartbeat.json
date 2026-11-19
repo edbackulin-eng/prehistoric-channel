@@ -1,6 +1,8 @@
 {
  "date": "2026-11-19",
- "checked_at": "2026-11-19T00:07:35Z",
+ "checked_at": "2026-11-19T12:25:08Z",
  "ahead": [],
- "actions": []
+ "actions": [
+  "render.yml 44517955361 stopped on a spent quota; it waits for the quota to turn (no rerun)"
+ ]
 }

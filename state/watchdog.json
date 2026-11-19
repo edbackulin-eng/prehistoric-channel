@@ -677,6 +677,13 @@
    "sig": "build / The format is being rebuilt (owner 16.11) - nothing built, no quota spent",
    "day": "2026-11-18",
    "rerun": false
+  },
+  {
+   "run": "44517955361/1",
+   "wf": "render.yml",
+   "sig": "prepare / German narration, 2.5D layers, species check, plan, footage, voice lines",
+   "day": "2026-11-19",
+   "rerun": false
   }
  ],
  "cancelled": [
