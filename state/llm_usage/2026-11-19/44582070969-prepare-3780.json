@@ -1,0 +1,18 @@
+{
+ "gemma-4-31b-it": {
+  "requests": 13,
+  "in_tokens": 8900,
+  "out_tokens": 6474,
+  "steps": {
+   "real-tag": 13
+  }
+ },
+ "gemini-flash-lite-latest": {
+  "requests": 7,
+  "in_tokens": 4585,
+  "out_tokens": 9249,
+  "steps": {
+   "real-tag": 7
+  }
+ }
+}
