@@ -5,8 +5,9 @@
    "text": "Es war um das Jahr 1811 an der Küste von Dorset, als die erst 12-jährige Mary Anning im Schlamm von Lyme Regis stand.",
    "beats": [],
    "want": [
-    "excavation",
     "landscape",
+    "excavation",
+    "archive_photo",
     "archive_illustration"
    ]
   },
@@ -15,9 +16,9 @@
    "text": "Ihr Bruder Joseph hatte zuvor bereits den schrecklichen Schädel aus dem Stein gebrochen, der aussah wie das Maul eines riesigen Krokodils.",
    "beats": [],
    "want": [
+    "excavation",
     "fossil",
-    "archive_illustration",
-    "excavation"
+    "archive_illustration"
    ]
   },
   {
@@ -26,8 +27,7 @@
    "beats": [],
    "want": [
     "fossil",
-    "skeleton",
-    "archive_illustration"
+    "skeleton"
    ]
   },
   {
@@ -36,8 +36,7 @@
    "beats": [],
    "want": [
     "landscape",
-    "excavation",
-    "archive_photo"
+    "excavation"
    ]
   },
   {
@@ -61,7 +60,7 @@
    "want": [
     "skeleton",
     "fossil",
-    "excavation"
+    "palaeoart"
    ]
   },
   {
@@ -69,9 +68,8 @@
    "text": "Ein Fund von solcher Vollständigkeit, dass er die Fachwelt in London in Atem hielt.",
    "beats": [],
    "want": [
-    "museum",
     "archive_illustration",
-    "archive_photo"
+    "museum"
    ]
   },
   {
@@ -79,8 +77,7 @@
    "text": "Der Weg dorthin war unerbittlich.",
    "beats": [],
    "want": [
-    "landscape",
-    "archive_illustration"
+    "landscape"
    ]
   },
   {
@@ -88,8 +85,7 @@
    "text": "Nach dem Tod ihres Vaters lastete die nackte Existenzangst auf der Familie.",
    "beats": [],
    "want": [
-    "portrait",
-    "archive_illustration"
+    "portrait"
    ]
   },
   {
@@ -98,8 +94,8 @@
    "beats": [],
    "want": [
     "excavation",
-    "fossil",
-    "portrait"
+    "landscape",
+    "fossil"
    ]
   },
   {
@@ -126,8 +122,8 @@
    "text": "Zehn Jahre nach ihrem ersten Triumph, im Jahr 1821, stieß sie erneut auf Unerforschtes.",
    "beats": [],
    "want": [
-    "archive_illustration",
-    "portrait"
+    "fossil",
+    "excavation"
    ]
   },
   {
@@ -136,8 +132,7 @@
    "beats": [],
    "want": [
     "fossil",
-    "skeleton",
-    "archive_illustration"
+    "skeleton"
    ]
   },
   {
@@ -146,8 +141,7 @@
    "beats": [],
    "want": [
     "fossil",
-    "skeleton",
-    "archive_illustration"
+    "palaeontologist"
    ]
   },
   {
@@ -155,9 +149,9 @@
    "text": "Basierend auf bruchstückhaften Überfunden gaben die Forscher Conybeare und De la Beche dem Tier seinen Namen.",
    "beats": [],
    "want": [
-    "portrait",
+    "palaeontologist",
     "archive_illustration",
-    "palaeontologist"
+    "portrait"
    ]
   },
   {
@@ -166,7 +160,8 @@
    "beats": [],
    "want": [
     "landscape",
-    "archive_illustration"
+    "fossil",
+    "palaeoart"
    ]
   },
   {
@@ -174,9 +169,9 @@
    "text": "24: Mary Anning fand schließlich das erste vollständige Skelett.",
    "beats": [],
    "want": [
-    "skeleton",
+    "excavation",
     "fossil",
-    "archive_illustration"
+    "skeleton"
    ]
   },
   {
@@ -184,8 +179,7 @@
    "text": "Draußen an der englischen Küste war es Dezember 1823.",
    "beats": [],
    "want": [
-    "landscape",
-    "archive_illustration"
+    "landscape"
    ]
   },
   {
@@ -195,7 +189,7 @@
    "want": [
     "excavation",
     "landscape",
-    "portrait"
+    "fossil"
    ]
   },
   {
@@ -204,7 +198,7 @@
    "beats": [],
    "want": [
     "excavation",
-    "archive_illustration"
+    "preparation"
    ]
   },
   {
@@ -213,8 +207,7 @@
    "beats": [],
    "want": [
     "excavation",
-    "fossil",
-    "archive_illustration"
+    "fossil"
    ]
   },
   {
@@ -224,7 +217,7 @@
    "want": [
     "skeleton",
     "fossil",
-    "archive_illustration"
+    "excavation"
    ]
   },
   {
@@ -234,7 +227,7 @@
    "want": [
     "fossil",
     "skeleton",
-    "archive_illustration"
+    "palaeoart"
    ]
   },
   {
@@ -243,7 +236,7 @@
    "beats": [],
    "want": [
     "portrait",
-    "archive_illustration"
+    "excavation"
    ]
   },
   {
@@ -253,6 +246,7 @@
    "want": [
     "preparation",
     "fossil",
+    "excavation",
     "archive_photo"
    ]
   },
@@ -262,8 +256,8 @@
    "beats": [],
    "want": [
     "preparation",
-    "fossil",
-    "archive_photo"
+    "archive_photo",
+    "fossil"
    ]
   },
   {
@@ -283,7 +277,7 @@
    "want": [
     "fossil",
     "landscape",
-    "archive_photo"
+    "archive_illustration"
    ]
   },
   {
@@ -292,7 +286,8 @@
    "beats": [],
    "want": [
     "archive_photo",
-    "palaeontologist"
+    "palaeontologist",
+    "archive_illustration"
    ]
   },
   {
@@ -301,7 +296,8 @@
    "beats": [],
    "want": [
     "portrait",
-    "archive_photo"
+    "archive_photo",
+    "fossil"
    ]
   },
   {
@@ -355,7 +351,7 @@
    "want": [
     "skeleton",
     "palaeontologist",
-    "museum"
+    "archive_photo"
    ]
   },
   {
@@ -363,9 +359,9 @@
    "text": "Was manche Gelehrte zunächst für unmöglich hielten, lag längst vollständig ausgegraben in England.",
    "beats": [],
    "want": [
-    "skeleton",
     "fossil",
-    "landscape"
+    "skeleton",
+    "archive_photo"
    ]
   },
   {
@@ -388,8 +384,8 @@
    ],
    "want": [
     "palaeoart",
-    "skeleton",
-    "fossil"
+    "fossil",
+    "archive_illustration"
    ]
   },
   {
@@ -398,7 +394,8 @@
    "beats": [],
    "want": [
     "portrait",
-    "palaeontologist"
+    "palaeontologist",
+    "archive_photo"
    ]
   },
   {
@@ -412,7 +409,7 @@
    "want": [
     "skeleton",
     "fossil",
-    "museum"
+    "portrait"
    ]
   },
   {
@@ -422,7 +419,7 @@
    "want": [
     "palaeoart",
     "fossil",
-    "skeleton"
+    "archive_illustration"
    ]
   },
   {
@@ -430,15 +427,13 @@
    "text": "Die Welt der antediluvianischen Reptilien hatte ihre ersten echten Konturen erhalten.",
    "beats": [
     {
-     "species": "ichthyosaurus"
-    },
-    {
      "species": "plesiosaurus"
     }
    ],
    "want": [
     "palaeoart",
-    "landscape"
+    "archive_illustration",
+    "fossil"
    ]
   },
   {
@@ -446,9 +441,9 @@
    "text": "Zehn Jahre hingabe voller Arbeit ohne fremde Hilfe hatten sich ausgezahlt.",
    "beats": [],
    "want": [
-    "excavation",
+    "portrait",
     "archive_photo",
-    "portrait"
+    "excavation"
    ]
   },
   {
@@ -456,16 +451,13 @@
    "text": "Die formelle wissenschaftliche Analyse durch Conybeare bestätigte schliesslich die Existenz einer völlig neuen Tierordnung, welche die bisherigen Grenzen der Schöpfungsgeschichte sprengte.",
    "beats": [
     {
-     "species": "ichthyosaurus"
-    },
-    {
      "species": "plesiosaurus"
     }
    ],
    "want": [
     "palaeoart",
     "skeleton",
-    "palaeontologist"
+    "fossil"
    ]
   },
   {
@@ -473,16 +465,13 @@
    "text": "Die formelle wissenschaftliche Analyse durch Conybeare bestätigte schließlich die Existenz einer völlig neuen Tierordnung, welche die bisherigen Grenzen der Schöpfungsgeschichte sprengte.",
    "beats": [
     {
-     "species": "ichthyosaurus"
-    },
-    {
      "species": "plesiosaurus"
     }
    ],
    "want": [
     "palaeoart",
     "skeleton",
-    "palaeontologist"
+    "fossil"
    ]
   },
   {
@@ -491,7 +480,8 @@
    "beats": [],
    "want": [
     "portrait",
-    "palaeontologist"
+    "palaeontologist",
+    "archive_photo"
    ]
   },
   {
@@ -505,7 +495,7 @@
    "want": [
     "skeleton",
     "fossil",
-    "museum"
+    "portrait"
    ]
   },
   {
@@ -515,16 +505,21 @@
    "want": [
     "excavation",
     "fossil",
-    "landscape"
+    "archive_photo"
    ]
   },
   {
    "n": 49,
    "text": "Bis zu jener Stunde glaubte man fest daran, dass all diese seltsamen Wesen schlicht in noch unentdeckten, fernen Winkeln der Erde lebten.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "plesiosaurus"
+    }
+   ],
    "want": [
-    "landscape",
-    "palaeoart"
+    "archive_illustration",
+    "palaeoart",
+    "landscape"
    ]
   },
   {
@@ -532,9 +527,9 @@
    "text": "Doch was Mary Anning aus dem Schiefer zog, passte in kein Schema der bekannten Welt.",
    "beats": [],
    "want": [
-    "palaeontologist",
-    "archive_photo",
-    "portrait"
+    "excavation",
+    "portrait",
+    "archive_photo"
    ]
   },
   {
@@ -553,6 +548,7 @@
    "beats": [],
    "want": [
     "landscape",
+    "excavation",
     "fossil"
    ]
   },
@@ -563,7 +559,7 @@
    "want": [
     "portrait",
     "skeleton",
-    "archive_illustration"
+    "fossil"
    ]
   },
   {
@@ -571,8 +567,9 @@
    "text": "Plötzlich zerbrach das vertraute Bild der Ewigkeit.",
    "beats": [],
    "want": [
-    "archive_illustration",
-    "palaeoart"
+    "fossil",
+    "palaeoart",
+    "landscape"
    ]
   },
   {
@@ -581,8 +578,8 @@
    "beats": [],
    "want": [
     "fossil",
-    "landscape",
-    "excavation"
+    "skeleton",
+    "landscape"
    ]
   },
   {
@@ -591,7 +588,8 @@
    "beats": [],
    "want": [
     "landscape",
-    "fossil"
+    "fossil",
+    "archive_illustration"
    ]
   },
   {
@@ -599,8 +597,9 @@
    "text": "Sie war ein Friedhof der verlorenen Welten, deren Geheimnisse nun für immer ans Licht drangen.",
    "beats": [],
    "want": [
+    "fossil",
     "landscape",
-    "fossil"
+    "skeleton"
    ]
   },
   {
@@ -627,8 +626,8 @@
    ],
    "want": [
     "skeleton",
-    "fossil",
-    "palaeoart"
+    "palaeoart",
+    "fossil"
    ]
   },
   {
@@ -636,8 +635,9 @@
    "text": "Damit wandelte sich die gesamte Erdgeschichte von Grund auf.",
    "beats": [],
    "want": [
-    "archive_illustration",
-    "landscape"
+    "landscape",
+    "fossil",
+    "archive_illustration"
    ]
   },
   {
@@ -646,7 +646,8 @@
    "beats": [],
    "want": [
     "fossil",
-    "skeleton"
+    "skeleton",
+    "palaeoart"
    ]
   },
   {
@@ -659,7 +660,8 @@
    ],
    "want": [
     "skeleton",
-    "fossil"
+    "fossil",
+    "palaeoart"
    ]
   },
   {
@@ -668,7 +670,8 @@
    "beats": [],
    "want": [
     "fossil",
-    "skeleton"
+    "skeleton",
+    "landscape"
    ]
   },
   {
@@ -677,7 +680,8 @@
    "beats": [],
    "want": [
     "fossil",
-    "skeleton"
+    "skeleton",
+    "palaeoart"
    ]
   },
   {
@@ -685,8 +689,8 @@
    "text": "Doch die Frau, die diese Zeugnisse aus dem Stein befreit hatte, sollte das Schicksal ihrer eigenen Entdeckungen teilen.",
    "beats": [],
    "want": [
-    "palaeontologist",
     "portrait",
+    "archive_photo",
     "fossil"
    ]
   },
@@ -696,7 +700,8 @@
    "beats": [],
    "want": [
     "portrait",
-    "archive_photo"
+    "archive_photo",
+    "museum"
    ]
   },
   {
@@ -706,7 +711,7 @@
    "want": [
     "excavation",
     "landscape",
-    "archive_illustration"
+    "archive_photo"
    ]
   },
   {
@@ -715,8 +720,8 @@
    "beats": [],
    "want": [
     "fossil",
-    "museum",
-    "preparation"
+    "preparation",
+    "museum"
    ]
   },
   {
@@ -724,8 +729,9 @@
    "text": "Über Jahrzehnte hinweg hatten männliche Gelehrte ihre Funde wissenschaftlich beschrieben und ihren Beitrag bisweilen in den Hintergrund gedrängt.",
    "beats": [],
    "want": [
+    "portrait",
     "archive_photo",
-    "portrait"
+    "museum"
    ]
   },
   {
@@ -733,8 +739,9 @@
    "text": "Erst in unseren Tagen bricht das Schweigen und gewährt jene späte Gerechtigkeit, die ihr damals verwehrt blieb.",
    "beats": [],
    "want": [
-    "museum",
-    "archive_photo"
+    "portrait",
+    "archive_photo",
+    "museum"
    ]
   },
   {
@@ -742,8 +749,8 @@
    "text": "Heute blickt die Wissenschaft auf sie als eine der wegweisenden Pionierinnen der Paläontologie.",
    "beats": [],
    "want": [
-    "palaeontologist",
     "portrait",
+    "palaeontologist",
     "museum"
    ]
   },
@@ -753,7 +760,8 @@
    "beats": [],
    "want": [
     "landscape",
-    "museum"
+    "museum",
+    "fossil"
    ]
   },
   {
@@ -761,9 +769,9 @@
    "text": "Wo einst ein armes Mädchen im tosenden Sturm nach verborgenen Knochen grub, erinnert ihr Name für alle Zeiten an die unbezwingbare Kraft scharfer Beobachtung und eisernes Durchhaltevermögen.",
    "beats": [],
    "want": [
-    "excavation",
     "portrait",
-    "archive_illustration"
+    "excavation",
+    "landscape"
    ]
   }
  ],

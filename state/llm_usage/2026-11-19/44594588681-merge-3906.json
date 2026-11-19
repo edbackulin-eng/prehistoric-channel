@@ -1,0 +1,12 @@
+{
+ "gemini-flash-lite-latest": {
+  "requests": 7,
+  "in_tokens": 11522,
+  "out_tokens": 955,
+  "steps": {
+   "thumb-words": 1,
+   "thumb-judge": 5,
+   "thumb-choose": 1
+  }
+ }
+}
