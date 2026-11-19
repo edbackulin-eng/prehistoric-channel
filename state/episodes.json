@@ -59,11 +59,11 @@
  },
  {
   "slug": "wollhaarmammut",
-  "run_id": "44531879341",
+  "run_id": "44582070969",
   "artifact": "release-wollhaarmammut",
-  "built_at": "2026-11-19T16:17:30Z",
-  "layers_run": "44531879341",
-  "status": "qa-failed",
+  "built_at": "2026-11-19T20:43:43Z",
+  "layers_run": "44582070969",
+  "status": "awaiting_approval",
   "qa_failed": [
    "hook: 9 shots in 30 s, 0 moving animal clips (need 3), not moving or no animal at [0.0, 3.4, 6.9, 10.7, 13.9, 16.1, 20.4, 22.6, 26.0], cuts outside 1.5-3 s: [3.44, 3.44, 3.86, 3.21, 4.29, 3.41, 4.89], sound hit: yes",
    "first_min: 0% moving in the first minute (need 70 %)",
@@ -73,7 +73,10 @@
    "viewer: 25 places a viewer would switch off (max 3): [('0:30', 'unpassend', 'Zeigt völlig zusammenhanglose Wappen statt des Tex'), ('1:00', 'unpassend', 'Bild einer düsteren Statue in Nische passt nicht z'), ('1:30', 'unpassend', 'Flusslandschaft bei Sonnenuntergang passt nicht zu'), ('3:10', 'unpassend', 'Die orangefarbene Wand/Gebäude passt nicht zur sib'), ('3:15', 'unpassend', 'Eine moderne Straßenszene passt nicht zum Kontext '), ('3:30', 'unpassend', 'Die moderne Stadtansicht passt nicht zur historisc'), ('4:05', 'wiederholt', 'Fast identisches Bild eines Knochens wie bei 4:00.'), ('4:05', 'unpassend', 'Zeichnungen von Vögeln/Flügeln, während im Text vo')]",
    "license: sources without a confirmed licence: ['lib-commons-4095a95d7a: No restrictions', 'lib-commons-755f0f5d78: No restrictions', 'lib-commons-94d20ef118: No restrictions']",
    "photos: owner 15.11: a photograph at most 6 s ([236, 519] longer), at most 3 in a row without film or archive between (none); video 0.332, stills 0.668, archive 0.188"
-  ]
+  ],
+  "youtube_id": "x-RpMsApFWU",
+  "publish_at": null,
+  "uploaded_at": "2026-11-19T20:45:10Z"
  },
  {
   "slug": "plesiosaurier",
