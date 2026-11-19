@@ -23,7 +23,8 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 CACHE = ROOT / "cache" / "search"
-UA = "Mozilla/5.0 (prehistoric-channel; research use) Python-urllib"
+# 19.11: Wikimedia answers 429 to a browser-like agent; its policy asks for a descriptive one with a contact
+UA = "prehistoric-channel/1.0 (https://github.com/edbackulin-eng/prehistoric-channel; automated asset fetch) python-urllib"
 
 PEOPLE = re.compile(r"\b(people|person|man|men|woman|women|girl|boy|child|children|kid|human|"
                     r"diver|divers|diving|scuba|snorkel\w*|swimmer|surfer|tourist|hand|hands|"
@@ -167,7 +168,7 @@ def download(url, dest, min_bytes=50_000):
         return dest
     dest.parent.mkdir(parents=True, exist_ok=True)
     tmp = dest.with_suffix(dest.suffix + ".part")
-    for attempt in range(6):
+    for attempt in range(8):
         try:
             req = urllib.request.Request(url, headers={"User-Agent": UA})
             with urllib.request.urlopen(req, timeout=600) as r, open(tmp, "wb") as fh:
@@ -175,9 +176,13 @@ def download(url, dest, min_bytes=50_000):
                     fh.write(chunk)
             break
         except urllib.error.HTTPError as e:
-            if e.code != 429 or attempt == 5:
+            if e.code not in (429, 503) or attempt == 7:
                 raise
-            time.sleep(20 * (attempt + 1))         # Wikimedia asks for patience, not retries
+            try:
+                wait = int(e.headers.get("Retry-After") or 0)
+            except (TypeError, ValueError):
+                wait = 0
+            time.sleep(max(wait, 30 * (attempt + 1)))   # Wikimedia asks for patience, not retries
     if tmp.stat().st_size < min_bytes:
         tmp.unlink(missing_ok=True)
         raise RuntimeError(f"{url} came back short")

@@ -250,7 +250,7 @@ def prepare_real(slug, res):
         src = raw / f"{s['image']}{Path(s['still_url'].split('?')[0]).suffix or '.jpg'}"
         footage.download(s["still_url"], src, min_bytes=20_000)
         still_16x9(src, dest)
-        time.sleep(1)
+        time.sleep(3)                      # 19.11: Wikimedia's originals answer 429 to a quick series
     tb = W(slug) / "inputs" / "thumb_bases"
     tb.mkdir(parents=True, exist_ok=True)
     for it in realplan.thumbs_plan(slug, ""):
