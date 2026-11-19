@@ -1,0 +1,1933 @@
+{
+ "lines": [
+  {
+   "n": 0,
+   "text": "Im Jahr 1799 lag der Kadaver im Eis des Lensk-Deltas, freigelegt durch einen Erdrutsch.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "landscape",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 1,
+   "text": "Ossip Schumachow, ein ewenkischer Jäger, sah das Tier.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "excavation",
+    "archive_illustration",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "Er wusste, dass die Stoßzähne wertvoll waren.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "Also raubte er sie dem Kadaver.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "Er verkaufte sie an Roman Boltunow, einen jakutischen Händler.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "archive_illustration",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "Boltunow reiste zum Fundort.",
+   "beats": [],
+   "want": [
+    "excavation",
+    "landscape",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "Er zeichnete eine detaillierte Skizze des Tieres.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "archive_illustration",
+    "fossil"
+   ]
+  },
+  {
+   "n": 7,
+   "text": "Der Körper war abgesehen von Raubtierfraß an Rüssel und Ohren vollständig.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 8,
+   "text": "Diese Skizze gelangte nach Sankt Petersburg.",
+   "beats": [],
+   "want": [
+    "archive_illustration",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 9,
+   "text": "Dort lag sie in der Russischen Akademie der Wissenschaften.",
+   "beats": [],
+   "want": [
+    "museum",
+    "archive_illustration",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 10,
+   "text": "Michael Friedrich Adams, ein deutsch-russischer Botaniker, sah sie.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "archive_illustration",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 11,
+   "text": "Er erkannte das Potenzial dieses Fundes.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 12,
+   "text": "Zwischen 1692 und 1806 wurden nur 4 Funde von Mammutkadavern beschrieben.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 13,
+   "text": "Keiner von ihnen wurde geborgen.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 14,
+   "text": "Wie konnte ein tropisches Tier im ewigen Eis überleben?",
+   "beats": [
+    {
+     "species": "elephant"
+    },
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "palaeoart",
+    "living_animal",
+    "landscape"
+   ]
+  },
+  {
+   "n": 15,
+   "text": "Der tungusische Elfenbeinhändler Ossip Schumachow hatte den Kadaver zuvor der wertvollen Stoßzähne beraubt.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "archive_illustration",
+    "excavation"
+   ]
+  },
+  {
+   "n": 16,
+   "text": "Er verkaufte diese an den jakutischen Händler Roman Boltunow.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "archive_illustration",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 17,
+   "text": "Dieser reiste zum Fundort und fertigte eine Skizze des Kadavers an.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "archive_illustration",
+    "fossil"
+   ]
+  },
+  {
+   "n": 18,
+   "text": "Adams erfuhr in Jakutsk von Boltunow 1806 von der Entdeckung im Lenadelta.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "portrait",
+    "palaeontologist",
+    "landscape"
+   ]
+  },
+  {
+   "n": 19,
+   "text": "Zwischen 1692 und 1806 waren nur vier ähnliche Funde beschrieben worden.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 20,
+   "text": "Keiner dieser vier war je geborgen worden.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 21,
+   "text": "Adams organisierte daraufhin eine Expedition, zu der ihn Schumachow 1806 führte.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "excavation",
+    "palaeontologist",
+    "landscape"
+   ]
+  },
+  {
+   "n": 22,
+   "text": "Erst nun wurde das Skelett geborgen und nach Sankt Petersburg gebracht.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "museum",
+    "preparation"
+   ]
+  },
+  {
+   "n": 23,
+   "text": "1805, Sibirien. Die diplomatische Mission des Grafen Juri Golowkin nach China scheitert.",
+   "beats": [],
+   "want": [
+    "landscape",
+    "portrait",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 24,
+   "text": "Viele kehren zurück, doch Michael Friedrich Adams bleibt.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 25,
+   "text": "Er will forschen, wo andere aufgeben.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 26,
+   "text": "In Jakutsk trifft er auf Roman Boltunow, einen Händler für Elfenbein.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 27,
+   "text": "Boltunow kennt den Ort. Er kennt das Tier im Eis.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "archive_illustration",
+    "fossil"
+   ]
+  },
+  {
+   "n": 28,
+   "text": "Adams hört von einem Fund im Delta der Lena.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "archive_illustration",
+    "landscape"
+   ]
+  },
+  {
+   "n": 29,
+   "text": "Ein Wollhaarmammut, seit 1799 dort vergraben.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "skeleton",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 30,
+   "text": "Die genaue Lage des Fundorts wird klar.",
+   "beats": [],
+   "want": [
+    "landscape",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 31,
+   "text": "Adams organisiert eine Expedition.",
+   "beats": [],
+   "want": [
+    "palaeontologist",
+    "archive_photo",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 32,
+   "text": "Vier Kosaken segeln mit ihm die Lena hinab.",
+   "beats": [],
+   "want": [
+    "archive_illustration",
+    "archive_photo",
+    "landscape"
+   ]
+  },
+  {
+   "n": 33,
+   "text": "Die Strecke ist weit, das Ziel unsicher.",
+   "beats": [],
+   "want": [
+    "landscape",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 34,
+   "text": "Ende Juni 1806 erreichen sie das Dorf von Schumachow.",
+   "beats": [],
+   "want": [
+    "landscape",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 35,
+   "text": "Der Jäger, der das Skelett vor Jahren freigelegt hatte, ist dort.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "portrait",
+    "excavation",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 36,
+   "text": "Adams trifft auf ihn.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "palaeontologist",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 37,
+   "text": "Was sie beide nicht wissen: Das Tier ist bereits halb zerfressen.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "skeleton",
+    "excavation"
+   ]
+  },
+  {
+   "n": 38,
+   "text": "Die Wölfe haben genagt, was das Eis nicht hielt, und die Jäger fütterten Hunde.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 39,
+   "text": "Doch das Skelett liegt noch da.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil",
+    "excavation"
+   ]
+  },
+  {
+   "n": 40,
+   "text": "Es wartet auf jemanden, der es versteht.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil"
+   ]
+  },
+  {
+   "n": 41,
+   "text": "1805 schloss sich Adams der gescheiterten Golowkin-Mission nach China an, die ihn nach Sibirien führte.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "landscape",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 42,
+   "text": "Die Forschergruppe blieb in Sibirien, um weiter zu arbeiten.",
+   "beats": [],
+   "want": [
+    "landscape",
+    "palaeontologist",
+    "excavation"
+   ]
+  },
+  {
+   "n": 43,
+   "text": "In Jakutsk erfuhr Adams von Boltunow von der Entdeckung des Mammuts im Lenadelta.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "portrait",
+    "fossil",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 44,
+   "text": "Mit drei Kosaken segelte er die Lena bis zur Mündung hinab.",
+   "beats": [],
+   "want": [
+    "landscape",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 45,
+   "text": "Ende Juni 1806 erreichte er Schumachows Dorf.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "landscape",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 46,
+   "text": "Der Fundort lag auf der Bykowski-Halbinsel, weit entfernt.",
+   "beats": [],
+   "want": [
+    "landscape",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 47,
+   "text": "Adams notierte später die enormen Maße des Tieres.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 48,
+   "text": "Zehn Personen brauchten große Schwierigkeiten, um die Teile anzuheben.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "excavation",
+    "preparation",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 49,
+   "text": "Bei der Bergung gingen fast alle Weichteile verloren.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "excavation",
+    "fossil",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 50,
+   "text": "Nur die Kopfhaut und Fußsohlen überlebten die Rückreise.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "preparation",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 51,
+   "text": "Das Skelett wurde nach Sankt Petersburg gebracht.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "museum",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 52,
+   "text": "Es ist das erste montierte Wollhaarmammut weltweit.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "museum",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 53,
+   "text": "Die Wölfe hatten bereits die zugängliche Seite des Tieres zerfressen.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "palaeoart",
+    "excavation"
+   ]
+  },
+  {
+   "n": 54,
+   "text": "Das Tier wartete nun auf seine wissenschaftliche Erlösung.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "palaeoart",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 55,
+   "text": "Ende Juli 1806. Adams, Schumachow und 10 Männer reisen zum Fundort auf der Bykowski-Halbinsel.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "excavation",
+    "landscape",
+    "portrait",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 56,
+   "text": "Die Luft ist schwer. Der Fluss trennt sie vom Ufer, wo das Tier wartet.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "landscape",
+    "excavation",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 57,
+   "text": "Die zugängliche Seite ist ein Schlachtfeld. Wölfe haben das Fleisch zerrissen.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "excavation",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 58,
+   "text": "Ein Teil davon ist bereits an die Hunde der Jäger verfüttert worden.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "excavation",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 59,
+   "text": "Doch die linke Körperseite liegt noch im Schatten der Zeit.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "excavation",
+    "landscape"
+   ]
+  },
+  {
+   "n": 60,
+   "text": "Haut und Haar sind dort erhalten, fest im Eis verankert.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "excavation",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 61,
+   "text": "Adams kniet nieder. Er berührt die Knochen.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "excavation",
+    "portrait",
+    "palaeontologist",
+    "fossil"
+   ]
+  },
+  {
+   "n": 62,
+   "text": "Sie sind von einer Masse, die jeder Vorstellung widerspricht.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil",
+    "excavation"
+   ]
+  },
+  {
+   "n": 63,
+   "text": "Zehn Männer ringen mit einem einzigen Knochen. Erst nach großer Mühe hebt sich das Gewicht.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "excavation",
+    "fossil",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 64,
+   "text": "Was fehlt, ist ein Riss in der Geschichte.",
+   "beats": [],
+   "want": [
+    "archive_illustration",
+    "landscape"
+   ]
+  },
+  {
+   "n": 65,
+   "text": "Die Stoßzähne sind weg. Ein Vorderbein. Der Rüssel.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "excavation",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 66,
+   "text": "Der Schädel aber ist da. Das Ohr. Das Auge.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "excavation",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 67,
+   "text": "Es blickt noch immer in die karge Landschaft.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "landscape",
+    "palaeoart",
+    "fossil"
+   ]
+  },
+  {
+   "n": 68,
+   "text": "Der Trupp beginnt zu arbeiten. Sie zerlegen den Kadaver in Teile.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "excavation",
+    "archive_illustration",
+    "fossil"
+   ]
+  },
+  {
+   "n": 69,
+   "text": "Jedes Stück wird verpackt, bereit für die lange Reise.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "excavation",
+    "preparation",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 70,
+   "text": "Nach Sankt Petersburg. In die Kunstkammer.",
+   "beats": [],
+   "want": [
+    "museum",
+    "archive_illustration",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 71,
+   "text": "Adams kauft unterwegs ein Paar Stoßzähne.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "portrait",
+    "archive_illustration",
+    "fossil"
+   ]
+  },
+  {
+   "n": 72,
+   "text": "[pause 0.8] Er glaubt, dies seien die ursprünglichen.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "portrait",
+    "fossil"
+   ]
+  },
+  {
+   "n": 73,
+   "text": "Erst Jahre später wird sich zeigen, dass er sich irrt.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "portrait",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 74,
+   "text": "In Sankt Petersburg wurde das zerlegte Skelett in der Kunstkammer wieder zusammengesetzt.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "museum",
+    "preparation",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 75,
+   "text": "Wilhelm Gottlieb Tilesius von Tilenau übernahm den Auftrag, das Tier wieder zusammenzusetzen.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "preparation",
+    "palaeontologist",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 76,
+   "text": "Er stand vor einer Aufgabe, die es so noch nie gab.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "preparation",
+    "palaeontologist",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 77,
+   "text": "Doch die Arbeit wurde leichter, als erwartet.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "preparation",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 78,
+   "text": "Denn in einer Vitrine stand das Skelett eines indischen Elefanten.",
+   "beats": [
+    {
+     "species": "elephant"
+    }
+   ],
+   "want": [
+    "museum",
+    "skeleton",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 79,
+   "text": "Tilesius nutzte es als stilles Vergleichsobjekt.",
+   "beats": [
+    {
+     "species": "elephant"
+    },
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "preparation",
+    "museum",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 80,
+   "text": "Er maß, verglich, überlegte.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "preparation",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 81,
+   "text": "Für den fehlenden Beinknochen fertigte er eine Nachbildung aus Holz an.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "preparation",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 82,
+   "text": "Das Holz wurde geschnitzt, angepasst, eingespannt.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "preparation",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 83,
+   "text": "Alles schien in Ordnung zu sein.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "preparation",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 84,
+   "text": "Nur die Stoßzähne blieben ein Rätsel.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil"
+   ]
+  },
+  {
+   "n": 85,
+   "text": "Tilesius setzte sie an den Schädel.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "preparation",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 86,
+   "text": "Doch er machte einen Fehler.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "preparation",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 87,
+   "text": "Statt einwärts, wie es das Leben verlangte, bogen sie auswärts.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "palaeoart"
+   ]
+  },
+  {
+   "n": 88,
+   "text": "Eine kleine Biegung. Ein großer Irrtum.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton"
+   ]
+  },
+  {
+   "n": 89,
+   "text": "Wie konnte er diesen Fehler übersehen?",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "preparation",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 90,
+   "text": "Die Antwort lag in der Perspektive, die ihm fehlte.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "preparation",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 91,
+   "text": "1808 wurde das Skelett aufgestellt.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "museum",
+    "skeleton",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 92,
+   "text": "Es war das erste montierte Wollhaarmammut der Welt.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "museum",
+    "skeleton",
+    "fossil"
+   ]
+  },
+  {
+   "n": 93,
+   "text": "Die Augen der Besucher wanderten über die Knochen.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "museum",
+    "skeleton",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 94,
+   "text": "Sie sahen ein Monster aus einer vergangenen Zeit.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "museum",
+    "palaeoart"
+   ]
+  },
+  {
+   "n": 95,
+   "text": "Tilesius beobachtete die Reaktionen.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "museum",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 96,
+   "text": "Er war zufrieden mit seiner Arbeit.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "portrait",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 97,
+   "text": "Erst 1899 wurde der Fehler bemerkt.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "archive_illustration",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 98,
+   "text": "Aber das war noch keine Sorge.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 99,
+   "text": "Stattdessen arbeitete er an einem Bericht.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "palaeontologist",
+    "portrait"
+   ]
+  },
+  {
+   "n": 100,
+   "text": "Tilesius fertigte Radierungen von seiner Wiederherstellung an.",
+   "beats": [],
+   "want": [
+    "archive_illustration",
+    "archive_photo",
+    "preparation"
+   ]
+  },
+  {
+   "n": 101,
+   "text": "Diese Bilder schickte er an andere Naturforscher.",
+   "beats": [],
+   "want": [
+    "archive_illustration",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 102,
+   "text": "Sie sollten prüfen, was er gebaut hatte.",
+   "beats": [],
+   "want": [
+    "archive_illustration",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 103,
+   "text": "1815 erschien sein ausführlicher Bericht.",
+   "beats": [],
+   "want": [
+    "archive_photo",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 104,
+   "text": "Die Wissenschaftscommunity diskutierte.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 105,
+   "text": "Doch der Fehler in den Stoßzähnen blieb lange unsichtbar.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil",
+    "preparation"
+   ]
+  },
+  {
+   "n": 106,
+   "text": "Er würde erst 1899 korrigiert.",
+   "beats": [],
+   "want": [
+    "skeleton",
+    "fossil"
+   ]
+  },
+  {
+   "n": 107,
+   "text": "Bis dahin blieb das Mammut mit den falsch gebogenen Zähnen stehen.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "museum",
+    "fossil"
+   ]
+  },
+  {
+   "n": 108,
+   "text": "Adams’ Bericht über die Expedition erschien Ende 1807.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 109,
+   "text": "Er wurde schnell in andere europäische Sprachen übersetzt.",
+   "beats": [],
+   "want": [
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 110,
+   "text": "Schon bald zirkulierten die Texte in ganz Europa und Amerika.",
+   "beats": [],
+   "want": [
+    "archive_photo",
+    "landscape"
+   ]
+  },
+  {
+   "n": 111,
+   "text": "Die Debatte, die sie auslösten, war heftig.",
+   "beats": [],
+   "want": [
+    "archive_photo",
+    "portrait"
+   ]
+  },
+  {
+   "n": 112,
+   "text": "Man stritt über die Natur des Tieres.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "palaeoart",
+    "fossil",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 113,
+   "text": "Was war es? Ein Elefant? Oder etwas völlig anderes?",
+   "beats": [
+    {
+     "species": "elephant"
+    },
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "palaeoart",
+    "living_animal",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 114,
+   "text": "[pause 0.8]",
+   "beats": [],
+   "want": []
+  },
+  {
+   "n": 115,
+   "text": "Jahre zuvor, 1798, hatte Georges Cuvier bereits den Beweis erbracht.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 116,
+   "text": "Der französische Naturforscher zeigte, dass das sibirische Mammut kein Elefant war.",
+   "beats": [
+    {
+     "species": "elephant"
+    },
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "palaeontologist",
+    "portrait",
+    "fossil"
+   ]
+  },
+  {
+   "n": 117,
+   "text": "Die fossilen Überreste unterschieden sich grundlegend von den Knochen der lebenden Arten.",
+   "beats": [
+    {
+     "species": "elephant"
+    },
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 118,
+   "text": "Doch Cuviers Erkenntnis änderte nichts an der physischen Rekonstruktion in Petersburg.",
+   "beats": [],
+   "want": [
+    "museum",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 119,
+   "text": "Tilesius hatte das Skelett montiert.",
+   "beats": [],
+   "want": [
+    "skeleton",
+    "preparation",
+    "museum"
+   ]
+  },
+  {
+   "n": 120,
+   "text": "Aber er hatte einen Fehler gemacht.",
+   "beats": [],
+   "want": [
+    "skeleton",
+    "preparation"
+   ]
+  },
+  {
+   "n": 121,
+   "text": "Die Stoßzähne waren falsch angeordnet.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil"
+   ]
+  },
+  {
+   "n": 122,
+   "text": "Statt einwärts nach innen zu biegen, zeigte er sie auswärts.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "preparation"
+   ]
+  },
+  {
+   "n": 123,
+   "text": "Dieser Irrtum blieb unsichtbar.",
+   "beats": [],
+   "want": [
+    "skeleton",
+    "museum"
+   ]
+  },
+  {
+   "n": 124,
+   "text": "Erst 1899 wurde der Irrtum festgestellt.",
+   "beats": [],
+   "want": [
+    "skeleton",
+    "museum",
+    "fossil"
+   ]
+  },
+  {
+   "n": 125,
+   "text": "Bis dahin blieb das Mammut mit den falsch gebogenen Zähnen stehen.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil",
+    "palaeoart",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 126,
+   "text": "Die Anordnung der Stoßzähne blieb ein wissenschaftliches Streitthema bis ins 20. Jahrhundert.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "skeleton",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 127,
+   "text": "Die korrekte Anordnung, einwärts gebogen, wurde anerkannt.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "skeleton",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 128,
+   "text": "Dieser kleine Fehler zeigt, wie schwierig es ist, ein ausgestorbenes Tier korrekt zu verstehen.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "skeleton",
+    "palaeoart"
+   ]
+  },
+  {
+   "n": 129,
+   "text": "Selbst mit einem fast vollständigen Skelett.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil"
+   ]
+  },
+  {
+   "n": 130,
+   "text": "Das Adams-Mammut bleibt das Symbol für den Übergang von der Mythologie zur Wissenschaft.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil",
+    "museum"
+   ]
+  },
+  {
+   "n": 131,
+   "text": "Es markiert den Moment, in dem das Unbekannte messbar wurde.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil",
+    "museum"
+   ]
+  },
+  {
+   "n": 132,
+   "text": "Heute steht es noch in der Kunstkammer in Sankt Petersburg.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "museum",
+    "skeleton",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 133,
+   "text": "Das Skelett blickt auf Besucher, die längst vergessen haben, wie sehr es sie einst erschütterte.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "museum",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 134,
+   "text": "Es erinnert uns daran, dass die Natur ihre Geheimnisse nur langsam preisgibt.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil",
+    "museum"
+   ]
+  },
+  {
+   "n": 135,
+   "text": "Jeder Fund ist ein Puzzleteil, das unser Bild der Vergangenheit verändert.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "excavation",
+    "preparation"
+   ]
+  },
+  {
+   "n": 136,
+   "text": "Die Frage aus dem Anfang wird hier endlich beantwortet.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 137,
+   "text": "Das Mammut war kein tropischer Gast, der durch die Sintflut hierher gespült wurde.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "palaeoart",
+    "landscape",
+    "fossil"
+   ]
+  },
+  {
+   "n": 138,
+   "text": "Es war ein Bewohner der sibirischen Tundra, angepasst an Kälte und Schnee.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "landscape",
+    "palaeoart",
+    "fossil"
+   ]
+  },
+  {
+   "n": 139,
+   "text": "Wie konnte ein solches Tier in dieser Kälte überleben? Die Antwort lag in seiner Physiologie.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "palaeoart",
+    "landscape",
+    "fossil"
+   ]
+  },
+  {
+   "n": 140,
+   "text": "Doch die Geschichte von Schumachow, Boltunow und Adams zeigt mehr als nur Biologie.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "archive_photo",
+    "excavation"
+   ]
+  },
+  {
+   "n": 141,
+   "text": "Sie zeigt, wie Zufall, Handel und Wissenschaft zusammenwirken.",
+   "beats": [],
+   "want": [
+    "archive_photo",
+    "excavation",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 142,
+   "text": "Ein Jäger findet Knochen, ein Händler verkauft sie, ein Forscher macht sie zur Wahrheit.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "excavation",
+    "palaeontologist",
+    "preparation"
+   ]
+  },
+  {
+   "n": 143,
+   "text": "Ohne diese Kette hätte das Adams-Mammut nie das Licht der Wissenschaft gesehen.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "museum",
+    "fossil"
+   ]
+  },
+  {
+   "n": 144,
+   "text": "Es markiert den Moment, in dem das Unbekannte messbar wurde.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "skeleton",
+    "museum"
+   ]
+  },
+  {
+   "n": 145,
+   "text": "Und so endet die Jagd nach dem Mammut nicht mit einem Schlussstrich.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "excavation",
+    "fossil",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 146,
+   "text": "Sie beginnt erst richtig, wenn wir verstehen, was wir gefunden haben.",
+   "beats": [],
+   "want": [
+    "palaeontologist",
+    "preparation",
+    "fossil"
+   ]
+  },
+  {
+   "n": 147,
+   "text": "Das Skelett steht heute noch in der Kunstkammer von Sankt Petersburg.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "museum",
+    "skeleton",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 148,
+   "text": "Es erinnert daran, dass die Natur ihre Geheimnisse nur langsam preisgibt.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "skeleton",
+    "museum"
+   ]
+  },
+  {
+   "n": 149,
+   "text": "Zwischen 1692 und 1806 wurden nur vier Funde beschrieben, keiner geborgen.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "archive_photo",
+    "excavation"
+   ]
+  },
+  {
+   "n": 150,
+   "text": "Adams barg 1806 das Skelett und den Schädel.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "excavation",
+    "skeleton",
+    "fossil",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 151,
+   "text": "Tilesius rekonstruierte es 1808 mit Hilfe eines indischen Elefanten.",
+   "beats": [
+    {
+     "species": "elephant"
+    },
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "palaeontologist",
+    "skeleton",
+    "archive_illustration",
+    "living_animal"
+   ]
+  },
+  {
+   "n": 152,
+   "text": "Ein Fehler bei den Stoßzähnen blieb bis 1899 unbeachtet.",
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
+   "want": [
+    "fossil",
+    "skeleton",
+    "museum",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 153,
+   "text": "Jeder Fund ist ein Puzzleteil, das unser Bild der Vergangenheit verändert.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "skeleton",
+    "palaeoart",
+    "museum"
+   ]
+  }
+ ],
+ "format": "real"
+}
