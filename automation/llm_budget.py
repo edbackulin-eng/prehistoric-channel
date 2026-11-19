@@ -34,6 +34,13 @@ def image_need(slug, kinds=("real", "recon", "photo"), fixed=True):
     """Requests the checks will make: picture beats not judged yet (verdicts are
     kept in episodes/<slug>/species_verdicts.json), plus masks and thumbnails."""
     ep = ROOT / "episodes" / slug
+    if not (ep / "shots.json").exists():
+        # 19.11: a real-format (or interim) film is planned inside the render, so there is no shots.json yet;
+        # its pictures were judged when the pool was made - the render's frame checks are about a shot a line
+        script = ep / "script.txt"
+        lines = [l for l in script.read_text(encoding="utf-8").splitlines()
+                 if l.strip() and not l.startswith("[")] if script.exists() else []
+        return max(10, len(lines) // 10 + 6)
     shots = json.loads((ep / "shots.json").read_text(encoding="utf-8"))["lines"]
     footage = json.loads((ep / "footage.json").read_text(encoding="utf-8")) if (ep / "footage.json").exists() else {}
     known = json.loads((ep / "species_verdicts.json").read_text(encoding="utf-8")) \
