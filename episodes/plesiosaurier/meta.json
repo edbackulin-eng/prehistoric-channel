@@ -1,0 +1,609 @@
+{
+ "slug": "plesiosaurier",
+ "title": "Das Seeungeheuer: Mary Anning und der Fund, der alles veränderte",
+ "tags": [
+  "Mary Anning",
+  "Plesiosaurus",
+  "Lyme Regis",
+  "Paläontologie",
+  "Dinosaurier",
+  "Geologisches Zeitalter",
+  "Jurassic Coast",
+  "Fossilienfund",
+  "William Conybeare",
+  "Georges Cuvier",
+  "Seeungeheuer",
+  "Naturgeschichte",
+  "Frühe Paläontologie",
+  "Dorset",
+  "Fossiliensammlerin"
+ ],
+ "description": "1823 fand Mary Anning bei Lyme Regis das Skelett eines Tieres, das die Wissenschaft in Aufruhr versetzte. Doch während William Conybeare den Ruhm einheimste, geriet die Finderin in Vergessenheit. Eine Geschichte von Entdeckung, Stolz und dem Preis der Wissenschaft.\n\nQuellen:\n- Mary Anning (Wikipedia, de): https://de.wikipedia.org/wiki/Mary_Anning\n- Plesiosaurier (Wikipedia, de): https://de.wikipedia.org/wiki/Plesiosaurier\n- Lyme Regis (Wikipedia, de): https://de.wikipedia.org/wiki/Lyme_Regis\n- Mary Anning (Wikipedia, en): https://en.wikipedia.org/wiki/Mary_Anning\n- Plesiosaurus (Wikipedia, en): https://en.wikipedia.org/wiki/Plesiosaurus\n- Lyme Regis (Wikipedia, en): https://en.wikipedia.org/wiki/Lyme_Regis\n- William Conybeare (geologist) (Wikipedia, en): https://en.wikipedia.org/wiki/William_Conybeare_(geologist)",
+ "words": 1096,
+ "minutes_est": 8.6,
+ "fact_check": [
+  {
+   "round": 0,
+   "n": 1,
+   "was": "Im Winter bricht der Frost in die Klippen von Lyme Regis, und ein tosender Sturm reißt tonnenweise Gestein in die tosenden Fluten.",
+   "verdict": "fix",
+   "text": "Im Winter bricht der Frost in die Klippen von Lyme Regis, und Stürme reißen Gestein in die Fluten.",
+   "why": "Stürme reißen Gestein, aber 'tosender Sturm reißt tonnenweise Gestein in die tosenden Fluten' ist zu dramatisiert im Vergleich zu den Quellen (Stürme reißen Teile der Klippe weg)."
+  },
+  {
+   "round": 0,
+   "n": 17,
+   "was": "Die Knochen wechselten die Hände: über Henry Hoste Henley und William Bullock landete das Skelett schließlich im Jahr 1819 im British Museum.",
+   "verdict": "fix",
+   "text": "Die Knochen wechselten die Hände: über Henry Hoste Henley und William Bullock landete das Skelett schließlich im Jahr 1819 im British Museum.",
+   "why": "Henry Hoste Henley zahlte etwa 23 Pfund an die Familie, verkaufte es an William Bullock, und es wurde 1819 an das British Museum versteigert; die genaue Kette ist leicht vereinfacht, aber im Wesentlichen belegt. Korrektur passt sich an."
+  },
+  {
+   "round": 0,
+   "n": 22,
+   "was": "Basierend auf diesen bruchstückhaften Überfunden gaben die Forscher Conybeare und De la Beche dem Tier seinen Namen.",
+   "verdict": "fix",
+   "text": "Basierend auf bruchstückhaften Überfunden gaben die Forscher Conybeare und De la Beche dem Tier seinen Namen.",
+   "why": "Das Wort 'diesen' ist ungenau, da der Name vor dem vollständigen Skelett vergeben wurde."
+  },
+  {
+   "round": 0,
+   "n": 25,
+   "was": "Draußen tobten die eisigen Stürme des Dezembers 1823 an der englischen Küste.",
+   "verdict": "fix",
+   "text": "Draußen an der englischen Küste war es Dezember 1823.",
+   "why": "Es wird im Text nur der Monat und das Jahr der Entdeckung genannt, 'tobten die eisigen Stürme' ist unbelegte dichterische Freiheit (auch wenn es Dezember war)."
+  },
+  {
+   "round": 0,
+   "n": 27,
+   "was": "< Jedes Werkzeug in ihren Händen zählte im Kampf gegen den frostigen Kalkstein.",
+   "verdict": "fix",
+   "text": "> Einfache Werkzeuge halfen ihr im Kalkstein.",
+   "why": "Quellen belegen 'einfachstem Werkzeug', aber nicht den 'Kampf gegen frostigen Kalkstein' in diesem dramatischen Stil."
+  },
+  {
+   "round": 0,
+   "n": 30,
+   "was": "Das Tier maß etwa 5 Meter in der Länge, getragen von einem extrem langen Hals und kurzen Beinen.",
+   "verdict": "fix",
+   "text": "Das Tier maß etwa 5 Meter in der Länge, mit einem extrem langen Hals.",
+   "why": "Kurze Beine sind für den Plesiosaurus im Text nicht direkt belegt."
+  },
+  {
+   "round": 0,
+   "n": 34,
+   "was": "Der Zustand des Fossils war von einer außergewöhnlichen, beispiellosen Güte.",
+   "verdict": "fix",
+   "text": "Der Zustand des Fossils war von einer außergewöhnlichen Güte.",
+   "why": "'Beispiellos' ist von den Quellen nicht gedeckt, aber außergewöhnliche Qualität/Qualität bis heute nicht übertroffen schon."
+  },
+  {
+   "round": 0,
+   "n": 35,
+   "was": "Kein früherer Fund dieser Gattung zeigte jemals eine solche Vollständigkeit.",
+   "verdict": "drop",
+   "why": "Die absolute Aussage 'Kein früherer Fund dieser Gattung zeigte jemals eine solche Vollständigkeit' ist so nicht in den Quellen belegt."
+  },
+  {
+   "round": 0,
+   "n": 38,
+   "was": "Bald darauf verkaufte sie das kostbare Skelett an Richard Phillips, einen bekannten Geologen ihrer Zeit.",
+   "verdict": "fix",
+   "text": "Bald darauf verkaufte sie das kostbare Skelett an Thomas Birch, einen wohlhabenden Fossiliensammler.",
+   "why": "Laut Quelle verkaufte Thomas Birch seine Sammlung, er kaufte sie nicht von Anning; Anning verkaufte an verschiedene Personen bzw. hier wird Thomas Birch als Käufer/Unterstützer genannt, aber der Text sagt fälschlicherweise Richard Phillips."
+  },
+  {
+   "round": 0,
+   "n": 39,
+   "was": "Er reichte den Fund an William Conybeare weiter, der das Geheimnis endgültig entschlüsseln sollte.",
+   "verdict": "fix",
+   "text": "Er reichte den Fund an William Daniel Conybeare weiter, der das Geheimnis wissenschaftlich beschreiben sollte.",
+   "why": "Richard Phillips kommt in den Quellen nicht vor; William Conybeare beschrieb den Fund wissenschaftlich."
+  },
+  {
+   "round": 0,
+   "n": 50,
+   "was": "> Obwohl Conybeare selbst Bruchstücke besessen hatte, traf er eine folgenschwere Entscheidung für die Geschichtsschreibung der Geologie.",
+   "verdict": "fix",
+   "text": "Obwohl Conybeare selbst Bruchstücke besessen hatte, traf er eine bedeutsame Entscheidung für die Taxonomie.",
+   "why": "Der Text enthält ungedeckte oder leicht verdrehte Details über Conybeares Bruchstücke im Vergleich zu Annings Fund als Typusexemplar, muss laut Quellen präzisiert werden."
+  },
+  {
+   "round": 0,
+   "n": 71,
+   "was": "> Zehn Jahre mühevoller Arbeit kostete es, den rätselhaften Plesiosaurus aus dem harten Gestein zu schälen.",
+   "verdict": "fix",
+   "text": "> Zehn Jahre lang arbeitete sie an der Ausgrabung des Plesiosaurus, ohne Unterstützung von außen und mit einfachstem Werkzeug.",
+   "why": "Laut Quelle arbeitete sie an der Ausgrabung des Plesiosaurus zehn Jahre lang ohne Unterstützung von außen und mit einfachstem Werkzeug (nicht 'um ihn aus dem harten Gestein zu schälen')."
+  },
+  {
+   "round": 0,
+   "n": 72,
+   "was": "< Seine bizarr verknöcherte Gestalt widerlegte endgültig jede Hoffnung, das Wesen treibe irgendwo lebend in unerforschten Meeren.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Die bizarr verknöcherte Gestalt und das Argument gegen lebende Exemplare in unerforschten Meeren sind durch die Quellen gedeckt."
+  },
+  {
+   "round": 0,
+   "n": 73,
+   "was": "> Damit wandelte sich die gesamte Erdgeschichte von Grund auf.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Erzählerischer Übergang ohne neue falsche Tatsachenbehauptung."
+  },
+  {
+   "round": 0,
+   "n": 74,
+   "was": "< Was einst als schlichte Abwandlung der bekannten Natur galt, wurde zum unwiderlegbaren Beleg für das endgültige Erlöschen ganzer Schöpfungen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Bezug auf das Aussterben von Tierarten ist durch Cuviers These und die Quellen gedeckt."
+  },
+  {
+   "round": 0,
+   "n": 76,
+   "was": "< Jedes Detail dieses bizarr verknöcherten Skeletts zerstreute auch den letzten Funken Hoffnung, dieses Wesen könne irgendwo in den unendlichen Tiefen der Ozeane noch lebend lauern.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Entspricht den Tatsachen über die Fossilien und das Ende der Annahme, die Tiere lebten noch in den Ozeanen."
+  },
+  {
+   "round": 0,
+   "n": 77,
+   "was": "> Mit diesem Fund geriet das Fundament der gesamten Erdgeschichte ins Wanken.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Dramaturgische Überhöhung, die durch den historischen Wandel der Erdgeschichtsschreibung gedeckt ist."
+  },
+  {
+   "round": 0,
+   "n": 78,
+   "was": "< Was die Gelehrten zuvor als harmlose Laune der Natur abgetan hatten, entpuppte sich plötzlich als unumstößlicher Beweis für das unwiederrufliche Sterben ganzer Welten.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Deckst sich mit der Quelle, dass man früher annahm, Arten sterben nicht aus, und merkwürdige Funde als noch lebend erklärte."
+  },
+  {
+   "round": 0,
+   "n": 79,
+   "was": "Doch die Frau, die diese Zeugnisse aus dem Stein befreit hatte, sollte das Schicksal ihrer eigenen Entdeckungen teilen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Überleitung zu ihrem Tod und ihrem späten Schicksal ist korrekt."
+  },
+  {
+   "round": 0,
+   "n": 80,
+   "was": "Im Jahr 1847, im Alter von nur 47 Jahren, erlag Mary Anning einem Krebsleiden.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Sterbedatum 1847, Alter 47 und Krebsleiden (Brustkrebs) sind exakt in den Quellen belegt."
+  },
+  {
+   "round": 0,
+   "n": 81,
+   "was": "< Jahrelang hatte sie mit schlichten Werkzeugen gegen den unbarmherzigen Schlamm der Klippen gekämpft, [pause 0.8] während im selben Moment weit entfernt die Londoner Gesellschaft ihre Triumphe feierte.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Die harte Arbeit mit einfachen Werkzeugen und Klippen ist belegt; der Kontrast zur Londoner Gesellschaft ist erzählerisch legitim."
+  },
+  {
+   "round": 0,
+   "n": 82,
+   "was": "Jede Sensation, die die Gelehrten stolz präsentierten, war das direkte Werk ihrer Hände gewesen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Ihre Funde bildeten die Sensationen, die Gelehrte beschrieben (z.B. Conybeare, Buckland)."
+  },
+  {
+   "round": 0,
+   "n": 83,
+   "was": "> Über Jahrzehnte hinweg hatten einflussreiche Männer ihre harte Feldarbeit ausgebeutet und ihren Namen konsequent verschwiegen.",
+   "verdict": "fix",
+   "text": "> Über Jahrzehnte hinweg hatten männliche Gelehrte ihre Funde wissenschaftlich beschrieben und ihren Beitrag bisweilen in den Hintergrund gedrängt.",
+   "why": "Die Quelle belegt nicht, dass Männer ihre Feldarbeit 'ausgebeutet und ihren Namen konsequent verschwiegen' im Sinne von böswilliger Ausbeutung – Conybeare und Buckland haben ihre Funde beschrieben, aber ihr Name wurde teilweise genannt; die Formulierung wird sanft korrigiert, um im Ton zu bleiben, aber den Tatsachen zu entsprechen."
+  },
+  {
+   "round": 0,
+   "n": 84,
+   "was": "< Erst in unseren Tagen bricht das Schweigen und gewährt jene späte Gerechtigkeit, die ihr damals verwehrt blieb.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Die späte Wiederentdeckung und Ehrung in den letzten Jahrzehnten ist belegt."
+  },
+  {
+   "round": 0,
+   "n": 85,
+   "was": "Heute blickt die Wissenschaft auf sie als eine der wegweisenden Pionierinnen der Paläontologie.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Als eine der ersten Paläontologinnen in den Quellen explizit genannt."
+  },
+  {
+   "round": 0,
+   "n": 86,
+   "was": "Als geschütztes UNESCO-Welterbe bewahrt die raue Küste von Lyme Regis das ewige Andenken an ihr Lebenswerk.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Lyme Regis ist UNESCO-Welterbe (Jurassic Coast) und mit ihrem Lebenswerk verbunden."
+  },
+  {
+   "round": 0,
+   "n": 87,
+   "was": "< Wo einst ein armes Mädchen im tosenden Sturm nach verborgenen Knochen grub, erinnert ihr Name für alle Zeiten an die unbezwingbare Kraft scharfer Beobachtung und eisernes Durchhaltevermögen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Schönes erzählerisches Resümee, das durch ihre Herkunft aus armen Verhältnissen und ihre akribische Arbeit gedeckt ist."
+  },
+  {
+   "round": 1,
+   "n": 7,
+   "was": "<Es war das Jahr 1811 an der stürmischen Küste von Dorset, als die erst 12-jährige Mary Anning im durchnässten Schlamm von Lyme Regis stand.",
+   "verdict": "fix",
+   "text": "<Es war um das Jahr 1811 an der Küste von Dorset, als die erst 12-jährige Mary Anning im Schlamm von Lyme Regis stand.",
+   "why": "Stürmisch steht so nicht in der Quelle für 1811, der genaue Monat/Tag des Fundes wird in den Quellen leicht unterschiedlich genannt (1811/1812)."
+  },
+  {
+   "round": 1,
+   "n": 12,
+   "was": "<Was sie in mühseliger Handarbeit freilegte, sprengte jede Vorstellung: ein über 4,57 Meter langes Skelett eines Ichthyosaurus, des Fischsauriers.",
+   "verdict": "fix",
+   "text": "<Was sie nach einem Sturm freilegte, war über 5 Yards (4,57 Meter) lang: ein Skelett eines Ichthyosaurus, des Fischsauriers.",
+   "why": "Das genaue Maß von über 4,57 Metern (5 yards) stammt aus den englischen Quellen."
+  },
+  {
+   "round": 1,
+   "n": 17,
+   "was": "Die Knochen wechselten die Hände: über Henry Hoste Henley und William Bullock landete das Skelett schließlich im Jahr 1819 im British Museum.",
+   "verdict": "fix",
+   "text": "Die Knochen wechselten die Hände: über Henry Hoste Henley und William Bullock landete das Skelett schließlich im Mai 1819 durch eine Auktion im British Museum.",
+   "why": "Genauere Angabe zur Auktion im Mai 1819 gemäß englischer Quelle ergänzt."
+  },
+  {
+   "round": 1,
+   "n": 18,
+   "was": "Doch Mary blieb die Arbeiterin im Hintergrund, angetrieben von der Pflicht, die Familie durchzubringen.",
+   "verdict": "fix",
+   "text": "18: Doch Mary blieb die Sammlerin im Hintergrund, angetrieben von der Notwendigkeit, den Lebensunterhalt der Familie zu sichern.",
+   "why": "Sie war keine Arbeiterin im Hintergrund, sondern Fossiliensammlerin, und sie tat es aus Armut/zum Lebensunterhalt, nicht aus 'Pflicht'."
+  },
+  {
+   "round": 1,
+   "n": 19,
+   "was": "> Zehn Jahre nach ihrem ersten Triumph, im Jahr 1821, stieß sie erneut auf Unerforschtes.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Gedeckt durch '1821' und 'Ihr nächster großer Fossilienfund war der eines Plesiosaurus'."
+  },
+  {
+   "round": 1,
+   "n": 20,
+   "was": "<Ein unvollständiges Skelett einer Kreatur mit dem Leib einer Echse und den Zügen der Urzeit.",
+   "verdict": "fix",
+   "text": "<Ein unvollständiges Skelett einer neuen Kreatur.",
+   "why": "Die Details mit 'Leib einer Echse und Zügen der Urzeit' sind nicht in den Quellen belegt."
+  },
+  {
+   "round": 1,
+   "n": 21,
+   "was": "Es war der erste Plesiosaurus, den die Welt erblickte.",
+   "verdict": "fix",
+   "text": "21: Es war ein bedeutender Fund dieser Art, der später wissenschaftlich beschrieben wurde.",
+   "why": "Es war nicht 'der erste Plesiosaurus, den die Welt erblickte' (1699 gab es schon Fragmente, Conybeare/De la Beche hatten 1821 Bruchstücke, und Annings Fund war Holotyp bzw. das erste komplette Skelett)."
+  },
+  {
+   "round": 1,
+   "n": 22,
+   "was": "Basierend auf bruchstückhaften Überfunden gaben die Forscher Conybeare und De la Beche dem Tier seinen Namen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Gedeckt durch 'anhand von Fragmenten... gaben die Forscher Conybeare und De la Beche dem Tier seinen Namen'."
+  },
+  {
+   "round": 1,
+   "n": 23,
+   "was": "Wie tief lagen noch die Geheimnisse dieser versunkenen Welten in den Klippen verborgen? [pause 0.8]",
+   "verdict": "ok",
+   "text": "",
+   "why": "Erzählerische Frage, durch Quellen nicht widerlegt."
+  },
+  {
+   "round": 1,
+   "n": 24,
+   "was": "Mary Anning wusste es als Erste.",
+   "verdict": "fix",
+   "text": "24: Mary Anning fand schließlich das erste vollständige Skelett.",
+   "why": "'Wusste es als Erste' ist unbelegt; sie fand den Plesiosaurus (bzw. das erste vollständige Skelett davon)."
+  },
+  {
+   "round": 1,
+   "n": 25,
+   "was": "Draußen an der englischen Küste war es Dezember 1823.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Gedeckt durch 'December 1823 ... near Lyme Regis in Dorset, England'."
+  },
+  {
+   "round": 1,
+   "n": 26,
+   "was": "Doch Mary Anning stand im eisigen Schlamm der unteren Lias-Schichten.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Gedeckt durch 'lower Lias Group in December 1823'."
+  },
+  {
+   "round": 1,
+   "n": 27,
+   "was": "> Einfache Werkzeuge halfen ihr im Kalkstein.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Gedeckt durch 'einfachstem Werkzeug'."
+  },
+  {
+   "round": 1,
+   "n": 28,
+   "was": "Plötzlich traf ihr Meißel auf etwas, das dort seit Jahrmillionen auf seine Entdeckung wartete.",
+   "verdict": "fix",
+   "text": "28: Plötzlich stieß sie auf die Überreste eines urzeitlichen Tieres.",
+   "why": "Dass es dort seit 'Jahrmillionen auf seine Entdeckung wartete', ist eine neue unbelegte Tatsachenbehauptung."
+  },
+  {
+   "round": 1,
+   "n": 29,
+   "was": "Ein fast vollständiges Skelett zeichnete sich im harten Gestein ab.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Gedeckt durch 'The first complete skeleton of Plesiosaurus was discovered...'."
+  },
+  {
+   "round": 1,
+   "n": 30,
+   "was": "Das Tier maß etwa 5 Meter in der Länge, mit einem extrem langen Hals.",
+   "verdict": "fix",
+   "text": "30: Das Fossil zeigte die Merkmale dieser neuen Art.",
+   "why": "Die genaue Maßangabe von 5 Metern und 'extrem langer Hals' für diesen spezifischen Fund im Dezember 1823 ist in den Textquellen so nicht explizit enthalten (wird erst später bei Polycotylus mit 4,70m erwähnt)."
+  },
+  {
+   "round": 1,
+   "n": 31,
+   "was": "Was ging in ihr vor, als sie begriff, dass dies kein gewöhnlicher Fund war?",
+   "verdict": "ok",
+   "text": "",
+   "why": "Erzählerische Frage."
+  },
+  {
+   "round": 1,
+   "n": 32,
+   "was": "< Sie begann, das fragile Fossil mit unendlicher Geduld aus dem harten Kalkstein zu präparieren.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Gedeckt durch 'Sorgfalt und Geduld, mit der sie diese ausgrub'."
+  },
+  {
+   "round": 1,
+   "n": 33,
+   "was": "Jeder Hammerschlag barg die Gefahr, das jahrtausendealte Relikt für immer zu zerstören.",
+   "verdict": "fix",
+   "text": "33: Ihre sorgfältige Arbeit erforderte größte Konzentration.",
+   "why": "Die spezifische Gefahr 'Jeder Hammerschlag barg die Gefahr...' ist eine dichterische Zuspitzung ohne Beleg in den Quellen."
+  },
+  {
+   "round": 1,
+   "n": 34,
+   "was": "Der Zustand des Fossils war von einer außergewöhnlichen Güte.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Gedeckt durch 'in seiner Qualität bis heute nicht übertroffen wurde'."
+  },
+  {
+   "round": 1,
+   "n": 35,
+   "was": "Wie hatte die Natur dieses Wesen so perfekt durch die Epochen konserviert? [pause 0.8] Die Antwort lag in der schützenden Umarmung des Tons, aber das verstand damals noch niemand.",
+   "verdict": "fix",
+   "text": "35: Wie hatte die Natur dieses Wesen so perfekt konserviert? [pause 0.8] Die Antwort lag in den Gesteinsschichten der Lias-Gruppe.",
+   "why": "Die 'schützende Umarmung des Tons' steht so nicht in den Quellen (es sind die 'Lias Group' / Kalkstein-Schichten)."
+  },
+  {
+   "round": 1,
+   "n": 37,
+   "was": "Bald darauf verkaufte sie das kostbare Skelett an Thomas Birch, einen wohlhabenden Fossiliensammler.",
+   "verdict": "fix",
+   "text": "Bald darauf fiel sie Thomas Birch, einem wohlhabenden Fossiliensammler, auf.",
+   "why": "Er hat sie nicht gekauft, sondern er verkaufte seine eigene Sammlung zugunsten der Familie, nachdem er auf sie aufmerksam wurde."
+  },
+  {
+   "round": 1,
+   "n": 38,
+   "was": "Er reichte den Fund an William Daniel Conybeare weiter, der das Geheimnis wissenschaftlich beschreiben sollte.",
+   "verdict": "fix",
+   "text": "Der Fund wurde an William Daniel Conybeare weitergereicht, der das Geheimnis wissenschaftlich beschreiben sollte.",
+   "why": "Er hat es nicht selbst weitergereicht (laut Quelle fiel sie Birch auf, und Conybeare beschrieb es)."
+  },
+  {
+   "round": 1,
+   "n": 43,
+   "was": "Georges Cuvier, der führende Zoologe seiner Zeit, musterte die Zeichnungen mit tiefem Misstrauen.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Keine Belege in den Quellen für Cuviers Misstrauen gegenüber Zeichnungen."
+  },
+  {
+   "round": 1,
+   "n": 44,
+   "was": "Wie konnte ein so filigranes Skelett den Druck der Tiefen überstehen? [pause 0.8] Seine Zweifel waren unerbittlich.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Keine Belege für diese spezifischen Zweifel am Druck der Tiefen."
+  },
+  {
+   "round": 1,
+   "n": 45,
+   "was": "Doch die Natur scherte sich nicht um gelehrte Bedenken in Paris oder London.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Bezug auf ungedeckte Details."
+  },
+  {
+   "round": 1,
+   "n": 46,
+   "was": "Was der französische Gelehrte für unmöglich hielt, lag längst vollständig ausgegraben in England.",
+   "verdict": "fix",
+   "text": "Was manche Gelehrte zunächst für unmöglich hielten, lag längst vollständig ausgegraben in England.",
+   "why": "Quellen erwähnen Cuviers umstrittene These, aber nicht diese konkrete Formulierung."
+  },
+  {
+   "round": 1,
+   "n": 49,
+   "was": "Obwohl Conybeare selbst Bruchstücke besessen hatte, traf er eine bedeutsame Entscheidung für die Taxonomie.",
+   "verdict": "fix",
+   "text": "Obwohl Conybeare selbst Fragmente besessen hatte, traf er eine bedeutsame Entscheidung für die Taxonomie.",
+   "why": "Conybeare hatte Fragmente, aber die Quelle sagt nicht direkt, dass *er* diese Entscheidung so traf, sondern dass Annings Fund das Typusexemplar wurde."
+  },
+  {
+   "round": 1,
+   "n": 53,
+   "was": "> Georges Cuvier blieb skeptisch und argumentierte hartnäckig, dass die fragilen Knochen viel zu zerbrechlich für ein lebendes Tier dieser Größe gewesen seien.",
+   "verdict": "drop",
+   "text": "",
+   "why": "Keine Entsprechung in den Quellen bezüglich Cuviers Argumentation, die Knochen seien zu zerbrechlich für ein lebendes Tier gewesen."
+  },
+  {
+   "round": 1,
+   "n": 72,
+   "was": "> Damit wandelte sich die gesamte Erdgeschichte von Grund auf.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Narrative intro supported by source context regarding the impact of extinction and paleontology."
+  },
+  {
+   "round": 1,
+   "n": 73,
+   "was": "< Was einst als schlichte Abwandlung der bekannten Natur galt, wurde zum unwiderlegbaren Beleg für das endgültige Erlöschen ganzer Schöpfungen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Supported by sources stating her finds supported Cuvier's thesis of extinct species instead of living animals."
+  },
+  {
+   "round": 1,
+   "n": 75,
+   "was": "< Jedes Detail dieses bizarr verknöcherten Skeletts zerstreute auch den letzten Funken Hoffnung, dieses Wesen könne irgendwo in den unendlichen Tiefen der Ozeane noch lebend lauern.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Narrative framing of fossil discoveries undermining the belief that creatures still lived in unexplored areas."
+  },
+  {
+   "round": 1,
+   "n": 76,
+   "was": "> Mit diesem Fund geriet das Fundament der gesamten Erdgeschichte ins Wanken.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Supported by sources on how her finds challenged previous beliefs about extinction."
+  },
+  {
+   "round": 1,
+   "n": 77,
+   "was": "< Was die Gelehrten zuvor als harmlose Laune der Natur abgetan hatten, entpuppte sich plötzlich als unumstößlicher Beweis für das unwiederrufliche Sterben ganzer Welten.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Covered by sources stating people previously believed animals didn't go extinct."
+  },
+  {
+   "round": 1,
+   "n": 78,
+   "was": "Doch die Frau, die diese Zeugnisse aus dem Stein befreit hatte, sollte das Schicksal ihrer eigenen Entdeckungen teilen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Narrative transition to her death."
+  },
+  {
+   "round": 1,
+   "n": 79,
+   "was": "Im Jahr 1847, im Alter von nur 47 Jahren, erlag Mary Anning einem Krebsleiden.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Directly supported by birth/death dates and cause of death (breast cancer)."
+  },
+  {
+   "round": 1,
+   "n": 80,
+   "was": "< Jahrelang hatte sie mit schlichten Werkzeugen gegen den unbarmherzigen Schlamm der Klippen gekämpft, [pause 0.8] während im selben Moment weit entfernt die Londoner Gesellschaft ihre Triumphe feierte.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Narrative prose combining her work with simple tools and the historical context."
+  },
+  {
+   "round": 1,
+   "n": 81,
+   "was": "Jede Sensation, die die Gelehrten stolz präsentierten, war das direkte Werk ihrer Hände gewesen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Supported by sources describing her discoveries and male geologists describing them."
+  },
+  {
+   "round": 1,
+   "n": 82,
+   "was": "> Über Jahrzehnte hinweg hatten männliche Gelehrte ihre Funde wissenschaftlich beschrieben und ihren Beitrag bisweilen in den Hintergrund gedrängt.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Supported by sources noting male geologists described her finds scientifically."
+  },
+  {
+   "round": 1,
+   "n": 83,
+   "was": "< Erst in unseren Tagen bricht das Schweigen und gewährt jene späte Gerechtigkeit, die ihr damals verwehrt blieb.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Supported by sources mentioning her rediscovery in recent decades."
+  },
+  {
+   "round": 1,
+   "n": 84,
+   "was": "Heute blickt die Wissenschaft auf sie als eine der wegweisenden Pionierinnen der Paläontologie.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Supported by source stating she is considered one of the first paleontologists."
+  },
+  {
+   "round": 1,
+   "n": 85,
+   "was": "Als geschütztes UNESCO-Welterbe bewahrt die raue Küste von Lyme Regis das ewige Andenken an ihr Lebenswerk.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Supported by source stating Lyme Regis is UNESCO World Heritage (Jurassic Coast) and connected to her."
+  },
+  {
+   "round": 1,
+   "n": 86,
+   "was": "< Wo einst ein armes Mädchen im tosenden Sturm nach verborgenen Knochen grub, erinnert ihr Name für alle Zeiten an die unbezwingbare Kraft scharfer Beobachtung und eisernes Durchhaltevermögen.",
+   "verdict": "ok",
+   "text": "",
+   "why": "Narrative summary of her persistence and observation skills."
+  }
+ ],
+ "hook_written_separately": {
+  "hook": [
+   "Dezember 1823, an der englischen Küste.",
+   "< Mary Anning steht im eisigen Schlamm und zieht mit einfachen Werkzeugen ein fast vollständiges Skelett aus dem harten Kalkstein.",
+   "Wie konnte dieses bizarre Tier in einer Welt überleben, die jeglicher Logik widersetzte?",
+   "Und sie ist nicht die Einzige."
+  ],
+  "check": {
+   "concrete_scene": true,
+   "question": true,
+   "not_all": true,
+   "facts_supported": false,
+   "unsupported": [
+    "Dezember 1823"
+   ],
+   "note": "Das genaue Datum (Dezember 1823) wird in den Quellen nicht genannt (lediglich das Jahr 1800 für ein Blitzereignis und das Alter von 12 Jahren beim Ichthyosaurus-Fund)."
+  },
+  "words": 45,
+  "why": [
+   "facts_supported"
+  ],
+  "story_lines_as_hook": true
+ },
+ "hook_sha": "5cdac32f9cc8"
+}
