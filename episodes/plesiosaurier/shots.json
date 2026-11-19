@@ -1,0 +1,771 @@
+{
+ "lines": [
+  {
+   "n": 0,
+   "text": "Es war um das Jahr 1811 an der Küste von Dorset, als die erst 12-jährige Mary Anning im Schlamm von Lyme Regis stand.",
+   "beats": [],
+   "want": [
+    "excavation",
+    "landscape",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 1,
+   "text": "Ihr Bruder Joseph hatte zuvor bereits den schrecklichen Schädel aus dem Stein gebrochen, der aussah wie das Maul eines riesigen Krokodils.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "archive_illustration",
+    "excavation"
+   ]
+  },
+  {
+   "n": 2,
+   "text": "Doch der Rest des Tieres fehlte.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "skeleton",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 3,
+   "text": "Erst ein heftiger Sturm, der tonnenweise Felsmassen von der Steilküste riss, gab das Geheimnis frei.",
+   "beats": [],
+   "want": [
+    "landscape",
+    "excavation",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 4,
+   "text": "Mary blickte auf Knochen, die tief aus dem grauen Gestein ragten.",
+   "beats": [],
+   "want": [
+    "excavation",
+    "fossil",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 5,
+   "text": "Was sie nach einem Sturm freilegte, war über 5 Yards (4,57 Meter) lang: ein Skelett eines Ichthyosaurus, des Fischsauriers.",
+   "beats": [
+    {
+     "species": "ichthyosaurus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil",
+    "excavation"
+   ]
+  },
+  {
+   "n": 6,
+   "text": "Ein Fund von solcher Vollständigkeit, dass er die Fachwelt in London in Atem hielt.",
+   "beats": [],
+   "want": [
+    "museum",
+    "archive_illustration",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 7,
+   "text": "Der Weg dorthin war unerbittlich.",
+   "beats": [],
+   "want": [
+    "landscape",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 8,
+   "text": "Nach dem Tod ihres Vaters lastete die nackte Existenzangst auf der Familie.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 9,
+   "text": "Mary musste jeden Tag im gefährlichen Schlamm nach Fossilien suchen, um das nackte Überleben zu sichern.",
+   "beats": [],
+   "want": [
+    "excavation",
+    "fossil",
+    "portrait"
+   ]
+  },
+  {
+   "n": 10,
+   "text": "Die Knochen wechselten die Hände: über Henry Hoste Henley und William Bullock landete das Skelett schließlich im Mai 1819 durch eine Auktion im British Museum.",
+   "beats": [],
+   "want": [
+    "museum",
+    "skeleton",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 11,
+   "text": "18: Doch Mary blieb die Sammlerin im Hintergrund, angetrieben von der Notwendigkeit, den Lebensunterhalt der Familie zu sichern.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 12,
+   "text": "Zehn Jahre nach ihrem ersten Triumph, im Jahr 1821, stieß sie erneut auf Unerforschtes.",
+   "beats": [],
+   "want": [
+    "archive_illustration",
+    "portrait"
+   ]
+  },
+  {
+   "n": 13,
+   "text": "Ein unvollständiges Skelett einer neuen Kreatur.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "skeleton",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 14,
+   "text": "21: Es war ein bedeutender Fund dieser Art, der später wissenschaftlich beschrieben wurde.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "skeleton",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 15,
+   "text": "Basierend auf bruchstückhaften Überfunden gaben die Forscher Conybeare und De la Beche dem Tier seinen Namen.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "archive_illustration",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 16,
+   "text": "Wie tief lagen noch die Geheimnisse dieser versunkenen Welten in den Klippen verborgen? [pause 0.8]",
+   "beats": [],
+   "want": [
+    "landscape",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 17,
+   "text": "24: Mary Anning fand schließlich das erste vollständige Skelett.",
+   "beats": [],
+   "want": [
+    "skeleton",
+    "fossil",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 18,
+   "text": "Draußen an der englischen Küste war es Dezember 1823.",
+   "beats": [],
+   "want": [
+    "landscape",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 19,
+   "text": "Doch Mary Anning stand im eisigen Schlamm der unteren Lias-Schichten.",
+   "beats": [],
+   "want": [
+    "excavation",
+    "landscape",
+    "portrait"
+   ]
+  },
+  {
+   "n": 20,
+   "text": "Einfache Werkzeuge halfen ihr im Kalkstein.",
+   "beats": [],
+   "want": [
+    "excavation",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 21,
+   "text": "28: Plötzlich stieß sie auf die Überreste eines urzeitlichen Tieres.",
+   "beats": [],
+   "want": [
+    "excavation",
+    "fossil",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 22,
+   "text": "Ein fast vollständiges Skelett zeichnete sich im harten Gestein ab.",
+   "beats": [],
+   "want": [
+    "skeleton",
+    "fossil",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 23,
+   "text": "30: Das Fossil zeigte die Merkmale dieser neuen Art.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "skeleton",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 24,
+   "text": "Was ging in ihr vor, als sie begriff, dass dies kein gewöhnlicher Fund war?",
+   "beats": [],
+   "want": [
+    "portrait",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 25,
+   "text": "Sie begann, das fragile Fossil mit unendlicher Geduld aus dem harten Kalkstein zu präparieren.",
+   "beats": [],
+   "want": [
+    "preparation",
+    "fossil",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 26,
+   "text": "33: Ihre sorgfältige Arbeit erforderte größte Konzentration.",
+   "beats": [],
+   "want": [
+    "preparation",
+    "fossil",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 27,
+   "text": "Der Zustand des Fossils war von einer außergewöhnlichen Güte.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "skeleton",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 28,
+   "text": "35: Wie hatte die Natur dieses Wesen so perfekt konserviert? [pause 0.8] Die Antwort lag in den Gesteinsschichten der Lias-Gruppe.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "landscape",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 29,
+   "text": "Die Nachricht von der Entdeckung verbreitete sich wie ein Lauffeuer unter den Naturforschern des Landes.",
+   "beats": [],
+   "want": [
+    "archive_photo",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 30,
+   "text": "Bald darauf fiel sie Thomas Birch, einem wohlhabenden Fossiliensammler, auf.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 31,
+   "text": "Der Fund wurde an William Daniel Conybeare weitergereicht, der das Geheimnis wissenschaftlich beschreiben sollte.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "palaeontologist",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 32,
+   "text": "Im Dezember 1823 geschah dieser historische Durchbruch in den unteren Lias-Schichten.",
+   "beats": [],
+   "want": [
+    "excavation",
+    "landscape",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 33,
+   "text": "Die eisige Kälte der Klippen konnte Mary Anning nicht von ihrer mühsamen Arbeit abhalten.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "excavation",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 34,
+   "text": "Jeder freigelegte Knochen dieses rund fünf Meter langen Meeresreptils offenbarte die Einzigartigkeit des Fundes.",
+   "beats": [
+    {
+     "species": "plesiosaurus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil",
+    "palaeoart"
+   ]
+  },
+  {
+   "n": 35,
+   "text": "Wissenschaftler sollten in den kommenden Jahren anhand dieses Skeletts das Bild der Urzeit für immer verändern.",
+   "beats": [],
+   "want": [
+    "skeleton",
+    "palaeontologist",
+    "museum"
+   ]
+  },
+  {
+   "n": 36,
+   "text": "Was manche Gelehrte zunächst für unmöglich hielten, lag längst vollständig ausgegraben in England.",
+   "beats": [],
+   "want": [
+    "skeleton",
+    "fossil",
+    "landscape"
+   ]
+  },
+  {
+   "n": 37,
+   "text": "Im Jahr 1824 traten die Naturforscher William Conybeare und Henry De la Beche vor die wissenschaftliche Öffentlichkeit.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "palaeontologist",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 38,
+   "text": "Sie gaben dem rätselhaften Fund einen Namen: Plesiosaurus dolichodeirus.",
+   "beats": [
+    {
+     "species": "plesiosaurus"
+    }
+   ],
+   "want": [
+    "palaeoart",
+    "skeleton",
+    "fossil"
+   ]
+  },
+  {
+   "n": 39,
+   "text": "Obwohl Conybeare selbst Fragmente besessen hatte, traf er eine bedeutsame Entscheidung für die Taxonomie.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 40,
+   "text": "Er erhob Mary Annings makelloses Skelett zum offiziellen Typusexemplar der neuen Art.",
+   "beats": [
+    {
+     "species": "plesiosaurus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil",
+    "museum"
+   ]
+  },
+  {
+   "n": 41,
+   "text": "Wie sollte diese anatomische Sensation die bisherigen Lehrbücher verändern? [pause 0.8] Die Antwort lag in der Bestätigung einer völlig unbekannten Tierordnung.",
+   "beats": [],
+   "want": [
+    "palaeoart",
+    "fossil",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 42,
+   "text": "Die Welt der antediluvianischen Reptilien hatte ihre ersten echten Konturen erhalten.",
+   "beats": [
+    {
+     "species": "ichthyosaurus"
+    },
+    {
+     "species": "plesiosaurus"
+    }
+   ],
+   "want": [
+    "palaeoart",
+    "landscape"
+   ]
+  },
+  {
+   "n": 43,
+   "text": "Zehn Jahre hingabe voller Arbeit ohne fremde Hilfe hatten sich ausgezahlt.",
+   "beats": [],
+   "want": [
+    "excavation",
+    "archive_photo",
+    "portrait"
+   ]
+  },
+  {
+   "n": 44,
+   "text": "Die formelle wissenschaftliche Analyse durch Conybeare bestätigte schliesslich die Existenz einer völlig neuen Tierordnung, welche die bisherigen Grenzen der Schöpfungsgeschichte sprengte.",
+   "beats": [
+    {
+     "species": "ichthyosaurus"
+    },
+    {
+     "species": "plesiosaurus"
+    }
+   ],
+   "want": [
+    "palaeoart",
+    "skeleton",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 45,
+   "text": "Die formelle wissenschaftliche Analyse durch Conybeare bestätigte schließlich die Existenz einer völlig neuen Tierordnung, welche die bisherigen Grenzen der Schöpfungsgeschichte sprengte.",
+   "beats": [
+    {
+     "species": "ichthyosaurus"
+    },
+    {
+     "species": "plesiosaurus"
+    }
+   ],
+   "want": [
+    "palaeoart",
+    "skeleton",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 46,
+   "text": "Obwohl Conybeare selbst bruchstückhafte Funde aus der Region besessen hatte, traf er eine wissenschaftlich bedeutsame Wahl.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "palaeontologist"
+   ]
+  },
+  {
+   "n": 47,
+   "text": "Er erhob Mary Annings makelloses, in jahrelanger Geduld geborgenes Skelett zum offiziellen Typusexemplar, wodurch die Art unsterblich wurde.",
+   "beats": [
+    {
+     "species": "plesiosaurus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil",
+    "museum"
+   ]
+  },
+  {
+   "n": 48,
+   "text": "Jeder merkwürdige Knochen, den die Sammler aus den Klippen gruben, schien nur eines zu beweisen: Die Schöpfung war perfekt, und nichts ging jemals verloren.",
+   "beats": [],
+   "want": [
+    "excavation",
+    "fossil",
+    "landscape"
+   ]
+  },
+  {
+   "n": 49,
+   "text": "Bis zu jener Stunde glaubte man fest daran, dass all diese seltsamen Wesen schlicht in noch unentdeckten, fernen Winkeln der Erde lebten.",
+   "beats": [],
+   "want": [
+    "landscape",
+    "palaeoart"
+   ]
+  },
+  {
+   "n": 50,
+   "text": "Doch was Mary Anning aus dem Schiefer zog, passte in kein Schema der bekannten Welt.",
+   "beats": [],
+   "want": [
+    "palaeontologist",
+    "archive_photo",
+    "portrait"
+   ]
+  },
+  {
+   "n": 51,
+   "text": "Wie sollte ein Tier überleben, dessen bizarre Anatomie jeglicher Logik widersetzte?",
+   "beats": [],
+   "want": [
+    "fossil",
+    "skeleton",
+    "palaeoart"
+   ]
+  },
+  {
+   "n": 52,
+   "text": "Die Antwort lag in Gesteinsschichten, die den Blick auf eine völlig unvorstellbare Tiefe der Zeit freigaben.",
+   "beats": [],
+   "want": [
+    "landscape",
+    "fossil"
+   ]
+  },
+  {
+   "n": 53,
+   "text": "Georges Cuvier hatte es vermutet, doch erst diese makellosen Skelette lieferten den unumstößlichen Beweis: Arten sterben aus.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "skeleton",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 54,
+   "text": "Plötzlich zerbrach das vertraute Bild der Ewigkeit.",
+   "beats": [],
+   "want": [
+    "archive_illustration",
+    "palaeoart"
+   ]
+  },
+  {
+   "n": 55,
+   "text": "Jedes dieser versteinerten Ungeheuer aus dem Schlamm von Lyme Regis stand für das unwiderrufliche Ende einer ganzen Epoche.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "landscape",
+    "excavation"
+   ]
+  },
+  {
+   "n": 56,
+   "text": "Die Welt war nicht nur älter geworden, als irgendjemand zu träumen wagte.",
+   "beats": [],
+   "want": [
+    "landscape",
+    "fossil"
+   ]
+  },
+  {
+   "n": 57,
+   "text": "Sie war ein Friedhof der verlorenen Welten, deren Geheimnisse nun für immer ans Licht drangen.",
+   "beats": [],
+   "want": [
+    "landscape",
+    "fossil"
+   ]
+  },
+  {
+   "n": 58,
+   "text": "Zehn Jahre lang arbeitete sie an der Ausgrabung des Plesiosaurus, ohne Unterstützung von außen und mit einfachstem Werkzeug.",
+   "beats": [
+    {
+     "species": "plesiosaurus"
+    }
+   ],
+   "want": [
+    "excavation",
+    "skeleton",
+    "fossil"
+   ]
+  },
+  {
+   "n": 59,
+   "text": "Seine bizarr verknöcherte Gestalt widerlegte endgültig jede Hoffnung, das Wesen treibe irgendwo lebend in unerforschten Meeren.",
+   "beats": [
+    {
+     "species": "plesiosaurus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil",
+    "palaeoart"
+   ]
+  },
+  {
+   "n": 60,
+   "text": "Damit wandelte sich die gesamte Erdgeschichte von Grund auf.",
+   "beats": [],
+   "want": [
+    "archive_illustration",
+    "landscape"
+   ]
+  },
+  {
+   "n": 61,
+   "text": "Was einst als schlichte Abwandlung der bekannten Natur galt, wurde zum unwiderlegbaren Beleg für das endgültige Erlöschen ganzer Schöpfungen.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 62,
+   "text": "Jedes Detail dieses bizarr verknöcherten Skeletts zerstreute auch den letzten Funken Hoffnung, dieses Wesen könne irgendwo in den unendlichen Tiefen der Ozeane noch lebend lauern.",
+   "beats": [
+    {
+     "species": "plesiosaurus"
+    }
+   ],
+   "want": [
+    "skeleton",
+    "fossil"
+   ]
+  },
+  {
+   "n": 63,
+   "text": "Mit diesem Fund geriet das Fundament der gesamten Erdgeschichte ins Wanken.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 64,
+   "text": "Was die Gelehrten zuvor als harmlose Laune der Natur abgetan hatten, entpuppte sich plötzlich als unumstößlicher Beweis für das unwiederrufliche Sterben ganzer Welten.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "skeleton"
+   ]
+  },
+  {
+   "n": 65,
+   "text": "Doch die Frau, die diese Zeugnisse aus dem Stein befreit hatte, sollte das Schicksal ihrer eigenen Entdeckungen teilen.",
+   "beats": [],
+   "want": [
+    "palaeontologist",
+    "portrait",
+    "fossil"
+   ]
+  },
+  {
+   "n": 66,
+   "text": "Im Jahr 1847, im Alter von nur 47 Jahren, erlag Mary Anning einem Krebsleiden.",
+   "beats": [],
+   "want": [
+    "portrait",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 67,
+   "text": "Jahrelang hatte sie mit schlichten Werkzeugen gegen den unbarmherzigen Schlamm der Klippen gekämpft, [pause 0.8] während im selben Moment weit entfernt die Londoner Gesellschaft ihre Triumphe feierte.",
+   "beats": [],
+   "want": [
+    "excavation",
+    "landscape",
+    "archive_illustration"
+   ]
+  },
+  {
+   "n": 68,
+   "text": "Jede Sensation, die die Gelehrten stolz präsentierten, war das direkte Werk ihrer Hände gewesen.",
+   "beats": [],
+   "want": [
+    "fossil",
+    "museum",
+    "preparation"
+   ]
+  },
+  {
+   "n": 69,
+   "text": "Über Jahrzehnte hinweg hatten männliche Gelehrte ihre Funde wissenschaftlich beschrieben und ihren Beitrag bisweilen in den Hintergrund gedrängt.",
+   "beats": [],
+   "want": [
+    "archive_photo",
+    "portrait"
+   ]
+  },
+  {
+   "n": 70,
+   "text": "Erst in unseren Tagen bricht das Schweigen und gewährt jene späte Gerechtigkeit, die ihr damals verwehrt blieb.",
+   "beats": [],
+   "want": [
+    "museum",
+    "archive_photo"
+   ]
+  },
+  {
+   "n": 71,
+   "text": "Heute blickt die Wissenschaft auf sie als eine der wegweisenden Pionierinnen der Paläontologie.",
+   "beats": [],
+   "want": [
+    "palaeontologist",
+    "portrait",
+    "museum"
+   ]
+  },
+  {
+   "n": 72,
+   "text": "Als geschütztes UNESCO-Welterbe bewahrt die raue Küste von Lyme Regis das ewige Andenken an ihr Lebenswerk.",
+   "beats": [],
+   "want": [
+    "landscape",
+    "museum"
+   ]
+  },
+  {
+   "n": 73,
+   "text": "Wo einst ein armes Mädchen im tosenden Sturm nach verborgenen Knochen grub, erinnert ihr Name für alle Zeiten an die unbezwingbare Kraft scharfer Beobachtung und eisernes Durchhaltevermögen.",
+   "beats": [],
+   "want": [
+    "excavation",
+    "portrait",
+    "archive_illustration"
+   ]
+  }
+ ],
+ "format": "real"
+}

@@ -1,0 +1,35 @@
+{
+ "gemini-flash-lite-latest": {
+  "requests": 13,
+  "in_tokens": 127418,
+  "out_tokens": 8019,
+  "steps": {
+   "qa-match": 9,
+   "qa-viewer": 4
+  }
+ },
+ "gemma-4-31b-it": {
+  "requests": 1,
+  "in_tokens": 3708,
+  "out_tokens": 572,
+  "steps": {
+   "qa-match": 1
+  }
+ },
+ "gemma-4-26b-a4b-it": {
+  "requests": 1,
+  "in_tokens": 3749,
+  "out_tokens": 596,
+  "steps": {
+   "qa-match": 1
+  }
+ },
+ "gemini-flash-latest": {
+  "requests": 1,
+  "in_tokens": 1738,
+  "out_tokens": 292,
+  "steps": {
+   "qa-viewer": 1
+  }
+ }
+}
