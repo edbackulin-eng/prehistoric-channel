@@ -69,6 +69,8 @@ def library_items(animals):
             else:
                 continue
         lic, attrib = _licence(it)
+        if str(it.get("license") or "").strip().lower() == "no restrictions":
+            continue      # 19.11: Flickr Commons' "no known restrictions" is not a confirmed licence (QA blocks it)
         cat = _category(it, v)
         out.append({
             "id": f"lib-{iid}", "source": it.get("source") or "Wikimedia Commons", "kind": "still",
