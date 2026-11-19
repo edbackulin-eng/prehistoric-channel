@@ -1,0 +1,22 @@
+{
+ "groq:qwen/qwen3.8-27b": {
+  "requests": 44,
+  "in_tokens": 104930,
+  "out_tokens": 20172,
+  "steps": {
+   "script": 11,
+   "editor": 7,
+   "fact_check": 18,
+   "hook": 8
+  }
+ },
+ "gemini-flash-lite-latest": {
+  "requests": 3,
+  "in_tokens": 8105,
+  "out_tokens": 378,
+  "steps": {
+   "fact_check": 2,
+   "hook": 1
+  }
+ }
+}
