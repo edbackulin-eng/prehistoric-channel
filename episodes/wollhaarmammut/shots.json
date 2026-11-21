@@ -7,7 +7,6 @@
    "want": [
     "fossil",
     "landscape",
-    "excavation",
     "archive_illustration"
    ]
   },
@@ -21,19 +20,14 @@
    ],
    "want": [
     "excavation",
-    "palaeontologist",
-    "archive_illustration",
-    "portrait"
+    "archive_photo",
+    "archive_illustration"
    ]
   },
   {
    "n": 2,
    "text": "Er wusste, dass die Stoßzähne wertvoll waren.",
-   "beats": [
-    {
-     "species": "mammuthus"
-    }
-   ],
+   "beats": [],
    "want": [
     "fossil",
     "archive_illustration"
@@ -55,14 +49,10 @@
   {
    "n": 4,
    "text": "Er verkaufte sie an Roman Boltunow, einen jakutischen Händler.",
-   "beats": [
-    {
-     "species": "mammuthus"
-    }
-   ],
+   "beats": [],
    "want": [
-    "portrait",
-    "archive_illustration"
+    "archive_illustration",
+    "archive_photo"
    ]
   },
   {
@@ -71,7 +61,7 @@
    "beats": [],
    "want": [
     "landscape",
-    "archive_illustration"
+    "excavation"
    ]
   },
   {
@@ -84,8 +74,7 @@
    ],
    "want": [
     "archive_illustration",
-    "palaeoart",
-    "fossil"
+    "palaeoart"
    ]
   },
   {
@@ -116,7 +105,6 @@
    "beats": [],
    "want": [
     "museum",
-    "archive_illustration",
     "archive_photo"
    ]
   },
@@ -138,8 +126,8 @@
     }
    ],
    "want": [
-    "fossil",
-    "archive_illustration"
+    "palaeontologist",
+    "fossil"
    ]
   },
   {
@@ -151,8 +139,8 @@
     }
    ],
    "want": [
-    "archive_illustration",
-    "fossil"
+    "fossil",
+    "archive_illustration"
    ]
   },
   {
@@ -178,8 +166,7 @@
    ],
    "want": [
     "palaeoart",
-    "living_animal",
-    "archive_illustration"
+    "landscape"
    ]
   },
   {
@@ -198,14 +185,10 @@
   {
    "n": 16,
    "text": "Er verkaufte diese an den jakutischen Händler Roman Boltunow.",
-   "beats": [
-    {
-     "species": "mammuthus"
-    }
-   ],
+   "beats": [],
    "want": [
     "archive_illustration",
-    "portrait"
+    "archive_photo"
    ]
   },
   {
@@ -217,19 +200,14 @@
     }
    ],
    "want": [
-    "fossil",
     "archive_illustration",
-    "landscape"
+    "fossil"
    ]
   },
   {
    "n": 18,
    "text": "Adams erfuhr in Jakutsk von Boltunow 1806 von der Entdeckung im Lenadelta.",
-   "beats": [
-    {
-     "species": "mammuthus"
-    }
-   ],
+   "beats": [],
    "want": [
     "portrait",
     "archive_illustration",
@@ -245,8 +223,8 @@
     }
    ],
    "want": [
-    "archive_illustration",
-    "fossil"
+    "fossil",
+    "archive_illustration"
    ]
   },
   {
@@ -287,8 +265,7 @@
    "want": [
     "skeleton",
     "museum",
-    "preparation",
-    "archive_illustration"
+    "excavation"
    ]
   },
   {
@@ -296,9 +273,9 @@
    "text": "1805, Sibirien. Die diplomatische Mission des Grafen Juri Golowkin nach China scheitert.",
    "beats": [],
    "want": [
-    "portrait",
+    "landscape",
     "archive_illustration",
-    "landscape"
+    "portrait"
    ]
   },
   {
@@ -307,6 +284,7 @@
    "beats": [],
    "want": [
     "portrait",
+    "palaeontologist",
     "archive_illustration"
    ]
   },
@@ -315,6 +293,7 @@
    "text": "Er will forschen, wo andere aufgeben.",
    "beats": [],
    "want": [
+    "palaeontologist",
     "portrait"
    ]
   },
@@ -323,7 +302,8 @@
    "text": "In Jakutsk trifft er auf Roman Boltunow, einen Händler für Elfenbein.",
    "beats": [],
    "want": [
-    "portrait"
+    "portrait",
+    "archive_photo"
    ]
   },
   {
@@ -336,7 +316,7 @@
    ],
    "want": [
     "palaeoart",
-    "archive_illustration"
+    "fossil"
    ]
   },
   {
@@ -344,6 +324,7 @@
    "text": "Adams hört von einem Fund im Delta der Lena.",
    "beats": [],
    "want": [
+    "portrait",
     "landscape"
    ]
   },
@@ -357,6 +338,7 @@
    ],
    "want": [
     "fossil",
+    "palaeoart",
     "skeleton"
    ]
   },
@@ -365,7 +347,8 @@
    "text": "Die genaue Lage des Fundorts wird klar.",
    "beats": [],
    "want": [
-    "landscape"
+    "landscape",
+    "archive_illustration"
    ]
   },
   {
@@ -373,8 +356,8 @@
    "text": "Adams organisiert eine Expedition.",
    "beats": [],
    "want": [
-    "portrait",
-    "archive_photo"
+    "excavation",
+    "palaeontologist"
    ]
   },
   {
@@ -406,10 +389,14 @@
   {
    "n": 35,
    "text": "Der Jäger, der das Skelett vor Jahren freigelegt hatte, ist dort.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
-    "portrait",
-    "excavation"
+    "excavation",
+    "portrait"
    ]
   },
   {
@@ -417,7 +404,8 @@
    "text": "Adams trifft auf ihn.",
    "beats": [],
    "want": [
-    "portrait"
+    "portrait",
+    "archive_illustration"
    ]
   },
   {
@@ -430,16 +418,20 @@
    ],
    "want": [
     "fossil",
-    "skeleton"
+    "palaeoart"
    ]
   },
   {
    "n": 38,
    "text": "Die Wölfe haben genagt, was das Eis nicht hielt, und die Jäger fütterten Hunde.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
     "fossil",
-    "archive_illustration"
+    "palaeoart"
    ]
   },
   {
@@ -452,8 +444,7 @@
    ],
    "want": [
     "skeleton",
-    "fossil",
-    "excavation"
+    "fossil"
    ]
   },
   {
@@ -466,7 +457,7 @@
    ],
    "want": [
     "skeleton",
-    "palaeontologist"
+    "fossil"
    ]
   },
   {
@@ -475,6 +466,7 @@
    "beats": [],
    "want": [
     "portrait",
+    "archive_illustration",
     "landscape"
    ]
   },
@@ -484,7 +476,7 @@
    "beats": [],
    "want": [
     "landscape",
-    "excavation"
+    "palaeontologist"
    ]
   },
   {
@@ -497,7 +489,8 @@
    ],
    "want": [
     "portrait",
-    "fossil"
+    "fossil",
+    "landscape"
    ]
   },
   {
@@ -505,8 +498,8 @@
    "text": "Mit drei Kosaken segelte er die Lena bis zur Mündung hinab.",
    "beats": [],
    "want": [
-    "archive_illustration",
-    "landscape"
+    "landscape",
+    "archive_illustration"
    ]
   },
   {
@@ -514,8 +507,8 @@
    "text": "Ende Juni 1806 erreichte er Schumachows Dorf.",
    "beats": [],
    "want": [
-    "portrait",
-    "landscape"
+    "landscape",
+    "archive_illustration"
    ]
   },
   {
@@ -536,7 +529,7 @@
     }
    ],
    "want": [
-    "palaeontologist",
+    "skeleton",
     "fossil"
    ]
   },
@@ -552,11 +545,7 @@
   {
    "n": 49,
    "text": "Bei der Bergung gingen fast alle Weichteile verloren.",
-   "beats": [
-    {
-     "species": "mammuthus"
-    }
-   ],
+   "beats": [],
    "want": [
     "excavation",
     "fossil"
@@ -573,6 +562,7 @@
    "want": [
     "fossil",
     "preparation",
+    "excavation",
     "archive_illustration"
    ]
   },
@@ -601,7 +591,7 @@
    "want": [
     "skeleton",
     "museum",
-    "fossil"
+    "archive_photo"
    ]
   },
   {
@@ -613,9 +603,9 @@
     }
    ],
    "want": [
-    "palaeoart",
     "fossil",
-    "archive_illustration"
+    "excavation",
+    "palaeoart"
    ]
   },
   {
@@ -628,8 +618,8 @@
    ],
    "want": [
     "fossil",
-    "skeleton",
-    "palaeontologist"
+    "excavation",
+    "archive_illustration"
    ]
   },
   {
@@ -641,9 +631,10 @@
     }
    ],
    "want": [
-    "excavation",
     "landscape",
-    "portrait"
+    "excavation",
+    "palaeontologist",
+    "archive_illustration"
    ]
   },
   {
@@ -657,7 +648,7 @@
    "want": [
     "landscape",
     "excavation",
-    "fossil"
+    "archive_illustration"
    ]
   },
   {
@@ -671,7 +662,7 @@
    "want": [
     "fossil",
     "excavation",
-    "palaeoart"
+    "archive_illustration"
    ]
   },
   {
@@ -684,7 +675,6 @@
    ],
    "want": [
     "excavation",
-    "archive_photo",
     "archive_illustration"
    ]
   },
@@ -713,7 +703,7 @@
    "want": [
     "fossil",
     "excavation",
-    "archive_photo"
+    "archive_illustration"
    ]
   },
   {
@@ -725,9 +715,9 @@
     }
    ],
    "want": [
-    "portrait",
     "excavation",
-    "palaeontologist"
+    "palaeontologist",
+    "portrait"
    ]
   },
   {
@@ -739,8 +729,8 @@
     }
    ],
    "want": [
-    "skeleton",
     "fossil",
+    "skeleton",
     "excavation"
    ]
   },
@@ -754,8 +744,8 @@
    ],
    "want": [
     "excavation",
-    "fossil",
-    "skeleton"
+    "archive_illustration",
+    "archive_photo"
    ]
   },
   {
@@ -764,7 +754,7 @@
    "beats": [],
    "want": [
     "archive_illustration",
-    "archive_photo"
+    "excavation"
    ]
   },
   {
@@ -777,8 +767,8 @@
    ],
    "want": [
     "fossil",
-    "skeleton",
-    "excavation"
+    "excavation",
+    "archive_illustration"
    ]
   },
   {
@@ -791,8 +781,8 @@
    ],
    "want": [
     "fossil",
-    "skeleton",
-    "excavation"
+    "excavation",
+    "archive_illustration"
    ]
   },
   {
@@ -804,8 +794,8 @@
     }
    ],
    "want": [
-    "landscape",
     "fossil",
+    "landscape",
     "palaeoart"
    ]
   },
@@ -833,7 +823,6 @@
    ],
    "want": [
     "excavation",
-    "archive_photo",
     "archive_illustration"
    ]
   },
@@ -860,8 +849,8 @@
     }
    ],
    "want": [
+    "palaeontologist",
     "portrait",
-    "fossil",
     "archive_illustration"
    ]
   },
@@ -874,8 +863,8 @@
     }
    ],
    "want": [
-    "portrait",
-    "fossil"
+    "palaeontologist",
+    "portrait"
    ]
   },
   {
@@ -887,8 +876,8 @@
     }
    ],
    "want": [
-    "portrait",
-    "palaeontologist"
+    "palaeontologist",
+    "archive_illustration"
    ]
   },
   {
@@ -900,8 +889,9 @@
     }
    ],
    "want": [
-    "museum",
     "skeleton",
+    "museum",
+    "archive_photo",
     "preparation"
    ]
   },
@@ -923,20 +913,28 @@
   {
    "n": 76,
    "text": "Er stand vor einer Aufgabe, die es so noch nie gab.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
     "portrait",
     "preparation",
-    "archive_illustration"
+    "palaeontologist"
    ]
   },
   {
    "n": 77,
    "text": "Doch die Arbeit wurde leichter, als erwartet.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
     "preparation",
-    "archive_illustration"
+    "archive_photo"
    ]
   },
   {
@@ -948,9 +946,9 @@
     }
    ],
    "want": [
-    "skeleton",
     "museum",
-    "preparation"
+    "skeleton",
+    "archive_photo"
    ]
   },
   {
@@ -959,22 +957,29 @@
    "beats": [
     {
      "species": "elephant"
+    },
+    {
+     "species": "mammuthus"
     }
    ],
    "want": [
     "preparation",
     "palaeontologist",
-    "skeleton"
+    "museum"
    ]
   },
   {
    "n": 80,
    "text": "Er maß, verglich, überlegte.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
     "portrait",
-    "palaeontologist",
-    "preparation"
+    "preparation",
+    "palaeontologist"
    ]
   },
   {
@@ -988,22 +993,30 @@
    "want": [
     "preparation",
     "fossil",
-    "skeleton"
+    "museum"
    ]
   },
   {
    "n": 82,
    "text": "Das Holz wurde geschnitzt, angepasst, eingespannt.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
     "preparation",
-    "archive_illustration"
+    "fossil"
    ]
   },
   {
    "n": 83,
    "text": "Alles schien in Ordnung zu sein.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
     "preparation",
     "skeleton"
@@ -1019,8 +1032,7 @@
    ],
    "want": [
     "fossil",
-    "skeleton",
-    "preparation"
+    "skeleton"
    ]
   },
   {
@@ -1034,13 +1046,17 @@
    "want": [
     "preparation",
     "skeleton",
-    "palaeontologist"
+    "fossil"
    ]
   },
   {
    "n": 86,
    "text": "Doch er machte einen Fehler.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
     "portrait",
     "palaeontologist",
@@ -1064,7 +1080,11 @@
   {
    "n": 88,
    "text": "Eine kleine Biegung. Ein großer Irrtum.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
     "skeleton",
     "fossil"
@@ -1073,7 +1093,11 @@
   {
    "n": 89,
    "text": "Wie konnte er diesen Fehler übersehen?",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
     "portrait",
     "palaeontologist"
@@ -1082,10 +1106,14 @@
   {
    "n": 90,
    "text": "Die Antwort lag in der Perspektive, die ihm fehlte.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
-    "portrait",
-    "palaeontologist"
+    "palaeontologist",
+    "preparation"
    ]
   },
   {
@@ -1097,10 +1125,9 @@
     }
    ],
    "want": [
-    "skeleton",
-    "museum",
     "archive_photo",
-    "archive_illustration"
+    "museum",
+    "skeleton"
    ]
   },
   {
@@ -1114,7 +1141,8 @@
    "want": [
     "skeleton",
     "museum",
-    "fossil"
+    "fossil",
+    "archive_photo"
    ]
   },
   {
@@ -1148,17 +1176,25 @@
   {
    "n": 95,
    "text": "Tilesius beobachtete die Reaktionen.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
+    "museum",
     "portrait",
-    "palaeontologist",
-    "museum"
+    "archive_photo"
    ]
   },
   {
    "n": 96,
    "text": "Er war zufrieden mit seiner Arbeit.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
     "portrait",
     "palaeontologist"
@@ -1167,30 +1203,41 @@
   {
    "n": 97,
    "text": "Erst 1899 wurde der Fehler bemerkt.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
     "archive_photo",
-    "skeleton",
     "museum"
    ]
   },
   {
    "n": 98,
    "text": "Aber das war noch keine Sorge.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
-    "skeleton",
-    "museum"
+    "museum",
+    "skeleton"
    ]
   },
   {
    "n": 99,
    "text": "Stattdessen arbeitete er an einem Bericht.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
     "portrait",
     "palaeontologist",
-    "archive_illustration"
+    "archive_photo"
    ]
   },
   {
@@ -1235,8 +1282,8 @@
    "text": "Die Wissenschaftscommunity diskutierte.",
    "beats": [],
    "want": [
-    "portrait",
-    "archive_photo"
+    "archive_photo",
+    "archive_illustration"
    ]
   },
   {
@@ -1273,7 +1320,7 @@
    "want": [
     "skeleton",
     "museum",
-    "fossil"
+    "archive_illustration"
    ]
   },
   {
@@ -1281,7 +1328,6 @@
    "text": "Adams’ Bericht über die Expedition erschien Ende 1807.",
    "beats": [],
    "want": [
-    "portrait",
     "archive_illustration",
     "archive_photo"
    ]
@@ -1301,7 +1347,7 @@
    "beats": [],
    "want": [
     "archive_illustration",
-    "landscape"
+    "archive_photo"
    ]
   },
   {
@@ -1310,7 +1356,7 @@
    "beats": [],
    "want": [
     "archive_illustration",
-    "portrait"
+    "archive_photo"
    ]
   },
   {
@@ -1322,8 +1368,8 @@
     }
    ],
    "want": [
-    "fossil",
     "skeleton",
+    "fossil",
     "palaeoart"
    ]
   },
@@ -1339,9 +1385,9 @@
     }
    ],
    "want": [
-    "living_animal",
+    "skeleton",
     "fossil",
-    "skeleton"
+    "living_animal"
    ]
   },
   {
@@ -1389,8 +1435,7 @@
    ],
    "want": [
     "fossil",
-    "skeleton",
-    "living_animal"
+    "skeleton"
    ]
   },
   {
@@ -1400,17 +1445,13 @@
    "want": [
     "skeleton",
     "museum",
-    "portrait"
+    "archive_illustration"
    ]
   },
   {
    "n": 119,
    "text": "Tilesius hatte das Skelett montiert.",
-   "beats": [
-    {
-     "species": "mammuthus"
-    }
-   ],
+   "beats": [],
    "want": [
     "skeleton",
     "preparation",
@@ -1422,7 +1463,7 @@
    "text": "Aber er hatte einen Fehler gemacht.",
    "beats": [],
    "want": [
-    "portrait",
+    "skeleton",
     "preparation"
    ]
   },
@@ -1449,8 +1490,7 @@
    ],
    "want": [
     "skeleton",
-    "fossil",
-    "preparation"
+    "archive_illustration"
    ]
   },
   {
@@ -1469,15 +1509,10 @@
   {
    "n": 124,
    "text": "Erst 1899 wurde der Irrtum festgestellt.",
-   "beats": [
-    {
-     "species": "mammuthus"
-    }
-   ],
+   "beats": [],
    "want": [
     "skeleton",
-    "archive_photo",
-    "museum"
+    "archive_photo"
    ]
   },
   {
@@ -1491,8 +1526,8 @@
    "want": [
     "skeleton",
     "fossil",
-    "palaeoart",
-    "archive_illustration"
+    "archive_illustration",
+    "palaeoart"
    ]
   },
   {
@@ -1504,9 +1539,9 @@
     }
    ],
    "want": [
-    "fossil",
+    "archive_illustration",
     "skeleton",
-    "archive_illustration"
+    "fossil"
    ]
   },
   {
@@ -1518,8 +1553,8 @@
     }
    ],
    "want": [
-    "fossil",
     "skeleton",
+    "fossil",
     "archive_illustration"
    ]
   },
@@ -1532,9 +1567,9 @@
     }
    ],
    "want": [
-    "fossil",
+    "palaeontologist",
     "skeleton",
-    "palaeoart"
+    "fossil"
    ]
   },
   {
@@ -1547,7 +1582,8 @@
    ],
    "want": [
     "skeleton",
-    "fossil"
+    "fossil",
+    "preparation"
    ]
   },
   {
@@ -1574,7 +1610,8 @@
    ],
    "want": [
     "skeleton",
-    "fossil"
+    "fossil",
+    "archive_illustration"
    ]
   },
   {
@@ -1600,8 +1637,8 @@
     }
    ],
    "want": [
-    "skeleton",
     "museum",
+    "skeleton",
     "archive_photo"
    ]
   },
@@ -1622,11 +1659,15 @@
   {
    "n": 135,
    "text": "Jeder Fund ist ein Puzzleteil, das unser Bild der Vergangenheit verändert.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
     "fossil",
     "excavation",
-    "palaeontologist"
+    "skeleton"
    ]
   },
   {
@@ -1648,8 +1689,8 @@
    ],
    "want": [
     "palaeoart",
-    "fossil",
-    "skeleton"
+    "landscape",
+    "fossil"
    ]
   },
   {
@@ -1663,7 +1704,7 @@
    "want": [
     "palaeoart",
     "landscape",
-    "fossil"
+    "skeleton"
    ]
   },
   {
@@ -1676,7 +1717,7 @@
    ],
    "want": [
     "palaeoart",
-    "landscape",
+    "skeleton",
     "fossil"
    ]
   },
@@ -1689,9 +1730,9 @@
     }
    ],
    "want": [
-    "palaeontologist",
-    "archive_photo",
-    "archive_illustration"
+    "portrait",
+    "archive_illustration",
+    "excavation"
    ]
   },
   {
@@ -1699,9 +1740,9 @@
    "text": "Sie zeigt, wie Zufall, Handel und Wissenschaft zusammenwirken.",
    "beats": [],
    "want": [
+    "archive_illustration",
     "palaeontologist",
-    "archive_photo",
-    "excavation"
+    "museum"
    ]
   },
   {
@@ -1728,8 +1769,8 @@
    ],
    "want": [
     "skeleton",
-    "fossil",
-    "museum"
+    "museum",
+    "fossil"
    ]
   },
   {
@@ -1742,7 +1783,8 @@
    ],
    "want": [
     "skeleton",
-    "fossil"
+    "fossil",
+    "archive_illustration"
    ]
   },
   {
@@ -1754,8 +1796,8 @@
     }
    ],
    "want": [
-    "fossil",
     "excavation",
+    "fossil",
     "skeleton"
    ]
   },
@@ -1810,9 +1852,9 @@
     }
    ],
    "want": [
+    "archive_illustration",
     "fossil",
-    "excavation",
-    "archive_illustration"
+    "excavation"
    ]
   },
   {
@@ -1827,7 +1869,7 @@
     "excavation",
     "skeleton",
     "fossil",
-    "archive_photo"
+    "portrait"
    ]
   },
   {
@@ -1842,10 +1884,10 @@
     }
    ],
    "want": [
-    "palaeontologist",
+    "preparation",
     "skeleton",
-    "archive_illustration",
-    "archive_photo"
+    "living_animal",
+    "portrait"
    ]
   },
   {
@@ -1859,19 +1901,21 @@
    "want": [
     "fossil",
     "skeleton",
-    "museum",
-    "archive_photo"
+    "museum"
    ]
   },
   {
    "n": 153,
    "text": "Jeder Fund ist ein Puzzleteil, das unser Bild der Vergangenheit verändert.",
-   "beats": [],
+   "beats": [
+    {
+     "species": "mammuthus"
+    }
+   ],
    "want": [
     "palaeoart",
     "fossil",
-    "landscape",
-    "archive_illustration"
+    "museum"
    ]
   }
  ],

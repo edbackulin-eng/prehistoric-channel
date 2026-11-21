@@ -1,0 +1,20 @@
+{
+ "gemini-flash-lite-latest": {
+  "requests": 15,
+  "in_tokens": 146078,
+  "out_tokens": 8907,
+  "steps": {
+   "qa-match": 11,
+   "qa-consistent": 1,
+   "qa-viewer": 3
+  }
+ },
+ "gemma-4-26b-a4b-it": {
+  "requests": 3,
+  "in_tokens": 2056,
+  "out_tokens": 515,
+  "steps": {
+   "qa-viewer": 3
+  }
+ }
+}
