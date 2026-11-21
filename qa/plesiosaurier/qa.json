@@ -6,16 +6,16 @@
   {
    "name": "hook",
    "ok": false,
-   "detail": "8 shots in 30 s, 0 moving animal clips (need 3), not moving or no animal at [0.0, 5.0, 9.9, 14.0, 18.2, 20.4, 23.8, 27.2], cuts outside 1.5-3 s: [4.97, 4.97, 4.11, 4.11, 3.39, 3.39, 4.85], sound hit: yes",
+   "detail": "8 shots in 30 s, 0 moving animal clips (need 3), not moving or no animal at [0.0, 5.0, 10.0, 14.0, 18.1, 20.2, 23.5, 26.8], cuts outside 1.5-3 s: [5.02, 5.02, 4.01, 4.01, 3.32, 3.32, 5.07], sound hit: yes",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "subject",
    "ok": true,
-   "detail": "animal shown where told: {'plesiosaurus': 1.0}; another animal than the line names at none s; landscapes 0% (max 15%)",
+   "detail": "animal shown where told: {'plesiosaurus': 0.9}; another animal than the line names at none s; landscapes 0% (max 15%)",
    "subject_share": {
-    "plesiosaurus": 1.0
+    "plesiosaurus": 0.9
    },
    "landscape_share": 0.0,
    "blocking": false,
@@ -25,7 +25,7 @@
    "name": "pace",
    "ok": true,
    "detail": "average shot 4.3 s (3-5), hook 4.0 s (1.5-3); shown more than twice: none; again within 3 min: none",
-   "mean_shot_s": 4.28,
+   "mean_shot_s": 4.29,
    "repeats": {},
    "blocking": false,
    "target": "average shot <= 8.0 s"
@@ -33,21 +33,21 @@
   {
    "name": "music",
    "ok": true,
-   "detail": "music under the voice per minute: [21.96, 22.31, 22.23, 22.25, 22.18, 22.24, 22.51, 22.22, 22.18] dB; music as loud as the voice in minute(s): none; music silent 0 s",
+   "detail": "music under the voice per minute: [21.95, 22.24, 22.35, 22.35, 22.19, 22.27, 22.42, 22.31, 22.82] dB; music as loud as the voice in minute(s): none; music silent 0 s",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "background",
    "ok": true,
-   "detail": "music + atmosphere under the voice per minute: [22.11, 22.0, 22.02, 21.99, 22.04, 22.06, 21.99, 22.0, 22.01] dB (need >= 20); minutes too loud: none",
+   "detail": "music + atmosphere under the voice per minute: [22.21, 22.12, 21.99, 22.0, 22.04, 22.05, 21.99, 22.08, 22.0] dB (need >= 20); minutes too loud: none",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "ambience",
    "ok": true,
-   "detail": "21 atmosphere stretches, only inside their shots; sea under a picture without sea at none s",
+   "detail": "27 atmosphere stretches, only inside their shots; sea under a picture without sea at none s",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
@@ -61,11 +61,11 @@
   {
    "name": "diversity",
    "ok": false,
-   "detail": "main animal (plesiosaurus) 43% of the film (max 40%); kinds: {'main': '43%', 'other': '37%', 'other_animal': '19%'}; chapters with fewer than 3 kinds: {'story': ['main', 'other_animal'], 'climax': ['main'], 'finale': ['main', 'other_animal']}",
+   "detail": "main animal (plesiosaurus) 41% of the film (max 40%); kinds: {'main': '41%', 'other': '34%', 'other_animal': '24%'}; chapters with fewer than 3 kinds: {'story': ['main', 'other_animal'], 'climax': ['main', 'other_animal'], 'finale': ['main', 'other_animal']}",
    "kind_shares": {
-    "other": 0.373,
-    "other_animal": 0.193,
-    "main": 0.434
+    "main": 0.412,
+    "other_animal": 0.243,
+    "other": 0.345
    },
    "blocking": false,
    "target": "the strict rule in its detail"
@@ -73,27 +73,27 @@
   {
    "name": "repeats",
    "ok": false,
-   "detail": "85 sources for 126 shots; more than 2 times: {'img:lib-commons-e1dcdca9d6': 37}; again within 3 min: {'img:lib-commons-e1dcdca9d6': [32, 42, 48, 55, 72, 80, 84, 92, 122, 194, 197, 229, 234, 254, 258, 263, 268, 310, 314, 319, 324, 330, 335, 350, 353, 372, 385, 390, 393, 401, 414, 418, 423, 428, 441, 456, 507], 'img:commons-45d6f4cb1e': [76, 112], 'img:lib-commons-2e30bbbdf6': [98, 165], 'img:commons-805ac83aaf': [244, 306], 'img:commons-4e7b1f2cea': [340, 410], 'img:lib-commons-a7cc158b4c': [364, 526]}",
+   "detail": "116 sources for 125 shots; more than 2 times: {'img:commons-8023fa9ad8': 3}; again within 3 min: {'img:lib-commons-0d39b4af45': [37, 88], 'img:lib-commons-805ac83aaf': [85, 185], 'img:commons-8023fa9ad8': [98, 101, 229], 'img:commons-7c3c2e9540': [251, 254], 'img:commons-4e7b1f2cea': [257, 319]}",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "match",
    "ok": true,
-   "detail": "126 shots checked against their line: 0 another animal than the voice names (blocks above 2); 28 an animal under a line that names none (reported): [(27.2, 'Ammonit'), (58.3, 'mehrerer urzeitliche Meerestiere (Plesiosaurier, Ichthyosaurier, Flugsaurier)'), (97.6, 'Ichthyosaurus'), (111.8, 'Ichthyosaurus'), (122.1, 'Mammut / Ichthyosaurus'), (129.7, 'Ichthyosaurus')]; 0 without an answer",
+   "detail": "125 shots checked against their line: 0 another animal than the voice names (blocks above 2); 31 an animal under a line that names none (reported): [(10.0, 'Ichthyosaurus / Plesiosaurus'), (18.1, 'Plesiosaurier, Flugsaurier, moderne Fische'), (23.5, 'Ichthyosaurus, Plesiosaurus'), (31.9, 'Ichthyosaurus, Plesiosaurier, Flugsaurier, Menschen'), (41.8, 'Ichthyosaurus, Fische'), (47.3, 'Plesiosaurier')]; 0 without an answer",
    "blocking": true
   },
   {
    "name": "viewer",
    "ok": false,
-   "detail": "21 places a viewer would switch off (max 3): [('0:10', 'unpassend', 'Historischer Stich ohne direkten Bezug zum gesproc'), ('0:15', 'wiederholt', 'Fast exakt dasselbe historische Bild wie bei 0:10.'), ('0:35', 'langweilig', 'Unmotivierter Textausschnitt/Dokument im Bild, das'), ('0:40', 'wiederholt', 'Wieder nur unleserlicher Text auf Dokumenten.'), ('0:45', 'wiederholt', 'Erneut eine Textseite, extrem ermüdend.'), ('1:05', 'langweilig', 'Fossilienwand ohne Action, nur Steinplatten.'), ('1:10', 'wiederholt', 'Dasselbe Bild der Fossilienwand wie 5 Sekunden zuv'), ('2:05', 'unpassend', 'Hände schneiden Gemüse, völlig irrelevant für Mary')]",
+   "detail": "20 places a viewer would switch off (max 3): [('0:40', 'wiederholt', 'Fast identisches Bild wie bei 0:35, nur leicht ver'), ('0:45', 'wiederholt', 'Exakt dasselbe Bild wie bei 0:40.'), ('2:30', 'unpassend', 'Teigknetende Hände passen überhaupt nicht zum Text'), ('2:35', 'unpassend', 'Kochende oder frittierende Lebensmittel im Topf ha'), ('3:15', 'unpassend', 'Luftaufnahme von Booten im blauen Wasser passt the'), ('3:20', 'unpassend', 'Vorbereitete Salatboxen in Plastikschalen sind völ'), ('4:05', 'unpassend', 'Industrielle Flaschenproduktion passt absolut nich'), ('4:20', 'wiederholt', 'Fast identisches Fossilfoto wie bei 4:50 und 5:20')]",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
   {
    "name": "thumbnail",
    "ok": true,
-   "detail": "chosen: thumbnail_r2.jpg; judge: {'animal': 'Plesiosaurus', 'animal_big_and_recognisable': True, 'prehistoric_or_living_fossil': True, 'bright': False, 'words_readable': True, 'text': 'WAHRER URSPRUNG', 'german_correct': True, 'action_or_trick': False, 'forbidden_seen': [], 'pass': False, 'why': 'Das Bild hat zu wenig Kontrast im Hintergrund (nur reines Schwarz) und das Tier zeigt keine Action wie offenes Maul oder einen Größenvergleich.'}",
+   "detail": "chosen: thumbnail_r2.jpg; judge: {'animal': 'Plesiosaurus', 'animal_big_and_recognisable': True, 'prehistoric_or_living_fossil': True, 'bright': False, 'words_readable': True, 'text': 'ENDLICH GEFUNDEN!', 'german_correct': True, 'action_or_trick': False, 'forbidden_seen': [], 'pass': False, 'why': 'Das Tier zeigt keine Aktion (kein offenes Maul, kein Angriff) und der Hintergrund ist komplett schwarz statt knallig gesättigt.'}",
    "blocking": false,
    "target": "the strict rule in its detail"
   },
@@ -106,7 +106,7 @@
   {
    "name": "text",
    "ok": true,
-   "detail": "thumbnail thumbnail_r2.jpg: text 'WAHRER URSPRUNG', German correct True, readable True",
+   "detail": "thumbnail thumbnail_r2.jpg: text 'ENDLICH GEFUNDEN!', German correct True, readable True",
    "blocking": true
   },
   {
@@ -131,14 +131,14 @@
    "name": "photos",
    "ok": true,
    "blocking": false,
-   "detail": "owner 15.11: a photograph at most 6 s (none longer), at most 3 in a row without film or archive between (none); video 0.091, stills 0.909, archive 0.518",
+   "detail": "owner 15.11: a photograph at most 6 s (none longer), at most 3 in a row without film or archive between (none); video 0.225, stills 0.775, archive 0.365",
    "target": "the strict rule in its detail"
   },
   {
    "name": "unique",
    "ok": true,
    "blocking": false,
-   "detail": "126 pictures, 0 used twice (owner 15.11: each picture once); held on for want of pictures at none s",
+   "detail": "125 pictures, 0 used twice (owner 15.11: each picture once); held on for want of pictures at none s",
    "target": "the strict rule in its detail"
   },
   {
@@ -148,90 +148,90 @@
    "blocking": true
   }
  ],
- "duration_s": 536.63,
+ "duration_s": 533.84,
  "rejects": [],
  "first_minute_moving": null,
  "levels_per_minute": [
   {
    "minute": 0,
-   "voice_lufs": -17.71,
-   "music_lufs_under_voice": -39.67,
-   "music_lufs": -38.78,
-   "under_db": 21.96,
-   "background_lufs_under_voice": -39.82,
-   "background_under_db": 22.11
+   "voice_lufs": -17.58,
+   "music_lufs_under_voice": -39.54,
+   "music_lufs": -38.81,
+   "under_db": 21.95,
+   "background_lufs_under_voice": -39.79,
+   "background_under_db": 22.21
   },
   {
    "minute": 1,
-   "voice_lufs": -17.56,
-   "music_lufs_under_voice": -39.87,
-   "music_lufs": -39.13,
-   "under_db": 22.31,
-   "background_lufs_under_voice": -39.56,
-   "background_under_db": 22.0
+   "voice_lufs": -16.64,
+   "music_lufs_under_voice": -38.88,
+   "music_lufs": -38.16,
+   "under_db": 22.24,
+   "background_lufs_under_voice": -38.76,
+   "background_under_db": 22.12
   },
   {
    "minute": 2,
-   "voice_lufs": -17.77,
-   "music_lufs_under_voice": -40.0,
-   "music_lufs": -38.95,
-   "under_db": 22.23,
-   "background_lufs_under_voice": -39.79,
-   "background_under_db": 22.02
-  },
-  {
-   "minute": 3,
-   "voice_lufs": -18.25,
-   "music_lufs_under_voice": -40.5,
-   "music_lufs": -40.04,
-   "under_db": 22.25,
-   "background_lufs_under_voice": -40.24,
+   "voice_lufs": -17.97,
+   "music_lufs_under_voice": -40.32,
+   "music_lufs": -39.31,
+   "under_db": 22.35,
+   "background_lufs_under_voice": -39.96,
    "background_under_db": 21.99
   },
   {
+   "minute": 3,
+   "voice_lufs": -18.19,
+   "music_lufs_under_voice": -40.53,
+   "music_lufs": -40.01,
+   "under_db": 22.35,
+   "background_lufs_under_voice": -40.19,
+   "background_under_db": 22.0
+  },
+  {
    "minute": 4,
-   "voice_lufs": -17.43,
-   "music_lufs_under_voice": -39.61,
-   "music_lufs": -39.46,
-   "under_db": 22.18,
-   "background_lufs_under_voice": -39.47,
+   "voice_lufs": -17.6,
+   "music_lufs_under_voice": -39.79,
+   "music_lufs": -39.41,
+   "under_db": 22.19,
+   "background_lufs_under_voice": -39.64,
    "background_under_db": 22.04
   },
   {
    "minute": 5,
-   "voice_lufs": -17.45,
-   "music_lufs_under_voice": -39.69,
-   "music_lufs": -39.19,
-   "under_db": 22.24,
-   "background_lufs_under_voice": -39.52,
-   "background_under_db": 22.06
+   "voice_lufs": -17.35,
+   "music_lufs_under_voice": -39.62,
+   "music_lufs": -39.38,
+   "under_db": 22.27,
+   "background_lufs_under_voice": -39.4,
+   "background_under_db": 22.05
   },
   {
    "minute": 6,
-   "voice_lufs": -17.66,
-   "music_lufs_under_voice": -40.17,
-   "music_lufs": -39.09,
-   "under_db": 22.51,
-   "background_lufs_under_voice": -39.65,
+   "voice_lufs": -17.34,
+   "music_lufs_under_voice": -39.76,
+   "music_lufs": -38.74,
+   "under_db": 22.42,
+   "background_lufs_under_voice": -39.33,
    "background_under_db": 21.99
   },
   {
    "minute": 7,
-   "voice_lufs": -18.22,
-   "music_lufs_under_voice": -40.43,
-   "music_lufs": -40.14,
-   "under_db": 22.22,
-   "background_lufs_under_voice": -40.22,
-   "background_under_db": 22.0
+   "voice_lufs": -18.18,
+   "music_lufs_under_voice": -40.49,
+   "music_lufs": -40.06,
+   "under_db": 22.31,
+   "background_lufs_under_voice": -40.26,
+   "background_under_db": 22.08
   },
   {
    "minute": 8,
-   "voice_lufs": -17.67,
-   "music_lufs_under_voice": -39.84,
-   "music_lufs": -39.2,
-   "under_db": 22.18,
-   "background_lufs_under_voice": -39.67,
-   "background_under_db": 22.01
+   "voice_lufs": -17.8,
+   "music_lufs_under_voice": -40.62,
+   "music_lufs": -40.04,
+   "under_db": 22.82,
+   "background_lufs_under_voice": -39.8,
+   "background_under_db": 22.0
   }
  ]
 }
