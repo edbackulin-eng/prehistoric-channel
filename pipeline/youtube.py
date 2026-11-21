@@ -127,7 +127,34 @@ def own_tags(tags):
     return out
 
 
+def plain_description(text, limit=5000):
+    """owner 21.11: a channel without advanced features may not carry links - every source as plain text
+    (de.wikipedia.org/wiki/..., no scheme), no angle brackets, at most 5000 bytes."""
+    import re as _re
+    text = _re.sub(r"https?://", "", str(text or ""))
+    text = _re.sub(r"\bwww\.", "www.", text).replace("<", "").replace(">", "")
+    raw = text.encode("utf-8")
+    if len(raw) > limit:
+        text = raw[:limit].decode("utf-8", "ignore").rsplit("\n", 1)[0]
+    return text
+
+
+def description_problems(text):
+    """What YouTube would refuse or hide in a description of this channel (checked before every upload)."""
+    import re as _re
+    out = []
+    if _re.search(r"https?://", text):
+        out.append("a link (http/https)")
+    if "<" in text or ">" in text:
+        out.append("angle brackets")
+    if len(text.encode("utf-8")) > 5000:
+        out.append(f"{len(text.encode('utf-8'))} bytes (max 5000)")
+    return out
+
+
 def body(title, description, tags, publish_at):
+    if CFG.get("no_links", True):
+        description = plain_description(description)
     """publish_at None: private and unscheduled, until the episode is approved."""
     st = {"privacyStatus": CFG["privacy"], "selfDeclaredMadeForKids": False,
           "containsSyntheticMedia": bool(CFG["contains_synthetic_media"])}
@@ -236,6 +263,11 @@ def upload(slug, release_dir, title, description, tags, publish_at, yt=None, ign
     marker_ref = ytguard.ref("urzeit", slug)
     if marker_ref not in description:
         description = description[:5000 - len(marker_ref) - 2].rstrip() + "\n\n" + marker_ref
+    if CFG.get("no_links", True):
+        description = plain_description(description)
+        bad = description_problems(description)
+        if bad:
+            raise RuntimeError(f"{slug}: the description would be refused: {bad}")
     req = yt.videos().insert(part="snippet,status", body=body(title, description, list(tags) + [slug_tag(slug)],
                                                               publish_at), media_body=media)
     response, last = None, -1

@@ -63,7 +63,7 @@
   "artifact": "release-wollhaarmammut",
   "built_at": "2026-11-19T20:43:43Z",
   "layers_run": "44582070969",
-  "status": "awaiting_approval",
+  "status": "built",
   "qa_failed": [
    "hook: 9 shots in 30 s, 0 moving animal clips (need 3), not moving or no animal at [0.0, 3.4, 6.9, 10.7, 13.9, 16.1, 20.4, 22.6, 26.0], cuts outside 1.5-3 s: [3.44, 3.44, 3.86, 3.21, 4.29, 3.41, 4.89], sound hit: yes",
    "first_min: 0% moving in the first minute (need 70 %)",
@@ -74,13 +74,17 @@
    "license: sources without a confirmed licence: ['lib-commons-4095a95d7a: No restrictions', 'lib-commons-755f0f5d78: No restrictions', 'lib-commons-94d20ef118: No restrictions']",
    "photos: owner 15.11: a photograph at most 6 s ([236, 519] longer), at most 3 in a row without film or archive between (none); video 0.332, stills 0.668, archive 0.188"
   ],
-  "youtube_id": "x-RpMsApFWU",
+  "youtube_id": null,
   "publish_at": null,
   "uploaded_at": "2026-11-19T20:45:10Z",
   "extras": {
    "thumbnail": "set",
    "subtitles": "off: YouTube's automatic captions (config schedule.upload_subtitles)"
-  }
+  },
+  "rejected_videos": [
+   "x-RpMsApFWU"
+  ],
+  "replaced_note": "owner 21.11: re-rendered full-frame, no off-topic pictures, plain-text description; the old private upload is replaced"
  },
  {
   "slug": "plesiosaurier",
@@ -88,7 +92,7 @@
   "artifact": "release-plesiosaurier",
   "built_at": "2026-11-19T20:50:26Z",
   "layers_run": "44594588681",
-  "status": "awaiting_approval",
+  "status": "built",
   "qa_failed": [
    "hook: 8 shots in 30 s, 0 moving animal clips (need 3), not moving or no animal at [0.0, 5.0, 9.9, 14.1, 18.2, 20.3, 23.8, 27.3], cuts outside 1.5-3 s: [4.97, 4.97, 4.12, 4.12, 3.51, 3.51, 5.17], sound hit: yes",
    "first_min: 0% moving in the first minute (need 70 %)",
@@ -97,12 +101,16 @@
    "viewer: 19 places a viewer would switch off (max 3): [('0:00', 'unpassend', 'Modernes Schnappschuss-Foto einer Frau statt histo'), ('0:20', 'unpassend', \"Plakette von 'Mary Ann Nichols' (Jack-the-Ripper-O\"), ('0:45', 'wiederholt', 'Dasselbe Motiv historischer Ichthyosaurier-Zeichnu'), ('1:10', 'wiederholt', 'Identische Küsten-Luftaufnahme wie bei 1:05'), ('1:35', 'wiederholt', 'Exakt dieselbe historische Zeichnung von Mary Anni'), ('2:30', 'unpassend', 'Hände beim Gemüseschnippen passen nicht zur Mary A'), ('2:35', 'unpassend', 'Kochender Topf hat keinen Bezug zum Thema Urzeitti'), ('3:15', 'wiederholt', 'Dieselbe historische Zeichnung wird direkt im näch')]",
    "license: sources without a confirmed licence: ['lib-commons-d0f6a7ef3d: No restrictions']"
   ],
-  "youtube_id": "86Cu6P2ErUA",
+  "youtube_id": null,
   "publish_at": null,
   "uploaded_at": "2026-11-19T20:52:12Z",
   "extras": {
    "thumbnail": "set",
    "subtitles": "off: YouTube's automatic captions (config schedule.upload_subtitles)"
-  }
+  },
+  "rejected_videos": [
+   "86Cu6P2ErUA"
+  ],
+  "replaced_note": "owner 21.11: re-rendered full-frame, no off-topic pictures, plain-text description; the old private upload is replaced"
  }
 ]

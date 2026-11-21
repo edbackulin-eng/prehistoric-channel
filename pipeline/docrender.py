@@ -167,6 +167,19 @@ def still_clip(shot, layers_dir, need_s, out, size):
     img, bg = np.ascontiguousarray(img), (np.ascontiguousarray(bg) if bg is not None else None)
     lum = float(cv2.resize(img, (320, 180)).mean() / 255)
     n = int(round(need_s * FPS))
+    if img.shape[0] > img.shape[1] * 9 / 16 * 1.05:
+        # owner 21.11: a portrait picture on a tall plate - a slow pan from the top down, the whole width
+        H, Wd = img.shape[:2]
+        win = int(Wd * 9 / 16)
+
+        def pan():
+            for k in range(n):
+                t = k / max(1, n - 1)
+                t = t * t * (3 - 2 * t)
+                y = int((H - win) * t)
+                yield cv2.resize(img[y:y + win], (size[0], size[1]), interpolation=cv2.INTER_AREA)
+        _pipe(pan(), n, out, size, gamma=gamma_for(lum, dark_ok=True))
+        return {"move": "pan_down", "plate": [Wd, H]}
     gen = parallax.frames(img, bg, alpha, shot.get("move", "push_in"), need_s, FPS, size[0], size[1],
                           fx=shot.get("fx"), seed=hash(name) % 1000)
     _pipe(gen, n, out, size, gamma=gamma_for(lum, dark_ok=True))

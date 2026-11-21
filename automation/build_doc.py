@@ -218,19 +218,19 @@ def still_16x9(src, dest, w=4224, h=2376):
         if im.width * im.height > 40_000_000:
             im.thumbnail((w * 2, h * 2), Image.LANCZOS)
     im = im.convert("RGB")
-    bg = im.copy()
-    s = max(w / bg.width, h / bg.height)
-    bg = bg.resize((int(bg.width * s) + 1, int(bg.height * s) + 1), Image.LANCZOS)
-    bg = bg.crop(((bg.width - w) // 2, (bg.height - h) // 2, (bg.width - w) // 2 + w, (bg.height - h) // 2 + h))
-    bg = ImageEnhance.Brightness(bg.filter(ImageFilter.GaussianBlur(60))).enhance(0.45)
-    fit = min(w * 0.94 / im.width, h * 0.94 / im.height)
-    if im.width / im.height > 1.6:               # already wide: fill the frame
-        fit = max(w / im.width, h / im.height)
-    fg = im.resize((max(1, int(im.width * fit)), max(1, int(im.height * fit))), Image.LANCZOS)
-    bg.paste(fg, ((w - fg.width) // 2, (h - fg.height) // 2))
-    if fg.width >= w and fg.height >= h:
-        bg = fg.crop(((fg.width - w) // 2, (fg.height - h) // 2, (fg.width - w) // 2 + w, (fg.height - h) // 2 + h))
-    bg.save(dest, quality=94)
+    # owner 21.11: the picture fills the whole 16:9 frame - no blurred bars at the sides. A wide or
+    # landscape picture is cut to the frame (a little above the middle, where heads and skylines are);
+    # a portrait one becomes a tall plate (up to 1.8 frames high) that docrender pans down slowly.
+    if im.width / im.height < 1.0:
+        tall = im.resize((w, max(h, int(im.height * w / im.width))), Image.LANCZOS)
+        top = int(min(tall.height * 0.08, max(0, tall.height - int(h * 1.8))))
+        tall = tall.crop((0, top, w, min(tall.height, top + int(h * 1.8))))
+        tall.save(dest, quality=94)
+        return dest
+    s = max(w / im.width, h / im.height)
+    im = im.resize((int(im.width * s) + 1, int(im.height * s) + 1), Image.LANCZOS)
+    x0, y0 = (im.width - w) // 2, int((im.height - h) * 0.4)
+    im.crop((x0, y0, x0 + w, y0 + h)).save(dest, quality=94)
     return dest
 
 

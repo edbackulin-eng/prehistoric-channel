@@ -154,6 +154,54 @@ def runs_over(shots, limit):
     return out
 
 
+FIRST_MIN_S = 60.0
+MIN_STILL_W = 1600          # owner 21.11: a still that would be blown up blurry on the whole frame is not taken
+# owner 21.11: the two interim films keep their licences with attribution; from the next episode only PD, CC0, CC BY
+LICENCE_AS_IS = {"wollhaarmammut", "plesiosaurier"}
+OFF_STORY = re.compile(r"coat of arms|wappen|heraldi|emblem|\bflag\b|\bseal\b|stamp|coin|statue|niche|bust of|"
+                       r"church|cathedral|monument|street sign|logo|banknote|postcard of a town", re.I)
+SCIENCE_CATS = {"fossil", "skeleton", "museum", "excavation", "preparation", "palaeontologist", "palaeoart"}
+
+
+def sharp_enough(it):
+    if it.get("kind") != "still" or not it.get("width") or not it.get("height"):
+        return True
+    w, h = float(it["width"]), float(it["height"])
+    a = w / h
+    crop_w = w if a <= 16 / 9 else h * 16 / 9
+    return crop_w >= MIN_STILL_W and min(w, h) >= 900
+
+
+def licence_ok(slug, it):
+    if slug in LICENCE_AS_IS:
+        return True
+    lic = str(it.get("license") or "")
+    return not re.search(r"BY-SA|share.?alike|\bSA\b", lic, re.I)
+
+
+def beside_story(it, pool):
+    """Why a picture of the real harvest stays out of an interim film (None = it may go in): a coat of arms,
+    a statue in a niche, a town's church - things the QA viewer called unrelated (19.11)."""
+    if it.get("library") or it["kind"] == "video":
+        return None
+    d = it.get("desc") or {}
+    text = f"{d.get('what') or ''} {it.get('title') or ''}"
+    if OFF_STORY.search(text):
+        return "off the story"
+    keys = {a["key"] for a in pool.get("animals", [])}
+    if str(d.get("animal")) in keys or d.get("category") in SCIENCE_CATS:
+        return None
+    if d.get("category") == "portrait":
+        return None                  # a person is taken only where the line names them (_fits)
+    return "no animal, no science, no person of the story"
+
+
+def strong_pick(it):
+    d = it.get("desc") or {}
+    return it["kind"] == "video" or (int(d.get("quality") or 0) >= 4 and (it.get("library") or
+                                                                      d.get("category") in ("fossil", "skeleton")))
+
+
 def build(slug, timeline, narration_s, parts=20):
     ep = ROOT / "episodes" / slug
     pool = json.loads((ep / "pool.json").read_text(encoding="utf-8"))
@@ -165,7 +213,11 @@ def build(slug, timeline, narration_s, parts=20):
     from pipeline import realpool
     elsewhere = realpool.used_elsewhere(slug)          # owner 15.11: a picture once in the whole channel
     items = [it for it in pool["items"] if it.get("usable") and it["id"] not in rejects and it["id"] not in elsewhere]
+    items = [it for it in items if sharp_enough(it) and licence_ok(slug, it)]
+    if pool.get("interim"):
+        items = [it for it in items if beside_story(it, pool) is None]
     tags = tag_lines(timeline, animals)
+    by_id = by_id_all = {it["id"]: it for it in items}
 
     # ---- slots: each line's time cut into shots
     slots = []
@@ -185,7 +237,10 @@ def build(slug, timeline, narration_s, parts=20):
         tag = tags[s["line"]]
         cand.append({it["id"]: _fits(it, tag, extinct, relatives_of) for it in items})
         cand[-1] = {k: v for k, v in cand[-1].items() if v > 0}
-    by_id = {it["id"]: it for it in items}
+        if pool.get("interim") and s["start"] < FIRST_MIN_S:
+            # owner 21.11: the first minute is the strongest - only the best pictures and film there
+            strong = {k: v * 1.6 for k, v in cand[-1].items() if strong_pick(by_id_all[k])}
+            cand[-1] = strong or cand[-1]
     _cand_line = {}
 
     def cand_of(line):
