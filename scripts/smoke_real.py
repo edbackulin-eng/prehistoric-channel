@@ -24,7 +24,7 @@ def _pool():
                 "relative_of": "mosasaurus"}]
     items = []
 
-    def add(i, kind, cat, animal, lic="CC BY-SA 4.0", dur=12):
+    def add(i, kind, cat, animal, lic="CC BY 4.0", dur=12):   # owner 21.11: no BY-SA from the next episode
         items.append({"id": f"{kind}-{i}", "source": "Wikimedia Commons" if kind == "still" else "Pixabay",
                       "kind": kind, "url": f"https://example.org/{kind}-{i}", "full_url": f"https://example.org/{i}.jpg",
                       "width": 3840, "height": 2160, "duration": dur if kind == "video" else None,
@@ -145,7 +145,10 @@ def run():
     (w / "media").mkdir()
     Image.fromarray(np.random.default_rng(1).integers(0, 255, (1200, 800, 3), np.uint8)).save(w / "portrait.jpg")
     build_doc.still_16x9(w / "portrait.jpg", w / "layers" / "still-0.jpg")
-    out.append(("real: a portrait photo on the 16:9 plate", Image.open(w / "layers" / "still-0.jpg").size == (4224, 2376), ""))
+    # owner 21.11: no blurred bars - a portrait picture is a tall plate the whole width wide, panned down
+    _pw, _ph = Image.open(w / "layers" / "still-0.jpg").size
+    out.append(("real: a portrait photo as a tall full-width plate (panned down, no bars)",
+                _pw == 4224 and 2376 < _ph <= int(2376 * 1.8) + 1, f"{_pw}x{_ph}"))
     subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", "testsrc2=size=1280x720:rate=30",
                     "-t", "6", "-pix_fmt", "yuv420p", str(w / "media" / "video-0.mp4")], check=True)
     rshots = [{"kind": "photo", "image": "still-0", "move": "push_in", "start": 0.0, "end": 3.0, "transition": "cut",
